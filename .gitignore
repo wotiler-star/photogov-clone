@@ -1,0 +1,25 @@
+# Nuxt / Node
+node_modules
+.nuxt
+.output
+.data
+dist
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Editor / OS
+.DS_Store
+.idea
+.vscode
+*.swp
+
+# Backup of old static clone (reference only)
+_static_backup
