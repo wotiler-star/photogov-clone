@@ -1,0 +1,159 @@
+<script setup lang="ts">
+import PhotoTool from '~/components/PhotoTool.vue'
+import DocCard from '~/components/DocCard.vue'
+import { useData } from '~/composables/useData'
+
+const { popularDocuments, countriesByCode, quickLinks } = useData()
+const popular = popularDocuments().slice(0, 8)
+const quick = quickLinks().slice(0, 6)
+const flagFor = (code: string) => countriesByCode[code]?.flag || '📄'
+
+const steps = [
+  { n: 1, title: 'Take or upload a photo', text: 'Use your phone or webcam. No studio needed.' },
+  { n: 2, title: 'Crop to the correct size', text: 'We auto-fit your photo to the official dimensions.' },
+  { n: 3, title: 'Fix background & light', text: 'One click white/blue background, brightness and contrast.' },
+  { n: 4, title: 'Download JPG or PDF', text: 'Print at home or submit digitally — guaranteed compliant.' }
+]
+
+const standards = [
+  { t: 'Government-approved sizes', d: '100+ countries, always updated to the latest specs.' },
+  { t: 'Correct DPI & head size', d: 'We follow exact head-height and eye-level rules.' },
+  { t: 'Print & digital ready', d: 'Export JPG for online forms or PDF for printing.' },
+  { t: 'Private by design', d: 'Photos are processed in your browser. We never store them.' }
+]
+
+const trust = [
+  'Used by travelers in 100+ countries',
+  'No account required to make a photo',
+  'Free to use, no hidden watermarks',
+  'Works on desktop, tablet and phone'
+]
+</script>
+
+<template>
+  <div>
+    <!-- HERO -->
+    <section class="bg-gradient-to-b from-[#eef4ff] to-white">
+      <div class="container-pg grid items-center gap-10 py-12 lg:grid-cols-2">
+        <div>
+          <span class="eyebrow">Passport · Visa · ID photos</span>
+          <h1 class="mt-3 text-4xl font-bold leading-tight sm:text-5xl">
+            Passport photos<br />that <span class="text-brand-blue">just work</span>.
+          </h1>
+          <p class="mt-4 max-w-md text-lg text-muted">
+            Make compliant passport, visa and ID photos online in seconds. Pick your
+            country, upload a selfie, and download a print-ready JPG or PDF.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#tool" class="btn-primary">Make my photo</a>
+            <NuxtLink to="/documents" class="btn-outline">Browse documents</NuxtLink>
+          </div>
+          <ul class="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
+            <li v-for="t in trust" :key="t" class="flex items-center gap-1.5">
+              <span class="text-accent-green">✓</span>{{ t }}
+            </li>
+          </ul>
+        </div>
+
+        <div id="tool" class="scroll-mt-24">
+          <PhotoTool />
+        </div>
+      </div>
+    </section>
+
+    <!-- STEPS -->
+    <section class="container-pg py-14">
+      <div class="text-center">
+        <span class="eyebrow">How it works</span>
+        <h2 class="mt-2 text-3xl font-bold">Four steps to a perfect photo</h2>
+      </div>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div v-for="s in steps" :key="s.n" class="card-pg p-5">
+          <div class="grid h-10 w-10 place-items-center rounded-full bg-brand-blue text-white font-bold">{{ s.n }}</div>
+          <h3 class="mt-3 text-lg font-semibold">{{ s.title }}</h3>
+          <p class="mt-1 text-sm text-muted">{{ s.text }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPLIANCE STANDARDS -->
+    <section class="bg-slate-50 py-14">
+      <div class="container-pg">
+        <div class="text-center">
+          <span class="eyebrow">Compliance</span>
+          <h2 class="mt-2 text-3xl font-bold">Built to meet official standards</h2>
+          <p class="mx-auto mt-3 max-w-2xl text-muted">
+            Every template follows the exact rules published by passport and visa authorities.
+          </p>
+        </div>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div v-for="st in standards" :key="st.t" class="rounded-2xl border border-slate-200 bg-white p-5">
+            <h3 class="font-semibold">{{ st.t }}</h3>
+            <p class="mt-1 text-sm text-muted">{{ st.d }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POPULAR DOCUMENTS -->
+    <section class="container-pg py-14">
+      <div class="flex items-end justify-between">
+        <div>
+          <span class="eyebrow">Popular</span>
+          <h2 class="mt-2 text-3xl font-bold">Most requested documents</h2>
+        </div>
+        <NuxtLink to="/documents" class="btn-outline hidden sm:inline-flex">View all</NuxtLink>
+      </div>
+      <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <DocCard v-for="d in popular" :key="d.slug" :doc="d" :flag="flagFor(d.country)" />
+      </div>
+    </section>
+
+    <!-- QUICK LINKS -->
+    <section v-if="quick.length" class="bg-slate-50 py-14">
+      <div class="container-pg">
+        <span class="eyebrow">Quick links</span>
+        <h2 class="mt-2 text-3xl font-bold">Jump straight to a photo</h2>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <NuxtLink
+            v-for="d in quick"
+            :key="d.slug"
+            :to="`/document/${d.slug}`"
+            class="chip !px-4 !py-2 !text-sm hover:bg-brand-blue hover:text-white"
+          >
+            {{ flagFor(d.country) }} {{ d.name }}
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST -->
+    <section class="container-pg py-14">
+      <div class="card-pg grid gap-6 p-8 sm:grid-cols-3">
+        <div>
+          <div class="text-3xl font-bold text-brand-blue">100+</div>
+          <p class="text-sm text-muted">Countries supported</p>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-brand-blue">300</div>
+          <p class="text-sm text-muted">DPI print quality</p>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-brand-blue">0</div>
+          <p class="text-sm text-muted">Photos stored on our servers</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-header py-14 text-center text-white">
+      <div class="container-pg">
+        <h2 class="text-3xl font-bold">Ready to make your photo?</h2>
+        <p class="mx-auto mt-3 max-w-xl text-white/70">
+          It takes less than a minute and it's free. No sign-up required.
+        </p>
+        <NuxtLink to="/documents" class="btn-yellow mt-6">Start now</NuxtLink>
+      </div>
+    </section>
+  </div>
+</template>

@@ -7,8 +7,6 @@ export default defineNuxtConfig({
 
   modules: ['@nuxtjs/tailwindcss'],
 
-  css: ['~/assets/css/main.css'],
-
   app: {
     head: {
       title: 'PhotoGov — Passport Photo, Visa Photo & ID Photo Maker Online',

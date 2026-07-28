@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --c-brand-blue: #2B72E0;
+  --c-brand-blue-2: #315FB6;
+  --c-cta: #2563EB;
+  --c-header-bg: #2B3E5C;
+  --c-accent-yellow: #FFD850;
+  --c-accent-green: #2BB673;
+  --c-ink: #1c2433;
+  --c-muted: #5b6678;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-sans text-ink bg-white antialiased;
+  margin: 0;
+}
+
+h1, h2, h3, h4 {
+  @apply font-serif;
+  letter-spacing: -0.01em;
+}
+
+@layer components {
+  .container-pg {
+    @apply mx-auto w-full max-w-container px-4 sm:px-6;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors;
+  }
+  .btn-primary {
+    @apply btn bg-brand-cta text-white hover:bg-brand-blue-2;
+  }
+  .btn-yellow {
+    @apply btn bg-accent-yellow text-ink hover:brightness-95;
+  }
+  .btn-ghost {
+    @apply btn border border-white/30 text-white hover:bg-white/10;
+  }
+  .btn-outline {
+    @apply btn border border-brand-blue/40 text-brand-blue hover:bg-brand-blue/5;
+  }
+  .card-pg {
+    @apply rounded-2xl border border-slate-200 bg-white shadow-soft;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-muted;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-brand-blue;
+  }
+}
