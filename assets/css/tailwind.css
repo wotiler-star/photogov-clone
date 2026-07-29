@@ -40,6 +40,9 @@ h1, h2, h3, h4 {
   .btn-yellow {
     @apply btn bg-accent-yellow text-ink hover:brightness-95;
   }
+  .btn-secondary {
+    @apply btn border border-slate-300 bg-white text-ink hover:bg-slate-50;
+  }
   .btn-ghost {
     @apply btn border border-white/30 text-white hover:bg-white/10;
   }
