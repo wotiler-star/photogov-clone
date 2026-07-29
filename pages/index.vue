@@ -3,10 +3,17 @@ import PhotoTool from '~/components/PhotoTool.vue'
 import DocCard from '~/components/DocCard.vue'
 import { useData } from '~/composables/useData'
 
-const { popularDocuments, countriesByCode, quickLinks } = useData()
+const { popularDocuments, countriesByCode, quickLinks, documents } = useData()
 const popular = popularDocuments().slice(0, 8)
 const quick = quickLinks().slice(0, 6)
 const flagFor = (code: string) => countriesByCode[code]?.flag || '📄'
+
+const docTypes = [
+  { cat: 'passport', label: 'Passport photos', desc: 'Travel-ready passport sizes for 190+ countries', count: documents.filter((d) => d.category === 'passport').length },
+  { cat: 'visa', label: 'Visa photos', desc: 'Embassy & consulate compliant visa sizes', count: documents.filter((d) => d.category === 'visa').length },
+  { cat: 'id', label: 'ID photos', desc: 'National ID and residence card photos', count: documents.filter((d) => d.category === 'id').length },
+  { cat: 'driving', label: 'Driving license', desc: "Driver's license photo templates", count: documents.filter((d) => d.category === 'driving').length }
+]
 
 const steps = [
   { n: 1, title: 'Take or upload a photo', text: 'Use your phone or webcam. No studio needed.' },
@@ -124,6 +131,28 @@ const trust = [
             {{ flagFor(d.country) }} {{ d.name }}
           </NuxtLink>
         </div>
+      </div>
+    </section>
+
+    <!-- BROWSE BY TYPE -->
+    <section class="container-pg py-14">
+      <div class="text-center">
+        <span class="eyebrow">Document types</span>
+        <h2 class="mt-2 text-3xl font-bold">Browse by document type</h2>
+      </div>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <NuxtLink
+          v-for="t in docTypes"
+          :key="t.cat"
+          :to="`/documents?category=${t.cat}`"
+          class="card-pg group p-5 transition hover:-translate-y-0.5 hover:shadow-card"
+        >
+          <h3 class="text-lg font-semibold">{{ t.label }}</h3>
+          <p class="mt-1 text-sm text-muted">{{ t.desc }}</p>
+          <p class="mt-3 text-sm font-semibold text-brand-blue">
+            {{ t.count }} templates →
+          </p>
+        </NuxtLink>
       </div>
     </section>
 
