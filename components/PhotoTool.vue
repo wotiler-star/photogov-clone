@@ -56,7 +56,13 @@ const offsetY = ref(0)
 const rotate = ref(0)
 const brightness = ref(100)
 const contrast = ref(100)
-const bgMode = ref<'white' | 'blue' | 'keep' | 'ai'>('white')
+const bgMode = ref<'white' | 'blue' | 'grey' | 'keep' | 'ai'>('white')
+
+const defaultBg = (hex?: string): 'white' | 'blue' | 'grey' => {
+  if (hex === '#2B72E0') return 'blue'
+  if (hex === '#E8E8E8') return 'grey'
+  return 'white'
+}
 const fileName = ref('')
 const isProcessing = ref(false)
 const note = ref('')
@@ -86,7 +92,7 @@ function loadFile(file: File) {
     img.onload = () => {
       sourceImg.value = img
       aiImg.value = null
-      bgMode.value = selDoc.value?.background === '#2B72E0' ? 'blue' : 'white'
+      bgMode.value = defaultBg(selDoc.value?.background)
       resetTransforms()
       note.value = ''
       nextTick(draw)
@@ -158,6 +164,7 @@ function renderTo(
   // 背景
   let bg = '#FFFFFF'
   if (bgMode.value === 'blue') bg = '#2B72E0'
+  if (bgMode.value === 'grey') bg = '#E8E8E8'
   if (bgMode.value === 'ai') bg = '#FFFFFF'
   ctx.fillStyle = bg
   ctx.fillRect(0, 0, cwv, chv)
@@ -194,7 +201,7 @@ watch(
   () => { if (hasImage.value) draw() }
 )
 watch(selDoc, () => {
-  if (selDoc.value?.background === '#2B72E0') bgMode.value = 'blue'
+  if (selDoc.value) bgMode.value = defaultBg(selDoc.value.background)
   if (hasImage.value) draw()
 })
 
@@ -295,7 +302,7 @@ async function removeBackgroundAI() {
   } catch (e) {
     note.value =
       'AI removal needs internet access (MediaPipe CDN). Using manual background instead.'
-    bgMode.value = selDoc.value?.background === '#2B72E0' ? 'blue' : 'white'
+    bgMode.value = defaultBg(selDoc.value?.background)
   } finally {
     isProcessing.value = false
     nextTick(draw)
@@ -435,6 +442,7 @@ function changeCountry(c: string) {
           <div class="mt-2 grid grid-cols-2 gap-2">
             <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='white'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="bgMode='white';draw()">White</button>
             <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='blue'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="bgMode='blue';draw()">Blue</button>
+            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='grey'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="bgMode='grey';draw()">Grey</button>
             <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='keep'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="bgMode='keep';draw()">Keep</button>
             <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='ai'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" :disabled="!hasImage||isProcessing" @click="removeBackgroundAI()">AI Remove</button>
           </div>

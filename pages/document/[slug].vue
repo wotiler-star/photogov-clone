@@ -17,6 +17,15 @@ useHead(() => ({
 
 const flagFor = (code: string) => countriesByCode[code]?.flag || '📄'
 
+const bgLabel = (hex?: string): string => {
+  if (!hex) return 'White'
+  const h = hex.toLowerCase()
+  if (h === '#2b72e0') return 'Light blue'
+  if (h === '#e8e8e8') return 'Light grey / cream'
+  if (h === '#ffffff') return 'White'
+  return 'Light grey / cream'
+}
+
 const related = computed(() => {
   if (!doc.value) return []
   return documents
@@ -31,7 +40,7 @@ const reqs = computed(() => {
     { k: 'Photo size', v: `${d.size.inch} in (${d.size.mm} mm)` },
     { k: 'Pixel size', v: d.size.px },
     { k: 'Resolution', v: `${d.dpi} DPI` },
-    { k: 'Background', v: d.background === '#2B72E0' ? 'Light blue' : 'White' },
+    { k: 'Background', v: bgLabel(d.background) },
     { k: 'Head height', v: d.headHeight },
     { k: ' Eyes level', v: d.eyesLevel },
     { k: 'File format', v: d.format },
