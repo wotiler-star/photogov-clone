@@ -1169,6 +1169,24 @@
       "name": "Vanuatu",
       "flag": "🇻🇺",
       "region": "Oceania"
+    },
+    {
+      "code": "TR",
+      "name": "Turkey",
+      "flag": "🇹🇷",
+      "region": "Europe"
+    },
+    {
+      "code": "CZ",
+      "name": "Czechia",
+      "flag": "🇨🇿",
+      "region": "Europe"
+    },
+    {
+      "code": "ZZ",
+      "name": "Other countries",
+      "flag": "🌐",
+      "region": "Global"
     }
   ]
 }

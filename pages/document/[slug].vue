@@ -22,6 +22,38 @@ useHead(() => {
   const d = doc.value
   const desc = `Official ${d.name} photo requirements for ${d.countryName}: size ${d.size.inch} in (${d.size.mm} mm), ${d.dpi} DPI, ${d.background === '#FFFFFF' ? 'white' : d.background === '#E8E8E8' ? 'light grey' : 'blue'} background. Verified by official source.`
   const canonical = `${url.origin}/document/${d.slug}`
+  const bgName = d.background === '#FFFFFF' ? 'White' : d.background === '#E8E8E8' ? 'Light grey' : d.background === '#2B72E0' ? 'Light blue' : 'Custom'
+  const serviceType = d.category === 'passport' ? 'Passport photo' : d.category === 'visa' ? 'Visa photo' : d.category === 'id' ? 'ID photo' : 'Driving licence photo'
+
+  const ld = {
+    '@context': 'https://schema.org',
+    '@type': ['GovernmentService', 'PassportRequirements'],
+    '@id': `${canonical}#service`,
+    name: d.title,
+    serviceType,
+    description: desc,
+    url: canonical,
+    areaServed: { '@type': 'Country', name: d.countryName },
+    provider: { '@type': 'GovernmentOrganization', name: `${d.countryName} Government` },
+    category: d.category,
+    additionalProperty: [
+      { '@type': 'PropertyValue', name: 'Photo size', value: `${d.size.inch} in (${d.size.mm} mm)` },
+      { '@type': 'PropertyValue', name: 'Pixel size', value: d.size.px },
+      { '@type': 'PropertyValue', name: 'Resolution', value: `${d.dpi} DPI` },
+      { '@type': 'PropertyValue', name: 'Background', value: bgName },
+      { '@type': 'PropertyValue', name: 'Head height', value: d.headHeight },
+      { '@type': 'PropertyValue', name: 'Glasses', value: d.glasses ? 'Allowed' : 'Not allowed' }
+    ]
+  }
+  const bc = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Documents', item: `${url.origin}/documents` },
+      { '@type': 'ListItem', position: 2, name: d.countryName, item: `${url.origin}/documents?country=${d.country}` },
+      { '@type': 'ListItem', position: 3, name: d.name, item: canonical }
+    ]
+  }
   return {
     title: d.title,
     meta: [
@@ -33,7 +65,11 @@ useHead(() => {
       { name: 'twitter:title', content: d.title },
       { name: 'twitter:description', content: desc }
     ],
-    link: [{ rel: 'canonical', href: canonical }]
+    link: [{ rel: 'canonical', href: canonical }],
+    script: [
+      { key: 'ld-service', type: 'application/ld+json', innerHTML: JSON.stringify(ld) },
+      { key: 'ld-breadcrumb', type: 'application/ld+json', innerHTML: JSON.stringify(bc) }
+    ]
   }
 })
 
