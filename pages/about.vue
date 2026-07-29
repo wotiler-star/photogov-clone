@@ -10,7 +10,7 @@ useHead({ title: 'About PhotoGov' })
       <p class="mt-4 text-muted">
         PhotoGov is a free online tool that helps travelers create compliant passport,
         visa and ID photos without a photo studio. We replicate the document standards
-        published by government agencies in 100+ countries and let you crop, adjust and
+        published by government agencies in 190+ countries and let you crop, adjust and
         export a print-ready photo in seconds.
       </p>
       <h2 class="mt-8 text-2xl font-semibold">Our mission</h2>

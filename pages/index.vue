@@ -16,14 +16,14 @@ const steps = [
 ]
 
 const standards = [
-  { t: 'Government-approved sizes', d: '100+ countries, always updated to the latest specs.' },
+  { t: 'Government-approved sizes', d: '190+ countries, always updated to the latest specs.' },
   { t: 'Correct DPI & head size', d: 'We follow exact head-height and eye-level rules.' },
   { t: 'Print & digital ready', d: 'Export JPG for online forms or PDF for printing.' },
   { t: 'Private by design', d: 'Photos are processed in your browser. We never store them.' }
 ]
 
 const trust = [
-  'Used by travelers in 100+ countries',
+  'Used by travelers in 190+ countries',
   'No account required to make a photo',
   'Free to use, no hidden watermarks',
   'Works on desktop, tablet and phone'
@@ -131,7 +131,7 @@ const trust = [
     <section class="container-pg py-14">
       <div class="card-pg grid gap-6 p-8 sm:grid-cols-3">
         <div>
-          <div class="text-3xl font-bold text-brand-blue">100+</div>
+          <div class="text-3xl font-bold text-brand-blue">190+</div>
           <p class="text-sm text-muted">Countries supported</p>
         </div>
         <div>
