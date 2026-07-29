@@ -18,7 +18,11 @@ export default defineNuxtConfig({
           content:
             'Make compliant passport, visa and ID photos online in seconds. Free tool with country-specific size specs, white/blue background, and instant JPG/PDF download.'
         },
-        { name: 'theme-color', content: '#2B3E5C' }
+        { name: 'theme-color', content: '#2B3E5C' },
+        { property: 'og:site_name', content: 'PhotoGov' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:locale', content: 'en_US' },
+        { name: 'twitter:card', content: 'summary_large_image' }
       ],
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },

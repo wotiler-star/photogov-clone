@@ -2,8 +2,28 @@
 import PhotoTool from '~/components/PhotoTool.vue'
 import DocCard from '~/components/DocCard.vue'
 import { useData } from '~/composables/useData'
+import { useRequestURL } from '#imports'
 
 const { popularDocuments, countriesByCode, quickLinks, documents } = useData()
+const url = useRequestURL()
+
+useHead(() => {
+  const desc = 'Make compliant passport, visa and ID photos online in seconds. Free tool with country-specific size specs, white/blue background, and instant JPG/PDF download.'
+  const canonical = `${url.origin}/`
+  return {
+    title: 'PhotoGov — Passport Photo, Visa Photo & ID Photo Maker Online',
+    meta: [
+      { name: 'description', content: desc },
+      { property: 'og:title', content: 'PhotoGov — Passport Photo, Visa Photo & ID Photo Maker Online' },
+      { property: 'og:description', content: desc },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: canonical },
+      { name: 'twitter:title', content: 'PhotoGov — Passport Photo, Visa Photo & ID Photo Maker Online' },
+      { name: 'twitter:description', content: desc }
+    ],
+    link: [{ rel: 'canonical', href: canonical }]
+  }
+})
 const popular = popularDocuments().slice(0, 8)
 const quick = quickLinks().slice(0, 6)
 const flagFor = (code: string) => countriesByCode[code]?.flag || '📄'

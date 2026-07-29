@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { useRequestURL } from '#imports'
 import PhotoTool from '~/components/PhotoTool.vue'
 import DocCard from '~/components/DocCard.vue'
 import { useData } from '~/composables/useData'
@@ -9,11 +10,32 @@ const route = useRoute()
 const slug = computed(() => route.params.slug as string)
 const { getDocument, documents, countriesByCode } = useData()
 const doc = computed(() => getDocument(slug.value))
+const url = useRequestURL()
 
-useHead(() => ({
-  title: doc.value ? doc.value.title : 'Document not found',
-  meta: [{ name: 'description', content: doc.value ? `${doc.value.name} photo requirements` : '' }]
-}))
+useHead(() => {
+  if (!doc.value) {
+    return {
+      title: 'Document not found',
+      meta: [{ name: 'robots', content: 'noindex' }]
+    }
+  }
+  const d = doc.value
+  const desc = `Official ${d.name} photo requirements for ${d.countryName}: size ${d.size.inch} in (${d.size.mm} mm), ${d.dpi} DPI, ${d.background === '#FFFFFF' ? 'white' : d.background === '#E8E8E8' ? 'light grey' : 'blue'} background. Verified by official source.`
+  const canonical = `${url.origin}/document/${d.slug}`
+  return {
+    title: d.title,
+    meta: [
+      { name: 'description', content: desc },
+      { property: 'og:title', content: d.title },
+      { property: 'og:description', content: desc },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: canonical },
+      { name: 'twitter:title', content: d.title },
+      { name: 'twitter:description', content: desc }
+    ],
+    link: [{ rel: 'canonical', href: canonical }]
+  }
+})
 
 const flagFor = (code: string) => countriesByCode[code]?.flag || '📄'
 
