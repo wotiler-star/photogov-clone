@@ -15,6 +15,8 @@ const cols = [
     title: 'Company',
     links: [
       { label: 'About Us', to: '/about' },
+      { label: 'Blog', to: '/blog' },
+      { label: 'FAQ', to: '/faq' },
       { label: 'Compliance', to: '/compliance' },
       { label: 'Contact', to: '/contact' },
       { label: 'Help Center', to: '/help' }

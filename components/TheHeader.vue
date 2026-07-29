@@ -27,6 +27,8 @@ const navItems = [
   { label: 'Documents', to: '/documents' },
   { label: 'Passports', to: '/passports' },
   { label: 'Visas', to: '/visas' },
+  { label: 'Blog', to: '/blog' },
+  { label: 'FAQ', to: '/faq' },
   { label: 'About', to: '/about' }
 ]
 

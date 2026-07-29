@@ -1,5 +1,7 @@
 import countriesRaw from '~/data/countries.json'
 import documentsRaw from '~/data/documents.json'
+import faqRaw from '~/data/faq.json'
+import blogRaw from '~/data/blog.json'
 
 export interface Country {
   code: string
@@ -50,6 +52,11 @@ const countries = (countriesRaw as any).countries as Country[]
 const documentsMap = (documentsRaw as any).documents as Record<string, PhotoDoc>
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const categories = (documentsRaw as any).categories as string[]
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const faq = (faqRaw as any)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const blog = (blogRaw as any)
 
 const documents = Object.values(documentsMap)
 
@@ -103,6 +110,29 @@ export const useData = () => {
     return map
   }
 
+  // ---- FAQ ----
+  const faqCategories = (): { id: string; title: string; emoji: string }[] =>
+    (faq.categories as any[]) || []
+  const faqItems = (): { category: string; q: string; a: string }[] =>
+    (faq.items as any[]) || []
+
+  // ---- Blog ----
+  const blogPosts = (): any[] => (blog.posts as any[]) || []
+  const blogCategories = (): string[] => (blog.categories as string[]) || []
+  const getPost = (slug: string): any | undefined =>
+    (blog.posts as any[]).find((p) => p.slug === slug)
+  const relatedPosts = (slug: string, n = 3): any[] => {
+    const cur = getPost(slug)
+    if (!cur) return (blog.posts as any[]).slice(0, n)
+    const sameCat = (blog.posts as any[]).filter(
+      (p) => p.slug !== slug && p.category === cur.category
+    )
+    const others = (blog.posts as any[]).filter(
+      (p) => p.slug !== slug && p.category !== cur.category
+    )
+    return [...sameCat, ...others].slice(0, n)
+  }
+
   return {
     countries,
     countriesByCode,
@@ -116,6 +146,12 @@ export const useData = () => {
     quickLinks,
     searchDocuments,
     filterByCategory,
-    groupedByCountry
+    groupedByCountry,
+    faqCategories,
+    faqItems,
+    blogPosts,
+    blogCategories,
+    getPost,
+    relatedPosts
   }
 }

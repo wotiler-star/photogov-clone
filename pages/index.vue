@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import PhotoTool from '~/components/PhotoTool.vue'
 import DocCard from '~/components/DocCard.vue'
+import BlogCard from '~/components/BlogCard.vue'
 import { useData } from '~/composables/useData'
 import { useRequestURL } from '#imports'
 
-const { popularDocuments, countriesByCode, quickLinks, documents } = useData()
+const { popularDocuments, countriesByCode, quickLinks, documents, blogPosts } = useData()
 const url = useRequestURL()
 
 useHead(() => {
@@ -27,6 +28,7 @@ useHead(() => {
 const popular = popularDocuments().slice(0, 8)
 const quick = quickLinks().slice(0, 6)
 const flagFor = (code: string) => countriesByCode[code]?.flag || '📄'
+const latestPosts = blogPosts().slice().sort((a: any, b: any) => (a.date < b.date ? 1 : -1)).slice(0, 3)
 
 const docTypes = [
   { cat: 'passport', label: 'Passport photos', desc: 'Travel-ready passport sizes for 190+ countries', count: documents.filter((d) => d.category === 'passport').length },
@@ -173,6 +175,35 @@ const trust = [
             {{ t.count }} templates →
           </p>
         </NuxtLink>
+      </div>
+    </section>
+
+    <!-- FROM THE BLOG -->
+    <section class="container-pg py-14">
+      <div class="flex items-end justify-between">
+        <div>
+          <span class="eyebrow">Blog</span>
+          <h2 class="mt-2 text-3xl font-bold">From the PhotoGov blog</h2>
+        </div>
+        <NuxtLink to="/blog" class="btn-outline hidden sm:inline-flex">View all</NuxtLink>
+      </div>
+      <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <BlogCard v-for="p in latestPosts" :key="p.slug" :post="p" />
+      </div>
+      <div class="mt-6 text-center sm:hidden">
+        <NuxtLink to="/blog" class="btn-outline">View all articles</NuxtLink>
+      </div>
+    </section>
+
+    <!-- FAQ CTA -->
+    <section class="container-pg pb-14">
+      <div class="card-pg flex flex-col items-center gap-4 bg-slate-50 p-8 text-center sm:flex-row sm:text-left">
+        <span class="text-4xl">❓</span>
+        <div class="flex-1">
+          <h2 class="text-xl font-bold">Got questions about photo requirements?</h2>
+          <p class="mt-1 text-sm text-muted">Sizes, backgrounds, the tool, downloads and acceptance — answered in our FAQ.</p>
+        </div>
+        <NuxtLink to="/faq" class="btn-primary shrink-0">Read the FAQ</NuxtLink>
       </div>
     </section>
 

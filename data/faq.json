@@ -1,0 +1,136 @@
+{
+  "categories": [
+    {
+      "id": "getting-started",
+      "title": "Getting started",
+      "emoji": "🚀"
+    },
+    {
+      "id": "requirements",
+      "title": "Photo requirements",
+      "emoji": "📐"
+    },
+    {
+      "id": "tool",
+      "title": "Using the PhotoGov tool",
+      "emoji": "🛠️"
+    },
+    {
+      "id": "download",
+      "title": "Download & printing",
+      "emoji": "📥"
+    },
+    {
+      "id": "privacy",
+      "title": "Privacy & data",
+      "emoji": "🔒"
+    },
+    {
+      "id": "acceptance",
+      "title": "Acceptance & compliance",
+      "emoji": "✅"
+    }
+  ],
+  "items": [
+    {
+      "category": "getting-started",
+      "q": "What is PhotoGov and what does it do?",
+      "a": "PhotoGov is a free online tool that helps you create compliant passport, visa and ID photos. Pick your document, upload a selfie, and we crop, resize and adjust it to the official size and background — then you download a print-ready JPG, PNG or PDF."
+    },
+    {
+      "category": "getting-started",
+      "q": "Do I need to create an account?",
+      "a": "No. You can make and download a photo without signing up. An account is optional and we don't require one to use the core tool."
+    },
+    {
+      "category": "getting-started",
+      "q": "Is PhotoGov free?",
+      "a": "Yes. Making, editing and downloading photos is free, with no watermarks. Some premium extras may be added later, but the basic tool stays free."
+    },
+    {
+      "category": "getting-started",
+      "q": "Which devices are supported?",
+      "a": "PhotoGov runs in any modern browser on desktop, tablet and phone. All processing happens on your device, so there is nothing to install."
+    },
+    {
+      "category": "requirements",
+      "q": "What size should my passport photo be?",
+      "a": "It depends on the country. The most common is 2×2 inches (51×51 mm) for the US, while many European countries use 35×45 mm. Each document page on PhotoGov shows the exact size in inches, millimetres and pixels."
+    },
+    {
+      "category": "requirements",
+      "q": "What background color is required?",
+      "a": "Most countries require a plain white or light-grey background. A few (e.g. some visa types) accept light blue. PhotoGov lets you switch backgrounds with one click, and our AI tool can remove a busy background automatically."
+    },
+    {
+      "category": "requirements",
+      "q": "Can I wear glasses in my photo?",
+      "a": "Rules vary. Many countries (including the US) now prohibit glasses unless medically necessary. Check the specific document page — each one lists whether glasses are allowed."
+    },
+    {
+      "category": "requirements",
+      "q": "How should my head and eyes be positioned?",
+      "a": "Face the camera directly with a neutral expression, both eyes open. The head should be centered and take up the correct proportion of the frame; the eye line usually sits around 55–70% from the top. PhotoGov's editor guides head height and eye level as you adjust."
+    },
+    {
+      "category": "tool",
+      "q": "How do I upload a photo?",
+      "a": "Click “Upload photo” or drag an image onto the preview area. You can also use your webcam on supported devices. JPG and PNG files are accepted."
+    },
+    {
+      "category": "tool",
+      "q": "How do I adjust zoom, rotation and brightness?",
+      "a": "Use the sliders under “Adjustments”: Zoom, Rotate, Brightness and Contrast. Drag the image in the preview to reposition it. “Reset adjustments” returns everything to default."
+    },
+    {
+      "category": "tool",
+      "q": "What does the AI background removal do?",
+      "a": "It uses an on-device model (loaded from a CDN) to separate you from the background, then lets you drop in a plain white, blue or custom color. If the model can't load, the tool falls back to the manual background options."
+    },
+    {
+      "category": "tool",
+      "q": "Can I process several photos at once?",
+      "a": "Yes. The “Batch processing” section lets you add multiple images; they're all cropped to the current document size with the same background and adjustments, then downloaded together as a ZIP."
+    },
+    {
+      "category": "download",
+      "q": "What file formats can I download?",
+      "a": "You can export a single photo as JPG, PNG or PDF. JPG is best for online forms; PDF is ideal for printing at a lab. There is also a “Print sheet” option that places multiple copies on one 4×6 in or A4 page."
+    },
+    {
+      "category": "download",
+      "q": "What resolution / DPI will my photo be?",
+      "a": "Photos are exported at the document's required DPI (typically 300) and exact pixel dimensions, so prints stay sharp and digital submissions meet size limits."
+    },
+    {
+      "category": "download",
+      "q": "How do I print at the correct size?",
+      "a": "Download the PDF or the print sheet and take it to any photo lab, or print at home on matte photo paper. Because the canvas is already the official dimensions, “actual size / 100%” printing gives the right result."
+    },
+    {
+      "category": "privacy",
+      "q": "Are my photos uploaded to a server?",
+      "a": "No. All image processing happens locally in your browser using the Canvas API. Your photos are never uploaded or stored on our servers."
+    },
+    {
+      "category": "privacy",
+      "q": "Do you keep any record of my photo?",
+      "a": "We do not store your images. We may use privacy-friendly, aggregated analytics to understand usage, but no photo data is involved."
+    },
+    {
+      "category": "acceptance",
+      "q": "Will my photo definitely be accepted?",
+      "a": "We follow the official published specs as closely as possible, but final acceptance is decided by the issuing authority. Always double-check the latest rules on the authority's website linked from each document page before submitting."
+    },
+    {
+      "category": "acceptance",
+      "q": "Are the requirements verified?",
+      "a": "Documents marked “Verified by official source” are based on a government or authority publication we link to. Others are general guidelines. Use the link on each page to confirm the current rules."
+    },
+    {
+      "category": "acceptance",
+      "q": "Is PhotoGov affiliated with any government?",
+      "a": "No. PhotoGov is an independent tool and is not affiliated with, endorsed by, or connected to any government agency."
+    }
+  ]
+}
