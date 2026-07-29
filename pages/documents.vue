@@ -13,6 +13,7 @@ const { setCode } = useCountry()
 const query = ref((route.query.q as string) || '')
 const category = ref((route.query.category as string) || 'all')
 const country = ref((route.query.country as string) || '')
+const verifiedOnly = ref(false)
 
 watch(
   () => route.query,
@@ -29,6 +30,7 @@ const results = computed(() => {
     list = list.filter((d) => d.category === category.value)
   }
   if (country.value) list = list.filter((d) => d.country === country.value)
+  if (verifiedOnly.value) list = list.filter((d) => d.verified)
   return list
 })
 
@@ -92,6 +94,15 @@ watch([query, category], updateRoute)
           <option value="">All countries</option>
           <option v-for="(name, code) in countriesByCode" :key="code" :value="code">{{ name.flag }} {{ name.name }}</option>
         </select>
+        <button
+          type="button"
+          @click="verifiedOnly = !verifiedOnly"
+          :class="verifiedOnly ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white text-muted border-slate-300'"
+          class="inline-flex items-center gap-1.5 rounded-full border px-4 py-2.5 text-sm font-medium transition"
+        >
+          <svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0l-3.5-3.5a1 1 0 011.4-1.4l2.8 2.8 6.8-6.8a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>
+          Verified only
+        </button>
       </div>
 
       <p class="mt-4 text-sm text-muted">{{ results.length }} documents found</p>

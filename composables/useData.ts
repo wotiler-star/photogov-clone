@@ -37,6 +37,7 @@ export interface PhotoDoc {
   expression: string
   year: number
   source: string
+  verified: boolean
   color?: string
   attire?: string
   printable?: boolean

@@ -17,6 +17,15 @@ useHead(() => ({
 
 const flagFor = (code: string) => countriesByCode[code]?.flag || '📄'
 
+const isVerified = computed(() => !!doc.value?.verified)
+const srcHost = computed(() => {
+  try {
+    return new URL(doc.value?.source || '').hostname.replace(/^www\./, '')
+  } catch {
+    return ''
+  }
+})
+
 const bgLabel = (hex?: string): string => {
   if (!hex) return 'White'
   const h = hex.toLowerCase()
@@ -69,6 +78,18 @@ const reqs = computed(() => {
         <!-- 左：说明 -->
         <div>
           <h1 class="text-3xl font-bold sm:text-4xl">{{ doc.name }} Photo</h1>
+          <div class="mt-2 flex flex-wrap items-center gap-2">
+            <span
+              v-if="isVerified"
+              class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-200"
+            >
+              <svg viewBox="0 0 20 20" fill="currentColor" class="h-3.5 w-3.5"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0l-3.5-3.5a1 1 0 011.4-1.4l2.8 2.8 6.8-6.8a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>
+              Verified by official source
+            </span>
+            <span v-else class="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-500">
+              General guideline
+            </span>
+          </div>
           <p class="mt-2 text-muted">
             Official photo requirements for the {{ doc.countryName }} {{ doc.name }},
             updated for {{ doc.year }}.
@@ -98,9 +119,10 @@ const reqs = computed(() => {
                 </div>
               </dl>
             </div>
-            <p class="mt-4 text-xs text-muted">
-              Source:
-              <a :href="doc.source" target="_blank" rel="noopener" class="text-brand-blue underline">{{ doc.source }}</a>
+            <p class="mt-4 flex flex-wrap items-center gap-2 text-xs text-muted">
+              <svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-brand-blue"><path fill-rule="evenodd" d="M10 1.5l2.3 1.7 2.8-.3 1 2.7 2.4 1.5-.8 2.8.8 2.8-2.4 1.5-1 2.7-2.8-.3L10 18.5l-2.3-1.7-2.8.3-1-2.7L1.5 13l.8-2.8L1.5 7l2.4-1.5 1-2.7 2.8.3L10 1.5zm3.2 6.2a1 1 0 00-1.4-1.4L9 8.9 8.2 8a1 1 0 10-1.4 1.4l1.2 1.2a1 1 0 001.4 0l2.8-2.4z" clip-rule="evenodd"/></svg>
+              <span>Official source:</span>
+              <a :href="doc.source" target="_blank" rel="noopener" class="font-semibold text-brand-blue underline">{{ srcHost || doc.source }}</a>
             </p>
           </div>
 

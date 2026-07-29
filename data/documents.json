@@ -30,7 +30,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms or camouflage",
       "printable": true,
-      "onlineSubmission": false
+      "onlineSubmission": false,
+      "verified": true
     },
     "us-visa-photo": {
       "slug": "us-visa-photo",
@@ -62,7 +63,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": false,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "us-dv-lottery-photo": {
       "slug": "us-dv-lottery-photo",
@@ -94,7 +96,8 @@
       "color": "In color",
       "attire": "Casual",
       "printable": false,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "us-welding-certification-photo": {
       "slug": "us-welding-certification-photo",
@@ -125,7 +128,8 @@
       "color": "In color",
       "attire": "Casual",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "us-crew-visa-photo": {
       "slug": "us-crew-visa-photo",
@@ -157,7 +161,8 @@
       "attire": "Casual",
       "printable": false,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes level, centered"
+      "eyesLevel": "Eyes level, centered",
+      "verified": true
     },
     "in-passport-35x45mm-photo": {
       "slug": "in-passport-35x45mm-photo",
@@ -189,7 +194,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "in-visa-photo": {
       "slug": "in-visa-photo",
@@ -221,7 +227,8 @@
       "color": "In color",
       "attire": "Casual",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "in-visa-vfs-190px-photo": {
       "slug": "in-visa-vfs-190px-photo",
@@ -253,7 +260,8 @@
       "attire": "Casual",
       "printable": false,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes level, centered"
+      "eyesLevel": "Eyes level, centered",
+      "verified": true
     },
     "in-ffro-photo": {
       "slug": "in-ffro-photo",
@@ -284,7 +292,8 @@
       "color": "In color",
       "attire": "Casual",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "tr-passport-photo": {
       "slug": "tr-passport-photo",
@@ -316,7 +325,8 @@
       "color": "In color",
       "attire": "Casual",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "at-passport-photo": {
       "slug": "at-passport-photo",
@@ -348,7 +358,8 @@
       "color": "In color",
       "attire": "Casual",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "at-personalausweis-35x45mm-photo": {
       "slug": "at-personalausweis-35x45mm-photo",
@@ -379,7 +390,8 @@
       "color": "In color",
       "attire": "Casual",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ie-visa-photo": {
       "slug": "ie-visa-photo",
@@ -410,7 +422,8 @@
       "color": "In color",
       "attire": "Casual",
       "printable": false,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "dz-visa-photo": {
       "slug": "dz-visa-photo",
@@ -441,7 +454,8 @@
       "color": "In color",
       "attire": "Casual",
       "printable": false,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ae-id-card-ica-gov-ae-photo": {
       "slug": "ae-id-card-ica-gov-ae-photo",
@@ -472,7 +486,8 @@
       "color": "In color",
       "attire": "Casual",
       "printable": false,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "zz-5x5-photo": {
       "slug": "zz-5x5-photo",
@@ -503,7 +518,8 @@
       "color": "In color",
       "attire": "Casual",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "cn-apec-card-300x400px-photo": {
       "slug": "cn-apec-card-300x400px-photo",
@@ -534,7 +550,8 @@
       "color": "In color",
       "attire": "Business",
       "printable": false,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "de-visa-photo": {
       "slug": "de-visa-photo",
@@ -566,7 +583,8 @@
       "attire": "Casual",
       "printable": false,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes level, centered"
+      "eyesLevel": "Eyes level, centered",
+      "verified": true
     },
     "de-passport-photo": {
       "slug": "de-passport-photo",
@@ -598,7 +616,8 @@
       "attire": "Casual",
       "printable": true,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes level, centered"
+      "eyesLevel": "Eyes level, centered",
+      "verified": true
     },
     "gb-visa-photo": {
       "slug": "gb-visa-photo",
@@ -630,7 +649,8 @@
       "color": "In color",
       "attire": "Casual",
       "printable": false,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "gb-passport-online-photo": {
       "slug": "gb-passport-online-photo",
@@ -661,7 +681,8 @@
       "color": "In color",
       "attire": "Casual",
       "printable": false,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "gb-passport-photo": {
       "slug": "gb-passport-photo",
@@ -693,7 +714,8 @@
       "attire": "Casual",
       "printable": true,
       "onlineSubmission": false,
-      "eyesLevel": "Centered; head & shoulders visible"
+      "eyesLevel": "Centered; head & shoulders visible",
+      "verified": true
     },
     "gb-driving-photo": {
       "slug": "gb-driving-photo",
@@ -725,7 +747,8 @@
       "attire": "Casual",
       "printable": false,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes level, centered"
+      "eyesLevel": "Eyes level, centered",
+      "verified": true
     },
     "es-passport-32x26mm-photo": {
       "slug": "es-passport-32x26mm-photo",
@@ -757,7 +780,8 @@
       "attire": "Casual",
       "printable": true,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes level, centered"
+      "eyesLevel": "Eyes level, centered",
+      "verified": true
     },
     "es-tie-32x26mm-photo": {
       "slug": "es-tie-32x26mm-photo",
@@ -788,7 +812,8 @@
       "color": "In color",
       "attire": "Casual",
       "printable": false,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "sg-passport-online-photo": {
       "slug": "sg-passport-online-photo",
@@ -820,7 +845,8 @@
       "attire": "Casual",
       "printable": false,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes level, centered"
+      "eyesLevel": "Eyes level, centered",
+      "verified": true
     },
     "ca-passport-photo": {
       "slug": "ca-passport-photo",
@@ -852,7 +878,8 @@
       "attire": "Casual",
       "printable": true,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes 36–51 mm from bottom"
+      "eyesLevel": "Eyes 36–51 mm from bottom",
+      "verified": true
     },
     "ca-visa-photo": {
       "slug": "ca-visa-photo",
@@ -884,7 +911,8 @@
       "attire": "Casual",
       "printable": false,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes level, centered"
+      "eyesLevel": "Eyes level, centered",
+      "verified": true
     },
     "fr-passport-photo": {
       "slug": "fr-passport-photo",
@@ -916,7 +944,8 @@
       "attire": "Casual",
       "printable": true,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes level, centered"
+      "eyesLevel": "Eyes level, centered",
+      "verified": true
     },
     "au-passport-photo": {
       "slug": "au-passport-photo",
@@ -948,7 +977,8 @@
       "attire": "Casual",
       "printable": true,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes level, facing camera"
+      "eyesLevel": "Eyes level, facing camera",
+      "verified": true
     },
     "cn-passport-photo": {
       "slug": "cn-passport-photo",
@@ -980,7 +1010,8 @@
       "attire": "Casual; no uniforms",
       "printable": true,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes level, centered"
+      "eyesLevel": "Eyes level, centered",
+      "verified": true
     },
     "jp-passport-photo": {
       "slug": "jp-passport-photo",
@@ -1012,7 +1043,8 @@
       "attire": "Casual",
       "printable": true,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes level, centered"
+      "eyesLevel": "Eyes level, centered",
+      "verified": true
     },
     "ru-passport-photo": {
       "slug": "ru-passport-photo",
@@ -1044,7 +1076,8 @@
       "attire": "Casual",
       "printable": true,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes 28-32 mm from bottom"
+      "eyesLevel": "Eyes 28-32 mm from bottom",
+      "verified": true
     },
     "br-passport-photo": {
       "slug": "br-passport-photo",
@@ -1076,7 +1109,8 @@
       "attire": "Casual",
       "printable": true,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes level, centered"
+      "eyesLevel": "Eyes level, centered",
+      "verified": true
     },
     "mx-passport-photo": {
       "slug": "mx-passport-photo",
@@ -1108,7 +1142,8 @@
       "attire": "Casual",
       "printable": true,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes level, centered"
+      "eyesLevel": "Eyes level, centered",
+      "verified": true
     },
     "za-passport-photo": {
       "slug": "za-passport-photo",
@@ -1140,7 +1175,8 @@
       "attire": "Casual",
       "printable": true,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes level, centered"
+      "eyesLevel": "Eyes level, centered",
+      "verified": true
     },
     "nl-passport-photo": {
       "slug": "nl-passport-photo",
@@ -1172,7 +1208,8 @@
       "attire": "Casual",
       "printable": true,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes level, centered"
+      "eyesLevel": "Eyes level, centered",
+      "verified": true
     },
     "ch-passport-photo": {
       "slug": "ch-passport-photo",
@@ -1204,7 +1241,8 @@
       "attire": "Casual",
       "printable": true,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes level, centered"
+      "eyesLevel": "Eyes level, centered",
+      "verified": true
     },
     "it-passport-photo": {
       "slug": "it-passport-photo",
@@ -1236,7 +1274,8 @@
       "attire": "Casual",
       "printable": true,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes level, centered"
+      "eyesLevel": "Eyes level, centered",
+      "verified": true
     },
     "kr-passport-photo": {
       "slug": "kr-passport-photo",
@@ -1268,7 +1307,8 @@
       "attire": "Casual",
       "printable": true,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes level, centered"
+      "eyesLevel": "Eyes level, centered",
+      "verified": true
     },
     "nz-passport-photo": {
       "slug": "nz-passport-photo",
@@ -1300,7 +1340,8 @@
       "attire": "Casual",
       "printable": true,
       "onlineSubmission": true,
-      "eyesLevel": "Eyes level, centered"
+      "eyesLevel": "Eyes level, centered",
+      "verified": true
     },
     "ao-passport-photo": {
       "slug": "ao-passport-photo",
@@ -1332,7 +1373,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "bj-passport-photo": {
       "slug": "bj-passport-photo",
@@ -1364,7 +1406,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "bw-passport-photo": {
       "slug": "bw-passport-photo",
@@ -1396,7 +1439,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "bf-passport-photo": {
       "slug": "bf-passport-photo",
@@ -1428,7 +1472,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "bi-passport-photo": {
       "slug": "bi-passport-photo",
@@ -1460,7 +1505,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "cv-passport-photo": {
       "slug": "cv-passport-photo",
@@ -1492,7 +1538,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "cm-passport-photo": {
       "slug": "cm-passport-photo",
@@ -1524,7 +1571,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "cf-passport-photo": {
       "slug": "cf-passport-photo",
@@ -1556,7 +1604,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "td-passport-photo": {
       "slug": "td-passport-photo",
@@ -1588,7 +1637,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "km-passport-photo": {
       "slug": "km-passport-photo",
@@ -1620,7 +1670,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "cg-passport-photo": {
       "slug": "cg-passport-photo",
@@ -1652,7 +1703,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "cd-passport-photo": {
       "slug": "cd-passport-photo",
@@ -1684,7 +1736,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ci-passport-photo": {
       "slug": "ci-passport-photo",
@@ -1716,7 +1769,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "dj-passport-photo": {
       "slug": "dj-passport-photo",
@@ -1748,7 +1802,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "eg-passport-photo": {
       "slug": "eg-passport-photo",
@@ -1780,7 +1835,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "gq-passport-photo": {
       "slug": "gq-passport-photo",
@@ -1812,7 +1868,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "er-passport-photo": {
       "slug": "er-passport-photo",
@@ -1844,7 +1901,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "sz-passport-photo": {
       "slug": "sz-passport-photo",
@@ -1876,7 +1934,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "et-passport-photo": {
       "slug": "et-passport-photo",
@@ -1908,7 +1967,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ga-passport-photo": {
       "slug": "ga-passport-photo",
@@ -1940,7 +2000,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "gm-passport-photo": {
       "slug": "gm-passport-photo",
@@ -1972,7 +2033,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "gh-passport-photo": {
       "slug": "gh-passport-photo",
@@ -2004,7 +2066,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "gn-passport-photo": {
       "slug": "gn-passport-photo",
@@ -2036,7 +2099,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "gw-passport-photo": {
       "slug": "gw-passport-photo",
@@ -2068,7 +2132,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ke-passport-photo": {
       "slug": "ke-passport-photo",
@@ -2100,7 +2165,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ls-passport-photo": {
       "slug": "ls-passport-photo",
@@ -2132,7 +2198,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "lr-passport-photo": {
       "slug": "lr-passport-photo",
@@ -2164,7 +2231,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ly-passport-photo": {
       "slug": "ly-passport-photo",
@@ -2196,7 +2264,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "mg-passport-photo": {
       "slug": "mg-passport-photo",
@@ -2228,7 +2297,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "mw-passport-photo": {
       "slug": "mw-passport-photo",
@@ -2260,7 +2330,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ml-passport-photo": {
       "slug": "ml-passport-photo",
@@ -2292,7 +2363,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "mr-passport-photo": {
       "slug": "mr-passport-photo",
@@ -2324,7 +2396,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "mu-passport-photo": {
       "slug": "mu-passport-photo",
@@ -2356,7 +2429,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ma-passport-photo": {
       "slug": "ma-passport-photo",
@@ -2388,7 +2462,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "mz-passport-photo": {
       "slug": "mz-passport-photo",
@@ -2420,7 +2495,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "na-passport-photo": {
       "slug": "na-passport-photo",
@@ -2452,7 +2528,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ne-passport-photo": {
       "slug": "ne-passport-photo",
@@ -2484,7 +2561,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ng-passport-photo": {
       "slug": "ng-passport-photo",
@@ -2516,7 +2594,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "rw-passport-photo": {
       "slug": "rw-passport-photo",
@@ -2548,7 +2627,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "st-passport-photo": {
       "slug": "st-passport-photo",
@@ -2580,7 +2660,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "sn-passport-photo": {
       "slug": "sn-passport-photo",
@@ -2612,7 +2693,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "sc-passport-photo": {
       "slug": "sc-passport-photo",
@@ -2644,7 +2726,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "sl-passport-photo": {
       "slug": "sl-passport-photo",
@@ -2676,7 +2759,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "so-passport-photo": {
       "slug": "so-passport-photo",
@@ -2708,7 +2792,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ss-passport-photo": {
       "slug": "ss-passport-photo",
@@ -2740,7 +2825,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "sd-passport-photo": {
       "slug": "sd-passport-photo",
@@ -2772,7 +2858,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "tz-passport-photo": {
       "slug": "tz-passport-photo",
@@ -2804,7 +2891,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "tg-passport-photo": {
       "slug": "tg-passport-photo",
@@ -2836,7 +2924,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "tn-passport-photo": {
       "slug": "tn-passport-photo",
@@ -2868,7 +2957,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ug-passport-photo": {
       "slug": "ug-passport-photo",
@@ -2900,7 +2990,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "zm-passport-photo": {
       "slug": "zm-passport-photo",
@@ -2932,7 +3023,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "zw-passport-photo": {
       "slug": "zw-passport-photo",
@@ -2964,7 +3056,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ag-passport-photo": {
       "slug": "ag-passport-photo",
@@ -2996,7 +3089,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ar-passport-photo": {
       "slug": "ar-passport-photo",
@@ -3028,7 +3122,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "bs-passport-photo": {
       "slug": "bs-passport-photo",
@@ -3060,7 +3155,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "bb-passport-photo": {
       "slug": "bb-passport-photo",
@@ -3092,7 +3188,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "bz-passport-photo": {
       "slug": "bz-passport-photo",
@@ -3124,7 +3221,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "bo-passport-photo": {
       "slug": "bo-passport-photo",
@@ -3156,7 +3254,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "cl-passport-photo": {
       "slug": "cl-passport-photo",
@@ -3188,7 +3287,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "co-passport-photo": {
       "slug": "co-passport-photo",
@@ -3220,7 +3320,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "cr-passport-photo": {
       "slug": "cr-passport-photo",
@@ -3252,7 +3353,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "cu-passport-photo": {
       "slug": "cu-passport-photo",
@@ -3284,7 +3386,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "dm-passport-photo": {
       "slug": "dm-passport-photo",
@@ -3316,7 +3419,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "do-passport-photo": {
       "slug": "do-passport-photo",
@@ -3348,7 +3452,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ec-passport-photo": {
       "slug": "ec-passport-photo",
@@ -3380,7 +3485,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "sv-passport-photo": {
       "slug": "sv-passport-photo",
@@ -3412,7 +3518,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "gd-passport-photo": {
       "slug": "gd-passport-photo",
@@ -3444,7 +3551,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "gt-passport-photo": {
       "slug": "gt-passport-photo",
@@ -3476,7 +3584,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "gy-passport-photo": {
       "slug": "gy-passport-photo",
@@ -3508,7 +3617,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ht-passport-photo": {
       "slug": "ht-passport-photo",
@@ -3540,7 +3650,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "hn-passport-photo": {
       "slug": "hn-passport-photo",
@@ -3572,7 +3683,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "jm-passport-photo": {
       "slug": "jm-passport-photo",
@@ -3604,7 +3716,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ni-passport-photo": {
       "slug": "ni-passport-photo",
@@ -3636,7 +3749,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "pa-passport-photo": {
       "slug": "pa-passport-photo",
@@ -3668,7 +3782,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "py-passport-photo": {
       "slug": "py-passport-photo",
@@ -3700,7 +3815,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "pe-passport-photo": {
       "slug": "pe-passport-photo",
@@ -3732,7 +3848,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "kn-passport-photo": {
       "slug": "kn-passport-photo",
@@ -3764,7 +3881,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "lc-passport-photo": {
       "slug": "lc-passport-photo",
@@ -3796,7 +3914,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "vc-passport-photo": {
       "slug": "vc-passport-photo",
@@ -3828,7 +3947,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "sr-passport-photo": {
       "slug": "sr-passport-photo",
@@ -3860,7 +3980,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "tt-passport-photo": {
       "slug": "tt-passport-photo",
@@ -3892,7 +4013,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "uy-passport-photo": {
       "slug": "uy-passport-photo",
@@ -3924,7 +4046,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ve-passport-photo": {
       "slug": "ve-passport-photo",
@@ -3956,7 +4079,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "af-passport-photo": {
       "slug": "af-passport-photo",
@@ -3988,7 +4112,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "am-passport-photo": {
       "slug": "am-passport-photo",
@@ -4020,7 +4145,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "az-passport-photo": {
       "slug": "az-passport-photo",
@@ -4052,7 +4178,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "bh-passport-photo": {
       "slug": "bh-passport-photo",
@@ -4084,7 +4211,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "bd-passport-photo": {
       "slug": "bd-passport-photo",
@@ -4116,7 +4244,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "bt-passport-photo": {
       "slug": "bt-passport-photo",
@@ -4148,7 +4277,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "bn-passport-photo": {
       "slug": "bn-passport-photo",
@@ -4180,7 +4310,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "kh-passport-photo": {
       "slug": "kh-passport-photo",
@@ -4212,7 +4343,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "id-passport-photo": {
       "slug": "id-passport-photo",
@@ -4244,7 +4376,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ir-passport-photo": {
       "slug": "ir-passport-photo",
@@ -4276,7 +4409,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "iq-passport-photo": {
       "slug": "iq-passport-photo",
@@ -4308,7 +4442,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "il-passport-photo": {
       "slug": "il-passport-photo",
@@ -4340,7 +4475,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "jo-passport-photo": {
       "slug": "jo-passport-photo",
@@ -4372,7 +4508,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "kz-passport-photo": {
       "slug": "kz-passport-photo",
@@ -4404,7 +4541,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "kw-passport-photo": {
       "slug": "kw-passport-photo",
@@ -4436,7 +4574,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "kg-passport-photo": {
       "slug": "kg-passport-photo",
@@ -4468,7 +4607,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "la-passport-photo": {
       "slug": "la-passport-photo",
@@ -4500,7 +4640,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "lb-passport-photo": {
       "slug": "lb-passport-photo",
@@ -4532,7 +4673,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "my-passport-photo": {
       "slug": "my-passport-photo",
@@ -4564,7 +4706,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "mv-passport-photo": {
       "slug": "mv-passport-photo",
@@ -4596,7 +4739,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "mn-passport-photo": {
       "slug": "mn-passport-photo",
@@ -4628,7 +4772,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "mm-passport-photo": {
       "slug": "mm-passport-photo",
@@ -4660,7 +4805,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "np-passport-photo": {
       "slug": "np-passport-photo",
@@ -4692,7 +4838,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "kp-passport-photo": {
       "slug": "kp-passport-photo",
@@ -4724,7 +4871,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "om-passport-photo": {
       "slug": "om-passport-photo",
@@ -4756,7 +4904,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "pk-passport-photo": {
       "slug": "pk-passport-photo",
@@ -4788,7 +4937,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ph-passport-photo": {
       "slug": "ph-passport-photo",
@@ -4820,7 +4970,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "qa-passport-photo": {
       "slug": "qa-passport-photo",
@@ -4852,7 +5003,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "sa-passport-photo": {
       "slug": "sa-passport-photo",
@@ -4884,7 +5036,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "lk-passport-photo": {
       "slug": "lk-passport-photo",
@@ -4916,7 +5069,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "sy-passport-photo": {
       "slug": "sy-passport-photo",
@@ -4948,7 +5102,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "tj-passport-photo": {
       "slug": "tj-passport-photo",
@@ -4980,7 +5135,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "th-passport-photo": {
       "slug": "th-passport-photo",
@@ -5012,7 +5168,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "tl-passport-photo": {
       "slug": "tl-passport-photo",
@@ -5044,7 +5201,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "tm-passport-photo": {
       "slug": "tm-passport-photo",
@@ -5076,7 +5234,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "uz-passport-photo": {
       "slug": "uz-passport-photo",
@@ -5108,7 +5267,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "vn-passport-photo": {
       "slug": "vn-passport-photo",
@@ -5140,7 +5300,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ye-passport-photo": {
       "slug": "ye-passport-photo",
@@ -5172,7 +5333,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "hk-passport-photo": {
       "slug": "hk-passport-photo",
@@ -5204,7 +5366,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "mo-passport-photo": {
       "slug": "mo-passport-photo",
@@ -5236,7 +5399,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "tw-passport-photo": {
       "slug": "tw-passport-photo",
@@ -5268,7 +5432,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ps-passport-photo": {
       "slug": "ps-passport-photo",
@@ -5300,7 +5465,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ad-passport-photo": {
       "slug": "ad-passport-photo",
@@ -5332,7 +5498,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "al-passport-photo": {
       "slug": "al-passport-photo",
@@ -5364,7 +5531,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "by-passport-photo": {
       "slug": "by-passport-photo",
@@ -5396,7 +5564,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "be-passport-photo": {
       "slug": "be-passport-photo",
@@ -5428,7 +5597,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ba-passport-photo": {
       "slug": "ba-passport-photo",
@@ -5460,7 +5630,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "bg-passport-photo": {
       "slug": "bg-passport-photo",
@@ -5492,7 +5663,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "hr-passport-photo": {
       "slug": "hr-passport-photo",
@@ -5524,7 +5696,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "cy-passport-photo": {
       "slug": "cy-passport-photo",
@@ -5556,7 +5729,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "dk-passport-photo": {
       "slug": "dk-passport-photo",
@@ -5588,7 +5762,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ee-passport-photo": {
       "slug": "ee-passport-photo",
@@ -5620,7 +5795,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "fi-passport-photo": {
       "slug": "fi-passport-photo",
@@ -5652,7 +5828,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "gr-passport-photo": {
       "slug": "gr-passport-photo",
@@ -5684,7 +5861,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "hu-passport-photo": {
       "slug": "hu-passport-photo",
@@ -5716,7 +5894,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "is-passport-photo": {
       "slug": "is-passport-photo",
@@ -5748,7 +5927,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "lv-passport-photo": {
       "slug": "lv-passport-photo",
@@ -5780,7 +5960,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "li-passport-photo": {
       "slug": "li-passport-photo",
@@ -5812,7 +5993,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "lt-passport-photo": {
       "slug": "lt-passport-photo",
@@ -5844,7 +6026,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "lu-passport-photo": {
       "slug": "lu-passport-photo",
@@ -5876,7 +6059,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "mt-passport-photo": {
       "slug": "mt-passport-photo",
@@ -5908,7 +6092,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "md-passport-photo": {
       "slug": "md-passport-photo",
@@ -5940,7 +6125,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "mc-passport-photo": {
       "slug": "mc-passport-photo",
@@ -5972,7 +6158,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "me-passport-photo": {
       "slug": "me-passport-photo",
@@ -6004,7 +6191,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "mk-passport-photo": {
       "slug": "mk-passport-photo",
@@ -6036,7 +6224,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "no-passport-photo": {
       "slug": "no-passport-photo",
@@ -6068,7 +6257,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "pl-passport-photo": {
       "slug": "pl-passport-photo",
@@ -6100,7 +6290,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "pt-passport-photo": {
       "slug": "pt-passport-photo",
@@ -6132,7 +6323,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ro-passport-photo": {
       "slug": "ro-passport-photo",
@@ -6164,7 +6356,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "sm-passport-photo": {
       "slug": "sm-passport-photo",
@@ -6196,7 +6389,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "rs-passport-photo": {
       "slug": "rs-passport-photo",
@@ -6228,7 +6422,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "sk-passport-photo": {
       "slug": "sk-passport-photo",
@@ -6260,7 +6455,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "si-passport-photo": {
       "slug": "si-passport-photo",
@@ -6292,7 +6488,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "se-passport-photo": {
       "slug": "se-passport-photo",
@@ -6324,7 +6521,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ua-passport-photo": {
       "slug": "ua-passport-photo",
@@ -6356,7 +6554,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "va-passport-photo": {
       "slug": "va-passport-photo",
@@ -6388,7 +6587,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "fj-passport-photo": {
       "slug": "fj-passport-photo",
@@ -6420,7 +6620,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ki-passport-photo": {
       "slug": "ki-passport-photo",
@@ -6452,7 +6653,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "mh-passport-photo": {
       "slug": "mh-passport-photo",
@@ -6484,7 +6686,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "fm-passport-photo": {
       "slug": "fm-passport-photo",
@@ -6516,7 +6719,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "nr-passport-photo": {
       "slug": "nr-passport-photo",
@@ -6548,7 +6752,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "pw-passport-photo": {
       "slug": "pw-passport-photo",
@@ -6580,7 +6785,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "pg-passport-photo": {
       "slug": "pg-passport-photo",
@@ -6612,7 +6818,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "ws-passport-photo": {
       "slug": "ws-passport-photo",
@@ -6644,7 +6851,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "sb-passport-photo": {
       "slug": "sb-passport-photo",
@@ -6676,7 +6884,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "to-passport-photo": {
       "slug": "to-passport-photo",
@@ -6708,7 +6917,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "tv-passport-photo": {
       "slug": "tv-passport-photo",
@@ -6740,7 +6950,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "vu-passport-photo": {
       "slug": "vu-passport-photo",
@@ -6772,7 +6983,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": false
     },
     "us-id-photo": {
       "slug": "us-id-photo",
@@ -6804,7 +7016,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "us-driving-photo": {
       "slug": "us-driving-photo",
@@ -6836,7 +7049,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "gb-id-photo": {
       "slug": "gb-id-photo",
@@ -6868,7 +7082,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ca-id-photo": {
       "slug": "ca-id-photo",
@@ -6900,7 +7115,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ca-driving-photo": {
       "slug": "ca-driving-photo",
@@ -6932,7 +7148,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "au-visa-photo": {
       "slug": "au-visa-photo",
@@ -6964,7 +7181,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "au-id-photo": {
       "slug": "au-id-photo",
@@ -6996,7 +7214,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "au-driving-photo": {
       "slug": "au-driving-photo",
@@ -7028,7 +7247,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "de-id-photo": {
       "slug": "de-id-photo",
@@ -7060,7 +7280,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "de-driving-photo": {
       "slug": "de-driving-photo",
@@ -7092,7 +7313,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "fr-visa-photo": {
       "slug": "fr-visa-photo",
@@ -7124,7 +7346,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "fr-id-photo": {
       "slug": "fr-id-photo",
@@ -7156,7 +7379,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "fr-driving-photo": {
       "slug": "fr-driving-photo",
@@ -7188,7 +7412,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "jp-visa-photo": {
       "slug": "jp-visa-photo",
@@ -7220,7 +7445,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "jp-id-photo": {
       "slug": "jp-id-photo",
@@ -7252,7 +7478,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "jp-driving-photo": {
       "slug": "jp-driving-photo",
@@ -7284,7 +7511,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "cn-visa-photo": {
       "slug": "cn-visa-photo",
@@ -7316,7 +7544,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "cn-id-photo": {
       "slug": "cn-id-photo",
@@ -7348,7 +7577,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "cn-driving-photo": {
       "slug": "cn-driving-photo",
@@ -7380,7 +7610,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "in-id-photo": {
       "slug": "in-id-photo",
@@ -7412,7 +7643,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "in-driving-photo": {
       "slug": "in-driving-photo",
@@ -7444,7 +7676,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "br-visa-photo": {
       "slug": "br-visa-photo",
@@ -7476,7 +7709,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "br-id-photo": {
       "slug": "br-id-photo",
@@ -7508,7 +7742,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "br-driving-photo": {
       "slug": "br-driving-photo",
@@ -7540,7 +7775,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "it-visa-photo": {
       "slug": "it-visa-photo",
@@ -7572,7 +7808,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "it-id-photo": {
       "slug": "it-id-photo",
@@ -7604,7 +7841,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "it-driving-photo": {
       "slug": "it-driving-photo",
@@ -7636,7 +7874,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "es-visa-photo": {
       "slug": "es-visa-photo",
@@ -7668,7 +7907,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "es-id-photo": {
       "slug": "es-id-photo",
@@ -7700,7 +7940,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "es-driving-photo": {
       "slug": "es-driving-photo",
@@ -7732,7 +7973,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "nl-visa-photo": {
       "slug": "nl-visa-photo",
@@ -7764,7 +8006,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "nl-id-photo": {
       "slug": "nl-id-photo",
@@ -7796,7 +8039,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "nl-driving-photo": {
       "slug": "nl-driving-photo",
@@ -7828,7 +8072,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ch-visa-photo": {
       "slug": "ch-visa-photo",
@@ -7860,7 +8105,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ch-id-photo": {
       "slug": "ch-id-photo",
@@ -7892,7 +8138,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ch-driving-photo": {
       "slug": "ch-driving-photo",
@@ -7924,7 +8171,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "se-visa-photo": {
       "slug": "se-visa-photo",
@@ -7956,7 +8204,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "se-id-photo": {
       "slug": "se-id-photo",
@@ -7988,7 +8237,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "se-driving-photo": {
       "slug": "se-driving-photo",
@@ -8020,7 +8270,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "no-visa-photo": {
       "slug": "no-visa-photo",
@@ -8052,7 +8303,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "no-id-photo": {
       "slug": "no-id-photo",
@@ -8084,7 +8336,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "no-driving-photo": {
       "slug": "no-driving-photo",
@@ -8116,7 +8369,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "dk-visa-photo": {
       "slug": "dk-visa-photo",
@@ -8148,7 +8402,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "dk-id-photo": {
       "slug": "dk-id-photo",
@@ -8180,7 +8435,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "dk-driving-photo": {
       "slug": "dk-driving-photo",
@@ -8212,7 +8468,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "fi-visa-photo": {
       "slug": "fi-visa-photo",
@@ -8244,7 +8501,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "fi-id-photo": {
       "slug": "fi-id-photo",
@@ -8276,7 +8534,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "fi-driving-photo": {
       "slug": "fi-driving-photo",
@@ -8308,7 +8567,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ie-id-photo": {
       "slug": "ie-id-photo",
@@ -8340,7 +8600,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ie-driving-photo": {
       "slug": "ie-driving-photo",
@@ -8372,7 +8633,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "at-visa-photo": {
       "slug": "at-visa-photo",
@@ -8404,7 +8666,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "at-id-photo": {
       "slug": "at-id-photo",
@@ -8436,7 +8699,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "at-driving-photo": {
       "slug": "at-driving-photo",
@@ -8468,7 +8732,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "be-visa-photo": {
       "slug": "be-visa-photo",
@@ -8500,7 +8765,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "be-id-photo": {
       "slug": "be-id-photo",
@@ -8532,7 +8798,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "be-driving-photo": {
       "slug": "be-driving-photo",
@@ -8564,7 +8831,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "pl-visa-photo": {
       "slug": "pl-visa-photo",
@@ -8596,7 +8864,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "pl-id-photo": {
       "slug": "pl-id-photo",
@@ -8628,7 +8897,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "pl-driving-photo": {
       "slug": "pl-driving-photo",
@@ -8660,7 +8930,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "pt-visa-photo": {
       "slug": "pt-visa-photo",
@@ -8692,7 +8963,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "pt-id-photo": {
       "slug": "pt-id-photo",
@@ -8724,7 +8996,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "pt-driving-photo": {
       "slug": "pt-driving-photo",
@@ -8756,7 +9029,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "cz-visa-photo": {
       "slug": "cz-visa-photo",
@@ -8788,7 +9062,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "cz-id-photo": {
       "slug": "cz-id-photo",
@@ -8820,7 +9095,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "cz-driving-photo": {
       "slug": "cz-driving-photo",
@@ -8852,7 +9128,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "gr-visa-photo": {
       "slug": "gr-visa-photo",
@@ -8884,7 +9161,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "gr-id-photo": {
       "slug": "gr-id-photo",
@@ -8916,7 +9194,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "gr-driving-photo": {
       "slug": "gr-driving-photo",
@@ -8948,7 +9227,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ru-visa-photo": {
       "slug": "ru-visa-photo",
@@ -8980,7 +9260,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ru-id-photo": {
       "slug": "ru-id-photo",
@@ -9012,7 +9293,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ru-driving-photo": {
       "slug": "ru-driving-photo",
@@ -9044,7 +9326,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "kr-visa-photo": {
       "slug": "kr-visa-photo",
@@ -9076,7 +9359,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "kr-id-photo": {
       "slug": "kr-id-photo",
@@ -9108,7 +9392,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "kr-driving-photo": {
       "slug": "kr-driving-photo",
@@ -9140,7 +9425,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "mx-visa-photo": {
       "slug": "mx-visa-photo",
@@ -9172,7 +9458,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "mx-id-photo": {
       "slug": "mx-id-photo",
@@ -9204,7 +9491,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "mx-driving-photo": {
       "slug": "mx-driving-photo",
@@ -9236,7 +9524,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ar-visa-photo": {
       "slug": "ar-visa-photo",
@@ -9268,7 +9557,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ar-id-photo": {
       "slug": "ar-id-photo",
@@ -9300,7 +9590,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ar-driving-photo": {
       "slug": "ar-driving-photo",
@@ -9332,7 +9623,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "za-visa-photo": {
       "slug": "za-visa-photo",
@@ -9364,7 +9656,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "za-id-photo": {
       "slug": "za-id-photo",
@@ -9396,7 +9689,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "za-driving-photo": {
       "slug": "za-driving-photo",
@@ -9428,7 +9722,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ng-visa-photo": {
       "slug": "ng-visa-photo",
@@ -9460,7 +9755,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ng-id-photo": {
       "slug": "ng-id-photo",
@@ -9492,7 +9788,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ng-driving-photo": {
       "slug": "ng-driving-photo",
@@ -9524,7 +9821,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "eg-visa-photo": {
       "slug": "eg-visa-photo",
@@ -9556,7 +9854,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "eg-id-photo": {
       "slug": "eg-id-photo",
@@ -9588,7 +9887,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "eg-driving-photo": {
       "slug": "eg-driving-photo",
@@ -9620,7 +9920,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "tr-visa-photo": {
       "slug": "tr-visa-photo",
@@ -9652,7 +9953,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "tr-id-photo": {
       "slug": "tr-id-photo",
@@ -9684,7 +9986,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "tr-driving-photo": {
       "slug": "tr-driving-photo",
@@ -9716,7 +10019,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "sa-visa-photo": {
       "slug": "sa-visa-photo",
@@ -9748,7 +10052,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "sa-id-photo": {
       "slug": "sa-id-photo",
@@ -9780,7 +10085,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "sa-driving-photo": {
       "slug": "sa-driving-photo",
@@ -9812,7 +10118,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ae-visa-photo": {
       "slug": "ae-visa-photo",
@@ -9844,7 +10151,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ae-id-photo": {
       "slug": "ae-id-photo",
@@ -9876,7 +10184,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "ae-driving-photo": {
       "slug": "ae-driving-photo",
@@ -9908,7 +10217,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "sg-visa-photo": {
       "slug": "sg-visa-photo",
@@ -9940,7 +10250,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "sg-id-photo": {
       "slug": "sg-id-photo",
@@ -9972,7 +10283,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "sg-driving-photo": {
       "slug": "sg-driving-photo",
@@ -10004,7 +10316,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "my-visa-photo": {
       "slug": "my-visa-photo",
@@ -10036,7 +10349,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "my-id-photo": {
       "slug": "my-id-photo",
@@ -10068,7 +10382,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "my-driving-photo": {
       "slug": "my-driving-photo",
@@ -10100,7 +10415,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "th-visa-photo": {
       "slug": "th-visa-photo",
@@ -10132,7 +10448,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "th-id-photo": {
       "slug": "th-id-photo",
@@ -10164,7 +10481,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "th-driving-photo": {
       "slug": "th-driving-photo",
@@ -10196,7 +10514,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "nz-visa-photo": {
       "slug": "nz-visa-photo",
@@ -10228,7 +10547,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "nz-id-photo": {
       "slug": "nz-id-photo",
@@ -10260,7 +10580,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "nz-driving-photo": {
       "slug": "nz-driving-photo",
@@ -10292,7 +10613,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "hk-visa-photo": {
       "slug": "hk-visa-photo",
@@ -10324,7 +10646,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "hk-id-photo": {
       "slug": "hk-id-photo",
@@ -10356,7 +10679,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "hk-driving-photo": {
       "slug": "hk-driving-photo",
@@ -10388,7 +10712,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "tw-visa-photo": {
       "slug": "tw-visa-photo",
@@ -10420,7 +10745,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "tw-id-photo": {
       "slug": "tw-id-photo",
@@ -10452,7 +10778,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     },
     "tw-driving-photo": {
       "slug": "tw-driving-photo",
@@ -10484,7 +10811,8 @@
       "color": "In color",
       "attire": "Casual; no uniforms",
       "printable": true,
-      "onlineSubmission": true
+      "onlineSubmission": true,
+      "verified": true
     }
   },
   "categories": [
