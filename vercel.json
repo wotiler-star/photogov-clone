@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nuxt",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "outputDirectory": ".output",
+  "nodeVersion": "22.x"
+}

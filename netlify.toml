@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = ".output"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Nuxt 3 is auto-detected by Netlify and served as a serverless function
+# (nitro `netlify` preset). No extra adapter install is required.

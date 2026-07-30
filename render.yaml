@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: photogov-clone
+    runtime: image
+    dockerfilePath: ./Dockerfile
+    plan: starter
+    healthCheckPath: /
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 3000
+      - key: NODE_ENV
+        value: production
