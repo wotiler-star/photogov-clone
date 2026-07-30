@@ -141,6 +141,124 @@
       "cover": "🌍",
       "accent": "#315FB6",
       "body": "\n<p>ID and document photos come in a surprising variety of sizes. Here are the formats you'll meet most often.</p>\n<h2>35×45 mm — Europe &amp; many others</h2>\n<p>The European standard used for passports, IDs and residence permits across the EU, UK, and much of Asia and Africa.</p>\n<h2>2×2 inch (51×51 mm) — United States</h2>\n<p>Used for US passports, many US visas and the DV Lottery (600×600 px).</p>\n<h2>33×45 mm — parts of Asia</h2>\n<p>Several Asian countries (e.g. some visa types in China, India) use this near-square format.</p>\n<h2>25×30 mm / 35×35 mm — small IDs</h2>\n<p>Found on some national ID cards and permits. PhotoGov stores each document's exact size, so you never have to memorize them — just pick the document.</p>\n"
+    },
+    {
+      "slug": "crop-photo-to-passport-size",
+      "title": "How to Crop a Photo to Passport Size (No Photoshop)",
+      "excerpt": "You don't need expensive software. A step-by-step way to get the exact crop for any document using free tools.",
+      "category": "Tips",
+      "date": "2026-01-26",
+      "author": "PhotoGov Team",
+      "readTime": "5 min read",
+      "tags": [
+        "tips",
+        "crop",
+        "how-to"
+      ],
+      "cover": "✂️",
+      "accent": "#2BB673",
+      "body": "\n<p>Getting the right crop is the part most people struggle with. Here's how to do it without Photoshop.</p>\n<h2>Why crop matters</h2>\n<p>Authorities check that your face takes up the correct proportion of the frame. Too much headroom or a head that's too small is a common rejection cause.</p>\n<h2>The easy method</h2>\n<ol>\n<li>Open your photo in PhotoGov and pick the document you need.</li>\n<li>Use the Zoom and drag controls to position your face — the editor guides head height and eye level.</li>\n<li>We output the exact pixel dimensions (e.g. 600×600 for the US) automatically.</li>\n</ol>\n<h2>If you must crop manually</h2>\n<p>Set the canvas to the official width/height in millimetres at 300 DPI, center the head, and keep the eyes around 55–70% from the top. Then export as JPG.</p>\n<p>Our <a href='/documents'>document library</a> already knows every size, so manual maths isn't needed.</p>\n"
+    },
+    {
+      "slug": "schengen-visa-photo-requirements",
+      "title": "Schengen Visa Photo Requirements: 35×45 mm Rules",
+      "excerpt": "Applying for a visa to Europe? The Schengen photo has strict 35×45 mm specs and a neutral-expression rule.",
+      "category": "Guides",
+      "date": "2026-01-24",
+      "author": "PhotoGov Team",
+      "readTime": "5 min read",
+      "tags": [
+        "visa",
+        "Schengen",
+        "Europe"
+      ],
+      "cover": "🇪🇺",
+      "accent": "#2B72E0",
+      "body": "\n<p>A Schengen visa covers most of the European Union and several neighbouring countries. The photo rules are standardized across member states.</p>\n<h2>Size</h2>\n<p>The photo must be <strong>35×45 mm</strong>, with the head height between <strong>32 mm and 36 mm</strong>. Digitally, sizes vary by DPI but 413×531 px at 300 DPI is common.</p>\n<h2>What they check</h2>\n<ul>\n<li>Neutral expression, mouth closed, both eyes visible and open.</li>\n<li>Plain light-grey or white background, no shadows.</li>\n<li>Head centered, facing the camera directly.</li>\n<li>No headwear unless for religious reasons.</li>\n</ul>\n<h2>Tip</h2>\n<p>Use the <a href='/document/zz-5x5-photo'>generic 35×45 mm template</a> as a starting point, then switch to the specific country if it differs.</p>\n"
+    },
+    {
+      "slug": "india-passport-photo-rules",
+      "title": "India Passport Photo Rules (35×45 mm)",
+      "excerpt": "Indian passport and visa photos follow a 35×45 mm format with specific face-position and background requirements.",
+      "category": "Country Spotlight",
+      "date": "2026-01-20",
+      "author": "PhotoGov Team",
+      "readTime": "4 min read",
+      "tags": [
+        "passport",
+        "India",
+        "Asia"
+      ],
+      "cover": "🇮🇳",
+      "accent": "#315FB6",
+      "body": "\n<p>Indian passport and most visa photos use the <strong>35×45 mm</strong> format, in line with ICAO standards.</p>\n<h2>Key rules</h2>\n<ul>\n<li>White background only — no patterns or shadows.</li>\n<li>Front-facing, neutral expression, eyes open.</li>\n<li>The face should occupy about 70–80% of the photo height.</li>\n<li>Both ears visible where possible; religious head coverings allowed if they don't obscure the face.</li>\n</ul>\n<h2>Digital submission</h2>\n<p>Online applications (e.g. the passport Seva portal) require a JPEG under ~50 KB with the specified dimensions. Generate it with PhotoGov, then compress if needed.</p>\n"
+    },
+    {
+      "slug": "digital-vs-printed-passport-photos",
+      "title": "Digital vs Printed Passport Photos: Which Do You Need?",
+      "excerpt": "Online forms want a file; embassies and labs want paper. Here's how to tell which to prepare.",
+      "category": "Tips",
+      "date": "2026-01-16",
+      "author": "PhotoGov Team",
+      "readTime": "4 min read",
+      "tags": [
+        "tips",
+        "digital",
+        "print"
+      ],
+      "cover": "🖨️",
+      "accent": "#2BB673",
+      "body": "\n<p>Knowing the difference saves a trip to the print shop.</p>\n<h2>Digital photo</h2>\n<p>Used for online applications (US DS-160, UK online, DV Lottery, India Seva). Requirements: exact pixel size, file format (usually JPG), and a file-size limit. No printing needed.</p>\n<h2>Printed photo</h2>\n<p>Used when mailing an application or handing it in person. You need a physical print at the official dimensions on matte photo paper.</p>\n<h2>Best of both</h2>\n<p>PhotoGov lets you export the same compliant image as JPG (digital) and PDF (print) — generate once, use either way.</p>\n"
+    },
+    {
+      "slug": "photogov-vs-photo-booth",
+      "title": "PhotoGov vs the Photo Booth: Save Time and Money",
+      "excerpt": "A quick comparison of doing it yourself online versus the mall photo booth — and when each makes sense.",
+      "category": "Guides",
+      "date": "2026-01-14",
+      "author": "PhotoGov Team",
+      "readTime": "4 min read",
+      "tags": [
+        "comparison",
+        "tips"
+      ],
+      "cover": "🆚",
+      "accent": "#2B72E0",
+      "body": "\n<p>Both get you a photo — but the experience differs.</p>\n<h2>Photo booth</h2>\n<ul>\n<li>Costs money per set, often $10–$15.</li>\n<li>Fixed background and size; hard to retake if you blink.</li>\n<li>Requires a trip and exact change or a card.</li>\n</ul>\n<h2>PhotoGov</h2>\n<ul>\n<li>Free to make and download.</li>\n<li>Retry as many times as you like from home.</li>\n<li>Switch between 190+ document sizes in one place.</li>\n</ul>\n<h2>When a booth still helps</h2>\n<p>If you need a guaranteed physical print immediately and have no printer, a booth or pharmacy is convenient. Otherwise, do it online first.</p>\n"
+    },
+    {
+      "slug": "china-passport-photo-requirements",
+      "title": "China Passport Photo Requirements",
+      "excerpt": "Chinese passport and visa photos use a 33×48 mm format with strict background and pose rules.",
+      "category": "Country Spotlight",
+      "date": "2026-01-10",
+      "author": "PhotoGov Team",
+      "readTime": "4 min read",
+      "tags": [
+        "passport",
+        "China",
+        "Asia"
+      ],
+      "cover": "🇨🇳",
+      "accent": "#315FB6",
+      "body": "\n<p>Chinese passport and many Chinese visa photos use a <strong>33×48 mm</strong> format — slightly taller than the European 35×45 mm.</p>\n<h2>Rules</h2>\n<ul>\n<li>Plain white or light-blue background (specific to the application).</li>\n<li>Recent photo, taken within 6 months.</li>\n<li>Front view, neutral expression, no hat or head covering (except religious).</li>\n<li>Head height 28–33 mm within the 48 mm frame.</li>\n</ul>\n<h2>Digital specs</h2>\n<p>Online applications often require a 354×472 px (or similar) JPEG under a small file-size limit. PhotoGov exports at the exact dimensions so you can resize for the portal.</p>\n"
+    },
+    {
+      "slug": "ai-background-removal-launch",
+      "title": "New: One-Click AI Background Removal",
+      "excerpt": "Our editor can now separate you from any background and drop in a compliant plain color automatically.",
+      "category": "News",
+      "date": "2026-01-28",
+      "author": "PhotoGov Team",
+      "readTime": "3 min read",
+      "tags": [
+        "product",
+        "feature",
+        "AI"
+      ],
+      "cover": "✨",
+      "accent": "#E5484D",
+      "body": "\n<p>We've added AI background removal to the PhotoGov editor. If your photo was taken against a busy wall, the tool separates you from the background and lets you apply a plain white, blue or custom color in one tap.</p>\n<h2>How it works</h2>\n<p>The model runs on-device from a CDN; if it can't load, the tool falls back to the manual white/blue/grey/custom background options so you're never stuck.</p>\n<h2>Try it</h2>\n<p>Open any document in the <a href='/documents'>tool</a>, upload a photo, and choose “AI Remove” under Background.</p>\n"
     }
   ]
 }
