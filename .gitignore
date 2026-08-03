@@ -23,3 +23,6 @@ yarn-error.log*
 
 # Backup of old static clone (reference only)
 _static_backup
+
+# generated transfer bundle (not source)
+photogov-i18n.bundle
