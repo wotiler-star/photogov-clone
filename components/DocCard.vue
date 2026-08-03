@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { PhotoDoc } from '~/composables/useData'
+import { useData } from '~/composables/useData'
 defineProps<{ doc: PhotoDoc; flag?: string }>()
+const { countryName } = useData()
 </script>
 
 <template>
@@ -14,7 +16,7 @@ defineProps<{ doc: PhotoDoc; flag?: string }>()
     <div class="min-w-0">
       <p class="truncate text-sm font-semibold text-ink">{{ doc.name }}</p>
       <p class="truncate text-xs text-muted">
-        {{ doc.size.inch }} in · {{ doc.size.mm }} mm · {{ doc.countryName }}
+        {{ doc.size.inch }} in · {{ doc.size.mm }} mm · {{ countryName(doc.country) }}
       </p>
     </div>
     <span

@@ -9,7 +9,7 @@ import { useData } from '~/composables/useData'
 
 const route = useRoute()
 const slug = computed(() => route.params.slug as string)
-const { getDocument, documents, countriesByCode } = useData()
+const { getDocument, documents, countriesByCode, countryName } = useData()
 const doc = computed(() => getDocument(slug.value))
 const url = useRequestURL()
 
@@ -138,7 +138,7 @@ const reqs = computed(() => {
       <nav class="text-sm text-muted">
         <NuxtLink to="/documents" class="hover:text-brand-blue">{{ $t('doc.eyebrow') }}</NuxtLink>
         <span class="mx-1">/</span>
-        <span>{{ flagFor(doc.country) }} {{ doc.countryName }}</span>
+        <span>{{ flagFor(doc.country) }} {{ countryName(doc.country) }}</span>
         <span class="mx-1">/</span>
         <span class="text-ink">{{ doc.name }}</span>
       </nav>
@@ -160,7 +160,7 @@ const reqs = computed(() => {
             </span>
           </div>
           <p class="mt-2 text-muted">
-            {{ $t('doc.intro', { country: doc.countryName, name: doc.name, year: doc.year }) }}
+            {{ $t('doc.intro', { country: countryName(doc.country), name: doc.name, year: doc.year }) }}
           </p>
 
           <!-- 规格图 -->

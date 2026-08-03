@@ -16,7 +16,8 @@ const {
   documents,
   documentsForCountry,
   popularDocuments,
-  getDocument
+  getDocument,
+  countryName
 } = useData()
 const { code: countryCode, setCode } = useCountry()
 
@@ -624,7 +625,7 @@ function changeCountry(c: string) {
 
         <p v-if="note" class="text-xs text-accent-green">{{ note }}</p>
         <p v-if="selDoc" class="text-[11px] leading-relaxed text-muted">
-          {{ selDoc.size.inch }} in · {{ selDoc.dpi }} dpi · {{ selDoc.format }} · {{ selDoc.countryName }}
+          {{ selDoc.size.inch }} in · {{ selDoc.dpi }} dpi · {{ selDoc.format }} · {{ countryName(selDoc.country) }}
         </p>
       </div>
     </div>

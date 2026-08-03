@@ -39,6 +39,7 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
         <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6" />
         <path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18" stroke="currentColor" stroke-width="1.6" />
       </svg>
+      <span class="text-base leading-none">{{ current?.flag }}</span>
       <span class="text-sm font-medium">{{ current?.name }}</span>
       <svg width="11" height="11" viewBox="0 0 12 12" class="opacity-70">
         <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" />
@@ -58,7 +59,10 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
           :class="l.code === locale ? 'font-semibold text-brand-blue' : ''"
           @click="pick(l.code)"
         >
-          <span>{{ l.name }}</span>
+          <span class="flex items-center gap-2">
+            <span class="text-base leading-none">{{ l.flag }}</span>
+            <span>{{ l.name }}</span>
+          </span>
           <svg v-if="l.code === locale" width="14" height="14" viewBox="0 0 20 20" fill="currentColor" class="text-brand-blue">
             <path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0l-3.5-3.5a1 1 0 011.4-1.4l2.8 2.8 6.8-6.8a1 1 0 011.4 0z" clip-rule="evenodd" />
           </svg>

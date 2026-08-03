@@ -4,7 +4,7 @@ import { useData } from '~/composables/useData'
 import { useCountry } from '~/composables/useCountry'
 import LanguageSwitcher from '~/components/LanguageSwitcher.vue'
 
-const { countries } = useData()
+const { countries, countryName } = useData()
 const { code, setCode } = useCountry()
 
 const open = ref(false)
@@ -19,7 +19,10 @@ const filtered = computed(() => {
   const q = query.value.trim().toLowerCase()
   if (!q) return countries
   return countries.filter(
-    (c) => c.name.toLowerCase().includes(q) || c.code.toLowerCase() === q
+    (c) =>
+      c.name.toLowerCase().includes(q) ||
+      c.code.toLowerCase() === q ||
+      countryName(c.code).toLowerCase().includes(q)
   )
 })
 
@@ -58,7 +61,7 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
             @click="open = !open"
           >
             <span class="text-base leading-none">{{ current.flag }}</span>
-            <span class="font-medium">{{ current.name }}</span>
+            <span class="font-medium">{{ countryName(current.code) }}</span>
             <svg width="12" height="12" viewBox="0 0 12 12" class="opacity-70">
               <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" />
             </svg>
@@ -94,7 +97,7 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
                 @click="select(c.code)"
               >
                 <span class="text-base leading-none">{{ c.flag }}</span>
-                <span class="truncate">{{ c.name }}</span>
+                <span class="truncate">{{ countryName(c.code) }}</span>
               </button>
             </div>
           </div>

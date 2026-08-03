@@ -1,6 +1,6 @@
 {
   "nav": {
-    "dvLottery": "DV Lottery",
+    "dvLottery": "Lotería DV",
     "documents": "Documentos",
     "passports": "Pasaportes",
     "visas": "Visas",
@@ -234,7 +234,7 @@
     "noteSheetDone": "Hoja de impresión ({count} copias) descargada como PDF."
   },
   "dv": {
-    "eyebrow": "Diversity Visa",
+    "eyebrow": "Visa de Diversidad",
     "title": "Herramienta de foto DV Lottery",
     "sub": "Crea una foto que cumple las reglas de la lotería de la Visa de Diversidad de EE. UU. (green card): 2×2 pulgadas, 600×600 píxeles, fondo blanco liso, cabeza centrada.",
     "rulesTitle": "Reglas de foto DV Lottery",

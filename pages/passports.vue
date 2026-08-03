@@ -3,13 +3,13 @@ import { useI18n } from 'vue-i18n'
 import DocCard from '~/components/DocCard.vue'
 import { useData } from '~/composables/useData'
 
-const { documents, categories, categoryLabels, countriesByCode, filterByCategory } = useData()
+const { documents, categories, categoryLabels, countriesByCode, filterByCategory, countryName } = useData()
 const { t } = useI18n()
 const list = filterByCategory('passport')
 const grouped: Record<string, typeof documents> = {}
 for (const d of list) (grouped[d.country] ||= []).push(d)
 const flagFor = (c: string) => countriesByCode[c]?.flag || '📄'
-const nameFor = (c: string) => countriesByCode[c]?.name || c
+const nameFor = (c: string) => countryName(c)
 const countryCount = Object.keys(grouped).length
 </script>
 

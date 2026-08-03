@@ -22,10 +22,10 @@ export default defineNuxtConfig({
       redirectOn: 'root'
     },
     locales: [
-      { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
-      { code: 'zh', language: 'zh-CN', name: '中文', file: 'zh.json' },
-      { code: 'es', language: 'es-ES', name: 'Español', file: 'es.json' },
-      { code: 'fr', language: 'fr-FR', name: 'Français', file: 'fr.json' }
+      { code: 'en', language: 'en-US', name: 'English', flag: '🇺🇸', file: 'en.json' },
+      { code: 'zh', language: 'zh-CN', name: '中文', flag: '🇨🇳', file: 'zh.json' },
+      { code: 'es', language: 'es-ES', name: 'Español', flag: '🇪🇸', file: 'es.json' },
+      { code: 'fr', language: 'fr-FR', name: 'Français', flag: '🇫🇷', file: 'fr.json' }
     ]
   },
 

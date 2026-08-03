@@ -7,7 +7,7 @@ import { useCountry } from '~/composables/useCountry'
 
 const route = useRoute()
 const router = useRouter()
-const { documents, categories, categoryLabels, countriesByCode, searchDocuments, filterByCategory, groupedByCountry } = useData()
+const { documents, categories, categoryLabels, countriesByCode, searchDocuments, filterByCategory, groupedByCountry, countryName } = useData()
 const { setCode } = useCountry()
 
 const query = ref((route.query.q as string) || '')
@@ -43,7 +43,7 @@ const grouped = computed(() => {
 })
 
 const flagFor = (code: string) => countriesByCode[code]?.flag || '📄'
-const nameFor = (code: string) => countriesByCode[code]?.name || code
+const nameFor = (code: string) => countryName(code)
 
 function onCountryChange(e: Event) {
   const v = (e.target as HTMLSelectElement).value
@@ -92,7 +92,7 @@ watch([query, category], updateRoute)
         </select>
         <select :value="country" @change="onCountryChange" class="rounded-full border border-slate-300 px-4 py-2.5 text-sm">
           <option value="">{{ $t('documents.countryAll') }}</option>
-          <option v-for="(name, code) in countriesByCode" :key="code" :value="code">{{ name.flag }} {{ name.name }}</option>
+          <option v-for="(name, code) in countriesByCode" :key="code" :value="code">{{ name.flag }} {{ countryName(code) }}</option>
         </select>
         <button
           type="button"

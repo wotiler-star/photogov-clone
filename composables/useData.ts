@@ -1,3 +1,5 @@
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import countriesRaw from '~/data/countries.json'
 import documentsRaw from '~/data/documents.json'
 import faqRaw from '~/data/faq.json'
@@ -133,6 +135,26 @@ export const useData = () => {
     return [...sameCat, ...others].slice(0, n)
   }
 
+  // ---- Localized country name (SSR-safe via Intl.DisplayNames) ----
+  const { locale } = useI18n()
+  const countryNameFmt = computed(() => {
+    try {
+      return new Intl.DisplayNames([locale.value], { type: 'region' })
+    } catch {
+      return null
+    }
+  })
+  const countryName = (code: string): string => {
+    const raw = countriesByCode[code]?.name || code
+    const fmt = countryNameFmt.value
+    if (!fmt) return raw
+    try {
+      return fmt.of(code) || raw
+    } catch {
+      return raw
+    }
+  }
+
   return {
     countries,
     countriesByCode,
@@ -147,6 +169,7 @@ export const useData = () => {
     searchDocuments,
     filterByCategory,
     groupedByCountry,
+    countryName,
     faqCategories,
     faqItems,
     blogPosts,
