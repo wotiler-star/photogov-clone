@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, watch, onMounted, nextTick } from 'vue'
+import { ref, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useData, type PhotoDoc } from '~/composables/useData'
 import { useCountry } from '~/composables/useCountry'
@@ -52,7 +52,7 @@ watch(
 
 // ---- 工具状态 ----
 const canvasRef = ref<HTMLCanvasElement | null>(null)
-const sourceImg = ref<HTMLImageElement | null>(null)
+const sourceImg = ref<HTMLImageElement | HTMLCanvasElement | null>(null)
 const aiImg = ref<HTMLCanvasElement | null>(null) // AI 抠图后的合成图
 const scale = ref(1)
 const offsetX = ref(0)
@@ -64,6 +64,10 @@ const bgMode = ref<'white' | 'blue' | 'grey' | 'keep' | 'ai' | 'custom'>('white'
 const customColor = ref('#FFFFFF')
 const fileName = ref('')
 const isProcessing = ref(false)
+const isReading = ref(false)
+const dragOver = ref(false)
+let dragDepth = 0
+const MAX_UPLOAD_SIZE = 25 * 1024 * 1024
 const note = ref('')
 const aiReady = ref(false)
 
@@ -86,22 +90,49 @@ const previewStyle = computed(() => {
 })
 
 function loadFile(file: File) {
-  if (!file || !file.type.startsWith('image/')) {
+  if (!file) return
+  if (!file.type.startsWith('image/')) {
     note.value = t('tool.notePleaseImage')
     return
   }
+  if (file.size > MAX_UPLOAD_SIZE) {
+    note.value = t('tool.noteTooLarge')
+    return
+  }
   fileName.value = file.name.replace(/\.[^.]+$/, '')
+  isReading.value = true
+  note.value = t('tool.noteReading')
   const reader = new FileReader()
+  reader.onerror = () => {
+    isReading.value = false
+    note.value = t('tool.notePleaseImage')
+  }
   reader.onload = () => {
     const img = new Image()
     img.onload = () => {
-      sourceImg.value = img
+      // 超大图降采样，避免内存/绘制性能问题（输出仅需数百像素）
+      const maxSide = 2400
+      let src: HTMLImageElement | HTMLCanvasElement = img
+      if (img.naturalWidth > maxSide || img.naturalHeight > maxSide) {
+        const f = maxSide / Math.max(img.naturalWidth, img.naturalHeight)
+        const c = document.createElement('canvas')
+        c.width = Math.max(1, Math.round(img.naturalWidth * f))
+        c.height = Math.max(1, Math.round(img.naturalHeight * f))
+        c.getContext('2d')!.drawImage(img, 0, 0, c.width, c.height)
+        src = c
+      }
+      sourceImg.value = src
       aiImg.value = null
       aiReady.value = false
       bgMode.value = defaultBg(selDoc.value?.background)
       resetTransforms()
+      isReading.value = false
       note.value = ''
       nextTick(draw)
+    }
+    img.onerror = () => {
+      isReading.value = false
+      note.value = t('tool.notePleaseImage')
     }
     img.src = reader.result as string
   }
@@ -122,10 +153,40 @@ function onFileInput(e: Event) {
   if (f) loadFile(f)
 }
 
+function onDragEnter(e: DragEvent) {
+  e.preventDefault()
+  dragDepth++
+  dragOver.value = true
+}
+function onDragLeave(e: DragEvent) {
+  e.preventDefault()
+  dragDepth = Math.max(0, dragDepth - 1)
+  if (dragDepth === 0) dragOver.value = false
+}
 function onDrop(e: DragEvent) {
   e.preventDefault()
+  dragDepth = 0
+  dragOver.value = false
   const f = e.dataTransfer?.files?.[0]
   if (f) loadFile(f)
+}
+
+// 从剪贴板粘贴图片（忽略输入框内的粘贴）
+function onPaste(e: ClipboardEvent) {
+  const tgt = e.target as HTMLElement | null
+  if (tgt && (tgt.tagName === 'INPUT' || tgt.tagName === 'TEXTAREA' || tgt.isContentEditable)) return
+  const items = e.clipboardData?.items
+  if (!items) return
+  for (const it of Array.from(items)) {
+    if (it.type.startsWith('image/')) {
+      const f = it.getAsFile()
+      if (f) {
+        e.preventDefault()
+        loadFile(f)
+        break
+      }
+    }
+  }
 }
 
 // ---- 拖拽平移 ----
@@ -224,6 +285,10 @@ watch(selDoc, () => {
 onMounted(() => {
   syncCanvasSize()
   draw()
+  document.addEventListener('paste', onPaste)
+})
+onBeforeUnmount(() => {
+  document.removeEventListener('paste', onPaste)
 })
 
 // 当证件切换导致画布尺寸变化时同步
@@ -494,12 +559,15 @@ function changeCountry(c: string) {
       <!-- 预览区 -->
       <div class="flex flex-col items-center justify-center gap-4 border-b border-slate-200 bg-slate-50 p-6 md:border-b-0 md:border-r">
         <div
-          class="relative cursor-grab touch-none select-none rounded-lg bg-white shadow-soft ring-1 ring-slate-200 active:cursor-grabbing"
+          class="relative cursor-grab touch-none select-none rounded-lg bg-white shadow-soft ring-1 ring-slate-200 transition active:cursor-grabbing"
+          :class="dragOver ? 'ring-2 ring-brand-blue bg-brand-blue/5' : ''"
           :style="previewStyle"
           @pointerdown="onPointerDown"
           @pointermove="onPointerMove"
           @pointerup="onPointerUp"
           @pointerleave="onPointerUp"
+          @dragenter.prevent="onDragEnter"
+          @dragleave.prevent="onDragLeave"
           @dragover.prevent
           @drop="onDrop"
         >
@@ -521,9 +589,24 @@ function changeCountry(c: string) {
               {{ $t('tool.dropHint') }}
             </div>
           </div>
+          <div
+            v-if="isReading"
+            class="absolute inset-0 grid place-items-center rounded-lg bg-white/70"
+          >
+            <span class="flex items-center gap-2 text-sm font-medium text-brand-blue">
+              <svg class="h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="3" class="opacity-25"/>
+                <path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+              {{ $t('tool.noteReading') }}
+            </span>
+          </div>
         </div>
         <p class="text-xs text-muted">
           {{ $t('tool.dragHint') }}
+        </p>
+        <p class="text-[11px] text-muted">
+          {{ $t('tool.pasteHint') }}
         </p>
       </div>
 
