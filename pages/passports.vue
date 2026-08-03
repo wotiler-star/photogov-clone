@@ -1,22 +1,25 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import DocCard from '~/components/DocCard.vue'
 import { useData } from '~/composables/useData'
 
 const { documents, categories, categoryLabels, countriesByCode, filterByCategory } = useData()
+const { t } = useI18n()
 const list = filterByCategory('passport')
 const grouped: Record<string, typeof documents> = {}
 for (const d of list) (grouped[d.country] ||= []).push(d)
 const flagFor = (c: string) => countriesByCode[c]?.flag || '📄'
 const nameFor = (c: string) => countriesByCode[c]?.name || c
+const countryCount = Object.keys(grouped).length
 </script>
 
 <template>
   <div class="bg-slate-50 min-h-[70vh]">
     <div class="container-pg py-10">
-      <span class="eyebrow">Passports</span>
-      <h1 class="mt-2 text-3xl font-bold sm:text-4xl">Passport photo requirements</h1>
+      <span class="eyebrow">{{ $t('nav.passports') }}</span>
+      <h1 class="mt-2 text-3xl font-bold sm:text-4xl">{{ $t('lists.passportTitle') }}</h1>
       <p class="mt-2 max-w-2xl text-muted">
-        Compliant passport photo sizes for {{ Object.keys(grouped).length }} countries. Select yours and make a photo in seconds.
+        {{ $t('lists.passportSub', { count: countryCount }) }}
       </p>
 
       <div class="mt-8 space-y-8">

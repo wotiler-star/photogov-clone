@@ -65,20 +65,19 @@ const trust = [
     <section class="bg-gradient-to-b from-[#eef4ff] to-white">
       <div class="container-pg grid items-center gap-10 py-12 lg:grid-cols-2">
         <div>
-          <span class="eyebrow">Passport · Visa · ID photos</span>
+          <span class="eyebrow">{{ $t('home.heroEyebrow') }}</span>
           <h1 class="mt-3 text-4xl font-bold leading-tight sm:text-5xl">
-            Passport photos<br />that <span class="text-brand-blue">just work</span>.
+            {{ $t('home.heroTitleA') }}<br />{{ $t('home.heroTitleB') }}
           </h1>
           <p class="mt-4 max-w-md text-lg text-muted">
-            Make compliant passport, visa and ID photos online in seconds. Pick your
-            country, upload a selfie, and download a print-ready JPG or PDF.
+            {{ $t('home.heroText') }}
           </p>
           <div class="mt-6 flex flex-wrap gap-3">
-            <a href="#tool" class="btn-primary">Make my photo</a>
-            <NuxtLink to="/documents" class="btn-outline">Browse documents</NuxtLink>
+            <a href="#tool" class="btn-primary">{{ $t('home.makeMyPhoto') }}</a>
+            <NuxtLink to="/documents" class="btn-outline">{{ $t('home.browseDocuments') }}</NuxtLink>
           </div>
           <ul class="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
-            <li v-for="t in trust" :key="t" class="flex items-center gap-1.5">
+            <li v-for="(t, i) in $tm('home.trust')" :key="i" class="flex items-center gap-1.5">
               <span class="text-accent-green">✓</span>{{ t }}
             </li>
           </ul>
@@ -93,12 +92,12 @@ const trust = [
     <!-- STEPS -->
     <section class="container-pg py-14">
       <div class="text-center">
-        <span class="eyebrow">How it works</span>
-        <h2 class="mt-2 text-3xl font-bold">Four steps to a perfect photo</h2>
+        <span class="eyebrow">{{ $t('home.stepsEyebrow') }}</span>
+        <h2 class="mt-2 text-3xl font-bold">{{ $t('home.stepsTitle') }}</h2>
       </div>
       <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <div v-for="s in steps" :key="s.n" class="card-pg p-5">
-          <div class="grid h-10 w-10 place-items-center rounded-full bg-brand-blue text-white font-bold">{{ s.n }}</div>
+        <div v-for="(s, i) in $tm('home.steps')" :key="i" class="card-pg p-5">
+          <div class="grid h-10 w-10 place-items-center rounded-full bg-brand-blue text-white font-bold">{{ i + 1 }}</div>
           <h3 class="mt-3 text-lg font-semibold">{{ s.title }}</h3>
           <p class="mt-1 text-sm text-muted">{{ s.text }}</p>
         </div>
@@ -108,15 +107,15 @@ const trust = [
     <!-- COMPLIANCE STANDARDS -->
     <section class="bg-slate-50 py-14">
       <div class="container-pg">
-        <div class="text-center">
-          <span class="eyebrow">Compliance</span>
-          <h2 class="mt-2 text-3xl font-bold">Built to meet official standards</h2>
+      <div class="text-center">
+        <span class="eyebrow">{{ $t('compliance.eyebrow') }}</span>
+        <h2 class="mt-2 text-3xl font-bold">{{ $t('home.standardsTitle') }}</h2>
           <p class="mx-auto mt-3 max-w-2xl text-muted">
-            Every template follows the exact rules published by passport and visa authorities.
+            {{ $t('home.standardsSub') }}
           </p>
         </div>
         <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <div v-for="st in standards" :key="st.t" class="rounded-2xl border border-slate-200 bg-white p-5">
+          <div v-for="(st, i) in $tm('home.standards')" :key="i" class="rounded-2xl border border-slate-200 bg-white p-5">
             <h3 class="font-semibold">{{ st.t }}</h3>
             <p class="mt-1 text-sm text-muted">{{ st.d }}</p>
           </div>
@@ -128,10 +127,10 @@ const trust = [
     <section class="container-pg py-14">
       <div class="flex items-end justify-between">
         <div>
-          <span class="eyebrow">Popular</span>
-          <h2 class="mt-2 text-3xl font-bold">Most requested documents</h2>
+          <span class="eyebrow">{{ $t('home.popularEyebrow') }}</span>
+          <h2 class="mt-2 text-3xl font-bold">{{ $t('home.popularTitle') }}</h2>
         </div>
-        <NuxtLink to="/documents" class="btn-outline hidden sm:inline-flex">View all</NuxtLink>
+        <NuxtLink to="/documents" class="btn-outline hidden sm:inline-flex">{{ $t('common.viewAll') }}</NuxtLink>
       </div>
       <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <DocCard v-for="d in popular" :key="d.slug" :doc="d" :flag="flagFor(d.country)" />
@@ -141,8 +140,8 @@ const trust = [
     <!-- QUICK LINKS -->
     <section v-if="quick.length" class="bg-slate-50 py-14">
       <div class="container-pg">
-        <span class="eyebrow">Quick links</span>
-        <h2 class="mt-2 text-3xl font-bold">Jump straight to a photo</h2>
+        <span class="eyebrow">{{ $t('home.quickEyebrow') }}</span>
+        <h2 class="mt-2 text-3xl font-bold">{{ $t('home.quickTitle') }}</h2>
         <div class="mt-6 flex flex-wrap gap-3">
           <NuxtLink
             v-for="d in quick"
@@ -159,8 +158,8 @@ const trust = [
     <!-- BROWSE BY TYPE -->
     <section class="container-pg py-14">
       <div class="text-center">
-        <span class="eyebrow">Document types</span>
-        <h2 class="mt-2 text-3xl font-bold">Browse by document type</h2>
+        <span class="eyebrow">{{ $t('home.docTypesEyebrow') }}</span>
+        <h2 class="mt-2 text-3xl font-bold">{{ $t('home.docTypesTitle') }}</h2>
       </div>
       <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <NuxtLink
@@ -182,16 +181,16 @@ const trust = [
     <section class="container-pg py-14">
       <div class="flex items-end justify-between">
         <div>
-          <span class="eyebrow">Blog</span>
-          <h2 class="mt-2 text-3xl font-bold">From the PhotoGov blog</h2>
+          <span class="eyebrow">{{ $t('home.blogEyebrow') }}</span>
+          <h2 class="mt-2 text-3xl font-bold">{{ $t('home.blogTitle') }}</h2>
         </div>
-        <NuxtLink to="/blog" class="btn-outline hidden sm:inline-flex">View all</NuxtLink>
+        <NuxtLink to="/blog" class="btn-outline hidden sm:inline-flex">{{ $t('home.viewAllArticles') }}</NuxtLink>
       </div>
       <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         <BlogCard v-for="p in latestPosts" :key="p.slug" :post="p" />
       </div>
       <div class="mt-6 text-center sm:hidden">
-        <NuxtLink to="/blog" class="btn-outline">View all articles</NuxtLink>
+        <NuxtLink to="/blog" class="btn-outline">{{ $t('home.viewAllArticles') }}</NuxtLink>
       </div>
     </section>
 
@@ -200,10 +199,10 @@ const trust = [
       <div class="card-pg flex flex-col items-center gap-4 bg-slate-50 p-8 text-center sm:flex-row sm:text-left">
         <span class="text-4xl">❓</span>
         <div class="flex-1">
-          <h2 class="text-xl font-bold">Got questions about photo requirements?</h2>
-          <p class="mt-1 text-sm text-muted">Sizes, backgrounds, the tool, downloads and acceptance — answered in our FAQ.</p>
+          <h2 class="text-xl font-bold">{{ $t('home.faqTitle') }}</h2>
+          <p class="mt-1 text-sm text-muted">{{ $t('home.faqText') }}</p>
         </div>
-        <NuxtLink to="/faq" class="btn-primary shrink-0">Read the FAQ</NuxtLink>
+        <NuxtLink to="/faq" class="btn-primary shrink-0">{{ $t('home.readFaq') }}</NuxtLink>
       </div>
     </section>
 
@@ -212,15 +211,15 @@ const trust = [
       <div class="card-pg grid gap-6 p-8 sm:grid-cols-3">
         <div>
           <div class="text-3xl font-bold text-brand-blue">190+</div>
-          <p class="text-sm text-muted">Countries supported</p>
+          <p class="text-sm text-muted">{{ $t('home.statCountries') }}</p>
         </div>
         <div>
           <div class="text-3xl font-bold text-brand-blue">300</div>
-          <p class="text-sm text-muted">DPI print quality</p>
+          <p class="text-sm text-muted">{{ $t('home.statDpi') }}</p>
         </div>
         <div>
           <div class="text-3xl font-bold text-brand-blue">0</div>
-          <p class="text-sm text-muted">Photos stored on our servers</p>
+          <p class="text-sm text-muted">{{ $t('home.statStored') }}</p>
         </div>
       </div>
     </section>
@@ -228,11 +227,11 @@ const trust = [
     <!-- CTA -->
     <section class="bg-header py-14 text-center text-white">
       <div class="container-pg">
-        <h2 class="text-3xl font-bold">Ready to make your photo?</h2>
+        <h2 class="text-3xl font-bold">{{ $t('home.ctaTitle') }}</h2>
         <p class="mx-auto mt-3 max-w-xl text-white/70">
-          It takes less than a minute and it's free. No sign-up required.
+          {{ $t('home.ctaText') }}
         </p>
-        <NuxtLink to="/documents" class="btn-yellow mt-6">Start now</NuxtLink>
+        <NuxtLink to="/documents" class="btn-yellow mt-6">{{ $t('home.startNow') }}</NuxtLink>
       </div>
     </section>
   </div>

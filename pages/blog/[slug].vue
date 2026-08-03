@@ -98,19 +98,19 @@ const rel = computed(() => (post.value ? relatedPosts(post.value.slug, 3) : []))
           <!-- eslint-disable-next-line vue/no-v-html -->
           <div class="mt-5" v-html="post.body"></div>
           <div class="mt-8 rounded-xl bg-slate-50 p-4 text-sm text-muted">
-            <strong class="text-ink">Disclaimer:</strong> PhotoGov is an independent tool and is not affiliated with any government agency. Always confirm the latest rules on the official authority website before submitting.
+            <strong class="text-ink">{{ $t('blog.disclaimerLabel') }}</strong> {{ $t('blog.disclaimer') }}
           </div>
         </article>
 
         <!-- 侧栏 -->
         <aside class="space-y-6 lg:sticky lg:top-24 lg:self-start">
           <div class="card-pg p-5">
-            <h3 class="font-semibold text-ink">Make your photo</h3>
-            <p class="mt-1 text-sm text-muted">Pick your document and download a compliant photo in seconds.</p>
-            <NuxtLink to="/documents" class="btn-primary mt-3 w-full">Browse documents</NuxtLink>
+            <h3 class="font-semibold text-ink">{{ $t('blog.sidebarTitle') }}</h3>
+            <p class="mt-1 text-sm text-muted">{{ $t('blog.sidebarText') }}</p>
+            <NuxtLink to="/documents" class="btn-primary mt-3 w-full">{{ $t('blog.sidebarBtn') }}</NuxtLink>
           </div>
           <div class="card-pg p-5" v-if="rel.length">
-            <h3 class="font-semibold text-ink">Related articles</h3>
+            <h3 class="font-semibold text-ink">{{ $t('blog.relatedTitle') }}</h3>
             <ul class="mt-3 space-y-3">
               <li v-for="r in rel" :key="r.slug">
                 <NuxtLink :to="`/blog/${r.slug}`" class="flex gap-3 group">
@@ -125,7 +125,7 @@ const rel = computed(() => (post.value ? relatedPosts(post.value.slug, 3) : []))
 
       <!-- 相关卡片 -->
       <section v-if="rel.length" class="mt-12">
-        <h2 class="text-2xl font-bold">Keep reading</h2>
+        <h2 class="text-2xl font-bold">{{ $t('blog.keepReading') }}</h2>
         <div class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <BlogCard v-for="r in rel" :key="r.slug" :post="r" />
         </div>
@@ -134,8 +134,8 @@ const rel = computed(() => (post.value ? relatedPosts(post.value.slug, 3) : []))
   </div>
 
   <div v-else class="container-pg py-20 text-center">
-    <h1 class="text-2xl font-bold">Article not found</h1>
-    <NuxtLink to="/blog" class="btn-primary mt-4">Back to blog</NuxtLink>
+    <h1 class="text-2xl font-bold">{{ $t('blog.notFoundTitle') }}</h1>
+    <NuxtLink to="/blog" class="btn-primary mt-4">{{ $t('blog.back') }}</NuxtLink>
   </div>
 </template>
 

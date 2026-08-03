@@ -2,32 +2,32 @@
 const year = new Date().getFullYear()
 const cols = [
   {
-    title: 'Documents',
+    title: 'footer.colDocuments',
     links: [
-      { label: 'All Documents', to: '/documents' },
-      { label: 'Passports', to: '/passports' },
-      { label: 'Visas', to: '/visas' },
-      { label: 'DV Lottery Photo', to: '/dv-lottery' },
-      { label: 'ID Photos', to: '/documents?category=id' }
+      { label: 'footer.links.allDocuments', to: '/documents' },
+      { label: 'footer.links.passports', to: '/passports' },
+      { label: 'footer.links.visas', to: '/visas' },
+      { label: 'footer.links.dvLottery', to: '/dv-lottery' },
+      { label: 'footer.links.idPhotos', to: '/documents?category=id' }
     ]
   },
   {
-    title: 'Company',
+    title: 'footer.colCompany',
     links: [
-      { label: 'About Us', to: '/about' },
-      { label: 'Blog', to: '/blog' },
-      { label: 'FAQ', to: '/faq' },
-      { label: 'Compliance', to: '/compliance' },
-      { label: 'Contact', to: '/contact' },
-      { label: 'Help Center', to: '/help' }
+      { label: 'footer.links.about', to: '/about' },
+      { label: 'footer.links.blog', to: '/blog' },
+      { label: 'footer.links.faq', to: '/faq' },
+      { label: 'footer.links.compliance', to: '/compliance' },
+      { label: 'footer.links.contact', to: '/contact' },
+      { label: 'footer.links.helpCenter', to: '/help' }
     ]
   },
   {
-    title: 'Legal',
+    title: 'footer.colLegal',
     links: [
-      { label: 'Privacy Policy', to: '/privacy' },
-      { label: 'Terms of Service', to: '/terms' },
-      { label: 'Cookie Policy', to: '/cookies' }
+      { label: 'footer.links.privacy', to: '/privacy' },
+      { label: 'footer.links.terms', to: '/terms' },
+      { label: 'footer.links.cookie', to: '/cookies' }
     ]
   }
 ]
@@ -48,22 +48,21 @@ const cols = [
           <span class="font-serif">Photo<span class="text-accent-yellow">Gov</span></span>
         </div>
         <p class="mt-4 max-w-xs text-sm text-white/60">
-          Make compliant passport, visa and ID photos online in seconds. Free,
-          private, and accepted by government agencies worldwide.
+          {{ $t('footer.tagline') }}
         </p>
         <p class="mt-4 text-xs text-white/45">
-          Not affiliated with any government agency.
+          {{ $t('footer.notAffiliated') }}
         </p>
       </div>
 
       <div v-for="col in cols" :key="col.title">
         <h4 class="text-sm font-semibold uppercase tracking-wide text-white">
-          {{ col.title }}
+          {{ $t(col.title) }}
         </h4>
         <ul class="mt-4 space-y-2 text-sm">
           <li v-for="l in col.links" :key="l.to">
             <NuxtLink :to="l.to" class="text-white/65 hover:text-white">
-              {{ l.label }}
+              {{ $t(l.label) }}
             </NuxtLink>
           </li>
         </ul>
@@ -72,8 +71,8 @@ const cols = [
 
     <div class="border-t border-white/10">
       <div class="container-pg flex flex-col items-center justify-between gap-3 py-5 text-xs text-white/50 sm:flex-row">
-        <p>© {{ year }} PhotoGov. A clone demo replicating www.photogov.net.</p>
-        <p>Made with Nuxt 3 · Vue 3 · Tailwind CSS</p>
+        <p>{{ $t('footer.copyright', { year }) }}</p>
+        <p>{{ $t('footer.madeWith') }}</p>
       </div>
     </div>
   </footer>

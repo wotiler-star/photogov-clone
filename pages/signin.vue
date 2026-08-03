@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-useHead({ title: 'Sign In' })
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+useHead({ title: t('signin.signIn') })
 const mode = ref<'signin' | 'signup'>('signin')
 </script>
 
@@ -12,34 +14,34 @@ const mode = ref<'signin' | 'signup'>('signin')
           class="flex-1 rounded-full py-2"
           :class="mode === 'signin' ? 'bg-white shadow-soft text-ink' : 'text-muted'"
           @click="mode = 'signin'"
-        >Sign In</button>
+        >{{ $t('signin.signIn') }}</button>
         <button
           class="flex-1 rounded-full py-2"
           :class="mode === 'signup' ? 'bg-white shadow-soft text-ink' : 'text-muted'"
           @click="mode = 'signup'"
-        >Sign Up</button>
+        >{{ $t('signin.signUp') }}</button>
       </div>
 
       <form class="space-y-4" @submit.prevent>
         <div v-if="mode === 'signup'">
-          <label class="text-sm font-medium">Name</label>
+          <label class="text-sm font-medium">{{ $t('signin.name') }}</label>
           <input class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
         </div>
         <div>
-          <label class="text-sm font-medium">Email</label>
+          <label class="text-sm font-medium">{{ $t('signin.email') }}</label>
           <input type="email" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
         </div>
         <div>
-          <label class="text-sm font-medium">Password</label>
+          <label class="text-sm font-medium">{{ $t('signin.password') }}</label>
           <input type="password" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" />
         </div>
         <button class="btn-primary w-full" type="submit">
-          {{ mode === 'signin' ? 'Sign In' : 'Create account' }}
+          {{ mode === 'signin' ? $t('signin.signIn') : $t('signin.create') }}
         </button>
       </form>
 
       <p class="mt-4 text-center text-xs text-muted">
-        Demo only — no account is created or stored.
+        {{ $t('signin.demo') }}
       </p>
     </div>
   </div>

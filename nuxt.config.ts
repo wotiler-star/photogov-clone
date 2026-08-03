@@ -5,7 +5,29 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   ssr: true,
 
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n'],
+
+  i18n: {
+    defaultLocale: 'en',
+    strategy: 'prefix_except_default',
+    langDir: 'locales',
+    baseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://photogov.net',
+    seo: true,
+    experimental: {
+      strictSeo: true
+    },
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root'
+    },
+    locales: [
+      { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
+      { code: 'zh', language: 'zh-CN', name: '中文', file: 'zh.json' },
+      { code: 'es', language: 'es-ES', name: 'Español', file: 'es.json' },
+      { code: 'fr', language: 'fr-FR', name: 'Français', file: 'fr.json' }
+    ]
+  },
 
   app: {
     head: {

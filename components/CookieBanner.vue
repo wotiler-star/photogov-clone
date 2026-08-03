@@ -22,13 +22,14 @@ const accept = () => {
     >
       <div class="container-pg">
         <div class="flex flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-card sm:flex-row sm:justify-between">
-          <p class="text-sm text-muted">
-            We use cookies to improve your experience and analyze traffic. By continuing you agree to our
-            <NuxtLink to="/cookies" class="text-brand-blue underline">Cookie Policy</NuxtLink>.
-          </p>
+          <i18n-t keypath="cookie.text" tag="p" class="text-sm text-muted">
+            <template #policy>
+              <NuxtLink to="/cookies" class="text-brand-blue underline">{{ $t('footer.links.cookie') }}</NuxtLink>
+            </template>
+          </i18n-t>
           <div class="flex shrink-0 gap-2">
-            <NuxtLink to="/privacy" class="btn-outline">Learn more</NuxtLink>
-            <button class="btn-primary" @click="accept">Accept</button>
+            <NuxtLink to="/privacy" class="btn-outline">{{ $t('cookie.learnMore') }}</NuxtLink>
+            <button class="btn-primary" @click="accept">{{ $t('cookie.accept') }}</button>
           </div>
         </div>
       </div>

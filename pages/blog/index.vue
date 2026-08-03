@@ -50,10 +50,10 @@ useHead(() => {
     <div class="container-pg py-12">
       <!-- 头部 -->
       <div class="text-center">
-        <span class="eyebrow">Blog</span>
-        <h1 class="mt-2 text-3xl font-bold sm:text-4xl">Passport &amp; visa photo guides</h1>
+        <span class="eyebrow">{{ $t('blog.eyebrow') }}</span>
+        <h1 class="mt-2 text-3xl font-bold sm:text-4xl">{{ $t('blog.title') }}</h1>
         <p class="mx-auto mt-3 max-w-2xl text-muted">
-          Practical tips, country spotlights and requirement explainers to help you get a photo accepted the first time.
+          {{ $t('blog.sub') }}
         </p>
         <div class="relative mx-auto mt-6 max-w-xl">
           <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-muted" width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -63,7 +63,7 @@ useHead(() => {
           <input
             v-model="query"
             type="text"
-            placeholder="Search articles…"
+            :placeholder="$t('blog.searchPlaceholder')"
             class="w-full rounded-full border border-slate-300 bg-white py-3 pl-12 pr-4 text-sm outline-none focus:border-brand-blue"
           />
         </div>
@@ -75,7 +75,7 @@ useHead(() => {
           class="rounded-full px-4 py-1.5 text-sm font-medium transition"
           :class="activeCat === 'all' ? 'bg-brand-blue text-white' : 'bg-white text-muted ring-1 ring-slate-200 hover:bg-slate-100'"
           @click="activeCat = 'all'"
-        >All</button>
+        >{{ $t('blog.all') }}</button>
         <button
           v-for="c in cats"
           :key="c"
@@ -110,7 +110,7 @@ useHead(() => {
       </div>
 
       <div v-if="!filtered.length" class="mt-12 text-center text-muted">
-        No articles match your search.
+        {{ $t('blog.empty') }}
       </div>
     </div>
   </div>

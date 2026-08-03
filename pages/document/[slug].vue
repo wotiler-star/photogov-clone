@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useRequestURL } from '#imports'
+import { useI18n } from 'vue-i18n'
 import PhotoTool from '~/components/PhotoTool.vue'
 import DocCard from '~/components/DocCard.vue'
 import { useData } from '~/composables/useData'
@@ -100,22 +101,32 @@ const related = computed(() => {
     .slice(0, 4)
 })
 
+const { t, tm, locale } = useI18n()
+const glassesState = computed(() =>
+  doc.value?.glasses ? t('doc.glassesAllowed') : t('doc.glassesNotAllowed')
+)
+const tips = computed(() => {
+  void locale.value
+  const arr = (tm('doc.tips') as string[]) || []
+  return arr.map((s) => s.replace('{state}', glassesState.value))
+})
+
 const reqs = computed(() => {
   const d = doc.value
   if (!d) return []
   return [
-    { k: 'Photo size', v: `${d.size.inch} in (${d.size.mm} mm)` },
-    { k: 'Pixel size', v: d.size.px },
-    { k: 'Resolution', v: `${d.dpi} DPI` },
-    { k: 'Background', v: bgLabel(d.background) },
-    { k: 'Head height', v: d.headHeight },
-    { k: ' Eyes level', v: d.eyesLevel },
-    { k: 'File format', v: d.format },
-    { k: 'File size', v: d.fileSize },
-    { k: 'Glasses', v: d.glasses ? 'Allowed (no glare)' : 'Not allowed' },
-    { k: 'Expression', v: d.expression },
-    { k: 'Color', v: d.color || 'In color' },
-    { k: 'Attire', v: d.attire || 'Casual' }
+    { k: t('doc.reqPhotoSize'), v: `${d.size.inch} in (${d.size.mm} mm)` },
+    { k: t('doc.reqPixelSize'), v: d.size.px },
+    { k: t('doc.reqResolution'), v: `${d.dpi} DPI` },
+    { k: t('doc.reqBackground'), v: bgLabel(d.background) },
+    { k: t('doc.reqHeadHeight'), v: d.headHeight },
+    { k: t('doc.reqEyesLevel'), v: d.eyesLevel },
+    { k: t('doc.reqFormat'), v: d.format },
+    { k: t('doc.reqFileSize'), v: d.fileSize },
+    { k: t('doc.reqGlasses'), v: d.glasses ? t('doc.glassesAllowed') + ' (no glare)' : t('doc.glassesNotAllowed') },
+    { k: t('doc.reqExpression'), v: d.expression },
+    { k: t('doc.reqColor'), v: d.color || t('doc.reqColorDefault') },
+    { k: t('doc.reqAttire'), v: d.attire || t('doc.reqAttireDefault') }
   ]
 })
 </script>
@@ -125,7 +136,7 @@ const reqs = computed(() => {
     <div class="container-pg py-10">
       <!-- 面包屑 -->
       <nav class="text-sm text-muted">
-        <NuxtLink to="/documents" class="hover:text-brand-blue">Documents</NuxtLink>
+        <NuxtLink to="/documents" class="hover:text-brand-blue">{{ $t('doc.eyebrow') }}</NuxtLink>
         <span class="mx-1">/</span>
         <span>{{ flagFor(doc.country) }} {{ doc.countryName }}</span>
         <span class="mx-1">/</span>
@@ -142,15 +153,14 @@ const reqs = computed(() => {
               class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-200"
             >
               <svg viewBox="0 0 20 20" fill="currentColor" class="h-3.5 w-3.5"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0l-3.5-3.5a1 1 0 011.4-1.4l2.8 2.8 6.8-6.8a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>
-              Verified by official source
+              {{ $t('doc.verified') }}
             </span>
             <span v-else class="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-500">
-              General guideline
+              {{ $t('doc.general') }}
             </span>
           </div>
           <p class="mt-2 text-muted">
-            Official photo requirements for the {{ doc.countryName }} {{ doc.name }},
-            updated for {{ doc.year }}.
+            {{ $t('doc.intro', { country: doc.countryName, name: doc.name, year: doc.year }) }}
           </p>
 
           <!-- 规格图 -->
@@ -179,26 +189,22 @@ const reqs = computed(() => {
             </div>
             <p class="mt-4 flex flex-wrap items-center gap-2 text-xs text-muted">
               <svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4 text-brand-blue"><path fill-rule="evenodd" d="M10 1.5l2.3 1.7 2.8-.3 1 2.7 2.4 1.5-.8 2.8.8 2.8-2.4 1.5-1 2.7-2.8-.3L10 18.5l-2.3-1.7-2.8.3-1-2.7L1.5 13l.8-2.8L1.5 7l2.4-1.5 1-2.7 2.8.3L10 1.5zm3.2 6.2a1 1 0 00-1.4-1.4L9 8.9 8.2 8a1 1 0 10-1.4 1.4l1.2 1.2a1 1 0 001.4 0l2.8-2.4z" clip-rule="evenodd"/></svg>
-              <span>Official source:</span>
+              <span>{{ $t('doc.officialSource') }}</span>
               <a :href="doc.source" target="_blank" rel="noopener" class="font-semibold text-brand-blue underline">{{ srcHost || doc.source }}</a>
             </p>
           </div>
 
           <!-- 小贴士 -->
           <div class="mt-6 card-pg p-6">
-            <h2 class="text-xl font-semibold">Tips for a compliant photo</h2>
+            <h2 class="text-xl font-semibold">{{ $t('doc.tipsTitle') }}</h2>
             <ul class="mt-3 list-disc space-y-1.5 pl-5 text-sm text-muted">
-              <li>Face the camera directly with a neutral expression and both eyes open.</li>
-              <li>Use even, plain lighting — no shadows on the face or background.</li>
-              <li>Remove hats and head coverings unless for religious reasons.</li>
-              <li>Wear everyday clothing; avoid uniforms or camouflage.</li>
-              <li>Glasses are {{ doc.glasses ? 'allowed' : 'not allowed' }} for this document.</li>
+              <li v-for="(tip, i) in tips" :key="i">{{ tip }}</li>
             </ul>
           </div>
 
           <!-- 相关证件 -->
           <div v-if="related.length" class="mt-8">
-            <h2 class="text-xl font-semibold">Related documents</h2>
+            <h2 class="text-xl font-semibold">{{ $t('doc.relatedTitle') }}</h2>
             <div class="mt-3 grid gap-3 sm:grid-cols-2">
               <DocCard v-for="d in related" :key="d.slug" :doc="d" :flag="flagFor(d.country)" />
             </div>
@@ -214,7 +220,7 @@ const reqs = computed(() => {
   </div>
 
   <div v-else class="container-pg py-20 text-center">
-    <h1 class="text-2xl font-bold">Document not found</h1>
-    <NuxtLink to="/documents" class="btn-primary mt-4">Browse documents</NuxtLink>
+    <h1 class="text-2xl font-bold">{{ $t('doc.notFoundTitle') }}</h1>
+    <NuxtLink to="/documents" class="btn-primary mt-4">{{ $t('doc.browse') }}</NuxtLink>
   </div>
 </template>

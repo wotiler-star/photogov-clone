@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import DocCard from '~/components/DocCard.vue'
 import { useData } from '~/composables/useData'
 
 const { documents, countriesByCode, filterByCategory } = useData()
+const { t } = useI18n()
 const list = filterByCategory('visa')
 const grouped: Record<string, typeof documents> = {}
 for (const d of list) (grouped[d.country] ||= []).push(d)
@@ -13,10 +15,10 @@ const nameFor = (c: string) => countriesByCode[c]?.name || c
 <template>
   <div class="bg-slate-50 min-h-[70vh]">
     <div class="container-pg py-10">
-      <span class="eyebrow">Visas</span>
-      <h1 class="mt-2 text-3xl font-bold sm:text-4xl">Visa photo requirements</h1>
+      <span class="eyebrow">{{ $t('nav.visas') }}</span>
+      <h1 class="mt-2 text-3xl font-bold sm:text-4xl">{{ $t('lists.visaTitle') }}</h1>
       <p class="mt-2 max-w-2xl text-muted">
-        Visa photo sizes accepted by embassies and consulates worldwide.
+        {{ $t('lists.visaSub') }}
       </p>
 
       <div class="mt-8 space-y-8">

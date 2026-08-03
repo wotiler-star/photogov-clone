@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, nextTick } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useData, type PhotoDoc } from '~/composables/useData'
 import { useCountry } from '~/composables/useCountry'
+
+const { t } = useI18n()
 
 const props = withDefaults(
   defineProps<{ country?: string; doc?: string }>(),
@@ -83,7 +86,7 @@ const previewStyle = computed(() => {
 
 function loadFile(file: File) {
   if (!file || !file.type.startsWith('image/')) {
-    note.value = 'Please choose an image file (JPG/PNG).'
+    note.value = t('tool.notePleaseImage')
     return
   }
   fileName.value = file.name.replace(/\.[^.]+$/, '')
@@ -251,7 +254,7 @@ function downloadJPG() {
   link.download = `${fileName.value || 'photo'}-${selDoc.value?.slug}.jpg`
   link.href = out.toDataURL('image/jpeg', 0.92)
   link.click()
-  note.value = 'JPG downloaded. Check your Downloads folder.'
+  note.value = t('tool.noteJpg')
 }
 
 function downloadPNG() {
@@ -261,7 +264,7 @@ function downloadPNG() {
   link.download = `${fileName.value || 'photo'}-${selDoc.value?.slug}.png`
   link.href = out.toDataURL('image/png')
   link.click()
-  note.value = 'PNG downloaded (lossless).'
+  note.value = t('tool.notePng')
 }
 
 async function downloadPDF() {
@@ -275,9 +278,9 @@ async function downloadPDF() {
     const pdf = new jsPDF({ orientation: inW > inH ? 'landscape' : 'portrait', unit: 'in', format: [inW, inH] })
     pdf.addImage(out.toDataURL('image/jpeg', 0.92), 'JPEG', 0, 0, inW, inH)
     pdf.save(`${fileName.value || 'photo'}-${selDoc.value?.slug}.pdf`)
-    note.value = 'PDF downloaded.'
+    note.value = t('tool.notePdf')
   } catch (e) {
-    note.value = 'PDF export failed. Try JPG instead.'
+    note.value = t('tool.notePdfFail')
   } finally {
     isProcessing.value = false
   }
@@ -330,9 +333,9 @@ async function downloadSheet() {
     const pdf = new jsPDF({ orientation: inW > inH ? 'landscape' : 'portrait', unit: 'in', format: [inW, inH] })
     pdf.addImage(sheet.toDataURL('image/jpeg', 0.92), 'JPEG', 0, 0, inW, inH)
     pdf.save(`photo-sheet-${sheetCopies.value}-${selDoc.value?.slug}.pdf`)
-    note.value = `Print sheet (${total} copies) downloaded as PDF.`
+    note.value = t('tool.noteSheetDone', { count: total })
   } catch (e) {
-    note.value = 'Sheet export failed. Try a single JPG.'
+    note.value = t('tool.noteSheetFail')
   } finally {
     isProcessing.value = false
   }
@@ -346,7 +349,7 @@ let batchId = 0
 function onBatchFiles(e: Event) {
   const files = (e.target as HTMLInputElement).files
   if (!files || !files.length) return
-  note.value = `Loading ${files.length} photo(s)…`
+  note.value = t('tool.noteBatchLoading', { count: files.length })
   let pending = files.length
   Array.from(files).forEach((f) => {
     if (!f.type.startsWith('image/')) { if (--pending === 0) note.value = ''; return }
@@ -355,7 +358,7 @@ function onBatchFiles(e: Event) {
       const img = new Image()
       img.onload = () => {
         batchItems.value.push({ id: batchId++, name: f.name.replace(/\.[^.]+$/, ''), img })
-        if (--pending === 0) note.value = `${batchItems.value.length} photo(s) ready. Click "Download all (ZIP)".`
+        if (--pending === 0) note.value = t('tool.noteBatchReady', { count: batchItems.value.length })
       }
       img.src = reader.result as string
     }
@@ -386,7 +389,7 @@ function removeBatchItem(id: number) {
 async function downloadBatchZip() {
   if (!batchItems.value.length) return
   isProcessing.value = true
-  note.value = 'Zipping photos…'
+  note.value = t('tool.noteZipping')
   try {
     const JSZip = (await import('jszip')).default
     const zip = new JSZip()
@@ -402,9 +405,9 @@ async function downloadBatchZip() {
     a.download = 'photos.zip'
     a.click()
     URL.revokeObjectURL(url)
-    note.value = `ZIP downloaded with ${batchItems.value.length} photo(s).`
+    note.value = t('tool.noteZipDone', { count: batchItems.value.length })
   } catch (e) {
-    note.value = 'ZIP export failed. Download individually instead.'
+    note.value = t('tool.noteZipFail')
   } finally {
     isProcessing.value = false
   }
@@ -414,7 +417,7 @@ async function downloadBatchZip() {
 async function removeBackgroundAI() {
   if (!sourceImg.value) return
   isProcessing.value = true
-  note.value = 'Loading AI model…'
+  note.value = t('tool.noteLoading')
   try {
     const mp: any = await loadMediaPipe()
     const seg = new mp.SelfieSegmentation({
@@ -442,10 +445,10 @@ async function removeBackgroundAI() {
     aiImg.value = result
     bgMode.value = 'ai'
     aiReady.value = true
-    note.value = 'Background removed. Pick a new background or download.'
+    note.value = t('tool.noteAiReady')
   } catch (e) {
     note.value =
-      'AI removal needs internet access (MediaPipe CDN). Using manual background instead.'
+      t('tool.noteAiFail')
     bgMode.value = defaultBg(selDoc.value?.background)
   } finally {
     isProcessing.value = false
@@ -514,12 +517,12 @@ function changeCountry(c: string) {
                 <path d="M12 16V4m0 0L8 8m4-4l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
               </svg>
-              Drop a photo or click below
+              {{ $t('tool.dropHint') }}
             </div>
           </div>
         </div>
         <p class="text-xs text-muted">
-          Drag to reposition · Scroll-free sliders below
+          {{ $t('tool.dragHint') }}
         </p>
       </div>
 
@@ -527,7 +530,7 @@ function changeCountry(c: string) {
       <div class="flex flex-col gap-4 p-5">
         <!-- 文档选择 -->
         <div>
-          <label class="eyebrow">Document</label>
+          <label class="eyebrow">{{ $t('tool.document') }}</label>
           <div class="mt-1 flex gap-2">
             <select
               :value="activeCountry"
@@ -553,69 +556,69 @@ function changeCountry(c: string) {
         <div>
           <label class="btn-primary w-full cursor-pointer">
             <input type="file" accept="image/*" class="hidden" @change="onFileInput" />
-            {{ hasImage ? 'Replace photo' : 'Upload photo' }}
+            {{ hasImage ? $t('tool.replace') : $t('tool.upload') }}
           </label>
         </div>
 
         <!-- 调整 -->
         <div class="space-y-3" :class="{ 'opacity-40': !hasImage }">
           <div>
-            <div class="flex justify-between text-xs text-muted"><span>Zoom</span><span>{{ scale.toFixed(2) }}x</span></div>
+            <div class="flex justify-between text-xs text-muted"><span>{{ $t('tool.zoom') }}</span><span>{{ scale.toFixed(2) }}x</span></div>
             <input type="range" min="1" max="3" step="0.01" v-model.number="scale" class="w-full accent-brand-blue" :disabled="!hasImage" />
           </div>
           <div>
-            <div class="flex justify-between text-xs text-muted"><span>Rotate</span><span>{{ rotate }}°</span></div>
+            <div class="flex justify-between text-xs text-muted"><span>{{ $t('tool.rotate') }}</span><span>{{ rotate }}°</span></div>
             <input type="range" min="-45" max="45" step="1" v-model.number="rotate" class="w-full accent-brand-blue" :disabled="!hasImage" />
           </div>
           <div>
-            <div class="flex justify-between text-xs text-muted"><span>Brightness</span><span>{{ brightness }}%</span></div>
+            <div class="flex justify-between text-xs text-muted"><span>{{ $t('tool.brightness') }}</span><span>{{ brightness }}%</span></div>
             <input type="range" min="50" max="150" step="1" v-model.number="brightness" class="w-full accent-brand-blue" :disabled="!hasImage" />
           </div>
           <div>
-            <div class="flex justify-between text-xs text-muted"><span>Contrast</span><span>{{ contrast }}%</span></div>
+            <div class="flex justify-between text-xs text-muted"><span>{{ $t('tool.contrast') }}</span><span>{{ contrast }}%</span></div>
             <input type="range" min="50" max="150" step="1" v-model.number="contrast" class="w-full accent-brand-blue" :disabled="!hasImage" />
           </div>
-          <button class="text-xs text-brand-blue underline" :disabled="!hasImage" @click="resetTransforms(); draw()">Reset adjustments</button>
+          <button class="text-xs text-brand-blue underline" :disabled="!hasImage" @click="resetTransforms(); draw()">{{ $t('tool.reset') }}</button>
         </div>
 
         <!-- 背景 -->
         <div>
-          <label class="eyebrow">Background</label>
+          <label class="eyebrow">{{ $t('tool.background') }}</label>
           <div class="mt-2 grid grid-cols-3 gap-2">
-            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='white'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="bgMode='white';draw()">White</button>
-            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='blue'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="bgMode='blue';draw()">Blue</button>
-            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='grey'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="bgMode='grey';draw()">Grey</button>
-            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='keep'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="bgMode='keep';draw()">Keep</button>
-            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='ai'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" :disabled="!hasImage||isProcessing" @click="removeBackgroundAI()">AI Remove</button>
-            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='custom'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="bgMode='custom';draw()">Custom</button>
+            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='white'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="bgMode='white';draw()">{{ $t('tool.bgWhite') }}</button>
+            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='blue'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="bgMode='blue';draw()">{{ $t('tool.bgBlue') }}</button>
+            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='grey'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="bgMode='grey';draw()">{{ $t('tool.bgGrey') }}</button>
+            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='keep'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="bgMode='keep';draw()">{{ $t('tool.bgKeep') }}</button>
+            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='ai'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" :disabled="!hasImage||isProcessing" @click="removeBackgroundAI()">{{ $t('tool.bgAi') }}</button>
+            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='custom'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="bgMode='custom';draw()">{{ $t('tool.bgCustom') }}</button>
           </div>
           <div v-if="bgMode==='custom'" class="mt-2 flex items-center gap-2 text-xs text-muted">
             <input type="color" v-model="customColor" @input="bgMode='custom';draw()" class="h-8 w-10 rounded border border-slate-300" />
-            <span>Custom background color</span>
+            <span>{{ $t('tool.customLabel') }}</span>
           </div>
         </div>
 
         <!-- 下载 -->
         <div class="mt-1 grid grid-cols-3 gap-2">
-          <button class="btn-primary" :disabled="!hasImage" @click="downloadJPG()">JPG</button>
-          <button class="btn-yellow" :disabled="!hasImage||isProcessing" @click="downloadPDF()">PDF</button>
-          <button class="btn-secondary" :disabled="!hasImage" @click="downloadPNG()">PNG</button>
+          <button class="btn-primary" :disabled="!hasImage" @click="downloadJPG()">{{ $t('tool.jpg') }}</button>
+          <button class="btn-yellow" :disabled="!hasImage||isProcessing" @click="downloadPDF()">{{ $t('tool.pdf') }}</button>
+          <button class="btn-secondary" :disabled="!hasImage" @click="downloadPNG()">{{ $t('tool.png') }}</button>
         </div>
 
         <!-- 排版打印页 -->
         <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
-          <p class="text-xs font-semibold text-ink">Print sheet (multiple copies)</p>
+          <p class="text-xs font-semibold text-ink">{{ $t('tool.sheetTitle') }}</p>
           <div class="mt-2 flex items-center gap-2">
             <select v-model.number="sheetCopies" class="rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-xs">
-              <option :value="4">4 copies</option>
-              <option :value="6">6 copies</option>
-              <option :value="8">8 copies</option>
+              <option :value="4">{{ $t('tool.copies4') }}</option>
+              <option :value="6">{{ $t('tool.copies6') }}</option>
+              <option :value="8">{{ $t('tool.copies8') }}</option>
             </select>
             <select v-model="sheetPreset" class="rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-xs">
-              <option value="4x6">4×6 in</option>
-              <option value="A4">A4</option>
+              <option value="4x6">{{ $t('tool.preset4x6') }}</option>
+              <option value="A4">{{ $t('tool.presetA4') }}</option>
             </select>
-            <button class="btn-secondary ml-auto px-3 py-1.5 text-xs" :disabled="!hasImage||isProcessing" @click="downloadSheet()">Sheet PDF</button>
+            <button class="btn-secondary ml-auto px-3 py-1.5 text-xs" :disabled="!hasImage||isProcessing" @click="downloadSheet()">{{ $t('tool.sheetBtn') }}</button>
           </div>
         </div>
 
@@ -629,16 +632,16 @@ function changeCountry(c: string) {
     <!-- 批量处理 -->
     <div class="border-t border-slate-200 bg-white p-5">
       <div class="flex items-center justify-between">
-        <p class="text-sm font-semibold text-ink">Batch processing — process multiple photos at once</p>
-        <span class="text-xs text-muted">{{ batchItems.length }} loaded</span>
+        <p class="text-sm font-semibold text-ink">{{ $t('tool.batchTitle') }}</p>
+        <span class="text-xs text-muted">{{ $t('tool.loaded', { count: batchItems.length }) }}</span>
       </div>
       <p class="mt-1 text-xs text-muted">
-        Upload several photos; they are all cropped to the current document size using the same background & adjustments, then downloaded together as a ZIP.
+        {{ $t('tool.batchSub') }}
       </p>
       <label class="btn-secondary mt-3 inline-flex cursor-pointer items-center gap-2">
         <input type="file" accept="image/*" multiple class="hidden" @change="onBatchFiles" />
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 16V4m0 0L8 8m4-4l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        Add photos (multiple)
+        {{ $t('tool.addPhotos') }}
       </label>
 
       <div v-if="batchItems.length" class="mt-3">
@@ -649,13 +652,13 @@ function changeCountry(c: string) {
             </div>
             <p class="mt-1 truncate text-[11px] text-muted">{{ it.name }}</p>
             <div class="mt-1 flex gap-1">
-              <button class="flex-1 rounded bg-brand-blue/10 px-1 py-1 text-[10px] font-medium text-brand-blue" @click="downloadBatchItem(it)">JPG</button>
+              <button class="flex-1 rounded bg-brand-blue/10 px-1 py-1 text-[10px] font-medium text-brand-blue" @click="downloadBatchItem(it)">{{ $t('tool.jpg') }}</button>
               <button class="rounded bg-slate-100 px-1 py-1 text-[10px] text-muted" @click="removeBatchItem(it.id)">✕</button>
             </div>
           </div>
         </div>
         <button class="btn-primary mt-3" :disabled="isProcessing" @click="downloadBatchZip()">
-          Download all (ZIP)
+          {{ $t('tool.downloadAll') }}
         </button>
       </div>
     </div>

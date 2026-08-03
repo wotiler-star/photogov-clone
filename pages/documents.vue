@@ -66,10 +66,10 @@ watch([query, category], updateRoute)
 <template>
   <div class="bg-slate-50 min-h-[70vh]">
     <div class="container-pg py-10">
-      <span class="eyebrow">Documents</span>
-      <h1 class="mt-2 text-3xl font-bold sm:text-4xl">Photo document requirements</h1>
+      <span class="eyebrow">{{ $t('documents.eyebrow') }}</span>
+      <h1 class="mt-2 text-3xl font-bold sm:text-4xl">{{ $t('documents.title') }}</h1>
       <p class="mt-2 max-w-2xl text-muted">
-        Find the exact photo size, background and format for any passport, visa or ID document.
+        {{ $t('documents.sub') }}
       </p>
 
       <!-- 过滤栏 -->
@@ -82,16 +82,16 @@ watch([query, category], updateRoute)
           <input
             v-model="query"
             type="text"
-            placeholder="Search documents or countries…"
+            :placeholder="$t('documents.searchPlaceholder')"
             class="w-full rounded-full border border-slate-300 py-2.5 pl-10 pr-4 text-sm outline-none focus:border-brand-blue"
           />
         </div>
         <select v-model="category" class="rounded-full border border-slate-300 px-4 py-2.5 text-sm">
-          <option value="all">All categories</option>
+          <option value="all">{{ $t('documents.catAll') }}</option>
           <option v-for="c in categories" :key="c" :value="c">{{ categoryLabels[c] || c }}</option>
         </select>
         <select :value="country" @change="onCountryChange" class="rounded-full border border-slate-300 px-4 py-2.5 text-sm">
-          <option value="">All countries</option>
+          <option value="">{{ $t('documents.countryAll') }}</option>
           <option v-for="(name, code) in countriesByCode" :key="code" :value="code">{{ name.flag }} {{ name.name }}</option>
         </select>
         <button
@@ -101,11 +101,11 @@ watch([query, category], updateRoute)
           class="inline-flex items-center gap-1.5 rounded-full border px-4 py-2.5 text-sm font-medium transition"
         >
           <svg viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0l-3.5-3.5a1 1 0 011.4-1.4l2.8 2.8 6.8-6.8a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>
-          Verified only
+          {{ $t('documents.verifiedOnly') }}
         </button>
       </div>
 
-      <p class="mt-4 text-sm text-muted">{{ results.length }} documents found</p>
+      <p class="mt-4 text-sm text-muted">{{ $t('documents.found', { count: results.length }) }}</p>
 
       <!-- 列表 -->
       <div v-if="results.length" class="mt-4 space-y-8">
@@ -118,7 +118,7 @@ watch([query, category], updateRoute)
           </div>
         </div>
       </div>
-      <div v-else class="mt-10 text-center text-muted">No documents match your search.</div>
+      <div v-else class="mt-10 text-center text-muted">{{ $t('documents.empty') }}</div>
     </div>
   </div>
 </template>

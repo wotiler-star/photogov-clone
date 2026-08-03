@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import { useData } from '~/composables/useData'
 import { useCountry } from '~/composables/useCountry'
+import LanguageSwitcher from '~/components/LanguageSwitcher.vue'
 
 const { countries } = useData()
 const { code, setCode } = useCountry()
@@ -23,13 +24,13 @@ const filtered = computed(() => {
 })
 
 const navItems = [
-  { label: 'DV Lottery', to: '/dv-lottery' },
-  { label: 'Documents', to: '/documents' },
-  { label: 'Passports', to: '/passports' },
-  { label: 'Visas', to: '/visas' },
-  { label: 'Blog', to: '/blog' },
-  { label: 'FAQ', to: '/faq' },
-  { label: 'About', to: '/about' }
+  { label: 'nav.dvLottery', to: '/dv-lottery' },
+  { label: 'nav.documents', to: '/documents' },
+  { label: 'nav.passports', to: '/passports' },
+  { label: 'nav.visas', to: '/visas' },
+  { label: 'nav.blog', to: '/blog' },
+  { label: 'nav.faq', to: '/faq' },
+  { label: 'nav.about', to: '/about' }
 ]
 
 const select = (c: string) => {
@@ -62,11 +63,12 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
               <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" />
             </svg>
           </button>
-          <span class="hidden sm:inline opacity-60">Passport photo requirements by country</span>
+          <span class="hidden sm:inline opacity-60">{{ $t('header.countryBar') }}</span>
         </div>
         <nav class="flex items-center gap-4">
-          <NuxtLink to="/help" class="hover:text-white">Help</NuxtLink>
-          <NuxtLink to="/signin" class="hover:text-white">Sign In</NuxtLink>
+          <LanguageSwitcher />
+          <NuxtLink to="/help" class="hover:text-white">{{ $t('nav.help') }}</NuxtLink>
+          <NuxtLink to="/signin" class="hover:text-white">{{ $t('nav.signIn') }}</NuxtLink>
         </nav>
       </div>
 
@@ -80,7 +82,7 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
             <input
               v-model="query"
               type="text"
-              placeholder="Search 100+ countries…"
+              :placeholder="$t('header.searchCountries')"
               class="mb-3 w-full max-w-md rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm text-white placeholder-white/50 outline-none focus:border-white/40"
             />
             <div class="grid max-h-72 grid-cols-2 gap-x-6 gap-y-1 overflow-y-auto sm:grid-cols-3 md:grid-cols-4">
@@ -121,13 +123,13 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
             :to="item.to"
             class="rounded-full px-4 py-2 text-sm font-medium text-white/85 hover:bg-white/10 hover:text-white"
           >
-            {{ item.label }}
+            {{ $t(item.label) }}
           </NuxtLink>
         </nav>
 
         <div class="flex items-center gap-2">
           <NuxtLink to="/documents" class="btn-primary hidden sm:inline-flex">
-            Make Photo
+            {{ $t('nav.makePhoto') }}
           </NuxtLink>
           <button
             class="grid h-10 w-10 place-items-center rounded-full hover:bg-white/10 md:hidden"

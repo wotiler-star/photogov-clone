@@ -62,10 +62,10 @@ useHead(() => {
     <div class="container-pg py-12">
       <!-- 头部 -->
       <div class="text-center">
-        <span class="eyebrow">Help Center</span>
-        <h1 class="mt-2 text-3xl font-bold sm:text-4xl">Frequently asked questions</h1>
+        <span class="eyebrow">{{ $t('faq.eyebrow') }}</span>
+        <h1 class="mt-2 text-3xl font-bold sm:text-4xl">{{ $t('faq.title') }}</h1>
         <p class="mx-auto mt-3 max-w-2xl text-muted">
-          Everything you need to know about making compliant passport, visa and ID photos with PhotoGov.
+          {{ $t('faq.sub') }}
         </p>
         <div class="relative mx-auto mt-6 max-w-xl">
           <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-muted" width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -75,7 +75,7 @@ useHead(() => {
           <input
             v-model="query"
             type="text"
-            placeholder="Search questions…"
+            :placeholder="$t('faq.searchPlaceholder')"
             class="w-full rounded-full border border-slate-300 bg-white py-3 pl-12 pr-4 text-sm outline-none focus:border-brand-blue"
           />
         </div>
@@ -88,7 +88,7 @@ useHead(() => {
           :class="activeCat === 'all' ? 'bg-brand-blue text-white' : 'bg-white text-muted ring-1 ring-slate-200 hover:bg-slate-100'"
           @click="activeCat = 'all'"
         >
-          All
+          {{ $t('faq.all') }}
         </button>
         <button
           v-for="c in cats"
@@ -139,18 +139,18 @@ useHead(() => {
 
       <!-- 空状态 -->
       <div v-else class="mx-auto mt-12 max-w-md text-center text-muted">
-        <p>No questions match “{{ query }}”.</p>
+        <p>{{ $t('faq.empty', { query }) }}</p>
         <p class="mt-2 text-sm">
-          Try a different keyword, or
-          <NuxtLink to="/contact" class="text-brand-blue underline">contact us</NuxtLink>.
+          {{ $t('faq.emptyHint') }}
+          <NuxtLink to="/contact" class="text-brand-blue underline">{{ $t('faq.contactUs') }}</NuxtLink>.
         </p>
       </div>
 
       <!-- 联系 CTA -->
       <div class="mx-auto mt-12 max-w-3xl rounded-2xl bg-header px-6 py-8 text-center text-white">
-        <h2 class="text-2xl font-bold">Still have a question?</h2>
-        <p class="mt-2 text-white/70">Our team is happy to help you get a compliant photo.</p>
-        <NuxtLink to="/contact" class="btn-yellow mt-4">Contact us</NuxtLink>
+        <h2 class="text-2xl font-bold">{{ $t('faq.ctaTitle') }}</h2>
+        <p class="mt-2 text-white/70">{{ $t('faq.ctaText') }}</p>
+        <NuxtLink to="/contact" class="btn-yellow mt-4">{{ $t('faq.ctaBtn') }}</NuxtLink>
       </div>
     </div>
   </div>
