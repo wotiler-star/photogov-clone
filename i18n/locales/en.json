@@ -75,18 +75,42 @@
     "stepsTitle": "Four steps to a perfect photo",
     "stepsEyebrow": "How it works",
     "steps": [
-      { "title": "Take or upload a photo", "text": "Use your phone or webcam. No studio needed." },
-      { "title": "Crop to the correct size", "text": "We auto-fit your photo to the official dimensions." },
-      { "title": "Fix background & light", "text": "One click white/blue background, brightness and contrast." },
-      { "title": "Download JPG or PDF", "text": "Print at home or submit digitally — guaranteed compliant." }
+      {
+        "title": "Take or upload a photo",
+        "text": "Use your phone or webcam. No studio needed."
+      },
+      {
+        "title": "Crop to the correct size",
+        "text": "We auto-fit your photo to the official dimensions."
+      },
+      {
+        "title": "Fix background & light",
+        "text": "One click white/blue background, brightness and contrast."
+      },
+      {
+        "title": "Download JPG or PDF",
+        "text": "Print at home or submit digitally — guaranteed compliant."
+      }
     ],
     "standardsTitle": "Built to meet official standards",
     "standardsSub": "Every template follows the exact rules published by passport and visa authorities.",
     "standards": [
-      { "t": "Government-approved sizes", "d": "190+ countries, always updated to the latest specs." },
-      { "t": "Correct DPI & head size", "d": "We follow exact head-height and eye-level rules." },
-      { "t": "Print & digital ready", "d": "Export JPG for online forms or PDF for printing." },
-      { "t": "Private by design", "d": "Photos are processed in your browser. We never store them." }
+      {
+        "t": "Government-approved sizes",
+        "d": "190+ countries, always updated to the latest specs."
+      },
+      {
+        "t": "Correct DPI & head size",
+        "d": "We follow exact head-height and eye-level rules."
+      },
+      {
+        "t": "Print & digital ready",
+        "d": "Export JPG for online forms or PDF for printing."
+      },
+      {
+        "t": "Private by design",
+        "d": "Photos are processed in your browser. We never store them."
+      }
     ],
     "popularEyebrow": "Popular",
     "popularTitle": "Most requested documents",
@@ -234,7 +258,16 @@
     "noteZipFail": "ZIP export failed. Download individually instead.",
     "noteBatchReady": "{count} photo(s) ready. Click \"Download all (ZIP)\".",
     "noteBatchLoading": "Loading {count} photo(s)…",
-    "noteSheetDone": "Print sheet ({count} copies) downloaded as PDF."
+    "noteSheetDone": "Print sheet ({count} copies) downloaded as PDF.",
+    "capture": "Take photo",
+    "retake": "Retake",
+    "captureHint": "Open camera (mobile) or pick a file",
+    "fitMode": "Framing",
+    "fitCover": "Fill (crop)",
+    "fitContain": "Fit (whole)",
+    "autoCrop": "Auto-crop to ID ratio",
+    "noteHeicDecoding": "Decoding HEIC…",
+    "noteHeicFail": "HEIC not supported here. Convert to JPG/PNG first."
   },
   "dv": {
     "eyebrow": "Diversity Visa",
@@ -281,11 +314,26 @@
     "title": "Help Center",
     "sub": "Answers to the most common questions.",
     "qa": [
-      { "q": "Is PhotoGov really free?", "a": "Yes. Making and downloading photos is free, with no watermarks." },
-      { "q": "Do you store my photo?", "a": "No. Processing runs in your browser; we never upload your images." },
-      { "q": "What format should I download?", "a": "Use JPG for online submissions and PDF for printing at a photo lab." },
-      { "q": "My photo was rejected — what now?", "a": "Re-check the document page requirements (background, head size, expression) and retake." },
-      { "q": "Which countries are supported?", "a": "Over 100 countries, with sizes kept up to date." }
+      {
+        "q": "Is PhotoGov really free?",
+        "a": "Yes. Making and downloading photos is free, with no watermarks."
+      },
+      {
+        "q": "Do you store my photo?",
+        "a": "No. Processing runs in your browser; we never upload your images."
+      },
+      {
+        "q": "What format should I download?",
+        "a": "Use JPG for online submissions and PDF for printing at a photo lab."
+      },
+      {
+        "q": "My photo was rejected — what now?",
+        "a": "Re-check the document page requirements (background, head size, expression) and retake."
+      },
+      {
+        "q": "Which countries are supported?",
+        "a": "Over 100 countries, with sizes kept up to date."
+      }
     ],
     "stillNeed": "Still need help?",
     "btn": "Contact us"

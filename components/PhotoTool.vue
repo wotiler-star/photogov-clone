@@ -62,6 +62,8 @@ const brightness = ref(100)
 const contrast = ref(100)
 const bgMode = ref<'white' | 'blue' | 'grey' | 'keep' | 'ai' | 'custom'>('white')
 const customColor = ref('#FFFFFF')
+// 预裁剪模式：cover=按证件比例填充裁剪；contain=完整保留（四周留白）
+const fitMode = ref<'cover' | 'contain'>('cover')
 const fileName = ref('')
 const isProcessing = ref(false)
 const isReading = ref(false)
@@ -89,8 +91,20 @@ const previewStyle = computed(() => {
   return { width: w + 'px', height: w * ratio + 'px' }
 })
 
-function loadFile(file: File) {
+async function loadFile(file: File) {
   if (!file) return
+  // HEIC / HEIF：iPhone 直出格式，多数浏览器无法直接解码 → 运行时转 PNG
+  if (isHeicFile(file)) {
+    isReading.value = true
+    note.value = t('tool.noteHeicDecoding')
+    try {
+      file = await decodeHeic(file)
+    } catch (e) {
+      isReading.value = false
+      note.value = t('tool.noteHeicFail')
+      return
+    }
+  }
   if (!file.type.startsWith('image/')) {
     note.value = t('tool.notePleaseImage')
     return
@@ -126,6 +140,7 @@ function loadFile(file: File) {
       aiReady.value = false
       bgMode.value = defaultBg(selDoc.value?.background)
       resetTransforms()
+      fitMode.value = 'cover' // 上传后默认按证件比例填充裁剪
       isReading.value = false
       note.value = ''
       nextTick(draw)
@@ -137,6 +152,47 @@ function loadFile(file: File) {
     img.src = reader.result as string
   }
   reader.readAsDataURL(file)
+}
+
+// ---- HEIC / HEIF 解码（运行时从 CDN 加载 heic2any，失败则降级提示）----
+function isHeicFile(file: File): boolean {
+  const t = (file.type || '').toLowerCase()
+  if (t === 'image/heic' || t === 'image/heif' || t === 'image/x-heic' || t === 'image/x-heif') return true
+  return /\.(heic|heif)$/i.test(file.name)
+}
+
+let heicPromise: Promise<any> | null = null
+function loadHeic2any(): Promise<any> {
+  if (heicPromise) return heicPromise
+  heicPromise = new Promise((resolve, reject) => {
+    if ((window as any).heic2any) return resolve((window as any).heic2any)
+    const s = document.createElement('script')
+    s.src = 'https://cdn.jsdelivr.net/npm/heic2any@0.0.3/dist/heic2any.min.js'
+    s.crossOrigin = 'anonymous'
+    s.onload = () =>
+      (window as any).heic2any ? resolve((window as any).heic2any) : reject(new Error('heic2any not found'))
+    s.onerror = () => reject(new Error('CDN load failed'))
+    document.head.appendChild(s)
+  })
+  return heicPromise
+}
+
+async function decodeHeic(file: File): Promise<File> {
+  const lib = await loadHeic2any()
+  const blob: Blob | Blob[] = await lib({ blob: file, toType: 'image/png' })
+  const out = Array.isArray(blob) ? blob[0] : blob
+  return new File([out], file.name.replace(/\.(heic|heif)$/i, '.png'), { type: 'image/png' })
+}
+
+// ---- 按证件比例自动预裁剪（cover 居中填充）----
+function autoCrop() {
+  if (!sourceImg.value) return
+  fitMode.value = 'cover'
+  scale.value = 1
+  offsetX.value = 0
+  offsetY.value = 0
+  rotate.value = 0
+  draw()
 }
 
 function resetTransforms() {
@@ -252,7 +308,8 @@ function paint(
     const imgRatio = nw / nh
     const canvasRatio = cwv / chv
     const cover = canvasRatio > imgRatio ? cwv / nw : chv / nh
-    const s = cover * sc
+    const contain = canvasRatio > imgRatio ? chv / nh : cwv / nw
+    const s = (fitMode.value === 'contain' ? contain : cover) * sc
     ctx.translate(cwv / 2 + ox, chv / 2 + oy)
     ctx.rotate((rot * Math.PI) / 180)
     ctx.drawImage(img as CanvasImageSource, (-nw * s) / 2, (-nh * s) / 2, nw * s, nh * s)
@@ -279,7 +336,7 @@ watch(
 )
 watch(selDoc, () => {
   if (selDoc.value) bgMode.value = defaultBg(selDoc.value.background)
-  if (hasImage.value) draw()
+  if (hasImage.value) autoCrop() // 切换证件后按新比例重新预裁剪
 })
 
 onMounted(() => {
@@ -412,24 +469,38 @@ interface BatchItem { id: number; name: string; img: HTMLImageElement }
 const batchItems = ref<BatchItem[]>([])
 let batchId = 0
 
-function onBatchFiles(e: Event) {
+async function onBatchFiles(e: Event) {
   const files = (e.target as HTMLInputElement).files
   if (!files || !files.length) return
   note.value = t('tool.noteBatchLoading', { count: files.length })
   let pending = files.length
-  Array.from(files).forEach((f) => {
-    if (!f.type.startsWith('image/')) { if (--pending === 0) note.value = ''; return }
+  for (const f of Array.from(files)) {
+    if (!f.type.startsWith('image/') && !isHeicFile(f)) {
+      if (--pending === 0) note.value = ''
+      continue
+    }
+    let ff = f
+    if (isHeicFile(f)) {
+      try {
+        ff = await decodeHeic(f)
+      } catch {
+        if (--pending === 0) note.value = t('tool.noteBatchReady', { count: batchItems.value.length })
+        continue
+      }
+    }
     const reader = new FileReader()
     reader.onload = () => {
       const img = new Image()
       img.onload = () => {
-        batchItems.value.push({ id: batchId++, name: f.name.replace(/\.[^.]+$/, ''), img })
+        batchItems.value.push({ id: batchId++, name: ff.name.replace(/\.[^.]+$/, ''), img })
         if (--pending === 0) note.value = t('tool.noteBatchReady', { count: batchItems.value.length })
       }
+      img.onerror = () => { if (--pending === 0) note.value = '' }
       img.src = reader.result as string
     }
-    reader.readAsDataURL(f)
-  })
+    reader.onerror = () => { if (--pending === 0) note.value = '' }
+    reader.readAsDataURL(ff)
+  }
 }
 
 function batchCanvas(it: BatchItem): HTMLCanvasElement {
@@ -636,11 +707,15 @@ function changeCountry(c: string) {
           </div>
         </div>
 
-        <!-- 上传 -->
-        <div>
-          <label class="btn-primary w-full cursor-pointer">
+        <!-- 上传 / 拍照 -->
+        <div class="grid grid-cols-2 gap-2">
+          <label class="btn-primary w-full cursor-pointer text-center">
             <input type="file" accept="image/*" class="hidden" @change="onFileInput" />
             {{ hasImage ? $t('tool.replace') : $t('tool.upload') }}
+          </label>
+          <label class="btn-secondary w-full cursor-pointer text-center" :title="$t('tool.captureHint')">
+            <input type="file" accept="image/*" capture="environment" class="hidden" @change="onFileInput" />
+            {{ hasImage ? $t('tool.retake') : $t('tool.capture') }}
           </label>
         </div>
 
@@ -663,6 +738,15 @@ function changeCountry(c: string) {
             <input type="range" min="50" max="150" step="1" v-model.number="contrast" class="w-full accent-brand-blue" :disabled="!hasImage" />
           </div>
           <button class="text-xs text-brand-blue underline" :disabled="!hasImage" @click="resetTransforms(); draw()">{{ $t('tool.reset') }}</button>
+          <!-- 裁剪模式 + 自动预裁剪 -->
+          <div class="border-t border-slate-200 pt-3">
+            <label class="eyebrow">{{ $t('tool.fitMode') }}</label>
+            <div class="mt-2 grid grid-cols-2 gap-2">
+              <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="fitMode==='cover'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="fitMode='cover';draw()">{{ $t('tool.fitCover') }}</button>
+              <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="fitMode==='contain'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="fitMode='contain';draw()">{{ $t('tool.fitContain') }}</button>
+            </div>
+            <button class="mt-2 text-xs text-brand-blue underline" :disabled="!hasImage" @click="autoCrop()">{{ $t('tool.autoCrop') }}</button>
+          </div>
         </div>
 
         <!-- 背景 -->

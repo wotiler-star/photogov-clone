@@ -75,18 +75,42 @@
     "stepsTitle": "Quatre étapes vers une photo parfaite",
     "stepsEyebrow": "Comment ça marche",
     "steps": [
-      { "title": "Prenez ou téléversez une photo", "text": "Utilisez votre téléphone ou votre webcam. Aucun studio nécessaire." },
-      { "title": "Recadrez à la bonne taille", "text": "Nous adaptons automatiquement votre photo aux dimensions officielles." },
-      { "title": "Corrigez le fond et la lumière", "text": "Un clic pour un fond blanc/bleu, la luminosité et le contraste." },
-      { "title": "Téléchargez JPG ou PDF", "text": "Imprimez chez vous ou envoyez en ligne — conformité garantie." }
+      {
+        "title": "Prenez ou téléversez une photo",
+        "text": "Utilisez votre téléphone ou votre webcam. Aucun studio nécessaire."
+      },
+      {
+        "title": "Recadrez à la bonne taille",
+        "text": "Nous adaptons automatiquement votre photo aux dimensions officielles."
+      },
+      {
+        "title": "Corrigez le fond et la lumière",
+        "text": "Un clic pour un fond blanc/bleu, la luminosité et le contraste."
+      },
+      {
+        "title": "Téléchargez JPG ou PDF",
+        "text": "Imprimez chez vous ou envoyez en ligne — conformité garantie."
+      }
     ],
     "standardsTitle": "Conçu pour respecter les normes officielles",
     "standardsSub": "Chaque modèle suit les règles exactes publiées par les autorités des passeports et des visas.",
     "standards": [
-      { "t": "Tailles approuvées par l'administration", "d": "Plus de 190 pays, toujours à jour selon les dernières spécifications." },
-      { "t": "DPI et taille de tête corrects", "d": "Nous suivons les règles exactes de hauteur de tête et de niveau des yeux." },
-      { "t": "Prêt pour l'impression et le numérique", "d": "Exportez un JPG pour les formulaires en ligne ou un PDF pour l'impression." },
-      { "t": "Privé par conception", "d": "Les photos sont traitées dans votre navigateur. Nous ne les stockons jamais." }
+      {
+        "t": "Tailles approuvées par l'administration",
+        "d": "Plus de 190 pays, toujours à jour selon les dernières spécifications."
+      },
+      {
+        "t": "DPI et taille de tête corrects",
+        "d": "Nous suivons les règles exactes de hauteur de tête et de niveau des yeux."
+      },
+      {
+        "t": "Prêt pour l'impression et le numérique",
+        "d": "Exportez un JPG pour les formulaires en ligne ou un PDF pour l'impression."
+      },
+      {
+        "t": "Privé par conception",
+        "d": "Les photos sont traitées dans votre navigateur. Nous ne les stockons jamais."
+      }
     ],
     "popularEyebrow": "Populaire",
     "popularTitle": "Documents les plus demandés",
@@ -234,7 +258,16 @@
     "noteZipFail": "L'export ZIP a échoué. Téléchargez individuellement à la place.",
     "noteBatchReady": "{count} photo(s) prête(s). Cliquez sur « Tout télécharger (ZIP) ».",
     "noteBatchLoading": "Chargement de {count} photo(s)…",
-    "noteSheetDone": "Feuille d'impression ({count} copies) téléchargée en PDF."
+    "noteSheetDone": "Feuille d'impression ({count} copies) téléchargée en PDF.",
+    "capture": "Prendre une photo",
+    "retake": "Reprendre",
+    "captureHint": "Ouvrez l’appareil photo (mobile) ou choisissez un fichier",
+    "fitMode": "Cadrage",
+    "fitCover": "Remplir (rogner)",
+    "fitContain": "Ajuster (complet)",
+    "autoCrop": "Recadrage auto selon le document",
+    "noteHeicDecoding": "Décodage HEIC…",
+    "noteHeicFail": "HEIC non pris en charge ici. Convertissez en JPG/PNG."
   },
   "dv": {
     "eyebrow": "Visa de diversité",
@@ -281,11 +314,26 @@
     "title": "Centre d'aide",
     "sub": "Les réponses aux questions les plus fréquentes.",
     "qa": [
-      { "q": "PhotoGov est-il vraiment gratuit ?", "a": "Oui. Créer et télécharger des photos est gratuit, sans filigrane." },
-      { "q": "Stockez-vous ma photo ?", "a": "Non. Le traitement s'effectue dans votre navigateur ; nous ne téléversons jamais vos images." },
-      { "q": "Quel format dois-je télécharger ?", "a": "Utilisez le JPG pour les soumissions en ligne et le PDF pour l'impression en laboratoire photo." },
-      { "q": "Ma photo a été refusée — que faire ?", "a": "Revérifiez les exigences de la page du document (fond, taille de tête, expression) et reprenez-la." },
-      { "q": "Quels pays sont pris en charge ?", "a": "Plus de 100 pays, avec des tailles tenues à jour." }
+      {
+        "q": "PhotoGov est-il vraiment gratuit ?",
+        "a": "Oui. Créer et télécharger des photos est gratuit, sans filigrane."
+      },
+      {
+        "q": "Stockez-vous ma photo ?",
+        "a": "Non. Le traitement s'effectue dans votre navigateur ; nous ne téléversons jamais vos images."
+      },
+      {
+        "q": "Quel format dois-je télécharger ?",
+        "a": "Utilisez le JPG pour les soumissions en ligne et le PDF pour l'impression en laboratoire photo."
+      },
+      {
+        "q": "Ma photo a été refusée — que faire ?",
+        "a": "Revérifiez les exigences de la page du document (fond, taille de tête, expression) et reprenez-la."
+      },
+      {
+        "q": "Quels pays sont pris en charge ?",
+        "a": "Plus de 100 pays, avec des tailles tenues à jour."
+      }
     ],
     "stillNeed": "Besoin d'aide ?",
     "btn": "Contactez-nous"

@@ -75,18 +75,42 @@
     "stepsTitle": "Cuatro pasos para una foto perfecta",
     "stepsEyebrow": "Cómo funciona",
     "steps": [
-      { "title": "Toma o sube una foto", "text": "Usa tu teléfono o cámara web. No necesitas estudio." },
-      { "title": "Recorta al tamaño correcto", "text": "Ajustamos automáticamente tu foto a las dimensiones oficiales." },
-      { "title": "Corrige fondo y luz", "text": "Un clic para fondo blanco/azul, brillo y contraste." },
-      { "title": "Descarga JPG o PDF", "text": "Imprime en casa o envía digitalmente — garantizado conforme." }
+      {
+        "title": "Toma o sube una foto",
+        "text": "Usa tu teléfono o cámara web. No necesitas estudio."
+      },
+      {
+        "title": "Recorta al tamaño correcto",
+        "text": "Ajustamos automáticamente tu foto a las dimensiones oficiales."
+      },
+      {
+        "title": "Corrige fondo y luz",
+        "text": "Un clic para fondo blanco/azul, brillo y contraste."
+      },
+      {
+        "title": "Descarga JPG o PDF",
+        "text": "Imprime en casa o envía digitalmente — garantizado conforme."
+      }
     ],
     "standardsTitle": "Hecho para cumplir estándares oficiales",
     "standardsSub": "Cada plantilla sigue las reglas exactas publicadas por las autoridades de pasaportes y visas.",
     "standards": [
-      { "t": "Tamaños aprobados por el gobierno", "d": "Más de 190 países, siempre actualizados a las últimas especificaciones." },
-      { "t": "DPI y tamaño de cabeza correctos", "d": "Seguimos reglas exactas de altura de cabeza y nivel de ojos." },
-      { "t": "Listo para imprimir y digital", "d": "Exporta JPG para formularios en línea o PDF para imprimir." },
-      { "t": "Privado por diseño", "d": "Las fotos se procesan en tu navegador. Nunca las almacenamos." }
+      {
+        "t": "Tamaños aprobados por el gobierno",
+        "d": "Más de 190 países, siempre actualizados a las últimas especificaciones."
+      },
+      {
+        "t": "DPI y tamaño de cabeza correctos",
+        "d": "Seguimos reglas exactas de altura de cabeza y nivel de ojos."
+      },
+      {
+        "t": "Listo para imprimir y digital",
+        "d": "Exporta JPG para formularios en línea o PDF para imprimir."
+      },
+      {
+        "t": "Privado por diseño",
+        "d": "Las fotos se procesan en tu navegador. Nunca las almacenamos."
+      }
     ],
     "popularEyebrow": "Popular",
     "popularTitle": "Documentos más solicitados",
@@ -234,7 +258,16 @@
     "noteZipFail": "La exportación del ZIP falló. Descarga individualmente.",
     "noteBatchReady": "{count} foto(s) lista(s). Haz clic en «Descargar todo (ZIP)».",
     "noteBatchLoading": "Cargando {count} foto(s)…",
-    "noteSheetDone": "Hoja de impresión ({count} copias) descargada como PDF."
+    "noteSheetDone": "Hoja de impresión ({count} copias) descargada como PDF.",
+    "capture": "Tomar foto",
+    "retake": "Volver a sacar",
+    "captureHint": "Abre la cámara (móvil) o elige un archivo",
+    "fitMode": "Encuadre",
+    "fitCover": "Rellenar (recortar)",
+    "fitContain": "Ajustar (completo)",
+    "autoCrop": "Recorte automático según documento",
+    "noteHeicDecoding": "Descodificando HEIC…",
+    "noteHeicFail": "HEIC no compatible aquí. Conviértelo a JPG/PNG."
   },
   "dv": {
     "eyebrow": "Visa de Diversidad",
@@ -281,11 +314,26 @@
     "title": "Centro de ayuda",
     "sub": "Respuestas a las preguntas más comunes.",
     "qa": [
-      { "q": "¿PhotoGov es realmente gratis?", "a": "Sí. Crear y descargar fotos es gratis, sin marcas de agua." },
-      { "q": "¿Almacenan mi foto?", "a": "No. El procesamiento se ejecuta en tu navegador; nunca subimos tus imágenes." },
-      { "q": "¿Qué formato debo descargar?", "a": "Usa JPG para envíos en línea y PDF para imprimir en un laboratorio fotográfico." },
-      { "q": "Mi foto fue rechazada — ¿qué hago?", "a": "Revisa los requisitos de la página del documento (fondo, tamaño de cabeza, expresión) y vuelve a tomarla." },
-      { "q": "¿Qué países son compatibles?", "a": "Más de 100 países, con tamaños actualizados." }
+      {
+        "q": "¿PhotoGov es realmente gratis?",
+        "a": "Sí. Crear y descargar fotos es gratis, sin marcas de agua."
+      },
+      {
+        "q": "¿Almacenan mi foto?",
+        "a": "No. El procesamiento se ejecuta en tu navegador; nunca subimos tus imágenes."
+      },
+      {
+        "q": "¿Qué formato debo descargar?",
+        "a": "Usa JPG para envíos en línea y PDF para imprimir en un laboratorio fotográfico."
+      },
+      {
+        "q": "Mi foto fue rechazada — ¿qué hago?",
+        "a": "Revisa los requisitos de la página del documento (fondo, tamaño de cabeza, expresión) y vuelve a tomarla."
+      },
+      {
+        "q": "¿Qué países son compatibles?",
+        "a": "Más de 100 países, con tamaños actualizados."
+      }
     ],
     "stillNeed": "¿Aún necesitas ayuda?",
     "btn": "Contáctanos"
