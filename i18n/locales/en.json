@@ -282,7 +282,12 @@
     "guidePreset": "Guide frame",
     "presetThirds": "Thirds",
     "presetPassport": "Passport (ICAO)",
-    "presetVisa": "Visa (US)"
+    "presetVisa": "Visa (US)",
+    "autoOptimize": "Auto-apply optimal on export",
+    "applyOptimal": "Apply optimal",
+    "guideCustomW": "Box width %",
+    "guideCustomH": "Box height %",
+    "presetCustom": "Custom"
   },
   "dv": {
     "eyebrow": "Diversity Visa",

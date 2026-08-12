@@ -282,7 +282,12 @@
     "guidePreset": "参考线框",
     "presetThirds": "九宫格",
     "presetPassport": "护照(ICAO)",
-    "presetVisa": "签证(美)"
+    "presetVisa": "签证(美)",
+    "autoOptimize": "导出时自动优化合规",
+    "applyOptimal": "应用合规最优",
+    "guideCustomW": "框宽 %",
+    "guideCustomH": "框高 %",
+    "presetCustom": "自定义"
   },
   "dv": {
     "eyebrow": "多元化签证",

@@ -282,7 +282,12 @@
     "guidePreset": "Marco guía",
     "presetThirds": "Tercios",
     "presetPassport": "Pasaporte (ICAO)",
-    "presetVisa": "Visa (EE.UU.)"
+    "presetVisa": "Visa (EE.UU.)",
+    "autoOptimize": "Optimizar al exportar",
+    "applyOptimal": "Aplicar óptimo",
+    "guideCustomW": "Ancho %",
+    "guideCustomH": "Alto %",
+    "presetCustom": "Personalizado"
   },
   "dv": {
     "eyebrow": "Visa de Diversidad",

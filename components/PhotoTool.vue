@@ -74,7 +74,11 @@ const MAX_UPLOAD_SIZE = 25 * 1024 * 1024
 const note = ref('')
 const aiReady = ref(false)
 const showGuides = ref(false) // 裁剪参考线开关
-const guidePreset = ref<'thirds' | 'passport' | 'visa'>('thirds') // 参考线证件框预设
+const guidePreset = ref<'thirds' | 'passport' | 'visa' | 'custom'>('thirds') // 参考线证件框预设
+const guideCustomW = ref(50) // 自定义框宽比例（%）
+const guideCustomH = ref(65)
+const guideCustomTop = ref(8)
+const autoOptimize = ref(false) // 导出时一键应用合规最优参数
 // 撤销/重做历史
 type ToolState = {
   scale: number; offsetX: number; offsetY: number; rotate: number
@@ -379,6 +383,18 @@ function checkCompliance() {
   compliance.value = { kb, sizeOk: kb <= 1000, face }
 }
 
+// 一键应用合规最优参数：主体居中取景（有蒙版则智能框人），背景非纯色时回退证件默认底色
+function applyComplianceOptimal() {
+  if (!sourceImg.value) return
+  if (aiMask.value) smartCrop()
+  else autoCrop()
+  if (bgMode.value === 'keep') {
+    bgMode.value = defaultBg(selDoc.value?.background)
+    draw()
+  }
+  commit()
+}
+
 // 导出前自动跑合规，返回警告文案（空串表示合规）
 function preExportCheck(): string {
   checkCompliance()
@@ -388,6 +404,12 @@ function preExportCheck(): string {
   if (!c.sizeOk) parts.push(t('tool.sizeWarn', { kb: c.kb }))
   if (c.face === 'warn') parts.push(t('tool.faceWarn'))
   return parts.join(' · ')
+}
+
+// 导出预处理：开启自动优化时先应用合规最优参数，再返回合规警告
+function preExport(): string {
+  if (autoOptimize.value) applyComplianceOptimal()
+  return preExportCheck()
 }
 
 function onFileInput(e: Event) {
@@ -501,6 +523,36 @@ function onTouchMove(e: TouchEvent) {
 function onTouchEnd() {
   if (touchMode !== 'none') commit()
   touchMode = 'none'
+}
+
+// ---- 桌面端滚轮缩放（以光标为锚点）----
+let wheelTimer: ReturnType<typeof setTimeout> | null = null
+function onWheel(e: WheelEvent) {
+  if (!hasImage.value || !sourceImg.value) return
+  const cv = canvasRef.value
+  if (!cv) return
+  const rect = cv.getBoundingClientRect()
+  const cx = (e.clientX - rect.left) * (cw.value / rect.width)
+  const cy = (e.clientY - rect.top) * (ch.value / rect.height)
+  const img = sourceImg.value
+  const { w: nw, h: nh } = getDims(img)
+  const cr = cw.value / ch.value
+  const ir = nw / nh
+  const cover = cr > ir ? cw.value / nw : ch.value / nh
+  const contain = cr > ir ? ch.value / nh : cw.value / nw
+  const baseS = (fitMode.value === 'contain' ? contain : cover) * scale.value
+  if (baseS <= 0) return
+  const sx = (cx - (cw.value / 2 + offsetX.value)) / baseS + nw / 2
+  const sy = (cy - (ch.value / 2 + offsetY.value)) / baseS + nh / 2
+  const factor = Math.exp(-e.deltaY * 0.0015)
+  const newSc = Math.min(3, Math.max(0.5, scale.value * factor))
+  const s2 = (fitMode.value === 'contain' ? contain : cover) * newSc
+  offsetX.value = cx - cw.value / 2 - (sx - nw / 2) * s2
+  offsetY.value = cy - ch.value / 2 - (sy - nh / 2) * s2
+  scale.value = newSc
+  draw()
+  if (wheelTimer) clearTimeout(wheelTimer)
+  wheelTimer = setTimeout(() => commit(), 350)
 }
 
 type ImageLike = HTMLImageElement | HTMLCanvasElement | null
@@ -656,7 +708,7 @@ function exportCanvas(): HTMLCanvasElement {
 
 function downloadJPG() {
   if (!hasImage.value) return
-  const warn = preExportCheck()
+  const warn = preExport()
   const out = exportCanvas()
   const link = document.createElement('a')
   link.download = `${fileName.value || 'photo'}-${selDoc.value?.slug}.jpg`
@@ -667,7 +719,7 @@ function downloadJPG() {
 
 function downloadPNG() {
   if (!hasImage.value) return
-  const warn = preExportCheck()
+  const warn = preExport()
   const out = exportCanvas()
   const link = document.createElement('a')
   link.download = `${fileName.value || 'photo'}-${selDoc.value?.slug}.png`
@@ -678,7 +730,7 @@ function downloadPNG() {
 
 async function downloadPDF() {
   if (!hasImage.value) return
-  const warn = preExportCheck()
+  const warn = preExport()
   isProcessing.value = true
   try {
     const out = exportCanvas()
@@ -702,7 +754,7 @@ const sheetPreset = ref<'4x6' | 'A4'>('4x6')
 
 async function downloadSheet() {
   if (!hasImage.value) return
-  const warn = preExportCheck()
+  const warn = preExport()
   isProcessing.value = true
   try {
     const { jsPDF } = await import('jspdf')
@@ -805,7 +857,7 @@ function removeBatchItem(id: number) {
 
 async function downloadBatchZip() {
   if (!batchItems.value.length) return
-  const warn = preExportCheck()
+  const warn = preExport()
   isProcessing.value = true
   note.value = t('tool.noteZipping')
   try {
@@ -932,6 +984,7 @@ function changeCountry(c: string) {
           @touchstart.prevent="onTouchStart"
           @touchmove.prevent="onTouchMove"
           @touchend="onTouchEnd"
+          @wheel.prevent="onWheel"
         >
           <canvas
             ref="canvasRef"
@@ -952,6 +1005,7 @@ function changeCountry(c: string) {
               <ellipse v-if="guidePreset==='thirds'" cx="50" cy="38" rx="22" ry="28" fill="none" stroke="rgba(74,222,128,.9)" stroke-width="1.5" vector-effect="non-scaling-stroke" />
               <rect v-else-if="guidePreset==='passport'" x="25" y="8" width="50" height="65" rx="1.5" fill="none" stroke="rgba(74,222,128,.9)" stroke-width="1.5" vector-effect="non-scaling-stroke" />
               <rect v-else-if="guidePreset==='visa'" x="27" y="10" width="46" height="62" rx="1.5" fill="none" stroke="rgba(74,222,128,.9)" stroke-width="1.5" vector-effect="non-scaling-stroke" />
+              <rect v-else-if="guidePreset==='custom'" :x="(100-guideCustomW)/2" :y="guideCustomTop" :width="guideCustomW" :height="guideCustomH" rx="1.5" fill="none" stroke="rgba(74,222,128,.9)" stroke-width="1.5" vector-effect="non-scaling-stroke" />
             </svg>
           </div>
           <div
@@ -1035,7 +1089,12 @@ function changeCountry(c: string) {
               <option value="thirds">{{ $t('tool.presetThirds') }}</option>
               <option value="passport">{{ $t('tool.presetPassport') }}</option>
               <option value="visa">{{ $t('tool.presetVisa') }}</option>
+              <option value="custom">{{ $t('tool.presetCustom') }}</option>
             </select>
+            <template v-if="showGuides && guidePreset==='custom'">
+              <input type="number" min="10" max="100" v-model.number="guideCustomW" class="w-14 rounded-lg border border-slate-300 px-1.5 py-1 text-xs" :title="$t('tool.guideCustomW')" />
+              <input type="number" min="10" max="100" v-model.number="guideCustomH" class="w-14 rounded-lg border border-slate-300 px-1.5 py-1 text-xs" :title="$t('tool.guideCustomH')" />
+            </template>
           </div>
           <div>
             <div class="flex justify-between text-xs text-muted"><span>{{ $t('tool.zoom') }}</span><span>{{ scale.toFixed(2) }}x</span></div>
@@ -1095,6 +1154,11 @@ function changeCountry(c: string) {
             <p class="text-xs font-semibold text-ink">{{ $t('tool.compliance') }}</p>
             <button class="btn-secondary px-3 py-1.5 text-xs" :disabled="!hasImage" @click="checkCompliance()">{{ $t('tool.check') }}</button>
           </div>
+          <label class="mt-2 flex items-center gap-2 text-[11px] text-muted">
+            <input type="checkbox" v-model="autoOptimize" class="rounded border-slate-300" />
+            {{ $t('tool.autoOptimize') }}
+          </label>
+          <button class="mt-2 w-full rounded-lg border border-brand-blue bg-brand-blue/5 px-2 py-1.5 text-xs font-medium text-brand-blue" :disabled="!hasImage" @click="applyComplianceOptimal()">{{ $t('tool.applyOptimal') }}</button>
           <div v-if="compliance" class="mt-2 space-y-1 text-[11px] leading-relaxed">
             <div class="flex items-center gap-1"><span :class="compliance.sizeOk ? 'text-accent-green' : 'text-amber-600'">●</span> {{ cw }}×{{ ch }} px · {{ $t('tool.dimOk') }}</div>
             <div class="flex items-center gap-1"><span :class="compliance.sizeOk ? 'text-accent-green' : 'text-amber-600'">●</span> {{ $t('tool.sizeLabel') }}: ~{{ compliance.kb }} KB <span v-if="!compliance.sizeOk" class="text-amber-600">{{ $t('tool.sizeWarn', { kb: compliance.kb }) }}</span></div>
