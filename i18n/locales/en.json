@@ -278,7 +278,11 @@
     "sizeWarn": "may be too large",
     "faceOk": "Face position looks good",
     "faceWarn": "Adjust so the face sits in the upper area",
-    "faceNa": "Run AI remove to check face position"
+    "faceNa": "Run AI remove to check face position",
+    "guidePreset": "Guide frame",
+    "presetThirds": "Thirds",
+    "presetPassport": "Passport (ICAO)",
+    "presetVisa": "Visa (US)"
   },
   "dv": {
     "eyebrow": "Diversity Visa",

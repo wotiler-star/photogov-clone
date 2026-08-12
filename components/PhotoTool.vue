@@ -73,7 +73,8 @@ let dragDepth = 0
 const MAX_UPLOAD_SIZE = 25 * 1024 * 1024
 const note = ref('')
 const aiReady = ref(false)
-const showGuides = ref(false) // 裁剪参考线（九宫格 + 人脸区）
+const showGuides = ref(false) // 裁剪参考线开关
+const guidePreset = ref<'thirds' | 'passport' | 'visa'>('thirds') // 参考线证件框预设
 // 撤销/重做历史
 type ToolState = {
   scale: number; offsetX: number; offsetY: number; rotate: number
@@ -378,6 +379,17 @@ function checkCompliance() {
   compliance.value = { kb, sizeOk: kb <= 1000, face }
 }
 
+// 导出前自动跑合规，返回警告文案（空串表示合规）
+function preExportCheck(): string {
+  checkCompliance()
+  const c = compliance.value
+  if (!c) return ''
+  const parts: string[] = []
+  if (!c.sizeOk) parts.push(t('tool.sizeWarn', { kb: c.kb }))
+  if (c.face === 'warn') parts.push(t('tool.faceWarn'))
+  return parts.join(' · ')
+}
+
 function onFileInput(e: Event) {
   const f = (e.target as HTMLInputElement).files?.[0]
   if (f) loadFile(f)
@@ -425,6 +437,7 @@ let dragged = false
 let lastX = 0
 let lastY = 0
 function onPointerDown(e: PointerEvent) {
+  if (e.pointerType === 'touch') return // 触摸交由 touch 事件处理（含双指缩放）
   dragging = true
   dragged = false
   lastX = e.clientX
@@ -444,6 +457,50 @@ function onPointerUp() {
   if (dragging && dragged) commit()
   dragging = false
   dragged = false
+}
+
+// ---- 移动端触控：单指平移 + 双指捏合缩放 ----
+type TouchMode = 'none' | 'pan' | 'pinch'
+let touchMode: TouchMode = 'none'
+let lastTX = 0
+let lastTY = 0
+let pinchStartDist = 0
+let pinchStartScale = 1
+function touchDist(e: TouchEvent): number {
+  const a = e.touches[0]
+  const b = e.touches[1]
+  return Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY)
+}
+function onTouchStart(e: TouchEvent) {
+  if (e.touches.length === 1) {
+    touchMode = 'pan'
+    lastTX = e.touches[0].clientX
+    lastTY = e.touches[0].clientY
+  } else if (e.touches.length >= 2) {
+    touchMode = 'pinch'
+    pinchStartDist = touchDist(e)
+    pinchStartScale = scale.value
+  }
+}
+function onTouchMove(e: TouchEvent) {
+  if (!hasImage.value) return
+  if (touchMode === 'pan' && e.touches.length === 1) {
+    offsetX.value += e.touches[0].clientX - lastTX
+    offsetY.value += e.touches[0].clientY - lastTY
+    lastTX = e.touches[0].clientX
+    lastTY = e.touches[0].clientY
+    draw()
+  } else if (touchMode === 'pinch' && e.touches.length >= 2) {
+    const d = touchDist(e)
+    if (pinchStartDist > 0) {
+      scale.value = Math.min(3, Math.max(0.5, pinchStartScale * (d / pinchStartDist)))
+    }
+    draw()
+  }
+}
+function onTouchEnd() {
+  if (touchMode !== 'none') commit()
+  touchMode = 'none'
 }
 
 type ImageLike = HTMLImageElement | HTMLCanvasElement | null
@@ -599,26 +656,29 @@ function exportCanvas(): HTMLCanvasElement {
 
 function downloadJPG() {
   if (!hasImage.value) return
+  const warn = preExportCheck()
   const out = exportCanvas()
   const link = document.createElement('a')
   link.download = `${fileName.value || 'photo'}-${selDoc.value?.slug}.jpg`
   link.href = out.toDataURL('image/jpeg', 0.92)
   link.click()
-  note.value = t('tool.noteJpg')
+  note.value = t('tool.noteJpg') + (warn ? ' · ' + warn : '')
 }
 
 function downloadPNG() {
   if (!hasImage.value) return
+  const warn = preExportCheck()
   const out = exportCanvas()
   const link = document.createElement('a')
   link.download = `${fileName.value || 'photo'}-${selDoc.value?.slug}.png`
   link.href = out.toDataURL('image/png')
   link.click()
-  note.value = t('tool.notePng')
+  note.value = t('tool.notePng') + (warn ? ' · ' + warn : '')
 }
 
 async function downloadPDF() {
   if (!hasImage.value) return
+  const warn = preExportCheck()
   isProcessing.value = true
   try {
     const out = exportCanvas()
@@ -628,7 +688,7 @@ async function downloadPDF() {
     const pdf = new jsPDF({ orientation: inW > inH ? 'landscape' : 'portrait', unit: 'in', format: [inW, inH] })
     pdf.addImage(out.toDataURL('image/jpeg', 0.92), 'JPEG', 0, 0, inW, inH)
     pdf.save(`${fileName.value || 'photo'}-${selDoc.value?.slug}.pdf`)
-    note.value = t('tool.notePdf')
+    note.value = t('tool.notePdf') + (warn ? ' · ' + warn : '')
   } catch (e) {
     note.value = t('tool.notePdfFail')
   } finally {
@@ -642,6 +702,7 @@ const sheetPreset = ref<'4x6' | 'A4'>('4x6')
 
 async function downloadSheet() {
   if (!hasImage.value) return
+  const warn = preExportCheck()
   isProcessing.value = true
   try {
     const { jsPDF } = await import('jspdf')
@@ -683,7 +744,7 @@ async function downloadSheet() {
     const pdf = new jsPDF({ orientation: inW > inH ? 'landscape' : 'portrait', unit: 'in', format: [inW, inH] })
     pdf.addImage(sheet.toDataURL('image/jpeg', 0.92), 'JPEG', 0, 0, inW, inH)
     pdf.save(`photo-sheet-${sheetCopies.value}-${selDoc.value?.slug}.pdf`)
-    note.value = t('tool.noteSheetDone', { count: total })
+    note.value = t('tool.noteSheetDone', { count: total }) + (warn ? ' · ' + warn : '')
   } catch (e) {
     note.value = t('tool.noteSheetFail')
   } finally {
@@ -744,6 +805,7 @@ function removeBatchItem(id: number) {
 
 async function downloadBatchZip() {
   if (!batchItems.value.length) return
+  const warn = preExportCheck()
   isProcessing.value = true
   note.value = t('tool.noteZipping')
   try {
@@ -761,7 +823,7 @@ async function downloadBatchZip() {
     a.download = 'photos.zip'
     a.click()
     URL.revokeObjectURL(url)
-    note.value = t('tool.noteZipDone', { count: batchItems.value.length })
+    note.value = t('tool.noteZipDone', { count: batchItems.value.length }) + (warn ? ' · ' + warn : '')
   } catch (e) {
     note.value = t('tool.noteZipFail')
   } finally {
@@ -867,6 +929,9 @@ function changeCountry(c: string) {
           @dragleave.prevent="onDragLeave"
           @dragover.prevent
           @drop="onDrop"
+          @touchstart.prevent="onTouchStart"
+          @touchmove.prevent="onTouchMove"
+          @touchend="onTouchEnd"
         >
           <canvas
             ref="canvasRef"
@@ -874,17 +939,19 @@ function changeCountry(c: string) {
             :width="cw"
             :height="ch"
           ></canvas>
-          <!-- 裁剪参考线（九宫格 + 人脸区），仅预览，不导出 -->
+          <!-- 裁剪参考线（仅预览，不导出）；按证件框预设切换 -->
           <div
             v-if="showGuides && hasImage"
             class="pointer-events-none absolute inset-0 rounded-lg overflow-hidden"
           >
             <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="absolute inset-0 h-full w-full">
-              <line x1="33.33" y1="0" x2="33.33" y2="100" stroke="rgba(255,255,255,.65)" stroke-width="1" stroke-dasharray="2 2" vector-effect="non-scaling-stroke" />
-              <line x1="66.67" y1="0" x2="66.67" y2="100" stroke="rgba(255,255,255,.65)" stroke-width="1" stroke-dasharray="2 2" vector-effect="non-scaling-stroke" />
-              <line x1="0" y1="33.33" x2="100" y2="33.33" stroke="rgba(255,255,255,.65)" stroke-width="1" stroke-dasharray="2 2" vector-effect="non-scaling-stroke" />
-              <line x1="0" y1="66.67" x2="100" y2="66.67" stroke="rgba(255,255,255,.65)" stroke-width="1" stroke-dasharray="2 2" vector-effect="non-scaling-stroke" />
-              <ellipse cx="50" cy="38" rx="22" ry="28" fill="none" stroke="rgba(74,222,128,.9)" stroke-width="1.5" vector-effect="non-scaling-stroke" />
+              <line x1="33.33" y1="0" x2="33.33" y2="100" stroke="rgba(255,255,255,.6)" stroke-width="1" stroke-dasharray="2 2" vector-effect="non-scaling-stroke" />
+              <line x1="66.67" y1="0" x2="66.67" y2="100" stroke="rgba(255,255,255,.6)" stroke-width="1" stroke-dasharray="2 2" vector-effect="non-scaling-stroke" />
+              <line x1="0" y1="33.33" x2="100" y2="33.33" stroke="rgba(255,255,255,.6)" stroke-width="1" stroke-dasharray="2 2" vector-effect="non-scaling-stroke" />
+              <line x1="0" y1="66.67" x2="100" y2="66.67" stroke="rgba(255,255,255,.6)" stroke-width="1" stroke-dasharray="2 2" vector-effect="non-scaling-stroke" />
+              <ellipse v-if="guidePreset==='thirds'" cx="50" cy="38" rx="22" ry="28" fill="none" stroke="rgba(74,222,128,.9)" stroke-width="1.5" vector-effect="non-scaling-stroke" />
+              <rect v-else-if="guidePreset==='passport'" x="25" y="8" width="50" height="65" rx="1.5" fill="none" stroke="rgba(74,222,128,.9)" stroke-width="1.5" vector-effect="non-scaling-stroke" />
+              <rect v-else-if="guidePreset==='visa'" x="27" y="10" width="46" height="62" rx="1.5" fill="none" stroke="rgba(74,222,128,.9)" stroke-width="1.5" vector-effect="non-scaling-stroke" />
             </svg>
           </div>
           <div
@@ -960,10 +1027,15 @@ function changeCountry(c: string) {
 
         <!-- 调整 -->
         <div class="space-y-3" :class="{ 'opacity-40': !hasImage }">
-          <div class="flex flex-wrap gap-2">
+          <div class="flex flex-wrap items-center gap-2">
             <button class="rounded-lg border border-slate-300 px-2 py-1.5 text-xs font-medium" :disabled="!canUndo" @click="undo()">↶ {{ $t('tool.undo') }}</button>
             <button class="rounded-lg border border-slate-300 px-2 py-1.5 text-xs font-medium" :disabled="!canRedo" @click="redo()">↷ {{ $t('tool.redo') }}</button>
             <button class="rounded-lg border px-2 py-1.5 text-xs font-medium" :class="showGuides?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="showGuides=!showGuides">{{ $t('tool.guides') }}</button>
+            <select v-model="guidePreset" :disabled="!showGuides" class="rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-xs" :title="$t('tool.guidePreset')">
+              <option value="thirds">{{ $t('tool.presetThirds') }}</option>
+              <option value="passport">{{ $t('tool.presetPassport') }}</option>
+              <option value="visa">{{ $t('tool.presetVisa') }}</option>
+            </select>
           </div>
           <div>
             <div class="flex justify-between text-xs text-muted"><span>{{ $t('tool.zoom') }}</span><span>{{ scale.toFixed(2) }}x</span></div>

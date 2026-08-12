@@ -278,7 +278,11 @@
     "sizeWarn": "puede ser demasiado grande",
     "faceOk": "Posición del rostro correcta",
     "faceWarn": "Ajusta para que el rostro quede arriba",
-    "faceNa": "Ejecuta eliminación IA para verificar el rostro"
+    "faceNa": "Ejecuta eliminación IA para verificar el rostro",
+    "guidePreset": "Marco guía",
+    "presetThirds": "Tercios",
+    "presetPassport": "Pasaporte (ICAO)",
+    "presetVisa": "Visa (EE.UU.)"
   },
   "dv": {
     "eyebrow": "Visa de Diversidad",

@@ -278,7 +278,11 @@
     "sizeWarn": "可能过大",
     "faceOk": "人脸位置良好",
     "faceWarn": "请调整使人脸位于上方区域",
-    "faceNa": "运行 AI 抠图以检测人脸位置"
+    "faceNa": "运行 AI 抠图以检测人脸位置",
+    "guidePreset": "参考线框",
+    "presetThirds": "九宫格",
+    "presetPassport": "护照(ICAO)",
+    "presetVisa": "签证(美)"
   },
   "dv": {
     "eyebrow": "多元化签证",
