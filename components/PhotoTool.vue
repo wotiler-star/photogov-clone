@@ -73,6 +73,20 @@ let dragDepth = 0
 const MAX_UPLOAD_SIZE = 25 * 1024 * 1024
 const note = ref('')
 const aiReady = ref(false)
+const showGuides = ref(false) // 裁剪参考线（九宫格 + 人脸区）
+// 撤销/重做历史
+type ToolState = {
+  scale: number; offsetX: number; offsetY: number; rotate: number
+  brightness: number; contrast: number
+  bgMode: 'white' | 'blue' | 'grey' | 'keep' | 'ai' | 'custom'
+  customColor: string; fitMode: 'cover' | 'contain'
+}
+const history = ref<ToolState[]>([])
+const histIndex = ref(-1)
+const canUndo = computed(() => histIndex.value > 0)
+const canRedo = computed(() => histIndex.value < history.value.length - 1)
+// 合规校验结果
+const compliance = ref<{ kb: number; sizeOk: boolean; face: 'ok' | 'warn' | 'na' } | null>(null)
 
 const hasImage = computed(() => !!sourceImg.value)
 const cw = computed(() => selDoc.value?.size.w || 600)
@@ -123,12 +137,14 @@ async function loadFile(file: File) {
     aiImg.value = null
     aiMask.value = null
     aiReady.value = false
-    bgMode.value = defaultBg(selDoc.value?.background)
-    resetTransforms()
-    fitMode.value = 'cover' // 上传后默认按证件比例填充裁剪
-    isReading.value = false
-    note.value = ''
-    nextTick(draw)
+      bgMode.value = defaultBg(selDoc.value?.background)
+      resetTransforms()
+      fitMode.value = 'cover' // 上传后默认按证件比例填充裁剪
+      resetHistory()
+      compliance.value = null
+      isReading.value = false
+      note.value = ''
+      nextTick(draw)
   } catch (e) {
     isReading.value = false
     note.value = t('tool.notePleaseImage')
@@ -240,6 +256,7 @@ function smartCrop() {
   offsetX.value = -(bx - nw / 2) * s
   offsetY.value = -(by - nh / 2) * s
   rotate.value = 0
+  commit()
   draw()
 }
 
@@ -289,6 +306,78 @@ function resetTransforms() {
   contrast.value = 100
 }
 
+// ---- 撤销 / 重做 ----
+function snapshot(): ToolState {
+  return {
+    scale: scale.value, offsetX: offsetX.value, offsetY: offsetY.value,
+    rotate: rotate.value, brightness: brightness.value, contrast: contrast.value,
+    bgMode: bgMode.value, customColor: customColor.value, fitMode: fitMode.value
+  }
+}
+function applySnapshot(s: ToolState) {
+  scale.value = s.scale; offsetX.value = s.offsetX; offsetY.value = s.offsetY
+  rotate.value = s.rotate; brightness.value = s.brightness; contrast.value = s.contrast
+  bgMode.value = s.bgMode; customColor.value = s.customColor; fitMode.value = s.fitMode
+  draw()
+}
+function commit() {
+  history.value = history.value.slice(0, histIndex.value + 1)
+  history.value.push(snapshot())
+  histIndex.value = history.value.length - 1
+}
+function resetHistory() {
+  history.value = [snapshot()]
+  histIndex.value = 0
+}
+function undo() {
+  if (histIndex.value <= 0) return
+  histIndex.value--
+  applySnapshot(history.value[histIndex.value])
+}
+function redo() {
+  if (histIndex.value >= history.value.length - 1) return
+  histIndex.value++
+  applySnapshot(history.value[histIndex.value])
+}
+function setBg(m: ToolState['bgMode']) {
+  bgMode.value = m
+  draw()
+  commit()
+}
+
+// ---- 尺寸合规校验 ----
+function checkCompliance() {
+  if (!sourceImg.value) return
+  const img = sourceImg.value
+  const { w: nw, h: nh } = getDims(img)
+  const cr = cw.value / ch.value
+  const ir = nw / nh
+  const cover = cr > ir ? cw.value / nw : ch.value / nh
+  const contain = cr > ir ? ch.value / nh : cw.value / nw
+  const sDraw = (fitMode.value === 'contain' ? contain : cover) * scale.value
+  // 估算导出 JPG 体积
+  const out = document.createElement('canvas')
+  out.width = cw.value
+  out.height = ch.value
+  paint(out.getContext('2d')!, cw.value, ch.value, activeSource())
+  const url = out.toDataURL('image/jpeg', 0.92)
+  const kb = Math.max(1, Math.round(((url.length - 'data:image/jpeg;base64,'.length) * 3) / 4 / 1024))
+  // 人脸位置（基于当前取景 + 蒙版）
+  let face: 'ok' | 'warn' | 'na' = 'na'
+  if (aiMask.value) {
+    const box = maskBoundingBox(aiMask.value)
+    if (box) {
+      const topY = ch.value / 2 + offsetY.value + (box.y - nh / 2) * sDraw
+      const botY = ch.value / 2 + offsetY.value + (box.y + box.h - nh / 2) * sDraw
+      const topFrac = topY / ch.value
+      const botFrac = botY / ch.value
+      // 证件照：头顶距上边约 3–18%，下巴不超 92%
+      face = topFrac >= 0.03 && topFrac <= 0.18 && botFrac <= 0.92 ? 'ok' : 'warn'
+    }
+  }
+  compliance.value = { kb, sizeOk: kb <= 1000, face }
+}
+
 function onFileInput(e: Event) {
   const f = (e.target as HTMLInputElement).files?.[0]
   if (f) loadFile(f)
@@ -332,10 +421,12 @@ function onPaste(e: ClipboardEvent) {
 
 // ---- 拖拽平移 ----
 let dragging = false
+let dragged = false
 let lastX = 0
 let lastY = 0
 function onPointerDown(e: PointerEvent) {
   dragging = true
+  dragged = false
   lastX = e.clientX
   lastY = e.clientY
   ;(e.target as HTMLElement).setPointerCapture?.(e.pointerId)
@@ -346,10 +437,13 @@ function onPointerMove(e: PointerEvent) {
   offsetY.value += (e.clientY - lastY)
   lastX = e.clientX
   lastY = e.clientY
+  dragged = true
   draw()
 }
 function onPointerUp() {
+  if (dragging && dragged) commit()
   dragging = false
+  dragged = false
 }
 
 type ImageLike = HTMLImageElement | HTMLCanvasElement | null
@@ -421,7 +515,7 @@ watch(
 )
 watch(selDoc, () => {
   if (selDoc.value) bgMode.value = defaultBg(selDoc.value.background)
-  if (hasImage.value) autoCrop() // 切换证件后按新比例重新预裁剪
+  if (hasImage.value) { autoCrop(); commit() } // 切换证件后按新比例重新预裁剪
 })
 
 onMounted(() => {
@@ -429,6 +523,7 @@ onMounted(() => {
   syncCanvasSize()
   draw()
   document.addEventListener('paste', onPaste)
+  window.addEventListener('keydown', onKey)
 })
 
 // ---- 设置记忆（localStorage）：刷新后保留国家/证件/背景/裁剪模式 ----
@@ -462,7 +557,23 @@ function loadPrefs() {
 watch([activeCountry, selSlug, bgMode, fitMode], savePrefs)
 onBeforeUnmount(() => {
   document.removeEventListener('paste', onPaste)
+  window.removeEventListener('keydown', onKey)
 })
+
+// Ctrl/Cmd+Z 撤销，Ctrl/Cmd+Shift+Z 或 Ctrl+Y 重做
+function onKey(e: KeyboardEvent) {
+  const tag = (e.target as HTMLElement | null)?.tagName
+  if (tag === 'INPUT' || tag === 'TEXTAREA' || (e.target as HTMLElement)?.isContentEditable) return
+  const k = e.key.toLowerCase()
+  if ((e.ctrlKey || e.metaKey) && k === 'z') {
+    e.preventDefault()
+    if (e.shiftKey) redo()
+    else undo()
+  } else if ((e.ctrlKey || e.metaKey) && k === 'y') {
+    e.preventDefault()
+    redo()
+  }
+}
 
 // 当证件切换导致画布尺寸变化时同步
 watch([cw, ch], () => {
@@ -696,6 +807,7 @@ async function removeBackgroundAI() {
     aiImg.value = result
     bgMode.value = 'ai'
     aiReady.value = true
+    commit()
     note.value = t('tool.noteAiReady')
   } catch (e) {
     note.value =
@@ -762,6 +874,19 @@ function changeCountry(c: string) {
             :width="cw"
             :height="ch"
           ></canvas>
+          <!-- 裁剪参考线（九宫格 + 人脸区），仅预览，不导出 -->
+          <div
+            v-if="showGuides && hasImage"
+            class="pointer-events-none absolute inset-0 rounded-lg overflow-hidden"
+          >
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="absolute inset-0 h-full w-full">
+              <line x1="33.33" y1="0" x2="33.33" y2="100" stroke="rgba(255,255,255,.65)" stroke-width="1" stroke-dasharray="2 2" vector-effect="non-scaling-stroke" />
+              <line x1="66.67" y1="0" x2="66.67" y2="100" stroke="rgba(255,255,255,.65)" stroke-width="1" stroke-dasharray="2 2" vector-effect="non-scaling-stroke" />
+              <line x1="0" y1="33.33" x2="100" y2="33.33" stroke="rgba(255,255,255,.65)" stroke-width="1" stroke-dasharray="2 2" vector-effect="non-scaling-stroke" />
+              <line x1="0" y1="66.67" x2="100" y2="66.67" stroke="rgba(255,255,255,.65)" stroke-width="1" stroke-dasharray="2 2" vector-effect="non-scaling-stroke" />
+              <ellipse cx="50" cy="38" rx="22" ry="28" fill="none" stroke="rgba(74,222,128,.9)" stroke-width="1.5" vector-effect="non-scaling-stroke" />
+            </svg>
+          </div>
           <div
             v-if="!hasImage"
             class="pointer-events-none absolute inset-0 grid place-items-center rounded-lg text-center text-sm text-muted"
@@ -835,29 +960,34 @@ function changeCountry(c: string) {
 
         <!-- 调整 -->
         <div class="space-y-3" :class="{ 'opacity-40': !hasImage }">
+          <div class="flex flex-wrap gap-2">
+            <button class="rounded-lg border border-slate-300 px-2 py-1.5 text-xs font-medium" :disabled="!canUndo" @click="undo()">↶ {{ $t('tool.undo') }}</button>
+            <button class="rounded-lg border border-slate-300 px-2 py-1.5 text-xs font-medium" :disabled="!canRedo" @click="redo()">↷ {{ $t('tool.redo') }}</button>
+            <button class="rounded-lg border px-2 py-1.5 text-xs font-medium" :class="showGuides?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="showGuides=!showGuides">{{ $t('tool.guides') }}</button>
+          </div>
           <div>
             <div class="flex justify-between text-xs text-muted"><span>{{ $t('tool.zoom') }}</span><span>{{ scale.toFixed(2) }}x</span></div>
-            <input type="range" min="0.5" max="3" step="0.01" v-model.number="scale" class="w-full accent-brand-blue" :disabled="!hasImage" />
+            <input type="range" min="0.5" max="3" step="0.01" v-model.number="scale" class="w-full accent-brand-blue" :disabled="!hasImage" @change="commit()" />
           </div>
           <div>
             <div class="flex justify-between text-xs text-muted"><span>{{ $t('tool.rotate') }}</span><span>{{ rotate }}°</span></div>
-            <input type="range" min="-45" max="45" step="1" v-model.number="rotate" class="w-full accent-brand-blue" :disabled="!hasImage" />
+            <input type="range" min="-45" max="45" step="1" v-model.number="rotate" class="w-full accent-brand-blue" :disabled="!hasImage" @change="commit()" />
           </div>
           <div>
             <div class="flex justify-between text-xs text-muted"><span>{{ $t('tool.brightness') }}</span><span>{{ brightness }}%</span></div>
-            <input type="range" min="50" max="150" step="1" v-model.number="brightness" class="w-full accent-brand-blue" :disabled="!hasImage" />
+            <input type="range" min="50" max="150" step="1" v-model.number="brightness" class="w-full accent-brand-blue" :disabled="!hasImage" @change="commit()" />
           </div>
           <div>
             <div class="flex justify-between text-xs text-muted"><span>{{ $t('tool.contrast') }}</span><span>{{ contrast }}%</span></div>
-            <input type="range" min="50" max="150" step="1" v-model.number="contrast" class="w-full accent-brand-blue" :disabled="!hasImage" />
+            <input type="range" min="50" max="150" step="1" v-model.number="contrast" class="w-full accent-brand-blue" :disabled="!hasImage" @change="commit()" />
           </div>
-          <button class="text-xs text-brand-blue underline" :disabled="!hasImage" @click="resetTransforms(); draw()">{{ $t('tool.reset') }}</button>
+          <button class="text-xs text-brand-blue underline" :disabled="!hasImage" @click="resetTransforms(); draw(); commit()">{{ $t('tool.reset') }}</button>
           <!-- 裁剪模式 + 自动预裁剪 -->
           <div class="border-t border-slate-200 pt-3">
             <label class="eyebrow">{{ $t('tool.fitMode') }}</label>
             <div class="mt-2 grid grid-cols-2 gap-2">
-              <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="fitMode==='cover'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="fitMode='cover';draw()">{{ $t('tool.fitCover') }}</button>
-              <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="fitMode==='contain'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="fitMode='contain';draw()">{{ $t('tool.fitContain') }}</button>
+              <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="fitMode==='cover'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="fitMode='cover';draw();commit()">{{ $t('tool.fitCover') }}</button>
+              <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="fitMode==='contain'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="fitMode='contain';draw();commit()">{{ $t('tool.fitContain') }}</button>
             </div>
             <button class="mt-2 text-xs text-brand-blue underline" :disabled="!hasImage" @click="smartCrop()">{{ $t('tool.autoCrop') }}</button>
           </div>
@@ -867,15 +997,15 @@ function changeCountry(c: string) {
         <div>
           <label class="eyebrow">{{ $t('tool.background') }}</label>
           <div class="mt-2 grid grid-cols-3 gap-2">
-            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='white'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="bgMode='white';draw()">{{ $t('tool.bgWhite') }}</button>
-            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='blue'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="bgMode='blue';draw()">{{ $t('tool.bgBlue') }}</button>
-            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='grey'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="bgMode='grey';draw()">{{ $t('tool.bgGrey') }}</button>
-            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='keep'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="bgMode='keep';draw()">{{ $t('tool.bgKeep') }}</button>
+            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='white'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="setBg('white')">{{ $t('tool.bgWhite') }}</button>
+            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='blue'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="setBg('blue')">{{ $t('tool.bgBlue') }}</button>
+            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='grey'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="setBg('grey')">{{ $t('tool.bgGrey') }}</button>
+            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='keep'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="setBg('keep')">{{ $t('tool.bgKeep') }}</button>
             <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='ai'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" :disabled="!hasImage||isProcessing" @click="removeBackgroundAI()">{{ $t('tool.bgAi') }}</button>
-            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='custom'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="bgMode='custom';draw()">{{ $t('tool.bgCustom') }}</button>
+            <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="bgMode==='custom'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="setBg('custom')">{{ $t('tool.bgCustom') }}</button>
           </div>
           <div v-if="bgMode==='custom'" class="mt-2 flex items-center gap-2 text-xs text-muted">
-            <input type="color" v-model="customColor" @input="bgMode='custom';draw()" class="h-8 w-10 rounded border border-slate-300" />
+            <input type="color" v-model="customColor" @input="bgMode='custom';draw()" @change="commit()" class="h-8 w-10 rounded border border-slate-300" />
             <span>{{ $t('tool.customLabel') }}</span>
           </div>
         </div>
@@ -885,6 +1015,20 @@ function changeCountry(c: string) {
           <button class="btn-primary" :disabled="!hasImage" @click="downloadJPG()">{{ $t('tool.jpg') }}</button>
           <button class="btn-yellow" :disabled="!hasImage||isProcessing" @click="downloadPDF()">{{ $t('tool.pdf') }}</button>
           <button class="btn-secondary" :disabled="!hasImage" @click="downloadPNG()">{{ $t('tool.png') }}</button>
+        </div>
+
+        <!-- 合规校验 -->
+        <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+          <div class="flex items-center justify-between">
+            <p class="text-xs font-semibold text-ink">{{ $t('tool.compliance') }}</p>
+            <button class="btn-secondary px-3 py-1.5 text-xs" :disabled="!hasImage" @click="checkCompliance()">{{ $t('tool.check') }}</button>
+          </div>
+          <div v-if="compliance" class="mt-2 space-y-1 text-[11px] leading-relaxed">
+            <div class="flex items-center gap-1"><span :class="compliance.sizeOk ? 'text-accent-green' : 'text-amber-600'">●</span> {{ cw }}×{{ ch }} px · {{ $t('tool.dimOk') }}</div>
+            <div class="flex items-center gap-1"><span :class="compliance.sizeOk ? 'text-accent-green' : 'text-amber-600'">●</span> {{ $t('tool.sizeLabel') }}: ~{{ compliance.kb }} KB <span v-if="!compliance.sizeOk" class="text-amber-600">{{ $t('tool.sizeWarn', { kb: compliance.kb }) }}</span></div>
+            <div v-if="compliance.face !== 'na'" class="flex items-center gap-1"><span :class="compliance.face === 'ok' ? 'text-accent-green' : 'text-amber-600'">●</span> {{ compliance.face === 'ok' ? $t('tool.faceOk') : $t('tool.faceWarn') }}</div>
+            <div v-else class="text-muted">{{ $t('tool.faceNa') }}</div>
+          </div>
         </div>
 
         <!-- 排版打印页 -->

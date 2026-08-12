@@ -267,7 +267,18 @@
     "fitContain": "完整（留白）",
     "autoCrop": "按证件比例自动裁剪",
     "noteHeicDecoding": "正在解码 HEIC…",
-    "noteHeicFail": "当前环境不支持 HEIC，请先转为 JPG/PNG 再上传。"
+    "noteHeicFail": "当前环境不支持 HEIC，请先转为 JPG/PNG 再上传。",
+    "guides": "参考线",
+    "undo": "撤销",
+    "redo": "重做",
+    "compliance": "合规检查",
+    "check": "检查",
+    "dimOk": "尺寸符合规格",
+    "sizeLabel": "文件大小",
+    "sizeWarn": "可能过大",
+    "faceOk": "人脸位置良好",
+    "faceWarn": "请调整使人脸位于上方区域",
+    "faceNa": "运行 AI 抠图以检测人脸位置"
   },
   "dv": {
     "eyebrow": "多元化签证",

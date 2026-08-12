@@ -267,7 +267,18 @@
     "fitContain": "Ajustar (completo)",
     "autoCrop": "Recorte automático según documento",
     "noteHeicDecoding": "Descodificando HEIC…",
-    "noteHeicFail": "HEIC no compatible aquí. Conviértelo a JPG/PNG."
+    "noteHeicFail": "HEIC no compatible aquí. Conviértelo a JPG/PNG.",
+    "guides": "Guías",
+    "undo": "Deshacer",
+    "redo": "Rehacer",
+    "compliance": "Conformidad",
+    "check": "Comprobar",
+    "dimOk": "Dimensiones correctas",
+    "sizeLabel": "Tamaño",
+    "sizeWarn": "puede ser demasiado grande",
+    "faceOk": "Posición del rostro correcta",
+    "faceWarn": "Ajusta para que el rostro quede arriba",
+    "faceNa": "Ejecuta eliminación IA para verificar el rostro"
   },
   "dv": {
     "eyebrow": "Visa de Diversidad",

@@ -267,7 +267,18 @@
     "fitContain": "Fit (whole)",
     "autoCrop": "Auto-crop to ID ratio",
     "noteHeicDecoding": "Decoding HEIC…",
-    "noteHeicFail": "HEIC not supported here. Convert to JPG/PNG first."
+    "noteHeicFail": "HEIC not supported here. Convert to JPG/PNG first.",
+    "guides": "Guides",
+    "undo": "Undo",
+    "redo": "Redo",
+    "compliance": "Compliance",
+    "check": "Check",
+    "dimOk": "Dimensions match spec",
+    "sizeLabel": "File size",
+    "sizeWarn": "may be too large",
+    "faceOk": "Face position looks good",
+    "faceWarn": "Adjust so the face sits in the upper area",
+    "faceNa": "Run AI remove to check face position"
   },
   "dv": {
     "eyebrow": "Diversity Visa",
