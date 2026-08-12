@@ -54,6 +54,7 @@ watch(
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 const sourceImg = ref<HTMLImageElement | HTMLCanvasElement | null>(null)
 const aiImg = ref<HTMLCanvasElement | null>(null) // AI 抠图后的合成图
+const aiMask = ref<HTMLCanvasElement | null>(null) // AI 抠图的前景蒙版（用于智能裁剪）
 const scale = ref(1)
 const offsetX = ref(0)
 const offsetY = ref(0)
@@ -116,42 +117,63 @@ async function loadFile(file: File) {
   fileName.value = file.name.replace(/\.[^.]+$/, '')
   isReading.value = true
   note.value = t('tool.noteReading')
-  const reader = new FileReader()
-  reader.onerror = () => {
+  try {
+    const src = await decodeToSource(file)
+    sourceImg.value = src
+    aiImg.value = null
+    aiMask.value = null
+    aiReady.value = false
+    bgMode.value = defaultBg(selDoc.value?.background)
+    resetTransforms()
+    fitMode.value = 'cover' // 上传后默认按证件比例填充裁剪
+    isReading.value = false
+    note.value = ''
+    nextTick(draw)
+  } catch (e) {
     isReading.value = false
     note.value = t('tool.notePleaseImage')
   }
-  reader.onload = () => {
-    const img = new Image()
-    img.onload = () => {
-      // 超大图降采样，避免内存/绘制性能问题（输出仅需数百像素）
-      const maxSide = 2400
-      let src: HTMLImageElement | HTMLCanvasElement = img
-      if (img.naturalWidth > maxSide || img.naturalHeight > maxSide) {
-        const f = maxSide / Math.max(img.naturalWidth, img.naturalHeight)
-        const c = document.createElement('canvas')
-        c.width = Math.max(1, Math.round(img.naturalWidth * f))
-        c.height = Math.max(1, Math.round(img.naturalHeight * f))
-        c.getContext('2d')!.drawImage(img, 0, 0, c.width, c.height)
-        src = c
+}
+
+// 解码为可绘制源：优先用 createImageBitmap + EXIF 方向校正（摆正手机横/倒置照片），失败回退 FileReader
+async function decodeToSource(file: File): Promise<HTMLImageElement | HTMLCanvasElement> {
+  const maxSide = 2400
+  try {
+    if (typeof createImageBitmap === 'function') {
+      const bmp = await createImageBitmap(file, { imageOrientation: 'from-image' })
+      const nw = bmp.width
+      const nh = bmp.height
+      const f = Math.min(1, maxSide / Math.max(nw, nh))
+      const c = document.createElement('canvas')
+      c.width = Math.max(1, Math.round(nw * f))
+      c.height = Math.max(1, Math.round(nh * f))
+      c.getContext('2d')!.drawImage(bmp, 0, 0, c.width, c.height)
+      bmp.close?.()
+      return c
+    }
+  } catch (e) { /* 回退 */ }
+  return await new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.onerror = () => reject(new Error('read fail'))
+    reader.onload = () => {
+      const img = new Image()
+      img.onload = () => {
+        const nw = img.naturalWidth
+        const nh = img.naturalHeight
+        const f = Math.min(1, maxSide / Math.max(nw, nh))
+        if (f < 1) {
+          const c = document.createElement('canvas')
+          c.width = Math.max(1, Math.round(nw * f))
+          c.height = Math.max(1, Math.round(nh * f))
+          c.getContext('2d')!.drawImage(img, 0, 0, c.width, c.height)
+          resolve(c)
+        } else resolve(img)
       }
-      sourceImg.value = src
-      aiImg.value = null
-      aiReady.value = false
-      bgMode.value = defaultBg(selDoc.value?.background)
-      resetTransforms()
-      fitMode.value = 'cover' // 上传后默认按证件比例填充裁剪
-      isReading.value = false
-      note.value = ''
-      nextTick(draw)
+      img.onerror = () => reject(new Error('img fail'))
+      img.src = reader.result as string
     }
-    img.onerror = () => {
-      isReading.value = false
-      note.value = t('tool.notePleaseImage')
-    }
-    img.src = reader.result as string
-  }
-  reader.readAsDataURL(file)
+    reader.readAsDataURL(file)
+  })
 }
 
 // ---- HEIC / HEIF 解码（运行时从 CDN 加载 heic2any，失败则降级提示）----
@@ -184,7 +206,70 @@ async function decodeHeic(file: File): Promise<File> {
   return new File([out], file.name.replace(/\.(heic|heif)$/i, '.png'), { type: 'image/png' })
 }
 
-// ---- 按证件比例自动预裁剪（cover 居中填充）----
+// ---- 智能裁剪：有 AI 蒙版时按主体包围盒框住人；否则按证件比例居中填充 ----
+function smartCrop() {
+  if (!sourceImg.value) return
+  fitMode.value = 'cover'
+  const img = sourceImg.value
+  const { w: nw, h: nh } = getDims(img)
+  let bx = nw / 2
+  let by = nh / 2
+  let bw = nw
+  let bh = nh
+  if (aiMask.value) {
+    const box = maskBoundingBox(aiMask.value)
+    if (box) {
+      bx = box.x + box.w / 2
+      by = box.y + box.h / 2
+      bw = box.w
+      bh = box.h
+    }
+  } else {
+    // 启发式：证件照主体（头部）偏上，框住上半身区域
+    by = nh * 0.42
+    bh = nh * 0.82
+    bx = nw / 2
+    bw = nw
+  }
+  const margin = 0.08
+  const fw = bw * (1 + margin * 2)
+  const fh = bh * (1 + margin * 2)
+  const cover = (cw.value / ch.value > nw / nh) ? cw.value / nw : ch.value / nh
+  const s = Math.min(cw.value / fw, ch.value / fh)
+  scale.value = Math.max(0.1, s / cover)
+  offsetX.value = -(bx - nw / 2) * s
+  offsetY.value = -(by - nh / 2) * s
+  rotate.value = 0
+  draw()
+}
+
+// 计算蒙版中不透明像素的包围盒（采样以提升性能）
+function maskBoundingBox(mask: HTMLCanvasElement) {
+  const w = mask.width
+  const h = mask.height
+  const data = mask.getContext('2d')!.getImageData(0, 0, w, h).data
+  const step = Math.max(1, Math.floor(w / 400))
+  let minX = w
+  let minY = h
+  let maxX = 0
+  let maxY = 0
+  let found = false
+  for (let y = 0; y < h; y += step) {
+    for (let x = 0; x < w; x += step) {
+      if (data[(y * w + x) * 4 + 3] > 30) {
+        found = true
+        if (x < minX) minX = x
+        if (x > maxX) maxX = x
+        if (y < minY) minY = y
+        if (y > maxY) maxY = y
+      }
+    }
+  }
+  if (!found) return null
+  return { x: minX, y: minY, w: maxX - minX + 1, h: maxY - minY + 1 }
+}
+
+// ---- 按证件比例自动预裁剪（cover 居中填充，作为复位用）----
 function autoCrop() {
   if (!sourceImg.value) return
   fitMode.value = 'cover'
@@ -340,10 +425,41 @@ watch(selDoc, () => {
 })
 
 onMounted(() => {
+  loadPrefs()
   syncCanvasSize()
   draw()
   document.addEventListener('paste', onPaste)
 })
+
+// ---- 设置记忆（localStorage）：刷新后保留国家/证件/背景/裁剪模式 ----
+const LS_KEY = 'photogov.tool.v1'
+function savePrefs() {
+  if (typeof localStorage === 'undefined') return
+  try {
+    localStorage.setItem(
+      LS_KEY,
+      JSON.stringify({
+        country: activeCountry.value,
+        doc: selSlug.value,
+        bg: bgMode.value === 'ai' ? defaultBg(selDoc.value?.background) : bgMode.value,
+        fit: fitMode.value
+      })
+    )
+  } catch { /* 忽略隐私模式等异常 */ }
+}
+function loadPrefs() {
+  if (typeof localStorage === 'undefined') return
+  try {
+    const s = JSON.parse(localStorage.getItem(LS_KEY) || '{}')
+    if (s.country) setCode(s.country)
+    if (s.bg) bgMode.value = s.bg
+    if (s.fit) fitMode.value = s.fit
+    if (s.doc && getDocument(s.doc)) {
+      nextTick(() => { if (getDocument(s.doc)) selSlug.value = s.doc })
+    }
+  } catch { /* 忽略损坏数据 */ }
+}
+watch([activeCountry, selSlug, bgMode, fitMode], savePrefs)
 onBeforeUnmount(() => {
   document.removeEventListener('paste', onPaste)
 })
@@ -465,7 +581,7 @@ async function downloadSheet() {
 }
 
 // ---- 批量处理（多张图，统一设置，打包 ZIP）----
-interface BatchItem { id: number; name: string; img: HTMLImageElement }
+interface BatchItem { id: number; name: string; img: HTMLImageElement; thumb: string }
 const batchItems = ref<BatchItem[]>([])
 let batchId = 0
 
@@ -488,18 +604,10 @@ async function onBatchFiles(e: Event) {
         continue
       }
     }
-    const reader = new FileReader()
-    reader.onload = () => {
-      const img = new Image()
-      img.onload = () => {
-        batchItems.value.push({ id: batchId++, name: ff.name.replace(/\.[^.]+$/, ''), img })
-        if (--pending === 0) note.value = t('tool.noteBatchReady', { count: batchItems.value.length })
-      }
-      img.onerror = () => { if (--pending === 0) note.value = '' }
-      img.src = reader.result as string
-    }
-    reader.onerror = () => { if (--pending === 0) note.value = '' }
-    reader.readAsDataURL(ff)
+    const src = await decodeToSource(ff)
+    const thumb = 'toDataURL' in src ? (src as HTMLCanvasElement).toDataURL('image/jpeg', 0.7) : (src as HTMLImageElement).src
+    batchItems.value.push({ id: batchId++, name: ff.name.replace(/\.[^.]+$/, ''), img: src as HTMLImageElement, thumb })
+    if (--pending === 0) note.value = t('tool.noteBatchReady', { count: batchItems.value.length })
   }
 }
 
@@ -575,6 +683,12 @@ async function removeBackgroundAI() {
         c.drawImage(res.image, 0, 0, comp.width, comp.height)
         c.globalCompositeOperation = 'destination-in'
         c.drawImage(res.segmentationMask, 0, 0, comp.width, comp.height)
+        // 另外保存一份前景蒙版，供智能裁剪计算主体包围盒
+        const maskC = document.createElement('canvas')
+        maskC.width = res.image.width
+        maskC.height = res.image.height
+        maskC.getContext('2d')!.drawImage(res.segmentationMask, 0, 0, maskC.width, maskC.height)
+        aiMask.value = maskC
         resolve(comp)
       })
       seg.send({ image: srcCanvas })
@@ -723,7 +837,7 @@ function changeCountry(c: string) {
         <div class="space-y-3" :class="{ 'opacity-40': !hasImage }">
           <div>
             <div class="flex justify-between text-xs text-muted"><span>{{ $t('tool.zoom') }}</span><span>{{ scale.toFixed(2) }}x</span></div>
-            <input type="range" min="1" max="3" step="0.01" v-model.number="scale" class="w-full accent-brand-blue" :disabled="!hasImage" />
+            <input type="range" min="0.5" max="3" step="0.01" v-model.number="scale" class="w-full accent-brand-blue" :disabled="!hasImage" />
           </div>
           <div>
             <div class="flex justify-between text-xs text-muted"><span>{{ $t('tool.rotate') }}</span><span>{{ rotate }}°</span></div>
@@ -745,7 +859,7 @@ function changeCountry(c: string) {
               <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="fitMode==='cover'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="fitMode='cover';draw()">{{ $t('tool.fitCover') }}</button>
               <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="fitMode==='contain'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="fitMode='contain';draw()">{{ $t('tool.fitContain') }}</button>
             </div>
-            <button class="mt-2 text-xs text-brand-blue underline" :disabled="!hasImage" @click="autoCrop()">{{ $t('tool.autoCrop') }}</button>
+            <button class="mt-2 text-xs text-brand-blue underline" :disabled="!hasImage" @click="smartCrop()">{{ $t('tool.autoCrop') }}</button>
           </div>
         </div>
 
@@ -816,7 +930,7 @@ function changeCountry(c: string) {
         <div class="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
           <div v-for="it in batchItems" :key="it.id" class="rounded-lg border border-slate-200 p-2">
             <div class="aspect-[3/4] overflow-hidden rounded bg-slate-100">
-              <img :src="it.img.src" class="h-full w-full object-cover" alt="" />
+              <img :src="it.thumb" class="h-full w-full object-cover" alt="" />
             </div>
             <p class="mt-1 truncate text-[11px] text-muted">{{ it.name }}</p>
             <div class="mt-1 flex gap-1">
