@@ -287,7 +287,16 @@
     "applyOptimal": "Apply optimal",
     "guideCustomW": "Box width %",
     "guideCustomH": "Box height %",
-    "presetCustom": "Custom"
+    "presetCustom": "Custom",
+    "guideDragHint": "Drag the green dashed box to reposition",
+    "shortcuts": "Shortcuts",
+    "shortcutsTitle": "Keyboard & gesture shortcuts",
+    "scUndo": "Undo",
+    "scRedo": "Redo",
+    "scWheelZoom": "Wheel to zoom (desktop)",
+    "scDragPan": "Drag to pan",
+    "scPinchZoom": "Pinch to zoom (mobile)",
+    "scTouchPan": "One-finger drag to pan (mobile)"
   },
   "dv": {
     "eyebrow": "Diversity Visa",

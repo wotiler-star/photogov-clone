@@ -78,7 +78,12 @@ const guidePreset = ref<'thirds' | 'passport' | 'visa' | 'custom'>('thirds') // 
 const guideCustomW = ref(50) // 自定义框宽比例（%）
 const guideCustomH = ref(65)
 const guideCustomTop = ref(8)
+const guideCustomLeft = ref(25) // 自定义框左侧位置（%）
 const autoOptimize = ref(false) // 导出时一键应用合规最优参数
+const showShortcuts = ref(false) // 快捷键面板
+let guideDragging = false
+let guideLastX = 0
+let guideLastY = 0
 // 撤销/重做历史
 type ToolState = {
   scale: number; offsetX: number; offsetY: number; rotate: number
@@ -555,6 +560,35 @@ function onWheel(e: WheelEvent) {
   wheelTimer = setTimeout(() => commit(), 350)
 }
 
+// ---- 自定义参考框拖拽（仅自定义预设，且与画布平移隔离）----
+function onGuideDragStart(e: PointerEvent) {
+  if (guidePreset.value !== 'custom') return
+  e.stopPropagation()
+  guideDragging = true
+  guideLastX = e.clientX
+  guideLastY = e.clientY
+  ;(e.target as HTMLElement).setPointerCapture?.(e.pointerId)
+}
+function onGuideDragMove(e: PointerEvent) {
+  if (!guideDragging) return
+  e.stopPropagation()
+  const cv = canvasRef.value
+  if (!cv) return
+  const r = cv.getBoundingClientRect()
+  const wPct = 100 / r.width
+  const hPct = 100 / r.height
+  guideCustomLeft.value = Math.max(0, Math.min(100 - guideCustomW.value, guideCustomLeft.value + (e.clientX - guideLastX) * wPct))
+  guideCustomTop.value = Math.max(0, Math.min(100 - guideCustomH.value, guideCustomTop.value + (e.clientY - guideLastY) * hPct))
+  guideLastX = e.clientX
+  guideLastY = e.clientY
+}
+function onGuideDragEnd(e: PointerEvent) {
+  if (guideDragging) {
+    e.stopPropagation()
+    guideDragging = false
+  }
+}
+
 type ImageLike = HTMLImageElement | HTMLCanvasElement | null
 
 // ---- 核心绘制（单图 / 批量 / 排版 共用）----
@@ -646,7 +680,13 @@ function savePrefs() {
         country: activeCountry.value,
         doc: selSlug.value,
         bg: bgMode.value === 'ai' ? defaultBg(selDoc.value?.background) : bgMode.value,
-        fit: fitMode.value
+        fit: fitMode.value,
+        autoOptimize: autoOptimize.value,
+        guidePreset: guidePreset.value,
+        gW: guideCustomW.value,
+        gH: guideCustomH.value,
+        gTop: guideCustomTop.value,
+        gLeft: guideCustomLeft.value
       })
     )
   } catch { /* 忽略隐私模式等异常 */ }
@@ -658,12 +698,18 @@ function loadPrefs() {
     if (s.country) setCode(s.country)
     if (s.bg) bgMode.value = s.bg
     if (s.fit) fitMode.value = s.fit
+    if (typeof s.autoOptimize === 'boolean') autoOptimize.value = s.autoOptimize
+    if (s.guidePreset) guidePreset.value = s.guidePreset
+    if (typeof s.gW === 'number') guideCustomW.value = s.gW
+    if (typeof s.gH === 'number') guideCustomH.value = s.gH
+    if (typeof s.gTop === 'number') guideCustomTop.value = s.gTop
+    if (typeof s.gLeft === 'number') guideCustomLeft.value = s.gLeft
     if (s.doc && getDocument(s.doc)) {
       nextTick(() => { if (getDocument(s.doc)) selSlug.value = s.doc })
     }
   } catch { /* 忽略损坏数据 */ }
 }
-watch([activeCountry, selSlug, bgMode, fitMode], savePrefs)
+watch([activeCountry, selSlug, bgMode, fitMode, autoOptimize, guidePreset, guideCustomW, guideCustomH, guideCustomTop, guideCustomLeft], savePrefs)
 onBeforeUnmount(() => {
   document.removeEventListener('paste', onPaste)
   window.removeEventListener('keydown', onKey)
@@ -1005,7 +1051,7 @@ function changeCountry(c: string) {
               <ellipse v-if="guidePreset==='thirds'" cx="50" cy="38" rx="22" ry="28" fill="none" stroke="rgba(74,222,128,.9)" stroke-width="1.5" vector-effect="non-scaling-stroke" />
               <rect v-else-if="guidePreset==='passport'" x="25" y="8" width="50" height="65" rx="1.5" fill="none" stroke="rgba(74,222,128,.9)" stroke-width="1.5" vector-effect="non-scaling-stroke" />
               <rect v-else-if="guidePreset==='visa'" x="27" y="10" width="46" height="62" rx="1.5" fill="none" stroke="rgba(74,222,128,.9)" stroke-width="1.5" vector-effect="non-scaling-stroke" />
-              <rect v-else-if="guidePreset==='custom'" :x="(100-guideCustomW)/2" :y="guideCustomTop" :width="guideCustomW" :height="guideCustomH" rx="1.5" fill="none" stroke="rgba(74,222,128,.9)" stroke-width="1.5" vector-effect="non-scaling-stroke" />
+              <rect v-else-if="guidePreset==='custom'" :x="guideCustomLeft" :y="guideCustomTop" :width="guideCustomW" :height="guideCustomH" rx="1.5" fill="rgba(74,222,128,.08)" stroke="rgba(74,222,128,.95)" stroke-width="1.5" vector-effect="non-scaling" style="pointer-events:auto;cursor:move" @pointerdown="onGuideDragStart" @pointermove="onGuideDragMove" @pointerup="onGuideDragEnd" @pointerleave="onGuideDragEnd" />
             </svg>
           </div>
           <div
@@ -1085,6 +1131,7 @@ function changeCountry(c: string) {
             <button class="rounded-lg border border-slate-300 px-2 py-1.5 text-xs font-medium" :disabled="!canUndo" @click="undo()">↶ {{ $t('tool.undo') }}</button>
             <button class="rounded-lg border border-slate-300 px-2 py-1.5 text-xs font-medium" :disabled="!canRedo" @click="redo()">↷ {{ $t('tool.redo') }}</button>
             <button class="rounded-lg border px-2 py-1.5 text-xs font-medium" :class="showGuides?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="showGuides=!showGuides">{{ $t('tool.guides') }}</button>
+            <button class="rounded-lg border px-2 py-1.5 text-xs font-medium" :class="showShortcuts?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="showShortcuts=!showShortcuts" :title="$t('tool.shortcuts')">{{ $t('tool.shortcuts') }}</button>
             <select v-model="guidePreset" :disabled="!showGuides" class="rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-xs" :title="$t('tool.guidePreset')">
               <option value="thirds">{{ $t('tool.presetThirds') }}</option>
               <option value="passport">{{ $t('tool.presetPassport') }}</option>
@@ -1094,7 +1141,19 @@ function changeCountry(c: string) {
             <template v-if="showGuides && guidePreset==='custom'">
               <input type="number" min="10" max="100" v-model.number="guideCustomW" class="w-14 rounded-lg border border-slate-300 px-1.5 py-1 text-xs" :title="$t('tool.guideCustomW')" />
               <input type="number" min="10" max="100" v-model.number="guideCustomH" class="w-14 rounded-lg border border-slate-300 px-1.5 py-1 text-xs" :title="$t('tool.guideCustomH')" />
+              <span class="w-full text-[10px] text-muted">{{ $t('tool.guideDragHint') }}</span>
             </template>
+          </div>
+          <div v-if="showShortcuts" class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+            <p class="text-xs font-semibold text-ink">{{ $t('tool.shortcutsTitle') }}</p>
+            <ul class="mt-2 space-y-1.5 text-[11px] leading-relaxed text-muted">
+              <li class="flex items-center gap-2"><kbd class="rounded bg-white px-1.5 py-0.5 text-[10px] font-medium text-ink ring-1 ring-slate-200">Ctrl/Cmd + Z</kbd> {{ $t('tool.scUndo') }}</li>
+              <li class="flex items-center gap-2"><kbd class="rounded bg-white px-1.5 py-0.5 text-[10px] font-medium text-ink ring-1 ring-slate-200">Ctrl/Cmd + ⇧Z / Y</kbd> {{ $t('tool.scRedo') }}</li>
+              <li class="flex items-center gap-2"><kbd class="rounded bg-white px-1.5 py-0.5 text-[10px] font-medium text-ink ring-1 ring-slate-200">🖱 → / ⚲</kbd> {{ $t('tool.scWheelZoom') }}</li>
+              <li class="flex items-center gap-2"><kbd class="rounded bg-white px-1.5 py-0.5 text-[10px] font-medium text-ink ring-1 ring-slate-200">🖱 ✋</kbd> {{ $t('tool.scDragPan') }}</li>
+              <li class="flex items-center gap-2"><kbd class="rounded bg-white px-1.5 py-0.5 text-[10px] font-medium text-ink ring-1 ring-slate-200">🤏</kbd> {{ $t('tool.scPinchZoom') }}</li>
+              <li class="flex items-center gap-2"><kbd class="rounded bg-white px-1.5 py-0.5 text-[10px] font-medium text-ink ring-1 ring-slate-200">☝️</kbd> {{ $t('tool.scTouchPan') }}</li>
+            </ul>
           </div>
           <div>
             <div class="flex justify-between text-xs text-muted"><span>{{ $t('tool.zoom') }}</span><span>{{ scale.toFixed(2) }}x</span></div>

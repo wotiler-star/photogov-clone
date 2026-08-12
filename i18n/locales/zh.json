@@ -287,7 +287,16 @@
     "applyOptimal": "应用合规最优",
     "guideCustomW": "框宽 %",
     "guideCustomH": "框高 %",
-    "presetCustom": "自定义"
+    "presetCustom": "自定义",
+    "guideDragHint": "拖动绿色虚线框可调整位置",
+    "shortcuts": "快捷键",
+    "shortcutsTitle": "键盘与手势快捷方式",
+    "scUndo": "撤销",
+    "scRedo": "重做",
+    "scWheelZoom": "滚轮缩放（桌面）",
+    "scDragPan": "拖动平移",
+    "scPinchZoom": "双指捏合缩放（移动端）",
+    "scTouchPan": "单指拖动平移（移动端）"
   },
   "dv": {
     "eyebrow": "多元化签证",

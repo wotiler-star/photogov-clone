@@ -287,7 +287,16 @@
     "applyOptimal": "Aplicar óptimo",
     "guideCustomW": "Ancho %",
     "guideCustomH": "Alto %",
-    "presetCustom": "Personalizado"
+    "presetCustom": "Personalizado",
+    "guideDragHint": "Arrastra el marco verde para reposicionar",
+    "shortcuts": "Atajos",
+    "shortcutsTitle": "Atajos de teclado y gestos",
+    "scUndo": "Deshacer",
+    "scRedo": "Rehacer",
+    "scWheelZoom": "Rueda para zoom (escritorio)",
+    "scDragPan": "Arrastrar para mover",
+    "scPinchZoom": "Pellizco para zoom (móvil)",
+    "scTouchPan": "Un dedo para mover (móvil)"
   },
   "dv": {
     "eyebrow": "Visa de Diversidad",

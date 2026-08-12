@@ -287,7 +287,16 @@
     "applyOptimal": "Appliquer l’optimum",
     "guideCustomW": "Largeur %",
     "guideCustomH": "Hauteur %",
-    "presetCustom": "Personnalisé"
+    "presetCustom": "Personnalisé",
+    "guideDragHint": "Glissez le cadre vert pour le repositionner",
+    "shortcuts": "Raccourcis",
+    "shortcutsTitle": "Raccourcis clavier et gestes",
+    "scUndo": "Annuler",
+    "scRedo": "Rétablir",
+    "scWheelZoom": "Molette pour zoomer (bureau)",
+    "scDragPan": "Glisser pour déplacer",
+    "scPinchZoom": "Pincement pour zoomer (mobile)",
+    "scTouchPan": "Un doigt pour déplacer (mobile)"
   },
   "dv": {
     "eyebrow": "Visa de diversité",
