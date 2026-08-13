@@ -278,7 +278,7 @@
     "sizeWarn": "may be too large",
     "faceOk": "Face position looks good",
     "faceWarn": "Adjust so the face sits in the upper area",
-    "faceNa": "Run AI remove to check face position",
+    "faceNa": "Run “Center face” to detect face position",
     "guidePreset": "Guide frame",
     "presetThirds": "Thirds",
     "presetPassport": "Passport (ICAO)",
@@ -296,7 +296,12 @@
     "scWheelZoom": "Wheel to zoom (desktop)",
     "scDragPan": "Drag to pan",
     "scPinchZoom": "Pinch to zoom (mobile)",
-    "scTouchPan": "One-finger drag to pan (mobile)"
+    "scTouchPan": "One-finger drag to pan (mobile)",
+    "faceCenter": "Center face",
+    "faceDetecting": "Detecting face…",
+    "faceNone": "No face detected — adjust position and zoom manually",
+    "headOk": "Head size looks good",
+    "headWarn": "Head too large or small (should fill 50–80%)"
   },
   "dv": {
     "eyebrow": "Diversity Visa",

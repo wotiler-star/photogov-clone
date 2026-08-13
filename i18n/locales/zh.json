@@ -278,7 +278,7 @@
     "sizeWarn": "可能过大",
     "faceOk": "人脸位置良好",
     "faceWarn": "请调整使人脸位于上方区域",
-    "faceNa": "运行 AI 抠图以检测人脸位置",
+    "faceNa": "运行「人脸居中」以检测人脸位置",
     "guidePreset": "参考线框",
     "presetThirds": "九宫格",
     "presetPassport": "护照(ICAO)",
@@ -296,7 +296,12 @@
     "scWheelZoom": "滚轮缩放（桌面）",
     "scDragPan": "拖动平移",
     "scPinchZoom": "双指捏合缩放（移动端）",
-    "scTouchPan": "单指拖动平移（移动端）"
+    "scTouchPan": "单指拖动平移（移动端）",
+    "faceCenter": "人脸居中",
+    "faceDetecting": "正在检测人脸…",
+    "faceNone": "未检测到人脸，请手动调整位置与缩放",
+    "headOk": "头部比例良好",
+    "headWarn": "头部过大或过小（应占画面 50–80%）"
   },
   "dv": {
     "eyebrow": "多元化签证",

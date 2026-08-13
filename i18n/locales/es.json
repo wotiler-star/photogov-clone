@@ -278,7 +278,7 @@
     "sizeWarn": "puede ser demasiado grande",
     "faceOk": "Posición del rostro correcta",
     "faceWarn": "Ajusta para que el rostro quede arriba",
-    "faceNa": "Ejecuta eliminación IA para verificar el rostro",
+    "faceNa": "Ejecuta «Centrar rostro» para detectar la posición",
     "guidePreset": "Marco guía",
     "presetThirds": "Tercios",
     "presetPassport": "Pasaporte (ICAO)",
@@ -296,7 +296,12 @@
     "scWheelZoom": "Rueda para zoom (escritorio)",
     "scDragPan": "Arrastrar para mover",
     "scPinchZoom": "Pellizco para zoom (móvil)",
-    "scTouchPan": "Un dedo para mover (móvil)"
+    "scTouchPan": "Un dedo para mover (móvil)",
+    "faceCenter": "Centrar rostro",
+    "faceDetecting": "Detectando rostro…",
+    "faceNone": "No se detectó rostro, ajusta posición y zoom manualmente",
+    "headOk": "Tamaño de cabeza adecuado",
+    "headWarn": "Cabeza demasiado grande o pequeña (debe ocupar 50–80%)"
   },
   "dv": {
     "eyebrow": "Visa de Diversidad",

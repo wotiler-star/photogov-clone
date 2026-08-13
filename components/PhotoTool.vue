@@ -96,7 +96,12 @@ const histIndex = ref(-1)
 const canUndo = computed(() => histIndex.value > 0)
 const canRedo = computed(() => histIndex.value < history.value.length - 1)
 // 合规校验结果
-const compliance = ref<{ kb: number; sizeOk: boolean; face: 'ok' | 'warn' | 'na' } | null>(null)
+const compliance = ref<{ kb: number; sizeOk: boolean; face: 'ok' | 'warn' | 'na'; headOk: boolean | null } | null>(null)
+// 人脸检测：自动居中 + 精准合规（MediaPipe FaceDetection，运行时 CDN 加载，失败则降级）
+const faceInfo = ref<{ ex: number; ey: number; bx: number; by: number; bw: number; bh: number } | null>(null)
+const isDetecting = ref(false)
+const EYES_LINE = 0.58    // 眼睛水平线在照片中的目标位置（自上而下比例）
+const TARGET_HEAD = 0.68  // 头部高度占照片高度的目标比例
 
 const hasImage = computed(() => !!sourceImg.value)
 const cw = computed(() => selDoc.value?.size.w || 600)
@@ -147,6 +152,7 @@ async function loadFile(file: File) {
     aiImg.value = null
     aiMask.value = null
     aiReady.value = false
+    faceInfo.value = null
       bgMode.value = defaultBg(selDoc.value?.background)
       resetTransforms()
       fitMode.value = 'cover' // 上传后默认按证件比例填充裁剪
@@ -372,27 +378,154 @@ function checkCompliance() {
   paint(out.getContext('2d')!, cw.value, ch.value, activeSource())
   const url = out.toDataURL('image/jpeg', 0.92)
   const kb = Math.max(1, Math.round(((url.length - 'data:image/jpeg;base64,'.length) * 3) / 4 / 1024))
-  // 人脸位置（基于当前取景 + 蒙版）
+  // 人脸位置（优先真实人脸 landmarks，其次 AI 蒙版）
   let face: 'ok' | 'warn' | 'na' = 'na'
-  if (aiMask.value) {
+  let headOk: boolean | null = null
+  if (faceInfo.value) {
+    const f = faceInfo.value
+    const topY = ch.value / 2 + offsetY.value + (f.by * nh - nh / 2) * sDraw
+    const botY = ch.value / 2 + offsetY.value + ((f.by + f.bh) * nh - nh / 2) * sDraw
+    const topFrac = topY / ch.value
+    const botFrac = botY / ch.value
+    const headFrac = (f.bh * nh * sDraw) / ch.value
+    // 证件照：头顶距上边约 3–18%，下巴不超 92%，头部占画面 50–80%
+    face = topFrac >= 0.03 && topFrac <= 0.18 && botFrac <= 0.92 ? 'ok' : 'warn'
+    headOk = headFrac >= 0.5 && headFrac <= 0.8
+  } else if (aiMask.value) {
     const box = maskBoundingBox(aiMask.value)
     if (box) {
       const topY = ch.value / 2 + offsetY.value + (box.y - nh / 2) * sDraw
       const botY = ch.value / 2 + offsetY.value + (box.y + box.h - nh / 2) * sDraw
       const topFrac = topY / ch.value
       const botFrac = botY / ch.value
-      // 证件照：头顶距上边约 3–18%，下巴不超 92%
       face = topFrac >= 0.03 && topFrac <= 0.18 && botFrac <= 0.92 ? 'ok' : 'warn'
     }
   }
-  compliance.value = { kb, sizeOk: kb <= 1000, face }
+  compliance.value = { kb, sizeOk: kb <= 1000, face, headOk }
 }
 
-// 一键应用合规最优参数：主体居中取景（有蒙版则智能框人），背景非纯色时回退证件默认底色
-function applyComplianceOptimal() {
+// 加载 MediaPipe FaceDetection（CDN，失败则降级）
+let fdPromise: Promise<any> | null = null
+function loadFaceDetection(): Promise<any> {
+  if (fdPromise) return fdPromise
+  fdPromise = new Promise((resolve, reject) => {
+    const id = 'mp-facedet'
+    if (document.getElementById(id)) {
+      const F = (window as any).FaceDetection
+      return F ? resolve(F) : reject(new Error('FaceDetection not found'))
+    }
+    const s = document.createElement('script')
+    s.id = id
+    s.src = 'https://cdn.jsdelivr.net/npm/@mediapipe/face_detection/face_detection.js'
+    s.crossOrigin = 'anonymous'
+    s.onload = () => {
+      const F = (window as any).FaceDetection
+      if (F) resolve(F)
+      else reject(new Error('FaceDetection not found'))
+    }
+    s.onerror = () => reject(new Error('CDN load failed'))
+    document.head.appendChild(s)
+  })
+  return fdPromise
+}
+
+// 检测人脸：取双眼中心与头部包围盒（归一化坐标）
+async function detectFace(): Promise<boolean> {
+  if (!sourceImg.value) return false
+  const img = sourceImg.value
+  const { w: nw, h: nh } = getDims(img)
+  isDetecting.value = true
+  try {
+    const F = await loadFaceDetection()
+    const fd = new F({ locateFile: (f: string) => `https://cdn.jsdelivr.net/npm/@mediapipe/face_detection/${f}` })
+    fd.setOptions({ modelSelection: 1, minDetectionConfidence: 0.5 })
+    const cv = document.createElement('canvas')
+    cv.width = nw
+    cv.height = nh
+    cv.getContext('2d')!.drawImage(img, 0, 0, nw, nh)
+    const res: any = await new Promise((resolve, reject) => {
+      fd.onResults((r: any) => resolve(r))
+      fd.send({ image: cv }).catch(reject)
+    })
+    const dets = res.detections
+    if (!dets || !dets.length) {
+      faceInfo.value = null
+      return false
+    }
+    const d = dets[0]
+    const box = d.locationData?.relativeBoundingBox
+    const kps = d.locationData?.relativeKeypoints || []
+    const re = kps[0]
+    const le = kps[1]
+    let ex = 0.5
+    let ey = 0.4
+    if (re && le) {
+      ex = (re.x + le.x) / 2
+      ey = (re.y + le.y) / 2
+    } else if (box) {
+      ex = box.x + box.width / 2
+      ey = box.y + box.height * 0.4
+    }
+    faceInfo.value = {
+      ex, ey,
+      bx: box?.x ?? ex - 0.3,
+      by: box?.y ?? ey - 0.25,
+      bw: box?.width ?? 0.6,
+      bh: box?.height ?? 0.5
+    }
+    return true
+  } catch (e) {
+    faceInfo.value = null
+    return false
+  } finally {
+    isDetecting.value = false
+  }
+}
+
+// 一键人脸居中：眼睛水平线对齐到 EYES_LINE，头部高度缩放到 TARGET_HEAD 比例
+async function centerFace() {
   if (!sourceImg.value) return
-  if (aiMask.value) smartCrop()
-  else autoCrop()
+  if (!faceInfo.value) {
+    const ok = await detectFace()
+    if (!ok) {
+      note.value = t('tool.faceNone')
+      return
+    }
+  }
+  const info = faceInfo.value!
+  const img = sourceImg.value
+  const { w: nw, h: nh } = getDims(img)
+  const ir = nw / nh
+  const cr = cw.value / ch.value
+  const cover = cr > ir ? cw.value / nw : ch.value / nh
+  const contain = cr > ir ? ch.value / nh : cw.value / nw
+  const baseS = fitMode.value === 'contain' ? contain : cover
+  // 目标：头部高度占画面 TARGET_HEAD
+  const headSrc = info.bh * nh
+  const sTarget = (TARGET_HEAD * ch.value) / headSrc
+  const sc = Math.min(3, Math.max(0.5, sTarget / baseS))
+  const s = baseS * sc
+  scale.value = sc
+  rotate.value = 0
+  fitMode.value = 'cover'
+  offsetX.value = -(info.ex * nw - nw / 2) * s
+  offsetY.value = (EYES_LINE * ch.value - ch.value / 2) - (info.ey * nh - nh / 2) * s
+  compliance.value = null
+  commit()
+  draw()
+}
+
+// 一键应用合规最优参数：有脸则人脸居中，否则智能框人或居中填充；背景非纯色时回退证件默认底色
+async function applyComplianceOptimal() {
+  if (!sourceImg.value) return
+  if (!faceInfo.value) {
+    const ok = await detectFace()
+    if (ok) await centerFace()
+    else if (aiMask.value) smartCrop()
+    else autoCrop()
+  } else {
+    await centerFace()
+  }
   if (bgMode.value === 'keep') {
     bgMode.value = defaultBg(selDoc.value?.background)
     draw()
@@ -1180,6 +1313,7 @@ function changeCountry(c: string) {
               <button class="rounded-lg border px-2 py-2 text-xs font-medium" :class="fitMode==='contain'?'border-brand-blue bg-brand-blue/5 text-brand-blue':'border-slate-300'" @click="fitMode='contain';draw();commit()">{{ $t('tool.fitContain') }}</button>
             </div>
             <button class="mt-2 text-xs text-brand-blue underline" :disabled="!hasImage" @click="smartCrop()">{{ $t('tool.autoCrop') }}</button>
+            <button class="mt-2 rounded-lg border border-slate-300 px-2 py-1.5 text-xs font-medium text-brand-blue" :disabled="!hasImage || isDetecting" @click="centerFace()">{{ isDetecting ? $t('tool.faceDetecting') : $t('tool.faceCenter') }}</button>
           </div>
         </div>
 
@@ -1223,6 +1357,7 @@ function changeCountry(c: string) {
             <div class="flex items-center gap-1"><span :class="compliance.sizeOk ? 'text-accent-green' : 'text-amber-600'">●</span> {{ $t('tool.sizeLabel') }}: ~{{ compliance.kb }} KB <span v-if="!compliance.sizeOk" class="text-amber-600">{{ $t('tool.sizeWarn', { kb: compliance.kb }) }}</span></div>
             <div v-if="compliance.face !== 'na'" class="flex items-center gap-1"><span :class="compliance.face === 'ok' ? 'text-accent-green' : 'text-amber-600'">●</span> {{ compliance.face === 'ok' ? $t('tool.faceOk') : $t('tool.faceWarn') }}</div>
             <div v-else class="text-muted">{{ $t('tool.faceNa') }}</div>
+            <div v-if="compliance.headOk !== null" class="flex items-center gap-1"><span :class="compliance.headOk ? 'text-accent-green' : 'text-amber-600'">●</span> {{ compliance.headOk ? $t('tool.headOk') : $t('tool.headWarn') }}</div>
           </div>
         </div>
 
