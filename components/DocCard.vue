@@ -10,8 +10,9 @@ const { countryName } = useData()
     :to="`/document/${doc.slug}`"
     class="card-pg group flex items-center gap-3 p-3 transition hover:-translate-y-0.5 hover:shadow-card"
   >
-    <div class="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-brand-blue/10 text-lg">
-      {{ flag || '📄' }}
+    <div class="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-lg bg-brand-blue/10 text-lg">
+      <img v-if="flag && flag.startsWith('http')" :src="flag" :alt="doc.country" class="h-9 w-9 rounded object-cover" loading="lazy" />
+      <span v-else>{{ flag || '📄' }}</span>
     </div>
     <div class="min-w-0">
       <p class="truncate text-sm font-semibold text-ink">{{ doc.name }}</p>

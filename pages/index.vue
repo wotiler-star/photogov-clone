@@ -27,9 +27,25 @@ useHead(() => {
 })
 const popular = popularDocuments().slice(0, 8)
 const quick = quickLinks().slice(0, 6)
-const flagFor = (code: string) => countriesByCode[code]?.flag || '📄'
+const CDN = 'https://photogov-com.fra1.cdn.digitaloceanspaces.com'
+// 原站公开 CDN 资源（按授权热链，不重新分发）
+const flagFor = (code: string) => `${CDN}/frontend/img/svg/flags/4x3/${code.toLowerCase()}.svg`
 const latestPosts = blogPosts().slice().sort((a: any, b: any) => (a.date < b.date ? 1 : -1)).slice(0, 3)
 const previewDoc = popular[0]
+
+// 示例人脸画廊：使用原站公开示例图，点击载入编辑器
+const samples = computed(() =>
+  popular.slice(0, 6).map((d) => ({
+    code: d.country,
+    name: d.countryName,
+    url: `${CDN}/examples-new/original/${d.country}.webp`
+  }))
+)
+const toolRef = ref()
+function useSample(url: string) {
+  toolRef.value?.loadSampleUrl(url)
+  document.getElementById('tool')?.scrollIntoView({ behavior: 'smooth' })
+}
 
 const docTypes = [
   { cat: 'passport', label: 'Passport photos', desc: 'Travel-ready passport sizes for 190+ countries', count: documents.filter((d) => d.category === 'passport').length },
@@ -64,7 +80,7 @@ const docTypes = [
         </div>
 
         <div id="tool" class="scroll-mt-24">
-          <PhotoTool />
+          <PhotoTool ref="toolRef" />
         </div>
       </div>
     </section>
@@ -129,7 +145,7 @@ const docTypes = [
             :to="`/document/${d.slug}`"
             class="chip !px-4 !py-2 !text-sm hover:bg-brand-blue hover:text-white"
           >
-            {{ flagFor(d.country) }} {{ d.name }}
+            <img :src="flagFor(d.country)" :alt="d.country" class="h-4 w-4 rounded-sm" /> {{ d.name }}
           </NuxtLink>
         </div>
       </div>
@@ -153,6 +169,18 @@ const docTypes = [
           <dt>{{ $t('tool.specDpi') }}</dt><dd class="text-right text-ink">{{ previewDoc.dpi }}</dd>
         </dl>
       </div>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <button
+          v-for="s in samples"
+          :key="s.code"
+          class="group relative h-20 w-20 overflow-hidden rounded-xl border border-slate-200 transition hover:-translate-y-0.5 hover:shadow-card"
+          :title="s.name"
+          @click="useSample(s.url)"
+        >
+          <img :src="s.url" :alt="s.name" class="h-full w-full object-cover" loading="lazy" />
+        </button>
+      </div>
+      <p class="mt-3 text-center text-xs text-muted">{{ $t('home.previewHint') }}</p>
     </section>
 
     <!-- HOW TO TAKE AT HOME: DO / DON'T -->

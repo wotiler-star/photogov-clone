@@ -130,6 +130,20 @@ async function loadSample() {
   }
 }
 
+// 由首页样本画廊调用：加载指定 URL 的示例图
+async function loadSampleUrl(url: string) {
+  try {
+    const res = await fetch(url)
+    const blob = await res.blob()
+    const file = new File([blob], 'sample.jpg', { type: blob.type || 'image/jpeg' })
+    await loadFile(file)
+    note.value = t('tool.sampleLoaded')
+  } catch (e) {
+    note.value = t('tool.sampleFail')
+  }
+}
+defineExpose({ loadSampleUrl })
+
 const hasImage = computed(() => !!sourceImg.value)
 const cw = computed(() => selDoc.value?.size.w || 600)
 const ch = computed(() => selDoc.value?.size.h || 600)
