@@ -76,20 +76,20 @@
     "stepsEyebrow": "Comment ça marche",
     "steps": [
       {
-        "title": "Prenez ou téléversez une photo",
-        "text": "Utilisez votre téléphone ou votre webcam. Aucun studio nécessaire."
+        "title": "Envoi de la photo",
+        "text": "Prenez une selfie et téléversez-la dans notre outil en ligne."
       },
       {
-        "title": "Recadrez à la bonne taille",
-        "text": "Nous adaptons automatiquement votre photo aux dimensions officielles."
+        "title": "Traitement",
+        "text": "En 30 secondes, votre portrait devient une photo d’identité."
       },
       {
-        "title": "Corrigez le fond et la lumière",
-        "text": "Un clic pour un fond blanc/bleu, la luminosité et le contraste."
+        "title": "Paiement",
+        "text": "Choisissez des options ou ajoutez une vérification experte."
       },
       {
-        "title": "Téléchargez JPG ou PDF",
-        "text": "Imprimez chez vous ou envoyez en ligne — conformité garantie."
+        "title": "Téléchargement",
+        "text": "Obtenez des photos de qualité en format numérique ou imprimable."
       }
     ],
     "standardsTitle": "Conçu pour respecter les normes officielles",
@@ -147,7 +147,52 @@
       "Expression neutre, yeux ouverts, pas de sourire",
       "Pas de couvre-chef (sauf religieux ou médical)",
       "Haute résolution, image nette"
-    ]
+    ],
+    "usNote": "Pour les utilisateurs aux États-Unis : les règles gouvernementales interdisent la retouche numérique des photos d’identité. Cet outil ne fournit que le dimensionnement et le recadrage, sans modifier ni améliorer les images.",
+    "previewEyebrow": "Aperçu et exemples",
+    "previewTitle": "Photo d’identité en ligne — Aperçu et exemples",
+    "previewSub": "Visualisez comment votre selfie est ajustée aux exigences officielles. Choisissez un document et voyez ses spécifications exactes.",
+    "howEyebrow": "Chez soi",
+    "howTitle": "Comment prendre une photo de passeport chez soi",
+    "howSub": "Avec ces astuces, faites une photo d’ID ou de visa parfaite avec votre téléphone, sans studio.",
+    "doTitle": "À faire",
+    "dontTitle": "À éviter",
+    "doList": [
+      "Prenez une selfie de bonne qualité près d’une fenêtre, dans une pièce bien éclairée",
+      "Gardez une expression neutre, bouche fermée, yeux ouverts et visibles",
+      "Portez des vêtements simples et unis"
+    ],
+    "dontList": [
+      "Projeter des ombres sur le visage ou utiliser une lumière de dessus/côté",
+      "Porter un couvre-chef (sauf religieux ou médical)",
+      "Porter des lunettes sauf si le document l’autorise"
+    ],
+    "babyEyebrow": "Bébés",
+    "babyTitle": "Photos de passeport pour bébés",
+    "babyOkTitle": "Photos qui seront acceptées",
+    "babyBadTitle": "Photos qui ne seront pas acceptées",
+    "babyOk": [
+      "Taille et cadrage corrects, visage centré",
+      "Fond uni et clair",
+      "JPG ou PDF haute résolution et net"
+    ],
+    "babyBad": [
+      "D’autres personnes visibles sur la photo",
+      "Expression non neutre ou yeux non visibles",
+      "Objets étrangers (jouets, etc.) dans le cadre"
+    ],
+    "trustedEyebrow": "Plateforme fiable",
+    "trustedTitle": "Une plateforme mondiale de confiance pour les photos d’identité",
+    "trustedSub": "Près de deux millions de personnes font confiance à PhotoGov pour créer des photos officielles conformes à chaque norme gouvernementale — données vérifiées, précision biométrique et experts internes.",
+    "trustedPoints": [
+      { "t": "Conformité aux guides", "d": "Aligné sur le Dépt. d’État US, HM Passport Office, Commission européenne, etc." },
+      { "t": "Collaboration ambassades", "d": "Avec certaines ambassades pour renforcer la vérification." },
+      { "t": "Équipe interne", "d": "Anciens consuls et ingénieurs en imagerie biométrique." },
+      { "t": "Piloté par la technologie", "d": "Infrastructure chiffrée et distribuée avec système de conformité intégré." },
+      { "t": "Mises à jour", "d": "Reflétant les dernières exigences gouvernementales." },
+      { "t": "Confiance", "d": "1,8 M+ d’utilisateurs dans 150 pays ; 4,7★ sur Trustpilot." }
+    ],
+    "independence": "Conformité et indépendance : toutes les photos sont formatées selon les spécifications officielles. L’approbation finale revient toujours à l’autorité émettrice. PhotoGov est un service privé indépendant, non affilié à un gouvernement ou une institution consulaire."
   },
   "documents": {
     "eyebrow": "Documents",

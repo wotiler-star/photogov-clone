@@ -29,33 +29,13 @@ const popular = popularDocuments().slice(0, 8)
 const quick = quickLinks().slice(0, 6)
 const flagFor = (code: string) => countriesByCode[code]?.flag || '📄'
 const latestPosts = blogPosts().slice().sort((a: any, b: any) => (a.date < b.date ? 1 : -1)).slice(0, 3)
+const previewDoc = popular[0]
 
 const docTypes = [
   { cat: 'passport', label: 'Passport photos', desc: 'Travel-ready passport sizes for 190+ countries', count: documents.filter((d) => d.category === 'passport').length },
   { cat: 'visa', label: 'Visa photos', desc: 'Embassy & consulate compliant visa sizes', count: documents.filter((d) => d.category === 'visa').length },
   { cat: 'id', label: 'ID photos', desc: 'National ID and residence card photos', count: documents.filter((d) => d.category === 'id').length },
   { cat: 'driving', label: 'Driving license', desc: "Driver's license photo templates", count: documents.filter((d) => d.category === 'driving').length }
-]
-
-const steps = [
-  { n: 1, title: 'Take or upload a photo', text: 'Use your phone or webcam. No studio needed.' },
-  { n: 2, title: 'Crop to the correct size', text: 'We auto-fit your photo to the official dimensions.' },
-  { n: 3, title: 'Fix background & light', text: 'One click white/blue background, brightness and contrast.' },
-  { n: 4, title: 'Download JPG or PDF', text: 'Print at home or submit digitally — guaranteed compliant.' }
-]
-
-const standards = [
-  { t: 'Government-approved sizes', d: '190+ countries, always updated to the latest specs.' },
-  { t: 'Correct DPI & head size', d: 'We follow exact head-height and eye-level rules.' },
-  { t: 'Print & digital ready', d: 'Export JPG for online forms or PDF for printing.' },
-  { t: 'Private by design', d: 'Photos are processed in your browser. We never store them.' }
-]
-
-const trust = [
-  'Used by travelers in 190+ countries',
-  'No account required to make a photo',
-  'Free to use, no hidden watermarks',
-  'Works on desktop, tablet and phone'
 ]
 </script>
 
@@ -89,7 +69,7 @@ const trust = [
       </div>
     </section>
 
-    <!-- STEPS -->
+    <!-- HOW IT WORKS: Upload → Processing → Checkout → Download -->
     <section class="container-pg py-14">
       <div class="text-center">
         <span class="eyebrow">{{ $t('home.stepsEyebrow') }}</span>
@@ -102,24 +82,24 @@ const trust = [
           <p class="mt-1 text-sm text-muted">{{ s.text }}</p>
         </div>
       </div>
+      <p class="mx-auto mt-6 max-w-3xl text-center text-xs text-muted">
+        {{ $t('home.usNote') }}
+      </p>
     </section>
 
-    <!-- COMPLIANCE STANDARDS -->
+    <!-- 100% COMPLIANCE (7 pts) -->
     <section class="bg-slate-50 py-14">
       <div class="container-pg">
-      <div class="text-center">
-        <span class="eyebrow">{{ $t('compliance.eyebrow') }}</span>
-        <h2 class="mt-2 text-3xl font-bold">{{ $t('home.standardsTitle') }}</h2>
-          <p class="mx-auto mt-3 max-w-2xl text-muted">
-            {{ $t('home.standardsSub') }}
-          </p>
+        <div class="text-center">
+          <span class="eyebrow">{{ $t('home.standardsEyebrow') }}</span>
+          <h2 class="mt-2 text-3xl font-bold">{{ $t('home.standardsTitle') }}</h2>
         </div>
-        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <div v-for="(st, i) in $tm('home.standards')" :key="i" class="rounded-2xl border border-slate-200 bg-white p-5">
-            <h3 class="font-semibold">{{ st.t }}</h3>
-            <p class="mt-1 text-sm text-muted">{{ st.d }}</p>
-          </div>
-        </div>
+        <ol class="mx-auto mt-8 grid max-w-3xl gap-3 sm:grid-cols-2">
+          <li v-for="(s, i) in $tm('home.standards')" :key="i" class="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4">
+            <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-brand-blue text-xs font-bold text-white">{{ i + 1 }}</span>
+            <span class="text-sm text-muted">{{ s }}</span>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -155,25 +135,138 @@ const trust = [
       </div>
     </section>
 
-    <!-- BROWSE BY TYPE -->
+    <!-- PREVIEW & EXAMPLES -->
     <section class="container-pg py-14">
       <div class="text-center">
-        <span class="eyebrow">{{ $t('home.docTypesEyebrow') }}</span>
-        <h2 class="mt-2 text-3xl font-bold">{{ $t('home.docTypesTitle') }}</h2>
+        <span class="eyebrow">{{ $t('home.previewEyebrow') }}</span>
+        <h2 class="mt-2 text-3xl font-bold">{{ $t('home.previewTitle') }}</h2>
+        <p class="mx-auto mt-3 max-w-2xl text-muted">{{ $t('home.previewSub') }}</p>
       </div>
-      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <NuxtLink
-          v-for="t in docTypes"
-          :key="t.cat"
-          :to="`/documents?category=${t.cat}`"
-          class="card-pg group p-5 transition hover:-translate-y-0.5 hover:shadow-card"
-        >
-          <h3 class="text-lg font-semibold">{{ t.label }}</h3>
-          <p class="mt-1 text-sm text-muted">{{ t.desc }}</p>
-          <p class="mt-3 text-sm font-semibold text-brand-blue">
-            {{ t.count }} templates →
-          </p>
-        </NuxtLink>
+      <div v-if="previewDoc" class="mx-auto mt-8 max-w-md rounded-2xl border border-slate-200 bg-white p-5 shadow-card">
+        <p class="text-sm font-semibold text-ink">{{ previewDoc.countryName }} — {{ previewDoc.name }}</p>
+        <dl class="mt-3 grid grid-cols-2 gap-y-2 text-sm text-muted">
+          <dt>{{ $t('tool.sizeLabel') }}</dt><dd class="text-right text-ink">{{ previewDoc.size.inch }}″</dd>
+          <dt>{{ $t('tool.specBackground') }}</dt><dd class="text-right"><span class="inline-block h-3 w-3 rounded-sm border border-slate-300 align-middle" :style="{ background: previewDoc.background }" /></dd>
+          <dt>{{ $t('tool.specHead') }}</dt><dd class="text-right text-ink">{{ previewDoc.headHeight }}</dd>
+          <dt>{{ $t('tool.specEyes') }}</dt><dd class="text-right text-ink">{{ previewDoc.eyesLevel }}</dd>
+          <dt>{{ $t('tool.specFormat') }}</dt><dd class="text-right text-ink">{{ previewDoc.format }}</dd>
+          <dt>{{ $t('tool.specDpi') }}</dt><dd class="text-right text-ink">{{ previewDoc.dpi }}</dd>
+        </dl>
+      </div>
+    </section>
+
+    <!-- HOW TO TAKE AT HOME: DO / DON'T -->
+    <section class="bg-slate-50 py-14">
+      <div class="container-pg">
+        <div class="text-center">
+          <span class="eyebrow">{{ $t('home.howEyebrow') }}</span>
+          <h2 class="mt-2 text-3xl font-bold">{{ $t('home.howTitle') }}</h2>
+          <p class="mx-auto mt-3 max-w-2xl text-muted">{{ $t('home.howSub') }}</p>
+        </div>
+        <div class="mt-8 grid gap-4 md:grid-cols-2">
+          <div class="rounded-2xl border border-accent-green/30 bg-white p-5">
+            <h3 class="text-lg font-semibold text-accent-green">{{ $t('home.doTitle') }}</h3>
+            <ul class="mt-3 space-y-2 text-sm text-muted">
+              <li v-for="(t, i) in $tm('home.doList')" :key="i" class="flex gap-2"><span>✓</span><span>{{ t }}</span></li>
+            </ul>
+          </div>
+          <div class="rounded-2xl border border-amber-300/40 bg-white p-5">
+            <h3 class="text-lg font-semibold text-amber-600">{{ $t('home.dontTitle') }}</h3>
+            <ul class="mt-3 space-y-2 text-sm text-muted">
+              <li v-for="(t, i) in $tm('home.dontList')" :key="i" class="flex gap-2"><span>✕</span><span>{{ t }}</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BABY PHOTOS -->
+    <section class="container-pg py-14">
+      <div class="text-center">
+        <span class="eyebrow">{{ $t('home.babyEyebrow') }}</span>
+        <h2 class="mt-2 text-3xl font-bold">{{ $t('home.babyTitle') }}</h2>
+      </div>
+      <div class="mt-8 grid gap-4 md:grid-cols-2">
+        <div class="rounded-2xl border border-accent-green/30 bg-white p-5">
+          <h3 class="text-lg font-semibold text-accent-green">{{ $t('home.babyOkTitle') }}</h3>
+          <ul class="mt-3 space-y-2 text-sm text-muted">
+            <li v-for="(t, i) in $tm('home.babyOk')" :key="i" class="flex gap-2"><span>✓</span><span>{{ t }}</span></li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-amber-300/40 bg-white p-5">
+          <h3 class="text-lg font-semibold text-amber-600">{{ $t('home.babyBadTitle') }}</h3>
+          <ul class="mt-3 space-y-2 text-sm text-muted">
+            <li v-for="(t, i) in $tm('home.babyBad')" :key="i" class="flex gap-2"><span>✕</span><span>{{ t }}</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- BROWSE BY TYPE -->
+    <section class="bg-slate-50 py-14">
+      <div class="container-pg">
+        <div class="text-center">
+          <span class="eyebrow">{{ $t('home.docTypesEyebrow') }}</span>
+          <h2 class="mt-2 text-3xl font-bold">{{ $t('home.docTypesTitle') }}</h2>
+        </div>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <NuxtLink
+            v-for="t in docTypes"
+            :key="t.cat"
+            :to="`/documents?category=${t.cat}`"
+            class="card-pg group p-5 transition hover:-translate-y-0.5 hover:shadow-card"
+          >
+            <h3 class="text-lg font-semibold">{{ t.label }}</h3>
+            <p class="mt-1 text-sm text-muted">{{ t.desc }}</p>
+            <p class="mt-3 text-sm font-semibold text-brand-blue">{{ t.count }} templates →</p>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY TRUST / STATS -->
+    <section class="py-14">
+      <div class="container-pg">
+        <div class="text-center">
+          <span class="eyebrow">{{ $t('home.trustEyebrow') }}</span>
+          <h2 class="mt-2 text-3xl font-bold">{{ $t('home.trustTitle') }}</h2>
+          <p class="mx-auto mt-3 max-w-2xl text-muted">{{ $t('home.trustSub') }}</p>
+        </div>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="card-pg p-5 text-center">
+            <div class="text-3xl font-bold text-brand-blue">1.8M+</div>
+            <p class="mt-1 text-sm text-muted">{{ $t('home.trustUsers') }}</p>
+          </div>
+          <div class="card-pg p-5 text-center">
+            <div class="text-3xl font-bold text-brand-blue">99.2%</div>
+            <p class="mt-1 text-sm text-muted">{{ $t('home.trustApproval') }}</p>
+          </div>
+          <div class="card-pg p-5 text-center">
+            <div class="text-3xl font-bold text-brand-blue">4.7★</div>
+            <p class="mt-1 text-sm text-muted">{{ $t('home.trustRating') }}</p>
+          </div>
+          <div class="card-pg p-5 text-center">
+            <div class="text-3xl font-bold text-brand-blue">150+</div>
+            <p class="mt-1 text-sm text-muted">{{ $t('home.trustCountries') }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUSTED GLOBAL PLATFORM -->
+    <section class="bg-slate-50 py-14">
+      <div class="container-pg">
+        <div class="text-center">
+          <span class="eyebrow">{{ $t('home.trustedEyebrow') }}</span>
+          <h2 class="mt-2 text-3xl font-bold">{{ $t('home.trustedTitle') }}</h2>
+          <p class="mx-auto mt-3 max-w-2xl text-muted">{{ $t('home.trustedSub') }}</p>
+        </div>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div v-for="(t, i) in $tm('home.trustedPoints')" :key="i" class="rounded-2xl border border-slate-200 bg-white p-5">
+            <h3 class="font-semibold">{{ t.t }}</h3>
+            <p class="mt-1 text-sm text-muted">{{ t.d }}</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -206,49 +299,11 @@ const trust = [
       </div>
     </section>
 
-    <!-- WHY TRUST / STATS -->
-    <section class="bg-slate-50 py-14">
-      <div class="container-pg">
-        <div class="text-center">
-          <span class="eyebrow">{{ $t('home.trustEyebrow') }}</span>
-          <h2 class="mt-2 text-3xl font-bold">{{ $t('home.trustTitle') }}</h2>
-          <p class="mx-auto mt-3 max-w-2xl text-muted">
-            {{ $t('home.trustSub') }}
-          </p>
-        </div>
-        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="card-pg p-5 text-center">
-            <div class="text-3xl font-bold text-brand-blue">1.8M+</div>
-            <p class="mt-1 text-sm text-muted">{{ $t('home.trustUsers') }}</p>
-          </div>
-          <div class="card-pg p-5 text-center">
-            <div class="text-3xl font-bold text-brand-blue">99.2%</div>
-            <p class="mt-1 text-sm text-muted">{{ $t('home.trustApproval') }}</p>
-          </div>
-          <div class="card-pg p-5 text-center">
-            <div class="text-3xl font-bold text-brand-blue">4.7★</div>
-            <p class="mt-1 text-sm text-muted">{{ $t('home.trustRating') }}</p>
-          </div>
-          <div class="card-pg p-5 text-center">
-            <div class="text-3xl font-bold text-brand-blue">150+</div>
-            <p class="mt-1 text-sm text-muted">{{ $t('home.trustCountries') }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- COMPLIANCE STANDARDS (7 pts) -->
-    <section class="container-pg py-14">
-      <div class="text-center">
-        <span class="eyebrow">{{ $t('home.standardsEyebrow') }}</span>
-        <h2 class="mt-2 text-3xl font-bold">{{ $t('home.standardsTitle') }}</h2>
-      </div>
-      <ol class="mx-auto mt-8 grid max-w-3xl gap-3 sm:grid-cols-2">
-        <li v-for="(s, i) in $tm('home.standards')" :key="i" class="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4">
-          <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-brand-blue text-xs font-bold text-white">{{ i + 1 }}</span>
-          <span class="text-sm text-muted">{{ s }}</span>
-        </li>
-      </ol>
+    <!-- COMPLIANCE & INDEPENDENCE -->
+    <section class="container-pg pb-14">
+      <p class="mx-auto max-w-3xl rounded-xl border border-slate-200 bg-white p-5 text-xs leading-relaxed text-muted">
+        {{ $t('home.independence') }}
+      </p>
     </section>
 
     <!-- CTA -->

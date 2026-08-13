@@ -76,20 +76,20 @@
     "stepsEyebrow": "How it works",
     "steps": [
       {
-        "title": "Take or upload a photo",
-        "text": "Use your phone or webcam. No studio needed."
+        "title": "Photo upload",
+        "text": "Take a selfie and upload it to our online tool."
       },
       {
-        "title": "Crop to the correct size",
-        "text": "We auto-fit your photo to the official dimensions."
+        "title": "Processing",
+        "text": "In 30 seconds your portrait is transformed into an ID photo."
       },
       {
-        "title": "Fix background & light",
-        "text": "One click white/blue background, brightness and contrast."
+        "title": "Checkout",
+        "text": "Select options or add expert verification."
       },
       {
-        "title": "Download JPG or PDF",
-        "text": "Print at home or submit digitally — guaranteed compliant."
+        "title": "Download",
+        "text": "Get high-quality photos in digital or printable format."
       }
     ],
     "standardsTitle": "Built to meet official standards",
@@ -147,7 +147,52 @@
       "Neutral expression, eyes open, no smile",
       "No headwear (religious or medical only)",
       "High-resolution, sharp image"
-    ]
+    ],
+    "usNote": "For users in the United States: government rules prohibit digital alterations of ID photographs. This tool provides sizing and cropping services only and does not modify or enhance images.",
+    "previewEyebrow": "Preview & examples",
+    "previewTitle": "Passport Photo Online — Preview & Examples",
+    "previewSub": "Preview how your selfie is adjusted to official passport and ID requirements. Choose a document and see its exact output specs.",
+    "howEyebrow": "At home",
+    "howTitle": "How to take a passport photo at home",
+    "howSub": "Use these handy tips and take a perfect ID or visa photo with your phone — no studio required.",
+    "doTitle": "Do",
+    "dontTitle": "Don't",
+    "doList": [
+      "Take a good quality selfie in well-lit room near a window",
+      "Keep a neutral expression, mouth closed, eyes open and visible",
+      "Wear simple, plain-colored clothing"
+    ],
+    "dontList": [
+      "Cast shadows on the face or use light from above/side",
+      "Wear headwear (except religious or medical reasons)",
+      "Wear glasses unless the document allows them"
+    ],
+    "babyEyebrow": "Babies",
+    "babyTitle": "Taking baby passport photos",
+    "babyOkTitle": "Photos that will be accepted",
+    "babyBadTitle": "Photos that will not be accepted",
+    "babyOk": [
+      "Correct size and framing, face centered",
+      "Plain, light-colored background",
+      "High-resolution, sharp JPG or PDF"
+    ],
+    "babyBad": [
+      "Other people visible in the photo",
+      "Non-neutral expression or eyes not visible",
+      "Extraneous objects (toys, etc.) in the frame"
+    ],
+    "trustedEyebrow": "Trusted platform",
+    "trustedTitle": "A trusted global platform for passport photos",
+    "trustedSub": "Almost two million people trust PhotoGov to create official photos that meet every government standard — verified data, biometric accuracy and in-house compliance experts.",
+    "trustedPoints": [
+      { "t": "Adherence to guidelines", "d": "Aligned with U.S. State Dept, HM Passport Office, European Commission and other authorities." },
+      { "t": "Embassy collaboration", "d": "Working with select state embassies to strengthen verification." },
+      { "t": "In-house team", "d": "Former consular officers and biometric imaging engineers." },
+      { "t": "Technology-driven", "d": "Encrypted, distributed infrastructure with an embedded compliance system." },
+      { "t": "Ongoing updates", "d": "Reflecting the latest government requirements worldwide." },
+      { "t": "User trust", "d": "1.8M+ users across 150 countries; 4.7★ on Trustpilot." }
+    ],
+    "independence": "Compliance and Independence: all photos are formatted per official government specifications. Final approval is always determined by the issuing authority. PhotoGov is an independent private service and is not affiliated with any government or consular institution."
   },
   "documents": {
     "eyebrow": "Documents",

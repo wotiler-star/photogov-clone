@@ -76,20 +76,20 @@
     "stepsEyebrow": "Cómo funciona",
     "steps": [
       {
-        "title": "Toma o sube una foto",
-        "text": "Usa tu teléfono o cámara web. No necesitas estudio."
+        "title": "Subida de foto",
+        "text": "Toma una selfie y súbela a nuestra herramienta en línea."
       },
       {
-        "title": "Recorta al tamaño correcto",
-        "text": "Ajustamos automáticamente tu foto a las dimensiones oficiales."
+        "title": "Procesamiento",
+        "text": "En 30 segundos tu retrato se convierte en una foto de ID."
       },
       {
-        "title": "Corrige fondo y luz",
-        "text": "Un clic para fondo blanco/azul, brillo y contraste."
+        "title": "Pago",
+        "text": "Elige opciones o añade verificación experta."
       },
       {
-        "title": "Descarga JPG o PDF",
-        "text": "Imprime en casa o envía digitalmente — garantizado conforme."
+        "title": "Descarga",
+        "text": "Obtén fotos de alta calidad en formato digital o imprimible."
       }
     ],
     "standardsTitle": "Hecho para cumplir estándares oficiales",
@@ -147,7 +147,52 @@
       "Expresión neutral, ojos abiertos, sin sonrisa",
       "Sin cubrirse la cabeza (solo religioso o médico)",
       "Alta resolución, imagen nítida"
-    ]
+    ],
+    "usNote": "Para usuarios en Estados Unidos: las normas gubernamentales prohíben alterar digitalmente las fotos de ID. Esta herramienta solo ofrece ajuste de tamaño y recorte, sin modificar ni mejorar imágenes.",
+    "previewEyebrow": "Vista previa y ejemplos",
+    "previewTitle": "Foto de ID en línea — Vista previa y ejemplos",
+    "previewSub": "Previsualiza cómo se ajusta tu selfie a los requisitos oficiales. Elige un documento y ve sus especificaciones exactas.",
+    "howEyebrow": "En casa",
+    "howTitle": "Cómo sacar una foto de pasaporte en casa",
+    "howSub": "Usa estos trucos y saca una foto de ID o visa perfecta con el móvil, sin estudio.",
+    "doTitle": "Haz",
+    "dontTitle": "No hagas",
+    "doList": [
+      "Toma una selfie de buena calidad en una habitación bien iluminada cerca de una ventana",
+      "Mantén expresión neutral, boca cerrada, ojos abiertos y visibles",
+      "Viste ropa sencilla de color liso"
+    ],
+    "dontList": [
+      "Proyectar sombras en el rostro o usar luz desde arriba/lado",
+      "Llevar cubrecejas (salvo religioso o médico)",
+      "Llevar gafas salvo que el documento lo permita"
+    ],
+    "babyEyebrow": "Bebés",
+    "babyTitle": "Fotos de pasaporte de bebés",
+    "babyOkTitle": "Fotos que serán aceptadas",
+    "babyBadTitle": "Fotos que no serán aceptadas",
+    "babyOk": [
+      "Tamaño y encuadre correctos, rostro centrado",
+      "Fondo liso y claro",
+      "JPG o PDF de alta resolución y nítido"
+    ],
+    "babyBad": [
+      "Otras personas visibles en la foto",
+      "Expresión no neutral o ojos no visibles",
+      "Objetos ajenos (juguetes, etc.) en el encuadre"
+    ],
+    "trustedEyebrow": "Plataforma confiable",
+    "trustedTitle": "Una plataforma global de confianza para fotos de documentos",
+    "trustedSub": "Casi dos millones de personas confían en PhotoGov para crear fotos oficiales que cumplen cada norma gubernamental — datos verificados, precisión biométrica y expertos internos.",
+    "trustedPoints": [
+      { "t": "Cumplimiento de guías", "d": "Alineado con EE. UU., HM Passport Office, Comisión Europea y otras autoridades." },
+      { "t": "Colaboración con embajadas", "d": "Trabajando con embajadas para reforzar la verificación." },
+      { "t": "Equipo propio", "d": "Ex funcionarios consulares e ingenieros de imagen biométrica." },
+      { "t": "Tecnología", "d": "Infraestructura cifrada y distribuida con sistema de cumplimiento integrado." },
+      { "t": "Actualizaciones", "d": "Reflejando los últimos requisitos gubernamentales." },
+      { "t": "Confianza", "d": "1,8 M+ de usuarios en 150 países; 4,7★ en Trustpilot." }
+    ],
+    "independence": "Cumplimiento e independencia: todas las fotos se formatean según especificaciones oficiales. La aprobación final siempre la decide la autoridad emisora. PhotoGov es un servicio privado independiente y no está afiliado a ningún gobierno ni institución consular."
   },
   "documents": {
     "eyebrow": "Documentos",
