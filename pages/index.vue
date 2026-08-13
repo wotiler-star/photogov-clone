@@ -206,22 +206,49 @@ const trust = [
       </div>
     </section>
 
-    <!-- TRUST -->
-    <section class="container-pg py-14">
-      <div class="card-pg grid gap-6 p-8 sm:grid-cols-3">
-        <div>
-          <div class="text-3xl font-bold text-brand-blue">190+</div>
-          <p class="text-sm text-muted">{{ $t('home.statCountries') }}</p>
+    <!-- WHY TRUST / STATS -->
+    <section class="bg-slate-50 py-14">
+      <div class="container-pg">
+        <div class="text-center">
+          <span class="eyebrow">{{ $t('home.trustEyebrow') }}</span>
+          <h2 class="mt-2 text-3xl font-bold">{{ $t('home.trustTitle') }}</h2>
+          <p class="mx-auto mt-3 max-w-2xl text-muted">
+            {{ $t('home.trustSub') }}
+          </p>
         </div>
-        <div>
-          <div class="text-3xl font-bold text-brand-blue">300</div>
-          <p class="text-sm text-muted">{{ $t('home.statDpi') }}</p>
-        </div>
-        <div>
-          <div class="text-3xl font-bold text-brand-blue">0</div>
-          <p class="text-sm text-muted">{{ $t('home.statStored') }}</p>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="card-pg p-5 text-center">
+            <div class="text-3xl font-bold text-brand-blue">1.8M+</div>
+            <p class="mt-1 text-sm text-muted">{{ $t('home.trustUsers') }}</p>
+          </div>
+          <div class="card-pg p-5 text-center">
+            <div class="text-3xl font-bold text-brand-blue">99.2%</div>
+            <p class="mt-1 text-sm text-muted">{{ $t('home.trustApproval') }}</p>
+          </div>
+          <div class="card-pg p-5 text-center">
+            <div class="text-3xl font-bold text-brand-blue">4.7★</div>
+            <p class="mt-1 text-sm text-muted">{{ $t('home.trustRating') }}</p>
+          </div>
+          <div class="card-pg p-5 text-center">
+            <div class="text-3xl font-bold text-brand-blue">150+</div>
+            <p class="mt-1 text-sm text-muted">{{ $t('home.trustCountries') }}</p>
+          </div>
         </div>
       </div>
+    </section>
+
+    <!-- COMPLIANCE STANDARDS (7 pts) -->
+    <section class="container-pg py-14">
+      <div class="text-center">
+        <span class="eyebrow">{{ $t('home.standardsEyebrow') }}</span>
+        <h2 class="mt-2 text-3xl font-bold">{{ $t('home.standardsTitle') }}</h2>
+      </div>
+      <ol class="mx-auto mt-8 grid max-w-3xl gap-3 sm:grid-cols-2">
+        <li v-for="(s, i) in $tm('home.standards')" :key="i" class="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4">
+          <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-brand-blue text-xs font-bold text-white">{{ i + 1 }}</span>
+          <span class="text-sm text-muted">{{ s }}</span>
+        </li>
+      </ol>
     </section>
 
     <!-- CTA -->

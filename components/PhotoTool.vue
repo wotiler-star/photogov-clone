@@ -30,6 +30,9 @@ const docOptions = computed<PhotoDoc[]>(() => {
   const list = documentsForCountry(activeCountry.value)
   return list.length ? list : popularDocuments()
 })
+// 证件下拉分组：热门 / 其它
+const docOptionsPopular = computed<PhotoDoc[]>(() => docOptions.value.filter((d) => d.popular))
+const docOptionsOther = computed<PhotoDoc[]>(() => docOptions.value.filter((d) => !d.popular))
 
 const selSlug = ref<string>('')
 const selDoc = computed<PhotoDoc | null>(() => {
@@ -102,6 +105,30 @@ const faceInfo = ref<{ ex: number; ey: number; bx: number; by: number; bw: numbe
 const isDetecting = ref(false)
 const EYES_LINE = 0.58    // 眼睛水平线在照片中的目标位置（自上而下比例）
 const TARGET_HEAD = 0.68  // 头部高度占照片高度的目标比例
+
+// 医疗例外声明（每照片一次，仅前端声明）
+const medicalRestriction = ref(false)
+
+// 示例人像（公开演示图，加载失败则提示，不阻断）
+const SAMPLE_URLS = [
+  'https://photogov-com.fra1.cdn.digitaloceanspaces.com/examples-new/original/IQ.webp',
+  'https://photogov-com.fra1.cdn.digitaloceanspaces.com/examples-new/original/US.webp',
+  'https://photogov-com.fra1.cdn.digitaloceanspaces.com/examples-new/original/GB.webp'
+]
+const sampleIdx = ref(0)
+async function loadSample() {
+  const url = SAMPLE_URLS[sampleIdx.value % SAMPLE_URLS.length]
+  sampleIdx.value++
+  try {
+    const res = await fetch(url)
+    const blob = await res.blob()
+    const file = new File([blob], 'sample.jpg', { type: blob.type || 'image/jpeg' })
+    await loadFile(file)
+    note.value = t('tool.sampleLoaded')
+  } catch (e) {
+    note.value = t('tool.sampleFail')
+  }
+}
 
 const hasImage = computed(() => !!sourceImg.value)
 const cw = computed(() => selDoc.value?.size.w || 600)
@@ -1239,9 +1266,16 @@ function changeCountry(c: string) {
               v-model="selSlug"
               class="w-1/2 rounded-lg border border-slate-300 bg-white px-2 py-2 text-sm"
             >
-              <option v-for="d in docOptions" :key="d.slug" :value="d.slug">
-                {{ d.name }}
-              </option>
+              <optgroup v-if="docOptionsPopular.length" :label="$t('tool.docPopular')">
+                <option v-for="d in docOptionsPopular" :key="d.slug" :value="d.slug">
+                  {{ d.name }} · {{ d.size.inch }}″
+                </option>
+              </optgroup>
+              <optgroup :label="$t('tool.docAll')">
+                <option v-for="d in docOptionsOther" :key="d.slug" :value="d.slug">
+                  {{ d.name }} · {{ d.size.inch }}″
+                </option>
+              </optgroup>
             </select>
           </div>
         </div>
@@ -1257,6 +1291,14 @@ function changeCountry(c: string) {
             {{ hasImage ? $t('tool.retake') : $t('tool.capture') }}
           </label>
         </div>
+        <div class="flex flex-wrap items-center gap-3">
+          <button class="text-xs text-brand-blue underline" :disabled="isReading" @click="loadSample()">{{ $t('tool.sampleBtn') }}</button>
+        </div>
+        <label class="flex items-center gap-2 text-[11px] text-muted">
+          <input type="checkbox" v-model="medicalRestriction" class="rounded border-slate-300" />
+          {{ $t('tool.medical') }}
+        </label>
+        <p class="text-[10px] leading-snug text-muted">{{ $t('tool.medicalHint') }}</p>
 
         <!-- 调整 -->
         <div class="space-y-3" :class="{ 'opacity-40': !hasImage }">
@@ -1347,6 +1389,14 @@ function changeCountry(c: string) {
             <p class="text-xs font-semibold text-ink">{{ $t('tool.compliance') }}</p>
             <button class="btn-secondary px-3 py-1.5 text-xs" :disabled="!hasImage" @click="checkCompliance()">{{ $t('tool.check') }}</button>
           </div>
+          <div v-if="selDoc" class="mt-2 grid grid-cols-2 gap-x-3 gap-y-1 text-[11px] text-muted">
+            <div><span class="text-ink/70">{{ $t('tool.specHead') }}:</span> {{ selDoc.headHeight }}</div>
+            <div><span class="text-ink/70">{{ $t('tool.specEyes') }}:</span> {{ selDoc.eyesLevel }}</div>
+            <div><span class="text-ink/70">{{ $t('tool.specDpi') }}:</span> {{ selDoc.dpi }}</div>
+            <div><span class="text-ink/70">{{ $t('tool.specFormat') }}:</span> {{ selDoc.format }}</div>
+            <div class="flex items-center gap-1"><span class="text-ink/70">{{ $t('tool.specBackground') }}:</span> <span class="inline-block h-3 w-3 rounded-sm border border-slate-300 align-middle" :style="{ background: selDoc.background }" /></div>
+            <div><span class="text-ink/70">{{ $t('tool.specGlasses') }}:</span> {{ selDoc.glasses ? $t('doc.glassesAllowed') : $t('doc.glassesNotAllowed') }}</div>
+          </div>
           <label class="mt-2 flex items-center gap-2 text-[11px] text-muted">
             <input type="checkbox" v-model="autoOptimize" class="rounded border-slate-300" />
             {{ $t('tool.autoOptimize') }}
@@ -1359,6 +1409,17 @@ function changeCountry(c: string) {
             <div v-else class="text-muted">{{ $t('tool.faceNa') }}</div>
             <div v-if="compliance.headOk !== null" class="flex items-center gap-1"><span :class="compliance.headOk ? 'text-accent-green' : 'text-amber-600'">●</span> {{ compliance.headOk ? $t('tool.headOk') : $t('tool.headWarn') }}</div>
           </div>
+        </div>
+
+        <!-- 专家人工审核（Upsell，演示 UI） -->
+        <div class="rounded-xl border border-amber-200 bg-amber-50 p-3">
+          <p class="text-xs font-semibold text-ink">{{ $t('tool.expertTitle') }}</p>
+          <p class="mt-1 text-[11px] leading-relaxed text-muted">{{ $t('tool.expertDesc') }}</p>
+          <div class="mt-2 flex items-center gap-4 text-[11px] text-ink">
+            <span><b class="text-brand-blue">99.2%</b> {{ $t('tool.expertApproval') }}</span>
+            <span><b class="text-brand-blue">4.7★</b> {{ $t('tool.expertRating') }}</span>
+          </div>
+          <button class="mt-2 w-full rounded-lg border border-amber-300 bg-white px-2 py-1.5 text-xs font-medium text-amber-700" @click="note = t('tool.expertNote')">{{ $t('tool.expertAdd') }}</button>
         </div>
 
         <!-- 排版打印页 -->
