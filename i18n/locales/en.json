@@ -92,25 +92,16 @@
         "text": "Get high-quality photos in digital or printable format."
       }
     ],
-    "standardsTitle": "Built to meet official standards",
+    "standardsTitle": "Compliance with global ID photo standards",
     "standardsSub": "Every template follows the exact rules published by passport and visa authorities.",
     "standards": [
-      {
-        "t": "Government-approved sizes",
-        "d": "190+ countries, always updated to the latest specs."
-      },
-      {
-        "t": "Correct DPI & head size",
-        "d": "We follow exact head-height and eye-level rules."
-      },
-      {
-        "t": "Print & digital ready",
-        "d": "Export JPG for online forms or PDF for printing."
-      },
-      {
-        "t": "Private by design",
-        "d": "Photos are processed in your browser. We never store them."
-      }
+      "Correct size and framing",
+      "Plain white or off-white background",
+      "Even lighting, no shadows, natural skin tone",
+      "Face centered, square to camera",
+      "Neutral expression, eyes open, no smile",
+      "No headwear (religious or medical only)",
+      "High-resolution, sharp image"
     ],
     "popularEyebrow": "Popular",
     "popularTitle": "Most requested documents",
@@ -138,16 +129,6 @@
     "trustRating": "Trustpilot rating",
     "trustCountries": "Countries covered",
     "standardsEyebrow": "100% compliance",
-    "standardsTitle": "Compliance with global ID photo standards",
-    "standards": [
-      "Correct size and framing",
-      "Plain white or off-white background",
-      "Even lighting, no shadows, natural skin tone",
-      "Face centered, square to camera",
-      "Neutral expression, eyes open, no smile",
-      "No headwear (religious or medical only)",
-      "High-resolution, sharp image"
-    ],
     "usNote": "For users in the United States: government rules prohibit digital alterations of ID photographs. This tool provides sizing and cropping services only and does not modify or enhance images.",
     "previewEyebrow": "Preview & examples",
     "previewTitle": "Passport Photo Online — Preview & Examples",
@@ -186,14 +167,39 @@
     "trustedTitle": "A trusted global platform for passport photos",
     "trustedSub": "Almost two million people trust PhotoGov to create official photos that meet every government standard — verified data, biometric accuracy and in-house compliance experts.",
     "trustedPoints": [
-      { "t": "Adherence to guidelines", "d": "Aligned with U.S. State Dept, HM Passport Office, European Commission and other authorities." },
-      { "t": "Embassy collaboration", "d": "Working with select state embassies to strengthen verification." },
-      { "t": "In-house team", "d": "Former consular officers and biometric imaging engineers." },
-      { "t": "Technology-driven", "d": "Encrypted, distributed infrastructure with an embedded compliance system." },
-      { "t": "Ongoing updates", "d": "Reflecting the latest government requirements worldwide." },
-      { "t": "User trust", "d": "1.8M+ users across 150 countries; 4.7★ on Trustpilot." }
+      {
+        "t": "Adherence to guidelines",
+        "d": "Aligned with U.S. State Dept, HM Passport Office, European Commission and other authorities."
+      },
+      {
+        "t": "Embassy collaboration",
+        "d": "Working with select state embassies to strengthen verification."
+      },
+      {
+        "t": "In-house team",
+        "d": "Former consular officers and biometric imaging engineers."
+      },
+      {
+        "t": "Technology-driven",
+        "d": "Encrypted, distributed infrastructure with an embedded compliance system."
+      },
+      {
+        "t": "Ongoing updates",
+        "d": "Reflecting the latest government requirements worldwide."
+      },
+      {
+        "t": "User trust",
+        "d": "1.8M+ users across 150 countries; 4.7★ on Trustpilot."
+      }
     ],
-    "independence": "Compliance and Independence: all photos are formatted per official government specifications. Final approval is always determined by the issuing authority. PhotoGov is an independent private service and is not affiliated with any government or consular institution."
+    "independence": "Compliance and Independence: all photos are formatted per official government specifications. Final approval is always determined by the issuing authority. PhotoGov is an independent private service and is not affiliated with any government or consular institution.",
+    "heroTitle": "Passport Photo Maker — Get a Compliant ID Picture in 30 Seconds",
+    "heroSubtitle": "Snap – Upload – Done. PhotoGov is a passport photo tool that instantly creates official photos meeting international government standards.",
+    "heroCtaText": "Upload your selfie → Get a compliant passport-size photo",
+    "heroCtaBtn": "Get Your ID Photo",
+    "reviewLabel": "Excellent",
+    "reviewCount": "56,546",
+    "reviewOn": "reviews on"
   },
   "documents": {
     "eyebrow": "Documents",
@@ -384,7 +390,12 @@
     "expertApproval": "approval rate",
     "expertRating": "rating",
     "expertAdd": "Add expert review (demo)",
-    "expertNote": "Demo only — expert review is a paid backend service not included in this clone."
+    "expertNote": "Demo only — expert review is a paid backend service not included in this clone.",
+    "selectCountry": "Select country",
+    "selectDocument": "Select document type",
+    "popularLabel": "Popular",
+    "chooseDoc": "Choose a document",
+    "startBtn": "Start"
   },
   "dv": {
     "eyebrow": "Diversity Visa",

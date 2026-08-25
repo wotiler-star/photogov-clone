@@ -92,25 +92,16 @@
         "text": "Obtén fotos de alta calidad en formato digital o imprimible."
       }
     ],
-    "standardsTitle": "Hecho para cumplir estándares oficiales",
+    "standardsTitle": "Cumplimiento con estándares globales de fotos de ID",
     "standardsSub": "Cada plantilla sigue las reglas exactas publicadas por las autoridades de pasaportes y visas.",
     "standards": [
-      {
-        "t": "Tamaños aprobados por el gobierno",
-        "d": "Más de 190 países, siempre actualizados a las últimas especificaciones."
-      },
-      {
-        "t": "DPI y tamaño de cabeza correctos",
-        "d": "Seguimos reglas exactas de altura de cabeza y nivel de ojos."
-      },
-      {
-        "t": "Listo para imprimir y digital",
-        "d": "Exporta JPG para formularios en línea o PDF para imprimir."
-      },
-      {
-        "t": "Privado por diseño",
-        "d": "Las fotos se procesan en tu navegador. Nunca las almacenamos."
-      }
+      "Tamaño y encuadre correctos",
+      "Fondo blanco o blanco roto",
+      "Iluminación uniforme, sin sombras, tono de piel natural",
+      "Rostro centrado, frontal a la cámara",
+      "Expresión neutral, ojos abiertos, sin sonrisa",
+      "Sin cubrirse la cabeza (solo religioso o médico)",
+      "Alta resolución, imagen nítida"
     ],
     "popularEyebrow": "Popular",
     "popularTitle": "Documentos más solicitados",
@@ -138,16 +129,6 @@
     "trustRating": "Valoración Trustpilot",
     "trustCountries": "Países cubiertos",
     "standardsEyebrow": "100% cumplimiento",
-    "standardsTitle": "Cumplimiento con estándares globales de fotos de ID",
-    "standards": [
-      "Tamaño y encuadre correctos",
-      "Fondo blanco o blanco roto",
-      "Iluminación uniforme, sin sombras, tono de piel natural",
-      "Rostro centrado, frontal a la cámara",
-      "Expresión neutral, ojos abiertos, sin sonrisa",
-      "Sin cubrirse la cabeza (solo religioso o médico)",
-      "Alta resolución, imagen nítida"
-    ],
     "usNote": "Para usuarios en Estados Unidos: las normas gubernamentales prohíben alterar digitalmente las fotos de ID. Esta herramienta solo ofrece ajuste de tamaño y recorte, sin modificar ni mejorar imágenes.",
     "previewEyebrow": "Vista previa y ejemplos",
     "previewTitle": "Foto de ID en línea — Vista previa y ejemplos",
@@ -186,14 +167,39 @@
     "trustedTitle": "Una plataforma global de confianza para fotos de documentos",
     "trustedSub": "Casi dos millones de personas confían en PhotoGov para crear fotos oficiales que cumplen cada norma gubernamental — datos verificados, precisión biométrica y expertos internos.",
     "trustedPoints": [
-      { "t": "Cumplimiento de guías", "d": "Alineado con EE. UU., HM Passport Office, Comisión Europea y otras autoridades." },
-      { "t": "Colaboración con embajadas", "d": "Trabajando con embajadas para reforzar la verificación." },
-      { "t": "Equipo propio", "d": "Ex funcionarios consulares e ingenieros de imagen biométrica." },
-      { "t": "Tecnología", "d": "Infraestructura cifrada y distribuida con sistema de cumplimiento integrado." },
-      { "t": "Actualizaciones", "d": "Reflejando los últimos requisitos gubernamentales." },
-      { "t": "Confianza", "d": "1,8 M+ de usuarios en 150 países; 4,7★ en Trustpilot." }
+      {
+        "t": "Cumplimiento de guías",
+        "d": "Alineado con EE. UU., HM Passport Office, Comisión Europea y otras autoridades."
+      },
+      {
+        "t": "Colaboración con embajadas",
+        "d": "Trabajando con embajadas para reforzar la verificación."
+      },
+      {
+        "t": "Equipo propio",
+        "d": "Ex funcionarios consulares e ingenieros de imagen biométrica."
+      },
+      {
+        "t": "Tecnología",
+        "d": "Infraestructura cifrada y distribuida con sistema de cumplimiento integrado."
+      },
+      {
+        "t": "Actualizaciones",
+        "d": "Reflejando los últimos requisitos gubernamentales."
+      },
+      {
+        "t": "Confianza",
+        "d": "1,8 M+ de usuarios en 150 países; 4,7★ en Trustpilot."
+      }
     ],
-    "independence": "Cumplimiento e independencia: todas las fotos se formatean según especificaciones oficiales. La aprobación final siempre la decide la autoridad emisora. PhotoGov es un servicio privado independiente y no está afiliado a ningún gobierno ni institución consular."
+    "independence": "Cumplimiento e independencia: todas las fotos se formatean según especificaciones oficiales. La aprobación final siempre la decide la autoridad emisora. PhotoGov es un servicio privado independiente y no está afiliado a ningún gobierno ni institución consular.",
+    "heroTitle": "Generador de fotos de pasaporte — Obtén una foto de identificación compatible en 30 segundos",
+    "heroSubtitle": "Toma la foto – Subela – Listo. PhotoGov es una herramienta que crea instantáneamente fotos oficiales que cumplen con los estándares gubernamentales internacionales.",
+    "heroCtaText": "Sube tu selfie → Obtén una foto de pasaporte compatible",
+    "heroCtaBtn": "Obtener mi foto de ID",
+    "reviewLabel": "Excelente",
+    "reviewCount": "56.546",
+    "reviewOn": "reseñas en"
   },
   "documents": {
     "eyebrow": "Documentos",
@@ -384,7 +390,12 @@
     "expertApproval": "tasa de aprobación",
     "expertRating": "valoración",
     "expertAdd": "Añadir revisión experta (demo)",
-    "expertNote": "Solo demo — la revisión experta es un servicio de pago del backend, no incluido en este clon."
+    "expertNote": "Solo demo — la revisión experta es un servicio de pago del backend, no incluido en este clon.",
+    "selectCountry": "Seleccionar país",
+    "selectDocument": "Seleccionar tipo de documento",
+    "popularLabel": "Populares",
+    "chooseDoc": "Elegir documento",
+    "startBtn": "Iniciar"
   },
   "dv": {
     "eyebrow": "Visa de Diversidad",
