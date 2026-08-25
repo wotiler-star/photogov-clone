@@ -26,3 +26,4 @@ _static_backup
 
 # generated transfer bundle (not source)
 photogov-i18n.bundle
+.uploads/
