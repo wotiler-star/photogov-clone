@@ -1,8 +1,26 @@
-// Dynamic XML sitemap — covers all static pages, document detail pages and blog posts.
-// Absolute URLs are built from the incoming request host so it works on any domain.
+// Dynamic multilingual XML sitemap.
+// Every static page, document detail and blog post is emitted once per locale
+// (/en, /zh, /es, /fr) so each language version has its own crawlable URL.
+// Each <url> also carries <xhtml:link rel="alternate" hreflang="..."> entries
+// (incl. x-default) — the standard signal for multilingual SEO.
+// Absolute URLs are derived from the incoming request host, so this works on
+// any domain (preview, production, custom domain).
 import documents from '../../data/documents.json'
 import blog from '../../data/blog.json'
-import faq from '../../data/faq.json'
+
+const LOCALES = ['en', 'zh', 'es', 'fr']
+const HREFLANG: Record<string, string> = {
+  en: 'en',
+  zh: 'zh-CN',
+  es: 'es-ES',
+  fr: 'fr-FR'
+}
+const XDEFAULT = 'en'
+
+// Build a locale-prefixed path. Home ("/") becomes "/en", "/zh", ...
+function localePath(p: string, loc: string): string {
+  return p === '/' ? `/${loc}` : `/${loc}${p}`
+}
 
 export default defineEventHandler((event) => {
   const origin = getRequestURL(event).origin
@@ -25,21 +43,38 @@ export default defineEventHandler((event) => {
     { p: '/signin', pri: '0.3', freq: 'yearly' }
   ]
 
-  const lines: string[] = []
-  const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  const docSlugs = Object.keys((documents as any).documents ?? {})
+  const blogSlugs = ((blog as any).posts ?? []).map((p: any) => p.slug)
 
-  for (const s of staticPages) {
-    lines.push(`  <url><loc>${origin}${s.p}</loc><priority>${s.pri}</priority><changefreq>${s.freq}</changefreq></url>`)
-  }
-  for (const slug of Object.keys((documents as any).documents)) {
-    lines.push(`  <url><loc>${origin}/document/${esc(slug)}</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>`)
-  }
-  for (const post of (blog as any).posts) {
-    lines.push(`  <url><loc>${origin}/blog/${esc(post.slug)}</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>`)
+  const esc = (s: string) =>
+    s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+
+  const lines: string[] = []
+
+  // (path, priority, changefreq) tuples across all pages
+  const allPages: Array<{ p: string; pri: string; freq: string }> = [
+    ...staticPages,
+    ...docSlugs.map((slug) => ({ p: `/document/${slug}`, pri: '0.8', freq: 'monthly' })),
+    ...blogSlugs.map((slug) => ({ p: `/blog/${slug}`, pri: '0.6', freq: 'monthly' }))
+  ]
+
+  for (const page of allPages) {
+    for (const loc of LOCALES) {
+      const locUrl = `${origin}${localePath(page.p, loc)}`
+      const alts = LOCALES.map(
+        (x) =>
+          `    <xhtml:link rel="alternate" hreflang="${HREFLANG[x]}" href="${origin}${localePath(page.p, x)}" />`
+      ).join('\n')
+      const xdefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${origin}${localePath(page.p, XDEFAULT)}" />`
+      lines.push(
+        `  <url>\n    <loc>${esc(locUrl)}</loc>\n    <priority>${page.pri}</priority>\n    <changefreq>${page.freq}</changefreq>\n${alts}\n${xdefault}\n  </url>`
+      )
+    }
   }
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${lines.join('\n')}
 </urlset>
 `

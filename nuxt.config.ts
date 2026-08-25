@@ -9,7 +9,9 @@ export default defineNuxtConfig({
 
   i18n: {
     defaultLocale: 'en',
-    strategy: 'prefix_except_default',
+    // Every locale (incl. English) gets its own crawlable subdirectory URL:
+    // /en, /zh, /es, /fr — required for per-language SEO.
+    strategy: 'prefix',
     langDir: 'locales',
     baseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://photogov.net',
     seo: true,
