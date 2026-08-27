@@ -5,12 +5,26 @@ import { useRequestURL } from '#imports'
 import { useI18n } from 'vue-i18n'
 import PhotoTool from '~/components/PhotoTool.vue'
 import DocCard from '~/components/DocCard.vue'
-import { useData } from '~/composables/useData'
+import { useApi } from '~/composables/useApi'
 
 const route = useRoute()
 const slug = computed(() => route.params.slug as string)
-const { getDocument, documents, countriesByCode, countryName } = useData()
-const doc = computed(() => getDocument(slug.value))
+const { fetchDocument, fetchDocuments, fetchCountries } = useApi()
+
+// 切换到后端 v1 API（SSR 预取文档详情/列表/国家）
+const { data: docData } = await useAsyncData(
+  () => `doc-${slug.value}`,
+  () => fetchDocument(slug.value),
+  { default: () => ({ document: null as any }) }
+)
+const { data: allDocs } = await useAsyncData('docs-all-rel', () => fetchDocuments(), { default: () => ({ documents: [] as any[] }) })
+const { data: countriesData } = await useAsyncData('ctry-doc', () => fetchCountries(), { default: () => ({ countries: [] as any[] }) })
+
+const doc = computed(() => docData.value?.document || null)
+const documents = computed(() => allDocs.value?.documents || [])
+const countriesByCode = computed(() =>
+  Object.fromEntries((countriesData.value?.countries || []).map((c: any) => [c.code, c]))
+)
 const url = useRequestURL()
 
 useHead(() => {
@@ -74,7 +88,8 @@ useHead(() => {
   }
 })
 
-const flagFor = (code: string) => countriesByCode[code]?.flag || '📄'
+const flagFor = (code: string) => countriesByCode.value[code]?.flag || '📄'
+const nameFor = (code: string) => countriesByCode.value[code]?.name || code
 
 const isVerified = computed(() => !!doc.value?.verified)
 const srcHost = computed(() => {
@@ -96,8 +111,8 @@ const bgLabel = (hex?: string): string => {
 
 const related = computed(() => {
   if (!doc.value) return []
-  return documents
-    .filter((d) => d.country === doc.value!.country && d.slug !== doc.value!.slug)
+  return documents.value
+    .filter((d: any) => d.country === doc.value!.country && d.slug !== doc.value!.slug)
     .slice(0, 4)
 })
 
@@ -138,7 +153,7 @@ const reqs = computed(() => {
       <nav class="text-sm text-muted">
         <NuxtLink to="/documents" class="hover:text-brand-blue">{{ $t('doc.eyebrow') }}</NuxtLink>
         <span class="mx-1">/</span>
-        <span>{{ flagFor(doc.country) }} {{ countryName(doc.country) }}</span>
+        <span>{{ flagFor(doc.country) }} {{ nameFor(doc.country) }}</span>
         <span class="mx-1">/</span>
         <span class="text-ink">{{ doc.name }}</span>
       </nav>
@@ -160,7 +175,7 @@ const reqs = computed(() => {
             </span>
           </div>
           <p class="mt-2 text-muted">
-            {{ $t('doc.intro', { country: countryName(doc.country), name: doc.name, year: doc.year }) }}
+            {{ $t('doc.intro', { country: nameFor(doc.country), name: doc.name, year: doc.year }) }}
           </p>
 
           <!-- 规格图 -->
@@ -168,13 +183,10 @@ const reqs = computed(() => {
             <div class="grid items-center gap-6 sm:grid-cols-[200px_1fr]">
               <svg viewBox="0 0 200 240" class="mx-auto h-56 w-44">
                 <rect x="6" y="6" width="188" height="228" rx="6" fill="#fff" stroke="#2B72E0" stroke-width="2"/>
-                <!-- 头部示意 -->
                 <circle cx="100" cy="92" r="34" fill="#cde0ff"/>
                 <path d="M58 210c0-30 18-52 42-52s42 22 42 52z" fill="#cde0ff"/>
-                <!-- 眼睛线 -->
                 <line x1="6" y1="100" x2="194" y2="100" stroke="#E5484D" stroke-width="1.5" stroke-dasharray="5 4"/>
                 <text x="198" y="103" font-size="11" fill="#E5484D">eyes</text>
-                <!-- 头高括号 -->
                 <line x1="20" y1="62" x2="20" y2="120" stroke="#2BB673" stroke-width="1.5"/>
                 <line x1="15" y1="62" x2="25" y2="62" stroke="#2BB673" stroke-width="1.5"/>
                 <line x1="15" y1="120" x2="25" y2="120" stroke="#2BB673" stroke-width="1.5"/>

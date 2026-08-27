@@ -2,13 +2,28 @@
 import { ref, computed, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import DocCard from '~/components/DocCard.vue'
-import { useData } from '~/composables/useData'
+import { useApi } from '~/composables/useApi'
 import { useCountry } from '~/composables/useCountry'
 
 const route = useRoute()
 const router = useRouter()
-const { documents, categories, categoryLabels, countriesByCode, searchDocuments, filterByCategory, groupedByCountry, countryName } = useData()
+const { fetchDocuments, fetchCategories, fetchCountries } = useApi()
 const { setCode } = useCountry()
+
+// 切换到后端 v1 API（SSR 预取，客户端响应式筛选）
+const { data: docsData } = await useAsyncData('docs-all', () => fetchDocuments(), { default: () => ({ documents: [], total: 0 }) })
+const { data: catData } = await useAsyncData('cats', () => fetchCategories(), { default: () => ({ categories: [] }) })
+const { data: countriesData } = await useAsyncData('ctry', () => fetchCountries(), { default: () => ({ countries: [], total: 0 }) })
+
+const documents = computed(() => docsData.value?.documents || [])
+const categories = computed(() => (catData.value?.categories || []).map((c: any) => c.id))
+const countriesByCode = computed(() =>
+  Object.fromEntries((countriesData.value?.countries || []).map((c: any) => [c.code, c]))
+)
+const categoryLabels: Record<string, string> = {
+  passport: 'Passport', visa: 'Visa', id: 'ID Card', driving: 'Driving License', other: 'Other'
+}
+const countryName = (code: string) => countriesByCode.value[code]?.name || code
 
 const query = ref((route.query.q as string) || '')
 const category = ref((route.query.category as string) || 'all')
@@ -25,24 +40,33 @@ watch(
 )
 
 const results = computed(() => {
-  let list = searchDocuments(query.value)
-  if (category.value && category.value !== 'all') {
-    list = list.filter((d) => d.category === category.value)
+  let list = documents.value
+  if (query.value) {
+    const t = query.value.toLowerCase()
+    list = list.filter(
+      (d: any) =>
+        d.name.toLowerCase().includes(t) ||
+        d.countryName.toLowerCase().includes(t) ||
+        d.slug.toLowerCase().includes(t)
+    )
   }
-  if (country.value) list = list.filter((d) => d.country === country.value)
-  if (verifiedOnly.value) list = list.filter((d) => d.verified)
+  if (category.value && category.value !== 'all') {
+    list = list.filter((d: any) => d.category === category.value)
+  }
+  if (country.value) list = list.filter((d: any) => d.country === country.value)
+  if (verifiedOnly.value) list = list.filter((d: any) => d.verified)
   return list
 })
 
 const grouped = computed(() => {
-  const map: Record<string, typeof documents> = {}
+  const map: Record<string, any[]> = {}
   for (const d of results.value) {
     ;(map[d.country] ||= []).push(d)
   }
   return map
 })
 
-const flagFor = (code: string) => countriesByCode[code]?.flag || '📄'
+const flagFor = (code: string) => countriesByCode.value[code]?.flag || '📄'
 const nameFor = (code: string) => countryName(code)
 
 function onCountryChange(e: Event) {
@@ -92,7 +116,7 @@ watch([query, category], updateRoute)
         </select>
         <select :value="country" @change="onCountryChange" class="rounded-full border border-slate-300 px-4 py-2.5 text-sm">
           <option value="">{{ $t('documents.countryAll') }}</option>
-          <option v-for="(name, code) in countriesByCode" :key="code" :value="code">{{ name.flag }} {{ countryName(code) }}</option>
+          <option v-for="(c, code) in countriesByCode" :key="code" :value="code">{{ c.flag }} {{ countryName(code) }}</option>
         </select>
         <button
           type="button"

@@ -1,15 +1,25 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import DocCard from '~/components/DocCard.vue'
-import { useData } from '~/composables/useData'
+import { useApi } from '~/composables/useApi'
 
-const { documents, countriesByCode, filterByCategory, countryName } = useData()
+const { fetchDocuments, fetchCountries } = useApi()
 const { t } = useI18n()
-const list = filterByCategory('visa')
-const grouped: Record<string, typeof documents> = {}
-for (const d of list) (grouped[d.country] ||= []).push(d)
-const flagFor = (c: string) => countriesByCode[c]?.flag || '📄'
-const nameFor = (c: string) => countryName(c)
+
+// 切换到后端 v1 API
+const { data: docsData } = await useAsyncData('docs-visa', () => fetchDocuments({ category: 'visa' }), { default: () => ({ documents: [] as any[] }) })
+const { data: countriesData } = await useAsyncData('ctry-visa', () => fetchCountries(), { default: () => ({ countries: [] as any[] }) })
+
+const documents = computed(() => docsData.value?.documents || [])
+const countriesByCode = computed(() =>
+  Object.fromEntries((countriesData.value?.countries || []).map((c: any) => [c.code, c]))
+)
+
+const grouped: Record<string, any[]> = {}
+for (const d of documents.value) (grouped[d.country] ||= []).push(d)
+const flagFor = (c: string) => countriesByCode.value[c]?.flag || '📄'
+const nameFor = (c: string) => countriesByCode.value[c]?.name || c
 </script>
 
 <template>
