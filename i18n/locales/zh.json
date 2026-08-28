@@ -10,7 +10,8 @@
     "help": "帮助",
     "signIn": "登录",
     "account": "账户",
-    "makePhoto": "制作照片"
+    "makePhoto": "制作照片",
+    "plans": "套餐"
   },
   "header": {
     "countryBar": "按国家查看护照照片要求",
@@ -525,7 +526,8 @@
     "emailExists": "该邮箱已注册过账号。",
     "wrongCredentials": "邮箱或密码不正确。",
     "nameRequired": "请输入你的姓名。",
-    "genericError": "出错了，请稍后重试。"
+    "genericError": "出错了，请稍后重试。",
+    "forgot": "忘记密码？"
   },
   "account": {
     "title": "我的账户",
@@ -542,6 +544,74 @@
     "myPhotos": "我的照片",
     "myOrders": "我的订单",
     "comingSoon": "敬请期待",
-    "loading": "加载中…"
+    "loading": "加载中…",
+    "resend": "重新发送验证邮件",
+    "resending": "发送中…",
+    "resendSent": "验证邮件已发送。",
+    "verified": "邮箱已验证",
+    "planTitle": "会员",
+    "renewsOn": "续费日期",
+    "upgradeCta": "升级到高级版",
+    "cancelPlan": "取消订阅",
+    "cancelling": "取消中…",
+    "managePlans": "查看套餐"
+  },
+  "verify": {
+    "title": "验证你的邮箱",
+    "checking": "验证中…",
+    "verified": "邮箱已验证",
+    "verifiedText": "你的账号已激活，尽情使用 PhotoGov 吧！",
+    "goAccount": "进入我的账户",
+    "expired": "链接无效",
+    "expiredText": "该验证链接无效或已过期，请重新申请。",
+    "backToSignIn": "返回登录"
+  },
+  "forgot": {
+    "title": "重置密码",
+    "subtitle": "输入你的邮箱，我们将发送重置链接。",
+    "emailLabel": "邮箱",
+    "send": "发送重置链接",
+    "sending": "发送中…",
+    "sentTitle": "请查收邮件",
+    "sentText": "如果该邮箱对应有账号，我们已发送密码重置说明。",
+    "devHint": "开发模式：未发送邮件，请点击下方链接继续。",
+    "backToSignIn": "返回登录"
+  },
+  "reset": {
+    "title": "设置新密码",
+    "newPassword": "新密码",
+    "confirmPassword": "确认密码",
+    "submit": "更新密码",
+    "submitting": "更新中…",
+    "success": "密码已更新，现在可以登录了。",
+    "goSignIn": "去登录",
+    "invalid": "该重置链接无效或已过期。",
+    "mismatch": "两次输入的密码不一致。",
+    "tooShort": "密码至少需要 8 个字符。",
+    "error": "出错了，请重试。",
+    "backToForgot": "重新申请链接"
+  },
+  "plans": {
+    "title": "会员套餐",
+    "subtitle": "选择最适合你的套餐。",
+    "free": "免费版",
+    "premium": "高级版",
+    "perMonth": "/月",
+    "perYear": "/年",
+    "popular": "最受欢迎",
+    "current": "当前套餐",
+    "signInToChoose": "登录后选择",
+    "upgrade": "升级",
+    "downgrade": "切换到免费版",
+    "managePlans": "查看套餐",
+    "featuresTitle": "包含内容",
+    "feat": {
+      "unlimited": "无限次照片下载",
+      "formats": "JPG、PNG 与 PDF 导出",
+      "hd": "高清且符合印刷标准",
+      "nobg": "AI 智能去背景",
+      "priority": "优先处理队列",
+      "support": "优先邮件支持"
+    }
   }
 }

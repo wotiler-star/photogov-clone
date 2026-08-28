@@ -1,16 +1,46 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRouter } from '#imports'
 import { useAuth } from '~/composables/useAuth'
+import { planStatus } from '~/utils/plans'
 
 const { t } = useI18n()
 const router = useRouter()
-const { user, loaded, logout } = useAuth()
+const { user, loaded, logout, resendVerification, cancelSubscription } = useAuth()
 
 const initial = computed(() => (user.value?.name || '?').charAt(0).toUpperCase())
 const memberSince = computed(() =>
   user.value ? new Date(user.value.createdAt).toLocaleDateString() : ''
 )
+const status = computed(() => planStatus(user.value))
+const expiresOn = computed(() =>
+  status.value.expiresAt ? new Date(status.value.expiresAt).toLocaleDateString() : ''
+)
+
+const resending = ref(false)
+const resendMsg = ref('')
+const cancelling = ref(false)
+
+async function onResend() {
+  resending.value = true
+  resendMsg.value = ''
+  try {
+    await resendVerification()
+    resendMsg.value = t('account.resendSent')
+  } finally {
+    resending.value = false
+  }
+}
+
+async function onCancel() {
+  cancelling.value = true
+  try {
+    await cancelSubscription()
+  } finally {
+    cancelling.value = false
+  }
+}
 
 async function onLogout() {
   await logout()
@@ -35,6 +65,23 @@ useHead({ title: t('account.title') })
           </div>
         </div>
 
+        <!-- 邮箱未验证提示 -->
+        <div
+          v-if="!user.emailVerified"
+          class="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4"
+        >
+          <p class="text-sm text-amber-800">{{ $t('account.verifyBanner') }}</p>
+          <div class="flex items-center gap-2">
+            <span v-if="resendMsg" class="text-xs text-green-700">{{ resendMsg }}</span>
+            <button class="btn-outline px-3 py-1.5 text-sm" type="button" :disabled="resending" @click="onResend">
+              {{ resending ? $t('account.resending') : $t('account.resend') }}
+            </button>
+          </div>
+        </div>
+        <p v-else class="mt-6 rounded-xl bg-green-50 p-3 text-sm text-green-700">
+          ✓ {{ $t('account.verified') }}
+        </p>
+
         <dl class="mt-6 grid gap-4 sm:grid-cols-2">
           <div class="rounded-xl bg-slate-50 p-4">
             <dt class="text-xs uppercase tracking-wide text-muted">{{ $t('account.email') }}</dt>
@@ -44,22 +91,34 @@ useHead({ title: t('account.title') })
             <dt class="text-xs uppercase tracking-wide text-muted">{{ $t('account.memberSince') }}</dt>
             <dd class="mt-1 font-medium text-ink">{{ memberSince }}</dd>
           </div>
-          <div class="rounded-xl bg-slate-50 p-4">
-            <dt class="text-xs uppercase tracking-wide text-muted">{{ $t('account.plan') }}</dt>
-            <dd class="mt-1 font-medium text-ink">
-              {{ user.plan === 'premium' ? $t('account.premium') : $t('account.free') }}
-            </dd>
-          </div>
         </dl>
 
-        <div class="mt-6 grid gap-3 sm:grid-cols-2">
-          <div class="rounded-xl border border-slate-200 p-4">
-            <p class="font-medium text-ink">{{ $t('account.myPhotos') }}</p>
-            <p class="text-sm text-muted">{{ $t('account.comingSoon') }}</p>
+        <!-- 会员套餐 -->
+        <div class="mt-6 rounded-xl border border-slate-200 p-5">
+          <div class="flex items-center justify-between">
+            <h2 class="font-serif text-lg font-bold text-ink">{{ $t('account.planTitle') }}</h2>
+            <span
+              class="rounded-full px-3 py-1 text-xs font-semibold"
+              :class="status.isPremium ? 'bg-accent/10 text-accent' : 'bg-slate-100 text-muted'"
+            >
+              {{ status.isPremium ? $t('account.premium') : $t('account.free') }}
+            </span>
           </div>
-          <div class="rounded-xl border border-slate-200 p-4">
-            <p class="font-medium text-ink">{{ $t('account.myOrders') }}</p>
-            <p class="text-sm text-muted">{{ $t('account.comingSoon') }}</p>
+          <p v-if="status.isPremium && expiresOn" class="mt-1 text-sm text-muted">
+            {{ $t('account.renewsOn') }} {{ expiresOn }}
+          </p>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <NuxtLink v-if="!status.isPremium" to="/plans" class="btn-primary">
+              {{ $t('account.upgradeCta') }}
+            </NuxtLink>
+            <button
+              v-else
+              class="btn-outline"
+              type="button"
+              :disabled="cancelling"
+              @click="onCancel"
+            >{{ cancelling ? $t('account.cancelling') : $t('account.cancelPlan') }}</button>
+            <NuxtLink to="/plans" class="btn-outline">{{ $t('account.managePlans') }}</NuxtLink>
           </div>
         </div>
 

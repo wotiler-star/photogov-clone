@@ -10,7 +10,8 @@
     "help": "Help",
     "signIn": "Sign In",
     "account": "Account",
-    "makePhoto": "Make Photo"
+    "makePhoto": "Make Photo",
+    "plans": "Plans"
   },
   "header": {
     "countryBar": "Passport photo requirements by country",
@@ -525,7 +526,8 @@
     "emailExists": "An account with this email already exists.",
     "wrongCredentials": "Incorrect email or password.",
     "nameRequired": "Please enter your name.",
-    "genericError": "Something went wrong. Please try again."
+    "genericError": "Something went wrong. Please try again.",
+    "forgot": "Forgot password?"
   },
   "account": {
     "title": "My Account",
@@ -542,6 +544,74 @@
     "myPhotos": "My Photos",
     "myOrders": "My Orders",
     "comingSoon": "Coming soon",
-    "loading": "Loading…"
+    "loading": "Loading…",
+    "resend": "Resend verification",
+    "resending": "Sending…",
+    "resendSent": "Verification email sent.",
+    "verified": "Email verified",
+    "planTitle": "Membership",
+    "renewsOn": "Renews on",
+    "upgradeCta": "Upgrade to Premium",
+    "cancelPlan": "Cancel subscription",
+    "cancelling": "Cancelling…",
+    "managePlans": "View plans"
+  },
+  "verify": {
+    "title": "Verify your email",
+    "checking": "Verifying…",
+    "verified": "Email verified",
+    "verifiedText": "Your account is now active. Enjoy PhotoGov!",
+    "goAccount": "Go to my account",
+    "expired": "Link invalid",
+    "expiredText": "This verification link is invalid or has expired. Please request a new one.",
+    "backToSignIn": "Back to sign in"
+  },
+  "forgot": {
+    "title": "Reset your password",
+    "subtitle": "Enter your email and we'll send you a reset link.",
+    "emailLabel": "Email",
+    "send": "Send reset link",
+    "sending": "Sending…",
+    "sentTitle": "Check your inbox",
+    "sentText": "If an account exists for that email, we've sent password reset instructions.",
+    "devHint": "Dev mode: no email was sent. Use the link below to continue.",
+    "backToSignIn": "Back to sign in"
+  },
+  "reset": {
+    "title": "Set a new password",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm password",
+    "submit": "Update password",
+    "submitting": "Updating…",
+    "success": "Password updated. You can now sign in.",
+    "goSignIn": "Go to sign in",
+    "invalid": "This reset link is invalid or has expired.",
+    "mismatch": "Passwords do not match.",
+    "tooShort": "Password must be at least 8 characters.",
+    "error": "Something went wrong. Please try again.",
+    "backToForgot": "Request a new link"
+  },
+  "plans": {
+    "title": "Membership Plans",
+    "subtitle": "Choose the plan that fits you best.",
+    "free": "Free",
+    "premium": "Premium",
+    "perMonth": "/mo",
+    "perYear": "/yr",
+    "popular": "Most popular",
+    "current": "Current plan",
+    "signInToChoose": "Sign in to choose",
+    "upgrade": "Upgrade",
+    "downgrade": "Switch to Free",
+    "managePlans": "View plans",
+    "featuresTitle": "What is included",
+    "feat": {
+      "unlimited": "Unlimited photo downloads",
+      "formats": "JPG, PNG & PDF export",
+      "hd": "HD & print-ready files",
+      "nobg": "AI background removal",
+      "priority": "Priority processing",
+      "support": "Priority email support"
+    }
   }
 }

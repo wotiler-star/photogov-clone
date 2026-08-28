@@ -33,6 +33,7 @@ const navItems = [
   { label: 'nav.documents', to: '/documents' },
   { label: 'nav.passports', to: '/passports' },
   { label: 'nav.visas', to: '/visas' },
+  { label: 'nav.plans', to: '/plans' },
   { label: 'nav.blog', to: '/blog' },
   { label: 'nav.faq', to: '/faq' },
   { label: 'nav.about', to: '/about' }

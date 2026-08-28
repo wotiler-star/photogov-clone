@@ -10,7 +10,8 @@
     "help": "Aide",
     "signIn": "Se connecter",
     "account": "Mon compte",
-    "makePhoto": "Créer une photo"
+    "makePhoto": "Créer une photo",
+    "plans": "Forfaits"
   },
   "header": {
     "countryBar": "Exigences photo de passeport par pays",
@@ -525,7 +526,8 @@
     "emailExists": "Un compte existe déjà avec cet e-mail.",
     "wrongCredentials": "E-mail ou mot de passe incorrect.",
     "nameRequired": "Veuillez saisir votre nom.",
-    "genericError": "Une erreur est survenue. Veuillez réessayer."
+    "genericError": "Une erreur est survenue. Veuillez réessayer.",
+    "forgot": "Mot de passe oublié ?"
   },
   "account": {
     "title": "Mon compte",
@@ -542,6 +544,74 @@
     "myPhotos": "Mes photos",
     "myOrders": "Mes commandes",
     "comingSoon": "Bientôt disponible",
-    "loading": "Chargement…"
+    "loading": "Chargement…",
+    "resend": "Renvoyer la vérification",
+    "resending": "Envoi…",
+    "resendSent": "E-mail de vérification envoyé.",
+    "verified": "E-mail vérifié",
+    "planTitle": "Abonnement",
+    "renewsOn": "Renouvellement le",
+    "upgradeCta": "Passer au Premium",
+    "cancelPlan": "Annuler l’abonnement",
+    "cancelling": "Annulation…",
+    "managePlans": "Voir les forfaits"
+  },
+  "verify": {
+    "title": "Vérifiez votre e-mail",
+    "checking": "Vérification…",
+    "verified": "E-mail vérifié",
+    "verifiedText": "Votre compte est actif. Profitez de PhotoGov !",
+    "goAccount": "Accéder à mon compte",
+    "expired": "Lien invalide",
+    "expiredText": "Ce lien de vérification est invalide ou a expiré. Demandez-en un nouveau.",
+    "backToSignIn": "Retour à la connexion"
+  },
+  "forgot": {
+    "title": "Réinitialisez votre mot de passe",
+    "subtitle": "Saisissez votre e-mail et nous vous enverrons un lien.",
+    "emailLabel": "E-mail",
+    "send": "Envoyer le lien",
+    "sending": "Envoi…",
+    "sentTitle": "Consultez votre boîte",
+    "sentText": "Si un compte existe pour cet e-mail, nous avons envoyé les instructions.",
+    "devHint": "Mode dev : aucun e-mail envoyé. Utilisez le lien ci-dessous.",
+    "backToSignIn": "Retour à la connexion"
+  },
+  "reset": {
+    "title": "Définissez un nouveau mot de passe",
+    "newPassword": "Nouveau mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "submit": "Mettre à jour",
+    "submitting": "Mise à jour…",
+    "success": "Mot de passe mis à jour. Vous pouvez vous connecter.",
+    "goSignIn": "Aller à la connexion",
+    "invalid": "Ce lien de réinitialisation est invalide ou a expiré.",
+    "mismatch": "Les mots de passe ne correspondent pas.",
+    "tooShort": "Le mot de passe doit comporter au moins 8 caractères.",
+    "error": "Une erreur est survenue. Veuillez réessayer.",
+    "backToForgot": "Demander un nouveau lien"
+  },
+  "plans": {
+    "title": "Forfaits d'abonnement",
+    "subtitle": "Choisissez le forfait qui vous convient.",
+    "free": "Gratuit",
+    "premium": "Premium",
+    "perMonth": "/mois",
+    "perYear": "/an",
+    "popular": "Le plus populaire",
+    "current": "Forfait actuel",
+    "signInToChoose": "Connectez-vous pour choisir",
+    "upgrade": "Passer au Premium",
+    "downgrade": "Passer au Gratuit",
+    "managePlans": "Voir les forfaits",
+    "featuresTitle": "Ce qui est inclus",
+    "feat": {
+      "unlimited": "Téléchargements de photos illimités",
+      "formats": "Export JPG, PNG et PDF",
+      "hd": "Fichiers HD prêts pour l’impression",
+      "nobg": "Suppression de fond par IA",
+      "priority": "Traitement prioritaire",
+      "support": "Support e-mail prioritaire"
+    }
   }
 }

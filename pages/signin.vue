@@ -104,6 +104,12 @@ useHead({ title: t('signin.signIn') })
         </button>
       </form>
 
+      <div v-if="mode === 'signin'" class="mt-3 text-center">
+        <NuxtLink to="/forgot-password" class="text-xs text-accent hover:underline">
+          {{ $t('signin.forgot') }}
+        </NuxtLink>
+      </div>
+
       <p class="mt-4 text-center text-xs text-muted">
         {{ $t('signin.terms') }}
       </p>

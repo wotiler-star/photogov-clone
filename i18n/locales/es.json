@@ -10,7 +10,8 @@
     "help": "Ayuda",
     "signIn": "Iniciar sesión",
     "account": "Mi cuenta",
-    "makePhoto": "Crear foto"
+    "makePhoto": "Crear foto",
+    "plans": "Planes"
   },
   "header": {
     "countryBar": "Requisitos de fotos de pasaporte por país",
@@ -525,7 +526,8 @@
     "emailExists": "Ya existe una cuenta con este correo.",
     "wrongCredentials": "Correo o contraseña incorrectos.",
     "nameRequired": "Introduce tu nombre.",
-    "genericError": "Algo salió mal. Inténtalo de nuevo."
+    "genericError": "Algo salió mal. Inténtalo de nuevo.",
+    "forgot": "¿Olvidaste tu contraseña?"
   },
   "account": {
     "title": "Mi cuenta",
@@ -542,6 +544,74 @@
     "myPhotos": "Mis fotos",
     "myOrders": "Mis pedidos",
     "comingSoon": "Próximamente",
-    "loading": "Cargando…"
+    "loading": "Cargando…",
+    "resend": "Reenviar verificación",
+    "resending": "Enviando…",
+    "resendSent": "Correo de verificación enviado.",
+    "verified": "Correo verificado",
+    "planTitle": "Membresía",
+    "renewsOn": "Se renueva el",
+    "upgradeCta": "Mejorar a Premium",
+    "cancelPlan": "Cancelar suscripción",
+    "cancelling": "Cancelando…",
+    "managePlans": "Ver planes"
+  },
+  "verify": {
+    "title": "Verifica tu correo",
+    "checking": "Verificando…",
+    "verified": "Correo verificado",
+    "verifiedText": "Tu cuenta ya está activa. ¡Disfruta de PhotoGov!",
+    "goAccount": "Ir a mi cuenta",
+    "expired": "Enlace no válido",
+    "expiredText": "Este enlace de verificación no es válido o ha caducado. Solicita uno nuevo.",
+    "backToSignIn": "Volver a iniciar sesión"
+  },
+  "forgot": {
+    "title": "Restablece tu contraseña",
+    "subtitle": "Introduce tu correo y te enviaremos un enlace.",
+    "emailLabel": "Correo",
+    "send": "Enviar enlace",
+    "sending": "Enviando…",
+    "sentTitle": "Revisa tu bandeja",
+    "sentText": "Si existe una cuenta con ese correo, enviamos instrucciones.",
+    "devHint": "Modo dev: no se envió correo. Usa el enlace de abajo.",
+    "backToSignIn": "Volver a iniciar sesión"
+  },
+  "reset": {
+    "title": "Define una nueva contraseña",
+    "newPassword": "Nueva contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "submit": "Actualizar contraseña",
+    "submitting": "Actualizando…",
+    "success": "Contraseña actualizada. Ya puedes iniciar sesión.",
+    "goSignIn": "Ir a iniciar sesión",
+    "invalid": "Este enlace de restablecimiento no es válido o ha caducado.",
+    "mismatch": "Las contraseñas no coinciden.",
+    "tooShort": "La contraseña debe tener al menos 8 caracteres.",
+    "error": "Algo salió mal. Inténtalo de nuevo.",
+    "backToForgot": "Solicitar un nuevo enlace"
+  },
+  "plans": {
+    "title": "Planes de membresía",
+    "subtitle": "Elige el plan que mejor te funcione.",
+    "free": "Gratis",
+    "premium": "Premium",
+    "perMonth": "/mes",
+    "perYear": "/año",
+    "popular": "Más popular",
+    "current": "Plan actual",
+    "signInToChoose": "Inicia sesión para elegir",
+    "upgrade": "Mejorar",
+    "downgrade": "Cambiar a Gratis",
+    "managePlans": "Ver planes",
+    "featuresTitle": "Qué incluye",
+    "feat": {
+      "unlimited": "Descargas de fotos ilimitadas",
+      "formats": "Exportar JPG, PNG y PDF",
+      "hd": "Archivos HD y listos para imprimir",
+      "nobg": "Eliminación de fondo con IA",
+      "priority": "Procesamiento prioritario",
+      "support": "Soporte prioritario por correo"
+    }
   }
 }

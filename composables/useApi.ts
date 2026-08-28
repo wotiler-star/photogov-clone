@@ -83,6 +83,31 @@ export const useApi = () => {
 
   const me = () => $fetch<{ user: any | null }>(`${BASE}/auth/me`)
 
+  // 邮箱验证 / 密码找回 / 订阅
+  const verifyEmail = (token: string) =>
+    $fetch<{ ok: boolean; user: any }>(`${BASE}/auth/verify-email`, { query: { token } })
+
+  const resendVerification = () =>
+    $fetch<{ ok: boolean; devLink?: string }>(`${BASE}/auth/resend-verification`, { method: 'POST' })
+
+  const forgotPassword = (email: string) =>
+    $fetch<{ ok: boolean; devLink?: string }>(`${BASE}/auth/forgot-password`, {
+      method: 'POST',
+      body: { email }
+    })
+
+  const resetPassword = (token: string, password: string) =>
+    $fetch<{ ok: boolean; user: any }>(`${BASE}/auth/reset-password`, {
+      method: 'POST',
+      body: { token, password }
+    })
+
+  const subscribe = (plan: string) =>
+    $fetch<{ ok: boolean; user: any }>(`${BASE}/auth/subscribe`, { method: 'POST', body: { plan } })
+
+  const cancelSubscription = () =>
+    $fetch<{ ok: boolean; user: any }>(`${BASE}/auth/cancel-subscription`, { method: 'POST' })
+
   return {
     BASE,
     fetchCountries,
@@ -96,6 +121,12 @@ export const useApi = () => {
     register,
     login,
     logout,
-    me
+    me,
+    verifyEmail,
+    resendVerification,
+    forgotPassword,
+    resetPassword,
+    subscribe,
+    cancelSubscription
   }
 }

@@ -13,6 +13,12 @@ export interface UserRecord {
   passwordHash: string
   salt: string
   plan: 'free' | 'premium'
+  planExpiresAt: string | null
+  emailVerified: boolean
+  emailVerifyToken: string | null
+  emailVerifyExpires: string | null
+  passwordResetToken: string | null
+  passwordResetExpires: string | null
   createdAt: string
 }
 
@@ -80,11 +86,96 @@ export function createUser(input: { name: string; email: string; password: strin
     passwordHash: hash,
     salt,
     plan: 'free',
+    planExpiresAt: null,
+    emailVerified: false,
+    emailVerifyToken: null,
+    emailVerifyExpires: null,
+    passwordResetToken: null,
+    passwordResetExpires: null,
     createdAt: new Date().toISOString()
   }
   users.push(user)
   saveUsers(users)
   return user
+}
+
+// ---------- 邮箱验证 / 密码找回 / 订阅 ----------
+function genToken(): string {
+  return randomBytes(32).toString('hex')
+}
+
+const HOUR = 3600 * 1000
+const DAY = 24 * HOUR
+
+// 无 SMTP 时把邮件内容打到服务端日志；EMAIL_DEBUG=1 或开发环境额外回传操作链接便于演示。
+export const EMAIL_DEBUG = process.env.EMAIL_DEBUG === '1' || process.env.NODE_ENV !== 'production'
+
+function updateUser(id: string, patch: Partial<UserRecord>): UserRecord | undefined {
+  const users = loadUsers()
+  const i = users.findIndex((u) => u.id === id)
+  if (i === -1) return undefined
+  users[i] = { ...users[i], ...patch }
+  saveUsers(users)
+  return users[i]
+}
+
+export function createEmailVerifyToken(email: string): string | null {
+  const user = findUserByEmail(email)
+  if (!user) return null
+  const token = genToken()
+  updateUser(user.id, {
+    emailVerifyToken: token,
+    emailVerifyExpires: new Date(Date.now() + DAY).toISOString()
+  })
+  return token
+}
+
+export function verifyEmailToken(token: string): PublicUser | null {
+  const users = loadUsers()
+  const user = users.find((u) => u.emailVerifyToken === token)
+  if (!user || !user.emailVerifyExpires) return null
+  if (Date.now() > new Date(user.emailVerifyExpires).getTime()) return null
+  const updated = updateUser(user.id, {
+    emailVerified: true,
+    emailVerifyToken: null,
+    emailVerifyExpires: null
+  })
+  return updated ? publicUser(updated) : null
+}
+
+export function createPasswordResetToken(email: string): string | null {
+  const user = findUserByEmail(email)
+  if (!user) return null
+  const token = genToken()
+  updateUser(user.id, {
+    passwordResetToken: token,
+    passwordResetExpires: new Date(Date.now() + HOUR).toISOString()
+  })
+  return token
+}
+
+export function resetPasswordWithToken(token: string, newPassword: string): PublicUser | null {
+  const users = loadUsers()
+  const user = users.find((u) => u.passwordResetToken === token)
+  if (!user || !user.passwordResetExpires) return null
+  if (Date.now() > new Date(user.passwordResetExpires).getTime()) return null
+  const { hash, salt } = hashPassword(newPassword)
+  const updated = updateUser(user.id, {
+    passwordHash: hash,
+    salt,
+    passwordResetToken: null,
+    passwordResetExpires: null
+  })
+  return updated ? publicUser(updated) : null
+}
+
+export function setPlan(
+  id: string,
+  plan: 'free' | 'premium',
+  expiresAt: string | null
+): PublicUser | null {
+  const updated = updateUser(id, { plan, planExpiresAt: expiresAt })
+  return updated ? publicUser(updated) : null
 }
 
 // ---------- 会话（签名 cookie） ----------
