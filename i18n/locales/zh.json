@@ -9,6 +9,7 @@
     "about": "关于我们",
     "help": "帮助",
     "signIn": "登录",
+    "account": "账户",
     "makePhoto": "制作照片"
   },
   "header": {
@@ -512,10 +513,35 @@
   "signin": {
     "signIn": "登录",
     "signUp": "注册",
+    "subtitle": "管理你的照片、订单与会员权益。",
     "name": "姓名",
     "email": "邮箱",
     "password": "密码",
     "create": "创建账号",
-    "demo": "仅演示——不会创建或存储任何账号。"
+    "pleaseWait": "请稍候…",
+    "terms": "继续即表示你同意我们的服务条款与隐私政策。",
+    "invalidEmail": "请输入有效的邮箱地址。",
+    "passwordTooShort": "密码至少需要 8 个字符。",
+    "emailExists": "该邮箱已注册过账号。",
+    "wrongCredentials": "邮箱或密码不正确。",
+    "nameRequired": "请输入你的姓名。",
+    "genericError": "出错了，请稍后重试。"
+  },
+  "account": {
+    "title": "我的账户",
+    "welcome": "欢迎回来",
+    "name": "姓名",
+    "email": "邮箱",
+    "memberSince": "注册时间",
+    "plan": "套餐",
+    "free": "免费版",
+    "premium": "高级版",
+    "logout": "退出登录",
+    "needLogin": "请先登录以查看你的账户。",
+    "goSignIn": "去登录",
+    "myPhotos": "我的照片",
+    "myOrders": "我的订单",
+    "comingSoon": "敬请期待",
+    "loading": "加载中…"
   }
 }

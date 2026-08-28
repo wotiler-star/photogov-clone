@@ -9,6 +9,7 @@
     "about": "Acerca de",
     "help": "Ayuda",
     "signIn": "Iniciar sesión",
+    "account": "Mi cuenta",
     "makePhoto": "Crear foto"
   },
   "header": {
@@ -512,10 +513,35 @@
   "signin": {
     "signIn": "Iniciar sesión",
     "signUp": "Registrarse",
+    "subtitle": "Accede a tus fotos, pedidos y membresía.",
     "name": "Nombre",
     "email": "Correo electrónico",
     "password": "Contraseña",
     "create": "Crear cuenta",
-    "demo": "Solo demo — no se crea ni se almacena ninguna cuenta."
+    "pleaseWait": "Espera…",
+    "terms": "Al continuar aceptas nuestros Términos del servicio y Política de privacidad.",
+    "invalidEmail": "Introduce un correo electrónico válido.",
+    "passwordTooShort": "La contraseña debe tener al menos 8 caracteres.",
+    "emailExists": "Ya existe una cuenta con este correo.",
+    "wrongCredentials": "Correo o contraseña incorrectos.",
+    "nameRequired": "Introduce tu nombre.",
+    "genericError": "Algo salió mal. Inténtalo de nuevo."
+  },
+  "account": {
+    "title": "Mi cuenta",
+    "welcome": "Bienvenido de nuevo",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "memberSince": "Miembro desde",
+    "plan": "Plan",
+    "free": "Gratis",
+    "premium": "Premium",
+    "logout": "Cerrar sesión",
+    "needLogin": "Inicia sesión para ver tu cuenta.",
+    "goSignIn": "Iniciar sesión",
+    "myPhotos": "Mis fotos",
+    "myOrders": "Mis pedidos",
+    "comingSoon": "Próximamente",
+    "loading": "Cargando…"
   }
 }

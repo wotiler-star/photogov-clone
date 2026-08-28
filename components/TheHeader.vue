@@ -2,10 +2,12 @@
 import { ref, computed } from 'vue'
 import { useData } from '~/composables/useData'
 import { useCountry } from '~/composables/useCountry'
+import { useAuth } from '~/composables/useAuth'
 import LanguageSwitcher from '~/components/LanguageSwitcher.vue'
 
 const { countries, countryName } = useData()
 const { code, setCode } = useCountry()
+const { user } = useAuth()
 
 const open = ref(false)
 const query = ref('')
@@ -71,7 +73,8 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
         <nav class="flex items-center gap-4">
           <LanguageSwitcher />
           <NuxtLink to="/help" class="hover:text-white">{{ $t('nav.help') }}</NuxtLink>
-          <NuxtLink to="/signin" class="hover:text-white">{{ $t('nav.signIn') }}</NuxtLink>
+          <NuxtLink v-if="user" to="/account" class="hover:text-white">{{ $t('nav.account') }}</NuxtLink>
+          <NuxtLink v-else to="/signin" class="hover:text-white">{{ $t('nav.signIn') }}</NuxtLink>
         </nav>
       </div>
 

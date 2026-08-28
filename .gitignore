@@ -27,3 +27,6 @@ _static_backup
 # generated transfer bundle (not source)
 photogov-i18n.bundle
 .uploads/
+
+# 会员用户数据（含隐私，不入库）
+data/users.json

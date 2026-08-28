@@ -9,6 +9,7 @@
     "about": "About",
     "help": "Help",
     "signIn": "Sign In",
+    "account": "Account",
     "makePhoto": "Make Photo"
   },
   "header": {
@@ -512,10 +513,35 @@
   "signin": {
     "signIn": "Sign In",
     "signUp": "Sign Up",
+    "subtitle": "Access your photos, orders and membership.",
     "name": "Name",
     "email": "Email",
     "password": "Password",
     "create": "Create account",
-    "demo": "Demo only — no account is created or stored."
+    "pleaseWait": "Please wait…",
+    "terms": "By continuing you agree to our Terms of Service and Privacy Policy.",
+    "invalidEmail": "Please enter a valid email address.",
+    "passwordTooShort": "Password must be at least 8 characters.",
+    "emailExists": "An account with this email already exists.",
+    "wrongCredentials": "Incorrect email or password.",
+    "nameRequired": "Please enter your name.",
+    "genericError": "Something went wrong. Please try again."
+  },
+  "account": {
+    "title": "My Account",
+    "welcome": "Welcome back",
+    "name": "Name",
+    "email": "Email",
+    "memberSince": "Member since",
+    "plan": "Plan",
+    "free": "Free",
+    "premium": "Premium",
+    "logout": "Sign out",
+    "needLogin": "Please sign in to view your account.",
+    "goSignIn": "Sign in",
+    "myPhotos": "My Photos",
+    "myOrders": "My Orders",
+    "comingSoon": "Coming soon",
+    "loading": "Loading…"
   }
 }

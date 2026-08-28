@@ -66,6 +66,23 @@ export const useApi = () => {
   const getServices = () => $fetch(`${BASE}/order/get-services`)
   const getPaymentMethods = () => $fetch(`${BASE}/order/get-payment-methods`)
 
+  // 会员鉴权
+  const register = (name: string, email: string, password: string) =>
+    $fetch<{ ok: boolean; user: any }>(`${BASE}/auth/register`, {
+      method: 'POST',
+      body: { name, email, password }
+    })
+
+  const login = (email: string, password: string) =>
+    $fetch<{ ok: boolean; user: any }>(`${BASE}/auth/login`, {
+      method: 'POST',
+      body: { email, password }
+    })
+
+  const logout = () => $fetch<{ ok: boolean }>(`${BASE}/auth/logout`, { method: 'POST' })
+
+  const me = () => $fetch<{ user: any | null }>(`${BASE}/auth/me`)
+
   return {
     BASE,
     fetchCountries,
@@ -75,6 +92,10 @@ export const useApi = () => {
     uploadPhoto,
     processPhoto,
     getServices,
-    getPaymentMethods
+    getPaymentMethods,
+    register,
+    login,
+    logout,
+    me
   }
 }
