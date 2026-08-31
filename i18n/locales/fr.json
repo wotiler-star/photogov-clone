@@ -397,7 +397,12 @@
     "selectDocument": "Choisir le type de document",
     "popularLabel": "Populaires",
     "chooseDoc": "Choisir un document",
-    "startBtn": "Démarrer"
+    "startBtn": "Démarrer",
+    "saveToGallery": "Enregistrer dans Mes photos",
+    "saving": "Enregistrement…",
+    "savedToGallery": "Enregistré dans votre galerie",
+    "saveFail": "Échec de l’enregistrement. Réessayez.",
+    "loginToSave": "Connectez-vous pour enregistrer des photos"
   },
   "dv": {
     "eyebrow": "Visa de diversité",
@@ -554,7 +559,12 @@
     "upgradeCta": "Passer au Premium",
     "cancelPlan": "Annuler l’abonnement",
     "cancelling": "Annulation…",
-    "managePlans": "Voir les forfaits"
+    "managePlans": "Voir les forfaits",
+    "myPhotosHint": "Les photos enregistrées lors de l’édition apparaissent ici.",
+    "noPhotos": "Aucune photo enregistrée.",
+    "noOrders": "Aucune commande.",
+    "paid": "Payé",
+    "unpaid": "En attente"
   },
   "verify": {
     "title": "Vérifiez votre e-mail",
@@ -612,6 +622,9 @@
       "nobg": "Suppression de fond par IA",
       "priority": "Traitement prioritaire",
       "support": "Support e-mail prioritaire"
-    }
+    },
+    "save": "Économisez {n}%",
+    "compareTitle": "Comparer les forfaits",
+    "feature": "Fonctionnalité"
   }
 }

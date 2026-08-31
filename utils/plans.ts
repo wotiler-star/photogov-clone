@@ -21,7 +21,6 @@ export const PLANS: Plan[] = [
     i18n: 'plans.premium',
     price: 9.99,
     interval: 'month',
-    popular: true,
     features: [
       'plans.feat.unlimited',
       'plans.feat.formats',
@@ -36,6 +35,8 @@ export const PLANS: Plan[] = [
     i18n: 'plans.premium',
     price: 79.99,
     interval: 'year',
+    popular: true,
+    savePercent: 33,
     features: [
       'plans.feat.unlimited',
       'plans.feat.formats',

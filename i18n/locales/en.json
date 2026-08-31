@@ -397,7 +397,12 @@
     "selectDocument": "Select document type",
     "popularLabel": "Popular",
     "chooseDoc": "Choose a document",
-    "startBtn": "Start"
+    "startBtn": "Start",
+    "saveToGallery": "Save to My Photos",
+    "saving": "Saving…",
+    "savedToGallery": "Saved to your gallery",
+    "saveFail": "Could not save. Try again.",
+    "loginToSave": "Sign in to save photos"
   },
   "dv": {
     "eyebrow": "Diversity Visa",
@@ -554,7 +559,12 @@
     "upgradeCta": "Upgrade to Premium",
     "cancelPlan": "Cancel subscription",
     "cancelling": "Cancelling…",
-    "managePlans": "View plans"
+    "managePlans": "View plans",
+    "myPhotosHint": "Photos you save while editing appear here.",
+    "noPhotos": "No photos saved yet.",
+    "noOrders": "No orders yet.",
+    "paid": "Paid",
+    "unpaid": "Unpaid"
   },
   "verify": {
     "title": "Verify your email",
@@ -612,6 +622,9 @@
       "nobg": "AI background removal",
       "priority": "Priority processing",
       "support": "Priority email support"
-    }
+    },
+    "save": "Save {n}%",
+    "compareTitle": "Compare plans",
+    "feature": "Feature"
   }
 }

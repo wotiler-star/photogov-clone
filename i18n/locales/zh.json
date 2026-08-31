@@ -397,7 +397,12 @@
     "selectDocument": "选择证件类型",
     "popularLabel": "热门",
     "chooseDoc": "选择证件",
-    "startBtn": "开始"
+    "startBtn": "开始",
+    "saveToGallery": "保存到我的照片",
+    "saving": "保存中…",
+    "savedToGallery": "已保存到你的相册",
+    "saveFail": "保存失败，请重试。",
+    "loginToSave": "登录后可保存照片"
   },
   "dv": {
     "eyebrow": "多元化签证",
@@ -554,7 +559,12 @@
     "upgradeCta": "升级到高级版",
     "cancelPlan": "取消订阅",
     "cancelling": "取消中…",
-    "managePlans": "查看套餐"
+    "managePlans": "查看套餐",
+    "myPhotosHint": "编辑时保存的照片会显示在这里。",
+    "noPhotos": "还没有保存的照片。",
+    "noOrders": "还没有订单。",
+    "paid": "已支付",
+    "unpaid": "未支付"
   },
   "verify": {
     "title": "验证你的邮箱",
@@ -612,6 +622,9 @@
       "nobg": "AI 智能去背景",
       "priority": "优先处理队列",
       "support": "优先邮件支持"
-    }
+    },
+    "save": "省 {n}%",
+    "compareTitle": "套餐对比",
+    "feature": "功能"
   }
 }

@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from '#imports'
 import { useAuth } from '~/composables/useAuth'
+import { useApi } from '~/composables/useApi'
 import { planStatus } from '~/utils/plans'
 
 const { t } = useI18n()
 const router = useRouter()
 const { user, loaded, logout, resendVerification, cancelSubscription } = useAuth()
+const { myPhotos, myOrders } = useApi()
 
 const initial = computed(() => (user.value?.name || '?').charAt(0).toUpperCase())
 const memberSince = computed(() =>
@@ -21,6 +23,22 @@ const expiresOn = computed(() =>
 const resending = ref(false)
 const resendMsg = ref('')
 const cancelling = ref(false)
+
+const photos = ref<any[]>([])
+const orders = ref<any[]>([])
+const loadingData = ref(false)
+
+async function loadUserData() {
+  if (!user.value) return
+  loadingData.value = true
+  try {
+    const [p, o] = await Promise.all([myPhotos(), myOrders()])
+    photos.value = p.photos || []
+    orders.value = o.orders || []
+  } finally {
+    loadingData.value = false
+  }
+}
 
 async function onResend() {
   resending.value = true
@@ -46,6 +64,17 @@ async function onLogout() {
   await logout()
   router.push('/signin')
 }
+
+watch(
+  () => user.value?.id,
+  (id) => {
+    if (id) loadUserData()
+  },
+  { immediate: true }
+)
+onMounted(() => {
+  if (user.value) loadUserData()
+})
 
 useHead({ title: t('account.title') })
 </script>
@@ -120,6 +149,40 @@ useHead({ title: t('account.title') })
             >{{ cancelling ? $t('account.cancelling') : $t('account.cancelPlan') }}</button>
             <NuxtLink to="/plans" class="btn-outline">{{ $t('account.managePlans') }}</NuxtLink>
           </div>
+        </div>
+
+        <!-- 我的照片 -->
+        <div class="mt-6 rounded-xl border border-slate-200 p-5">
+          <h2 class="font-serif text-lg font-bold text-ink">{{ $t('account.myPhotos') }}</h2>
+          <p class="mt-1 text-xs text-muted">{{ $t('account.myPhotosHint') }}</p>
+          <div v-if="loadingData" class="mt-3 text-sm text-muted">{{ $t('account.loading') }}</div>
+          <div v-else-if="photos.length" class="mt-3 grid grid-cols-3 gap-3 sm:grid-cols-4">
+            <img
+              v-for="p in photos"
+              :key="p.id"
+              :src="p.url"
+              :alt="p.docName || 'photo'"
+              class="aspect-square w-full rounded-lg border border-slate-200 object-cover"
+            />
+          </div>
+          <p v-else class="mt-3 text-sm text-muted">{{ $t('account.noPhotos') }}</p>
+        </div>
+
+        <!-- 我的订单 -->
+        <div class="mt-6 rounded-xl border border-slate-200 p-5">
+          <h2 class="font-serif text-lg font-bold text-ink">{{ $t('account.myOrders') }}</h2>
+          <div v-if="loadingData" class="mt-3 text-sm text-muted">{{ $t('account.loading') }}</div>
+          <ul v-else-if="orders.length" class="mt-3 divide-y divide-slate-100">
+            <li v-for="o in orders" :key="o.id" class="flex items-center justify-between py-2 text-sm">
+              <span class="font-mono text-ink">{{ o.id }}</span>
+              <span class="text-muted">{{ new Date(o.createdAt).toLocaleDateString() }}</span>
+              <span
+                class="rounded-full px-2 py-0.5 text-xs font-semibold"
+                :class="o.paid ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-muted'"
+              >{{ o.paid ? $t('account.paid') : $t('account.unpaid') }}</span>
+            </li>
+          </ul>
+          <p v-else class="mt-3 text-sm text-muted">{{ $t('account.noOrders') }}</p>
         </div>
 
         <button class="btn-outline mt-6" type="button" @click="onLogout">

@@ -3,8 +3,37 @@ import { ref, computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useData, type PhotoDoc } from '~/composables/useData'
 import { useCountry } from '~/composables/useCountry'
+import { useAuth } from '~/composables/useAuth'
+import { useApi } from '~/composables/useApi'
 
 const { t } = useI18n()
+const { user } = useAuth()
+const { uploadPhoto, savePhoto } = useApi()
+const savingPhoto = ref(false)
+const saveMsg = ref('')
+
+async function saveToMyPhotos() {
+  if (!hasImage.value) return
+  if (!user.value) {
+    saveMsg.value = t('tool.loginToSave')
+    return
+  }
+  savingPhoto.value = true
+  saveMsg.value = ''
+  try {
+    const canvas = exportCanvas()
+    const blob = await new Promise<Blob>((resolve, reject) =>
+      canvas.toBlob((b) => (b ? resolve(b) : reject(new Error('toBlob failed'))), 'image/jpeg', 0.92)
+    )
+    const up = await uploadPhoto(blob, `${fileName.value || 'photo'}.jpg`)
+    await savePhoto(up.id, { docSlug: selDoc.value?.slug || '', docName: selDoc.value?.name || '' })
+    saveMsg.value = t('tool.savedToGallery')
+  } catch (e) {
+    saveMsg.value = t('tool.saveFail')
+  } finally {
+    savingPhoto.value = false
+  }
+}
 
 const props = withDefaults(
   defineProps<{ country?: string; doc?: string }>(),
@@ -1395,6 +1424,13 @@ function changeCountry(c: string) {
           <button class="btn-primary" :disabled="!hasImage" @click="downloadJPG()">{{ $t('tool.jpg') }}</button>
           <button class="btn-yellow" :disabled="!hasImage||isProcessing" @click="downloadPDF()">{{ $t('tool.pdf') }}</button>
           <button class="btn-secondary" :disabled="!hasImage" @click="downloadPNG()">{{ $t('tool.png') }}</button>
+          <button
+            class="btn-outline"
+            :disabled="!hasImage || savingPhoto"
+            :title="user ? '' : t('tool.loginToSave')"
+            @click="saveToMyPhotos()"
+          >{{ savingPhoto ? t('tool.saving') : t('tool.saveToGallery') }}</button>
+          <p v-if="saveMsg" class="mt-2 text-xs" :class="saveMsg === t('tool.savedToGallery') ? 'text-green-600' : 'text-amber-600'">{{ saveMsg }}</p>
         </div>
 
         <!-- 合规校验 -->

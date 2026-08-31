@@ -397,7 +397,12 @@
     "selectDocument": "Seleccionar tipo de documento",
     "popularLabel": "Populares",
     "chooseDoc": "Elegir documento",
-    "startBtn": "Iniciar"
+    "startBtn": "Iniciar",
+    "saveToGallery": "Guardar en Mis fotos",
+    "saving": "Guardando…",
+    "savedToGallery": "Guardado en tu galería",
+    "saveFail": "No se pudo guardar. Inténtalo de nuevo.",
+    "loginToSave": "Inicia sesión para guardar fotos"
   },
   "dv": {
     "eyebrow": "Visa de Diversidad",
@@ -554,7 +559,12 @@
     "upgradeCta": "Mejorar a Premium",
     "cancelPlan": "Cancelar suscripción",
     "cancelling": "Cancelando…",
-    "managePlans": "Ver planes"
+    "managePlans": "Ver planes",
+    "myPhotosHint": "Las fotos que guardes al editar aparecen aquí.",
+    "noPhotos": "Aún no hay fotos guardadas.",
+    "noOrders": "Aún no hay pedidos.",
+    "paid": "Pagado",
+    "unpaid": "Pendiente"
   },
   "verify": {
     "title": "Verifica tu correo",
@@ -612,6 +622,9 @@
       "nobg": "Eliminación de fondo con IA",
       "priority": "Procesamiento prioritario",
       "support": "Soporte prioritario por correo"
-    }
+    },
+    "save": "Ahorra {n}%",
+    "compareTitle": "Comparar planes",
+    "feature": "Función"
   }
 }

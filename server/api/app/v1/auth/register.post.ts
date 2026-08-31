@@ -7,6 +7,7 @@ import {
   createEmailVerifyToken,
   EMAIL_DEBUG
 } from '../../../../utils/auth'
+import { sendMail, emailTemplate, mailConfigured } from '../../../../utils/mailer'
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event).catch(() => ({}))
@@ -31,8 +32,18 @@ export default defineEventHandler(async (event) => {
     let devLink: string | undefined
     if (token) {
       const link = `${getRequestURL(event).origin}/verify-email?token=${token}`
-      console.log(`[mail] to=${email} subject="Verify your email"\n${link}`)
-      if (EMAIL_DEBUG) devLink = link
+      await sendMail({
+        to: email,
+        subject: 'Verify your email — PhotoGov',
+        text: `Welcome to PhotoGov! Confirm your email by opening: ${link}`,
+        html: emailTemplate(
+          'Confirm your email',
+          `<p>Hi ${name},</p><p>Thanks for joining PhotoGov. Please confirm your email address to activate your account:</p>
+           <p><a href="${link}" style="display:inline-block;background:#2B72E0;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600">Verify my email</a></p>
+           <p style="color:#64748b;font-size:13px">Or paste this link into your browser:<br>${link}</p>`
+        )
+      })
+      if (!mailConfigured && EMAIL_DEBUG) devLink = link
     }
 
     return { ok: true, user: publicUser(user), devLink }

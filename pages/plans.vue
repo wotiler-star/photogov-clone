@@ -13,6 +13,19 @@ const busy = ref('')
 const status = computed(() => planStatus(user.value))
 const isLoggedIn = computed(() => !!user.value)
 
+const compareFeatures = [
+  'plans.feat.unlimited',
+  'plans.feat.formats',
+  'plans.feat.hd',
+  'plans.feat.nobg',
+  'plans.feat.priority',
+  'plans.feat.support'
+]
+const freePlan = PLANS.find((p) => p.id === 'free')!
+const premiumPlan = PLANS.find((p) => p.id === 'premium_monthly')!
+const freeHas = (k: string) => freePlan.features.includes(k)
+const premiumHas = (k: string) => premiumPlan.features.includes(k)
+
 async function choose(planId: string) {
   if (!isLoggedIn.value) {
     router.push('/signin?redirect=/plans')
@@ -67,6 +80,10 @@ useHead({ title: t('plans.title') })
             <span v-if="plan.interval === 'month'" class="text-sm text-muted">{{ $t('plans.perMonth') }}</span>
             <span v-else-if="plan.interval === 'year'" class="text-sm text-muted">{{ $t('plans.perYear') }}</span>
           </div>
+          <span
+            v-if="plan.savePercent"
+            class="mt-2 inline-block w-fit rounded-full bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-700"
+          >{{ $t('plans.save', { n: plan.savePercent }) }}</span>
 
           <ul class="mt-4 flex-1 space-y-2 text-sm">
             <li v-for="f in plan.features" :key="f" class="flex items-start gap-2">
@@ -106,6 +123,29 @@ useHead({ title: t('plans.title') })
               @click="choose(plan.id)"
             >{{ $t('plans.upgrade') }}</button>
           </div>
+        </div>
+      </div>
+
+      <!-- 功能对比表 -->
+      <div class="mt-14">
+        <h2 class="text-center font-serif text-2xl font-bold text-ink">{{ $t('plans.compareTitle') }}</h2>
+        <div class="mx-auto mt-6 max-w-2xl overflow-hidden rounded-2xl border border-slate-200">
+          <table class="w-full text-sm">
+            <thead class="bg-slate-50">
+              <tr>
+                <th class="p-3 text-left font-medium text-muted">{{ $t('plans.feature') }}</th>
+                <th class="p-3 text-center font-medium text-muted">{{ $t('plans.free') }}</th>
+                <th class="p-3 text-center font-medium text-accent">{{ $t('plans.premium') }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="f in compareFeatures" :key="f" class="border-t border-slate-100">
+                <td class="p-3 text-slate-600">{{ $t(f) }}</td>
+                <td class="p-3 text-center text-lg">{{ freeHas(f) ? '✓' : '—' }}</td>
+                <td class="p-3 text-center text-lg text-accent">{{ premiumHas(f) ? '✓' : '—' }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 

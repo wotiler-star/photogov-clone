@@ -108,6 +108,17 @@ export const useApi = () => {
   const cancelSubscription = () =>
     $fetch<{ ok: boolean; user: any }>(`${BASE}/auth/cancel-subscription`, { method: 'POST' })
 
+  // 我的照片 / 订单
+  const savePhoto = (imageId: string, meta: { docSlug?: string; docName?: string } = {}) =>
+    $fetch<{ ok: boolean; photo: any }>(`${BASE}/photo/save`, {
+      method: 'POST',
+      body: { imageId, ...meta }
+    })
+
+  const myPhotos = () => $fetch<{ photos: any[] }>(`${BASE}/photo/my`)
+
+  const myOrders = () => $fetch<{ orders: any[] }>(`${BASE}/order/my`)
+
   return {
     BASE,
     fetchCountries,
@@ -127,6 +138,9 @@ export const useApi = () => {
     forgotPassword,
     resetPassword,
     subscribe,
-    cancelSubscription
+    cancelSubscription,
+    savePhoto,
+    myPhotos,
+    myOrders
   }
 }
