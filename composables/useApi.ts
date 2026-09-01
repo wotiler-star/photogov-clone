@@ -119,6 +119,13 @@ export const useApi = () => {
 
   const myOrders = () => $fetch<{ orders: any[] }>(`${BASE}/order/my`)
 
+  // 订单状态流转：付款 / 取消
+  const payOrder = (id: string) =>
+    $fetch<{ ok: boolean; order: any }>(`${BASE}/order/${id}/pay`, { method: 'POST' })
+
+  const cancelOrder = (id: string) =>
+    $fetch<{ ok: boolean; order: any }>(`${BASE}/order/${id}/cancel`, { method: 'POST' })
+
   return {
     BASE,
     fetchCountries,
@@ -141,6 +148,8 @@ export const useApi = () => {
     cancelSubscription,
     savePhoto,
     myPhotos,
-    myOrders
+    myOrders,
+    payOrder,
+    cancelOrder
   }
 }

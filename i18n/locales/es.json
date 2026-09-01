@@ -564,7 +564,15 @@
     "noPhotos": "Aún no hay fotos guardadas.",
     "noOrders": "Aún no hay pedidos.",
     "paid": "Pagado",
-    "unpaid": "Pendiente"
+    "unpaid": "Pendiente",
+    "orderPending": "Pendiente de pago",
+    "orderPaid": "Pagado",
+    "orderCompleted": "Completado",
+    "orderCancelled": "Cancelado",
+    "payNow": "Pagar ahora",
+    "cancelOrder": "Cancelar pedido",
+    "paidAt": "Pagado el",
+    "processing": "Procesando…"
   },
   "verify": {
     "title": "Verifica tu correo",

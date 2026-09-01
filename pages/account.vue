@@ -9,7 +9,7 @@ import { planStatus } from '~/utils/plans'
 const { t } = useI18n()
 const router = useRouter()
 const { user, loaded, logout, resendVerification, cancelSubscription } = useAuth()
-const { myPhotos, myOrders } = useApi()
+const { myPhotos, myOrders, payOrder, cancelOrder } = useApi()
 
 const initial = computed(() => (user.value?.name || '?').charAt(0).toUpperCase())
 const memberSince = computed(() =>
@@ -63,6 +63,51 @@ async function onCancel() {
 async function onLogout() {
   await logout()
   router.push('/signin')
+}
+
+const payingId = ref<string | null>(null)
+const cancellingId = ref<string | null>(null)
+
+function statusBadge(o: any) {
+  switch (o.status) {
+    case 'paid':
+      return { label: t('account.orderPaid'), cls: 'bg-green-100 text-green-700' }
+    case 'completed':
+      return { label: t('account.orderCompleted'), cls: 'bg-blue-100 text-blue-700' }
+    case 'cancelled':
+      return { label: t('account.orderCancelled'), cls: 'bg-slate-100 text-muted' }
+    default:
+      return { label: t('account.orderPending'), cls: 'bg-amber-100 text-amber-700' }
+  }
+}
+
+// 仅「待付款 / 已取消」之外的中间状态可操作：可付款或取消
+const canAct = (o: any) => o.status !== 'paid' && o.status !== 'completed' && o.status !== 'cancelled'
+
+async function onPay(o: any) {
+  payingId.value = o.id
+  try {
+    const res = await payOrder(o.id)
+    const i = orders.value.findIndex((x) => x.id === o.id)
+    if (i !== -1) orders.value[i] = res.order
+  } catch (e) {
+    console.error(e)
+  } finally {
+    payingId.value = null
+  }
+}
+
+async function onCancelOrder(o: any) {
+  cancellingId.value = o.id
+  try {
+    const res = await cancelOrder(o.id)
+    const i = orders.value.findIndex((x) => x.id === o.id)
+    if (i !== -1) orders.value[i] = res.order
+  } catch (e) {
+    console.error(e)
+  } finally {
+    cancellingId.value = null
+  }
 }
 
 watch(
@@ -173,13 +218,32 @@ useHead({ title: t('account.title') })
           <h2 class="font-serif text-lg font-bold text-ink">{{ $t('account.myOrders') }}</h2>
           <div v-if="loadingData" class="mt-3 text-sm text-muted">{{ $t('account.loading') }}</div>
           <ul v-else-if="orders.length" class="mt-3 divide-y divide-slate-100">
-            <li v-for="o in orders" :key="o.id" class="flex items-center justify-between py-2 text-sm">
-              <span class="font-mono text-ink">{{ o.id }}</span>
-              <span class="text-muted">{{ new Date(o.createdAt).toLocaleDateString() }}</span>
-              <span
-                class="rounded-full px-2 py-0.5 text-xs font-semibold"
-                :class="o.paid ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-muted'"
-              >{{ o.paid ? $t('account.paid') : $t('account.unpaid') }}</span>
+            <li v-for="o in orders" :key="o.id" class="py-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="font-mono text-sm text-ink">{{ o.id }}</span>
+                <span class="text-xs text-muted">{{ new Date(o.createdAt).toLocaleDateString() }}</span>
+                <span
+                  class="rounded-full px-2 py-0.5 text-xs font-semibold"
+                  :class="statusBadge(o).cls"
+                >{{ statusBadge(o).label }}</span>
+              </div>
+              <div class="mt-2 flex flex-wrap items-center gap-2">
+                <button
+                  v-if="canAct(o)"
+                  class="btn-primary px-3 py-1.5 text-xs"
+                  type="button"
+                  :disabled="payingId === o.id"
+                  @click="onPay(o)"
+                >{{ payingId === o.id ? $t('account.processing') : $t('account.payNow') }}</button>
+                <button
+                  v-if="canAct(o)"
+                  class="btn-outline px-3 py-1.5 text-xs"
+                  type="button"
+                  :disabled="cancellingId === o.id"
+                  @click="onCancelOrder(o)"
+                >{{ cancellingId === o.id ? $t('account.processing') : $t('account.cancelOrder') }}</button>
+                <span v-if="o.paidAt" class="text-xs text-muted">{{ $t('account.paidAt') }}: {{ new Date(o.paidAt).toLocaleString() }}</span>
+              </div>
             </li>
           </ul>
           <p v-else class="mt-3 text-sm text-muted">{{ $t('account.noOrders') }}</p>

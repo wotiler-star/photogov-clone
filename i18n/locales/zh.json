@@ -564,7 +564,15 @@
     "noPhotos": "还没有保存的照片。",
     "noOrders": "还没有订单。",
     "paid": "已支付",
-    "unpaid": "未支付"
+    "unpaid": "未支付",
+    "orderPending": "待付款",
+    "orderPaid": "已付款",
+    "orderCompleted": "已完成",
+    "orderCancelled": "已取消",
+    "payNow": "立即付款",
+    "cancelOrder": "取消订单",
+    "paidAt": "付款时间",
+    "processing": "处理中…"
   },
   "verify": {
     "title": "验证你的邮箱",

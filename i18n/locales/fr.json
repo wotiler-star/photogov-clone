@@ -564,7 +564,15 @@
     "noPhotos": "Aucune photo enregistrée.",
     "noOrders": "Aucune commande.",
     "paid": "Payé",
-    "unpaid": "En attente"
+    "unpaid": "En attente",
+    "orderPending": "En attente de paiement",
+    "orderPaid": "Payé",
+    "orderCompleted": "Terminé",
+    "orderCancelled": "Annulé",
+    "payNow": "Payer maintenant",
+    "cancelOrder": "Annuler la commande",
+    "paidAt": "Payé le",
+    "processing": "Traitement…"
   },
   "verify": {
     "title": "Vérifiez votre e-mail",

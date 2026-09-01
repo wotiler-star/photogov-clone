@@ -564,7 +564,15 @@
     "noPhotos": "No photos saved yet.",
     "noOrders": "No orders yet.",
     "paid": "Paid",
-    "unpaid": "Unpaid"
+    "unpaid": "Unpaid",
+    "orderPending": "Awaiting payment",
+    "orderPaid": "Paid",
+    "orderCompleted": "Completed",
+    "orderCancelled": "Cancelled",
+    "payNow": "Pay now",
+    "cancelOrder": "Cancel order",
+    "paidAt": "Paid at",
+    "processing": "Processing…"
   },
   "verify": {
     "title": "Verify your email",
