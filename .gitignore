@@ -34,3 +34,7 @@ data/users.json
 # 订单/照片/用户数据（含隐私，不入库）
 data/orders.json
 data/photos.json
+
+# delivery artifacts
+*.bundle
+*.zip
