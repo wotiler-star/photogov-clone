@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const year = new Date().getFullYear()
+const localePath = useLocalePath()
 const cols = [
   {
     title: 'footer.colDocuments',
@@ -14,20 +15,33 @@ const cols = [
   {
     title: 'footer.colCompany',
     links: [
-      { label: 'footer.links.about', to: '/about' },
-      { label: 'footer.links.blog', to: '/blog' },
-      { label: 'footer.links.faq', to: '/faq' },
-      { label: 'footer.links.compliance', to: '/compliance' },
-      { label: 'footer.links.contact', to: '/contact' },
-      { label: 'footer.links.helpCenter', to: '/help' }
+      { label: 'footer.links.aboutUs', to: '/about' },
+      { label: 'footer.links.contacts', to: '/support' },
+      { label: 'footer.links.prices', to: '/prices' }
+    ]
+  },
+  {
+    title: 'footer.colSupport',
+    links: [
+      { label: 'footer.links.helpCenter', to: '/help' },
+      { label: 'footer.links.howItWorks', to: '/how-it-works' },
+      { label: 'footer.links.reviews', to: '/reviews' },
+      { label: 'footer.links.security', to: '/security' },
+      { label: 'footer.links.whyChooseUs', to: '/why-choose-us' },
+      { label: 'footer.links.knowledge', to: '/knowledge' }
     ]
   },
   {
     title: 'footer.colLegal',
     links: [
-      { label: 'footer.links.privacy', to: '/privacy' },
-      { label: 'footer.links.terms', to: '/terms' },
-      { label: 'footer.links.cookie', to: '/cookies' }
+      { label: 'footer.links.termsOfUse', to: '/terms' },
+      { label: 'footer.links.privacyPolicy', to: '/privacy' },
+      { label: 'footer.links.cookiePolicy', to: '/cookies' },
+      { label: 'footer.links.refundPolicy', to: '/refund-policy' },
+      { label: 'footer.links.euPrivacy', to: '/compliance' },
+      { label: 'footer.links.usCompliance', to: '/us-id-photo-compliance' },
+      { label: 'footer.links.globalCompliance', to: '/compliance' },
+      { label: 'footer.links.nonAffiliation', to: '/independence-disclaimer' }
     ]
   }
 ]
@@ -35,7 +49,7 @@ const cols = [
 
 <template>
   <footer class="bg-header text-white/80">
-    <div class="container-pg grid gap-10 py-14 sm:grid-cols-2 md:grid-cols-4">
+    <div class="container-pg grid gap-10 py-14 sm:grid-cols-2 md:grid-cols-5">
       <div>
         <div class="flex items-center gap-2 text-xl font-bold text-white">
           <span class="grid h-9 w-9 place-items-center rounded-xl bg-accent-yellow text-header">
@@ -61,7 +75,7 @@ const cols = [
         </h4>
         <ul class="mt-4 space-y-2 text-sm">
           <li v-for="l in col.links" :key="l.to">
-            <NuxtLink :to="l.to" class="text-white/65 hover:text-white">
+            <NuxtLink :to="localePath(l.to)" class="text-white/65 hover:text-white">
               {{ $t(l.label) }}
             </NuxtLink>
           </li>

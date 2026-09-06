@@ -182,7 +182,7 @@ useHead({ title: t('account.title') })
             {{ $t('account.renewsOn') }} {{ expiresOn }}
           </p>
           <div class="mt-4 flex flex-wrap gap-3">
-            <NuxtLink v-if="!status.isPremium" to="/plans" class="btn-primary">
+            <NuxtLink v-if="!status.isPremium" to="/prices" class="btn-primary">
               {{ $t('account.upgradeCta') }}
             </NuxtLink>
             <button
@@ -192,7 +192,7 @@ useHead({ title: t('account.title') })
               :disabled="cancelling"
               @click="onCancel"
             >{{ cancelling ? $t('account.cancelling') : $t('account.cancelPlan') }}</button>
-            <NuxtLink to="/plans" class="btn-outline">{{ $t('account.managePlans') }}</NuxtLink>
+            <NuxtLink to="/prices" class="btn-outline">{{ $t('account.managePlans') }}</NuxtLink>
           </div>
         </div>
 

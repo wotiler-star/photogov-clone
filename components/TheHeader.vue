@@ -31,12 +31,13 @@ const filtered = computed(() => {
 const navItems = [
   { label: 'nav.dvLottery', to: '/dv-lottery' },
   { label: 'nav.documents', to: '/documents' },
-  { label: 'nav.passports', to: '/passports' },
-  { label: 'nav.visas', to: '/visas' },
-  { label: 'nav.plans', to: '/plans' },
-  { label: 'nav.blog', to: '/blog' },
-  { label: 'nav.faq', to: '/faq' },
-  { label: 'nav.about', to: '/about' }
+  { label: 'nav.about', to: '/about' },
+  { label: 'nav.howItWorks', to: '/how-it-works' },
+  { label: 'nav.prices', to: '/prices' },
+  { label: 'nav.whyChooseUs', to: '/why-choose-us' },
+  { label: 'nav.reviews', to: '/reviews' },
+  { label: 'nav.security', to: '/security' },
+  { label: 'nav.faq', to: '/faq' }
 ]
 
 const select = (c: string) => {
@@ -73,7 +74,8 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
         </div>
         <nav class="flex items-center gap-4">
           <LanguageSwitcher />
-          <NuxtLink to="/help" class="hover:text-white">{{ $t('nav.help') }}</NuxtLink>
+          <NuxtLink to="/support" class="hover:text-white">{{ $t('nav.contactUs') }}</NuxtLink>
+          <NuxtLink to="/help" class="hover:text-white">{{ $t('nav.helpCenter') }}</NuxtLink>
           <NuxtLink v-if="user" to="/account" class="hover:text-white">{{ $t('nav.account') }}</NuxtLink>
           <NuxtLink v-else to="/signin" class="hover:text-white">{{ $t('nav.signIn') }}</NuxtLink>
         </nav>

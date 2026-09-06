@@ -142,7 +142,7 @@ useHead(() => {
         <p>{{ $t('faq.empty', { query }) }}</p>
         <p class="mt-2 text-sm">
           {{ $t('faq.emptyHint') }}
-          <NuxtLink to="/contact" class="text-brand-blue underline">{{ $t('faq.contactUs') }}</NuxtLink>.
+          <NuxtLink to="/support" class="text-brand-blue underline">{{ $t('faq.contactUs') }}</NuxtLink>.
         </p>
       </div>
 
@@ -150,7 +150,7 @@ useHead(() => {
       <div class="mx-auto mt-12 max-w-3xl rounded-2xl bg-header px-6 py-8 text-center text-white">
         <h2 class="text-2xl font-bold">{{ $t('faq.ctaTitle') }}</h2>
         <p class="mt-2 text-white/70">{{ $t('faq.ctaText') }}</p>
-        <NuxtLink to="/contact" class="btn-yellow mt-4">{{ $t('faq.ctaBtn') }}</NuxtLink>
+        <NuxtLink to="/support" class="btn-yellow mt-4">{{ $t('faq.ctaBtn') }}</NuxtLink>
       </div>
     </div>
   </div>
