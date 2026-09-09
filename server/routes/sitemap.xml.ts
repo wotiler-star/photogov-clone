@@ -38,9 +38,23 @@ export default defineEventHandler((event) => {
     { p: '/privacy', pri: '0.3', freq: 'yearly' },
     { p: '/terms', pri: '0.3', freq: 'yearly' },
     { p: '/help', pri: '0.5', freq: 'monthly' },
-    { p: '/contact', pri: '0.5', freq: 'yearly' },
     { p: '/cookies', pri: '0.3', freq: 'yearly' },
-    { p: '/signin', pri: '0.3', freq: 'yearly' }
+    { p: '/signin', pri: '0.3', freq: 'yearly' },
+    // 与 photogov.net 对齐的新页面
+    { p: '/prices', pri: '0.8', freq: 'monthly' },
+    { p: '/support', pri: '0.5', freq: 'yearly' },
+    { p: '/how-it-works', pri: '0.8', freq: 'monthly' },
+    { p: '/why-choose-us', pri: '0.7', freq: 'monthly' },
+    { p: '/reviews', pri: '0.7', freq: 'monthly' },
+    { p: '/security', pri: '0.6', freq: 'yearly' },
+    { p: '/refund-policy', pri: '0.4', freq: 'yearly' },
+    { p: '/us-id-photo-compliance', pri: '0.4', freq: 'yearly' },
+    { p: '/independence-disclaimer', pri: '0.4', freq: 'yearly' },
+    { p: '/knowledge', pri: '0.7', freq: 'weekly' },
+    { p: '/knowledge/requirements', pri: '0.6', freq: 'weekly' },
+    { p: '/knowledge/guides', pri: '0.6', freq: 'weekly' },
+    { p: '/knowledge/standards', pri: '0.6', freq: 'weekly' },
+    { p: '/knowledge/faq', pri: '0.6', freq: 'weekly' }
   ]
 
   const docSlugs = Object.keys((documents as any).documents ?? {})
