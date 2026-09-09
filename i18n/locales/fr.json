@@ -100,7 +100,7 @@
       "Gratuit, sans filigrane caché",
       "Fonctionne sur ordinateur, tablette et téléphone"
     ],
-    "stepsTitle": "Quatre étapes vers une photo parfaite",
+    "stepsTitle": "Comment fonctionne notre créateur de photos de passeport",
     "stepsEyebrow": "Comment ça marche",
     "steps": [
       {
@@ -120,7 +120,7 @@
         "text": "Obtenez des photos de qualité en format numérique ou imprimable."
       }
     ],
-    "standardsTitle": "Conformité aux normes mondiales des photos d’identité",
+    "standardsTitle": "100 % de conformité aux normes mondiales des photos d’identité",
     "standardsSub": "Chaque modèle suit les règles exactes publiées par les autorités des passeports et des visas.",
     "standards": [
       "Taille et cadrage corrects",
@@ -132,15 +132,15 @@
       "Haute résolution, image nette"
     ],
     "popularEyebrow": "Populaire",
-    "popularTitle": "Documents les plus demandés",
-    "quickTitle": "Accédez directement à une photo",
+    "popularTitle": "Documents populaires : guides photo",
+    "quickTitle": "Liens rapides pour créer des photos de passeport, visa et autres",
     "quickEyebrow": "Liens rapides",
     "docTypesTitle": "Parcourir par type de document",
     "docTypesEyebrow": "Types de document",
     "blogEyebrow": "Blog",
     "blogTitle": "Du blog PhotoGov",
     "viewAllArticles": "Voir tous les articles",
-    "faqTitle": "Des questions sur les exigences photo ?",
+    "faqTitle": "Foire aux questions",
     "faqText": "Tailles, fonds, l'outil, téléchargements et acceptation — répondues dans notre FAQ.",
     "readFaq": "Lire la FAQ",
     "statCountries": "Pays pris en charge",
@@ -150,7 +150,7 @@
     "ctaText": "Cela prend moins d'une minute et c'est gratuit. Inscription non requise.",
     "startNow": "Commencer maintenant",
     "trustEyebrow": "Pourquoi faire confiance à PhotoGov",
-    "trustTitle": "Une plateforme mondiale de confiance pour les photos d’identité",
+    "trustTitle": "Pourquoi faire confiance à PhotoGov ?",
     "trustSub": "Près de deux millions de personnes font confiance à PhotoGov pour créer des photos officielles conformes à chaque norme gouvernementale. Données vérifiées, précision biométrique et experts internes en conformité, en collaboration avec certaines ambassades.",
     "trustUsers": "Utilisateurs servis",
     "trustApproval": "Taux d’approbation",
@@ -192,7 +192,7 @@
       "Objets étrangers (jouets, etc.) dans le cadre"
     ],
     "trustedEyebrow": "Plateforme fiable",
-    "trustedTitle": "Une plateforme mondiale de confiance pour les photos d’identité",
+    "trustedTitle": "Plateforme mondiale de confiance pour les photos de passeport",
     "trustedSub": "Près de deux millions de personnes font confiance à PhotoGov pour créer des photos officielles conformes à chaque norme gouvernementale — données vérifiées, précision biométrique et experts internes.",
     "trustedPoints": [
       {
@@ -239,7 +239,19 @@
     "usersSayEyebrow": "Avis",
     "usersSayTitle": "Ce que nos utilisateurs disent de nous",
     "usersSaySub": "Retours réels de personnes ayant créé leurs photos de passeport, visa et identité avec PhotoGov.",
-    "seeAllReviews": "Voir tous les avis"
+    "seeAllReviews": "Voir tous les avis",
+    "selfieTitle": "Créateur de photos de passeport : du selfie à la photo d’identité",
+    "selfieText": "Créez des photos d’identité ou de visa avec notre service en ligne. Il vous suffit d’un smartphone ou d’un ordinateur portable : PhotoGov s’occupe du reste. Suivez ces étapes simples :",
+    "indTitle": "Conformité et indépendance",
+    "indText": "Toutes les photos créées avec PhotoGov sont formatées selon les spécifications gouvernementales officielles pour les demandes d’identité et de visa, reflétant les normes de taille, de fond et de cadrage des sources réglementaires. L’approbation finale de chaque image est toujours déterminée par l’autorité émettrice, comme le ",
+    "indState": "Département d’État des États-Unis",
+    "indComma": ", ",
+    "indHMPO": "HM Passport Office",
+    "indTail": ", ou les agences nationales équivalentes. PhotoGov fonctionne comme un service privé indépendant et n’est affilié à aucun gouvernement ni institution consulaire.",
+    "indLearnMore": "En savoir plus",
+    "indLearnMoreAfter": "sur la conformité de notre service aux réglementations mondiales relatives aux photos d’identité.",
+    "indNotice": "Avis important pour les utilisateurs aux États-Unis",
+    "indNoticeAfter": " : conformité aux réglementations officielles du Département d’État des États-Unis sur les altérations numériques des photos d’identité."
   },
   "documents": {
     "eyebrow": "Documents",
@@ -1124,5 +1136,36 @@
     "faqTitle": "Foire aux questions",
     "empty": "Aucun article dans cette catégorie pour le moment.",
     "fullFaq": "Voir la FAQ complète"
+  },
+  "globalCompliance": {
+    "eyebrow": "Politique mondiale des photos d’identité",
+    "title": "Conformité mondiale des photos d’identité",
+    "sub": "Découvrez la conformité du service PhotoGov avec les politiques mondiales relatives aux photos d’identité et aux restrictions de modification numérique",
+    "regsTitle": "Conformité de PhotoGov aux réglementations mondiales",
+    "paras": [
+      "PhotoGov.net respecte pleinement les réglementations photographiques mondiales, des normes biométriques de l’OACI aux exigences gouvernementales spécifiques de chaque pays. Notre système s’aligne sur tous les cadres officiels régissant les dimensions, les proportions et le traitement des données des photos pour les documents d’identité.",
+      "Notre système traite chaque image téléversée via un flux automatisé et sécurisé hébergé sur nos propres serveurs GPU. PhotoGov ajuste la taille, les proportions et le fond de la photo selon les exigences officielles du type de document sélectionné.",
+      "Toutes les opérations, de la préparation du fond au dimensionnement final, sont effectuées localement au sein de l’infrastructure de PhotoGov, sans transférer d’images à des services tiers. Cela garantit précision, rapidité et pleine conformité aux normes internationales des photos d’identité."
+    ],
+    "policyTitle": "Politiques de modification numérique des photos d’identité et notre service",
+    "policy": [
+      "De nombreux pays appliquent des règles strictes interdisant toute altération numérique des photographies d’identité, y compris les passeports, les cartes d’identité et les photos de visa. Ces réglementations protègent l’exactitude des données biométriques et garantissent que les photos officielles reflètent l’apparence réelle de la personne sans amélioration logicielle.",
+      "Suivez les mises à jour du site PhotoGov pour connaître les dernières actualités sur la réglementation mondiale des documents d’identité."
+    ],
+    "countriesTitle": "Pays sélectionnés et leurs règles",
+    "countries": [
+      {
+        "k": "États-Unis :",
+        "v": "Les altérations numériques des photos sont interdites pour les photos au format passeport et autres photos d’identité officielles."
+      },
+      {
+        "k": "Norme mondiale / OACI :",
+        "v": "La norme biométrique internationale stipule que l’image « ne doit pas être modifiée ni améliorée numériquement pour changer l’apparence du sujet de quelque manière que ce soit »."
+      }
+    ],
+    "commitTitle": "Notre engagement",
+    "commitText": "PhotoGov respecte pleinement ces réglementations dans toutes les juridictions. Nous n’effectuons que les ajustements autorisés, tels que le dimensionnement, le recadrage et la correction du fond, strictement dans les limites définies par les normes gouvernementales et internationales.",
+    "whyTitle": "Pourquoi la conformité est importante",
+    "whyText": "Les altérations numériques peuvent fausser des caractéristiques biométriques essentielles telles que les proportions du visage, l’écartement des yeux ou le teint de la peau. En suivant strictement les règles nationales et internationales, PhotoGov garantit que chaque photo générée sur notre plateforme convient à l’identification officielle et aux demandes de passeport dans le monde entier."
   }
 }

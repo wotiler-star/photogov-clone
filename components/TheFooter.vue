@@ -40,7 +40,7 @@ const cols = [
       { label: 'footer.links.refundPolicy', to: '/refund-policy' },
       { label: 'footer.links.euPrivacy', to: '/compliance' },
       { label: 'footer.links.usCompliance', to: '/us-id-photo-compliance' },
-      { label: 'footer.links.globalCompliance', to: '/compliance' },
+      { label: 'footer.links.globalCompliance', to: '/global-id-photo-compliance' },
       { label: 'footer.links.nonAffiliation', to: '/independence-disclaimer' }
     ]
   }

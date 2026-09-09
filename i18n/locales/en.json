@@ -100,7 +100,7 @@
       "Free to use, no hidden watermarks",
       "Works on desktop, tablet and phone"
     ],
-    "stepsTitle": "Four steps to a perfect photo",
+    "stepsTitle": "How Our Passport Photo Maker Works",
     "stepsEyebrow": "How it works",
     "steps": [
       {
@@ -120,7 +120,7 @@
         "text": "Get high-quality photos in digital or printable format."
       }
     ],
-    "standardsTitle": "Compliance with global ID photo standards",
+    "standardsTitle": "100% Compliance With Global ID Photo Standards",
     "standardsSub": "Every template follows the exact rules published by passport and visa authorities.",
     "standards": [
       "Correct size and framing",
@@ -132,15 +132,15 @@
       "High-resolution, sharp image"
     ],
     "popularEyebrow": "Popular",
-    "popularTitle": "Most requested documents",
-    "quickTitle": "Jump straight to a photo",
+    "popularTitle": "Popular Documents: Photo Guidelines",
+    "quickTitle": "Quick Links to Create Passport, Visa & Other ID Photos",
     "quickEyebrow": "Quick links",
     "docTypesTitle": "Browse by document type",
     "docTypesEyebrow": "Document types",
     "blogEyebrow": "Blog",
     "blogTitle": "From the PhotoGov blog",
     "viewAllArticles": "View all articles",
-    "faqTitle": "Got questions about photo requirements?",
+    "faqTitle": "Frequently Asked Questions",
     "faqText": "Sizes, backgrounds, the tool, downloads and acceptance — answered in our FAQ.",
     "readFaq": "Read the FAQ",
     "statCountries": "Countries supported",
@@ -150,7 +150,7 @@
     "ctaText": "It takes less than a minute and it's free. No sign-up required.",
     "startNow": "Start now",
     "trustEyebrow": "Why you can trust PhotoGov",
-    "trustTitle": "A trusted global platform for passport photos",
+    "trustTitle": "Why you can trust PhotoGov?",
     "trustSub": "Almost two million people trust PhotoGov to create official photos that meet every government standard. Verified data, biometric accuracy and in-house compliance experts — working with select embassies.",
     "trustUsers": "Users served",
     "trustApproval": "Approval rate",
@@ -192,7 +192,7 @@
       "Extraneous objects (toys, etc.) in the frame"
     ],
     "trustedEyebrow": "Trusted platform",
-    "trustedTitle": "A trusted global platform for passport photos",
+    "trustedTitle": "Trusted Global Platform for Passport Photos",
     "trustedSub": "Almost two million people trust PhotoGov to create official photos that meet every government standard — verified data, biometric accuracy and in-house compliance experts.",
     "trustedPoints": [
       {
@@ -239,7 +239,19 @@
     "usersSayEyebrow": "Reviews",
     "usersSayTitle": "What Our Users Have to Say About Us",
     "usersSaySub": "Real feedback from people who made their passport, visa and ID photos with PhotoGov.",
-    "seeAllReviews": "See all reviews"
+    "seeAllReviews": "See all reviews",
+    "selfieTitle": "Passport Photo Maker: From Selfie to an ID Photo",
+    "selfieText": "Create ID or visa photos with our online service. All you need is a smartphone or a laptop — PhotoGov takes care of the rest. Follow these simple steps:",
+    "indTitle": "Compliance and Independence",
+    "indText": "All photos created with PhotoGov are formatted according to official government specifications for ID and visa applications, reflecting the size, background, and framing standards of regulatory sources. Final approval of every image is always determined by the issuing authority — such as the ",
+    "indState": "U.S. Department of State",
+    "indComma": ", ",
+    "indHMPO": "HM Passport Office",
+    "indTail": ", or equivalent national agencies. PhotoGov operates as an independent private service and is not affiliated with any government or consular institution.",
+    "indLearnMore": "Learn more",
+    "indLearnMoreAfter": "about our service’s adherence to the Global regulations for ID photos.",
+    "indNotice": "Important notice for users in the US",
+    "indNoticeAfter": ": Compliance with Official U.S. Department of State Regulations on ID photos digital alterations."
   },
   "documents": {
     "eyebrow": "Documents",
@@ -1124,5 +1136,36 @@
     "faqTitle": "Frequently Asked Questions",
     "empty": "No articles in this category yet.",
     "fullFaq": "See the full FAQ"
+  },
+  "globalCompliance": {
+    "eyebrow": "Global ID Photo Policy",
+    "title": "Global ID Photo Compliance",
+    "sub": "Learn about the PhotoGov service compliance with the global ID photo policies & digital modification restrictions",
+    "regsTitle": "PhotoGov’s Compliance with Global Regulations",
+    "paras": [
+      "PhotoGov.net fully complies with global photo regulations — from ICAO biometric standards to the specific governmental requirements of individual countries. Our system aligns with all official frameworks governing photo dimensions, proportions, and data handling for identity documents.",
+      "Our system processes each uploaded image through a secure, automated workflow hosted on our own GPU servers. PhotoGov adjusts the size, proportions, and background of the photo according to the official requirements of the selected document type.",
+      "All operations — from background preparation to final sizing — are performed locally within PhotoGov’s infrastructure, without transferring images to any third-party services. This ensures accuracy, speed, and full compliance with international ID photo standards."
+    ],
+    "policyTitle": "Digital ID Photo Modifications Policies & Our Service",
+    "policy": [
+      "Many countries enforce strict rules that prohibit any kind of digital alteration of identification photographs — including passports, ID cards, and visa images. These regulations protect the accuracy of biometric data and ensure that official photos reflect a person’s real appearance without software-based enhancements.",
+      "Follow updates on the PhotoGov website to find the latest news on the global identification documents regulations."
+    ],
+    "countriesTitle": "Selected Countries & Their Rules",
+    "countries": [
+      {
+        "k": "United States:",
+        "v": "Digital photo alterations are banned for passport-size and other official ID photos."
+      },
+      {
+        "k": "Global / ICAO Standard:",
+        "v": "The international biometric photo standard states that the image “shall not be digitally altered or enhanced to change the subject’s appearance in any way.”"
+      }
+    ],
+    "commitTitle": "Our Commitment",
+    "commitText": "PhotoGov fully complies with these regulations across all jurisdictions. We perform only permitted adjustments — such as sizing, cropping, and background correction — strictly within the limits defined by government and international standards.",
+    "whyTitle": "Why Compliance Matters",
+    "whyText": "Digital alterations can distort essential biometric characteristics such as facial proportions, eye spacing, or skin tone. By strictly following national and international rules, PhotoGov guarantees that every photo generated on our platform is suitable for official identification and passport applications worldwide."
   }
 }

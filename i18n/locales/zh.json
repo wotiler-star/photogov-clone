@@ -100,7 +100,7 @@
       "免费使用，无隐藏水印",
       "电脑、平板、手机均可使用"
     ],
-    "stepsTitle": "四步搞定完美照片",
+    "stepsTitle": "我们的证件照制作器如何工作",
     "stepsEyebrow": "使用步骤",
     "steps": [
       {
@@ -120,7 +120,7 @@
         "text": "获取高质量的数字或打印格式照片。"
       }
     ],
-    "standardsTitle": "符合全球证件照标准",
+    "standardsTitle": "100% 符合全球证件照标准",
     "standardsSub": "每个模板均遵循护照和签证主管部门发布的精确规则。",
     "standards": [
       "正确的尺寸与构图",
@@ -132,15 +132,15 @@
       "高分辨率、清晰锐利"
     ],
     "popularEyebrow": "热门",
-    "popularTitle": "最常需要的证件",
-    "quickTitle": "快速直达照片",
+    "popularTitle": "热门证件：照片规范指南",
+    "quickTitle": "快速链接：制作护照、签证及其他证件照",
     "quickEyebrow": "快速链接",
     "docTypesTitle": "按证件类型浏览",
     "docTypesEyebrow": "证件类型",
     "blogEyebrow": "博客",
     "blogTitle": "来自 PhotoGov 博客",
     "viewAllArticles": "查看全部文章",
-    "faqTitle": "对照片要求有疑问？",
+    "faqTitle": "常见问题",
     "faqText": "尺寸、背景、工具、下载与受理——答案都在常见问题里。",
     "readFaq": "阅读常见问题",
     "statCountries": "支持的国家",
@@ -150,7 +150,7 @@
     "ctaText": "不到一分钟，而且免费。无需注册。",
     "startNow": "立即开始",
     "trustEyebrow": "为什么信赖 PhotoGov",
-    "trustTitle": "值得信赖的全球证件照平台",
+    "trustTitle": "为什么可以信赖 PhotoGov？",
     "trustSub": "近两百万人信任 PhotoGov 制作符合各国政府标准的官方照片。经核实的数据、生物特征精度与自有合规专家团队协作，并与部分使领馆对接。",
     "trustUsers": "已服务用户",
     "trustApproval": "通过率",
@@ -239,7 +239,19 @@
     "usersSayEyebrow": "用户评价",
     "usersSayTitle": "用户如何评价我们",
     "usersSaySub": "来自使用 PhotoGov 制作护照、签证与证件照的用户真实反馈。",
-    "seeAllReviews": "查看全部评价"
+    "seeAllReviews": "查看全部评价",
+    "selfieTitle": "护照照片制作器：从自拍到证件照",
+    "selfieText": "使用我们的在线服务制作身份证或签证照片。您只需要一部智能手机或一台笔记本电脑——其余的交给 PhotoGov。按照以下简单步骤操作：",
+    "indTitle": "合规与独立性",
+    "indText": "使用 PhotoGov 制作的所有照片均按照官方政府规范格式化，适用于身份证和签证申请，体现了监管来源对尺寸、背景和构图标准的要求。每张图片的最终审核始终由签发机构决定——例如",
+    "indState": "美国国务院",
+    "indComma": "、",
+    "indHMPO": "英国 HM 护照办公室",
+    "indTail": "或同等的国家机构。PhotoGov 作为独立的私营服务运营，与任何政府或领事机构均无关联。",
+    "indLearnMore": "了解更多",
+    "indLearnMoreAfter": "关于我们服务对全球证件照法规的遵循情况。",
+    "indNotice": "美国用户重要提示",
+    "indNoticeAfter": "：遵守美国国务院关于证件照数字修改的官方规定。"
   },
   "documents": {
     "eyebrow": "证件",
@@ -1124,5 +1136,36 @@
     "faqTitle": "常见问题解答",
     "empty": "该分类下暂无文章。",
     "fullFaq": "查看完整常见问题"
+  },
+  "globalCompliance": {
+    "eyebrow": "全球证件照政策",
+    "title": "全球证件照合规",
+    "sub": "了解 PhotoGov 服务对全球证件照政策及数字修改限制的合规情况",
+    "regsTitle": "PhotoGov 对全球法规的合规",
+    "paras": [
+      "PhotoGov.net 全面遵守全球照片法规——从 ICAO 生物识别标准到各国政府的具体要求。我们的系统遵循所有管理身份文件照片尺寸、比例和数据处理的官方框架。",
+      "我们的系统通过托管在自有 GPU 服务器上的安全自动化流程处理每张上传的图像。PhotoGov 会根据所选文件类型的官方要求调整照片的尺寸、比例和背景。",
+      "所有操作——从背景处理到最终尺寸调整——都在 PhotoGov 自有基础设施内本地完成，不会将图像传输给任何第三方服务。这确保了准确性、速度以及对国际证件照标准的完全合规。"
+    ],
+    "policyTitle": "数字证件照修改政策与我们的服务",
+    "policy": [
+      "许多国家执行严格规定，禁止对身份照片进行任何形式的数字修改——包括护照、身份证和签证照片。这些法规保护生物识别数据的准确性，并确保官方照片反映本人的真实外貌，不含软件美化。",
+      "请关注 PhotoGov 网站更新，获取全球身份文件法规的最新动态。"
+    ],
+    "countriesTitle": "部分国家及其规则",
+    "countries": [
+      {
+        "k": "美国：",
+        "v": "禁止对护照尺寸及其他官方证件照进行数字修改。"
+      },
+      {
+        "k": "全球 / ICAO 标准：",
+        "v": "国际生物识别照片标准规定，图像“不得以任何方式进行数字修改或增强，以改变主体的外貌”。"
+      }
+    ],
+    "commitTitle": "我们的承诺",
+    "commitText": "PhotoGov 在所有司法管辖区完全遵守这些法规。我们仅执行允许的调整——如尺寸调整、裁剪和背景校正——并严格控制在政府与国际标准界定的范围内。",
+    "whyTitle": "合规为何重要",
+    "whyText": "数字修改会扭曲关键的生物识别特征，如面部比例、眼距或肤色。通过严格遵守各国与国际规则，PhotoGov 保证在我们的平台上生成的每张照片都适用于全球官方身份识别与护照申请。"
   }
 }

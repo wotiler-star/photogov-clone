@@ -49,6 +49,7 @@ export default defineEventHandler((event) => {
     { p: '/security', pri: '0.6', freq: 'yearly' },
     { p: '/refund-policy', pri: '0.4', freq: 'yearly' },
     { p: '/us-id-photo-compliance', pri: '0.4', freq: 'yearly' },
+    { p: '/global-id-photo-compliance', pri: '0.4', freq: 'yearly' },
     { p: '/independence-disclaimer', pri: '0.4', freq: 'yearly' },
     { p: '/knowledge', pri: '0.7', freq: 'weekly' },
     { p: '/knowledge/requirements', pri: '0.6', freq: 'weekly' },

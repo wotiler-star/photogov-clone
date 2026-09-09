@@ -127,6 +127,14 @@ const docTypes = [
       </div>
     </section>
 
+    <!-- FROM SELFIE TO AN ID PHOTO -->
+    <section class="container-pg pb-2 pt-10">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-2xl font-bold sm:text-3xl">{{ $t('home.selfieTitle') }}</h2>
+        <p class="mt-3 text-muted">{{ $t('home.selfieText') }}</p>
+      </div>
+    </section>
+
     <!-- ═══ 完整编辑器（向下滚动后可见） ═══ -->
     <section id="tool" class="container-pg scroll-mt-24 py-14">
       <PhotoTool ref="toolRef" />
@@ -345,6 +353,34 @@ const docTypes = [
       </div>
     </section>
 
+    <!-- COMPLIANCE AND INDEPENDENCE -->
+    <section class="container-pg pb-14">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold">{{ $t('home.indTitle') }}</h2>
+        <p class="mt-3 text-sm leading-relaxed text-muted">
+          {{ $t('home.indText') }}<a
+            href="https://www.state.gov/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-brand hover:underline"
+          >{{ $t('home.indState') }}</a>{{ $t('home.indComma') }}<a
+            href="https://www.gov.uk/government/organisations/hm-passport-office"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-brand hover:underline"
+          >{{ $t('home.indHMPO') }}</a>{{ $t('home.indTail') }}
+        </p>
+        <p class="mt-3 text-sm leading-relaxed text-muted">
+          <NuxtLink :to="localePath('/global-id-photo-compliance')" class="text-brand hover:underline">
+            {{ $t('home.indLearnMore') }}
+          </NuxtLink>{{ $t('home.indLearnMoreAfter') }}
+          <NuxtLink :to="localePath('/us-id-photo-compliance')" class="text-brand hover:underline">
+            {{ $t('home.indNotice') }}
+          </NuxtLink>{{ $t('home.indNoticeAfter') }}
+        </p>
+      </div>
+    </section>
+
     <!-- FROM THE BLOG -->
     <section class="container-pg py-14">
       <div class="flex items-end justify-between">
@@ -402,13 +438,6 @@ const docTypes = [
         </div>
         <NuxtLink :to="localePath('/faq')" class="btn-primary shrink-0">{{ $t('home.readFaq') }}</NuxtLink>
       </div>
-    </section>
-
-    <!-- COMPLIANCE & INDEPENDENCE -->
-    <section class="container-pg pb-14">
-      <p class="mx-auto max-w-3xl rounded-xl border border-slate-200 bg-white p-5 text-xs leading-relaxed text-muted">
-        {{ $t('home.independence') }}
-      </p>
     </section>
 
     <!-- CTA -->
