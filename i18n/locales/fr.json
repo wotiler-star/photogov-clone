@@ -235,7 +235,11 @@
     "heroCtaBtn": "Obtenir ma photo d'identité",
     "reviewLabel": "Excellent",
     "reviewCount": "56 546",
-    "reviewOn": "avis sur"
+    "reviewOn": "avis sur",
+    "usersSayEyebrow": "Avis",
+    "usersSayTitle": "Ce que nos utilisateurs disent de nous",
+    "usersSaySub": "Retours réels de personnes ayant créé leurs photos de passeport, visa et identité avec PhotoGov.",
+    "seeAllReviews": "Voir tous les avis"
   },
   "documents": {
     "eyebrow": "Documents",

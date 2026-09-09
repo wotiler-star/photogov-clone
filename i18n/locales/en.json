@@ -235,7 +235,11 @@
     "heroCtaBtn": "Get Your ID Photo",
     "reviewLabel": "Excellent",
     "reviewCount": "56,546",
-    "reviewOn": "reviews on"
+    "reviewOn": "reviews on",
+    "usersSayEyebrow": "Reviews",
+    "usersSayTitle": "What Our Users Have to Say About Us",
+    "usersSaySub": "Real feedback from people who made their passport, visa and ID photos with PhotoGov.",
+    "seeAllReviews": "See all reviews"
   },
   "documents": {
     "eyebrow": "Documents",

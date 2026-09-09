@@ -235,7 +235,11 @@
     "heroCtaBtn": "获取我的证件照",
     "reviewLabel": "优秀",
     "reviewCount": "56,546",
-    "reviewOn": "条评价来自"
+    "reviewOn": "条评价来自",
+    "usersSayEyebrow": "用户评价",
+    "usersSayTitle": "用户如何评价我们",
+    "usersSaySub": "来自使用 PhotoGov 制作护照、签证与证件照的用户真实反馈。",
+    "seeAllReviews": "查看全部评价"
   },
   "documents": {
     "eyebrow": "证件",

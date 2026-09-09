@@ -8,6 +8,7 @@ import { useRequestURL } from '#imports'
 
 const { popularDocuments, countriesByCode, quickLinks, documents, blogPosts } = useData()
 const url = useRequestURL()
+const localePath = useLocalePath()
 
 useHead(() => {
   const desc = 'Make compliant passport, visa and ID photos online in seconds. Free tool with country-specific size specs, white/blue background, and instant JPG/PDF download.'
@@ -351,13 +352,43 @@ const docTypes = [
           <span class="eyebrow">{{ $t('home.blogEyebrow') }}</span>
           <h2 class="mt-2 text-3xl font-bold">{{ $t('home.blogTitle') }}</h2>
         </div>
-        <NuxtLink to="/blog" class="btn-outline hidden sm:inline-flex">{{ $t('home.viewAllArticles') }}</NuxtLink>
+        <NuxtLink :to="localePath('/blog')" class="btn-outline hidden sm:inline-flex">{{ $t('home.viewAllArticles') }}</NuxtLink>
       </div>
       <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         <BlogCard v-for="p in latestPosts" :key="p.slug" :post="p" />
       </div>
       <div class="mt-6 text-center sm:hidden">
-        <NuxtLink to="/blog" class="btn-outline">{{ $t('home.viewAllArticles') }}</NuxtLink>
+        <NuxtLink :to="localePath('/blog')" class="btn-outline">{{ $t('home.viewAllArticles') }}</NuxtLink>
+      </div>
+    </section>
+
+    <!-- WHAT OUR USERS SAY -->
+    <section class="bg-slate-50 py-14">
+      <div class="container-pg">
+        <div class="text-center">
+          <span class="eyebrow">{{ $t('home.usersSayEyebrow') }}</span>
+          <h2 class="mt-2 text-3xl font-bold">{{ $t('home.usersSayTitle') }}</h2>
+          <p class="mx-auto mt-3 max-w-2xl text-muted">{{ $t('home.usersSaySub') }}</p>
+        </div>
+        <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <figure
+            v-for="(u, i) in $tm('reviewsPage.users')"
+            :key="i"
+            class="card-pg flex flex-col p-5"
+          >
+            <div class="flex items-center gap-1 text-amber-500" aria-label="5 / 5">
+              <span v-for="s in 5" :key="s">★</span>
+            </div>
+            <blockquote class="mt-3 flex-1 text-sm text-muted">{{ u.text }}</blockquote>
+            <figcaption class="mt-4 text-sm font-semibold">
+              {{ u.name }}
+              <span v-if="u.when" class="block text-xs font-normal text-muted">{{ u.when }}</span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="mt-8 text-center">
+          <NuxtLink :to="localePath('/reviews')" class="btn-outline">{{ $t('home.seeAllReviews') }}</NuxtLink>
+        </div>
       </div>
     </section>
 
@@ -369,7 +400,7 @@ const docTypes = [
           <h2 class="text-xl font-bold">{{ $t('home.faqTitle') }}</h2>
           <p class="mt-1 text-sm text-muted">{{ $t('home.faqText') }}</p>
         </div>
-        <NuxtLink to="/faq" class="btn-primary shrink-0">{{ $t('home.readFaq') }}</NuxtLink>
+        <NuxtLink :to="localePath('/faq')" class="btn-primary shrink-0">{{ $t('home.readFaq') }}</NuxtLink>
       </div>
     </section>
 
@@ -387,7 +418,7 @@ const docTypes = [
         <p class="mx-auto mt-3 max-w-xl text-white/70">
           {{ $t('home.ctaText') }}
         </p>
-        <NuxtLink to="/documents" class="btn-yellow mt-6">{{ $t('home.startNow') }}</NuxtLink>
+        <NuxtLink :to="localePath('/documents')" class="btn-yellow mt-6">{{ $t('home.startNow') }}</NuxtLink>
       </div>
     </section>
   </div>

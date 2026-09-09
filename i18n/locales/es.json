@@ -235,7 +235,11 @@
     "heroCtaBtn": "Obtener mi foto de ID",
     "reviewLabel": "Excelente",
     "reviewCount": "56.546",
-    "reviewOn": "reseñas en"
+    "reviewOn": "reseñas en",
+    "usersSayEyebrow": "Reseñas",
+    "usersSayTitle": "Lo que dicen nuestros usuarios",
+    "usersSaySub": "Opiniones reales de personas que crearon sus fotos de pasaporte, visado e identificación con PhotoGov.",
+    "seeAllReviews": "Ver todas las reseñas"
   },
   "documents": {
     "eyebrow": "Documentos",
