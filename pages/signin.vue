@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const localePath = useLocalePath()
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useAuth } from '~/composables/useAuth'
@@ -105,7 +106,7 @@ useHead({ title: t('signin.signIn') })
       </form>
 
       <div v-if="mode === 'signin'" class="mt-3 text-center">
-        <NuxtLink to="/forgot-password" class="text-xs text-accent hover:underline">
+        <NuxtLink :to="localePath('/forgot-password')" class="text-xs text-accent hover:underline">
           {{ $t('signin.forgot') }}
         </NuxtLink>
       </div>

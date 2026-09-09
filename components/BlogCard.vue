@@ -1,5 +1,6 @@
 <script setup lang="ts">
 defineProps<{ post: any }>()
+const localePath = useLocalePath()
 function fmt(d: string) {
   try {
     return new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
@@ -11,7 +12,7 @@ function fmt(d: string) {
 
 <template>
   <NuxtLink
-    :to="`/blog/${post.slug}`"
+    :to="localePath(`/blog/${post.slug}`)"
     class="card-pg group flex flex-col overflow-hidden transition hover:-translate-y-0.5 hover:shadow-card"
   >
     <!-- 封面 -->

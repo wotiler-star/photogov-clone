@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const localePath = useLocalePath()
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useApi } from '~/composables/useApi'
@@ -54,7 +55,7 @@ useHead({ title: t('forgot.title') })
           {{ $t('forgot.devHint') }}<br />
           <a :href="devLink" class="underline break-all">{{ devLink }}</a>
         </p>
-        <NuxtLink to="/signin" class="btn-outline mt-4 inline-flex">{{ $t('forgot.backToSignIn') }}</NuxtLink>
+        <NuxtLink :to="localePath('/signin')" class="btn-outline mt-4 inline-flex">{{ $t('forgot.backToSignIn') }}</NuxtLink>
       </div>
     </div>
   </div>

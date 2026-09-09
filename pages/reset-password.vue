@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const localePath = useLocalePath()
 import { ref, computed } from 'vue'
 import { useRoute } from '#imports'
 import { useI18n } from 'vue-i18n'
@@ -83,12 +84,12 @@ useHead({ title: t('reset.title') })
         <div class="rounded-xl bg-green-50 p-4 text-sm text-green-700">
           <p class="font-medium">{{ $t('reset.success') }}</p>
         </div>
-        <NuxtLink to="/signin" class="btn-primary mt-4 inline-flex">{{ $t('reset.goSignIn') }}</NuxtLink>
+        <NuxtLink :to="localePath('/signin')" class="btn-primary mt-4 inline-flex">{{ $t('reset.goSignIn') }}</NuxtLink>
       </div>
 
       <div v-else class="mt-6">
         <p class="rounded-xl bg-red-50 p-4 text-sm text-red-600">{{ $t('reset.invalid') }}</p>
-        <NuxtLink to="/forgot-password" class="btn-outline mt-4 inline-flex">{{ $t('reset.backToForgot') }}</NuxtLink>
+        <NuxtLink :to="localePath('/forgot-password')" class="btn-outline mt-4 inline-flex">{{ $t('reset.backToForgot') }}</NuxtLink>
       </div>
     </div>
   </div>

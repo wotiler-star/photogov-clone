@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const localePath = useLocalePath()
 import { computed, ref, watch, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from '#imports'
@@ -182,7 +183,7 @@ useHead({ title: t('account.title') })
             {{ $t('account.renewsOn') }} {{ expiresOn }}
           </p>
           <div class="mt-4 flex flex-wrap gap-3">
-            <NuxtLink v-if="!status.isPremium" to="/prices" class="btn-primary">
+            <NuxtLink v-if="!status.isPremium" :to="localePath('/prices')" class="btn-primary">
               {{ $t('account.upgradeCta') }}
             </NuxtLink>
             <button
@@ -192,7 +193,7 @@ useHead({ title: t('account.title') })
               :disabled="cancelling"
               @click="onCancel"
             >{{ cancelling ? $t('account.cancelling') : $t('account.cancelPlan') }}</button>
-            <NuxtLink to="/prices" class="btn-outline">{{ $t('account.managePlans') }}</NuxtLink>
+            <NuxtLink :to="localePath('/prices')" class="btn-outline">{{ $t('account.managePlans') }}</NuxtLink>
           </div>
         </div>
 
@@ -257,7 +258,7 @@ useHead({ title: t('account.title') })
       <!-- 未登录：引导登录 -->
       <div v-else-if="loaded" class="card-pg p-8 text-center">
         <h1 class="font-serif text-2xl font-bold text-ink">{{ $t('account.needLogin') }}</h1>
-        <NuxtLink to="/signin" class="btn-primary mt-6 inline-flex">
+        <NuxtLink :to="localePath('/signin')" class="btn-primary mt-6 inline-flex">
           {{ $t('account.goSignIn') }}
         </NuxtLink>
       </div>

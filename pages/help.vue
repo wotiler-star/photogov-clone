@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const localePath = useLocalePath()
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 const { t, tm } = useI18n()
@@ -22,7 +23,7 @@ const faqs = computed(() => (tm('help.qa') as Array<{ q: string, a: string }>) |
 
       <div class="mt-8 rounded-2xl bg-slate-50 p-6 text-center">
         <p class="text-muted">{{ $t('help.stillNeed') }}</p>
-        <NuxtLink to="/support" class="btn-primary mt-3">{{ $t('help.btn') }}</NuxtLink>
+        <NuxtLink :to="localePath('/support')" class="btn-primary mt-3">{{ $t('help.btn') }}</NuxtLink>
       </div>
     </div>
   </div>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const localePath = useLocalePath()
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import BlogCard from '~/components/BlogCard.vue'
@@ -72,7 +73,7 @@ const rel = computed(() => (post.value ? relatedPosts(post.value.slug, 3) : []))
     >
       <div class="container-pg py-12">
         <nav class="text-sm text-muted">
-          <NuxtLink to="/blog" class="hover:text-brand-blue">Blog</NuxtLink>
+          <NuxtLink :to="localePath('/blog')" class="hover:text-brand-blue">Blog</NuxtLink>
           <span class="mx-1">/</span>
           <span class="text-ink">{{ post.category }}</span>
         </nav>
@@ -107,13 +108,13 @@ const rel = computed(() => (post.value ? relatedPosts(post.value.slug, 3) : []))
           <div class="card-pg p-5">
             <h3 class="font-semibold text-ink">{{ $t('blog.sidebarTitle') }}</h3>
             <p class="mt-1 text-sm text-muted">{{ $t('blog.sidebarText') }}</p>
-            <NuxtLink to="/documents" class="btn-primary mt-3 w-full">{{ $t('blog.sidebarBtn') }}</NuxtLink>
+            <NuxtLink :to="localePath('/documents')" class="btn-primary mt-3 w-full">{{ $t('blog.sidebarBtn') }}</NuxtLink>
           </div>
           <div class="card-pg p-5" v-if="rel.length">
             <h3 class="font-semibold text-ink">{{ $t('blog.relatedTitle') }}</h3>
             <ul class="mt-3 space-y-3">
               <li v-for="r in rel" :key="r.slug">
-                <NuxtLink :to="`/blog/${r.slug}`" class="flex gap-3 group">
+                <NuxtLink :to="localePath(`/blog/${r.slug}`)" class="flex gap-3 group">
                   <span class="text-xl">{{ r.cover }}</span>
                   <span class="text-sm text-muted group-hover:text-brand-blue">{{ r.title }}</span>
                 </NuxtLink>
@@ -135,7 +136,7 @@ const rel = computed(() => (post.value ? relatedPosts(post.value.slug, 3) : []))
 
   <div v-else class="container-pg py-20 text-center">
     <h1 class="text-2xl font-bold">{{ $t('blog.notFoundTitle') }}</h1>
-    <NuxtLink to="/blog" class="btn-primary mt-4">{{ $t('blog.back') }}</NuxtLink>
+    <NuxtLink :to="localePath('/blog')" class="btn-primary mt-4">{{ $t('blog.back') }}</NuxtLink>
   </div>
 </template>
 

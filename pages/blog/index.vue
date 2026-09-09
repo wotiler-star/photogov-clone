@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const localePath = useLocalePath()
 import { ref, computed } from 'vue'
 import BlogCard from '~/components/BlogCard.vue'
 import { useData } from '~/composables/useData'
@@ -88,7 +89,7 @@ useHead(() => {
       <!-- 精选 -->
       <div v-if="featured" class="mt-10">
         <NuxtLink
-          :to="`/blog/${featured.slug}`"
+          :to="localePath(`/blog/${featured.slug}`)"
           class="card-pg group grid overflow-hidden transition hover:shadow-card lg:grid-cols-2"
         >
           <div

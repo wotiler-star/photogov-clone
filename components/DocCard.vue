@@ -3,11 +3,12 @@ import type { PhotoDoc } from '~/composables/useData'
 import { useData } from '~/composables/useData'
 defineProps<{ doc: PhotoDoc; flag?: string }>()
 const { countryName } = useData()
+const localePath = useLocalePath()
 </script>
 
 <template>
   <NuxtLink
-    :to="`/document/${doc.slug}`"
+    :to="localePath(`/document/${doc.slug}`)"
     class="card-pg group flex items-center gap-3 p-3 transition hover:-translate-y-0.5 hover:shadow-card"
   >
     <div class="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-lg bg-brand-blue/10 text-lg">

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const localePath = useLocalePath()
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useRequestURL } from '#imports'
@@ -151,7 +152,7 @@ const reqs = computed(() => {
     <div class="container-pg py-10">
       <!-- 面包屑 -->
       <nav class="text-sm text-muted">
-        <NuxtLink to="/documents" class="hover:text-brand-blue">{{ $t('doc.eyebrow') }}</NuxtLink>
+        <NuxtLink :to="localePath('/documents')" class="hover:text-brand-blue">{{ $t('doc.eyebrow') }}</NuxtLink>
         <span class="mx-1">/</span>
         <span>{{ flagFor(doc.country) }} {{ nameFor(doc.country) }}</span>
         <span class="mx-1">/</span>
@@ -233,6 +234,6 @@ const reqs = computed(() => {
 
   <div v-else class="container-pg py-20 text-center">
     <h1 class="text-2xl font-bold">{{ $t('doc.notFoundTitle') }}</h1>
-    <NuxtLink to="/documents" class="btn-primary mt-4">{{ $t('doc.browse') }}</NuxtLink>
+    <NuxtLink :to="localePath('/documents')" class="btn-primary mt-4">{{ $t('doc.browse') }}</NuxtLink>
   </div>
 </template>

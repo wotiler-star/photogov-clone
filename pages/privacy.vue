@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const localePath = useLocalePath()
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 const year = new Date().getFullYear()
@@ -29,7 +30,7 @@ useHead({ title: t('legal.privacyTitle') })
           <h2 class="text-xl font-semibold text-ink">{{ $t('legal.secCookiesTitle') }}</h2>
           <i18n-t keypath="legal.secCookiesText" tag="p" class="mt-1">
             <template #cookie>
-              <NuxtLink to="/cookies" class="text-brand-blue underline">{{ $t('legal.cookieLink') }}</NuxtLink>
+              <NuxtLink :to="localePath('/cookies')" class="text-brand-blue underline">{{ $t('legal.cookieLink') }}</NuxtLink>
             </template>
           </i18n-t>
         </section>
@@ -37,7 +38,7 @@ useHead({ title: t('legal.privacyTitle') })
           <h2 class="text-xl font-semibold text-ink">{{ $t('legal.secContactTitle') }}</h2>
           <i18n-t keypath="legal.secContactText" tag="p" class="mt-1">
             <template #contact>
-              <NuxtLink to="/support" class="text-brand-blue underline">{{ $t('legal.contactLink') }}</NuxtLink>
+              <NuxtLink :to="localePath('/support')" class="text-brand-blue underline">{{ $t('legal.contactLink') }}</NuxtLink>
             </template>
           </i18n-t>
         </section>

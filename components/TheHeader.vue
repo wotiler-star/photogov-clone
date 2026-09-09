@@ -8,6 +8,7 @@ import LanguageSwitcher from '~/components/LanguageSwitcher.vue'
 const { countries, countryName } = useData()
 const { code, setCode } = useCountry()
 const { user } = useAuth()
+const localePath = useLocalePath()
 
 const open = ref(false)
 const query = ref('')
@@ -43,7 +44,7 @@ const navItems = [
 const select = (c: string) => {
   setCode(c)
   open.value = false
-  navigateTo(`/documents?country=${c}`)
+  navigateTo(localePath(`/documents?country=${c}`))
 }
 
 const onDocClick = (e: MouseEvent) => {
@@ -74,10 +75,10 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
         </div>
         <nav class="flex items-center gap-4">
           <LanguageSwitcher />
-          <NuxtLink to="/support" class="hover:text-white">{{ $t('nav.contactUs') }}</NuxtLink>
-          <NuxtLink to="/help" class="hover:text-white">{{ $t('nav.helpCenter') }}</NuxtLink>
-          <NuxtLink v-if="user" to="/account" class="hover:text-white">{{ $t('nav.account') }}</NuxtLink>
-          <NuxtLink v-else to="/signin" class="hover:text-white">{{ $t('nav.signIn') }}</NuxtLink>
+          <NuxtLink :to="localePath('/support')" class="hover:text-white">{{ $t('nav.contactUs') }}</NuxtLink>
+          <NuxtLink :to="localePath('/help')" class="hover:text-white">{{ $t('nav.helpCenter') }}</NuxtLink>
+          <NuxtLink v-if="user" :to="localePath('/account')" class="hover:text-white">{{ $t('nav.account') }}</NuxtLink>
+          <NuxtLink v-else :to="localePath('/signin')" class="hover:text-white">{{ $t('nav.signIn') }}</NuxtLink>
         </nav>
       </div>
 
@@ -114,7 +115,7 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
     <!-- 主导航 -->
     <div class="bg-header text-white shadow-soft">
       <div class="container-pg flex h-16 items-center justify-between">
-        <NuxtLink to="/" class="flex items-center gap-2 text-xl font-bold">
+        <NuxtLink :to="localePath('/')" class="flex items-center gap-2 text-xl font-bold">
           <span class="grid h-9 w-9 place-items-center rounded-xl bg-accent-yellow text-header">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M3 8.5C3 7.7 3.7 7 4.5 7h15c.8 0 1.5.7 1.5 1.5v9c0 .8-.7 1.5-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-9Z" stroke="currentColor" stroke-width="1.8"/>
@@ -129,7 +130,7 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
           <NuxtLink
             v-for="item in navItems"
             :key="item.to"
-            :to="item.to"
+            :to="localePath(item.to)"
             class="rounded-full px-4 py-2 text-sm font-medium text-white/85 hover:bg-white/10 hover:text-white"
           >
             {{ $t(item.label) }}
@@ -137,7 +138,7 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
         </nav>
 
         <div class="flex items-center gap-2">
-          <NuxtLink to="/documents" class="btn-primary hidden sm:inline-flex">
+          <NuxtLink :to="localePath('/documents')" class="btn-primary hidden sm:inline-flex">
             {{ $t('nav.makePhoto') }}
           </NuxtLink>
           <button

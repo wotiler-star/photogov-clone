@@ -173,7 +173,7 @@ const docTypes = [
           <span class="eyebrow">{{ $t('home.popularEyebrow') }}</span>
           <h2 class="mt-2 text-3xl font-bold">{{ $t('home.popularTitle') }}</h2>
         </div>
-        <NuxtLink to="/documents" class="btn-outline hidden sm:inline-flex">{{ $t('common.viewAll') }}</NuxtLink>
+        <NuxtLink :to="localePath('/documents')" class="btn-outline hidden sm:inline-flex">{{ $t('common.viewAll') }}</NuxtLink>
       </div>
       <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <DocCard v-for="d in popular" :key="d.slug" :doc="d" :flag="flagFor(d.country)" />
@@ -189,7 +189,7 @@ const docTypes = [
           <NuxtLink
             v-for="d in quick"
             :key="d.slug"
-            :to="`/document/${d.slug}`"
+            :to="localePath(`/document/${d.slug}`)"
             class="chip !px-4 !py-2 !text-sm hover:bg-brand-blue hover:text-white"
           >
             <img :src="flagFor(d.country)" :alt="d.country" class="h-4 w-4 rounded-sm" /> {{ d.name }}
@@ -288,7 +288,7 @@ const docTypes = [
           <NuxtLink
             v-for="t in docTypes"
             :key="t.cat"
-            :to="`/documents?category=${t.cat}`"
+            :to="localePath(`/documents?category=${t.cat}`)"
             class="card-pg group p-5 transition hover:-translate-y-0.5 hover:shadow-card"
           >
             <h3 class="text-lg font-semibold">{{ t.label }}</h3>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const localePath = useLocalePath()
 import { ref, onMounted } from 'vue'
 import { useRoute } from '#imports'
 import { useI18n } from 'vue-i18n'
@@ -37,13 +38,13 @@ useHead({ title: t('verify.title') })
         <div class="mb-4 text-4xl">✅</div>
         <h1 class="font-serif text-2xl font-bold text-ink">{{ $t('verify.verified') }}</h1>
         <p class="mt-2 text-sm text-muted">{{ $t('verify.verifiedText') }}</p>
-        <NuxtLink to="/account" class="btn-primary mt-6 inline-flex">{{ $t('verify.goAccount') }}</NuxtLink>
+        <NuxtLink :to="localePath('/account')" class="btn-primary mt-6 inline-flex">{{ $t('verify.goAccount') }}</NuxtLink>
       </template>
       <template v-else>
         <div class="mb-4 text-4xl">⚠️</div>
         <h1 class="font-serif text-2xl font-bold text-ink">{{ $t('verify.expired') }}</h1>
         <p class="mt-2 text-sm text-muted">{{ $t('verify.expiredText') }}</p>
-        <NuxtLink to="/signin" class="btn-outline mt-6 inline-flex">{{ $t('verify.backToSignIn') }}</NuxtLink>
+        <NuxtLink :to="localePath('/signin')" class="btn-outline mt-6 inline-flex">{{ $t('verify.backToSignIn') }}</NuxtLink>
       </template>
     </div>
   </div>
