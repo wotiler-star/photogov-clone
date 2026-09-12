@@ -7,6 +7,7 @@
 // any domain (preview, production, custom domain).
 import documents from '../../data/documents.json'
 import blog from '../../data/blog.json'
+import knowledge from '../../data/knowledge.json'
 
 const LOCALES = ['en', 'zh', 'es', 'fr']
 const HREFLANG: Record<string, string> = {
@@ -70,7 +71,11 @@ export default defineEventHandler((event) => {
   const allPages: Array<{ p: string; pri: string; freq: string }> = [
     ...staticPages,
     ...docSlugs.map((slug) => ({ p: `/documents/${slug}`, pri: '0.8', freq: 'monthly' })),
-    ...blogSlugs.map((slug) => ({ p: `/blog/${slug}`, pri: '0.6', freq: 'monthly' }))
+    ...blogSlugs.map((slug) => ({ p: `/blog/${slug}`, pri: '0.6', freq: 'monthly' })),
+    // knowledge 详情页（/knowledge/<category>/<slug>）
+    ...Object.keys(knowledge as Record<string, any>).map((k) => ({
+      p: `/knowledge/${k}`, pri: '0.7', freq: 'monthly'
+    }))
   ]
 
   for (const page of allPages) {

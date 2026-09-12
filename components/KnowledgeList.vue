@@ -1,24 +1,23 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import BlogCard from '~/components/BlogCard.vue'
-import { useData } from '~/composables/useData'
+import knowledge from '~/data/knowledge.json'
 
-type Kind = 'popular' | 'requirements' | 'guides' | 'standards'
+type Kind = 'popular' | 'requirements' | 'guides' | 'standards' | 'faq'
 
 const props = defineProps<{ kind: Kind }>()
 
 const { t } = useI18n()
 const localePath = useLocalePath()
-const { blogPosts } = useData()
-const posts = blogPosts()
 
-// 目标站知识中心三分类 → 本站文章分类的映射
-const MAP: Record<Exclude<Kind, 'popular'>, string[]> = {
-  requirements: ['Country Spotlight', 'News'],
-  guides: ['Guides'],
-  standards: ['Tips']
-}
+// 知识库正文数据（抓取自 photogov.net /knowledge/<cat>/<slug>/）
+const KN = knowledge as Record<string, any>
+const all = computed(() => Object.values(KN))
+
+const list = computed(() => {
+  if (props.kind === 'popular') return all.value.slice(0, 12)
+  return all.value.filter((e: any) => e.cat === props.kind)
+})
 
 const tabs = computed(() => [
   { key: 'popular', label: t('knowledge.tabPopular'), to: '/knowledge' },
@@ -26,13 +25,6 @@ const tabs = computed(() => [
   { key: 'guides', label: t('knowledge.tabGuides'), to: '/knowledge/guides' },
   { key: 'standards', label: t('knowledge.tabStandards'), to: '/knowledge/standards' }
 ])
-
-const list = computed(() => {
-  const arr = props.kind === 'popular'
-    ? [...posts]
-    : posts.filter((p: any) => MAP[props.kind as Exclude<Kind, 'popular'>].includes(p.category))
-  return arr.slice().sort((a: any, b: any) => (a.date < b.date ? 1 : -1))
-})
 </script>
 
 <template>
@@ -63,7 +55,18 @@ const list = computed(() => {
       </nav>
 
       <div v-if="list.length" class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <BlogCard v-for="p in list" :key="p.slug" :post="p" />
+        <NuxtLink
+          v-for="e in list"
+          :key="e.slug"
+          :to="localePath(`/knowledge/${e.cat}/${e.slug}`)"
+          class="card-pg block p-5 transition hover:border-brand-blue hover:shadow-sm"
+        >
+          <span class="text-xs font-semibold uppercase tracking-wide text-brand-blue">{{ e.cat }}</span>
+          <h2 class="mt-2 text-base font-semibold leading-snug">{{ e.h1 }}</h2>
+          <p class="mt-2 text-sm text-muted">
+            {{ String(e.sections.find((s: any) => s.items.length)?.items[0] || '').slice(0, 150) }}
+          </p>
+        </NuxtLink>
       </div>
       <p v-else class="mt-10 text-muted">{{ $t('knowledge.empty') }}</p>
     </div>
