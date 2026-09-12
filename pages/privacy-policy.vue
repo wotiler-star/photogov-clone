@@ -30,7 +30,7 @@ useHead({ title: t('legal.privacyTitle') })
           <h2 class="text-xl font-semibold text-ink">{{ $t('legal.secCookiesTitle') }}</h2>
           <i18n-t keypath="legal.secCookiesText" tag="p" class="mt-1">
             <template #cookie>
-              <NuxtLink :to="localePath('/cookies')" class="text-brand-blue underline">{{ $t('legal.cookieLink') }}</NuxtLink>
+              <NuxtLink :to="localePath('/cookie-policy')" class="text-brand-blue underline">{{ $t('legal.cookieLink') }}</NuxtLink>
             </template>
           </i18n-t>
         </section>

@@ -1167,5 +1167,50 @@
     "commitText": "PhotoGov fully complies with these regulations across all jurisdictions. We perform only permitted adjustments — such as sizing, cropping, and background correction — strictly within the limits defined by government and international standards.",
     "whyTitle": "Why Compliance Matters",
     "whyText": "Digital alterations can distort essential biometric characteristics such as facial proportions, eye spacing, or skin tone. By strictly following national and international rules, PhotoGov guarantees that every photo generated on our platform is suitable for official identification and passport applications worldwide."
+  },
+  "euPrivacy": {
+    "eyebrow": "EU Data Protection",
+    "intro": "Learn how PhotoGov complies with the EU General Data Protection Regulation to protect user data.",
+    "h1": "PhotoGov’s Compliance With the EU Privacy Laws",
+    "lead": "When you use our service you entrust us with your valuable information. We have made it a priority to protect your data and to provide you with choices about controlling it. We understand that there are particular concerns from companies in the EU about how we use and protect your data, so we put the strongest safeguards in place.",
+    "sec1Title": "Security and Privacy at PhotoGov.net",
+    "s1h1": "Commitment to Data Protection",
+    "s1p1": "At PhotoGov.net, safeguarding your privacy and securing your personal data is our top priority. We are committed to implementing robust security measures and maintaining transparency in our data processing practices.",
+    "s1h2": "Our Security Measures",
+    "s1p2": "We employ a comprehensive array of security technologies and procedures to help protect your personal information from unauthorized access, use, or disclosure. This includes:",
+    "sec2Title": "EU General Data Protection Regulation (GDPR)",
+    "s2h1": "Understanding GDPR",
+    "s2p1": "The General Data Protection Regulation (GDPR), enacted by the European Commission in 2016, represents a significant overhaul of data protection regulations across the EU. This regulation, which replaced the previous Data Protection Directive and member state laws, has been enforceable since May 25, 2018.",
+    "s2h2": "The Significance of GDPR",
+    "s2p2": "GDPR introduces stringent new requirements for how organizations must handle individuals' data. It emphasizes transparency, security, and accountability by organizations, while also providing individuals with significant rights over their personal data. The regulation enhances the penalties for non-compliance, reflecting the EU's commitment to protecting personal information.",
+    "s2h3": "PhotoGov.net's Approach to GDPR Compliance",
+    "s2p3": "At PhotoGov.net, we take our responsibility to protect your data seriously. Our teams dedicated to compliance, data protection, and information security work diligently to ensure that our services are fully aligned with GDPR requirements.",
+    "s2stepsTitle": "Here are the steps we have taken to ensure compliance:",
+    "s2li": [
+      "Data Processing Agreement (DPA): We offer a GDPR-compliant DPA that outlines how we process and protect your data.",
+      "Technical and Organizational Measures: We have implemented comprehensive security measures to safeguard your data. Details of these measures can be found in our security documentation.",
+      "Sub-processor Transparency: We maintain a list of our sub-processors and provide you with the opportunity to object to new ones.",
+      "Employee Confidentiality: We ensure that all our employees are committed to maintaining the confidentiality and security of your information.",
+      "Data Subject Requests: We have established procedures to help you respond to requests from your customers or end users for access, amendment, or deletion of their personal data.",
+      "Data Breach Notification: In the unlikely event of a data breach, we are prepared to inform you without undue delay.",
+      "Data Retention and Deletion: Upon the termination of our services, we will delete your customer/end-user information upon your request."
+    ],
+    "sec3Title": "Data Processing Addendum",
+    "s3h1": "International Data Transfers",
+    "s3p1": "In compliance with GDPR's provisions on international data transfers, we have developed a standard DPA that includes the updated Standard Contractual Clauses (SCCs) for data transfers outside the EU. This ensures that your data remains protected according to EU standards, regardless of where it is processed.",
+    "s3h2": "DPA Standard Terms and Conditions",
+    "s3p2": "To ensure consistency and GDPR compliance, PhotoGov.net strictly adheres to our standard DPA terms and conditions, which reflect the requirements of the GDPR and include updated Standard Contractual Clauses (SCC). We cannot accept custom DPAs or agree to any inconsistent or additional terms beyond our standard agreement.",
+    "s3h3": "List of sub-processors",
+    "s3p3": "Specific sub-processors and their security levels:",
+    "s3li": [
+      "HETZNER: Our sub-processor Hetzner is certified according to DIN ISO/IEC 27001, ensuring top-level information security. Their data centers are equipped with video-monitored high-security perimeter fencing, electronic access control terminals, and comprehensive security measures to protect data.",
+      "DIGITAL OCEAN: Digital Ocean provides a secure hosting environment, implementing robust security measures to protect customer data and ensure compliance with industry standards. Their data centers offer high levels of security for data and applications."
+    ],
+    "s3h4": "Cross-Border Data Transfers",
+    "s3p4": "We ensure all cross-border data transfers comply with GDPR and other applicable laws, using approved mechanisms such as Standard Contractual Clauses (SCCs).",
+    "s3h5": "Your Rights and Choices",
+    "s3p5": "We respect your data rights, offering mechanisms to access, correct, or delete your personal data and manage consent.",
+    "s3h6": "Contact Us",
+    "s3p6": "For any inquiries regarding our data protection practices, please contact our Data Protection Officer at {email}."
   }
 }

@@ -15,7 +15,7 @@ const cols = [
   {
     title: 'footer.colCompany',
     links: [
-      { label: 'footer.links.aboutUs', to: '/about' },
+      { label: 'footer.links.aboutUs', to: '/about-us' },
       { label: 'footer.links.contacts', to: '/support' },
       { label: 'footer.links.prices', to: '/prices' }
     ]
@@ -34,9 +34,9 @@ const cols = [
   {
     title: 'footer.colLegal',
     links: [
-      { label: 'footer.links.termsOfUse', to: '/terms' },
-      { label: 'footer.links.privacyPolicy', to: '/privacy' },
-      { label: 'footer.links.cookiePolicy', to: '/cookies' },
+      { label: 'footer.links.termsOfUse', to: '/terms-of-use' },
+      { label: 'footer.links.privacyPolicy', to: '/privacy-policy' },
+      { label: 'footer.links.cookiePolicy', to: '/cookie-policy' },
       { label: 'footer.links.refundPolicy', to: '/refund-policy' },
       { label: 'footer.links.euPrivacy', to: '/compliance' },
       { label: 'footer.links.usCompliance', to: '/us-id-photo-compliance' },

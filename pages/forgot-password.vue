@@ -55,7 +55,7 @@ useHead({ title: t('forgot.title') })
           {{ $t('forgot.devHint') }}<br />
           <a :href="devLink" class="underline break-all">{{ devLink }}</a>
         </p>
-        <NuxtLink :to="localePath('/signin')" class="btn-outline mt-4 inline-flex">{{ $t('forgot.backToSignIn') }}</NuxtLink>
+        <NuxtLink :to="localePath('/sign-in')" class="btn-outline mt-4 inline-flex">{{ $t('forgot.backToSignIn') }}</NuxtLink>
       </div>
     </div>
   </div>

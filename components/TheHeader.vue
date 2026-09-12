@@ -29,16 +29,13 @@ const filtered = computed(() => {
   )
 })
 
+// 与 photogov.net 一致的主导航（大写 + 下划线）
 const navItems = [
   { label: 'nav.dvLottery', to: '/dv-lottery' },
   { label: 'nav.documents', to: '/documents' },
-  { label: 'nav.about', to: '/about' },
-  { label: 'nav.howItWorks', to: '/how-it-works' },
-  { label: 'nav.prices', to: '/prices' },
-  { label: 'nav.whyChooseUs', to: '/why-choose-us' },
-  { label: 'nav.reviews', to: '/reviews' },
-  { label: 'nav.security', to: '/security' },
-  { label: 'nav.faq', to: '/faq' }
+  { label: 'nav.passports', to: '/passports' },
+  { label: 'nav.visas', to: '/visas' },
+  { label: 'nav.about', to: '/about-us' }
 ]
 
 const select = (c: string) => {
@@ -58,88 +55,116 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
 <template>
   <header ref="root" class="sticky top-0 z-50">
     <!-- 顶部条 -->
-    <div class="bg-header-2 text-white/90">
-      <div class="container-pg flex h-10 items-center justify-between text-xs">
-        <div class="flex items-center gap-3">
-          <button
-            class="flex items-center gap-2 rounded-full px-2 py-1 hover:bg-white/10"
-            @click="open = !open"
-          >
-            <span class="text-base leading-none">{{ current.flag }}</span>
-            <span class="font-medium">{{ countryName(current.code) }}</span>
-            <svg width="12" height="12" viewBox="0 0 12 12" class="opacity-70">
-              <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" />
-            </svg>
-          </button>
-          <span class="hidden sm:inline opacity-60">{{ $t('header.countryBar') }}</span>
-        </div>
-        <nav class="flex items-center gap-4">
-          <LanguageSwitcher />
-          <NuxtLink :to="localePath('/support')" class="hover:text-white">{{ $t('nav.contactUs') }}</NuxtLink>
-          <NuxtLink :to="localePath('/help')" class="hover:text-white">{{ $t('nav.helpCenter') }}</NuxtLink>
-          <NuxtLink v-if="user" :to="localePath('/account')" class="hover:text-white">{{ $t('nav.account') }}</NuxtLink>
-          <NuxtLink v-else :to="localePath('/signin')" class="hover:text-white">{{ $t('nav.signIn') }}</NuxtLink>
-        </nav>
-      </div>
-
-      <!-- 国家下拉面板 -->
-      <Transition name="fade">
-        <div
-          v-if="open"
-          class="absolute left-0 right-0 top-10 z-50 border-t border-white/10 bg-header-2 shadow-card"
-        >
-          <div class="container-pg py-4">
-            <input
-              v-model="query"
-              type="text"
-              :placeholder="$t('header.searchCountries')"
-              class="mb-3 w-full max-w-md rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm text-white placeholder-white/50 outline-none focus:border-white/40"
-            />
-            <div class="grid max-h-72 grid-cols-2 gap-x-6 gap-y-1 overflow-y-auto sm:grid-cols-3 md:grid-cols-4">
-              <button
-                v-for="c in filtered"
-                :key="c.code"
-                class="flex items-center gap-2 rounded px-2 py-1.5 text-left text-sm hover:bg-white/10"
-                :class="c.code === code ? 'bg-white/15 font-semibold' : ''"
-                @click="select(c.code)"
-              >
-                <span class="text-base leading-none">{{ c.flag }}</span>
-                <span class="truncate">{{ countryName(c.code) }}</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </Transition>
-    </div>
-
-    <!-- 主导航 -->
-    <div class="bg-header text-white shadow-soft">
-      <div class="container-pg flex h-16 items-center justify-between">
-        <NuxtLink :to="localePath('/')" class="flex items-center gap-2 text-xl font-bold">
-          <span class="grid h-9 w-9 place-items-center rounded-xl bg-accent-yellow text-header">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M3 8.5C3 7.7 3.7 7 4.5 7h15c.8 0 1.5.7 1.5 1.5v9c0 .8-.7 1.5-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-9Z" stroke="currentColor" stroke-width="1.8"/>
-              <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.8"/>
-              <path d="M9 4.5l1.5 2.5M15 4.5l-1.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-          </span>
-          <span class="font-serif">Photo<span class="text-accent-yellow">Gov</span></span>
+    <div class="bg-header-2 text-white/85">
+      <div class="container-pg flex h-11 items-center justify-end gap-5 text-[13px]">
+        <NuxtLink :to="localePath('/support')" class="hover:text-white">
+          {{ $t('nav.contactUs') }}
+        </NuxtLink>
+        <NuxtLink :to="localePath('/help')" class="hover:text-white">
+          {{ $t('nav.helpCenter') }}
         </NuxtLink>
 
-        <nav class="hidden items-center gap-1 md:flex">
+        <!-- 国家选择器（边框盒样式，与原站一致） -->
+        <button
+          type="button"
+          class="flex items-center gap-2 rounded border border-white/30 px-3 py-1.5 hover:border-white/60"
+          @click="open = !open"
+        >
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" class="opacity-80">
+            <path d="M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10Z" stroke="currentColor" stroke-width="1.7" />
+            <circle cx="12" cy="11" r="2.2" stroke="currentColor" stroke-width="1.7" />
+          </svg>
+          <span class="font-medium">{{ countryName(current.code) }}</span>
+          <svg width="11" height="11" viewBox="0 0 12 12" class="opacity-70">
+            <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" />
+          </svg>
+        </button>
+
+        <LanguageSwitcher />
+      </div>
+    </div>
+
+    <!-- 国家下拉面板 -->
+    <Transition name="fade">
+      <div
+        v-if="open"
+        class="absolute left-0 right-0 top-11 z-50 border-t border-white/10 bg-header-2 shadow-card"
+      >
+        <div class="container-pg py-4">
+          <input
+            v-model="query"
+            type="text"
+            :placeholder="$t('header.searchCountries')"
+            class="mb-3 w-full max-w-md rounded border border-white/15 bg-white/10 px-4 py-2 text-sm text-white placeholder-white/50 outline-none focus:border-white/40"
+          />
+          <div class="grid max-h-72 grid-cols-2 gap-x-6 gap-y-1 overflow-y-auto sm:grid-cols-3 md:grid-cols-4">
+            <button
+              v-for="c in filtered"
+              :key="c.code"
+              class="flex items-center gap-2 rounded px-2 py-1.5 text-left text-sm hover:bg-white/10"
+              :class="c.code === code ? 'bg-white/15 font-semibold' : ''"
+              @click="select(c.code)"
+            >
+              <span class="text-base leading-none">{{ c.flag }}</span>
+              <span class="truncate">{{ countryName(c.code) }}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </Transition>
+
+    <!-- 主导航 -->
+    <div class="bg-header text-white">
+      <div class="container-pg flex h-[88px] items-center justify-between border-b-[3px] border-gold">
+        <!-- 徽标：圆形徽章 + PhotoGov service + 副标 -->
+        <NuxtLink :to="localePath('/')" class="flex items-center gap-3">
+          <span class="grid h-14 w-14 place-items-center rounded-full border-2 border-gold/80 bg-white/5">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" class="text-gold">
+              <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.5" />
+              <path d="M3.5 12h17M12 3.5c2.6 2.7 2.6 14.3 0 17M12 3.5c-2.6 2.7-2.6 14.3 0 17" stroke="currentColor" stroke-width="1.5" />
+              <rect x="8.4" y="10.2" width="7.2" height="4.6" rx="0.9" stroke="currentColor" stroke-width="1.3" />
+              <circle cx="10.4" cy="12.5" r="0.9" fill="currentColor" />
+            </svg>
+          </span>
+          <span>
+            <span class="block font-serif text-[26px] leading-tight">Photo<span class="text-gold">Gov</span> service</span>
+            <span class="block text-[11px] tracking-wide text-white/70">Passport and Visa photo online</span>
+          </span>
+        </NuxtLink>
+
+        <nav class="hidden items-center gap-7 md:flex">
           <NuxtLink
             v-for="item in navItems"
             :key="item.to"
             :to="localePath(item.to)"
-            class="rounded-full px-4 py-2 text-sm font-medium text-white/85 hover:bg-white/10 hover:text-white"
+            class="text-[13px] font-semibold uppercase tracking-wide underline decoration-white/60 decoration-1 underline-offset-4 transition hover:decoration-white"
           >
             {{ $t(item.label) }}
           </NuxtLink>
         </nav>
 
-        <div class="flex items-center gap-2">
-          <NuxtLink :to="localePath('/documents')" class="btn-primary hidden sm:inline-flex">
-            {{ $t('nav.makePhoto') }}
+        <div class="flex items-center gap-4">
+          <NuxtLink
+            v-if="user"
+            :to="localePath('/account')"
+            class="flex items-center gap-2 text-[13px] font-semibold uppercase tracking-wide underline decoration-white/60 decoration-1 underline-offset-4 hover:decoration-white"
+          >
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="3.6" stroke="currentColor" stroke-width="1.7" />
+              <path d="M4.5 20c1.4-3.4 4.2-5 7.5-5s6.1 1.6 7.5 5" stroke="currentColor" stroke-width="1.7" />
+            </svg>
+            {{ $t('nav.account') }}
+          </NuxtLink>
+          <NuxtLink
+            v-else
+            :to="localePath('/sign-in')"
+            class="flex items-center gap-2 text-[13px] font-semibold uppercase tracking-wide underline decoration-white/60 decoration-1 underline-offset-4 hover:decoration-white"
+          >
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="8" r="3.6" stroke="currentColor" stroke-width="1.7" />
+              <path d="M4.5 20c1.4-3.4 4.2-5 7.5-5s6.1 1.6 7.5 5" stroke="currentColor" stroke-width="1.7" />
+            </svg>
+            {{ $t('nav.signIn') }}
           </NuxtLink>
           <button
             class="grid h-10 w-10 place-items-center rounded-full hover:bg-white/10 md:hidden"

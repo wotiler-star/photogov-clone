@@ -84,7 +84,7 @@ useHead({ title: t('reset.title') })
         <div class="rounded-xl bg-green-50 p-4 text-sm text-green-700">
           <p class="font-medium">{{ $t('reset.success') }}</p>
         </div>
-        <NuxtLink :to="localePath('/signin')" class="btn-primary mt-4 inline-flex">{{ $t('reset.goSignIn') }}</NuxtLink>
+        <NuxtLink :to="localePath('/sign-in')" class="btn-primary mt-4 inline-flex">{{ $t('reset.goSignIn') }}</NuxtLink>
       </div>
 
       <div v-else class="mt-6">

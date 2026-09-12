@@ -31,14 +31,10 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
   <div ref="root" class="relative">
     <button
       type="button"
-      class="flex items-center gap-1.5 rounded-full px-2 py-1 hover:bg-white/10"
+      class="flex items-center gap-2 rounded border border-white/30 px-3 py-1.5 hover:border-white/60"
       :aria-label="$t('lang.switch')"
       @click="open = !open"
     >
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="opacity-90">
-        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6" />
-        <path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18" stroke="currentColor" stroke-width="1.6" />
-      </svg>
       <span class="text-base leading-none">{{ current?.flag }}</span>
       <span class="text-sm font-medium">{{ current?.name }}</span>
       <svg width="11" height="11" viewBox="0 0 12 12" class="opacity-70">

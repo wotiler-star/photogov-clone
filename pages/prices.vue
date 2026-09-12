@@ -28,7 +28,7 @@ const premiumHas = (k: string) => premiumPlan.features.includes(k)
 
 async function choose(planId: string) {
   if (!isLoggedIn.value) {
-    router.push('/signin?redirect=/plans')
+    router.push('/sign-in?redirect=/plans')
     return
   }
   busy.value = planId

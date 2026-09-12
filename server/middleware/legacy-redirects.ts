@@ -2,22 +2,31 @@
 const LEGACY: Record<string, string> = {
   plans: 'prices',
   contact: 'support',
-  'about-us': 'about',
+  about: 'about-us',
   contacts: 'support',
-  'terms-of-use': 'terms',
-  'privacy-policy': 'privacy',
-  'cookie-policy': 'cookies',
-  'eu-privacy': 'compliance'
+  terms: 'terms-of-use',
+  privacy: 'privacy-policy',
+  cookies: 'cookie-policy',
+  signin: 'sign-in',
+  compliance: 'eu-privacy'
 }
 
+// 已经是正式页面的段（避免 about-us 被 about+- 误命中形成自环）
+const CURRENT = new Set([
+  'about-us', 'privacy-policy', 'terms-of-use', 'cookie-policy',
+  'sign-in', 'eu-privacy', 'prices', 'support'
+])
+
 export default defineEventHandler((event) => {
-  const path = getRequestURL(event).pathname
-  const m = path.match(/^\/(en|zh|es|fr)\/([a-z0-9-]+)\/?$/)
+  const url = getRequestURL(event)
+  // 只处理无尾斜杠的整段：/en/<slug>
+  const m = url.pathname.match(/^\/(en|zh|es|fr)\/([a-z0-9-]+)$/)
   if (!m) return
 
   const [, locale, slug] = m
+  if (CURRENT.has(slug)) return // 已是正式页，无需重定向
   const target = LEGACY[slug]
   if (!target) return
 
-  return sendRedirect(event, `/${locale}/${target}`, 301)
+  return sendRedirect(event, `${url.origin}/${locale}/${target}/`, 301)
 })

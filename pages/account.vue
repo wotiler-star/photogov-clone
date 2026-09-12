@@ -63,7 +63,7 @@ async function onCancel() {
 
 async function onLogout() {
   await logout()
-  router.push('/signin')
+  router.push('/sign-in')
 }
 
 const payingId = ref<string | null>(null)
@@ -258,7 +258,7 @@ useHead({ title: t('account.title') })
       <!-- 未登录：引导登录 -->
       <div v-else-if="loaded" class="card-pg p-8 text-center">
         <h1 class="font-serif text-2xl font-bold text-ink">{{ $t('account.needLogin') }}</h1>
-        <NuxtLink :to="localePath('/signin')" class="btn-primary mt-6 inline-flex">
+        <NuxtLink :to="localePath('/sign-in')" class="btn-primary mt-6 inline-flex">
           {{ $t('account.goSignIn') }}
         </NuxtLink>
       </div>

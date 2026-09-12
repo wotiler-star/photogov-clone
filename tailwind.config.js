@@ -15,8 +15,9 @@ export default {
           'blue-2': '#315FB6',
           cta: '#2563EB'
         },
-        header: '#2B3E5C',
-        'header-2': '#243349',
+        header: '#17304B',
+        'header-2': '#0D2033',
+        gold: '#CCB38D',
         accent: {
           yellow: '#FFD850',
           green: '#2BB673',

@@ -16,7 +16,7 @@ useHead({ title: t('about.title') })
       <h2 class="mt-8 text-2xl font-semibold">{{ $t('about.privacy') }}</h2>
       <i18n-t keypath="about.p3" tag="p" class="mt-2 text-muted">
         <template #privacy>
-          <NuxtLink :to="localePath('/privacy')" class="text-brand-blue underline">{{ $t('about.privacyLink') }}</NuxtLink>
+          <NuxtLink :to="localePath('/privacy-policy')" class="text-brand-blue underline">{{ $t('about.privacyLink') }}</NuxtLink>
         </template>
       </i18n-t>
       <p class="mt-8 rounded-2xl bg-slate-50 p-5 text-sm text-muted">

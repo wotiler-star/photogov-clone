@@ -1167,5 +1167,50 @@
     "commitText": "PhotoGov respecte pleinement ces réglementations dans toutes les juridictions. Nous n’effectuons que les ajustements autorisés, tels que le dimensionnement, le recadrage et la correction du fond, strictement dans les limites définies par les normes gouvernementales et internationales.",
     "whyTitle": "Pourquoi la conformité est importante",
     "whyText": "Les altérations numériques peuvent fausser des caractéristiques biométriques essentielles telles que les proportions du visage, l’écartement des yeux ou le teint de la peau. En suivant strictement les règles nationales et internationales, PhotoGov garantit que chaque photo générée sur notre plateforme convient à l’identification officielle et aux demandes de passeport dans le monde entier."
+  },
+  "euPrivacy": {
+    "eyebrow": "Protection des données de l'UE",
+    "intro": "Découvrez comment PhotoGov respecte le Règlement général sur la protection des données de l'UE pour protéger les données des utilisateurs.",
+    "h1": "La conformité de PhotoGov avec les lois sur la vie privée de l'UE",
+    "lead": "Lorsque vous utilisez notre service, vous nous confiez vos informations précieuses. Nous avons fait de la protection de vos données et de vos choix de contrôle une priorité. Nous comprenons les préoccupations particulières des entreprises de l'UE concernant l'utilisation et la protection de leurs données, c'est pourquoi nous mettons en place les garanties les plus strictes.",
+    "sec1Title": "Sécurité et confidentialité sur PhotoGov.net",
+    "s1h1": "Engagement envers la protection des données",
+    "s1p1": "Chez PhotoGov.net, protéger votre vie privée et sécuriser vos données personnelles est notre priorité absolue. Nous nous engageons à mettre en œuvre des mesures de sécurité robustes et à maintenir la transparence dans nos pratiques de traitement.",
+    "s1h2": "Nos mesures de sécurité",
+    "s1p2": "Nous utilisons un ensemble complet de technologies et de procédures de sécurité pour protéger vos informations personnelles contre tout accès, utilisation ou divulgation non autorisé. Cela inclut :",
+    "sec2Title": "Règlement général sur la protection des données (RGPD) de l'UE",
+    "s2h1": "Comprendre le RGPD",
+    "s2p1": "Le Règlement général sur la protection des données (RGPD), adopté par la Commission européenne en 2016, constitue une refonte majeure des réglementations de l'UE. Ce règlement, qui a remplacé la directive précédente, est applicable depuis le 25 mai 2018.",
+    "s2h2": "L'importance du RGPD",
+    "s2p2": "Le RGPD introduit des exigences strictes sur la manière dont les organisations doivent traiter les données personnelles. Il insistе sur la transparence, la sécurité et la responsabilité, tout en conférant aux individus des droits importants sur leurs données.",
+    "s2h3": "L'approche de PhotoGov.net en matière de conformité RGPD",
+    "s2p3": "Chez PhotoGov.net, nous prenons au sérieux notre responsabilité de protéger vos données. Nos équipes dédiées à la conformité, à la protection des données et à la sécurité veillent à ce que nos services soient pleinement alignés sur les exigences du RGPD.",
+    "s2stepsTitle": "Voici les mesures que nous avons prises pour garantir la conformité :",
+    "s2li": [
+      "Accord de traitement des données (DPA) : nous proposons un DPA conforme au RGPD décrivant comment nous traitons et protégeons vos données.",
+      "Mesures techniques et organisationnelles : nous avons mis en place des mesures de sécurité complètes pour protéger vos données.",
+      "Transparence des sous-traitants : nous tenons une liste de nos sous-traitants et vous offrons la possibilité de vous y opposer.",
+      "Confidentialité des employés : nous veillons à ce que tous nos employés s'engagent à préserver la confidentialité et la sécurité de vos informations.",
+      "Demandes des personnes concernées : nous avons établi des procédures pour vous aider à répondre aux demandes d'accès, de rectification ou de suppression.",
+      "Notification en cas de violation : en cas de violation de données, nous sommes prêts à vous en informer sans retard indu.",
+      "Conservation et suppression : à la fin de nos services, nous supprimons les informations de vos clients/utilisateurs finaux sur demande."
+    ],
+    "sec3Title": "Avenant au traitement des données",
+    "s3h1": "Transferts internationaux de données",
+    "s3p1": "Conformément aux dispositions du RGPD sur les transferts internationaux, nous avons développé un DPA standard incluant les clauses contractuelles types (CCT) mises à jour pour les transferts hors UE. Cela garantit que vos données restent protégées selon les normes de l'UE.",
+    "s3h2": "Conditions standard du DPA",
+    "s3p2": "Pour garantir la cohérence et la conformité au RGPD, PhotoGov.net respecte strictement nos conditions standard du DPA, qui reflètent les exigences du RGPD et incluent les CCT mises à jour. Nous n'acceptons pas de DPA personnalisés.",
+    "s3h3": "Liste des sous-traitants",
+    "s3p3": "Sous-traitants spécifiques et leurs niveaux de sécurité :",
+    "s3li": [
+      "HETZNER : notre sous-traitant Hetzner est certifié selon DIN ISO/IEC 27001, garantissant un niveau de sécurité maximal. Ses centres de données sont équipés de clôtures périmétriques vidéosurveillées et de contrôle d'accès électronique.",
+      "DIGITAL OCEAN : Digital Ocean offre un environnement d'hébergement sécurisé, avec des mesures robustes pour protéger les données des clients."
+    ],
+    "s3h4": "Transferts transfrontaliers de données",
+    "s3p4": "Nous garantissons que tous les transferts transfrontaliers respectent le RGPD et les autres lois applicables, via des mécanismes approuvés tels que les CCT.",
+    "s3h5": "Vos droits et choix",
+    "s3p5": "Nous respectons vos droits sur les données, en offrant des mécanismes d'accès, de correction ou de suppression et de gestion du consentement.",
+    "s3h6": "Contactez-nous",
+    "s3p6": "Pour toute question sur nos pratiques de protection des données, contactez notre Délégué à la protection des données à {email}."
   }
 }

@@ -44,7 +44,7 @@ useHead({ title: t('verify.title') })
         <div class="mb-4 text-4xl">⚠️</div>
         <h1 class="font-serif text-2xl font-bold text-ink">{{ $t('verify.expired') }}</h1>
         <p class="mt-2 text-sm text-muted">{{ $t('verify.expiredText') }}</p>
-        <NuxtLink :to="localePath('/signin')" class="btn-outline mt-6 inline-flex">{{ $t('verify.backToSignIn') }}</NuxtLink>
+        <NuxtLink :to="localePath('/sign-in')" class="btn-outline mt-6 inline-flex">{{ $t('verify.backToSignIn') }}</NuxtLink>
       </template>
     </div>
   </div>

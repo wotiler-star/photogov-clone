@@ -1167,5 +1167,50 @@
     "commitText": "PhotoGov cumple plenamente estas normativas en todas las jurisdicciones. Realizamos únicamente los ajustes permitidos, como el tamaño, el recorte y la corrección del fondo, estrictamente dentro de los límites definidos por las normas gubernamentales e internacionales.",
     "whyTitle": "Por qué importa el cumplimiento",
     "whyText": "Las alteraciones digitales pueden distorsionar características biométricas esenciales como las proporciones faciales, la distancia entre los ojos o el tono de piel. Al seguir estrictamente las normas nacionales e internacionales, PhotoGov garantiza que cada foto generada en nuestra plataforma sea adecuada para la identificación oficial y las solicitudes de pasaporte en todo el mundo."
+  },
+  "euPrivacy": {
+    "eyebrow": "Protección de datos de la UE",
+    "intro": "Descubra cómo PhotoGov cumple con el Reglamento General de Protección de Datos de la UE para proteger los datos de los usuarios.",
+    "h1": "El cumplimiento de PhotoGov con las leyes de privacidad de la UE",
+    "lead": "Cuando utiliza nuestro servicio, nos confía su valiosa información. Hemos hecho de la protección de sus datos y de ofrecerle opciones de control una prioridad. Entendemos las preocupaciones particulares de las empresas de la UE sobre cómo usamos y protegemos sus datos, por lo que implementamos las salvaguardas más sólidas.",
+    "sec1Title": "Seguridad y privacidad en PhotoGov.net",
+    "s1h1": "Compromiso con la protección de datos",
+    "s1p1": "En PhotoGov.net, proteger su privacidad y asegurar sus datos personales es nuestra prioridad principal. Estamos comprometidos con medidas de seguridad robustas y la transparencia en nuestras prácticas de tratamiento.",
+    "s1h2": "Nuestras medidas de seguridad",
+    "s1p2": "Empleamos un conjunto integral de tecnologías y procedimientos de seguridad para proteger su información personal contra accesos, usos o divulgaciones no autorizados. Esto incluye:",
+    "sec2Title": "Reglamento General de Protección de Datos (GDPR) de la UE",
+    "s2h1": "Entender el GDPR",
+    "s2p1": "El Reglamento General de Protección de Datos (GDPR), promulgado por la Comisión Europea en 2016, representa una reforma importante de las normas de protección de datos en la UE. Este reglamento, que reemplazó la anterior Directiva de Protección de Datos y las leyes de los Estados miembros, es aplicable desde el 25 de mayo de 2018.",
+    "s2h2": "La importancia del GDPR",
+    "s2p2": "El GDPR introduce requisitos estrictos sobre cómo las organizaciones deben tratar los datos personales. Enfatiza la transparencia, la seguridad y la responsabilidad, al tiempo que otorga a los individuos derechos significativos sobre sus datos. El reglamento aumenta las sanciones por incumplimiento.",
+    "s2h3": "El enfoque de PhotoGov.net sobre el cumplimiento del GDPR",
+    "s2p3": "En PhotoGov.net, tomamos en serio nuestra responsabilidad de proteger sus datos. Nuestros equipos dedicados al cumplimiento, la protección de datos y la seguridad trabajan diligentemente para garantizar que nuestros servicios se alinean plenamente con los requisitos del GDPR.",
+    "s2stepsTitle": "Estos son los pasos que hemos tomado para garantizar el cumplimiento:",
+    "s2li": [
+      "Acuerdo de Tratamiento de Datos (DPA): Ofrecemos un DPA conforme al GDPR que describe cómo tratamos y protegemos sus datos.",
+      "Medidas técnicas y organizativas: Hemos implementado medidas de seguridad integrales para proteger sus datos. Los detalles figuran en nuestra documentación de seguridad.",
+      "Transparencia de subencargados: Mantenemos una lista de nuestros subencargados y le ofrecemos la oportunidad de oponerse a los nuevos.",
+      "Confidencialidad de empleados: Garantizamos que todos nuestros empleados se comprometen a mantener la confidencialidad y seguridad de su información.",
+      "Solicitudes de los interesados: Hemos establecido procedimientos para ayudarle a responder a solicitudes de acceso, rectificación o supresión de datos personales.",
+      "Notificación de brecha: En el improbable caso de una brecha de datos, estamos preparados para informarle sin demora indebida.",
+      "Conservación y supresión: Al terminar nuestros servicios, eliminaremos la información de su cliente/usuario final a petición."
+    ],
+    "sec3Title": "Anexo de Tratamiento de Datos",
+    "s3h1": "Transferencias internacionales de datos",
+    "s3p1": "En cumplimiento con las disposiciones del GDPR sobre transferencias internacionales, hemos desarrollado un DPA estándar que incluye las Cláusulas Contractuales Tipo (SCC) actualizadas para transferencias fuera de la UE. Esto garantiza que sus datos sigan protegidos según los estándares de la UE.",
+    "s3h2": "Términos y condiciones estándar del DPA",
+    "s3p2": "Para garantizar la coherencia y el cumplimiento del GDPR, PhotoGov.net se adhiere estrictamente a nuestros términos estándar del DPA, que reflejan los requisitos del GDPR e incluyen las SCC actualizadas. No aceptamos DPA personalizados ni términos inconsistentes o adicionales.",
+    "s3h3": "Lista de subencargados",
+    "s3p3": "Subencargados específicos y sus niveles de seguridad:",
+    "s3li": [
+      "HETZNER: Nuestro subencargado Hetzner está certificado según DIN ISO/IEC 27001, con máxima seguridad. Sus centros de datos cuentan con vallado perimetral de alta seguridad y control de acceso electrónico.",
+      "DIGITAL OCEAN: Digital Ocean ofrece un entorno de alojamiento seguro, con medidas robustas para proteger los datos de los clientes y cumplir con los estándares del sector."
+    ],
+    "s3h4": "Transferencias transfronterizas de datos",
+    "s3p4": "Garantizamos que todas las transferencias transfronterizas cumplan con el GDPR y otras leyes aplicables, mediante mecanismos aprobados como las SCC.",
+    "s3h5": "Sus derechos y opciones",
+    "s3p5": "Respetamos sus derechos de datos, ofreciendo mecanismos para acceder, corregir o suprimir sus datos personales y gestionar el consentimiento.",
+    "s3h6": "Contáctenos",
+    "s3p6": "Para cualquier consulta sobre nuestras prácticas de protección de datos, contacte a nuestro Delegado de Protección de Datos en {email}."
   }
 }
