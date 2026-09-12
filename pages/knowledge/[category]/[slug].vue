@@ -28,6 +28,13 @@ useHead(() => ({
     : [{ name: 'robots', content: 'noindex' }]
 }))
 
+// 启发式判断是否表头：单元格短、且不以句号结尾（数据行通常含完整句子）
+const isHeaderRow = (row: string[]) => {
+  if (!row || row.length < 2) return false
+  return row.every((c: string) => c.length < 60 && !/[.;]\s*$/.test(c.trim()))
+}
+const bodyRows = (rows: string[][]) => (isHeaderRow(rows?.[0]) ? rows.slice(1) : rows)
+
 // 同分类推荐
 const siblings = computed(() =>
   Object.values(knowledge as Record<string, any>)
@@ -53,14 +60,45 @@ const siblings = computed(() =>
       <!-- 正文章节 -->
       <article class="mt-8">
         <section v-for="(s, i) in sections" :key="i" class="mt-8">
-          <h2 v-if="s.level === 'h2'" class="text-xl font-semibold">{{ s.title }}</h2>
-          <h3 v-else-if="s.level === 'h3'" class="text-lg font-semibold">{{ s.title }}</h3>
-          <p v-else class="font-semibold">{{ s.title }}</p>
+          <!-- 目标站以表格呈现规格清单 → 还原为真实表格（此前被当作普通段落丢失行列结构） -->
+          <div v-if="s.level === 'table'" class="overflow-x-auto rounded-lg border border-slate-200">
+            <table class="w-full border-collapse text-sm">
+              <thead v-if="isHeaderRow(s.rows[0])" class="bg-slate-50">
+                <tr>
+                  <th
+                    v-for="(c, ci) in s.rows[0]"
+                    :key="ci"
+                    class="border-b border-slate-200 px-3 py-2.5 text-left font-semibold"
+                  >
+                    {{ c }}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(row, ri) in bodyRows(s.rows)" :key="ri" class="even:bg-slate-50/40">
+                  <td
+                    v-for="(c, ci) in row"
+                    :key="ci"
+                    class="border-b border-slate-100 px-3 py-2.5 align-top"
+                    :class="{ 'font-medium': ci === 0 }"
+                  >
+                    {{ c }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-          <ul v-if="s.items.length > 1" class="mt-2 list-disc space-y-1.5 pl-5 text-muted">
-            <li v-for="(it, k) in s.items" :key="k">{{ it }}</li>
-          </ul>
-          <p v-else-if="s.items.length === 1" class="mt-2 leading-relaxed text-muted">{{ s.items[0] }}</p>
+          <template v-else>
+            <h2 v-if="s.level === 'h2'" class="text-xl font-semibold">{{ s.title }}</h2>
+            <h3 v-else-if="s.level === 'h3'" class="text-lg font-semibold">{{ s.title }}</h3>
+            <p v-else class="font-semibold">{{ s.title }}</p>
+
+            <ul v-if="s.items.length > 1" class="mt-2 list-disc space-y-1.5 pl-5 text-muted">
+              <li v-for="(it, k) in s.items" :key="k">{{ it }}</li>
+            </ul>
+            <p v-else-if="s.items.length === 1" class="mt-2 leading-relaxed text-muted">{{ s.items[0] }}</p>
+          </template>
         </section>
       </article>
 
