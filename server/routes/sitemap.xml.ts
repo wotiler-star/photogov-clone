@@ -42,7 +42,7 @@ export default defineEventHandler((event) => {
     { p: '/sign-in', pri: '0.3', freq: 'yearly' },
     // 与 photogov.net 对齐的新页面
     { p: '/prices', pri: '0.8', freq: 'monthly' },
-    { p: '/support', pri: '0.5', freq: 'yearly' },
+    { p: '/contacts', pri: '0.5', freq: 'yearly' },
     { p: '/how-it-works', pri: '0.8', freq: 'monthly' },
     { p: '/why-choose-us', pri: '0.7', freq: 'monthly' },
     { p: '/reviews', pri: '0.7', freq: 'monthly' },
@@ -69,7 +69,7 @@ export default defineEventHandler((event) => {
   // (path, priority, changefreq) tuples across all pages
   const allPages: Array<{ p: string; pri: string; freq: string }> = [
     ...staticPages,
-    ...docSlugs.map((slug) => ({ p: `/document/${slug}`, pri: '0.8', freq: 'monthly' })),
+    ...docSlugs.map((slug) => ({ p: `/documents/${slug}`, pri: '0.8', freq: 'monthly' })),
     ...blogSlugs.map((slug) => ({ p: `/blog/${slug}`, pri: '0.6', freq: 'monthly' }))
   ]
 

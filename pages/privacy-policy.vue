@@ -38,7 +38,7 @@ useHead({ title: t('legal.privacyTitle') })
           <h2 class="text-xl font-semibold text-ink">{{ $t('legal.secContactTitle') }}</h2>
           <i18n-t keypath="legal.secContactText" tag="p" class="mt-1">
             <template #contact>
-              <NuxtLink :to="localePath('/support')" class="text-brand-blue underline">{{ $t('legal.contactLink') }}</NuxtLink>
+              <NuxtLink :to="localePath('/contacts')" class="text-brand-blue underline">{{ $t('legal.contactLink') }}</NuxtLink>
             </template>
           </i18n-t>
         </section>

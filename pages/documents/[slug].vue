@@ -37,7 +37,7 @@ useHead(() => {
   }
   const d = doc.value
   const desc = `Official ${d.name} photo requirements for ${d.countryName}: size ${d.size.inch} in (${d.size.mm} mm), ${d.dpi} DPI, ${d.background === '#FFFFFF' ? 'white' : d.background === '#E8E8E8' ? 'light grey' : 'blue'} background. Verified by official source.`
-  const canonical = `${url.origin}/document/${d.slug}`
+  const canonical = `${url.origin}/documents/${d.slug}`
   const bgName = d.background === '#FFFFFF' ? 'White' : d.background === '#E8E8E8' ? 'Light grey' : d.background === '#2B72E0' ? 'Light blue' : 'Custom'
   const serviceType = d.category === 'passport' ? 'Passport photo' : d.category === 'visa' ? 'Visa photo' : d.category === 'id' ? 'ID photo' : 'Driving licence photo'
 

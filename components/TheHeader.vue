@@ -57,7 +57,7 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
     <!-- 顶部条 -->
     <div class="bg-header-2 text-white/85">
       <div class="container-pg flex h-11 items-center justify-end gap-5 text-[13px]">
-        <NuxtLink :to="localePath('/support')" class="hover:text-white">
+        <NuxtLink :to="localePath('/contacts')" class="hover:text-white">
           {{ $t('nav.contactUs') }}
         </NuxtLink>
         <NuxtLink :to="localePath('/help')" class="hover:text-white">

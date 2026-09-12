@@ -16,7 +16,7 @@ const cols = [
     title: 'footer.colCompany',
     links: [
       { label: 'footer.links.aboutUs', to: '/about-us' },
-      { label: 'footer.links.contacts', to: '/support' },
+      { label: 'footer.links.contacts', to: '/contacts' },
       { label: 'footer.links.prices', to: '/prices' }
     ]
   },

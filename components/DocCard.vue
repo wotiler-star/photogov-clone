@@ -8,7 +8,7 @@ const localePath = useLocalePath()
 
 <template>
   <NuxtLink
-    :to="localePath(`/document/${doc.slug}`)"
+    :to="localePath(`/documents/${doc.slug}`)"
     class="card-pg group flex items-center gap-3 p-3 transition hover:-translate-y-0.5 hover:shadow-card"
   >
     <div class="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-lg bg-brand-blue/10 text-lg">

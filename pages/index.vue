@@ -196,7 +196,7 @@ const docTypes = [
           <NuxtLink
             v-for="d in quick"
             :key="d.slug"
-            :to="localePath(`/document/${d.slug}`)"
+            :to="localePath(`/documents/${d.slug}`)"
             class="chip !px-4 !py-2 !text-sm hover:bg-brand-blue hover:text-white"
           >
             <img :src="flagFor(d.country)" :alt="d.country" class="h-4 w-4 rounded-sm" /> {{ d.name }}

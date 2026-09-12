@@ -1,6 +1,7 @@
 // 前端调用自建后端 v1 API 的封装（对齐原站 /api/app/v1/ 契约）
 // 用于把页面/工具从「直读本地 JSON」切换到「调用后端 API」。
 import { $fetch } from 'ofetch'
+import { useRequestFetch } from '#imports'
 
 const BASE = '/api/app/v1'
 
@@ -28,23 +29,30 @@ export interface ApiDoc {
 }
 
 export const useApi = () => {
+  // SSR 下 Node 内置 fetch 无法解析相对 URL，会报
+  // "Failed to parse URL from /api/app/v1/database/documents" 导致页面 SSR 取数为空。
+  // 使用绑定了 request 上下文的 fetch 即可正常调用内部 API；客户端行为与全局 $fetch 一致。
+  const reqFetch = (() => {
+    try { return useRequestFetch() } catch { return $fetch }
+  })() as ReturnType<typeof useRequestFetch>
+
   const fetchCountries = (params: Record<string, any> = {}) =>
-    $fetch<{ countries: any[]; total: number }>(`${BASE}/database/countries`, { query: params })
+    reqFetch<{ countries: any[]; total: number }>(`${BASE}/database/countries`, { query: params })
 
   const fetchDocuments = (params: Record<string, any> = {}) =>
-    $fetch<{ documents: ApiDoc[]; total: number }>(`${BASE}/database/documents`, { query: params })
+    reqFetch<{ documents: ApiDoc[]; total: number }>(`${BASE}/database/documents`, { query: params })
 
   const fetchDocument = (slug: string) =>
-    $fetch<{ document: ApiDoc }>(`${BASE}/database/documents/${slug}`)
+    reqFetch<{ document: ApiDoc }>(`${BASE}/database/documents/${slug}`)
 
   const fetchCategories = () =>
-    $fetch<{ categories: { id: string; count: number; label: string }[] }>(`${BASE}/database/categories`)
+    reqFetch<{ categories: { id: string; count: number; label: string }[] }>(`${BASE}/database/categories`)
 
   // 图片：上传 + 服务端处理（等效原站 Photo.Processing 微服务）
   const uploadPhoto = async (blob: Blob, filename = 'photo.jpg') => {
     const fd = new FormData()
     fd.append('image', blob, filename)
-    return $fetch<{ id: string; url: string }>(`${BASE}/photo/upload`, { method: 'POST', body: fd })
+    return reqFetch<{ id: string; url: string }>(`${BASE}/photo/upload`, { method: 'POST', body: fd })
   }
 
   const processPhoto = async (blob: Blob, opts: {
@@ -60,71 +68,71 @@ export const useApi = () => {
     if (opts.brightness != null) fd.append('brightness', String(opts.brightness))
     if (opts.contrast != null) fd.append('contrast', String(opts.contrast))
     if (opts.cropMode) fd.append('cropMode', opts.cropMode)
-    return $fetch<Blob>(`${BASE}/photo/process`, { method: 'POST', body: fd, responseType: 'blob' })
+    return reqFetch<Blob>(`${BASE}/photo/process`, { method: 'POST', body: fd, responseType: 'blob' })
   }
 
-  const getServices = () => $fetch(`${BASE}/order/get-services`)
-  const getPaymentMethods = () => $fetch(`${BASE}/order/get-payment-methods`)
+  const getServices = () => reqFetch(`${BASE}/order/get-services`)
+  const getPaymentMethods = () => reqFetch(`${BASE}/order/get-payment-methods`)
 
   // 会员鉴权
   const register = (name: string, email: string, password: string) =>
-    $fetch<{ ok: boolean; user: any }>(`${BASE}/auth/register`, {
+    reqFetch<{ ok: boolean; user: any }>(`${BASE}/auth/register`, {
       method: 'POST',
       body: { name, email, password }
     })
 
   const login = (email: string, password: string) =>
-    $fetch<{ ok: boolean; user: any }>(`${BASE}/auth/login`, {
+    reqFetch<{ ok: boolean; user: any }>(`${BASE}/auth/login`, {
       method: 'POST',
       body: { email, password }
     })
 
-  const logout = () => $fetch<{ ok: boolean }>(`${BASE}/auth/logout`, { method: 'POST' })
+  const logout = () => reqFetch<{ ok: boolean }>(`${BASE}/auth/logout`, { method: 'POST' })
 
-  const me = () => $fetch<{ user: any | null }>(`${BASE}/auth/me`)
+  const me = () => reqFetch<{ user: any | null }>(`${BASE}/auth/me`)
 
   // 邮箱验证 / 密码找回 / 订阅
   const verifyEmail = (token: string) =>
-    $fetch<{ ok: boolean; user: any }>(`${BASE}/auth/verify-email`, { query: { token } })
+    reqFetch<{ ok: boolean; user: any }>(`${BASE}/auth/verify-email`, { query: { token } })
 
   const resendVerification = () =>
-    $fetch<{ ok: boolean; devLink?: string }>(`${BASE}/auth/resend-verification`, { method: 'POST' })
+    reqFetch<{ ok: boolean; devLink?: string }>(`${BASE}/auth/resend-verification`, { method: 'POST' })
 
   const forgotPassword = (email: string) =>
-    $fetch<{ ok: boolean; devLink?: string }>(`${BASE}/auth/forgot-password`, {
+    reqFetch<{ ok: boolean; devLink?: string }>(`${BASE}/auth/forgot-password`, {
       method: 'POST',
       body: { email }
     })
 
   const resetPassword = (token: string, password: string) =>
-    $fetch<{ ok: boolean; user: any }>(`${BASE}/auth/reset-password`, {
+    reqFetch<{ ok: boolean; user: any }>(`${BASE}/auth/reset-password`, {
       method: 'POST',
       body: { token, password }
     })
 
   const subscribe = (plan: string) =>
-    $fetch<{ ok: boolean; user: any }>(`${BASE}/auth/subscribe`, { method: 'POST', body: { plan } })
+    reqFetch<{ ok: boolean; user: any }>(`${BASE}/auth/subscribe`, { method: 'POST', body: { plan } })
 
   const cancelSubscription = () =>
-    $fetch<{ ok: boolean; user: any }>(`${BASE}/auth/cancel-subscription`, { method: 'POST' })
+    reqFetch<{ ok: boolean; user: any }>(`${BASE}/auth/cancel-subscription`, { method: 'POST' })
 
   // 我的照片 / 订单
   const savePhoto = (imageId: string, meta: { docSlug?: string; docName?: string } = {}) =>
-    $fetch<{ ok: boolean; photo: any }>(`${BASE}/photo/save`, {
+    reqFetch<{ ok: boolean; photo: any }>(`${BASE}/photo/save`, {
       method: 'POST',
       body: { imageId, ...meta }
     })
 
-  const myPhotos = () => $fetch<{ photos: any[] }>(`${BASE}/photo/my`)
+  const myPhotos = () => reqFetch<{ photos: any[] }>(`${BASE}/photo/my`)
 
-  const myOrders = () => $fetch<{ orders: any[] }>(`${BASE}/order/my`)
+  const myOrders = () => reqFetch<{ orders: any[] }>(`${BASE}/order/my`)
 
   // 订单状态流转：付款 / 取消
   const payOrder = (id: string) =>
-    $fetch<{ ok: boolean; order: any }>(`${BASE}/order/${id}/pay`, { method: 'POST' })
+    reqFetch<{ ok: boolean; order: any }>(`${BASE}/order/${id}/pay`, { method: 'POST' })
 
   const cancelOrder = (id: string) =>
-    $fetch<{ ok: boolean; order: any }>(`${BASE}/order/${id}/cancel`, { method: 'POST' })
+    reqFetch<{ ok: boolean; order: any }>(`${BASE}/order/${id}/cancel`, { method: 'POST' })
 
   return {
     BASE,
