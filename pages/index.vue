@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import PhotoTool from '~/components/PhotoTool.vue'
 import HeroToolWizard from '~/components/HeroToolWizard.vue'
+import HeroShowcase from '~/components/HeroShowcase.vue'
 import DocCard from '~/components/DocCard.vue'
 import BlogCard from '~/components/BlogCard.vue'
 import { useData } from '~/composables/useData'
@@ -120,10 +121,8 @@ const docTypes = [
           </div>
         </div>
 
-        <!-- 右栏：向导式工具表单（与原站一致） -->
-        <div class="card-pg p-6 lg:p-8">
-          <HeroToolWizard />
-        </div>
+        <!-- 右栏：照片展示卡（与原站一致的 VERIFIED 徽章 + 合规保证行） -->
+        <HeroShowcase />
       </div>
     </section>
 
