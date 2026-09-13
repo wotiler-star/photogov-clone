@@ -45,6 +45,45 @@ export const useApi = () => {
   const fetchDocument = (slug: string) =>
     reqFetch<{ document: ApiDoc }>(`${BASE}/database/documents/${slug}`)
 
+  // 博客文章 / 文档子页（hub）正文：content 为目标站原始 HTML
+  const fetchBlogArticle = (slug: string) =>
+    reqFetch<{
+      key: string
+      type: string
+      slug: string
+      content: string
+      faq: any
+      toc: { level: number; id: string; title: string }[]
+      schemaOrg: any[]
+      meta: { title?: string; description?: string }
+      cover?: string
+      publishedAt?: string
+      readingTime?: number
+      views?: number
+      ratingAverage?: number
+      ratingCount?: number
+      author?: any
+      reviewer?: any
+    }>(`${BASE}/content/blog/${slug}`)
+
+  // 文档子页（hub 文章）：documentSlug + sub 两级路由，content 为目标站原始 HTML
+  const fetchHubArticle = (slug: string, sub: string) =>
+    reqFetch<{
+      type: string
+      documentSlug: string
+      slug: string
+      content: string
+      meta: { title?: string; description?: string }
+      toc: { level: number; id: string; title: string }[]
+      schemaOrg: string[]
+      cover?: string
+      publishedAt?: string
+      readingTime?: number
+      author?: any
+      reviewer?: any
+      document?: any
+    }>(`${BASE}/content/hub/${slug}/${sub}`)
+
   const fetchCategories = () =>
     reqFetch<{ categories: { id: string; count: number; label: string }[] }>(`${BASE}/database/categories`)
 
@@ -139,6 +178,8 @@ export const useApi = () => {
     fetchCountries,
     fetchDocuments,
     fetchDocument,
+    fetchBlogArticle,
+    fetchHubArticle,
     fetchCategories,
     uploadPhoto,
     processPhoto,

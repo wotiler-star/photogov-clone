@@ -9,6 +9,10 @@
  *
  * 这样每页呈现的是目标站**专属真实文案**（各自的标题/章节/要求表/FAQ），
  * 而不是早先用 docTemplate.json 占位符推测出来的通用文案。
+ *
+ * 注意：本文件位于 pages/documents/[slug]/index.vue，与同目录的 [sub].vue
+ * 构成规范的嵌套路由（/documents/:slug 与 /documents/:slug/:sub），
+ * 避免叶子文件 [slug].vue 与嵌套 [sub].vue 竞争导致子路由失效。
  */
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
@@ -57,7 +61,8 @@ useHead({
   script: (schemaOrg.value || []).map((s: string, i: number) => ({
     key: `ld-doc-${i}`,
     type: 'application/ld+json',
-    innerHTML: typeof s === 'string' ? s : JSON.stringify(s),
+    // 把目标站 canonical URL 改写为本地，保证结构化数据自包含
+    innerHTML: (typeof s === 'string' ? s : JSON.stringify(s)).replace(/https:\/\/photogov\.net/g, ''),
   })),
 })
 </script>

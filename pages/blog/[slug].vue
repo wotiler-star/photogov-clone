@@ -4,13 +4,26 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import BlogCard from '~/components/BlogCard.vue'
 import { useData } from '~/composables/useData'
+import { useApi } from '~/composables/useApi'
 import { useRequestURL } from '#imports'
 
 const route = useRoute()
 const slug = computed(() => route.params.slug as string)
 const { getPost, relatedPosts } = useData()
+const { fetchBlogArticle } = useApi()
 const post = computed(() => getPost(slug.value))
 const url = useRequestURL()
+
+// 正文来自目标站 blog/get-post 接口（含 TOC / FAQ / schemaOrg）
+const { data: artData } = await useAsyncData(
+  () => `blog-art-${slug.value}`,
+  // 未命中时接口会抛 404，这里吞掉交给下方模板走「未找到」分支
+  () => fetchBlogArticle(slug.value).catch(() => null),
+  { default: () => null as any },
+)
+const article = computed(() => (artData.value as any) || null)
+const body = computed(() => article.value?.content || post.value?.body || '')
+const toc = computed<any[]>(() => article.value?.toc || [])
 
 const fmt = (d?: string) =>
   d ? new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : ''
@@ -97,7 +110,7 @@ const rel = computed(() => (post.value ? relatedPosts(post.value.slug, 3) : []))
             <span v-for="t in (post.tags || [])" :key="t" class="chip">#{{ t }}</span>
           </div>
           <!-- eslint-disable-next-line vue/no-v-html -->
-          <div class="mt-5" v-html="post.body"></div>
+          <div class="mt-5" v-html="body"></div>
           <div class="mt-8 rounded-xl bg-slate-50 p-4 text-sm text-muted">
             <strong class="text-ink">{{ $t('blog.disclaimerLabel') }}</strong> {{ $t('blog.disclaimer') }}
           </div>
