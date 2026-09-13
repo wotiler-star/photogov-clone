@@ -113,6 +113,17 @@ export const useApi = () => {
   const getServices = () => reqFetch(`${BASE}/order/get-services`)
   const getPaymentMethods = () => reqFetch(`${BASE}/order/get-payment-methods`)
 
+  // 真实评价（Database.Reviews）/ 作者档案（Blog.GetAuthor）
+  const getReviews = (params: Record<string, any> = {}) =>
+    reqFetch<{ stats: any; reviews: any[]; pagination: any; filters: any }>(`${BASE}/database/reviews`, {
+      query: params
+    })
+
+  const getAuthor = (slug: string) =>
+    reqFetch<{ author: any; posts: any[]; pagination: any; schemaOrg: any }>(`${BASE}/blog/get-author`, {
+      query: { slug }
+    })
+
   // 会员鉴权
   const register = (name: string, email: string, password: string) =>
     reqFetch<{ ok: boolean; user: any }>(`${BASE}/auth/register`, {
@@ -185,6 +196,8 @@ export const useApi = () => {
     processPhoto,
     getServices,
     getPaymentMethods,
+    getReviews,
+    getAuthor,
     register,
     login,
     logout,

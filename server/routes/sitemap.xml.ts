@@ -47,6 +47,7 @@ export default defineEventHandler((event) => {
     { p: '/how-it-works', pri: '0.8', freq: 'monthly' },
     { p: '/why-choose-us', pri: '0.7', freq: 'monthly' },
     { p: '/reviews', pri: '0.7', freq: 'monthly' },
+    { p: '/blog/author/nathaniel-k-rowden', pri: '0.5', freq: 'monthly' },
     { p: '/security', pri: '0.6', freq: 'yearly' },
     { p: '/refund-policy', pri: '0.4', freq: 'yearly' },
     { p: '/us-id-photo-compliance', pri: '0.4', freq: 'yearly' },

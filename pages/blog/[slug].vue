@@ -93,7 +93,7 @@ const rel = computed(() => (post.value ? relatedPosts(post.value.slug, 3) : []))
         <h1 class="mt-3 max-w-3xl text-3xl font-bold leading-tight sm:text-4xl">{{ post.title }}</h1>
         <div class="mt-4 flex flex-wrap items-center gap-3 text-sm text-muted">
           <span class="text-2xl">{{ post.cover }}</span>
-          <span>{{ post.author }}</span>
+          <NuxtLink :to="localePath('/blog/author/nathaniel-k-rowden')" class="hover:text-brand-blue hover:underline">{{ post.author }}</NuxtLink>
           <span class="text-slate-300">·</span>
           <span>{{ fmt(post.date) }}</span>
           <span class="text-slate-300">·</span>
