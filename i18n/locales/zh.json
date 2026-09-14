@@ -462,6 +462,12 @@
       "更换背景、校验合规性，下载可直接打印的 JPG、PNG 或 PDF。"
     ]
   },
+  "countryLanding": {
+    "title": "{country} 护照、签证与证件照要求",
+    "desc": "在线免费、几秒钟制作符合 {country} 规定的护照、签证与证件照。{count} 种文档格式，含准确尺寸、背景与 DPI 规格。",
+    "subtitle": "选择证件后，工具会自动裁剪、缩放并校验合规性。",
+    "docsTitle": "{country} 照片格式"
+  },
   "dv": {
     "eyebrow": "多元化签证",
     "title": "绿卡抽签照片工具",

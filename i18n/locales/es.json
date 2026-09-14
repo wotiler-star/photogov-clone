@@ -462,6 +462,12 @@
       "Cambia el fondo, comprueba la conformidad y descarga un JPG, PNG o PDF listo para imprimir."
     ]
   },
+  "countryLanding": {
+    "title": "Requisitos de fotos de pasaporte, visado y DNI de {country}",
+    "desc": "Crea fotos de pasaporte, visado y DNI de {country} conformes en línea, gratis y en segundos. {count} formatos con tamaño, fondo y DPI exactos.",
+    "subtitle": "Elige un documento y la herramienta recorta, redimensiona y comprueba la conformidad automáticamente.",
+    "docsTitle": "Formatos de foto de {country}"
+  },
   "dv": {
     "eyebrow": "Visa de Diversidad",
     "title": "Herramienta de foto DV Lottery",

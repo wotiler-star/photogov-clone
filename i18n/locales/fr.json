@@ -462,6 +462,12 @@
       "Changez l'arrière-plan, vérifiez la conformité et téléchargez un JPG, PNG ou PDF prêt à imprimer."
     ]
   },
+  "countryLanding": {
+    "title": "Exigences photos de passeport, visa et pièce d'identité {country}",
+    "desc": "Créez des photos de passeport, visa et pièce d'identité {country} conformes en ligne, gratuitement et en quelques secondes. {count} formats avec taille, fond et DPI exacts.",
+    "subtitle": "Choisissez un document et l'outil recadre, redimensionne et vérifie la conformité automatiquement.",
+    "docsTitle": "Formats photo {country}"
+  },
   "dv": {
     "eyebrow": "Visa de diversité",
     "title": "Outil photo DV Lottery",

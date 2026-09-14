@@ -63,6 +63,10 @@ export default defineEventHandler((event) => {
 
   const docSlugs = Object.keys((documents as any).documents ?? {})
   const blogSlugs = ((blog as any).posts ?? []).map((p: any) => p.slug)
+  // 国级聚合落地页：从文档数据去重得到国码
+  const countryCodes = Array.from(
+    new Set(Object.values((documents as any).documents ?? {}).map((d: any) => d.country))
+  ) as string[]
 
   const esc = (s: string) =>
     s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -73,6 +77,7 @@ export default defineEventHandler((event) => {
   const allPages: Array<{ p: string; pri: string; freq: string }> = [
     ...staticPages,
     ...docSlugs.map((slug) => ({ p: `/documents/${slug}`, pri: '0.8', freq: 'monthly' })),
+    ...countryCodes.map((c: string) => ({ p: `/documents/${c.toLowerCase()}`, pri: '0.7', freq: 'monthly' })),
     ...blogSlugs.map((slug) => ({ p: `/blog/${slug}`, pri: '0.6', freq: 'monthly' })),
     // knowledge 详情页（/knowledge/<category>/<slug>）
     ...Object.keys(knowledge as Record<string, any>).map((k) => ({

@@ -462,6 +462,12 @@
       "Change the background, check compliance and download a print-ready JPG, PNG or PDF."
     ]
   },
+  "countryLanding": {
+    "title": "{country} Passport, Visa & ID Photo Requirements",
+    "desc": "Make compliant {country} passport, visa and ID photos online — free, in seconds. {count} document formats with exact size, background and DPI specs.",
+    "subtitle": "Pick a document and the tool crops, resizes and checks compliance automatically.",
+    "docsTitle": "{country} photo formats"
+  },
   "dv": {
     "eyebrow": "Diversity Visa",
     "title": "DV Lottery Photo Tool",
