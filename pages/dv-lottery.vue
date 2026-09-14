@@ -5,7 +5,7 @@ import PhotoTool from '~/components/PhotoTool.vue'
 import { useData } from '~/composables/useData'
 
 const { getDocument } = useData()
-const doc = getDocument('us-dv-lottery-photo')
+const doc = getDocument('dv-lottery-photo-tool')
 const { t, tm } = useI18n()
 useHead({ title: 'US DV Lottery Photo Tool — Free & Compliant' })
 
@@ -25,7 +25,7 @@ const dvRules = computed(() => {
       </div>
 
       <div class="mx-auto mt-8 max-w-xl">
-        <PhotoTool country="US" doc="us-dv-lottery-photo" />
+        <PhotoTool country="US" doc="dv-lottery-photo-tool" />
       </div>
 
       <div v-if="doc" class="mx-auto mt-10 max-w-3xl card-pg p-6">
