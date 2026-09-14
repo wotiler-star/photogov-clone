@@ -7,9 +7,16 @@ import BlogCard from '~/components/BlogCard.vue'
 import { useData } from '~/composables/useData'
 import { useRequestURL } from '#imports'
 
-const { popularDocuments, countriesByCode, quickLinks, documents, blogPosts } = useData()
+const { popularDocuments, countriesByCode, quickLinks, documents, blogPosts, faqItems, countryName } = useData()
 const url = useRequestURL()
 const localePath = useLocalePath()
+
+// 首页内联 FAQ 折叠（取真实 faq.json 前 6 条）
+const faqs = faqItems().slice(0, 6)
+const openFaq = ref<number | null>(0)
+
+// 全球信赖 logo 墙（国旗来自 CDN，真实资源）
+const logoWallCodes = ['US', 'GB', 'CA', 'AU', 'IN', 'DE', 'FR', 'ES', 'IT', 'BR', 'JP', 'CN', 'KR', 'MX', 'NG', 'ZA', 'AE', 'TR']
 
 useHead(() => {
   const desc = 'Make compliant passport, visa and ID photos online in seconds. Free tool with country-specific size specs, white/blue background, and instant JPG/PDF download.'
@@ -427,15 +434,60 @@ const docTypes = [
       </div>
     </section>
 
-    <!-- FAQ CTA -->
-    <section class="container-pg pb-14">
-      <div class="card-pg flex flex-col items-center gap-4 bg-slate-50 p-8 text-center sm:flex-row sm:text-left">
-        <span class="text-4xl">❓</span>
-        <div class="flex-1">
-          <h2 class="text-xl font-bold">{{ $t('home.faqTitle') }}</h2>
-          <p class="mt-1 text-sm text-muted">{{ $t('home.faqText') }}</p>
+    <!-- FAQ ACCORDION -->
+    <section class="bg-slate-50 py-14">
+      <div class="container-pg">
+        <div class="text-center">
+          <span class="eyebrow">{{ $t('home.faqTitle') }}</span>
+          <h2 class="mt-2 text-3xl font-bold">{{ $t('home.faqTitle') }}</h2>
+          <p class="mx-auto mt-3 max-w-2xl text-muted">{{ $t('home.faqText') }}</p>
         </div>
-        <NuxtLink :to="localePath('/faq')" class="btn-primary shrink-0">{{ $t('home.readFaq') }}</NuxtLink>
+        <div class="mx-auto mt-8 max-w-3xl space-y-3">
+          <div
+            v-for="(f, i) in faqs"
+            :key="i"
+            class="overflow-hidden rounded-xl border border-slate-200 bg-white"
+          >
+            <button
+              type="button"
+              class="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+              :aria-expanded="openFaq === i"
+              @click="openFaq = openFaq === i ? null : i"
+            >
+              <span class="font-semibold text-ink">{{ f.q }}</span>
+              <svg
+                :class="openFaq === i ? 'rotate-180' : ''"
+                class="h-5 w-5 shrink-0 text-brand-blue transition-transform"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"
+              ><path d="M6 9l6 6 6-6" /></svg>
+            </button>
+            <div v-show="openFaq === i" class="px-5 pb-4 text-sm leading-relaxed text-muted">{{ f.a }}</div>
+          </div>
+        </div>
+        <div class="mt-8 text-center">
+          <NuxtLink :to="localePath('/faq')" class="btn-primary">{{ $t('home.readFaq') }}</NuxtLink>
+        </div>
+      </div>
+    </section>
+
+    <!-- GLOBAL TRUST / LOGO WALL -->
+    <section class="container-pg py-14">
+      <div class="text-center">
+        <span class="eyebrow">{{ $t('home.logoWallEyebrow') }}</span>
+        <h2 class="mt-2 text-3xl font-bold">{{ $t('home.logoWallTitle') }}</h2>
+        <p class="mx-auto mt-3 max-w-2xl text-muted">{{ $t('home.logoWallSub') }}</p>
+      </div>
+      <div class="mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-3">
+        <div
+          v-for="code in logoWallCodes"
+          :key="code"
+          class="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-ink"
+          :title="countryName(code)"
+        >
+          <img :src="flagFor(code)" :alt="code" class="h-4 w-6 rounded-sm object-cover" loading="lazy" />
+          {{ countryName(code) }}
+        </div>
       </div>
     </section>
 
