@@ -452,7 +452,15 @@
     "saving": "Saving…",
     "savedToGallery": "Saved to your gallery",
     "saveFail": "Could not save. Try again.",
-    "loginToSave": "Sign in to save photos"
+    "loginToSave": "Sign in to save photos",
+    "pageTitle": "Photo Tool — Make Compliant Passport & Visa Photos",
+    "pageDesc": "Upload a selfie and the free PhotoGov tool crops, resizes, changes the background and checks compliance for 190+ passport, visa and ID photo formats — all in your browser.",
+    "stepsTitle": "How it works",
+    "steps": [
+      "Pick your document (country + type) so the tool knows the exact size, background and DPI.",
+      "Upload or take a photo, then drag to position and auto-crop to the official ratio.",
+      "Change the background, check compliance and download a print-ready JPG, PNG or PDF."
+    ]
   },
   "dv": {
     "eyebrow": "Diversity Visa",

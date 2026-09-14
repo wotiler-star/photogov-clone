@@ -452,7 +452,15 @@
     "saving": "Guardando…",
     "savedToGallery": "Guardado en tu galería",
     "saveFail": "No se pudo guardar. Inténtalo de nuevo.",
-    "loginToSave": "Inicia sesión para guardar fotos"
+    "loginToSave": "Inicia sesión para guardar fotos",
+    "pageTitle": "Herramienta de fotos — Crea fotos de pasaporte y visado compatibles",
+    "pageDesc": "Sube una selfie y la herramienta gratuita de PhotoGov recorta, redimensiona, cambia el fondo y comprueba la conformidad para más de 190 formatos de fotos de pasaporte, visado y DNI, todo en tu navegador.",
+    "stepsTitle": "Cómo funciona",
+    "steps": [
+      "Elige tu documento (país + tipo) para que la herramienta conozca el tamaño, fondo y DPI exactos.",
+      "Sube o haz una foto, luego arrastra para posicionarla y recórtala automáticamente a la proporción oficial.",
+      "Cambia el fondo, comprueba la conformidad y descarga un JPG, PNG o PDF listo para imprimir."
+    ]
   },
   "dv": {
     "eyebrow": "Visa de Diversidad",
