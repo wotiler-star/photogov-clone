@@ -67,11 +67,16 @@
       "euPrivacy": "EU Data Protection",
       "usCompliance": "US ID Photo Compliance",
       "globalCompliance": "Global ID Photo Compliance",
-      "nonAffiliation": "Non-Affiliation Notice"
+      "nonAffiliation": "Non-Affiliation Notice",
+      "drivingPhotos": "Driving Licence Photos"
     },
     "copyright": "© {year} PhotoGov. A clone demo replicating www.photogov.net.",
     "madeWith": "Made with Nuxt 3 · Vue 3 · Tailwind CSS",
-    "colSupport": "Support"
+    "colSupport": "Support",
+    "colPassportPhotos": "Passport Photos",
+    "colVisaPhotos": "Visa Photos",
+    "colOtherServices": "Other Services",
+    "browseByCountry": "Browse by country"
   },
   "cookie": {
     "text": "We use cookies to improve your experience and analyze traffic. By continuing you agree to our {policy}.",

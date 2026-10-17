@@ -67,11 +67,16 @@
       "euPrivacy": "欧盟数据保护",
       "usCompliance": "美国证件照合规",
       "globalCompliance": "全球证件照合规",
-      "nonAffiliation": "非附属声明"
+      "nonAffiliation": "非附属声明",
+      "drivingPhotos": "驾驶执照照片"
     },
     "copyright": "© {year} PhotoGov。仿照 www.photogov.net 制作的演示克隆。",
     "madeWith": "使用 Nuxt 3 · Vue 3 · Tailwind CSS 构建",
-    "colSupport": "支持"
+    "colSupport": "支持",
+    "colPassportPhotos": "护照照片",
+    "colVisaPhotos": "签证照片",
+    "colOtherServices": "其他服务",
+    "browseByCountry": "按国家浏览"
   },
   "cookie": {
     "text": "我们使用 Cookie 来改善您的体验并分析流量。继续浏览即表示您同意我们的{policy}。",

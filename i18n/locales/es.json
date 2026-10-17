@@ -67,11 +67,16 @@
       "euPrivacy": "Protección de datos UE",
       "usCompliance": "Cumplimiento EE. UU.",
       "globalCompliance": "Cumplimiento global",
-      "nonAffiliation": "Aviso de no afiliación"
+      "nonAffiliation": "Aviso de no afiliación",
+      "drivingPhotos": "Fotos de carnet de conducir"
     },
     "copyright": "© {year} PhotoGov. Una demostración clon que replica www.photogov.net.",
     "madeWith": "Hecho con Nuxt 3 · Vue 3 · Tailwind CSS",
-    "colSupport": "Soporte"
+    "colSupport": "Soporte",
+    "colPassportPhotos": "Fotos de pasaporte",
+    "colVisaPhotos": "Fotos de visa",
+    "colOtherServices": "Otros servicios",
+    "browseByCountry": "Explorar por país"
   },
   "cookie": {
     "text": "Usamos cookies para mejorar tu experiencia y analizar el tráfico. Al continuar aceptas nuestra {policy}.",
