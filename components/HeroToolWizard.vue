@@ -61,7 +61,15 @@ function selectDoc(slug: string) {
 
 function startWizard() {
   started.value = true
-  fileInputRef.value?.click()
+  // 选择国家已写入全局 store（useCountry），下方 #tool 编辑器会读取
+  const el = document.getElementById('tool')
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' })
+  } else {
+    // 非首页时跳转到工具页
+    const path = (window as any).__localePath ? (window as any).__localePath('/tool') : '/tool'
+    window.location.href = path
+  }
 }
 
 // 上传后跳转到完整编辑器

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import PhotoTool from '~/components/PhotoTool.vue'
 import HeroToolWizard from '~/components/HeroToolWizard.vue'
-import HeroShowcase from '~/components/HeroShowcase.vue'
 import DocCard from '~/components/DocCard.vue'
 import BlogCard from '~/components/BlogCard.vue'
 import { useData } from '~/composables/useData'
@@ -42,6 +41,25 @@ const CDN = 'https://photogov-com.fra1.cdn.digitaloceanspaces.com'
 const flagFor = (code: string) => `${CDN}/frontend/img/svg/flags/4x3/${code.toLowerCase()}.svg`
 const latestPosts = blogPosts().slice().sort((a: any, b: any) => (a.date < b.date ? 1 : -1)).slice(0, 3)
 const previewDoc = popular[0]
+
+// 「各国护照照片尺寸」对照表（对标原站：打印尺寸 vs 数字文件规则）
+// print/digital 为各签发机构官方规格文本；name 取自真实文档数据，链接到文档详情
+const tableRows = [
+  { slug: 'us-passport-photo', print: '2 × 2 inches (51 × 51 mm, 5.1 × 5.1 cm)', digital: 'Online renewal: JPG, JPEG, PNG, HEIC or HEIF from 54 KB to 10 MB; no pixel size set' },
+  { slug: 'us-visa-photo', print: 'Embassies/consulates usually require one printed photo — check the official site', digital: 'Square JPEG from 600 × 600 to 1200 × 1200 px, 240 KB or less' },
+  { slug: 'dv-lottery', isPage: true, print: 'The online entry accepts digital files only; selectees bring two 2×2-inch prints to the interview', digital: 'Square JPEG, 600 × 600 px, 240 KB or less' },
+  { slug: 'gb-passport-photo', print: '35 × 45 mm (3.5 × 4.5 cm) with a paper form', digital: 'Online application: at least 600 × 750 px, 50 KB to 10 MB; do not crop it yourself' },
+  { slug: 'ca-passport-photo', print: '50 × 70 mm (2 × 2¾ inches), taken by a commercial photographer', digital: 'Online renewal needs a separate digital photo — see canada.ca' },
+  { slug: 'de-visa-photo', print: '35 × 45 mm', digital: 'Printed photo, brought to the appointment' },
+  { slug: 'in-passport-35x45mm-photo', print: 'Two identical 35 × 45 mm photos, white background', digital: 'Also uploaded to the government portal; other US categories differ' },
+  { slug: 'in-driving-license-35x45-mm-photo', print: '35 × 45 mm', digital: 'At least 420 × 525 px, JPG from 10 to 20 KB' },
+  { slug: 'es-passport-32x26mm-photo', print: '32 × 26 mm', digital: 'Digital file per Spanish DGP — check the official portal' }
+]
+const tableDocName = (slug: string) => {
+  const d = documents.find((x) => x.slug === slug)
+  return d ? d.name : (slug === 'dv-lottery' ? 'US Diversity Visa lottery' : slug)
+}
+const tableLink = (r: any) => (r.isPage ? localePath(`/${r.slug}`) : localePath(`/documents/${r.slug}`))
 
 // 示例人脸画廊
 const samples = computed(() =>
@@ -128,8 +146,11 @@ const docTypes = [
           </div>
         </div>
 
-        <!-- 右栏：照片展示卡（与原站一致的 VERIFIED 徽章 + 合规保证行） -->
-        <HeroShowcase />
+        <!-- 右栏：交互式「选国家 → 选证件」向导（对标原站 Hero 工具） -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+          <p class="mb-4 text-sm font-semibold text-ink">{{ $t('home.heroWizardTitle') }}</p>
+          <HeroToolWizard />
+        </div>
       </div>
     </section>
 
@@ -244,6 +265,55 @@ const docTypes = [
       <p class="mt-3 text-center text-xs text-muted">{{ $t('home.previewHint') }}</p>
     </section>
 
+    <!-- ═══ 各国护照照片尺寸对照表（对标原站：打印尺寸 vs 数字文件规则） ═══ -->
+    <section class="container-pg py-14">
+      <div class="text-center">
+        <span class="eyebrow">{{ $t('home.tableEyebrow') }}</span>
+        <h2 class="mt-2 text-3xl font-bold">{{ $t('home.tableTitle') }}</h2>
+        <p class="mx-auto mt-3 max-w-3xl text-muted">{{ $t('home.tableSub') }}</p>
+      </div>
+      <div class="mt-8 overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+        <table class="w-full min-w-[680px] border-collapse text-left text-sm">
+          <thead>
+            <tr class="border-b border-slate-200 bg-slate-50 text-xs uppercase tracking-wide text-muted">
+              <th class="px-4 py-3 font-semibold">{{ $t('home.tableColDoc') }}</th>
+              <th class="px-4 py-3 font-semibold">{{ $t('home.tableColPrint') }}</th>
+              <th class="px-4 py-3 font-semibold">{{ $t('home.tableColDigital') }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(r, i) in tableRows" :key="i" class="border-b border-slate-100 align-top last:border-0">
+              <td class="px-4 py-3">
+                <NuxtLink :to="tableLink(r)" class="font-semibold text-brand hover:underline">{{ tableDocName(r.slug) }}</NuxtLink>
+              </td>
+              <td class="px-4 py-3 text-muted">{{ r.print }}</td>
+              <td class="px-4 py-3 text-muted">{{ r.digital }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mx-auto mt-4 max-w-3xl text-xs text-muted">{{ $t('home.tableNote') }}</p>
+    </section>
+
+    <!-- ═══ 调整尺寸前须知（对标原站 Before Resizing） ═══ -->
+    <section class="bg-slate-50 py-14">
+      <div class="container-pg">
+        <div class="text-center">
+          <span class="eyebrow">{{ $t('home.beforeEyebrow') }}</span>
+          <h2 class="mt-2 text-3xl font-bold">{{ $t('home.beforeTitle') }}</h2>
+          <p class="mx-auto mt-3 max-w-2xl text-muted">{{ $t('home.beforeSub') }}</p>
+        </div>
+        <ol class="mt-8 grid gap-4 md:grid-cols-3">
+          <li v-for="(p, i) in $tm('home.beforePoints')" :key="i" class="rounded-2xl border border-slate-200 bg-white p-5">
+            <div class="grid h-9 w-9 place-items-center rounded-full bg-brand-blue text-white font-bold">{{ i + 1 }}</div>
+            <h3 class="mt-3 font-semibold text-ink">{{ p.t }}</h3>
+            <p class="mt-1 text-sm text-muted">{{ p.d }}</p>
+          </li>
+        </ol>
+        <p class="mx-auto mt-6 max-w-3xl text-sm text-muted">{{ $t('home.beforeNote') }}</p>
+      </div>
+    </section>
+
     <!-- HOW TO TAKE AT HOME: DO / DON'T -->
     <section class="bg-slate-50 py-14">
       <div class="container-pg">
@@ -320,8 +390,14 @@ const docTypes = [
           <span class="eyebrow">{{ $t('home.trustEyebrow') }}</span>
           <h2 class="mt-2 text-3xl font-bold">{{ $t('home.trustTitle') }}</h2>
           <p class="mx-auto mt-3 max-w-2xl text-muted">{{ $t('home.trustSub') }}</p>
+          <div class="mt-5 flex justify-center">
+            <span class="inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-50 px-4 py-1.5 text-sm font-semibold text-amber-700">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.1 6.6.9-4.8 4.6 1.2 6.5L12 17.8 6.1 20.2l1.2-6.5L2.5 9l6.6-.9L12 2z"/></svg>
+              {{ $t('home.featuredBadge') }}
+            </span>
+          </div>
         </div>
-        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           <div class="card-pg p-5 text-center">
             <div class="text-3xl font-bold text-brand-blue">1.8M+</div>
             <p class="mt-1 text-sm text-muted">{{ $t('home.trustUsers') }}</p>
@@ -337,6 +413,10 @@ const docTypes = [
           <div class="card-pg p-5 text-center">
             <div class="text-3xl font-bold text-brand-blue">150+</div>
             <p class="mt-1 text-sm text-muted">{{ $t('home.trustCountries') }}</p>
+          </div>
+          <div class="card-pg p-5 text-center">
+            <div class="text-3xl font-bold text-brand-blue">185K+</div>
+            <p class="mt-1 text-sm text-muted">{{ $t('home.statPhotos') }}</p>
           </div>
         </div>
       </div>

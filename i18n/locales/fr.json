@@ -254,7 +254,35 @@
     "indLearnMore": "En savoir plus",
     "indLearnMoreAfter": "sur la conformité de notre service aux réglementations mondiales relatives aux photos d’identité.",
     "indNotice": "Avis important pour les utilisateurs aux États-Unis",
-    "indNoticeAfter": " : conformité aux réglementations officielles du Département d’État des États-Unis sur les altérations numériques des photos d’identité."
+    "indNoticeAfter": " : conformité aux réglementations officielles du Département d’État des États-Unis sur les altérations numériques des photos d’identité.",
+    "heroWizardTitle": "Créez votre photo d’identité",
+    "tableEyebrow": "Spécifications en un coup d’œil",
+    "tableTitle": "Photo d’identité par pays : formats d’impression et règles des fichiers numériques",
+    "tableSub": "Une photo d’identité n’a pas de norme universelle : chaque autorité émettrice définit sa propre taille. Les photos imprimées se mesurent en mm ou pouces, les fichiers numériques en pixels et kilo-octets. Le tableau ci-dessous liste les tailles d’impression et les propriétés des fichiers pour les documents populaires.",
+    "tableColDoc": "Document",
+    "tableColPrint": "Format imprimé",
+    "tableColDigital": "Fichier numérique pour un formulaire en ligne",
+    "tableNote": "Les tailles ci-dessus sont publiées par les autorités émettrices ou leurs partenaires officiels. Les spécifications évoluent — vérifiez toujours la page officielle de l’organisme avant de soumettre.",
+    "beforeEyebrow": "Conseils de redimensionnement",
+    "beforeTitle": "Avant de redimensionner une photo existante",
+    "beforeSub": "Un redimensionneur ne modifie qu’un paramètre technique. Trois autres facteurs déterminent si le fichier respecte les spécifications :",
+    "beforePoints": [
+      {
+        "t": "Proportions et taille de la tête",
+        "d": "La photo doit être recadrée au ratio du document avec la tête à la hauteur requise, pas seulement réduite."
+      },
+      {
+        "t": "Taille du fichier en Ko",
+        "d": "Les formulaires en ligne imposent des limites, de 10–20 Ko pour un permis de conduire indien à 10 Mo pour le renouvellement américain. Vérifiez les seuils avant de téléverser."
+      },
+      {
+        "t": "Règles propres à la plateforme",
+        "d": "Les règles dépendent de la plateforme. Un renouvellement en ligne américain autorise le recadrage dans le formulaire mais interdit les scans ; une demande britannique recadre automatiquement après envoi."
+      }
+    ],
+    "beforeNote": "PhotoGov recadre la photo à la taille exacte, positionne la tête et vérifie la composition selon les règles du document sélectionné.",
+    "featuredBadge": "N°1 des services de photos d’identité — Noté par Apollo Technical, 2025",
+    "statPhotos": "photos créées"
   },
   "documents": {
     "eyebrow": "Documents",

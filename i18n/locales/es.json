@@ -254,7 +254,35 @@
     "indLearnMore": "Más información",
     "indLearnMoreAfter": "sobre el cumplimiento de nuestro servicio con las normativas globales de fotos de identidad.",
     "indNotice": "Aviso importante para usuarios en EE. UU.",
-    "indNoticeAfter": ": cumplimiento de las normativas oficiales del Departamento de Estado de EE. UU. sobre alteraciones digitales de fotos de identidad."
+    "indNoticeAfter": ": cumplimiento de las normativas oficiales del Departamento de Estado de EE. UU. sobre alteraciones digitales de fotos de identidad.",
+    "heroWizardTitle": "Crea tu foto de identidad",
+    "tableEyebrow": "Especificaciones de un vistazo",
+    "tableTitle": "Foto de tamaño de pasaporte por país: formatos de impresión y reglas de archivos digitales",
+    "tableSub": "Una foto de tamaño de pasaporte no tiene un estándar universal: cada autoridad emisora fija su propio tamaño. Las fotos impresas se miden en mm o pulgadas, y los archivos digitales para formularios en línea en píxeles y kilobytes. La tabla siguiente muestra tamaños de impresión y propiedades de archivos para documentos populares.",
+    "tableColDoc": "Documento",
+    "tableColPrint": "Tamaño de foto impresa",
+    "tableColDigital": "Archivo digital para formulario en línea",
+    "tableNote": "Los tamaños anteriores los publican las autoridades emisoras o sus socios oficiales. Las especificaciones cambian; comprueba siempre la página oficial de la oficina que tramita tu solicitud antes de enviarla.",
+    "beforeEyebrow": "Consejos de redimensionado",
+    "beforeTitle": "Antes de redimensionar una foto existente",
+    "beforeSub": "Un redimensionador de fotos de pasaporte solo cambia un parámetro técnico. Tres factores más deciden si el archivo cumple las especificaciones:",
+    "beforePoints": [
+      {
+        "t": "Proporciones y tamaño de la cabeza",
+        "d": "La foto debe recortarse a la proporción del documento con la cabeza a la altura requerida, no solo reducirse."
+      },
+      {
+        "t": "Tamaño de archivo en KB",
+        "d": "Los formularios en línea imponen límites, de 10–20 KB para un permiso de conducir indio a 10 MB para la renovación de pasaporte de EE. UU. Verifica los umbrales antes de subir."
+      },
+      {
+        "t": "Reglas según la plataforma",
+        "d": "Las reglas dependen de la plataforma. Una renovación en línea de EE. UU. permite recortar dentro del formulario pero prohíbe escaneos; una solicitud del Reino Unido recorta automáticamente tras subir."
+      }
+    ],
+    "beforeNote": "PhotoGov recorta la foto al tamaño exacto, coloca la cabeza y verifica la composición según las reglas del documento seleccionado.",
+    "featuredBadge": "Servicio n.º 1 de fotos de ID — Calificado por Apollo Technical, 2025",
+    "statPhotos": "fotos creadas"
   },
   "documents": {
     "eyebrow": "Documentos",

@@ -254,7 +254,35 @@
     "indLearnMore": "Learn more",
     "indLearnMoreAfter": "about our service’s adherence to the Global regulations for ID photos.",
     "indNotice": "Important notice for users in the US",
-    "indNoticeAfter": ": Compliance with Official U.S. Department of State Regulations on ID photos digital alterations."
+    "indNoticeAfter": ": Compliance with Official U.S. Department of State Regulations on ID photos digital alterations.",
+    "heroWizardTitle": "Create your ID photo",
+    "tableEyebrow": "Document specs at a glance",
+    "tableTitle": "Passport Size Photo by Country: Print Sizes and Digital File Rules",
+    "tableSub": "A passport-size photo has no universal standard: each issuing authority sets its own size. Printed photos are measured in mm or inches, while digital files for online forms are measured in pixels and kilobytes. The table below lists print sizes and digital file properties for popular document types.",
+    "tableColDoc": "Document",
+    "tableColPrint": "Printed photo size",
+    "tableColDigital": "Digital file for an online form",
+    "tableNote": "The sizes above are published by the issuing authorities or their official partners. Photo specifications change — always check the official page of the office handling your application before submitting.",
+    "beforeEyebrow": "Resizing tips",
+    "beforeTitle": "Before Resizing an Existing Photo",
+    "beforeSub": "A passport photo resizer only changes one technical parameter. Three more factors decide whether the file meets the required specifications:",
+    "beforePoints": [
+      {
+        "t": "Proportions and head size",
+        "d": "The photo must be cropped to the document's aspect ratio with the head at the required height, not just scaled down."
+      },
+      {
+        "t": "File size in KB",
+        "d": "Online forms enforce limits — from 10–20 KB for an Indian driving licence to 10 MB for a US passport renewal. Check the form thresholds before uploading."
+      },
+      {
+        "t": "Portal-specific rules",
+        "d": "Rules depend on the submission platform. A US online renewal lets you crop within the form but forbids scans of prints; a UK application crops automatically after upload."
+      }
+    ],
+    "beforeNote": "PhotoGov crops the photo to the exact size, positions the head, and verifies the composition against the selected document rules — so you never juggle these factors by hand.",
+    "featuredBadge": "#1 ID Photo Service — Rated by Apollo Technical, 2025",
+    "statPhotos": "photos created"
   },
   "documents": {
     "eyebrow": "Documents",
