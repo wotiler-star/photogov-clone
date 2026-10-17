@@ -76,7 +76,12 @@
     "colPassportPhotos": "护照照片",
     "colVisaPhotos": "签证照片",
     "colOtherServices": "其他服务",
-    "browseByCountry": "按国家浏览"
+    "browseByCountry": "按国家浏览",
+    "getApp": "下载 PhotoGov 应用",
+    "getAppSub": "在手机上随时制作合规证件照。",
+    "downloadOn": "下载于",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
   },
   "cookie": {
     "text": "我们使用 Cookie 来改善您的体验并分析流量。继续浏览即表示您同意我们的{policy}。",

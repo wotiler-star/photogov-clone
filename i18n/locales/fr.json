@@ -76,7 +76,12 @@
     "colPassportPhotos": "Photos de passeport",
     "colVisaPhotos": "Photos de visa",
     "colOtherServices": "Autres services",
-    "browseByCountry": "Parcourir par pays"
+    "browseByCountry": "Parcourir par pays",
+    "getApp": "Téléchargez l’appli PhotoGov",
+    "getAppSub": "Créez des photos d’identité conformes sur votre téléphone, où que vous soyez.",
+    "downloadOn": "Disponible sur",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
   },
   "cookie": {
     "text": "Nous utilisons des cookies pour améliorer votre expérience et analyser le trafic. En poursuivant, vous acceptez notre {policy}.",
