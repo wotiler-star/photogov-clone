@@ -338,7 +338,12 @@
     "glassesAllowed": "allowed",
     "glassesNotAllowed": "not allowed",
     "notFoundTitle": "Document not found",
-    "browse": "Browse documents"
+    "browse": "Browse documents",
+    "docSourcesTitle": "Official government sources",
+    "docSourcesSub": "Links to the issuing authority’s official pages. Photo specifications change — always confirm the current requirements on the official site before applying.",
+    "docSourcesNote": "PhotoGov is not affiliated with any government agency.",
+    "docSourcesLastVerified": "Last verified: {date}",
+    "docSourcesOpen": "Open official site"
   },
   "faq": {
     "eyebrow": "Help Center",

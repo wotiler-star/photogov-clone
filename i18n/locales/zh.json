@@ -338,7 +338,12 @@
     "glassesAllowed": "允许",
     "glassesNotAllowed": "不允许",
     "notFoundTitle": "未找到该证件",
-    "browse": "浏览证件"
+    "browse": "浏览证件",
+    "docSourcesTitle": "政府官方来源",
+    "docSourcesSub": "指向签发机构官方页面的链接。证件照规格可能变动——提交前请务必在官方站点确认最新要求。",
+    "docSourcesNote": "PhotoGov 与任何政府机构均无关联。",
+    "docSourcesLastVerified": "最近核验：{date}",
+    "docSourcesOpen": "打开官方网站"
   },
   "faq": {
     "eyebrow": "帮助中心",
