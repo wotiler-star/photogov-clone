@@ -216,19 +216,6 @@
       { "label": "Resolución", "value": "300 DPI" },
       { "label": "Vestimenta", "value": "Color neutro, liso" }
     ],
-    "guideEyebrow": "Paso a paso",
-    "guideTitle": "Cómo sacar una foto de pasaporte en casa",
-    "guideSub": "Sigue seis pasos simples y convierte un selfie del móvil en una foto de ID lista para presentar, sin ir a un estudio.",
-    "guideSteps": [
-      { "t": "Toma un selfie de buena calidad", "d": "Usa el móvil o una cámara con luz uniforme y suficiente. Evita tres cosas: sombras marcadas en la cara, luz lateral fuerte y flash directo que aclare demasiado los rasgos." },
-      { "t": "Comprueba los requisitos básicos", "d": "Mira directo a la cámara con expresión neutra y ambos ojos abiertos. Viste ropa de diario — sin uniformes. Evita que el pelo cubra los ojos y revisa la lista de qué hacer y qué no más abajo." },
-      { "t": "Sube tu selfie", "d": "Sube la foto a PhotoGov y deja que la herramienta recorte y redimensione a la especificación exacta. Ve el ejemplo de pasaporte de EE. UU. abajo para el tipo de resultado que obtienes." },
-      { "t": "Elige tu ropa", "d": "Elige ropa de diario de color liso que contraste con el fondo. Evita una prenda blanca sobre fondo blanco." },
-      { "t": "Añade verificación humana (opcional)", "d": "Para mayor seguridad, añade verificación experta — recomendado. Si la foto es rechazada, obtienes un reembolso." },
-      { "t": "Descarga tu foto lista para presentar", "d": "Guarda un JPG/PNG digital para formularios en línea, o un PDF listo para imprimir para llevar a un laboratorio o a tu impresora." }
-    ],
-    "guideExampleTitle": "Ejemplo: Foto de pasaporte de EE. UU.",
-    "guideExampleClothes": "Ropa de diario; evita uniformes o blanco sobre blanco.",
     "doTitle": "Haz",
     "dontTitle": "No hagas",
     "doList": [

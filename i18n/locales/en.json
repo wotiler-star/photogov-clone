@@ -216,19 +216,6 @@
       { "label": "Resolution", "value": "300 DPI" },
       { "label": "Clothing", "value": "Neutral color, plain" }
     ],
-    "guideEyebrow": "Step by step",
-    "guideTitle": "How to Take a Passport Photo at Home",
-    "guideSub": "Follow six simple steps and turn a phone selfie into an application-ready ID photo — no studio visit required.",
-    "guideSteps": [
-      { "t": "Take a good-quality selfie", "d": "Use a phone or camera in good, even light. Avoid three things: harsh shadows on the face, strong side lighting, and direct flash that washes out your features." },
-      { "t": "Check the basic requirements", "d": "Face the camera directly with a neutral expression and both eyes open. Wear everyday clothing — no uniforms. Keep hair from covering your eyes, then review the do and don't list below." },
-      { "t": "Upload your selfie", "d": "Upload the photo to PhotoGov and let the tool crop and resize it to the exact specification. See the US Passport example below for the kind of output you get." },
-      { "t": "Choose an outfit", "d": "Pick plain, everyday clothing in a color that contrasts with the background. Avoid a white top on a white background." },
-      { "t": "Add human verification (optional)", "d": "For extra confidence, add expert verification by a specialist — recommended. If the photo is rejected, you get a refund." },
-      { "t": "Download your application-ready photo", "d": "Save a digital JPG/PNG for online forms, or a print-ready PDF to take to a photo lab or your home printer." }
-    ],
-    "guideExampleTitle": "Example: US Passport Photo",
-    "guideExampleClothes": "Everyday clothing; avoid uniforms or white-on-white.",
     "doTitle": "Do",
     "dontTitle": "Don't",
     "doList": [
