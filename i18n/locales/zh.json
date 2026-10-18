@@ -353,6 +353,7 @@
     "catAll": "全部分类",
     "countryAll": "全部国家",
     "verifiedOnly": "仅官方认证",
+    "docCount": "{count} 篇文档",
     "found": "找到 {count} 个证件",
     "empty": "没有符合搜索条件的证件。",
     "noVerify": "通用参考"

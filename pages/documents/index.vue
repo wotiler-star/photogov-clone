@@ -7,6 +7,7 @@ import { useCountry } from '~/composables/useCountry'
 
 const route = useRoute()
 const router = useRouter()
+const localePath = useLocalePath()
 const { fetchDocuments, fetchCategories, fetchCountries } = useApi()
 const { setCode } = useCountry()
 
@@ -63,9 +64,15 @@ const grouped = computed(() => {
   for (const d of results.value) {
     ;(map[d.country] ||= []).push(d)
   }
-  return map
+  // 对标原站 /documents/：按国家名称字母序排列分组
+  return Object.fromEntries(
+    Object.entries(map).sort((a, b) => nameFor(a[0]).localeCompare(nameFor(b[0])))
+  )
 })
 
+// CDN SVG 国旗（与首页一致），无资源时回退到 emoji 国旗
+const CDN = 'https://photogov-com.fra1.cdn.digitaloceanspaces.com'
+const flagImg = (code: string) => `${CDN}/frontend/img/svg/flags/4x3/${code.toLowerCase()}.svg`
 const flagFor = (code: string) => countriesByCode.value[code]?.flag || '📄'
 const nameFor = (code: string) => countryName(code)
 
@@ -131,11 +138,25 @@ watch([query, category], updateRoute)
 
       <p class="mt-4 text-sm text-muted">{{ $t('documents.found', { count: results.length }) }}</p>
 
-      <!-- 列表 -->
+      <!-- 列表：按国家字母序分组（对标原站：国旗 + 国名 + N doc. + 文档网格） -->
       <div v-if="results.length" class="mt-4 space-y-8">
         <div v-for="(list, code) in grouped" :key="code">
           <h2 class="mb-3 flex items-center gap-2 text-xl font-semibold">
-            <span class="text-2xl">{{ flagFor(code) }}</span>{{ nameFor(code) }}
+            <img
+              :src="flagImg(code)"
+              :alt="nameFor(code)"
+              width="28"
+              height="21"
+              class="h-[21px] w-7 shrink-0 rounded-sm border border-slate-200 object-cover"
+              loading="lazy"
+              @error="($event.target as HTMLImageElement).style.display = 'none'"
+            />
+            <NuxtLink :to="localePath(`/documents/${String(code).toLowerCase()}`)" class="hover:text-brand-blue hover:underline">
+              {{ nameFor(code) }}
+            </NuxtLink>
+            <span class="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-muted">{{
+              $t('documents.docCount', { count: list.length })
+            }}</span>
           </h2>
           <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             <DocCard v-for="d in list" :key="d.slug" :doc="d" :flag="flagFor(d.country)" />

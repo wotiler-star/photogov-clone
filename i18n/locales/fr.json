@@ -340,6 +340,7 @@
     "catAll": "Toutes les catégories",
     "countryAll": "Tous les pays",
     "verifiedOnly": "Vérifié uniquement",
+    "docCount": "{count} doc.",
     "found": "{count} documents trouvés",
     "empty": "Aucun document ne correspond à votre recherche.",
     "noVerify": "Guide général"
