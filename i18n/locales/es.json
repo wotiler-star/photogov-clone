@@ -688,7 +688,50 @@
     "cookieAnalyticsTitle": "Analítica",
     "cookieAnalyticsText": "La analítica agregada y anónima nos ayuda a mejorar la herramienta. No intervienen datos de fotos.",
     "cookieManageTitle": "Gestionar cookies",
-    "cookieManageText": "Puedes borrar las cookies en la configuración de tu navegador en cualquier momento."
+    "cookieManageText": "Puedes borrar las cookies en la configuración de tu navegador en cualquier momento.",
+    "requisitesTitle": "Datos identificativos",
+    "requisitesOwner": "Propietario",
+    "requisitesZip": "Código postal",
+    "requisitesAddress": "Dirección",
+    "requisitesOwnerValue": "Y VISION TECHNOLOGIES LLP",
+    "requisitesZipValue": "SE19 3BD",
+    "requisitesAddressValue": "Stoney Works 8 Stoney Lane, London, England",
+    "privacySections": [
+      { "title": "Recopilación y uso de datos", "text": "PhotoGov es una herramienta basada en el navegador: las fotos que subas se procesan localmente en tu propio dispositivo con la API Canvas y nunca se transmiten a nuestros servidores. Solo procesamos los datos mínimos necesarios para operar el servicio, como el país seleccionado, tu elección de consentimiento de cookies y, si nos contactas, los datos que facilites en el formulario de contacto." },
+      { "title": "Principios de protección de datos", "text": "Procesamos los datos de forma lícita, leal y transparente; para fines específicos, explícitos y legítimos; con minimización de datos; manteniéndolos exactos y actualizados; conservándolos solo el tiempo necesario; y con la seguridad adecuada contra el tratamiento no autorizado o ilícito, la pérdida accidental, la destrucción o el daño." },
+      { "title": "Divulgación de información", "text": "No vendemos ni alquilamos tus datos personales. Solo podemos divulgar información para cumplir una obligación legal u orden judicial, para proteger los derechos, la propiedad o la seguridad de nuestros usuarios y del servicio, o en caso de fusión, adquisición o venta de activos, sujeto a las mismas obligaciones de confidencialidad de esta política." },
+      { "title": "Medidas de seguridad", "text": "Hemos implementado medidas técnicas y organizativas adecuadas para proteger los datos contra el acceso, la modificación, la divulgación o la destrucción no autorizados. Entre ellas se incluyen el cifrado en tránsito (SSL/TLS), el acceso limitado al personal autorizado y el almacenamiento seguro." },
+      { "title": "Tus derechos", "text": "En virtud del GDPR tienes derecho a ser informado, de acceso, de rectificación, de supresión (el «derecho al olvido»), a la limitación del tratamiento, a la portabilidad de los datos, a oponerte al tratamiento y a no ser objeto de decisiones automatizadas, incluida la elaboración de perfiles. Contáctanos para ejercer cualquiera de estos derechos." },
+      { "title": "Las fotos se quedan en tu dispositivo", "text": "Todo el procesamiento de imágenes se realiza localmente en tu navegador mediante la API Canvas. Tus fotos nunca se suben a nuestros servidores." },
+      { "title": "Analítica", "text": "Usamos analítica agregada y respetuosa con la privacidad para entender el uso del servicio. No se recopila información personal identificable de tus fotos." },
+      { "title": "Cookies y tecnologías similares", "text": "Usamos una cookie mínima para recordar tus preferencias (como el país y el consentimiento de cookies). Consulta nuestra {link}.", "linkPath": "/cookie-policy", "linkText": "Política de cookies" },
+      { "title": "Modificaciones de la política", "text": "Podemos actualizar esta política en cualquier momento. Los cambios se publican en esta página con una fecha de «Última actualización» revisada, y el uso continuado del servicio constituye la aceptación de la política actualizada." },
+      { "title": "Contacto", "text": "¿Tienes preguntas? Escríbenos a través de la {link}.", "linkPath": "/contacts", "linkText": "página de contacto" },
+      { "title": "Ley aplicable", "text": "Esta política se rige por las leyes de la Unión Europea y se interpreta de conformidad con ellas." },
+      { "title": "Reclamaciones", "text": "Tienes derecho a presentar una reclamación ante una autoridad de control si consideras que nuestro tratamiento de tus datos personales infringe las leyes aplicables, en particular el GDPR." },
+      { "title": "Transferencias internacionales de datos", "text": "Como las fotos se procesan localmente en tu navegador, no transferimos tus imágenes fuera de tu dispositivo. Cuando se transfieran datos personales fuera del Espacio Económico Europeo, garantizamos un nivel de protección adecuado conforme al GDPR." },
+      { "title": "Conservación de datos", "text": "Conservamos los datos personales solo durante el tiempo necesario para cumplir los fines para los que se recopilaron o según lo exijan las leyes aplicables, y destruimos o anonimizamos de forma segura los datos que ya no se necesitan." },
+      { "title": "Privacidad de los menores", "text": "El servicio no está destinado a menores de 16 años. No recopilamos deliberadamente datos personales de menores de 16 años y los eliminaremos de inmediato si tenemos conocimiento de ello." },
+      { "title": "Enlaces de terceros", "text": "Nuestro sitio web puede contener enlaces a otros sitios que no operamos. No somos responsables de su contenido, políticas o prácticas de privacidad, y te recomendamos revisar las políticas de privacidad de los sitios de terceros que visites." }
+    ],
+    "termsSections": [
+      { "title": "Descripción de los servicios", "text": "PhotoGov ofrece una plataforma en línea a través de la cual puedes subir una fotografía para procesarla y prepararla para distintos tipos de documentos conforme a los requisitos aplicables. Los servicios incluyen opciones gratuitas y de pago, y cualquier tarifa aplicable se indica claramente antes de iniciar el procesamiento." },
+      { "title": "Responsabilidades del cliente", "text": "Aceptas proporcionar una fotografía adecuada para el procesamiento conforme a las directrices de nuestro sitio web, y garantizas que tienes el derecho legal de usar y subir la fotografía y que esta no infringe derechos de terceros ni viola las leyes aplicables." },
+      { "title": "Pago y reembolso", "text": "Las tarifas se abonan mediante los métodos de pago aceptados al finalizar la compra, y el pago confirma la aceptación de estos términos. Si no estás satisfecho con el resultado por un procesamiento incorrecto o el incumplimiento de los requisitos del documento, puedes solicitar un reembolso dentro de los catorce (14) días siguientes a la finalización del servicio. No se realizan reembolsos cuando la fotografía original no cumplía los requisitos mínimos. Consulta nuestra {link}.", "linkPath": "/refund-policy", "linkText": "política de reembolso" },
+      { "title": "Derechos de propiedad", "text": "PhotoGov y sus licenciantes conservan todos los derechos de propiedad sobre los servicios, incluida la tecnología utilizada para procesar las fotografías. Te concedemos una licencia no exclusiva, intransferible, revocable y limitada para acceder y usar los servicios con fines personales, sujeta a este acuerdo." },
+      { "title": "Consideraciones de privacidad", "text": "Tratamos los datos personales de conformidad con las leyes de protección de datos aplicables, incluido el Reglamento General de Protección de Datos (GDPR). Nuestra {link} ofrece más detalles sobre el tratamiento de datos y tus derechos.", "linkPath": "/privacy-policy", "linkText": "Política de privacidad" },
+      { "title": "Limitación de responsabilidad", "text": "En la máxima medida permitida por la ley, nuestra responsabilidad por cualquier reclamación derivada de este acuerdo se limita al importe que hayas pagado por los servicios. No garantizamos la aceptación por parte de ninguna autoridad gubernamental; es tu responsabilidad verificar que tu foto cumple los requisitos oficiales vigentes." },
+      { "title": "Ley aplicable y resolución de disputas", "text": "Este acuerdo se rige por las leyes de la Unión Europea. Las disputas se resuelven mediante negociaciones amistosas; si las partes no logran resolver una disputa en un plazo de treinta (30) días, cualquiera de ellas podrá someterla a los tribunales competentes de la Unión Europea." },
+      { "title": "Disposiciones generales", "text": "Este acuerdo constituye el acuerdo íntegro entre las partes y sustituye a todos los acuerdos anteriores. Nos reservamos el derecho de modificar estos términos en cualquier momento; el uso continuado de los servicios constituye la aceptación de dichas modificaciones." }
+    ],
+    "cookieSections": [
+      { "title": "Entender las cookies", "text": "Las cookies son pequeños archivos que se descargan en tu dispositivo para mejorar tu experiencia. Esta página describe la información que recopilan, cómo la usamos y cómo puedes controlarlas." },
+      { "title": "Uso de cookies", "text": "Implementamos cookies por los motivos que se detallan a continuación. En la mayoría de los casos no existen alternativas estándar del sector para desactivar las cookies sin deshabilitar por completo la funcionalidad que aportan." },
+      { "title": "Desactivar cookies", "text": "Puedes evitar que se establezcan cookies ajustando la configuración de tu navegador. Ten en cuenta que desactivarlas afectará a la funcionalidad de este y de muchos otros sitios web, por lo que generalmente se recomienda dejarlas activadas." },
+      { "title": "Cookies que usamos", "text": "Usamos un número reducido de cookies estrictamente funcionales: para recordar el país seleccionado, guardar tu elección de consentimiento de cookies y recordar los datos de los formularios cuando nos contactas." },
+      { "title": "Cookies de terceros", "text": "Usamos Google Analytics para entender cómo se utiliza el sitio y poder mejorarlo. Estas cookies de terceros registran el uso de forma agregada —como el tiempo en el sitio y las páginas visitadas— y nunca involucran tus fotos." },
+      { "title": "Más información", "text": "Si no estás seguro de si una cookie es necesaria, generalmente es más seguro dejarlas activadas. Para cualquier consulta, contáctanos a través de nuestra {link}.", "linkPath": "/contacts", "linkText": "página de contacto" }
+    ]
   },
   "signin": {
     "signIn": "Iniciar sesión",
@@ -806,6 +849,9 @@
       "support": "Soporte prioritario por correo"
     },
     "save": "Ahorra {n}%",
+    "freeTitle": "Fotos gratuitas",
+    "freeText": "El editor de PhotoGov es gratuito: sube una foto, recórtala al tamaño oficial, cambia el fondo y descarga un archivo conforme. Todo el procesamiento se ejecuta localmente en tu navegador, sin necesidad de cuenta.",
+    "noticeText": "Nuestro servicio puede no estar disponible en ciertos países por limitaciones regulatorias y de cumplimiento. Pedimos disculpas por las molestias y agradecemos su comprensión.",
     "compareTitle": "Comparar planes",
     "feature": "Función"
   },

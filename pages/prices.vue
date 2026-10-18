@@ -149,6 +149,13 @@ useHead({ title: t('plans.title') })
         </div>
       </div>
 
+      <!-- 免费照片说明 + 可用性提示（对标原站价格页的信息板块） -->
+      <div class="mx-auto mt-14 max-w-2xl">
+        <h2 class="text-center font-serif text-2xl font-bold text-ink">{{ $t('plans.freeTitle') }}</h2>
+        <p class="mt-3 text-center text-muted">{{ $t('plans.freeText') }}</p>
+        <p class="mt-6 text-center text-sm text-muted">{{ $t('plans.noticeText') }}</p>
+      </div>
+
       <p v-if="!loaded" class="mt-6 text-center text-sm text-muted">{{ $t('account.loading') }}</p>
     </div>
   </div>
