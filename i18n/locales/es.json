@@ -428,7 +428,11 @@
     "back": "Volver al blog",
     "sidebarTitle": "Crea tu foto",
     "sidebarText": "Elige tu documento y descarga una foto conforme en segundos.",
-    "sidebarBtn": "Explorar documentos"
+    "sidebarBtn": "Explorar documentos",
+    "tocTitle": "En esta página",
+    "authorAbout": "Sobre el autor",
+    "authorArticles": "Artículos de este autor",
+    "authorNotFound": "Autor no encontrado"
   },
   "tool": {
     "document": "Documento",

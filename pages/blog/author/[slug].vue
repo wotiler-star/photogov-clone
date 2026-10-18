@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import { useApi } from '~/composables/useApi'
 import { useLocalePath, useRequestURL } from '#imports'
 
 const route = useRoute()
+const { t, locale } = useI18n()
 const slug = computed(() => route.params.slug as string)
 const { getAuthor } = useApi()
 const localePath = useLocalePath()
@@ -21,10 +23,10 @@ const posts = computed(() => (data.value?.posts || []) as any[])
 const schemaOrg = computed(() => data.value?.schemaOrg || null)
 
 const fmtDate = (d?: string) =>
-  d ? new Date(d.replace(' ', 'T')).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : ''
+  d ? new Intl.DateTimeFormat(locale.value || 'en', { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(d.replace(' ', 'T'))) : ''
 
 useHead(() => {
-  if (!author.value) return { title: 'Author not found', meta: [{ name: 'robots', content: 'noindex' }] }
+  if (!author.value) return { title: t('blog.authorNotFound'), meta: [{ name: 'robots', content: 'noindex' }] }
   const a = author.value
   const canonical = `${url.origin}/blog/author/${a.slug}`
   return {
@@ -66,14 +68,14 @@ useHead(() => {
             {{ (author.name || '?').slice(0, 1) }}
           </div>
           <div>
-            <span class="eyebrow">About the author</span>
+            <span class="eyebrow">{{ $t('blog.authorAbout') }}</span>
             <h1 class="mt-1 text-3xl font-bold sm:text-4xl">{{ author.name }}</h1>
             <p class="mt-3 max-w-2xl text-muted">{{ author.bio }}</p>
           </div>
         </header>
 
         <!-- 作者文章 -->
-        <h2 class="mt-12 text-2xl font-bold">Articles by this author</h2>
+        <h2 class="mt-12 text-2xl font-bold">{{ $t('blog.authorArticles') }}</h2>
         <div v-if="posts.length" class="mt-6 grid gap-6 sm:grid-cols-2">
           <article
             v-for="p in posts"
@@ -112,7 +114,7 @@ useHead(() => {
 
       <template v-else>
         <div class="mt-10 text-center">
-          <h1 class="text-2xl font-bold">Author not found</h1>
+          <h1 class="text-2xl font-bold">{{ $t('blog.authorNotFound') }}</h1>
           <p class="mt-3 text-muted">We couldn't find the author you were looking for.</p>
         </div>
       </template>

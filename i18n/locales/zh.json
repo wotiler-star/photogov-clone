@@ -428,7 +428,11 @@
     "back": "返回博客",
     "sidebarTitle": "制作您的照片",
     "sidebarText": "选择证件，几秒即可下载合规照片。",
-    "sidebarBtn": "浏览证件"
+    "sidebarBtn": "浏览证件",
+    "tocTitle": "本页目录",
+    "authorAbout": "关于作者",
+    "authorArticles": "本作者的文章",
+    "authorNotFound": "未找到该作者"
   },
   "tool": {
     "document": "证件",

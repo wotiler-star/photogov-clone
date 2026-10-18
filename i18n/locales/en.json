@@ -428,7 +428,11 @@
     "back": "Back to blog",
     "sidebarTitle": "Make your photo",
     "sidebarText": "Pick your document and download a compliant photo in seconds.",
-    "sidebarBtn": "Browse documents"
+    "sidebarBtn": "Browse documents",
+    "tocTitle": "On this page",
+    "authorAbout": "About the author",
+    "authorArticles": "Articles by this author",
+    "authorNotFound": "Author not found"
   },
   "tool": {
     "document": "Document",

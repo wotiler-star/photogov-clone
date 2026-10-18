@@ -2,12 +2,14 @@
 const localePath = useLocalePath()
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import BlogCard from '~/components/BlogCard.vue'
 import { useData } from '~/composables/useData'
 import { useApi } from '~/composables/useApi'
 import { useRequestURL } from '#imports'
 
 const route = useRoute()
+const { locale } = useI18n()
 const slug = computed(() => route.params.slug as string)
 const { getPost, relatedPosts } = useData()
 const { fetchBlogArticle } = useApi()
@@ -25,8 +27,15 @@ const article = computed(() => (artData.value as any) || null)
 const body = computed(() => article.value?.content || post.value?.body || '')
 const toc = computed<any[]>(() => article.value?.toc || [])
 
+// 日期/时长：优先取接口返回值，回退到本地 blog 数据；日期格式跟随当前语言
 const fmt = (d?: string) =>
-  d ? new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : ''
+  d ? new Intl.DateTimeFormat(locale.value || 'en', { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(d)) : ''
+const publishedDate = computed(() => article.value?.publishedAt || post.value?.date)
+const readTime = computed(() => {
+  const rt = article.value?.readingTime
+  if (typeof rt === 'number' && rt > 0) return `${rt} min read`
+  return post.value?.readTime || ''
+})
 
 useHead(() => {
   if (!post.value) {
@@ -95,9 +104,9 @@ const rel = computed(() => (post.value ? relatedPosts(post.value.slug, 3) : []))
           <span class="text-2xl">{{ post.cover }}</span>
           <NuxtLink :to="localePath('/blog/author/nathaniel-k-rowden')" class="hover:text-brand-blue hover:underline">{{ post.author }}</NuxtLink>
           <span class="text-slate-300">·</span>
-          <span>{{ fmt(post.date) }}</span>
+          <span>{{ fmt(publishedDate) }}</span>
           <span class="text-slate-300">·</span>
-          <span>{{ post.readTime }}</span>
+          <span v-if="readTime">{{ readTime }}</span>
         </div>
       </div>
     </header>
@@ -118,6 +127,21 @@ const rel = computed(() => (post.value ? relatedPosts(post.value.slug, 3) : []))
 
         <!-- 侧栏 -->
         <aside class="space-y-6 lg:sticky lg:top-24 lg:self-start">
+          <!-- 目录（正文接口返回的 TOC，锚点滚动） -->
+          <div class="card-pg p-5" v-if="toc.length">
+            <h3 class="font-semibold text-ink">{{ $t('blog.tocTitle') }}</h3>
+            <ul class="mt-3 space-y-2 border-l border-slate-200 text-sm">
+              <li v-for="item in toc" :key="item.id">
+                <a
+                  :href="`#${item.id}`"
+                  class="block border-l-2 border-transparent py-0.5 pl-3 text-muted transition hover:border-brand-blue hover:text-brand-blue"
+                  :class="item.level > 2 ? 'pl-6 text-xs' : ''"
+                >
+                  {{ item.title }}
+                </a>
+              </li>
+            </ul>
+          </div>
           <div class="card-pg p-5">
             <h3 class="font-semibold text-ink">{{ $t('blog.sidebarTitle') }}</h3>
             <p class="mt-1 text-sm text-muted">{{ $t('blog.sidebarText') }}</p>
