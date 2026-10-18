@@ -35,8 +35,7 @@ useHead(() => {
   }
 })
 
-const popular = popularDocuments().slice(0, 8)
-const quick = quickLinks().slice(0, 6)
+const popular = popularDocuments().slice(0, 12)
 const CDN = 'https://photogov-com.fra1.cdn.digitaloceanspaces.com'
 const flagFor = (code: string) => `${CDN}/frontend/img/svg/flags/4x3/${code.toLowerCase()}.svg`
 const latestPosts = blogPosts().slice().sort((a: any, b: any) => (a.date < b.date ? 1 : -1)).slice(0, 3)
@@ -81,6 +80,27 @@ const docTypes = [
   { cat: 'id', label: 'ID photos', desc: 'National ID and residence card photos', count: documents.filter((d) => d.category === 'id').length },
   { cat: 'driving', label: 'Driving license', desc: "Driver's license photo templates", count: documents.filter((d) => d.category === 'driving').length }
 ]
+
+// 首页 Quick Links：按国家分组（对标原站 US/DE/UK/IN/ES 等分组，
+// 每组标注文档数并列出若干文档链接）。取文档数最多的前 6 个国家。
+// 排除 ZZ（"Other countries" 汇总桶，非真实国家）。
+const quickGroups = computed(() => {
+  const map: Record<string, any[]> = {}
+  for (const d of documents) {
+    if (d.country === 'ZZ') continue
+    ;(map[d.country] ||= []).push(d)
+  }
+  return Object.entries(map)
+    .sort((a, b) => b[1].length - a[1].length)
+    .slice(0, 6)
+    .map(([code, list]) => ({
+      code,
+      name: countryName(code),
+      flag: flagFor(code),
+      count: list.length,
+      docs: list.slice(0, 4)
+    }))
+})
 </script>
 
 <template>
@@ -210,25 +230,41 @@ const docTypes = [
         </div>
         <NuxtLink :to="localePath('/documents')" class="btn-outline hidden sm:inline-flex">{{ $t('common.viewAll') }}</NuxtLink>
       </div>
-      <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        <DocCard v-for="d in popular" :key="d.slug" :doc="d" :flag="flagFor(d.country)" />
+      <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <DocCard v-for="d in popular" :key="d.slug" :doc="d" :flag="flagFor(d.country)" detailed />
       </div>
     </section>
 
-    <!-- QUICK LINKS -->
-    <section v-if="quick.length" class="bg-slate-50 py-14">
+    <!-- QUICK LINKS：按国家分组（文档数 + 文档链接） -->
+    <section v-if="quickGroups.length" class="bg-slate-50 py-14">
       <div class="container-pg">
         <span class="eyebrow">{{ $t('home.quickEyebrow') }}</span>
         <h2 class="mt-2 text-3xl font-bold">{{ $t('home.quickTitle') }}</h2>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <NuxtLink
-            v-for="d in quick"
-            :key="d.slug"
-            :to="localePath(`/documents/${d.slug}`)"
-            class="chip !px-4 !py-2 !text-sm hover:bg-brand-blue hover:text-white"
-          >
-            <img :src="flagFor(d.country)" :alt="d.country" class="h-4 w-4 rounded-sm" /> {{ d.name }}
-          </NuxtLink>
+        <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div v-for="g in quickGroups" :key="g.code" class="rounded-2xl border border-slate-200 bg-white p-5">
+            <div class="flex items-center gap-2">
+              <img :src="g.flag" :alt="g.code" class="h-5 w-7 rounded-sm object-cover" loading="lazy" />
+              <h3 class="text-lg font-semibold text-ink">{{ g.name }}</h3>
+              <span class="ml-auto text-xs font-medium text-muted">{{ g.count }} {{ $t('home.quickDocsCount') }}</span>
+            </div>
+            <ul class="mt-3 space-y-2">
+              <li v-for="d in g.docs" :key="d.slug">
+                <NuxtLink
+                  :to="localePath(`/documents/${d.slug}`)"
+                  class="inline-flex items-center gap-1.5 text-sm text-muted transition hover:text-brand-blue hover:underline"
+                >
+                  <svg class="h-3.5 w-3.5 shrink-0 text-brand-blue/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+                  <span class="truncate">{{ d.name }}</span>
+                </NuxtLink>
+              </li>
+            </ul>
+            <NuxtLink
+              :to="localePath(`/documents?country=${g.code}`)"
+              class="mt-3 inline-block text-xs font-semibold text-brand-blue hover:underline"
+            >
+              {{ $t('home.quickViewAll', { count: g.count }) }}
+            </NuxtLink>
+          </div>
         </div>
       </div>
     </section>
@@ -314,7 +350,7 @@ const docTypes = [
       </div>
     </section>
 
-    <!-- HOW TO TAKE AT HOME: DO / DON'T -->
+    <!-- HOW TO TAKE AT HOME: 6 步有序指南 + US Passport 示例规格块（对标原站） -->
     <section class="bg-slate-50 py-14">
       <div class="container-pg">
         <div class="text-center">
@@ -322,20 +358,44 @@ const docTypes = [
           <h2 class="mt-2 text-3xl font-bold">{{ $t('home.howTitle') }}</h2>
           <p class="mx-auto mt-3 max-w-2xl text-muted">{{ $t('home.howSub') }}</p>
         </div>
-        <div class="mt-8 grid gap-4 md:grid-cols-2">
-          <div class="rounded-2xl border border-accent-green/30 bg-white p-5">
-            <h3 class="text-lg font-semibold text-accent-green">{{ $t('home.doTitle') }}</h3>
-            <ul class="mt-3 space-y-2 text-sm text-muted">
-              <li v-for="(t, i) in $tm('home.doList')" :key="i" class="flex gap-2"><span>✓</span><span>{{ t }}</span></li>
-            </ul>
-          </div>
-          <div class="rounded-2xl border border-amber-300/40 bg-white p-5">
-            <h3 class="text-lg font-semibold text-amber-600">{{ $t('home.dontTitle') }}</h3>
-            <ul class="mt-3 space-y-2 text-sm text-muted">
-              <li v-for="(t, i) in $tm('home.dontList')" :key="i" class="flex gap-2"><span>✕</span><span>{{ t }}</span></li>
-            </ul>
-          </div>
-        </div>
+        <ol class="mx-auto mt-8 max-w-3xl space-y-4">
+          <li v-for="(s, i) in $tm('home.howSteps')" :key="i" class="card-pg p-5">
+            <div class="flex items-start gap-4">
+              <div class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand-blue text-white font-bold">{{ i + 1 }}</div>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-lg font-semibold">{{ s.title }}</h3>
+                <p class="mt-1 text-sm text-muted">{{ s.text }}</p>
+                <!-- 步骤 1：避免项 -->
+                <ul v-if="i === 0" class="mt-3 space-y-1 text-sm">
+                  <li v-for="(a, j) in $tm('home.howStep1Avoid')" :key="j" class="flex gap-2 text-muted">
+                    <span class="shrink-0 text-red-500">✕</span><span>{{ a }}</span>
+                  </li>
+                </ul>
+                <!-- 步骤 2：要求标签 + 避免项 -->
+                <template v-else-if="i === 1">
+                  <div class="mt-3 flex flex-wrap gap-2">
+                    <span v-for="(a, j) in $tm('home.howStep2List')" :key="j" class="chip !px-3 !py-1 !text-xs">{{ a }}</span>
+                  </div>
+                  <ul class="mt-2 space-y-1 text-sm">
+                    <li v-for="(a, j) in $tm('home.howStep2Avoid')" :key="j" class="flex gap-2 text-muted">
+                      <span class="shrink-0 text-red-500">✕</span><span>{{ a }}</span>
+                    </li>
+                  </ul>
+                </template>
+                <!-- 步骤 3：内嵌 US Passport 示例规格块 -->
+                <div v-else-if="i === 2" class="mt-3 rounded-xl border border-slate-200 bg-slate-50 p-4">
+                  <p class="text-sm font-semibold text-ink">{{ $t('home.howExampleTitle') }}</p>
+                  <dl class="mt-2 grid gap-2 sm:grid-cols-2">
+                    <div v-for="(row, k) in $tm('home.howExample')" :key="k" class="flex items-center justify-between gap-3 rounded-lg bg-white px-3 py-2 text-sm">
+                      <dt class="shrink-0 text-muted">{{ row.label }}</dt>
+                      <dd class="text-right font-medium text-ink">{{ row.value }}</dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ol>
       </div>
     </section>
 

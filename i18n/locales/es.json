@@ -146,6 +146,8 @@
     "popularTitle": "Documentos populares: guías de fotos",
     "quickTitle": "Enlaces rápidos para crear fotos de pasaporte, visado y otros documentos",
     "quickEyebrow": "Enlaces rápidos",
+    "quickDocsCount": "documentos",
+    "quickViewAll": "Ver los {count} documentos →",
     "docTypesTitle": "Explorar por tipo de documento",
     "docTypesEyebrow": "Tipos de documento",
     "blogEyebrow": "Blog",
@@ -179,6 +181,54 @@
     "howEyebrow": "En casa",
     "howTitle": "Cómo sacar una foto de pasaporte en casa",
     "howSub": "Usa estos trucos y saca una foto de ID o visa perfecta con el móvil, sin estudio.",
+    "howSteps": [
+      { "title": "Toma un selfie de buena calidad", "text": "Elige una habitación bien iluminada. Ponte cerca de una ventana." },
+      { "title": "Asegúrate de que la foto cumpla los requisitos básicos", "text": "Elige ropa sencilla, mantén el rostro despejado y una expresión neutra." },
+      { "title": "Sube tu selfie", "text": "Toma o sube una foto con buena iluminación. No necesitas equipo profesional." },
+      { "title": "Elige un atuendo", "text": "Usa ropa lisa de color neutro; evita uniformes y prendas con estampados." },
+      { "title": "Añade verificación humana de la foto", "text": "Nuestro experto en cumplimiento revisa tu foto y emite un informe de conformidad, con un 99,2 % de aprobación." },
+      { "title": "Descarga tu foto lista para solicitar", "text": "Elige un archivo digital para solicitudes en línea o un PDF imprimible para envíos en papel." }
+    ],
+    "howStep1Avoid": [
+      "Sombras en el rostro",
+      "Luz desde arriba o de lado",
+      "Destellos del flash en la frente"
+    ],
+    "howStep2List": [
+      "Expresión neutra",
+      "Boca cerrada",
+      "Ojos abiertos y visibles",
+      "Sin sonrisa"
+    ],
+    "howStep2Avoid": [
+      "El cabello cubre el rostro o los ojos",
+      "Gafas (solo si están permitidas)",
+      "Prendas en la cabeza (solo por motivos religiosos)"
+    ],
+    "howExampleTitle": "Foto de pasaporte estadounidense (ejemplo)",
+    "howExample": [
+      { "label": "Tamaño de la foto", "value": "2 x 2 pulgadas (51 x 51 mm)" },
+      { "label": "Tamaño de la cabeza", "value": "1 – 1 3/8 pulgadas (25–35 mm)" },
+      { "label": "Formato", "value": "JPG (600 x 600 px)" },
+      { "label": "Fondo", "value": "Blanco puro o hueso" },
+      { "label": "Calidad", "value": "Sin sombras, desenfoques ni ruido" },
+      { "label": "Tamaño del archivo", "value": "54 KB – 10 MB" },
+      { "label": "Resolución", "value": "300 DPI" },
+      { "label": "Vestimenta", "value": "Color neutro, liso" }
+    ],
+    "guideEyebrow": "Paso a paso",
+    "guideTitle": "Cómo sacar una foto de pasaporte en casa",
+    "guideSub": "Sigue seis pasos simples y convierte un selfie del móvil en una foto de ID lista para presentar, sin ir a un estudio.",
+    "guideSteps": [
+      { "t": "Toma un selfie de buena calidad", "d": "Usa el móvil o una cámara con luz uniforme y suficiente. Evita tres cosas: sombras marcadas en la cara, luz lateral fuerte y flash directo que aclare demasiado los rasgos." },
+      { "t": "Comprueba los requisitos básicos", "d": "Mira directo a la cámara con expresión neutra y ambos ojos abiertos. Viste ropa de diario — sin uniformes. Evita que el pelo cubra los ojos y revisa la lista de qué hacer y qué no más abajo." },
+      { "t": "Sube tu selfie", "d": "Sube la foto a PhotoGov y deja que la herramienta recorte y redimensione a la especificación exacta. Ve el ejemplo de pasaporte de EE. UU. abajo para el tipo de resultado que obtienes." },
+      { "t": "Elige tu ropa", "d": "Elige ropa de diario de color liso que contraste con el fondo. Evita una prenda blanca sobre fondo blanco." },
+      { "t": "Añade verificación humana (opcional)", "d": "Para mayor seguridad, añade verificación experta — recomendado. Si la foto es rechazada, obtienes un reembolso." },
+      { "t": "Descarga tu foto lista para presentar", "d": "Guarda un JPG/PNG digital para formularios en línea, o un PDF listo para imprimir para llevar a un laboratorio o a tu impresora." }
+    ],
+    "guideExampleTitle": "Ejemplo: Foto de pasaporte de EE. UU.",
+    "guideExampleClothes": "Ropa de diario; evita uniformes o blanco sobre blanco.",
     "doTitle": "Haz",
     "dontTitle": "No hagas",
     "doList": [
@@ -313,6 +363,7 @@
     "general": "Guía general",
     "intro": "Requisitos oficiales de foto para el {country} {name}, actualizado para {year}.",
     "officialSource": "Fuente oficial:",
+    "cardOfficial": "Requisitos oficiales",
     "tipsTitle": "Consejos para una foto conforme",
     "tips": [
       "Mira directo a la cámara con expresión neutral y ambos ojos abiertos.",

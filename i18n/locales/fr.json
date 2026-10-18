@@ -146,6 +146,8 @@
     "popularTitle": "Documents populaires : guides photo",
     "quickTitle": "Liens rapides pour créer des photos de passeport, visa et autres",
     "quickEyebrow": "Liens rapides",
+    "quickDocsCount": "documents",
+    "quickViewAll": "Voir les {count} documents →",
     "docTypesTitle": "Parcourir par type de document",
     "docTypesEyebrow": "Types de document",
     "blogEyebrow": "Blog",
@@ -179,6 +181,41 @@
     "howEyebrow": "Chez soi",
     "howTitle": "Comment prendre une photo de passeport chez soi",
     "howSub": "Avec ces astuces, faites une photo d’ID ou de visa parfaite avec votre téléphone, sans studio.",
+    "howSteps": [
+      { "title": "Prenez un selfie de bonne qualité", "text": "Choisissez une pièce bien éclairée. Placez-vous près d'une fenêtre." },
+      { "title": "Assurez-vous que la photo respecte les exigences de base", "text": "Choisissez des vêtements simples, gardez le visage dégagé et une expression neutre." },
+      { "title": "Téléchargez votre selfie", "text": "Prenez ou téléchargez une photo bien éclairée. Aucun matériel professionnel n'est nécessaire." },
+      { "title": "Choisissez une tenue", "text": "Portez des vêtements unis de couleur neutre ; évitez les uniformes et les motifs." },
+      { "title": "Ajoutez la vérification humaine de la photo", "text": "Notre expert en conformité examine votre photo et fournit un rapport de conformité — 99,2 % d'approbation." },
+      { "title": "Téléchargez votre photo prête à déposer", "text": "Choisissez un fichier numérique pour les demandes en ligne ou un PDF imprimable pour les envois papier." }
+    ],
+    "howStep1Avoid": [
+      "Ombres sur le visage",
+      "Lumière venant d'en haut ou de côté",
+      "Reflets du flash sur le front"
+    ],
+    "howStep2List": [
+      "Expression neutre",
+      "Bouche fermée",
+      "Yeux ouverts et visibles",
+      "Pas de sourire"
+    ],
+    "howStep2Avoid": [
+      "Les cheveux couvrent le visage ou les yeux",
+      "Lunettes (uniquement si autorisées)",
+      "Couvre-chef (autorisé uniquement pour des raisons religieuses)"
+    ],
+    "howExampleTitle": "Photo de passeport américain (exemple)",
+    "howExample": [
+      { "label": "Taille de la photo", "value": "2 x 2 pouces (51 x 51 mm)" },
+      { "label": "Taille de la tête", "value": "1 – 1 3/8 pouces (25–35 mm)" },
+      { "label": "Format", "value": "JPG (600 x 600 px)" },
+      { "label": "Arrière-plan", "value": "Blanc pur ou ivoire" },
+      { "label": "Qualité", "value": "Sans ombres, flou ni bruit" },
+      { "label": "Taille du fichier", "value": "54 KB – 10 MB" },
+      { "label": "Résolution", "value": "300 DPI" },
+      { "label": "Tenue", "value": "Couleur neutre, unie" }
+    ],
     "doTitle": "À faire",
     "dontTitle": "À éviter",
     "doList": [
@@ -313,6 +350,7 @@
     "general": "Guide général",
     "intro": "Exigences photo officielles pour le {country} {name}, mises à jour pour {year}.",
     "officialSource": "Source officielle :",
+    "cardOfficial": "Exigences officielles",
     "tipsTitle": "Conseils pour une photo conforme",
     "tips": [
       "Regardez l'appareil photo de face, expression neutre et les deux yeux ouverts.",
