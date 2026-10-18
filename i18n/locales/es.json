@@ -567,7 +567,12 @@
     "title": "Requisitos de fotos de pasaporte, visado y DNI de {country}",
     "desc": "Crea fotos de pasaporte, visado y DNI de {country} conformes en línea, gratis y en segundos. {count} formatos con tamaño, fondo y DPI exactos.",
     "subtitle": "Elige un documento y la herramienta recorta, redimensiona y comprueba la conformidad automáticamente.",
-    "docsTitle": "Formatos de foto de {country}"
+    "docsTitle": "Formatos de foto de {country}",
+    "catPassport": "Fotos de pasaporte",
+    "catVisa": "Fotos de visado",
+    "catId": "Fotos de DNI",
+    "catDriving": "Fotos de carné de conducir",
+    "catOther": "Otros documentos"
   },
   "dv": {
     "eyebrow": "Visa de Diversidad",

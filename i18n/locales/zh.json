@@ -567,7 +567,12 @@
     "title": "{country} 护照、签证与证件照要求",
     "desc": "在线免费、几秒钟制作符合 {country} 规定的护照、签证与证件照。{count} 种文档格式，含准确尺寸、背景与 DPI 规格。",
     "subtitle": "选择证件后，工具会自动裁剪、缩放并校验合规性。",
-    "docsTitle": "{country} 照片格式"
+    "docsTitle": "{country} 照片格式",
+    "catPassport": "护照照片",
+    "catVisa": "签证照片",
+    "catId": "身份证照片",
+    "catDriving": "驾照照片",
+    "catOther": "其他证件"
   },
   "dv": {
     "eyebrow": "多元化签证",

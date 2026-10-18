@@ -554,7 +554,12 @@
     "title": "Exigences photos de passeport, visa et pièce d'identité {country}",
     "desc": "Créez des photos de passeport, visa et pièce d'identité {country} conformes en ligne, gratuitement et en quelques secondes. {count} formats avec taille, fond et DPI exacts.",
     "subtitle": "Choisissez un document et l'outil recadre, redimensionne et vérifie la conformité automatiquement.",
-    "docsTitle": "Formats photo {country}"
+    "docsTitle": "Formats photo {country}",
+    "catPassport": "Photos de passeport",
+    "catVisa": "Photos de visa",
+    "catId": "Photos de carte d'identité",
+    "catDriving": "Photos de permis de conduire",
+    "catOther": "Autres documents"
   },
   "dv": {
     "eyebrow": "Visa de diversité",

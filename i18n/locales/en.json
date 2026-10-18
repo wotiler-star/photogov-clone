@@ -567,7 +567,12 @@
     "title": "{country} Passport, Visa & ID Photo Requirements",
     "desc": "Make compliant {country} passport, visa and ID photos online — free, in seconds. {count} document formats with exact size, background and DPI specs.",
     "subtitle": "Pick a document and the tool crops, resizes and checks compliance automatically.",
-    "docsTitle": "{country} photo formats"
+    "docsTitle": "{country} photo formats",
+    "catPassport": "Passport photos",
+    "catVisa": "Visa photos",
+    "catId": "ID card photos",
+    "catDriving": "Driving license photos",
+    "catOther": "Other documents"
   },
   "dv": {
     "eyebrow": "Diversity Visa",

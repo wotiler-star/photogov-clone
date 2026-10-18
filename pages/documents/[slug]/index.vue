@@ -32,6 +32,23 @@ const country = computed(
 const isCountry = computed(() => !!country.value)
 const countryDocs = computed(() => (country.value ? documentsForCountry(country.value.code) : []))
 
+// 国级页文档按证件类型分组（护照/签证/身份证…），每组带计数，提升页面颗粒度
+const countryGroups = computed(() => {
+  const order = ['passport', 'visa', 'id', 'driving', 'other']
+  const labels: Record<string, string> = {
+    passport: t('countryLanding.catPassport'),
+    visa: t('countryLanding.catVisa'),
+    id: t('countryLanding.catId'),
+    driving: t('countryLanding.catDriving'),
+    other: t('countryLanding.catOther')
+  }
+  const map: Record<string, any[]> = {}
+  for (const d of countryDocs.value) (map[(d as any).category || 'other'] ||= []).push(d)
+  return order
+    .filter((c) => (map[c] || []).length)
+    .map((c) => ({ cat: c, label: labels[c] || c, docs: map[c] }))
+})
+
 const { data, error } = await useAsyncData(
   () => `doc-content-${slug.value}`,
   // 国级模式不请求文档端点（避免无谓的 404）
@@ -282,12 +299,22 @@ useHead({
       <span class="eyebrow mt-3 block">{{ countryLabel }}</span>
       <h1 class="mt-2 text-3xl font-bold sm:text-4xl">{{ pageTitle }}</h1>
       <p class="mx-auto mt-4 max-w-2xl text-muted">{{ pageDescription }}</p>
+      <p class="mx-auto mt-2 max-w-2xl text-sm text-muted">{{ $t('countryLanding.subtitle') }}</p>
     </header>
 
+    <!-- 按证件类型分组的文档网格（每组带计数） -->
     <section class="mt-10">
       <h2 class="text-xl font-bold">{{ $t('countryLanding.docsTitle', { country: countryLabel }) }}</h2>
-      <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        <DocCard v-for="d in countryDocs" :key="d.slug" :doc="d" :flag="country?.flag || ''" />
+      <div class="mt-6 space-y-8">
+        <div v-for="g in countryGroups" :key="g.cat">
+          <h3 class="mb-3 flex items-center gap-2 text-lg font-semibold">
+            {{ g.label }}
+            <span class="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-muted">{{ g.docs.length }}</span>
+          </h3>
+          <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <DocCard v-for="d in g.docs" :key="d.slug" :doc="d" :flag="country?.flag || ''" />
+          </div>
+        </div>
       </div>
     </section>
 
