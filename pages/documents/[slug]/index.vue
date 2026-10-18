@@ -146,6 +146,92 @@ const pageDescription = computed(() => {
   return meta.value.description || doc.value?.description || ''
 })
 
+// Schema.org BreadcrumbList：首页 → 国级页 → 文档详情（国级页则为首页 → 国级页）。
+// 绝对 URL 由当前请求 URL 推导 origin + i18n 语言前缀，保证多语言子目录下也正确。
+const breadcrumbSchema = computed(() => {
+  const origin = url.origin
+  const localePrefix = `/${locale.value}`
+  const homeUrl = `${origin}${localePrefix}`
+  const list: { '@type': 'ListItem'; position: number; name: string; item: string }[] = [
+    { '@type': 'ListItem', position: 1, name: t('nav.home'), item: homeUrl }
+  ]
+  if (isCountry.value) {
+    list.push({ '@type': 'ListItem', position: 2, name: countryLabel.value, item: url.toString() })
+  } else {
+    const countryCode = (doc.value as any)?.country
+    if (countryCode) {
+      const c = countries.find((c) => c.code.toLowerCase() === countryCode.toLowerCase())
+      const cName = c ? countryName(c.code) : countryCode.toUpperCase()
+      const countryUrl = `${origin}${localePrefix}/documents/${countryCode.toLowerCase()}`
+      list.push({ '@type': 'ListItem', position: 2, name: cName, item: countryUrl })
+    }
+    list.push({
+      '@type': 'ListItem',
+      position: list.length + 1,
+      name: (doc.value as any)?.name || pageTitle.value,
+      item: url.toString()
+    })
+  }
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: list
+  }
+})
+
+// 说明：文档正文（docContentIndex）已自带完整的 Product / AggregateOffer 结构化数据
+// （含 aggregateRating、offers 等），无需在页面层重复注入 Product schema，避免重复商品标记。
+// 因此本页的 SEO 强化聚焦在「缺失的 BreadcrumbList」+ 可见面包屑导航。
+
+// JSON-LD 注入前的安全清洗：转义 `</` 避免提前闭合 <script>，并抹除残留的原站域名。
+const escLd = (s: string) => s.replace(/https:\/\/photogov\.net/g, '').replace(/</g, '\\u003c')
+
+const jsonLdScripts = computed(() => {
+  const scripts: { key: string; type: string; innerHTML: string }[] = [
+    {
+      key: 'ld-breadcrumb',
+      type: 'application/ld+json',
+      innerHTML: escLd(JSON.stringify(breadcrumbSchema.value))
+    }
+  ]
+  if (!isCountry.value) {
+    for (const s of schemaOrg.value || []) {
+      scripts.push({
+        key: `ld-doc-${scripts.length}`,
+        type: 'application/ld+json',
+        innerHTML: escLd(typeof s === 'string' ? s : JSON.stringify(s))
+      })
+    }
+    if (howToSchema.value)
+      scripts.push({
+        key: 'ld-howto',
+        type: 'application/ld+json',
+        innerHTML: escLd(JSON.stringify(howToSchema.value))
+      })
+  }
+  return scripts
+})
+
+// 可见面包屑导航（与 BreadcrumbList 结构化数据对应的前端展示，提升 UX 与无障碍）
+const breadcrumbTrail = computed(() => {
+  const lp = `/${locale.value}`
+  const trail: { name: string; to: string }[] = [{ name: t('nav.home'), to: lp }]
+  if (isCountry.value) {
+    trail.push({ name: countryLabel.value, to: `${lp}/documents/${slug.value.toLowerCase()}` })
+  } else {
+    const countryCode = (doc.value as any)?.country
+    if (countryCode) {
+      const c = countries.find((c) => c.code.toLowerCase() === countryCode.toLowerCase())
+      trail.push({
+        name: c ? countryName(c.code) : countryCode.toUpperCase(),
+        to: `${lp}/documents/${countryCode.toLowerCase()}`
+      })
+    }
+    trail.push({ name: (doc.value as any)?.name || pageTitle.value, to: route.fullPath })
+  }
+  return trail
+})
+
 useHead({
   title: pageTitle.value,
   meta: [
@@ -156,25 +242,7 @@ useHead({
     { property: 'og:url', content: url.toString() }
   ],
   link: [{ rel: 'canonical', href: url.toString() }],
-  script: (isCountry.value
-    ? []
-    : [
-        ...(schemaOrg.value || []).map((s: string, i: number) => ({
-          key: `ld-doc-${i}`,
-          type: 'application/ld+json',
-          innerHTML: (typeof s === 'string' ? s : JSON.stringify(s)).replace(/https:\/\/photogov\.net/g, '')
-        })),
-        ...(howToSchema.value
-          ? [
-              {
-                key: 'ld-howto',
-                type: 'application/ld+json',
-                innerHTML: JSON.stringify(howToSchema.value)
-              }
-            ]
-          : [])
-      ]
-  )
+  script: jsonLdScripts.value
 })
 </script>
 
@@ -200,6 +268,21 @@ useHead({
   </article>
 
   <article v-else class="pg-document-detail">
+    <nav aria-label="Breadcrumb" class="container-pg pt-6">
+      <ol class="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm text-muted">
+        <li v-for="(b, i) in breadcrumbTrail" :key="i" class="flex items-center gap-x-1.5">
+          <span v-if="i > 0" aria-hidden="true" class="text-ink/30">/</span>
+          <NuxtLink
+            v-if="i < breadcrumbTrail.length - 1"
+            :to="b.to"
+            class="hover:text-brand-blue hover:underline"
+            >{{ b.name }}</NuxtLink
+          >
+          <span v-else aria-current="page" class="font-medium text-ink">{{ b.name }}</span>
+        </li>
+      </ol>
+    </nav>
+
     <DocContent :nodes="nodes" />
 
     <!-- 官方来源摘要卡（带最后核验日期；对标原站「Official Government Sources」的独立干净卡） -->
