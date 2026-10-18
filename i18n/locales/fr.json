@@ -1242,7 +1242,19 @@
     "tabFaq": "FAQ",
     "faqTitle": "Foire aux questions",
     "empty": "Aucun article dans cette catégorie pour le moment.",
-    "fullFaq": "Voir la FAQ complète"
+    "fullFaq": "Voir la FAQ complète",
+    "center": "Centre de connaissances",
+    "catRequirements": "Exigences",
+    "catGuides": "Guides",
+    "catStandards": "Normes",
+    "catFaq": "FAQ",
+    "moreIn": "Plus dans {category}",
+    "back": "← Retour au centre de connaissances",
+    "notFoundTitle": "Article introuvable",
+    "notFoundText": "L'article de connaissance que vous recherchez n'existe pas.",
+    "browse": "Parcourir le centre de connaissances",
+    "tocTitle": "Sur cette page",
+    "readTime": "{count} min de lecture"
   },
   "globalCompliance": {
     "eyebrow": "Politique mondiale des photos d’identité",

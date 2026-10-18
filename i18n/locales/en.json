@@ -1255,7 +1255,19 @@
     "tabFaq": "FAQ",
     "faqTitle": "Frequently Asked Questions",
     "empty": "No articles in this category yet.",
-    "fullFaq": "See the full FAQ"
+    "fullFaq": "See the full FAQ",
+    "center": "Knowledge Center",
+    "catRequirements": "Requirements",
+    "catGuides": "Guides",
+    "catStandards": "Standards",
+    "catFaq": "FAQ",
+    "moreIn": "More in {category}",
+    "back": "← Back to Knowledge Center",
+    "notFoundTitle": "Article not found",
+    "notFoundText": "The knowledge article you are looking for does not exist.",
+    "browse": "Browse Knowledge Center",
+    "tocTitle": "On this page",
+    "readTime": "{count} min read"
   },
   "globalCompliance": {
     "eyebrow": "Global ID Photo Policy",

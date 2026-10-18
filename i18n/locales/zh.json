@@ -1255,7 +1255,19 @@
     "tabFaq": "常见问题",
     "faqTitle": "常见问题解答",
     "empty": "该分类下暂无文章。",
-    "fullFaq": "查看完整常见问题"
+    "fullFaq": "查看完整常见问题",
+    "center": "知识中心",
+    "catRequirements": "规格要求",
+    "catGuides": "操作指南",
+    "catStandards": "标准规范",
+    "catFaq": "常见问题",
+    "moreIn": "{category} 分类下的更多文章",
+    "back": "← 返回知识中心",
+    "notFoundTitle": "文章不存在",
+    "notFoundText": "您查找的知识库文章不存在。",
+    "browse": "浏览知识中心",
+    "tocTitle": "本页目录",
+    "readTime": "约 {count} 分钟读完"
   },
   "globalCompliance": {
     "eyebrow": "全球证件照政策",

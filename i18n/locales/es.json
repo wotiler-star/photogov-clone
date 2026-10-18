@@ -1255,7 +1255,19 @@
     "tabFaq": "Preguntas frecuentes",
     "faqTitle": "Preguntas frecuentes",
     "empty": "Aún no hay artículos en esta categoría.",
-    "fullFaq": "Ver todas las preguntas frecuentes"
+    "fullFaq": "Ver todas las preguntas frecuentes",
+    "center": "Centro de conocimiento",
+    "catRequirements": "Requisitos",
+    "catGuides": "Guías",
+    "catStandards": "Normas",
+    "catFaq": "FAQ",
+    "moreIn": "Más en {category}",
+    "back": "← Volver al centro de conocimiento",
+    "notFoundTitle": "Artículo no encontrado",
+    "notFoundText": "El artículo de conocimiento que busca no existe.",
+    "browse": "Explorar el centro de conocimiento",
+    "tocTitle": "En esta página",
+    "readTime": "{count} min de lectura"
   },
   "globalCompliance": {
     "eyebrow": "Política global de fotos de identidad",
