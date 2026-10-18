@@ -386,6 +386,8 @@
     "reqColor": "颜色",
     "reqColorDefault": "彩色",
     "reqAttire": "着装",
+    "specsTitle": "照片规格要求一览",
+    "specsSub": "本文档的官方规格摘要，已对照签发机构的要求核验。",
     "reqAttireDefault": "便装",
     "glassesAllowed": "允许",
     "glassesNotAllowed": "不允许",

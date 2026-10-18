@@ -386,6 +386,8 @@
     "reqColor": "Color",
     "reqColorDefault": "En color",
     "reqAttire": "Vestimenta",
+    "specsTitle": "Requisitos de la foto de un vistazo",
+    "specsSub": "Resumen de las especificaciones oficiales de este documento, verificado con los requisitos de la autoridad emisora.",
     "reqAttireDefault": "Casual",
     "glassesAllowed": "permitidas",
     "glassesNotAllowed": "no permitidas",

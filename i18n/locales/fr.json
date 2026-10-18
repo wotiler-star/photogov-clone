@@ -373,6 +373,8 @@
     "reqColor": "Couleur",
     "reqColorDefault": "En couleur",
     "reqAttire": "Tenue",
+    "specsTitle": "Exigences photo en un coup d'œil",
+    "specsSub": "Résumé des spécifications officielles de ce document, vérifié par rapport aux exigences de l'autorité émettrice.",
     "reqAttireDefault": "Décontracté",
     "glassesAllowed": "autorisées",
     "glassesNotAllowed": "non autorisées",

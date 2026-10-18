@@ -386,6 +386,8 @@
     "reqColor": "Color",
     "reqColorDefault": "In color",
     "reqAttire": "Attire",
+    "specsTitle": "Photo requirements at a glance",
+    "specsSub": "Official specification summary for this document, verified against the issuing authority's requirements.",
     "reqAttireDefault": "Casual",
     "glassesAllowed": "allowed",
     "glassesNotAllowed": "not allowed",

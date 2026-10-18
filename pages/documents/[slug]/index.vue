@@ -232,6 +232,35 @@ const breadcrumbTrail = computed(() => {
   return trail
 })
 
+// 文档详情页顶部「照片规格汇总卡」：把文档数据的官方规格聚合成 label/value 行，
+// 仅展示有值的字段；background 行带色块（对标原站文档页顶部规格表）。
+const specRows = computed(() => {
+  const d = doc.value as any
+  if (!d) return []
+  const rows: { key: string; label: string; value: string; swatch?: string }[] = []
+  const sizeMm = d.size?.mm
+  const sizeIn = d.size?.inch
+  if (sizeMm) rows.push({ key: 'size', label: t('doc.reqPhotoSize'), value: [sizeMm + ' mm', sizeIn ? `${sizeIn} in` : ''].filter(Boolean).join(' · ') })
+  if (d.size?.px) rows.push({ key: 'px', label: t('doc.reqPixelSize'), value: `${d.size.px} px` })
+  if (d.dpi) rows.push({ key: 'dpi', label: t('doc.reqResolution'), value: `${d.dpi} DPI` })
+  if (d.background || d.color) {
+    rows.push({
+      key: 'bg',
+      label: t('doc.reqBackground'),
+      value: d.color || d.background,
+      swatch: d.backgroundRaw || d.background || undefined
+    })
+  }
+  if (d.headHeight) rows.push({ key: 'head', label: t('doc.reqHeadHeight'), value: d.headHeight })
+  if (d.eyesLevel) rows.push({ key: 'eyes', label: t('doc.reqEyesLevel'), value: d.eyesLevel })
+  if (d.format) rows.push({ key: 'format', label: t('doc.reqFormat'), value: d.format })
+  if (d.glasses !== null && d.glasses !== undefined) {
+    rows.push({ key: 'glasses', label: t('doc.reqGlasses'), value: d.glasses ? t('doc.glassesAllowed') : t('doc.glassesNotAllowed') })
+  }
+  if (d.expression) rows.push({ key: 'expression', label: t('doc.reqExpression'), value: d.expression })
+  return rows
+})
+
 useHead({
   title: pageTitle.value,
   meta: [
@@ -282,6 +311,23 @@ useHead({
         </li>
       </ol>
     </nav>
+
+    <!-- 照片规格汇总卡（对标原站文档页顶部规格表：label/value 网格 + 背景色块） -->
+    <section v-if="specRows.length" class="container-pg mt-6">
+      <div class="card-pg p-6">
+        <h2 class="text-lg font-bold">{{ $t('doc.specsTitle') }}</h2>
+        <p class="mt-1 text-sm text-muted">{{ $t('doc.specsSub') }}</p>
+        <dl class="mt-4 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div v-for="r in specRows" :key="r.key" class="flex items-center justify-between gap-3 border-b border-slate-100 pb-2 text-sm">
+            <dt class="shrink-0 text-muted">{{ r.label }}</dt>
+            <dd class="flex items-center gap-1.5 text-right font-medium text-ink">
+              <span v-if="r.swatch" class="inline-block h-3.5 w-3.5 shrink-0 rounded-sm border border-slate-300" :style="{ background: r.swatch }" aria-hidden="true" />
+              <span>{{ r.value }}</span>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
 
     <DocContent :nodes="nodes" />
 
