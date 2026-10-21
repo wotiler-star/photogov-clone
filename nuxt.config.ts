@@ -5,6 +5,19 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   ssr: true,
 
+  runtimeConfig: {
+    // 服务端密钥（仅 Nitro 侧可读，不会下发客户端）
+    stripeSecretKey: process.env.STRIPE_SECRET_KEY || '',
+    stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET || '',
+    // PAYMENT_DEMO_MODE=1 时强制走内置 Demo 收银台（/payment/simulate），
+    // 未配置 Stripe 密钥时同样默认 Demo 模式
+    paymentDemoMode: process.env.PAYMENT_DEMO_MODE === '1',
+    paymentDemoToken: process.env.PAYMENT_DEMO_TOKEN || 'demo',
+    public: {
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || ''
+    }
+  },
+
   modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n'],
 
   i18n: {

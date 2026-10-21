@@ -212,6 +212,47 @@ export const useApi = () => {
   const cancelOrder = (id: string) =>
     reqFetch<{ ok: boolean; order: any }>(`${BASE}/order/${id}/cancel`, { method: 'POST' })
 
+  // 支付：创建订阅 checkout / 查询支付状态 / demo 收银台确认付款
+  const createCheckout = (planId: string, locale = 'en') =>
+    reqFetch<{
+      ok: boolean
+      paymentId: string
+      paymentUrl: string
+      provider: string
+      demo: boolean
+      amount: number
+      currency: string
+    }>(`${BASE}/subscription/checkout`, {
+      method: 'POST',
+      body: { planId, locale }
+    })
+
+  const getPayment = (id: string) =>
+    reqFetch<{ payment: { id: string; planId: string; amount: number; currency: string; provider: string; status: string; method: string | null; createdAt: string; paidAt: string | null } }>(
+      `${BASE}/subscription/payment/${id}`
+    )
+
+  const myPayments = () =>
+    reqFetch<{
+      payments: {
+        id: string
+        planId: string
+        amount: number
+        currency: string
+        provider: string
+        status: string
+        method: string | null
+        createdAt: string
+        paidAt: string | null
+      }[]
+    }>(`${BASE}/subscription/payments`)
+
+  const demoPay = (paymentId: string, action: 'pay' | 'cancel' = 'pay') =>
+    reqFetch<{ ok?: boolean; received?: boolean; paymentId?: string; status: string }>(
+      `${BASE}/subscription/demo-pay`,
+      { method: 'POST', body: { paymentId, action } }
+    )
+
   return {
     BASE,
     fetchCountries,
@@ -236,10 +277,20 @@ export const useApi = () => {
     resetPassword,
     subscribe,
     cancelSubscription,
+    changePassword,
+    deleteAccount,
+    cancelDeletion,
+    updateProfile,
+    setAutoRenewal,
     savePhoto,
     myPhotos,
+    deletePhoto,
     myOrders,
     payOrder,
-    cancelOrder
+    cancelOrder,
+    createCheckout,
+    getPayment,
+    myPayments,
+    demoPay
   }
 }
