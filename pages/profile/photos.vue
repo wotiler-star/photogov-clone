@@ -2,13 +2,26 @@
 // /profile/photos —— 已保存照片：单张下载（PNG/PDF）+ 多选批量 PDF 排版导出
 import { computed, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useLocalePath } from '#imports'
 import { useAuth } from '~/composables/useAuth'
 import { useApi } from '~/composables/useApi'
+import { useBreadcrumbLd } from '~/composables/useBreadcrumbLd'
 import { downloadImageAsPng, downloadImagesAsPdf, type PdfPageSize, type PdfPerSheet } from '~/utils/pdf'
 
 const { t, locale } = useI18n()
+const localePath = useLocalePath()
 const { user } = useAuth()
 const { myPhotos, deletePhoto } = useApi()
+
+// BreadcrumbList 结构化数据：首页 → 个人中心 → 已保存照片
+const { scripts: breadcrumbScripts } = useBreadcrumbLd(
+  computed(() => [
+    { name: t('nav.home'), to: localePath('/') },
+    { name: t('profile.title'), to: localePath('/profile') },
+    { name: t('profile.nav.photos'), to: localePath('/profile/photos') }
+  ])
+)
+useHead({ title: t('profile.photos.title'), script: breadcrumbScripts })
 
 const photos = ref<any[]>([])
 const loading = ref(true)

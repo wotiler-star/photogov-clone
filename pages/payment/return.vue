@@ -104,7 +104,11 @@ const amountText = computed(() => {
   }).format(payment.value.amount)
 })
 
-useHead({ title: t('payment.return.title') })
+// 交易流程页：不收录（noindex），但允许跟随链接
+useHead({
+  title: t('payment.return.title'),
+  meta: [{ name: 'robots', content: 'noindex, follow' }]
+})
 </script>
 
 <template>

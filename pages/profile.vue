@@ -43,6 +43,19 @@ const navItems = computed(() => [
 
 const initial = computed(() => (user.value?.name || '?').charAt(0).toUpperCase())
 
+// 可见面包屑导航（与各子页注入的 BreadcrumbList 结构化数据对应，提升 UX 与无障碍）
+const breadcrumbTrail = computed(() => {
+  const trail: { name: string; to: string }[] = [
+    { name: t('nav.home'), to: '/' },
+    { name: t('profile.title'), to: '/profile' }
+  ]
+  if (basePath.value === '/profile/photos')
+    trail.push({ name: t('profile.nav.photos'), to: '/profile/photos' })
+  else if (basePath.value === '/profile/subscription')
+    trail.push({ name: t('profile.nav.subscription'), to: '/profile/subscription' })
+  return trail
+})
+
 const cancelling = ref(false)
 const cancelMsg = ref('')
 async function onCancelDeletion() {
@@ -88,10 +101,37 @@ useHead({ title: t('profile.title') })
 <template>
   <div class="min-h-[70vh] bg-slate-50">
     <div class="container-pg py-10">
-      <header class="mb-8">
+      <header class="mb-4">
         <h1 class="font-serif text-3xl font-bold text-ink">{{ t('profile.title') }}</h1>
         <p class="mt-1 text-sm text-muted">{{ t('profile.subtitle') }}</p>
       </header>
+
+      <!-- 可见面包屑（与子页 BreadcrumbList JSON-LD 对应） -->
+      <nav aria-label="Breadcrumb" class="mb-6">
+        <ol class="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm text-muted">
+          <li v-for="(b, i) in breadcrumbTrail" :key="i" class="flex items-center gap-x-1.5">
+            <NuxtLink
+              v-if="i < breadcrumbTrail.length - 1"
+              :to="localePath(b.to)"
+              class="transition hover:text-ink"
+            >
+              {{ b.name }}
+            </NuxtLink>
+            <span v-else aria-current="page" class="font-medium text-ink">{{ b.name }}</span>
+            <svg
+              v-if="i < breadcrumbTrail.length - 1"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+              class="text-slate-300"
+            >
+              <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </li>
+        </ol>
+      </nav>
 
       <!-- 账户删除待恢复横幅（全局） -->
       <div

@@ -2,12 +2,24 @@
 // /profile —— 账户资料 + 登录与安全（改密）+ 账户管理（删除/取消删除）
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useLocalePath } from '#imports'
 import { useAuth } from '~/composables/useAuth'
 import { useApi } from '~/composables/useApi'
+import { useBreadcrumbLd } from '~/composables/useBreadcrumbLd'
 
 const { t, locale } = useI18n()
+const localePath = useLocalePath()
 const { user } = useAuth()
 const { updateProfile, changePassword, deleteAccount, cancelDeletion } = useApi()
+
+// BreadcrumbList 结构化数据：首页 → 个人中心
+const { scripts: breadcrumbScripts } = useBreadcrumbLd(
+  computed(() => [
+    { name: t('nav.home'), to: localePath('/') },
+    { name: t('profile.title'), to: localePath('/profile') }
+  ])
+)
+useHead({ title: t('profile.title'), script: breadcrumbScripts })
 
 // ── 账户资料 ──
 const nameModel = ref(user.value?.name || '')

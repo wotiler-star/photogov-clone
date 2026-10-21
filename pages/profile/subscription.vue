@@ -7,6 +7,7 @@ import { computed, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useAuth } from '~/composables/useAuth'
 import { useApi } from '~/composables/useApi'
+import { useBreadcrumbLd } from '~/composables/useBreadcrumbLd'
 import { useLocalePath } from '#imports'
 import { PLANS, planStatus } from '~/utils/plans'
 
@@ -14,6 +15,16 @@ const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const { user } = useAuth()
 const { setAutoRenewal, cancelSubscription, createCheckout, myPayments } = useApi()
+
+// BreadcrumbList 结构化数据：首页 → 个人中心 → 订阅管理
+const { scripts: breadcrumbScripts } = useBreadcrumbLd(
+  computed(() => [
+    { name: t('nav.home'), to: localePath('/') },
+    { name: t('profile.title'), to: localePath('/profile') },
+    { name: t('profile.nav.subscription'), to: localePath('/profile/subscription') }
+  ])
+)
+useHead({ title: t('profile.subscription.title'), script: breadcrumbScripts })
 
 const status = computed(() => planStatus(user.value))
 const isPremium = computed(() => status.value.isPremium)
