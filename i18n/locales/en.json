@@ -431,7 +431,10 @@
     "docSourcesSub": "Links to the issuing authority’s official pages. Photo specifications change — always confirm the current requirements on the official site before applying.",
     "docSourcesNote": "PhotoGov is not affiliated with any government agency.",
     "docSourcesLastVerified": "Last verified: {date}",
-    "docSourcesOpen": "Open official site"
+    "docSourcesOpen": "Open official site",
+    "toolTitle": "Your {name} Now ({size})",
+    "toolSub": "Upload a selfie, and our photo converter resizes and crops it to the exact specifications automatically. Works on iPhone, Android and desktop — no studio visit required.",
+    "freeBadge": "Free"
   },
   "faq": {
     "eyebrow": "Help Center",

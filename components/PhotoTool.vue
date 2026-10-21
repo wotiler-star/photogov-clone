@@ -76,7 +76,8 @@ watch(
   [activeCountry, docOptions],
   () => {
     if (!selSlug.value || !getDocument(selSlug.value)) {
-      selSlug.value = docOptions.value[0]?.slug || ''
+      // 内嵌（props.doc 预选，如文档详情页）优先；独立 /tool 页回退到分组首项
+      selSlug.value = props.doc || docOptions.value[0]?.slug || ''
     }
   },
   { immediate: true }
@@ -907,7 +908,8 @@ function loadPrefs() {
     if (typeof s.gH === 'number') guideCustomH.value = s.gH
     if (typeof s.gTop === 'number') guideCustomTop.value = s.gTop
     if (typeof s.gLeft === 'number') guideCustomLeft.value = s.gLeft
-    if (s.doc && getDocument(s.doc)) {
+    // 内嵌场景（props.doc 预选）以 prop 为准，不回滚 localStorage 记忆；独立 /tool 页恢复上次选择
+    if (s.doc && !props.doc && getDocument(s.doc)) {
       nextTick(() => { if (getDocument(s.doc)) selSlug.value = s.doc })
     }
   } catch { /* 忽略损坏数据 */ }

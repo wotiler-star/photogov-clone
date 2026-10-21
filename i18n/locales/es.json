@@ -431,7 +431,10 @@
     "docSourcesSub": "Enlaces a las páginas oficiales de la autoridad emisora. Las especificaciones cambian; confirma siempre los requisitos actuales en el sitio oficial antes de solicitarlo.",
     "docSourcesNote": "PhotoGov no está afiliado a ninguna agencia gubernamental.",
     "docSourcesLastVerified": "Última verificación: {date}",
-    "docSourcesOpen": "Abrir sitio oficial"
+    "docSourcesOpen": "Abrir sitio oficial",
+    "toolTitle": "Tu {name} ahora ({size})",
+    "toolSub": "Sube un selfie y nuestro conversor de fotos lo redimensiona y recorta automáticamente a las especificaciones exactas. Funciona en iPhone, Android y escritorio — sin visita a estudio.",
+    "freeBadge": "Gratis"
   },
   "faq": {
     "eyebrow": "Centro de ayuda",

@@ -431,7 +431,10 @@
     "docSourcesSub": "指向签发机构官方页面的链接。证件照规格可能变动——提交前请务必在官方站点确认最新要求。",
     "docSourcesNote": "PhotoGov 与任何政府机构均无关联。",
     "docSourcesLastVerified": "最近核验：{date}",
-    "docSourcesOpen": "打开官方网站"
+    "docSourcesOpen": "打开官方网站",
+    "toolTitle": "立即制作{name}（{size}）",
+    "toolSub": "上传一张自拍，我们的照片转换器会自动调整尺寸并裁剪至精确规格。支持 iPhone、Android 与桌面端——无需前往照相馆。",
+    "freeBadge": "免费"
   },
   "faq": {
     "eyebrow": "帮助中心",

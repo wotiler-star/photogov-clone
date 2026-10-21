@@ -16,6 +16,7 @@ import { useRequestURL } from '#imports'
 import { useI18n } from 'vue-i18n'
 import DocContent from '~/components/DocContent.vue'
 import DocCard from '~/components/DocCard.vue'
+import PhotoTool from '~/components/PhotoTool.vue'
 import { useApi } from '~/composables/useApi'
 import { useData } from '~/composables/useData'
 
@@ -278,6 +279,16 @@ const specRows = computed(() => {
   return rows
 })
 
+// 内嵌编辑器标题用的尺寸文本：35x40 → "35 × 40 mm / 827 × 945 Pixels"
+// （对标原站文档页部件标题 "Your US Passport Photo Now (51 × 51 mm / 600 × 600 Pixels)"）
+const toolSizeText = computed(() => {
+  const s = (doc.value as any)?.size
+  if (!s?.mm) return ''
+  const mm = String(s.mm).replace(/x/gi, ' × ')
+  const px = s.px ? ` / ${String(s.px).replace(/x/gi, ' × ')} Pixels` : ''
+  return `${mm} mm${px}`
+})
+
 useHead({
   title: pageTitle.value,
   meta: [
@@ -353,6 +364,25 @@ useHead({
             </dd>
           </div>
         </dl>
+      </div>
+    </section>
+
+    <!-- 内嵌照片编辑器（对标原站文档页「Your X Photo Now」部件：预选当前文档，
+         用户读完规格即可直接制作，无需跳转独立工具页） -->
+    <section v-if="!isCountry && doc" class="container-pg mt-6">
+      <div class="card-pg p-6">
+        <div class="flex flex-wrap items-center gap-3">
+          <h2 class="text-lg font-bold">
+            {{ $t('doc.toolTitle', { name: (doc as any).name, size: toolSizeText }) }}
+          </h2>
+          <span class="rounded-full bg-accent/10 px-2.5 py-1 text-xs font-semibold text-accent">
+            {{ $t('doc.freeBadge') }}
+          </span>
+        </div>
+        <p class="mt-1 text-sm text-muted">{{ $t('doc.toolSub') }}</p>
+        <div class="mt-5">
+          <PhotoTool :country="(doc as any).country" :doc="(doc as any).slug" />
+        </div>
       </div>
     </section>
 

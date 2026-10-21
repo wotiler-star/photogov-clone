@@ -431,7 +431,10 @@
     "docSourcesSub": "Liens vers les pages officielles de l’autorité émettrice. Les spécifications évoluent — vérifiez toujours les exigences actuelles sur le site officiel avant de faire votre demande.",
     "docSourcesNote": "PhotoGov n’est affilié à aucun organisme gouvernemental.",
     "docSourcesLastVerified": "Dernière vérification : {date}",
-    "docSourcesOpen": "Ouvrir le site officiel"
+    "docSourcesOpen": "Ouvrir le site officiel",
+    "toolTitle": "Votre {name} maintenant ({size})",
+    "toolSub": "Téléchargez un selfie et notre convertisseur photo le redimensionne et le recadre automatiquement aux spécifications exactes. Fonctionne sur iPhone, Android et ordinateur — sans passage en studio.",
+    "freeBadge": "Gratuit"
   },
   "faq": {
     "eyebrow": "Centre d'aide",
