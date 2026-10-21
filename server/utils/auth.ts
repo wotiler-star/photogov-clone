@@ -14,11 +14,14 @@ export interface UserRecord {
   salt: string
   plan: 'free' | 'premium'
   planExpiresAt: string | null
+  autoRenewal: boolean
   emailVerified: boolean
   emailVerifyToken: string | null
   emailVerifyExpires: string | null
   passwordResetToken: string | null
   passwordResetExpires: string | null
+  passwordChangedAt: string | null
+  deletionScheduledAt: string | null
   createdAt: string
 }
 
@@ -87,11 +90,14 @@ export function createUser(input: { name: string; email: string; password: strin
     salt,
     plan: 'free',
     planExpiresAt: null,
+    autoRenewal: true,
     emailVerified: false,
     emailVerifyToken: null,
     emailVerifyExpires: null,
     passwordResetToken: null,
     passwordResetExpires: null,
+    passwordChangedAt: new Date().toISOString(),
+    deletionScheduledAt: null,
     createdAt: new Date().toISOString()
   }
   users.push(user)
@@ -164,8 +170,77 @@ export function resetPasswordWithToken(token: string, newPassword: string): Publ
     passwordHash: hash,
     salt,
     passwordResetToken: null,
-    passwordResetExpires: null
+    passwordResetExpires: null,
+    passwordChangedAt: new Date().toISOString()
   })
+  return updated ? publicUser(updated) : null
+}
+
+// ---------- 会员中心：改密 / 删除账户（软删除）/ 资料 / 自动续费 ----------
+const PASSWORD_RULE = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/
+export const DELETION_RECOVERY_DAYS = 14
+
+export function validatePasswordStrength(password: string): boolean {
+  return PASSWORD_RULE.test(password)
+}
+
+/** 已登录用户修改密码：需验证当前密码 */
+export function changePassword(
+  id: string,
+  currentPassword: string,
+  newPassword: string
+): PublicUser | null {
+  const user = findUserById(id)
+  if (!user) return null
+  if (!verifyPassword(currentPassword, user)) {
+    throw createError({ statusCode: 400, statusMessage: 'INVALID_CURRENT_PASSWORD' })
+  }
+  if (!validatePasswordStrength(newPassword)) {
+    throw createError({ statusCode: 400, statusMessage: 'WEAK_PASSWORD' })
+  }
+  const { hash, salt } = hashPassword(newPassword)
+  const updated = updateUser(id, {
+    passwordHash: hash,
+    salt,
+    passwordChangedAt: new Date().toISOString()
+  })
+  return updated ? publicUser(updated) : null
+}
+
+/** 软删除：标记 14 天后删除，期间可恢复 */
+export function scheduleAccountDeletion(id: string): PublicUser | null {
+  const user = findUserById(id)
+  if (!user) return null
+  if (user.deletionScheduledAt) {
+    throw createError({ statusCode: 409, statusMessage: 'DELETION_ALREADY_SCHEDULED' })
+  }
+  const deletionAt = new Date(Date.now() + DELETION_RECOVERY_DAYS * 24 * 3600 * 1000).toISOString()
+  const updated = updateUser(id, { deletionScheduledAt: deletionAt })
+  return updated ? publicUser(updated) : null
+}
+
+/** 取消待删除 */
+export function cancelAccountDeletion(id: string): PublicUser | null {
+  const user = findUserById(id)
+  if (!user) return null
+  if (!user.deletionScheduledAt) {
+    throw createError({ statusCode: 409, statusMessage: 'NO_DELETION_SCHEDULED' })
+  }
+  const updated = updateUser(id, { deletionScheduledAt: null })
+  return updated ? publicUser(updated) : null
+}
+
+/** 更新个人资料（姓名；邮箱变更需联系技术支持，与目标站一致） */
+export function updateProfile(id: string, name: string): PublicUser | null {
+  const trimmed = name.trim()
+  if (!trimmed) throw createError({ statusCode: 400, statusMessage: 'NAME_REQUIRED' })
+  const updated = updateUser(id, { name: trimmed })
+  return updated ? publicUser(updated) : null
+}
+
+/** 自动续费开关 */
+export function setAutoRenewal(id: string, enabled: boolean): PublicUser | null {
+  const updated = updateUser(id, { autoRenewal: enabled })
   return updated ? publicUser(updated) : null
 }
 

@@ -30,6 +30,9 @@ const columns = [
   {
     titleKey: 'footer.colCompany',
     items: [
+      { to: '/profile', labelKey: 'footer.links.myAccount' },
+      { to: '/profile/photos', labelKey: 'footer.links.myPhotos' },
+      { to: '/profile/subscription', labelKey: 'footer.links.subscription' },
       { to: '/about-us', labelKey: 'footer.links.aboutUs' },
       { to: '/contacts', labelKey: 'footer.links.contacts' },
       { to: '/prices', labelKey: 'footer.links.prices' }

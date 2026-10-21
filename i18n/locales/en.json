@@ -69,7 +69,10 @@
       "usCompliance": "US ID Photo Compliance",
       "globalCompliance": "Global ID Photo Compliance",
       "nonAffiliation": "Non-Affiliation Notice",
-      "drivingPhotos": "Driving Licence Photos"
+      "drivingPhotos": "Driving Licence Photos",
+      "myAccount": "My account",
+      "myPhotos": "Saved photos",
+      "subscription": "Subscription"
     },
     "copyright": "© {year} PhotoGov. A clone demo replicating www.photogov.net.",
     "madeWith": "Made with Nuxt 3 · Vue 3 · Tailwind CSS",
@@ -82,7 +85,8 @@
     "getAppSub": "Create compliant ID photos on your phone — anytime, anywhere.",
     "downloadOn": "Download on the",
     "appStore": "App Store",
-    "googlePlay": "Google Play"
+    "googlePlay": "Google Play",
+    "colMyAccount": "My account"
   },
   "cookie": {
     "text": "We use cookies to improve your experience and analyze traffic. By continuing you agree to our {policy}.",
@@ -182,12 +186,30 @@
     "howTitle": "How to take a passport photo at home",
     "howSub": "Use these handy tips and take a perfect ID or visa photo with your phone — no studio required.",
     "howSteps": [
-      { "title": "Take a good quality selfie", "text": "Choose a well-lit room. Stand near a window." },
-      { "title": "Make sure the photo meets the basic requirements", "text": "Choose simple clothing, keep your face clear, and maintain a neutral expression." },
-      { "title": "Upload your selfie", "text": "Take or upload a photo in good lighting. Pro equipment is not necessary." },
-      { "title": "Choose an outfit", "text": "Wear plain, neutral-colored clothing — avoid uniforms and patterned tops." },
-      { "title": "Add human photo verification", "text": "Our compliance expert reviews your photo and provides a report on its compliance — 99.2% approval rate." },
-      { "title": "Download your application-ready photo", "text": "Select a digital file for online applications, or a printable PDF file for paper submissions." }
+      {
+        "title": "Take a good quality selfie",
+        "text": "Choose a well-lit room. Stand near a window."
+      },
+      {
+        "title": "Make sure the photo meets the basic requirements",
+        "text": "Choose simple clothing, keep your face clear, and maintain a neutral expression."
+      },
+      {
+        "title": "Upload your selfie",
+        "text": "Take or upload a photo in good lighting. Pro equipment is not necessary."
+      },
+      {
+        "title": "Choose an outfit",
+        "text": "Wear plain, neutral-colored clothing — avoid uniforms and patterned tops."
+      },
+      {
+        "title": "Add human photo verification",
+        "text": "Our compliance expert reviews your photo and provides a report on its compliance — 99.2% approval rate."
+      },
+      {
+        "title": "Download your application-ready photo",
+        "text": "Select a digital file for online applications, or a printable PDF file for paper submissions."
+      }
     ],
     "howStep1Avoid": [
       "Shadows on the face",
@@ -207,14 +229,38 @@
     ],
     "howExampleTitle": "US Passport photo (example)",
     "howExample": [
-      { "label": "Photo size", "value": "2 x 2 inches (51 x 51 mm)" },
-      { "label": "Head size", "value": "1 – 1 3/8 inches (25–35 mm)" },
-      { "label": "Format", "value": "JPG (600 x 600 px)" },
-      { "label": "Background", "value": "Plain white or off-white" },
-      { "label": "Quality", "value": "No shadows, blur or noise" },
-      { "label": "File size", "value": "54 KB – 10 MB" },
-      { "label": "Resolution", "value": "300 DPI" },
-      { "label": "Clothing", "value": "Neutral color, plain" }
+      {
+        "label": "Photo size",
+        "value": "2 x 2 inches (51 x 51 mm)"
+      },
+      {
+        "label": "Head size",
+        "value": "1 – 1 3/8 inches (25–35 mm)"
+      },
+      {
+        "label": "Format",
+        "value": "JPG (600 x 600 px)"
+      },
+      {
+        "label": "Background",
+        "value": "Plain white or off-white"
+      },
+      {
+        "label": "Quality",
+        "value": "No shadows, blur or noise"
+      },
+      {
+        "label": "File size",
+        "value": "54 KB – 10 MB"
+      },
+      {
+        "label": "Resolution",
+        "value": "300 DPI"
+      },
+      {
+        "label": "Clothing",
+        "value": "Neutral color, plain"
+      }
     ],
     "doTitle": "Do",
     "dontTitle": "Don't",
@@ -684,40 +730,140 @@
     "requisitesZipValue": "SE19 3BD",
     "requisitesAddressValue": "Stoney Works 8 Stoney Lane, London, England",
     "privacySections": [
-      { "title": "Data collection and usage", "text": "PhotoGov is a browser-based tool: photos you upload are processed locally on your own device with the Canvas API and are never transmitted to our servers. We only process the minimum data needed to operate the service — such as your selected country, your cookie-consent choice and, if you contact us, the details you provide in the contact form." },
-      { "title": "Data protection principles", "text": "We process data lawfully, fairly and transparently; for specified, explicit and legitimate purposes only; with data minimization; keeping it accurate and up to date; storing it no longer than necessary; and with appropriate security against unauthorized or unlawful processing, accidental loss, destruction or damage." },
-      { "title": "Information disclosure", "text": "We do not sell or rent your personal data. We may disclose information only to comply with a legal obligation or court order, to protect the rights, property or safety of our users and our service, or in the event of a merger, acquisition or sale of assets, subject to the same confidentiality obligations stated in this policy." },
-      { "title": "Security measures", "text": "We have implemented suitable technical and organizational measures to safeguard data against unauthorized access, modification, disclosure or destruction. These include encryption in transit (SSL/TLS), access limited to authorized personnel, and secure storage." },
-      { "title": "Your rights", "text": "Under the GDPR you have the right to be informed, to access, to rectify, to erasure (the 'right to be forgotten'), to restrict processing, to data portability, to object to processing, and to not be subject to automated decision-making. Contact us to exercise any of these rights." },
-      { "title": "Photos stay on your device", "text": "All image processing happens locally in your browser using the Canvas API. Your photos are never uploaded to our servers." },
-      { "title": "Analytics", "text": "We use privacy-friendly, aggregated analytics to understand usage. No personally identifiable information is collected from your photos." },
-      { "title": "Cookies and similar technologies", "text": "We use a minimal cookie to remember your preferences (such as country and cookie consent). See our {link}.", "linkPath": "/cookie-policy", "linkText": "Cookie Policy" },
-      { "title": "Policy modifications", "text": "We may update this policy at any time. Changes are posted on this page with a revised 'Last updated' date, and continued use of the service constitutes acceptance of the updated policy." },
-      { "title": "Contact", "text": "Questions? Reach us via the {link}.", "linkPath": "/contacts", "linkText": "contact page" },
-      { "title": "Governing law", "text": "This policy is governed by and construed in accordance with the laws of the European Union." },
-      { "title": "Complaints", "text": "You have the right to lodge a complaint with a supervisory authority if you believe that our processing of your personal data violates applicable laws, particularly the GDPR." },
-      { "title": "International data transfers", "text": "Because photos are processed locally in your browser, we do not transfer your images outside your device. Where any personal data is transferred outside the European Economic Area, we ensure an adequate level of protection as required by the GDPR." },
-      { "title": "Data retention", "text": "We retain personal data only for as long as necessary to fulfill the purposes for which it was collected or as required by applicable laws, and we securely destroy or anonymize data that is no longer needed." },
-      { "title": "Children's privacy", "text": "The service is not intended for individuals under the age of 16. We do not knowingly collect personal data from children under 16 and will promptly delete such data if we become aware of it." },
-      { "title": "Third-party links", "text": "Our website may contain links to other websites that we do not operate. We are not responsible for their content, privacy policies or practices, and we advise you to review the privacy policies of any third-party websites you visit." }
+      {
+        "title": "Data collection and usage",
+        "text": "PhotoGov is a browser-based tool: photos you upload are processed locally on your own device with the Canvas API and are never transmitted to our servers. We only process the minimum data needed to operate the service — such as your selected country, your cookie-consent choice and, if you contact us, the details you provide in the contact form."
+      },
+      {
+        "title": "Data protection principles",
+        "text": "We process data lawfully, fairly and transparently; for specified, explicit and legitimate purposes only; with data minimization; keeping it accurate and up to date; storing it no longer than necessary; and with appropriate security against unauthorized or unlawful processing, accidental loss, destruction or damage."
+      },
+      {
+        "title": "Information disclosure",
+        "text": "We do not sell or rent your personal data. We may disclose information only to comply with a legal obligation or court order, to protect the rights, property or safety of our users and our service, or in the event of a merger, acquisition or sale of assets, subject to the same confidentiality obligations stated in this policy."
+      },
+      {
+        "title": "Security measures",
+        "text": "We have implemented suitable technical and organizational measures to safeguard data against unauthorized access, modification, disclosure or destruction. These include encryption in transit (SSL/TLS), access limited to authorized personnel, and secure storage."
+      },
+      {
+        "title": "Your rights",
+        "text": "Under the GDPR you have the right to be informed, to access, to rectify, to erasure (the 'right to be forgotten'), to restrict processing, to data portability, to object to processing, and to not be subject to automated decision-making. Contact us to exercise any of these rights."
+      },
+      {
+        "title": "Photos stay on your device",
+        "text": "All image processing happens locally in your browser using the Canvas API. Your photos are never uploaded to our servers."
+      },
+      {
+        "title": "Analytics",
+        "text": "We use privacy-friendly, aggregated analytics to understand usage. No personally identifiable information is collected from your photos."
+      },
+      {
+        "title": "Cookies and similar technologies",
+        "text": "We use a minimal cookie to remember your preferences (such as country and cookie consent). See our {link}.",
+        "linkPath": "/cookie-policy",
+        "linkText": "Cookie Policy"
+      },
+      {
+        "title": "Policy modifications",
+        "text": "We may update this policy at any time. Changes are posted on this page with a revised 'Last updated' date, and continued use of the service constitutes acceptance of the updated policy."
+      },
+      {
+        "title": "Contact",
+        "text": "Questions? Reach us via the {link}.",
+        "linkPath": "/contacts",
+        "linkText": "contact page"
+      },
+      {
+        "title": "Governing law",
+        "text": "This policy is governed by and construed in accordance with the laws of the European Union."
+      },
+      {
+        "title": "Complaints",
+        "text": "You have the right to lodge a complaint with a supervisory authority if you believe that our processing of your personal data violates applicable laws, particularly the GDPR."
+      },
+      {
+        "title": "International data transfers",
+        "text": "Because photos are processed locally in your browser, we do not transfer your images outside your device. Where any personal data is transferred outside the European Economic Area, we ensure an adequate level of protection as required by the GDPR."
+      },
+      {
+        "title": "Data retention",
+        "text": "We retain personal data only for as long as necessary to fulfill the purposes for which it was collected or as required by applicable laws, and we securely destroy or anonymize data that is no longer needed."
+      },
+      {
+        "title": "Children's privacy",
+        "text": "The service is not intended for individuals under the age of 16. We do not knowingly collect personal data from children under 16 and will promptly delete such data if we become aware of it."
+      },
+      {
+        "title": "Third-party links",
+        "text": "Our website may contain links to other websites that we do not operate. We are not responsible for their content, privacy policies or practices, and we advise you to review the privacy policies of any third-party websites you visit."
+      }
     ],
     "termsSections": [
-      { "title": "Services description", "text": "PhotoGov provides an online platform through which you can upload a photograph to be processed and prepared for various types of documents in accordance with the applicable requirements. The services include both free and fee-based offerings, and any applicable fees are clearly disclosed before processing begins." },
-      { "title": "Client responsibilities", "text": "You agree to provide an appropriate photograph for processing in accordance with the guidelines on our website, and you warrant that you have the legal right to use and upload the photograph and that it does not infringe any third party's rights or violate applicable laws." },
-      { "title": "Payment and reimbursement", "text": "Fees are paid using the payment methods accepted at checkout, and payment confirms agreement to these terms. If you are not satisfied with the outcome due to improper processing or non-compliance with the intended document requirements, you may request a refund within fourteen (14) days of service completion. No refunds are given where the original photograph did not meet minimum requirements. See our {link}.", "linkPath": "/refund-policy", "linkText": "refund policy" },
-      { "title": "Proprietary rights", "text": "PhotoGov and its licensors retain all proprietary rights in and to the services, including the technology used to process photographs. We grant you a non-exclusive, non-transferable, revocable and limited license to access and use the services for personal purposes, subject to this agreement." },
-      { "title": "Privacy considerations", "text": "We process personal data in compliance with applicable data protection laws, including the General Data Protection Regulation (GDPR). Our {link} provides further details on data processing and your rights.", "linkPath": "/privacy-policy", "linkText": "Privacy Policy" },
-      { "title": "Limitation of liability", "text": "To the maximum extent permitted by law, our liability for any claim arising out of or in connection with this agreement is limited to the amount paid by you for the services. We do not guarantee acceptance by any government authority; you are responsible for verifying that your photo meets current official requirements." },
-      { "title": "Applicable law and dispute resolution", "text": "This agreement is governed by and construed in accordance with the laws of the European Union. Any disputes are resolved through amicable negotiations; if the parties cannot resolve a dispute within thirty (30) days, either party may submit it to the competent courts of the European Union." },
-      { "title": "General provisions", "text": "This agreement constitutes the entire agreement between the parties and supersedes all prior agreements. We reserve the right to modify these terms at any time; your continued use of the services constitutes acceptance of any such modifications." }
+      {
+        "title": "Services description",
+        "text": "PhotoGov provides an online platform through which you can upload a photograph to be processed and prepared for various types of documents in accordance with the applicable requirements. The services include both free and fee-based offerings, and any applicable fees are clearly disclosed before processing begins."
+      },
+      {
+        "title": "Client responsibilities",
+        "text": "You agree to provide an appropriate photograph for processing in accordance with the guidelines on our website, and you warrant that you have the legal right to use and upload the photograph and that it does not infringe any third party's rights or violate applicable laws."
+      },
+      {
+        "title": "Payment and reimbursement",
+        "text": "Fees are paid using the payment methods accepted at checkout, and payment confirms agreement to these terms. If you are not satisfied with the outcome due to improper processing or non-compliance with the intended document requirements, you may request a refund within fourteen (14) days of service completion. No refunds are given where the original photograph did not meet minimum requirements. See our {link}.",
+        "linkPath": "/refund-policy",
+        "linkText": "refund policy"
+      },
+      {
+        "title": "Proprietary rights",
+        "text": "PhotoGov and its licensors retain all proprietary rights in and to the services, including the technology used to process photographs. We grant you a non-exclusive, non-transferable, revocable and limited license to access and use the services for personal purposes, subject to this agreement."
+      },
+      {
+        "title": "Privacy considerations",
+        "text": "We process personal data in compliance with applicable data protection laws, including the General Data Protection Regulation (GDPR). Our {link} provides further details on data processing and your rights.",
+        "linkPath": "/privacy-policy",
+        "linkText": "Privacy Policy"
+      },
+      {
+        "title": "Limitation of liability",
+        "text": "To the maximum extent permitted by law, our liability for any claim arising out of or in connection with this agreement is limited to the amount paid by you for the services. We do not guarantee acceptance by any government authority; you are responsible for verifying that your photo meets current official requirements."
+      },
+      {
+        "title": "Applicable law and dispute resolution",
+        "text": "This agreement is governed by and construed in accordance with the laws of the European Union. Any disputes are resolved through amicable negotiations; if the parties cannot resolve a dispute within thirty (30) days, either party may submit it to the competent courts of the European Union."
+      },
+      {
+        "title": "General provisions",
+        "text": "This agreement constitutes the entire agreement between the parties and supersedes all prior agreements. We reserve the right to modify these terms at any time; your continued use of the services constitutes acceptance of any such modifications."
+      }
     ],
     "cookieSections": [
-      { "title": "Understanding cookies", "text": "Cookies are small files downloaded to your device to enhance your experience. This page outlines the information they collect, how we use it, and how you can control them." },
-      { "title": "Utilizing cookies", "text": "We deploy cookies for the reasons detailed below. In most cases there are no industry-standard alternatives for disabling cookies without entirely disabling the functionality and features they contribute to this site." },
-      { "title": "Disabling cookies", "text": "You can prevent the setting of cookies by adjusting your browser settings. Be aware that disabling cookies will impact the functionality of this and numerous other websites, so it is generally recommended to leave cookies enabled." },
-      { "title": "Cookies we use", "text": "We use a small number of strictly functional cookies: to remember your selected country, to store your cookie-consent choice, and to remember form details for future correspondence when you contact us." },
-      { "title": "Third-party cookies", "text": "We use Google Analytics to understand how the site is used so we can improve it. These third-party cookies track usage in aggregate — such as time on site and pages visited — and never involve your photos." },
-      { "title": "More information", "text": "If you are unsure whether a cookie is needed, it is generally safer to leave cookies enabled. For any questions, contact us via our {link}.", "linkPath": "/contacts", "linkText": "contact page" }
+      {
+        "title": "Understanding cookies",
+        "text": "Cookies are small files downloaded to your device to enhance your experience. This page outlines the information they collect, how we use it, and how you can control them."
+      },
+      {
+        "title": "Utilizing cookies",
+        "text": "We deploy cookies for the reasons detailed below. In most cases there are no industry-standard alternatives for disabling cookies without entirely disabling the functionality and features they contribute to this site."
+      },
+      {
+        "title": "Disabling cookies",
+        "text": "You can prevent the setting of cookies by adjusting your browser settings. Be aware that disabling cookies will impact the functionality of this and numerous other websites, so it is generally recommended to leave cookies enabled."
+      },
+      {
+        "title": "Cookies we use",
+        "text": "We use a small number of strictly functional cookies: to remember your selected country, to store your cookie-consent choice, and to remember form details for future correspondence when you contact us."
+      },
+      {
+        "title": "Third-party cookies",
+        "text": "We use Google Analytics to understand how the site is used so we can improve it. These third-party cookies track usage in aggregate — such as time on site and pages visited — and never involve your photos."
+      },
+      {
+        "title": "More information",
+        "text": "If you are unsure whether a cookie is needed, it is generally safer to leave cookies enabled. For any questions, contact us via our {link}.",
+        "linkPath": "/contacts",
+        "linkText": "contact page"
+      }
     ]
   },
   "signin": {
@@ -777,6 +923,97 @@
     "cancelOrder": "Cancel order",
     "paidAt": "Paid at",
     "processing": "Processing…"
+  },
+  "profile": {
+    "title": "Personal account",
+    "subtitle": "Manage your profile, security, saved photos and subscription.",
+    "nav": {
+      "profile": "Account profile",
+      "security": "Entry and security",
+      "photos": "Saved photos",
+      "subscription": "Subscription"
+    },
+    "signOut": "Sign out",
+    "deletionBanner": "Your account is scheduled for deletion on {date}.",
+    "deletionCancel": "Cancel deletion",
+    "deletionCancelling": "Cancelling…",
+    "profileSection": {
+      "title": "Account profile",
+      "name": "Name",
+      "email": "Email",
+      "emailHint": "Need to change your email? Contact support.",
+      "save": "Save changes",
+      "saving": "Saving…",
+      "saved": "Profile updated."
+    },
+    "security": {
+      "title": "Entry and security",
+      "emailTitle": "Email",
+      "passwordTitle": "Password",
+      "lastChanged": "Last password change: {date}",
+      "never": "Never",
+      "current": "Current password",
+      "new": "New password",
+      "confirm": "Confirm new password",
+      "change": "Change password",
+      "changing": "Changing…",
+      "requirement": "Use at least 8 characters, with a number and a symbol.",
+      "mismatch": "New passwords do not match.",
+      "changed": "Password updated.",
+      "weak": "Password is too weak.",
+      "wrongCurrent": "Current password is incorrect.",
+      "manageTitle": "Profile manage",
+      "deleteTitle": "Delete my account",
+      "deleteDesc": "Permanently remove your account and all associated data.",
+      "deleteBtn": "Delete my account",
+      "deleting": "Deleting…",
+      "deleted": "Account scheduled for deletion.",
+      "scheduledTitle": "Account deletion scheduled",
+      "scheduledNote": "Your account will be deleted on {date}. You can cancel the deletion within {days} days.",
+      "cancelDeletion": "Cancel deletion",
+      "cancelling": "Cancelling…",
+      "cancelled": "Deletion cancelled. Your account is safe."
+    },
+    "photos": {
+      "title": "Your saved photos",
+      "subtitle": "Photos you saved while editing your documents.",
+      "empty": "You have no saved photos yet.",
+      "emptyCta": "Make a photo",
+      "loading": "Loading…",
+      "format": "Format",
+      "png": "PNG",
+      "pdf": "PDF",
+      "download": "Download",
+      "delete": "Delete",
+      "deleting": "Deleting…",
+      "docName": "Document",
+      "savedOn": "Saved"
+    },
+    "subscription": {
+      "title": "Your subscription",
+      "active": "Active",
+      "none": "No active subscription",
+      "noneDesc": "Upgrade to Premium for HD photos, background removal and priority support.",
+      "period": "Billing period",
+      "monthly": "Monthly",
+      "annual": "Annual",
+      "fee": "Fee",
+      "card": "Payment method",
+      "cardMasked": "Card •••• 4242",
+      "nextDebit": "Next debit date",
+      "features": "What's included",
+      "autoRenewal": "Auto-renewal",
+      "autoRenewalOn": "On",
+      "autoRenewalOff": "Off",
+      "autoRenewalDesc": "Your plan renews automatically. Turn off to stop at the end of the period.",
+      "saving": "Saving…",
+      "paymentMethods": "Payment methods",
+      "noMethod": "No payment method on file.",
+      "getPremium": "Upgrade to Premium",
+      "managePlans": "View plans",
+      "cancel": "Cancel subscription",
+      "cancelling": "Cancelling…"
+    }
   },
   "verify": {
     "title": "Verify your email",

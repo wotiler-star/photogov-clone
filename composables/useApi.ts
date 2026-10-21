@@ -166,6 +166,31 @@ export const useApi = () => {
   const cancelSubscription = () =>
     reqFetch<{ ok: boolean; user: any }>(`${BASE}/auth/cancel-subscription`, { method: 'POST' })
 
+  // 会员中心：改密 / 删除账户（软删除）/ 取消删除 / 资料 / 自动续费
+  const changePassword = (currentPassword: string, newPassword: string) =>
+    reqFetch<{ ok: boolean; user: any }>(`${BASE}/auth/change-password`, {
+      method: 'POST',
+      body: { currentPassword, newPassword }
+    })
+
+  const deleteAccount = () =>
+    reqFetch<{ ok: boolean; user: any }>(`${BASE}/auth/delete-account`, { method: 'POST' })
+
+  const cancelDeletion = () =>
+    reqFetch<{ ok: boolean; user: any }>(`${BASE}/auth/cancel-deletion`, { method: 'POST' })
+
+  const updateProfile = (name: string) =>
+    reqFetch<{ ok: boolean; user: any }>(`${BASE}/auth/update-profile`, {
+      method: 'POST',
+      body: { name }
+    })
+
+  const setAutoRenewal = (enabled: boolean) =>
+    reqFetch<{ ok: boolean; user: any }>(`${BASE}/subscription/auto-renewal`, {
+      method: 'POST',
+      body: { enabled }
+    })
+
   // 我的照片 / 订单
   const savePhoto = (imageId: string, meta: { docSlug?: string; docName?: string } = {}) =>
     reqFetch<{ ok: boolean; photo: any }>(`${BASE}/photo/save`, {
@@ -174,6 +199,9 @@ export const useApi = () => {
     })
 
   const myPhotos = () => reqFetch<{ photos: any[] }>(`${BASE}/photo/my`)
+
+  const deletePhoto = (id: string) =>
+    reqFetch<{ ok: boolean }>(`${BASE}/photo/${id}`, { method: 'DELETE' })
 
   const myOrders = () => reqFetch<{ orders: any[] }>(`${BASE}/order/my`)
 

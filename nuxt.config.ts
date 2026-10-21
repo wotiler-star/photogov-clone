@@ -72,7 +72,9 @@ export default defineNuxtConfig({
     },
     routeRules: {
       // 后台面板裸路径重定向到带语言前缀的路由
-      '/admin': { redirect: '/en/admin' }
+      '/admin': { redirect: '/en/admin' },
+      // 旧会员中心路径重定向到新的 /profile 会员中心（保留外部书签有效）
+      '/account': { redirect: '/en/profile' }
     }
   }
 })

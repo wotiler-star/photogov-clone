@@ -7,6 +7,9 @@ export interface AuthUser {
   email: string
   plan: 'free' | 'premium'
   planExpiresAt: string | null
+  autoRenewal: boolean
+  passwordChangedAt: string | null
+  deletionScheduledAt: string | null
   emailVerified: boolean
   createdAt: string
 }

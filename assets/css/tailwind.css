@@ -58,4 +58,7 @@ h1, h2, h3, h4 {
   .eyebrow {
     @apply text-xs font-semibold uppercase tracking-[0.18em] text-brand-blue;
   }
+  .input-pg {
+    @apply w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-ink outline-none transition focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20;
+  }
 }

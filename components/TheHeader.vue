@@ -146,7 +146,7 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
         <div class="flex items-center gap-4">
           <NuxtLink
             v-if="user"
-            :to="localePath('/account')"
+            :to="localePath('/profile')"
             class="flex items-center gap-2 text-[13px] font-semibold uppercase tracking-wide underline decoration-white/60 decoration-1 underline-offset-4 hover:decoration-white"
           >
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
