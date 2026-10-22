@@ -376,7 +376,17 @@
     ],
     "beforeNote": "PhotoGov crops the photo to the exact size, positions the head, and verifies the composition against the selected document rules — so you never juggle these factors by hand.",
     "featuredBadge": "#1 ID Photo Service — Rated by Apollo Technical, 2025",
-    "statPhotos": "photos created"
+    "statPhotos": "photos created",
+    "convertEyebrow": "Converter",
+    "convertTitle": "How to Convert a JPG to a Passport Size Photo",
+    "convertSteps": [
+      "Choose the country and the document, for example, United States → US Passport 2x2 inch (51 x 51 mm).",
+      "Upload your photo to the PhotoGov passport photo maker: a JPG, PNG, or HEIC file you already have, or a new selfie.",
+      "PhotoGov crops the photo to the document's size and positions the head.",
+      "Review the result: the built-in photo checker tests the file against the selected format.",
+      "Download the passport-size photo as a JPEG for online upload or as a printable sheet for paper applications."
+    ],
+    "convertNote": "Depending on your location, you can create two free ID photos per day. In the US, a digital passport photo costs $6.90."
   },
   "documents": {
     "eyebrow": "Documents",
@@ -1117,8 +1127,8 @@
     "backToForgot": "Request a new link"
   },
   "plans": {
-    "title": "Membership Plans",
-    "subtitle": "Choose the plan that fits you best.",
+    "title": "Pricing, Services & Subscription Options",
+    "subtitle": "PhotoGov.net is an easy-to-use online service for creating official ID photos that meet international standards. We offer a flexible pricing model suitable for both individual users and organizations.",
     "free": "Free",
     "premium": "Premium",
     "perMonth": "/mo",
@@ -1129,21 +1139,93 @@
     "upgrade": "Upgrade",
     "downgrade": "Switch to Free",
     "managePlans": "View plans",
-    "featuresTitle": "What is included",
     "feat": {
-      "unlimited": "Unlimited photo downloads",
-      "formats": "JPG, PNG & PDF export",
-      "hd": "HD & print-ready files",
-      "nobg": "AI background removal",
-      "priority": "Priority processing",
-      "support": "Priority email support"
+      "unlimited": "Unlimited photo generation",
+      "formats": "All file formats (JPEG, PNG, PDF)",
+      "watermark": "Watermark-free downloads",
+      "updates": "Priority access to new features and updates"
     },
     "save": "Save {n}%",
     "freeTitle": "Free photos",
-    "freeText": "The PhotoGov editor is free to use: upload a photo, crop it to the official size, swap the background and download a compliant file. All processing runs locally in your browser — no account required.",
+    "freeText": "Depending on the location, each user can generate two free ID photos per day. The number of free pictures may vary depending on location and system load. If the free option isn't available in your country, paid alternatives will be clearly displayed before processing begins.",
     "noticeText": "Our service may not be available in certain countries due to regulatory and compliance limitations. We apologize for any inconvenience and appreciate your understanding.",
-    "compareTitle": "Compare plans",
-    "feature": "Feature"
+    "paidTitle": "Paid photos",
+    "paidText": "In some countries, including the United States, the United Kingdom, Canada, Australia, the UAE and some European and Asian countries, a fee applies, and you see the price before you pay. Elsewhere, each user can generate two free ID photos per day, automatically sized and cropped according to the selected document type. No additional features are included in the free photo processing. The free service operates when server capacity allows and does not include additional features. Paid photo options remain affordable, costing far less than a visit to a professional studio.",
+    "paidTableCaption": "The table below shows current regional pricing for digital and printable photo files:",
+    "colRegion": "Region",
+    "colDigital": "Digital photo",
+    "colSheet": "Digital photo + printable A4 sheet",
+    "regions": [
+      {
+        "region": "United States",
+        "digital": "$6.90",
+        "sheet": "$6.90 + $2.90"
+      },
+      {
+        "region": "United Kingdom",
+        "digital": "£4.90",
+        "sheet": "£6.90"
+      },
+      {
+        "region": "Canada",
+        "digital": "C$5.90",
+        "sheet": "C$6.90"
+      },
+      {
+        "region": "Germany, France, Netherlands, Belgium, Austria, Switzerland",
+        "digital": "€3.90",
+        "sheet": "€3.90 + $2.90"
+      },
+      {
+        "region": "Spain",
+        "digital": "€3.90",
+        "sheet": "€4.90"
+      },
+      {
+        "region": "Australia",
+        "digital": "A$6.20",
+        "sheet": "A$6.20 + $2.90"
+      },
+      {
+        "region": "United Arab Emirates",
+        "digital": "AED 16",
+        "sheet": "AED 16 + $2.90"
+      },
+      {
+        "region": "Other countries",
+        "digital": "from $3.90 (two free ID photos per day, depending on your location)",
+        "sheet": "from $3.90 + $2.90"
+      }
+    ],
+    "subTitle": "Subscriptions",
+    "subText": "PhotoGov offers a flexible $9.90 monthly subscription for users who create photos frequently or need extended access to premium features.",
+    "subIncludesTitle": "Monthly subscription includes:",
+    "subIncludes": [
+      "Unlimited photo generation",
+      "Access to all file formats (JPEG, PNG, PDF)",
+      "Watermark-free downloads",
+      "Priority access to new features and updates"
+    ],
+    "subAuto": "Subscriptions are only activated with your explicit confirmation. We do not enroll users automatically.",
+    "subConfirmTitle": "After confirming your subscription:",
+    "subConfirm": [
+      "You'll receive a confirmation from our payment processor",
+      "An email will be sent to the address you provided",
+      "A reminder will be sent three days before the next billing cycle"
+    ],
+    "subCancel": "You may cancel your subscription at any time through your account. Access to all features remains active until the end of the paid period.",
+    "expertTitle": "Expert Human Verification",
+    "expertText": "All users can choose a human verification service as an add-on upon checkout. A trained specialist manually reviews the photo to confirm compliance with official government standards. If the photo does not meet requirements, it will be reprocessed or refunded at no cost. This service costs $4.90.",
+    "businessTitle": "Business Solutions and API Access",
+    "businessText": "PhotoGov offers tailored solutions and API integration for organizations that process large volumes of ID photos — including visa agencies, government institutions, and educational platforms. This integration enables automated workflows while maintaining full compliance with international photo standards.",
+    "dashboardTitle": "Account Dashboard",
+    "dashboardIntro": "Our users have access to a personal dashboard to:",
+    "dashboardItems": [
+      "View and manage photo orders",
+      "Re-download generated files",
+      "Track verification status (if purchased)"
+    ],
+    "closing": "PhotoGov.net combines transparency, automation, and compliance with global standards. Whether you need a single ID photo or an enterprise-grade solution, our service is built to deliver reliability and ease of use."
   },
   "howItWorks": {
     "eyebrow": "How it Works",

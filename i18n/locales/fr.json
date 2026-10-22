@@ -376,7 +376,17 @@
     ],
     "beforeNote": "PhotoGov recadre la photo à la taille exacte, positionne la tête et vérifie la composition selon les règles du document sélectionné.",
     "featuredBadge": "N°1 des services de photos d’identité — Noté par Apollo Technical, 2025",
-    "statPhotos": "photos créées"
+    "statPhotos": "photos créées",
+    "convertEyebrow": "Convertisseur",
+    "convertTitle": "Comment convertir un JPG en photo au format passeport",
+    "convertSteps": [
+      "Choisissez le pays et le document, par exemple États-Unis → Passeport américain 2x2 pouces (51 x 51 mm).",
+      "Téléchargez votre photo dans le créateur de photos pour passeport PhotoGov : un fichier JPG, PNG ou HEIC existant, ou un nouveau selfie.",
+      "PhotoGov recadre la photo aux dimensions du document et positionne la tête.",
+      "Vérifiez le résultat : le vérificateur de photos intégré teste le fichier selon le format sélectionné.",
+      "Téléchargez la photo au format passeport en JPEG pour les demandes en ligne ou sous forme de feuille imprimible pour les demandes papier."
+    ],
+    "convertNote": "Selon votre localisation, vous pouvez créer deux photos d'identité gratuites par jour. Aux États-Unis, une photo de passeport numérique coûte $6.90."
   },
   "documents": {
     "eyebrow": "Documents",
@@ -1117,8 +1127,8 @@
     "backToForgot": "Demander un nouveau lien"
   },
   "plans": {
-    "title": "Forfaits d'abonnement",
-    "subtitle": "Choisissez le forfait qui vous convient.",
+    "title": "Tarifs, services et options d'abonnement",
+    "subtitle": "PhotoGov.net est un service en ligne simple d'utilisation pour créer des photos d'identité officielles conformes aux normes internationales. Nous proposons un modèle tarifaire flexible, adapté aussi bien aux utilisateurs individuels qu'aux organisations.",
     "free": "Gratuit",
     "premium": "Premium",
     "perMonth": "/mois",
@@ -1129,21 +1139,93 @@
     "upgrade": "Passer au Premium",
     "downgrade": "Passer au Gratuit",
     "managePlans": "Voir les forfaits",
-    "featuresTitle": "Ce qui est inclus",
     "feat": {
-      "unlimited": "Téléchargements de photos illimités",
-      "formats": "Export JPG, PNG et PDF",
-      "hd": "Fichiers HD prêts pour l’impression",
-      "nobg": "Suppression de fond par IA",
-      "priority": "Traitement prioritaire",
-      "support": "Support e-mail prioritaire"
+      "unlimited": "Génération illimitée de photos",
+      "formats": "Tous les formats de fichier (JPEG, PNG, PDF)",
+      "watermark": "Téléchargements sans filigrane",
+      "updates": "Accès prioritaire aux nouvelles fonctionnalités et mises à jour"
     },
     "save": "Économisez {n}%",
     "freeTitle": "Photos gratuites",
-    "freeText": "L'éditeur PhotoGov est gratuit : téléversez une photo, recadrez-la au format officiel, changez l'arrière-plan et téléchargez un fichier conforme. Tout le traitement s'exécute localement dans votre navigateur — sans compte.",
+    "freeText": "Selon votre localisation, chaque utilisateur peut générer deux photos d'identité gratuites par jour. Le nombre de photos gratuites peut varier selon la localisation et la charge du système. Si l'option gratuite n'est pas disponible dans votre pays, les alternatives payantes seront clairement affichées avant le début du traitement.",
     "noticeText": "Notre service peut ne pas être disponible dans certains pays pour des raisons réglementaires et de conformité. Nous nous excusons pour la gêne occasionnée et vous remercions de votre compréhension.",
-    "compareTitle": "Comparer les forfaits",
-    "feature": "Fonctionnalité"
+    "paidTitle": "Photos payantes",
+    "paidText": "Dans certains pays, dont les États-Unis, le Royaume-Uni, le Canada, l'Australie, les Émirats arabes unis et certains pays européens et asiatiques, des frais s'appliquent et le prix est affiché avant le paiement. Ailleurs, chaque utilisateur peut générer deux photos d'identité gratuites par jour, automatiquement redimensionnées et recadrées selon le type de document sélectionné. Le traitement gratuit n'inclut aucune fonctionnalité supplémentaire et fonctionne lorsque la capacité du serveur le permet. Les options payantes restent abordables et coûtent bien moins cher qu'une visite dans un studio professionnel.",
+    "paidTableCaption": "Le tableau ci-dessous présente les tarifs régionaux actuels pour les fichiers photo numériques et imprimables :",
+    "colRegion": "Région",
+    "colDigital": "Photo numérique",
+    "colSheet": "Photo numérique + feuille A4 imprimable",
+    "regions": [
+      {
+        "region": "États-Unis",
+        "digital": "$6.90",
+        "sheet": "$6.90 + $2.90"
+      },
+      {
+        "region": "Royaume-Uni",
+        "digital": "£4.90",
+        "sheet": "£6.90"
+      },
+      {
+        "region": "Canada",
+        "digital": "C$5.90",
+        "sheet": "C$6.90"
+      },
+      {
+        "region": "Allemagne, France, Pays-Bas, Belgique, Autriche, Suisse",
+        "digital": "€3.90",
+        "sheet": "€3.90 + $2.90"
+      },
+      {
+        "region": "Espagne",
+        "digital": "€3.90",
+        "sheet": "€4.90"
+      },
+      {
+        "region": "Australie",
+        "digital": "A$6.20",
+        "sheet": "A$6.20 + $2.90"
+      },
+      {
+        "region": "Émirats arabes unis",
+        "digital": "AED 16",
+        "sheet": "AED 16 + $2.90"
+      },
+      {
+        "region": "Autres pays",
+        "digital": "à partir de $3.90 (deux photos d'identité gratuites par jour, selon votre localisation)",
+        "sheet": "à partir de $3.90 + $2.90"
+      }
+    ],
+    "subTitle": "Abonnements",
+    "subText": "PhotoGov propose un abonnement mensuel flexible à $9.90 pour les utilisateurs qui créent des photos fréquemment ou qui ont besoin d'un accès étendu aux fonctionnalités premium.",
+    "subIncludesTitle": "L'abonnement mensuel comprend :",
+    "subIncludes": [
+      "Génération illimitée de photos",
+      "Accès à tous les formats de fichier (JPEG, PNG, PDF)",
+      "Téléchargements sans filigrane",
+      "Accès prioritaire aux nouvelles fonctionnalités et mises à jour"
+    ],
+    "subAuto": "Les abonnements ne sont activés qu'avec votre confirmation explicite. Nous n'inscrivons aucun utilisateur automatiquement.",
+    "subConfirmTitle": "Après confirmation de votre abonnement :",
+    "subConfirm": [
+      "Vous recevrez une confirmation de notre processeur de paiement",
+      "Un e-mail sera envoyé à l'adresse que vous avez fournie",
+      "Un rappel sera envoyé trois jours avant le prochain cycle de facturation"
+    ],
+    "subCancel": "Vous pouvez annuler votre abonnement à tout moment depuis votre compte. L'accès à toutes les fonctionnalités reste actif jusqu'à la fin de la période payée.",
+    "expertTitle": "Vérification humaine par des experts",
+    "expertText": "Tous les utilisateurs peuvent choisir le service de vérification humaine en option lors du paiement. Un spécialiste formé examine manuellement la photo pour confirmer sa conformité aux normes officielles. Si la photo ne répond pas aux exigences, elle sera retraitée ou remboursée sans frais. Ce service coûte $4.90.",
+    "businessTitle": "Solutions entreprises et accès API",
+    "businessText": "PhotoGov propose des solutions sur mesure et une intégration API aux organisations qui traitent de grands volumes de photos d'identité — notamment les agences de visas, les institutions gouvernementales et les plateformes éducatives. Cette intégration permet des flux de travail automatisés tout en respectant pleinement les normes photographiques internationales.",
+    "dashboardTitle": "Tableau de bord du compte",
+    "dashboardIntro": "Nos utilisateurs ont accès à un tableau de bord personnel pour :",
+    "dashboardItems": [
+      "Consulter et gérer les commandes de photos",
+      "Retélécharger les fichiers générés",
+      "Suivre l'état de la vérification (si achetée)"
+    ],
+    "closing": "PhotoGov.net allie transparence, automatisation et conformité aux normes mondiales. Que vous ayez besoin d'une simple photo d'identité ou d'une solution de qualité professionnelle, notre service est conçu pour offrir fiabilité et simplicité."
   },
   "howItWorks": {
     "eyebrow": "Comment ça marche",

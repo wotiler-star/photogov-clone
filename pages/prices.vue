@@ -1,34 +1,35 @@
 <script setup lang="ts">
+/**
+ * 价格页（对标原站 /prices/：Pricing, Services & Subscription Options）
+ *
+ * 结构：简介 → Free photos → Paid photos（区域定价表）→ Subscriptions（$9.90/月）
+ * → Expert Human Verification（$4.90 附加）→ Business Solutions & API → Account Dashboard
+ * → 结尾 + 可用性提示 + 合规链接。
+ * 订阅动作保留本地账户体系：未登录跳登录页，已登录走 subscribe() 计划流。
+ */
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useRouter } from '#imports'
+import { useRouter, useLocalePath } from '#imports'
 import { useAuth } from '~/composables/useAuth'
 import { PLANS, planStatus } from '~/utils/plans'
 
-const { t } = useI18n()
+const { t, tm } = useI18n()
 const router = useRouter()
+const localePath = useLocalePath()
 const { user, loaded, subscribe, cancelSubscription } = useAuth()
 
 const busy = ref('')
 const status = computed(() => planStatus(user.value))
 const isLoggedIn = computed(() => !!user.value)
-
-const compareFeatures = [
-  'plans.feat.unlimited',
-  'plans.feat.formats',
-  'plans.feat.hd',
-  'plans.feat.nobg',
-  'plans.feat.priority',
-  'plans.feat.support'
-]
-const freePlan = PLANS.find((p) => p.id === 'free')!
-const premiumPlan = PLANS.find((p) => p.id === 'premium_monthly')!
-const freeHas = (k: string) => freePlan.features.includes(k)
-const premiumHas = (k: string) => premiumPlan.features.includes(k)
+const regions = computed(() => tm('plans.regions') as unknown as Array<{ region: string; digital: string; sheet: string }>)
+const premiumPlans = computed(() => PLANS.filter((p) => p.id !== 'free'))
+const features = computed(() =>
+  (PLANS.find((p) => p.id === 'premium_monthly')?.features || []).map((f) => t(f))
+)
 
 async function choose(planId: string) {
   if (!isLoggedIn.value) {
-    router.push('/sign-in?redirect=/plans')
+    router.push('/sign-in?redirect=/prices')
     return
   }
   busy.value = planId
@@ -58,105 +59,148 @@ useHead({ title: t('plans.title') })
 
 <template>
   <div class="container-pg py-16">
-    <div class="mx-auto max-w-5xl">
+    <div class="mx-auto max-w-3xl">
       <h1 class="text-center font-serif text-3xl font-bold text-ink">{{ $t('plans.title') }}</h1>
-      <p class="mt-2 text-center text-muted">{{ $t('plans.subtitle') }}</p>
+      <p class="mt-4 text-center leading-relaxed text-muted">{{ $t('plans.subtitle') }}</p>
 
-      <div class="mt-10 grid gap-6 md:grid-cols-3">
-        <div
-          v-for="plan in PLANS"
-          :key="plan.id"
-          class="relative flex flex-col rounded-2xl border bg-white p-6"
-          :class="plan.popular ? 'border-accent shadow-soft' : 'border-slate-200'"
-        >
-          <span
-            v-if="plan.popular"
-            class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white"
-          >{{ $t('plans.popular') }}</span>
+      <!-- FREE PHOTOS -->
+      <section class="mt-12">
+        <h2 class="font-serif text-2xl font-bold text-ink">{{ $t('plans.freeTitle') }}</h2>
+        <p class="mt-3 leading-relaxed text-muted">{{ $t('plans.freeText') }}</p>
+      </section>
 
-          <h2 class="text-lg font-bold text-ink">{{ $t(plan.i18n) }}</h2>
-          <div class="mt-2 flex items-baseline gap-1">
-            <span class="text-3xl font-bold text-ink">${{ plan.price }}</span>
-            <span v-if="plan.interval === 'month'" class="text-sm text-muted">{{ $t('plans.perMonth') }}</span>
-            <span v-else-if="plan.interval === 'year'" class="text-sm text-muted">{{ $t('plans.perYear') }}</span>
-          </div>
-          <span
-            v-if="plan.savePercent"
-            class="mt-2 inline-block w-fit rounded-full bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-700"
-          >{{ $t('plans.save', { n: plan.savePercent }) }}</span>
+      <!-- PAID PHOTOS + 区域定价表 -->
+      <section class="mt-12">
+        <h2 class="font-serif text-2xl font-bold text-ink">{{ $t('plans.paidTitle') }}</h2>
+        <p class="mt-3 leading-relaxed text-muted">{{ $t('plans.paidText') }}</p>
+        <p class="mt-4 font-medium text-ink">{{ $t('plans.paidTableCaption') }}</p>
+        <div class="mt-4 overflow-x-auto rounded-2xl border border-slate-200">
+          <table class="w-full text-sm">
+            <thead class="bg-slate-50">
+              <tr>
+                <th class="p-3 text-left font-medium text-muted">{{ $t('plans.colRegion') }}</th>
+                <th class="p-3 text-left font-medium text-muted">{{ $t('plans.colDigital') }}</th>
+                <th class="p-3 text-left font-medium text-muted">{{ $t('plans.colSheet') }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(r, i) in regions" :key="i" class="border-t border-slate-100">
+                <td class="p-3 text-slate-700">{{ r.region }}</td>
+                <td class="p-3 font-medium text-ink">{{ r.digital }}</td>
+                <td class="p-3 font-medium text-ink">{{ r.sheet }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-4 text-sm leading-relaxed text-muted">
+          PhotoGov.net strictly adheres to the
+          <NuxtLink :to="localePath('/global-id-photo-compliance')" class="text-brand hover:underline">Global regulations for ID photos</NuxtLink>.
+        </p>
+      </section>
 
-          <ul class="mt-4 flex-1 space-y-2 text-sm">
-            <li v-for="f in plan.features" :key="f" class="flex items-start gap-2">
-              <span class="mt-0.5 text-accent">✓</span>
-              <span class="text-slate-600">{{ $t(f) }}</span>
-            </li>
-          </ul>
+      <!-- SUBSCRIPTIONS -->
+      <section class="mt-12">
+        <h2 class="font-serif text-2xl font-bold text-ink">{{ $t('plans.subTitle') }}</h2>
+        <p class="mt-3 leading-relaxed text-muted">{{ $t('plans.subText') }}</p>
 
-          <div class="mt-6">
+        <h3 class="mt-6 font-semibold text-ink">{{ $t('plans.subIncludesTitle') }}</h3>
+        <ul class="mt-3 space-y-2">
+          <li v-for="(f, i) in features" :key="i" class="flex items-start gap-2 text-sm text-slate-600">
+            <span class="mt-0.5 text-accent">✓</span><span>{{ f }}</span>
+          </li>
+        </ul>
+        <p class="mt-4 text-sm leading-relaxed text-muted">{{ $t('plans.subAuto') }}</p>
+
+        <h3 class="mt-6 font-semibold text-ink">{{ $t('plans.subConfirmTitle') }}</h3>
+        <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-muted">
+          <li v-for="(c, i) in $tm('plans.subConfirm')" :key="i">{{ c }}</li>
+        </ul>
+        <p class="mt-4 text-sm leading-relaxed text-muted">{{ $t('plans.subCancel') }}</p>
+
+        <!-- 订阅操作区（本地账户体系） -->
+        <div class="mt-6 grid gap-4 sm:grid-cols-2">
+          <div
+            v-for="plan in premiumPlans"
+            :key="plan.id"
+            class="rounded-2xl border bg-white p-5"
+            :class="plan.popular ? 'border-accent shadow-soft' : 'border-slate-200'"
+          >
+            <div class="flex items-center justify-between gap-2">
+              <h4 class="font-semibold text-ink">
+                {{ plan.interval === 'year' ? $t('profile.subscription.perYear') : $t('profile.subscription.perMonth') }}
+              </h4>
+              <span
+                v-if="plan.popular"
+                class="rounded-full bg-accent px-2.5 py-0.5 text-xs font-semibold text-white"
+              >{{ $t('plans.popular') }}</span>
+            </div>
+            <p class="mt-2 font-serif text-2xl font-bold text-ink">${{ plan.price }}</p>
+            <p v-if="plan.savePercent" class="mt-1 text-xs font-semibold text-green-700">
+              {{ $t('plans.save', { n: plan.savePercent }) }}
+            </p>
             <button
               v-if="!isLoggedIn && loaded"
-              class="btn-outline w-full"
+              class="btn-outline mt-4 w-full"
               type="button"
               @click="choose(plan.id)"
             >{{ $t('plans.signInToChoose') }}</button>
-
             <button
               v-else-if="isCurrent(plan.id)"
-              class="w-full rounded-lg bg-slate-100 py-2 text-sm font-medium text-muted"
+              class="mt-4 w-full rounded-lg bg-slate-100 py-2 text-sm font-medium text-muted"
               type="button"
               disabled
             >{{ $t('plans.current') }}</button>
-
-            <button
-              v-else-if="plan.id === 'free'"
-              class="btn-outline w-full"
-              type="button"
-              :disabled="busy === 'cancel'"
-              @click="cancel"
-            >{{ $t('plans.downgrade') }}</button>
-
             <button
               v-else
-              class="btn-primary w-full"
+              class="btn-primary mt-4 w-full"
               type="button"
               :disabled="busy === plan.id"
               @click="choose(plan.id)"
             >{{ $t('plans.upgrade') }}</button>
           </div>
         </div>
-      </div>
 
-      <!-- 功能对比表 -->
-      <div class="mt-14">
-        <h2 class="text-center font-serif text-2xl font-bold text-ink">{{ $t('plans.compareTitle') }}</h2>
-        <div class="mx-auto mt-6 max-w-2xl overflow-hidden rounded-2xl border border-slate-200">
-          <table class="w-full text-sm">
-            <thead class="bg-slate-50">
-              <tr>
-                <th class="p-3 text-left font-medium text-muted">{{ $t('plans.feature') }}</th>
-                <th class="p-3 text-center font-medium text-muted">{{ $t('plans.free') }}</th>
-                <th class="p-3 text-center font-medium text-accent">{{ $t('plans.premium') }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="f in compareFeatures" :key="f" class="border-t border-slate-100">
-                <td class="p-3 text-slate-600">{{ $t(f) }}</td>
-                <td class="p-3 text-center text-lg">{{ freeHas(f) ? '✓' : '—' }}</td>
-                <td class="p-3 text-center text-lg text-accent">{{ premiumHas(f) ? '✓' : '—' }}</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="mt-4 text-center">
+          <button
+            v-if="isLoggedIn && status.isPremium"
+            class="text-sm text-muted underline hover:text-ink"
+            type="button"
+            :disabled="busy === 'cancel'"
+            @click="cancel"
+          >{{ $t('plans.downgrade') }}</button>
         </div>
-      </div>
+      </section>
 
-      <!-- 免费照片说明 + 可用性提示（对标原站价格页的信息板块） -->
-      <div class="mx-auto mt-14 max-w-2xl">
-        <h2 class="text-center font-serif text-2xl font-bold text-ink">{{ $t('plans.freeTitle') }}</h2>
-        <p class="mt-3 text-center text-muted">{{ $t('plans.freeText') }}</p>
-        <p class="mt-6 text-center text-sm text-muted">{{ $t('plans.noticeText') }}</p>
-      </div>
+      <!-- EXPERT HUMAN VERIFICATION -->
+      <section class="mt-12">
+        <h2 class="font-serif text-2xl font-bold text-ink">{{ $t('plans.expertTitle') }}</h2>
+        <p class="mt-3 leading-relaxed text-muted">{{ $t('plans.expertText') }}</p>
+      </section>
 
-      <p v-if="!loaded" class="mt-6 text-center text-sm text-muted">{{ $t('account.loading') }}</p>
+      <!-- BUSINESS SOLUTIONS AND API ACCESS -->
+      <section class="mt-12">
+        <h2 class="font-serif text-2xl font-bold text-ink">{{ $t('plans.businessTitle') }}</h2>
+        <p class="mt-3 leading-relaxed text-muted">{{ $t('plans.businessText') }}</p>
+      </section>
+
+      <!-- ACCOUNT DASHBOARD -->
+      <section class="mt-12">
+        <h2 class="font-serif text-2xl font-bold text-ink">{{ $t('plans.dashboardTitle') }}</h2>
+        <p class="mt-3 leading-relaxed text-muted">{{ $t('plans.dashboardIntro') }}</p>
+        <ul class="mt-3 list-disc space-y-1 pl-5 text-muted">
+          <li v-for="(d, i) in $tm('plans.dashboardItems')" :key="i">{{ d }}</li>
+        </ul>
+        <p class="mt-4 text-sm">
+          <NuxtLink :to="localePath('/profile')" class="text-brand hover:underline">{{ $t('plans.managePlans') }}</NuxtLink>
+        </p>
+      </section>
+
+      <!-- 结尾 + 可用性提示 -->
+      <section class="mt-12">
+        <p class="leading-relaxed text-muted">{{ $t('plans.closing') }}</p>
+        <p class="mt-6 text-sm text-muted">{{ $t('plans.noticeText') }}</p>
+        <p v-if="!loaded" class="mt-6 text-center text-sm text-muted">{{ $t('account.loading') }}</p>
+      </section>
     </div>
   </div>
 </template>

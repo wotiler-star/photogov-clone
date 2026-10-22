@@ -14,20 +14,18 @@ export const PLANS: Plan[] = [
     i18n: 'plans.free',
     price: 0,
     interval: null,
-    features: ['plans.feat.unlimited', 'plans.feat.formats']
+    features: []
   },
   {
     id: 'premium_monthly',
     i18n: 'plans.premium',
-    price: 9.99,
+    price: 9.9,
     interval: 'month',
     features: [
       'plans.feat.unlimited',
       'plans.feat.formats',
-      'plans.feat.hd',
-      'plans.feat.nobg',
-      'plans.feat.priority',
-      'plans.feat.support'
+      'plans.feat.watermark',
+      'plans.feat.updates'
     ]
   },
   {
@@ -40,10 +38,8 @@ export const PLANS: Plan[] = [
     features: [
       'plans.feat.unlimited',
       'plans.feat.formats',
-      'plans.feat.hd',
-      'plans.feat.nobg',
-      'plans.feat.priority',
-      'plans.feat.support'
+      'plans.feat.watermark',
+      'plans.feat.updates'
     ]
   }
 ]

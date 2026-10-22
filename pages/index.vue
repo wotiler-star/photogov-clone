@@ -350,6 +350,25 @@ const quickGroups = computed(() => {
       </div>
     </section>
 
+    <!-- HOW TO CONVERT A JPG: 5 步转换教程（对标原站 SEO 内容区块） -->
+    <section class="container-pg py-14">
+      <div class="text-center">
+        <span class="eyebrow">{{ $t('home.convertEyebrow') }}</span>
+        <h2 class="mt-2 text-3xl font-bold">{{ $t('home.convertTitle') }}</h2>
+      </div>
+      <ol class="mx-auto mt-8 max-w-3xl space-y-3">
+        <li
+          v-for="(s, i) in $tm('home.convertSteps')"
+          :key="i"
+          class="card-pg flex items-start gap-4 p-5"
+        >
+          <div class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand-blue text-sm font-bold text-white">{{ i + 1 }}</div>
+          <p class="pt-1 text-sm leading-relaxed text-slate-600">{{ s }}</p>
+        </li>
+      </ol>
+      <p class="mx-auto mt-6 max-w-3xl text-sm text-muted">{{ $t('home.convertNote') }}</p>
+    </section>
+
     <!-- HOW TO TAKE AT HOME: 6 步有序指南 + US Passport 示例规格块（对标原站） -->
     <section class="bg-slate-50 py-14">
       <div class="container-pg">

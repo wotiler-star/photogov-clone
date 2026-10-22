@@ -376,7 +376,17 @@
     ],
     "beforeNote": "PhotoGov recorta la foto al tamaño exacto, coloca la cabeza y verifica la composición según las reglas del documento seleccionado.",
     "featuredBadge": "Servicio n.º 1 de fotos de ID — Calificado por Apollo Technical, 2025",
-    "statPhotos": "fotos creadas"
+    "statPhotos": "fotos creadas",
+    "convertEyebrow": "Convertidor",
+    "convertTitle": "Cómo convertir un JPG en una foto de tamaño pasaporte",
+    "convertSteps": [
+      "Elija el país y el documento, por ejemplo, Estados Unidos → Pasaporte de EE. UU. 2x2 pulgadas (51 x 51 mm).",
+      "Suba su foto al creador de fotos para pasaporte de PhotoGov: un archivo JPG, PNG o HEIC que ya tenga, o una nueva selfi.",
+      "PhotoGov recorta la foto al tamaño del documento y posiciona la cabeza.",
+      "Revise el resultado: el verificador de fotos integrado prueba el archivo con el formato seleccionado.",
+      "Descargue la foto de tamaño pasaporte como JPEG para solicitudes en línea o como hoja imprimible para solicitudes en papel."
+    ],
+    "convertNote": "Según su ubicación, puede crear dos fotos de identificación gratuitas al día. En EE. UU., una foto de pasaporte digital cuesta $6.90."
   },
   "documents": {
     "eyebrow": "Documentos",
@@ -1117,8 +1127,8 @@
     "backToForgot": "Solicitar un nuevo enlace"
   },
   "plans": {
-    "title": "Planes de membresía",
-    "subtitle": "Elige el plan que mejor te funcione.",
+    "title": "Precios, servicios y opciones de suscripción",
+    "subtitle": "PhotoGov.net es un servicio en línea fácil de usar para crear fotos de identificación oficiales que cumplen con los estándares internacionales. Ofrecemos un modelo de precios flexible, adecuado tanto para usuarios individuales como para organizaciones.",
     "free": "Gratis",
     "premium": "Premium",
     "perMonth": "/mes",
@@ -1129,21 +1139,93 @@
     "upgrade": "Mejorar",
     "downgrade": "Cambiar a Gratis",
     "managePlans": "Ver planes",
-    "featuresTitle": "Qué incluye",
     "feat": {
-      "unlimited": "Descargas de fotos ilimitadas",
-      "formats": "Exportar JPG, PNG y PDF",
-      "hd": "Archivos HD y listos para imprimir",
-      "nobg": "Eliminación de fondo con IA",
-      "priority": "Procesamiento prioritario",
-      "support": "Soporte prioritario por correo"
+      "unlimited": "Generación ilimitada de fotos",
+      "formats": "Todos los formatos de archivo (JPEG, PNG, PDF)",
+      "watermark": "Descargas sin marca de agua",
+      "updates": "Acceso prioritario a nuevas funciones y actualizaciones"
     },
     "save": "Ahorra {n}%",
     "freeTitle": "Fotos gratuitas",
-    "freeText": "El editor de PhotoGov es gratuito: sube una foto, recórtala al tamaño oficial, cambia el fondo y descarga un archivo conforme. Todo el procesamiento se ejecuta localmente en tu navegador, sin necesidad de cuenta.",
+    "freeText": "Según la ubicación, cada usuario puede generar dos fotos de identificación gratuitas al día. La cantidad de fotos gratuitas puede variar según la ubicación y la carga del sistema. Si la opción gratuita no está disponible en su país, se mostrarán claramente las alternativas de pago antes de que comience el procesamiento.",
     "noticeText": "Nuestro servicio puede no estar disponible en ciertos países por limitaciones regulatorias y de cumplimiento. Pedimos disculpas por las molestias y agradecemos su comprensión.",
-    "compareTitle": "Comparar planes",
-    "feature": "Función"
+    "paidTitle": "Fotos de pago",
+    "paidText": "En algunos países, incluidos Estados Unidos, Reino Unido, Canadá, Australia, los EAU y algunos países europeos y asiáticos, se aplica una tarifa y verá el precio antes de pagar. En el resto de países, cada usuario puede generar dos fotos de identificación gratuitas al día, ajustadas y recortadas automáticamente según el tipo de documento seleccionado. El procesamiento gratuito no incluye funciones adicionales y está disponible cuando la capacidad del servidor lo permite. Las opciones de pago siguen siendo asequibles y cuestan mucho menos que una visita a un estudio profesional.",
+    "paidTableCaption": "La siguiente tabla muestra los precios regionales actuales para archivos de fotos digitales e imprimibles:",
+    "colRegion": "Región",
+    "colDigital": "Foto digital",
+    "colSheet": "Foto digital + hoja A4 imprimible",
+    "regions": [
+      {
+        "region": "Estados Unidos",
+        "digital": "$6.90",
+        "sheet": "$6.90 + $2.90"
+      },
+      {
+        "region": "Reino Unido",
+        "digital": "£4.90",
+        "sheet": "£6.90"
+      },
+      {
+        "region": "Canadá",
+        "digital": "C$5.90",
+        "sheet": "C$6.90"
+      },
+      {
+        "region": "Alemania, Francia, Países Bajos, Bélgica, Austria, Suiza",
+        "digital": "€3.90",
+        "sheet": "€3.90 + $2.90"
+      },
+      {
+        "region": "España",
+        "digital": "€3.90",
+        "sheet": "€4.90"
+      },
+      {
+        "region": "Australia",
+        "digital": "A$6.20",
+        "sheet": "A$6.20 + $2.90"
+      },
+      {
+        "region": "Emiratos Árabes Unidos",
+        "digital": "AED 16",
+        "sheet": "AED 16 + $2.90"
+      },
+      {
+        "region": "Otros países",
+        "digital": "desde $3.90 (dos fotos de identificación gratuitas al día, según su ubicación)",
+        "sheet": "desde $3.90 + $2.90"
+      }
+    ],
+    "subTitle": "Suscripciones",
+    "subText": "PhotoGov ofrece una suscripción mensual flexible de $9.90 para usuarios que crean fotos con frecuencia o necesitan acceso ampliado a funciones premium.",
+    "subIncludesTitle": "La suscripción mensual incluye:",
+    "subIncludes": [
+      "Generación ilimitada de fotos",
+      "Acceso a todos los formatos de archivo (JPEG, PNG, PDF)",
+      "Descargas sin marca de agua",
+      "Acceso prioritario a nuevas funciones y actualizaciones"
+    ],
+    "subAuto": "Las suscripciones solo se activan con su confirmación explícita. No inscribimos a los usuarios automáticamente.",
+    "subConfirmTitle": "Después de confirmar su suscripción:",
+    "subConfirm": [
+      "Recibirá una confirmación de nuestro procesador de pagos",
+      "Se enviará un correo electrónico a la dirección que proporcionó",
+      "Se enviará un recordatorio tres días antes del próximo ciclo de facturación"
+    ],
+    "subCancel": "Puede cancelar su suscripción en cualquier momento desde su cuenta. El acceso a todas las funciones permanece activo hasta el final del período pagado.",
+    "expertTitle": "Verificación humana por expertos",
+    "expertText": "Todos los usuarios pueden elegir el servicio de verificación humana como complemento al pagar. Un especialista capacitado revisa manualmente la foto para confirmar el cumplimiento de las normas oficiales. Si la foto no cumple los requisitos, se reprocesará o reembolsará sin costo. Este servicio cuesta $4.90.",
+    "businessTitle": "Soluciones empresariales y acceso a la API",
+    "businessText": "PhotoGov ofrece soluciones personalizadas e integración de API para organizaciones que procesan grandes volúmenes de fotos de identificación, incluidas agencias de visados, instituciones gubernamentales y plataformas educativas. Esta integración permite flujos de trabajo automatizados manteniendo el pleno cumplimiento de las normas fotográficas internacionales.",
+    "dashboardTitle": "Panel de cuenta",
+    "dashboardIntro": "Nuestros usuarios tienen acceso a un panel personal para:",
+    "dashboardItems": [
+      "Ver y gestionar los pedidos de fotos",
+      "Volver a descargar los archivos generados",
+      "Seguir el estado de la verificación (si se compró)"
+    ],
+    "closing": "PhotoGov.net combina transparencia, automatización y cumplimiento de las normas globales. Tanto si necesita una sola foto de identificación como una solución de nivel empresarial, nuestro servicio está diseñado para ofrecer fiabilidad y facilidad de uso."
   },
   "howItWorks": {
     "eyebrow": "Cómo funciona",
