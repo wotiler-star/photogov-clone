@@ -1,116 +1,208 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useApi } from '~/composables/useApi'
-import { useLocalePath } from '#imports'
+import { useLocalePath, useRequestURL } from '#imports'
+import InfoPageShell from '~/components/InfoPageShell.vue'
+import icons from '~/components/reviewsIcons.json'
 
 const { t, tm } = useI18n()
-const { getReviews } = useApi()
 const localePath = useLocalePath()
+const url = useRequestURL()
 
-useHead({ title: t('reviewsPage.title') })
+// 20 条真实 Google 评价（F5 取证：初始 4 条 + Show more (+16) 展开全部）
+// 内容为用户原文，四语不翻译（引用真实性）
+const reviews = tm('reviewsPage.reviews') as any[]
+const verifyList = tm('reviewsPage.verifyList') as string[]
 
-// 真实评价来自 photogov.net Database.Reviews 快照（Trustpilot，1372 条，均分 4.66）
-const { data } = await useAsyncData('reviews-real', () => getReviews({ limit: 50 }).catch(() => null), {
-  default: () => null as any
+const expanded = ref(false)
+const visible = computed(() => (expanded.value ? reviews : reviews.slice(0, 4)))
+// 双列布局：按索引奇偶分列（对标原站 2 列卡片流）
+const columns = computed(() => {
+  const even: any[] = []
+  const odd: any[] = []
+  visible.value.forEach((r, i) => (i % 2 === 0 ? even : odd).push(r))
+  return [even, odd]
 })
 
-const stats = computed(() => data.value?.stats || null)
-const reviews = computed(() => {
-  const list = (data.value?.reviews || []) as any[]
-  // 真实数据按时间倒序；展示时按星级降序，让高分评价靠前（数据本身 100% 真实）
-  return [...list].sort((a, b) => (b.rating || 0) - (a.rating || 0))
-})
-const total = computed(() => stats.value?.total_reviews ?? reviews.value.length)
-const avg = computed(() => (stats.value?.average_rating ?? 0).toFixed(2))
-const dist = computed(() => stats.value?.rating_distribution || {})
+// 每条评价的「Continue...」展开状态
+const opened = ref<Record<number, boolean>>({})
+const isOpen = (name: string) => !!opened.value[name]
+const toggleText = (name: string) => (opened.value[name] = !opened.value[name])
 
-const verifyList = computed(() => tm('reviewsPage.verifyList') as string[])
-const statCards = computed(
-  () =>
-    (tm('reviewsPage.stats') as Array<{ value: string; label: string }>) || [
-      { value: String(total.value), label: 'Total reviews' },
-      { value: `${avg.value} / 5`, label: 'Average rating' },
-      { value: `${dist.value[5] || 0}`, label: '5-star reviews' },
-      { value: 'Trustpilot', label: 'Source' }
-    ]
-)
+const avatarUrl = (r: any) => (r.avatar ? r.avatar.split('/').pop() : '')
+const initialOf = (r: any) => (r.name || '?').trim().charAt(0).toUpperCase()
 
-const stars = (n: number) => '★'.repeat(n) + '☆'.repeat(5 - n)
-const fmtDate = (d?: string) =>
-  d ? new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : ''
+const canonical = computed(() => `${url.origin}${localePath('/reviews')}`)
+const escLd = (s: string) => s.replace(/</g, '\\u003c')
+
+// 对标原站：Product（aggregateRating 4.8/2515）+ BreadcrumbList
+const productLd = computed(() => ({
+  '@context': 'http://schema.org',
+  '@type': 'Product',
+  name: 'Photogov',
+  image: '/favicon/android-chrome-512x512.png',
+  description:
+    "At PhotoGov, we understand how frustrating it can be to get the perfect photo for your official documents. That's why we created an online service that provides high-quality photos with just a few clicks. Our team of experts has worked tirelessly to develop an AI-based platform that is efficient, accurate, and user-friendly.",
+  brand: { '@type': 'Brand', name: 'Photogov' },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    bestRating: '5',
+    worstRating: '1',
+    ratingValue: '4.8',
+    ratingCount: '2515'
+  }
+}))
+const breadcrumbLd = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t('common.homePage'), item: `${url.origin}/` },
+    { '@type': 'ListItem', position: 2, name: t('reviewsPage.breadcrumb') }
+  ]
+}))
+
+const GOOGLE_URL =
+  'https://www.google.com/maps/place//data=!4m3!3m2!1s0x4aac0e30608ca9cd:0x9cf46a57ae12aff!12e1?source=g.page.m._&laa=merchant-review-solicitation'
+
+useHead(() => ({
+  title: t('reviewsPage.metaTitle'),
+  meta: [
+    { name: 'description', content: t('reviewsPage.metaDesc') },
+    { property: 'og:title', content: t('reviewsPage.metaTitle') },
+    { property: 'og:description', content: t('reviewsPage.metaDesc') },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: canonical.value },
+    { name: 'twitter:title', content: t('reviewsPage.metaTitle') },
+    { name: 'twitter:description', content: t('reviewsPage.metaDesc') }
+  ],
+  link: [{ rel: 'canonical', href: canonical.value }],
+  script: [
+    { key: 'ld-product', type: 'application/ld+json', innerHTML: escLd(JSON.stringify(productLd.value)) },
+    { key: 'ld-breadcrumb', type: 'application/ld+json', innerHTML: escLd(JSON.stringify(breadcrumbLd.value)) }
+  ]
+}))
 </script>
 
 <template>
-  <div class="container-pg py-14">
-    <div class="mx-auto max-w-3xl">
-      <span class="eyebrow">{{ $t('reviewsPage.eyebrow') }}</span>
-      <h1 class="mt-2 text-3xl font-bold sm:text-4xl">{{ $t('reviewsPage.title') }}</h1>
-      <p class="mt-4 text-muted">{{ $t('reviewsPage.sub') }}</p>
+  <InfoPageShell
+    icon="reviews"
+    :hero-title="$t('reviewsPage.heroTitle')"
+    :hero-desc="$t('reviewsPage.heroDesc')"
+    :breadcrumb="$t('reviewsPage.breadcrumb')"
+    card-class="flex-1 rounded-lg bg-white px-10 pb-12 font-serif overflow-hidden max-lg:px-5 max-lg:pb-6"
+  >
+    <!-- 卡内顶部出血大图 -->
+    <div class="-mx-10 h-[180px] max-lg:-mx-5 max-lg:h-[150px]">
+      <img src="/img/reviews/reviews-1.webp" alt="Photogov Reviews" width="1664" height="360" class="size-full object-cover" />
+    </div>
 
-      <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-        <div v-for="(s, i) in statCards" :key="i" class="card-pg p-4 text-center">
-          <div class="text-2xl font-bold text-brand">{{ s.value }}</div>
-          <div class="mt-1 text-xs text-muted">{{ s.label }}</div>
+    <h1 class="mt-8 text-[30px] font-bold leading-tight">{{ $t('reviewsPage.title') }}</h1>
+    <p class="mt-4 font-Golos">
+      {{ $t('reviewsPage.intro') }} <b class="font-medium">{{ $t('reviewsPage.introBold') }}</b>
+    </p>
+
+    <!-- 精选引用 -->
+    <div class="mt-8 flex items-start gap-x-3.5 lg:max-w-[700px] max-lg:gap-x-2.5">
+      <span class="shrink-0 max-lg:scale-75" v-html="icons.quote" />
+      <div class="flex-1 space-y-5 border-l-[6px] border-[#043361] pl-3.5 max-lg:pl-2.5">
+        <div class="font-serif text-[22px] leading-[1.3]">
+          <p>“{{ $t('reviewsPage.quote') }}”</p>
         </div>
-      </div>
-
-      <h2 class="mt-12 text-2xl font-bold">{{ $t('reviewsPage.statsTitle') }}</h2>
-      <p class="mt-3 text-muted">{{ $t('reviewsPage.statsP1') }}</p>
-      <p class="mt-3 text-muted">{{ $t('reviewsPage.statsP2') }}</p>
-
-      <blockquote class="card-pg mt-6 border-l-4 border-[#ccb38d] p-6">
-        <p class="italic text-muted">“{{ $t('reviewsPage.quote') }}”</p>
-        <footer class="mt-3 text-sm font-semibold">— {{ $t('reviewsPage.quoteAuthor') }}</footer>
-      </blockquote>
-
-      <!-- 真实评分分布 -->
-      <div v-if="stats" class="card-pg mt-8 space-y-2 p-6">
-        <div class="flex items-center justify-between">
-          <span class="text-lg font-semibold">{{ avg }} / 5</span>
-          <span class="text-sm text-muted">based on {{ total }} reviews</span>
+        <div class="font-Golos text-[#727272]">
+          <p>{{ $t('reviewsPage.quoteAuthor') }}</p>
         </div>
-        <div v-for="n in [5, 4, 3, 2, 1]" :key="n" class="flex items-center gap-3 text-sm">
-          <span class="w-10 text-muted">{{ n }}★</span>
-          <div class="h-2 flex-1 overflow-hidden rounded bg-black/5">
-            <div
-              class="h-full rounded bg-[#ccb38d]"
-              :style="{ width: (total ? ((dist[n] || 0) / total) * 100 : 0) + '%' }"
-            />
-          </div>
-          <span class="w-12 text-right text-muted">{{ dist[n] || 0 }}</span>
-        </div>
-      </div>
-
-      <h2 class="mt-12 text-2xl font-bold">{{ $t('reviewsPage.sectionTitle') }}</h2>
-      <div class="mt-6 space-y-4">
-        <article v-for="(u, i) in reviews" :key="i" class="card-pg p-5">
-          <div class="flex items-center justify-between gap-3">
-            <div>
-              <h3 class="font-semibold">{{ u.name }}</h3>
-              <div class="mt-0.5 text-xs text-[#cc8a3a]">{{ stars(u.rating) }}</div>
-            </div>
-            <span class="text-xs text-muted">{{ u.location }} · {{ fmtDate(u.created_at) }}</span>
-          </div>
-          <p class="mt-2 text-sm text-muted">{{ u.text }}</p>
-        </article>
-      </div>
-
-      <h2 class="mt-12 text-2xl font-bold">{{ $t('reviewsPage.verifyTitle') }}</h2>
-      <p class="mt-3 text-muted">{{ $t('reviewsPage.verifyP1') }}</p>
-      <p class="mt-3 text-muted">{{ $t('reviewsPage.verifyP2') }}</p>
-      <ul class="mt-4 space-y-2 pl-5">
-        <li v-for="(v, i) in verifyList" :key="i" class="list-disc text-sm text-muted">{{ v }}</li>
-      </ul>
-
-      <h2 class="mt-12 text-2xl font-bold">{{ $t('reviewsPage.shapeTitle') }}</h2>
-      <p class="mt-3 text-muted">{{ $t('reviewsPage.shapeP') }}</p>
-
-      <div class="card-pg mt-8 p-6">
-        <h2 class="text-lg font-semibold">{{ $t('reviewsPage.voiceTitle') }}</h2>
-        <p class="mt-2 text-sm text-muted">{{ $t('reviewsPage.voiceP1') }}</p>
-        <p class="mt-2 text-sm text-muted">{{ $t('reviewsPage.voiceP2') }}</p>
       </div>
     </div>
-  </div>
+
+    <p class="mt-8 font-Golos">{{ $t('reviewsPage.body1') }}</p>
+    <p class="mt-4 font-Golos">{{ $t('reviewsPage.body2') }}</p>
+
+    <!-- Google 评分行 -->
+    <h3 class="mt-10 border-l-4 border-[#BDA887] pl-1.5 text-[22px] font-semibold">{{ $t('reviewsPage.usersSayTitle') }}</h3>
+    <div class="mt-6 flex items-center font-Golos">
+      <span class="shrink-0" v-html="icons.google" />
+      <span class="ml-1.5 font-medium">{{ $t('reviewsPage.byGoogle') }}
+        <a :href="GOOGLE_URL" target="_blank" rel="noreferrer nofollow" class="text-blue-600 underline duration-200 hover:text-red-600">{{ $t('reviewsPage.googleName') }}</a>
+      </span>
+      <div class="ml-8">
+        <svg v-for="n in 5" :key="n" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline-block size-6">
+          <path :d="(icons as any).starPath" fill="#FFD850" />
+        </svg>
+      </div>
+      <span class="ml-3.5 inline-block">
+        <span class="font-bold">{{ $t('reviewsPage.ratingValue') }}</span>
+        <span class="ml-1.5">{{ $t('reviewsPage.ratingCount') }}</span>
+      </span>
+    </div>
+
+    <!-- 评价卡（2 列） -->
+    <div class="mt-6 flex gap-x-5 max-lg:flex-col">
+      <div v-for="(col, ci) in columns" :key="ci" class="flex flex-1 flex-col gap-y-5">
+        <div v-for="r in col" :key="r.name" class="rounded-[6px] bg-[#F4F4F4] p-4 font-Golos">
+          <div class="flex items-center gap-x-2.5">
+            <div v-if="avatarUrl(r)" class="size-8 shrink-0 overflow-hidden rounded-full border border-[#D8D8D8] bg-blue-700 max-lg:size-7">
+              <img :src="`/img/reviews/${avatarUrl(r)}`" :alt="`${r.name} user avatar`" width="32" height="32" class="size-full object-cover" />
+            </div>
+            <div v-else class="flex size-8 shrink-0 items-center justify-center rounded-full bg-blue-700 text-sm font-semibold text-white max-lg:size-7">
+              {{ initialOf(r) }}
+            </div>
+            <span class="flex-1 text-[18px] font-medium max-lg:text-[16px]">{{ r.name }}</span>
+            <span class="inline-flex shrink-0 items-center gap-x-0.5">
+              <span class="font-semibold">{{ r.rating }}</span>
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="size-6">
+                <path :d="(icons as any).starPath" fill="#FFD850" />
+              </svg>
+            </span>
+          </div>
+          <p class="mt-3 text-[14px] font-medium">{{ $t('reviewsPage.postedOn') }}</p>
+          <p class="mt-2 text-[14px]" :class="isOpen(r.name) ? '' : 'line-clamp-3'">{{ r.text }}</p>
+          <button
+            v-if="!isOpen(r.name)"
+            type="button"
+            class="mt-0.5 text-blue-600 duration-200 hover:text-red-600"
+            @click="toggleText(r.name)"
+          >
+            {{ $t('reviewsPage.continueText') }}
+          </button>
+          <p v-if="r.date" class="mt-2 text-[14px] text-[#6b7280]">{{ r.date }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 展开更多 -->
+    <p v-if="!expanded" class="mt-6 text-center">
+      <button
+        type="button"
+        class="inline-flex items-center gap-x-2 text-blue-600 underline decoration-dashed duration-200 hover:text-red-600"
+        @click="expanded = true"
+      >
+        {{ $t('reviewsPage.showMore') }}
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4">
+          <path d="M8 18L12 22L16 18"></path>
+          <path d="M12 2V22"></path>
+        </svg>
+      </button>
+    </p>
+
+    <!-- 经过验证的真实反馈 -->
+    <h2 class="mt-8 text-[30px] font-bold leading-tight">{{ $t('reviewsPage.verifyTitle') }}</h2>
+    <p class="mt-4 font-Golos">{{ $t('reviewsPage.verifyP1') }}</p>
+    <p class="mt-4 font-Golos">{{ $t('reviewsPage.verifyP2') }}</p>
+    <p class="mt-4 font-Golos">
+      {{ $t('reviewsPage.verifyLead') }} <b class="font-semibold">{{ $t('reviewsPage.verifyLeadBold') }}</b>
+    </p>
+    <ul class="ml-4 mt-4 list-outside list-disc space-y-1.5 font-Golos">
+      <li v-for="(v, i) in verifyList" :key="i" class="list-item">{{ v }}</li>
+    </ul>
+    <div class="mt-10 h-[300px] w-full overflow-hidden rounded">
+      <img src="/img/reviews/reviews-2.webp" alt="Photogov Reviews" width="1280" height="600" class="size-full object-cover" />
+    </div>
+
+    <h2 class="mt-10 text-[30px] font-bold leading-tight">{{ $t('reviewsPage.shapeTitle') }}</h2>
+    <p class="mt-4 font-Golos">{{ $t('reviewsPage.shapeP') }}</p>
+
+    <h2 class="mt-10 text-[30px] font-bold leading-tight">{{ $t('reviewsPage.voiceTitle') }}</h2>
+    <p class="mt-4 font-Golos">{{ $t('reviewsPage.voiceP1') }}</p>
+    <p class="mt-4 font-Golos">{{ $t('reviewsPage.voiceP2') }}</p>
+  </InfoPageShell>
 </template>

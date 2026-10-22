@@ -100,7 +100,8 @@
     "viewAll": "查看全部",
     "readMore": "阅读更多",
     "backTo": "返回{page}",
-    "notFound": "未找到"
+    "notFound": "未找到",
+    "homePage": "主页"
   },
   "home": {
     "heroEyebrow": "护照 · 签证 · 身份证照片",
@@ -641,16 +642,6 @@
     "privacyLink": "隐私政策",
     "note": "这是 www.photogov.net 的非官方演示克隆，仅用于教育与复刻目的。与任何政府机构无隶属关系。"
   },
-  "contact": {
-    "eyebrow": "联系",
-    "title": "联系我们",
-    "sub": "我们通常会在 1–2 个工作日内回复。",
-    "name": "姓名",
-    "email": "邮箱",
-    "message": "留言",
-    "send": "发送留言",
-    "thanks": "谢谢！您的留言已记录（演示表单，不会真正发送邮件）。"
-  },
   "compliance": {
     "eyebrow": "合规性",
     "title": "我们如何保持合规",
@@ -1186,247 +1177,6 @@
     "closing": "PhotoGov.net 集透明、自动化与全球合规于一体。无论您需要单张证件照还是企业级解决方案，我们的服务都致力于提供可靠与便捷。",
     "savePercent": "省 {percent}%"
   },
-  "howItWorks": {
-    "eyebrow": "使用流程",
-    "title": "了解 PhotoGov 如何将您的自拍照制作成 100% 合规的证件照",
-    "lead1": "PhotoGov 是一个现代化技术平台，运用先进的图像处理算法制作 100% 合规的证件照。如今，所有护照尺寸照片都可以在家中或办公室轻松完成，无需预约、前往专业照相馆并排队等待。",
-    "lead2": "了解我们的服务如何重新定义证件照制作流程——从制作与合规校验，到驱动每一步的技术支持。",
-    "cta": "立即制作证件照",
-    "stepsTitle": "逐步指南：从自拍照到合规证件照",
-    "steps": [
-      {
-        "t": "1. 浏览 PhotoGov 护照照片制作工具",
-        "p": "点击“获取您的证件照”按钮，或直接进入我们的免费护照照片制作工具。无需安装任何软件，也无需注册账户：该服务可在桌面和移动设备的任意浏览器中使用，全天候 24/7 开放。"
-      },
-      {
-        "t": "2. 选择国家与证件类型",
-        "p": "在开始界面上选择签发国家与证件类型。在这个简单的选择背后，是一套复杂的算法，可将您的原始照片转换为符合该特定证件要求的正式照片。"
-      },
-      {
-        "t": "3. 上传您的自拍照",
-        "p": "使用手机、平板电脑或笔记本电脑拍摄一张自拍照。按照屏幕上的提示上传并开始处理照片——一切操作直观、简便！"
-      },
-      {
-        "t": "4. 等待图像处理完成",
-        "p": "上传自拍照后，PhotoGov 会将其送入处理流程。内置的识别与合规算法会分析人脸并检测其关键生物特征点。图像的尺寸、裁切、构图、头部位置、背景、亮度与对比度都会被调整，以满足所选证件类型 100% 的官方要求。"
-      },
-      {
-        "t": "5. 选择增值选项 1：服装调整",
-        "p": "作为可选增值服务，您可以选择将便装替换为正式着装。这是一项便捷的在线服务，无论您在原始照片中穿着什么，都能将任意自拍照转换为符合正式要求的证件照。"
-      },
-      {
-        "t": "6. 选择增值选项 2：人工核验",
-        "p": "如果您的申请较为紧急，可为处理后的图像选择专家核验服务。我们的资深合规专员会审查最终图像，并就照片质量与证件照合规性提出建议。可将此步骤作为提交的额外保障。"
-      },
-      {
-        "t": "7. 下载可直接用于申请的照片",
-        "p": "不到 30 seconds 即可下载可直接用于申请的照片。您可选择适用于在线申请的数字文件，或适用于纸质提交的 PDF 打印文件。"
-      }
-    ],
-    "noteTitle": "重要提示：",
-    "note": "PhotoGov 仅调整图像的技术参数，不会以任何方式更改或修饰您的面部特征——面貌与原始照片完全一致。",
-    "techTitle": "简洁界面背后的复杂技术",
-    "tech": [
-      "在简洁的界面背后，PhotoGov 由一套专用后端系统驱动，旨在让证件照处理保持快速、可靠，并保障您的数据安全。平台运行于 Tier III 云服务器——与银行和医疗系统同级的可靠性等级——并提供 24/7 监控与自动备份，因此即使在高负载或系统维护期间，服务依然可用，您的文件也始终处于保护之下。",
-      "即使同时在线用户众多，系统也会在各区域之间重新分配负载，以保持照片制作过程迅速、稳定。",
-      "照片上传后，会先在浏览器中进行初步分析，随后在 PhotoGov 自有的 GPU 服务器上完成处理。这些高性能服务器利用图形处理器加速图像处理，因此即使在普通设备上，所有调整也能在几秒内完成。算法会校正背景、光线与尺寸，以满足官方证件标准，包括面部与画幅比例及色彩平衡，让您无需自行研究复杂的照片技术规范。",
-      "所有图像调整均在 PhotoGov 的安全环境中完成；照片绝不会共享给任何外部服务，从而保障您的个人数据安全无虞。",
-      "最终文件保存在加密的云存储空间中，并通过全球 CDN 网络分发，以便在任何地点快速访问。这意味着无论您在家中、办公室还是旅途中提交申请，都能快速下载照片。",
-      "从上传到下载的每一步都由系统自动处理，并可随时便捷查看。系统始终遵循国际证件照标准，大幅降低您的申请因照片问题被拒的可能性。"
-    ],
-    "embassyTitle": "源自真实使馆经验的证件照制作",
-    "embassy": [
-      "PhotoGov 与部分使馆开展协作，使照片制作流程与现行领事实务及证件照要求保持一致。",
-      "我们的团队中包含前领事馆与使馆工作人员，他们运用实务经验不断优化服务，提高您的证件照被受理的可能性。",
-      "PhotoGov 是一家独立服务。我们与任何政府、使馆或领事馆均无隶属关系。本网站上的所有信息均基于官方政府要求及经核实的一手来源。照片最终是否被受理，完全由签发机构决定。"
-    ],
-    "disclaimer": "PhotoGov 是一家独立服务，与任何政府机构均无隶属关系。您的照片最终是否被受理，完全由签发机构决定。"
-  },
-  "whyChooseUs": {
-    "eyebrow": "为什么选择我们",
-    "title": "选择 PhotoGov 在线照片制作工具处理证件照的 11 个理由",
-    "lead1": "每一份获批的证件背后，都是一张符合严格技术、生物特征与法律要求的照片。要将正式照片的制作托付给在线服务，作为用户的您必须完全确信：最终图像将满足所有政府规范，并让申请流程更加顺畅。",
-    "lead2": "以下是超过 200 万用户信赖 PhotoGov 制作证件照的 11 个理由。",
-    "cta": "立即制作证件照",
-    "learnPricing": "了解更多",
-    "learnPricingTail": "了解我们的定价政策与订阅方案。",
-    "reasons": [
-      {
-        "t": "1. 一个服务覆盖所有官方证件照",
-        "ps": [
-          "PhotoGov 支持 900+ 种常见国际证件类型的照片制作——从护照到国民身份证，从签证到船舶驾驶证。只需选择国家与类型，系统便会自动套用该照片所需的正确生物特征与技术参数。"
-        ]
-      },
-      {
-        "t": "2. 100% 符合官方标准",
-        "ps": [
-          "PhotoGov 采用基于核心国际法规的内置识别与合规算法："
-        ],
-        "bullets": [
-          "国家层面的政府要求。所有证件照都必须符合签发司法辖区的规范：U.S. Department of State、加拿大移民、难民及公民部（Immigration, Refugees and Citizenship Canada）、英国内政部（UK Home Office），以及其他各国主管部委与领事机构。",
-          "全球生物特征证件照标准。在全球层面，证件照规范由 International Civil Aviation Organization（ICAO）Document 9303 界定，该文件系统规定了护照与签证照片的生物特征标准。",
-          "ISO/IEC 19794‑5 —— 另一项国际标准，规定了生物特征人脸图像的采集、裁切与存储方式，以确保无论是人工核验还是自动化系统识别都能顺利进行。",
-          "当您选择证件类型后，PhotoGov 会自动套用相应主管机构的规范，并依据上述 ICAO 与 ISO/IEC 标准对图像的头部尺寸、眼睛位置、背景与图像质量进行校验。"
-        ]
-      },
-      {
-        "t": "3. 无需注册，也无需下载应用",
-        "ps": [
-          "PhotoGov 可在任意设备的任意浏览器与操作系统上运行。您无需创建账户、记住密码或安装应用。只需打开我们的网站，选择国家与证件，上传照片，等待系统处理图像，选择增值服务，然后下载最终图像。"
-        ]
-      },
-      {
-        "t": "4. 大多数地区免费使用",
-        "ps": [
-          "在大多数国家，PhotoGov 是免费的护照照片制作工具。在少数地区，照片服务为付费提供。不过，首张照片通常免费，额外照片的定价也远低于普通商业照相馆。此外，您无需离开家或办公室即可完成制作。"
-        ]
-      },
-      {
-        "t": "5. 自动校正与服装调整",
-        "ps": [
-          "PhotoGov 运用内置识别与合规算法，使您的原始照片符合官方技术与视觉要求。系统会自动扶正头部、调整亮度与对比度、净化背景，并将面部缩放至所选证件要求的区间。",
-          "作为增值服务，您可以将照片中的服装替换为正式着装，以满足部分主管机构的要求，或者仅仅是为了免去为拍摄自拍照而专门换装。"
-        ]
-      },
-      {
-        "t": "6. 仅需 30 seconds",
-        "ps": [
-          "从上传到生成最终文件，整个流程耗时不足 30 seconds。处理完成后，您即可下载：",
-          "适用于在线申请的数字文件，以及适用于冲印店或家用打印机的可直接打印排版文件。",
-          "PhotoGov 仅需 30 seconds 即可制作出合规图像，既节省时间，又节省费用，在您急需照片用于即将提交的申请或预约时尤为实用。"
-        ]
-      },
-      {
-        "t": "7. 全球 24/7 全天候可用",
-        "ps": [
-          "PhotoGov 服务在全球任何地点 24/7 全天候可用。您可在前往当地签证机构之前在家中准备好照片，也可在国外通过领事馆提交材料时在酒店房间内制作，或者在办公室为公务材料的正式提交做准备。我们的服务随时随地稳定可用、值得信赖，让您无需再跑照相馆。"
-        ]
-      },
-      {
-        "t": "8. 自动校验与人工核验",
-        "ps": [
-          "PhotoGov 将软件校验与人工专业经验相结合。我们的专职团队持续跟踪官方更新、维护模板，并在真实提交场景中测试生成的图像。对于重点证件类型，自动校验之外还辅以人工核验：我们的资深专员会逐一审阅您的照片并提供专业反馈。这种双重机制让用户在紧张的申请过程中安心无忧。"
-        ]
-      },
-      {
-        "t": "9. 持续跟进法规变更",
-        "ps": [
-          "主管机构会不断更新证件照规范：背景色调、头部高度区间、文件大小等细节都在随时间变化。PhotoGov 团队持续监测官方来源，并在新规范发布时同步更新模板与资源页面。在我们平台上一个简单的证件选择下拉框背后，始终是经过 100% 核验的官方要求最新版本。"
-        ]
-      },
-      {
-        "t": "10. 银行级可靠性",
-        "ps": [
-          "PhotoGov 采用与银行和医疗行业相同的基础设施与可靠性等级，包括冗余电力与网络连接保障、24/7 监控以及自动备份。对您而言，这意味着网站加载稳定、处理过程可靠，且您生成的照片在规定期限内始终可供下载。"
-        ]
-      },
-      {
-        "t": "11. 您的数据 100% 安全",
-        "ps": [
-          "使用我们的服务时，您无需担心数据安全。从上传到下载，您的照片都在一个单一、可控的生态体系内处理。图像通过加密连接传输，在 PhotoGov 自有服务器上处理，不会发送给任何第三方。生成的照片以加密形式保存有限时间，仅够您获取合规照片所需。此后，将依照内部留存规则予以删除。"
-        ]
-      }
-    ],
-    "outro1": "进一步了解我们的免费护照照片制作工具，或查看关于 PhotoGov 服务的常见问题。",
-    "outro2": "PhotoGov.net 严格遵守全球证件照相关法规。"
-  },
-  "reviewsPage": {
-    "eyebrow": "用户评价",
-    "title": "PhotoGov 客户评价与用户反馈",
-    "sub": "了解用户对 PhotoGov 服务的评价——从照片处理到客户支持与问题解决。",
-    "stats": [
-      {
-        "value": "900+",
-        "label": "证件类型"
-      },
-      {
-        "value": "200",
-        "label": "覆盖国家"
-      },
-      {
-        "value": "1.8M",
-        "label": "全球用户"
-      },
-      {
-        "value": "4.7",
-        "label": "Trustpilot 评分"
-      }
-    ],
-    "statsTitle": "全球数百万人信赖之选",
-    "statsP1": "PhotoGov 是一家国际在线护照照片服务，帮助用户为 200 个国家的 900 多种官方证件制作合规的数字图像。每天有超过 12,000 人信赖我们，这对我们而言比什么都重要——而他们的反馈正是我们平台不断发展与完善的核心动力。",
-    "statsP2": "迄今为止，全球已有 1.8M 人使用过我们的在线照片制作工具。",
-    "quote": "非常棒的网站！界面直观、说明清晰，而且我很喜欢的一点是：用户一旦选定地区，它就会交叉核对官方要求，同时还能提供高质量的成品。",
-    "quoteAuthor": "Alefiya Haveliwala，Google Reviews",
-    "sectionTitle": "PhotoGov 用户怎么说",
-    "users": [
-      {
-        "name": "Segun Abiodun",
-        "when": "1 年前",
-        "text": "对于几乎不懂照片编辑的人来说，这是一个极佳的工具，可以让他们在几秒钟内把照片处理成多个政府机构和多个国家都能接受的格式。更棒的是，它还是免费的！"
-      },
-      {
-        "name": "Google 用户",
-        "when": "",
-        "text": "价格合理，照片非常专业。它能彻底清除所有背景阴影——比我自己在那里瞎猜要简单得多。我已经用过两次，不过我自己有打印 2x2 照片的软件，所以对我来说那样更方便。"
-      },
-      {
-        "name": "Khant Htoo Htoo",
-        "when": "",
-        "text": "我对这项服务非常满意。别家公司做这种 10 秒就能搞定的小事要收 $20，而他们却免费提供。大力点赞。"
-      },
-      {
-        "name": "Alefiya Haveliwala",
-        "when": "",
-        "text": "非常棒的网站！界面直观、说明清晰，而且我很喜欢的一点是：用户一旦选定地区，它就会交叉核对官方要求，同时还能提供高质量的成品。"
-      }
-    ],
-    "verifyTitle": "仅展示经过验证的真实反馈",
-    "verifyP1": "我们的评价发布在独立平台上——TrustPilot，该平台采用自身的验证流程来确认用户反馈的真实性。",
-    "verifyP2": "我们不购买、不改写，也不屏蔽负面反馈。如果哪里出了问题，用户的评价中就会有所体现。这种透明度对我们非常重要。它能帮助全球用户了解我们的服务，并清楚地知道：",
-    "verifyList": [
-      "该服务在不同国家的可靠程度",
-      "提交的照片被政府机构受理的频率",
-      "用户收到成品文件的速度",
-      "支持团队如何解决实际问题"
-    ],
-    "shapeTitle": "用户评价如何塑造 PhotoGov 服务",
-    "shapeP": "PhotoGov 依据真实用户反馈持续迭代。好评中的规律告诉我们平台哪些方面表现出色；而每一个反复出现的问题，都会成为技术团队的一项任务。这种与用户的直接对话，让我们能够从结构层面优化服务，从 AI 排版精度到照片上传流程等各个环节。",
-    "voiceTitle": "您的声音很重要",
-    "voiceP1": "如果您使用过 PhotoGov，您的体验可以帮助下一位用户做出明智选择。收到数字照片后，欢迎分享您的评价。无论反馈是正面、中性还是批评性的，对我们的团队和其他用户都同样宝贵。",
-    "voiceP2": "留下评价，您就是在为一项服务贡献力量，帮助成千上万的人快速、便捷、省去不必要步骤地准备官方证件。"
-  },
-  "securityPage": {
-    "eyebrow": "安全",
-    "title": "我们的安全标准、协议与数据保护实践",
-    "lead": "在 PhotoGov.net，用户的安全与隐私至关重要。我们致力于保护您的个人数据，并遵循最高的安全标准。以下是我们保障您信息安全的具体措施：",
-    "items": [
-      {
-        "t": "遵循安全标准",
-        "p": "我们遵循国际公认的安全标准，包括 General Data Protection Regulation（GDPR）、California Consumer Privacy Act（CCPA）以及其他相关的数据保护法规。对这些标准的恪守，确保您的数据得到负责任且安全的处理。"
-      },
-      {
-        "t": "个人数据保护",
-        "p": "我们高度重视您的个人数据安全。所有个人信息均按照行业最佳实践进行安全处理与存储。对您数据的访问权限严格限于因履行职责而确有需要的授权人员。"
-      },
-      {
-        "t": "SSL 加密",
-        "p": "PhotoGov.net 采用 SSL（Secure Sockets Layer）加密技术，保护您的浏览器与我们服务器之间的连接。该技术可确保传输给我们的任何敏感数据（例如个人资料与支付信息）的私密性与安全性。"
-      },
-      {
-        "t": "定期安全审计",
-        "p": "我们定期开展安全审计，以发现并修复潜在漏洞。通过持续监控与强化安全措施，我们针对可能威胁您数据的风险保持强有力的防御。"
-      },
-      {
-        "t": "安全的支付处理",
-        "p": "我们的支付处理由可信赖的第三方服务提供商负责，确保您的支付信息得到安全处理。"
-      },
-      {
-        "t": "遵守 GDPR Cookie 保护规定",
-        "p": "我们遵守 GDPR 关于 Cookie 保护的规定，确保我们对 Cookie 的使用尊重您的隐私权。我们的网站会透明地说明所使用 Cookie 的相关信息，并在收集任何非必要 Cookie 之前征得您的同意。"
-      }
-    ],
-    "outro": "在 PhotoGov.net，安全是我们的首要任务，我们始终致力于保护您的数据。请相信我们守护您个人信息的决心，同时为您制作证件照提供顺畅、安全的体验。"
-  },
   "refund": {
     "eyebrow": "退款",
     "title": "2026 年 PhotoGov 退款政策详解",
@@ -1728,9 +1478,9 @@
   },
   "support": {
     "eyebrow": "支持",
-    "title": "帮助中心",
+    "title": "获取专家帮助，让制照过程顺畅无忧",
     "sub": "联系我们的团队，或浏览关于照片、付款等最常见问题的解答。",
-    "heroTitle": "专业支持，让照片制作顺畅无忧",
+    "heroTitle": "帮助中心",
     "heroP1": "使用 PhotoGov.net 服务需要帮助或有疑问？我们的支持团队随时为您解答在线照片工具使用中的任何问题，欢迎随时联系。",
     "heroP2": "每一项请求都由在相应领域拥有直接经验的资深专员处理——涵盖照片准备与技术调整、付款、下载以及各国合规建议。",
     "contactTitle": "如何联系我们",
@@ -1801,7 +1551,11 @@
         "q": "我可以获得退款吗？",
         "a": "可以。PhotoGov.net 提供简便的退款选项。如果发生技术或处理错误，用户可以申请全额退款。除了退款，我们还会为任意所选证件类型免费赠送一张已处理的照片。"
       }
-    ]
+    ],
+    "metaTitle": "PhotoGov 帮助中心：在制照过程中获得支持",
+    "metaDesc": "如果在制照过程中需要帮助（尺寸裁剪、付款、下载等），请联系 PhotoGov 友好的支持团队。",
+    "heroDesc": "联系我们的团队，或浏览关于照片、付款等最常见问题的解答。",
+    "breadcrumb": "技术支持 - PhotoGov.net"
   },
   "editorialTeam": {
     "breadcrumb": "编辑团队",
@@ -1848,7 +1602,11 @@
     "updatesTitle": "持续更新",
     "updatesP": "官方照片法规经常变化。为确保准确，我们每八周复审每个证件页面，并在机构发布新指南时立即更新。最近一次复审的日期始终显示在页面上。",
     "correctionsTitle": "更正",
-    "correctionsP": "如果您发现不准确或过时的要求，请通过我们的联系页面告知我们。"
+    "correctionsP": "如果您发现不准确或过时的要求，请通过我们的联系页面告知我们。",
+    "metaTitle": "编辑政策：PhotoGov 如何创建与核查照片要求",
+    "metaDesc": "PhotoGov 如何撰写、核查与更新护照、签证及身份证件照片要求：官方来源、编辑审核与持续更新。",
+    "heroTitle": "编辑政策",
+    "heroDesc": "PhotoGov 如何撰写、核查与更新护照、签证及身份证件照片要求：官方来源、编辑审核与持续更新。"
   },
   "sidebar": {
     "company": "公司",
@@ -1987,7 +1745,598 @@
         "q": "如何检查我的照片是否符合标准？",
         "a": "上传照片前，请确保以下事项：\n- 照片清晰、不模糊。\n- 光线均匀，面部无阴影。\n- 背景为纯色并符合证件标准。\n- 头部和肩部按指南正确放置。\n如需进一步帮助，请查看我们网站上的详细说明或联系我们的支持团队。"
       }
+    ]
+  },
+  "serviceLine": {
+    "prefix": "服务由以下公司提供",
+    "company": "Y VISION TECHNOLOGIES LLP",
+    "address": "Stoney Works 8 Stoney Lane, London, England, SE19 3BD",
+    "terms": "条款",
+    "refund": "退款政策",
+    "contact": "联系"
+  },
+  "contactPage": {
+    "metaTitle": "联系 PhotoGov：我们随时为您提供帮助",
+    "metaDesc": "联系 PhotoGov 团队，快速获得任何咨询的回复——从服务使用、付款问题到合作与媒体请求。",
+    "breadcrumb": "联系我们 - 技术支持",
+    "heroTitle": "联系我们",
+    "heroDesc": "如需支持、合作咨询或一般问题，请联系 PhotoGov 团队。",
+    "title": "联系我们",
+    "intro1": "制作合规的证件照不应该是一件复杂的事，联系我们也是如此。",
+    "intro2": "如果您对订单、付款或 PhotoGov 的工作方式有疑问，我们的团队随时为您服务。如需商务与合作咨询、媒体洽谈或合作提案，请通过本页面提供的联系渠道与我们取得联系。",
+    "intro3": "您可以发送电子邮件至 {email}，或通过我们的官方即时通讯工具联系我们。",
+    "intro4": "我们会在 48 小时内回复所有咨询。完整的联系方式如下所示。",
+    "infoTitle": "联系信息",
+    "cards": [
+      {
+        "id": "support",
+        "title": "帮助与支持",
+        "desc": "有技术问题？我们随时为您解答",
+        "email": "info",
+        "hours": "周一至周五（8:00 - 20:00）\n周六至周日（8:00 - 18:00）",
+        "note1": "我们致力于为用户提供最好的支持。在提交咨询前，请先",
+        "noteLink": "查看常见问题栏目",
+        "note2": "，其中涵盖了关于 PhotoGov 服务的大部分问题。"
+      },
+      {
+        "id": "billing",
+        "title": "账单与付款",
+        "desc": "有付款问题？我们随时为您解答",
+        "email": "info",
+        "guideText": "了解付款指南 >"
+      },
+      {
+        "id": "partnership",
+        "title": "合作伙伴",
+        "desc": "对 Photogov 服务感兴趣？让我们携手合作",
+        "email": "partner"
+      },
+      {
+        "id": "media",
+        "title": "媒体",
+        "desc": "想进一步了解 Photogov？欢迎合作",
+        "email": "media"
+      }
     ],
-    "homePage": "主页"
+    "emailLabel": "电子邮箱：",
+    "hoursLabel": "工作时间：",
+    "socialTitle": "在以下平台关注我们",
+    "letterTitle": "或给我们寄信",
+    "postalLabel": "我们的通信地址：",
+    "postal": "Stoney Works 8 Stoney Lane, London, England, SE19 3BD",
+    "officeTitle": "我们的办公室",
+    "officeCountry": "英国",
+    "officeCompany": "Y VISION TECHNOLOGIES LLP",
+    "officeAddress": "Stoney Works 8 Stoney Lane, London, England, SE19 3BD",
+    "mapLabel": "办公室位置地图：",
+    "mapEmbed": "https://www.openstreetmap.org/export/embed.html?bbox=-0.093746%2C51.413075%2C-0.067911%2C51.423223&layer=mapnik&marker=51.418149%2C-0.080829"
+  },
+  "reviewsPage": {
+    "metaTitle": "PhotoGov 用户评价 — 值得信赖的证件照工具",
+    "metaDesc": "看看成千上万的用户为什么评价 PhotoGov 是可靠的证件照工具。阅读来自 Google 的真实评价与评分。",
+    "breadcrumb": "PhotoGov 客户评价与反馈",
+    "heroTitle": "用户评价",
+    "heroDesc": "了解用户对 PhotoGov 服务的评价——从照片处理到客户支持与问题解决。",
+    "title": "全球数百万用户的信赖之选",
+    "intro": "PhotoGov 是一项国际在线证件照服务，帮助为 150 多个国家的 900 多种官方证件制作合规数字图像。每天超过 12,000 人的信任对我们而言比什么都重要——他们的反馈是我们平台成长和改进的核心。",
+    "introBold": "迄今为止，我们的在线制照工具已被全球 180 万用户使用。",
+    "quote": "非常棒的网站！界面非常直观，说明清晰，而且我喜欢它在用户选择地区后会自动核对官方要求，同时提供高质量的结果。",
+    "quoteAuthor": "— Alefiya Haveliwala，Google 评价",
+    "body1": "我们的用户来自不同国家，申请不同类型的证件，出于非常实际的目标使用 PhotoGov：换发护照、准备签证申请、更新居留许可、领取第一张身份证等。他们的评价展示了服务在真实场景中的表现——从第一次上传到最终向官方机构提交。",
+    "body2": "PhotoGov 在 Google 在线证件照工具类别中 持续排名第一，基于 2,515 条评价获得 4.8 星平均评分。",
+    "usersSayTitle": "PhotoGov 用户评价：",
+    "byGoogle": "来源",
+    "googleName": "Google",
+    "ratingValue": "4.8",
+    "ratingCount": "（2,515 条评价）",
+    "postedOn": "发布于",
+    "continueText": "继续阅读...",
+    "showMore": "显示更多（+16）",
+    "reviews": [
+      {
+        "name": "Segun Abiodun",
+        "rating": 5,
+        "text": "This is an awesome tool for anyone who knows next to nothing about photo editing to get themselves up and running with making their photos turn out in acceptable formats across multiple government agencies and countries in seconds. The better part of it is that, it is free!",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-1.webp"
+      },
+      {
+        "name": "J H",
+        "rating": 5,
+        "text": "Reasonable pricing photo is very professional it totally clears up any background shadows,it’s way simpler than me guessing.Ive used it twice but I do have my own software to print 2x2 photos so its easier for me that way.",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-3.webp"
+      },
+      {
+        "name": "Basua Marc",
+        "rating": 5,
+        "text": "I had trouble uploading my visa photo on the DS-160 form due to image quality issues, but PhotoGov made the process incredibly easy. The tool was fast, accurate, and very user-friendly. Thanks to your platform, my photo was finally accepted! Great job and thank you!",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-4.webp"
+      },
+      {
+        "name": "naresh m",
+        "rating": 5,
+        "text": "very good website to tell exactly the photo needs include whether it can pass online version or not. Infact, I have checked myself, uploading my photo to visa website > it declined. I cameback to this website and uploaded, it said the same, but it cropped my photo to exact requirement and passed online visa submission",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-5.webp"
+      },
+      {
+        "name": "Tam McKee",
+        "rating": 5,
+        "text": "Great website and super easy to navigate use. Needed for a bus pass for my brother and many other website would only accept a passport STRICT photo. Thanks PhotoGov :)",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-7.webp"
+      },
+      {
+        "name": "shivang patel",
+        "rating": 5,
+        "text": "Nice online application. Thank you. I used it while I needed to make my photo for Vietnam travel visa application.",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-9.webp"
+      },
+      {
+        "name": "Hazrat Umar",
+        "rating": 5,
+        "text": "Student from Pakistan and studing in St. Petersburg Polytech University. I am very thankful to this website for fulfilling my requirments. Once again thanks",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-11.webp"
+      },
+      {
+        "name": "Harry Cheah",
+        "rating": 5,
+        "text": "This is a very good and convenient free app for those who would like to renew their passport. A photo is easy to create and looks good.",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-13.webp"
+      },
+      {
+        "name": "Anirban Kundu",
+        "rating": 5,
+        "text": "Great Experience, very easy and pocket friendly, complete genuine service, strongly recommending to friends and family.",
+        "date": "1 year ago",
+        "avatar": null
+      },
+      {
+        "name": "mustapha colley",
+        "rating": 5,
+        "text": "I will recommend all applicants for US visas to edit their photo with Photogov. I just love how they transform my ugly-looking picture to a standard one. Abslutely amazing!",
+        "date": null,
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-14.webp"
+      },
+      {
+        "name": "Khant Htoo Htoo",
+        "rating": 5,
+        "text": "I'm very pleased with the services. While other companies charge $20 for this simple thing that takes no more than 10 s, they do it for free. Big UPS",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-2.webp"
+      },
+      {
+        "name": "Alefiya Haveliwala",
+        "rating": 5,
+        "text": "Great website! Very intuitive with clear instructions and I loved that once a user selects a region it cross-checks official requirements in additional to providing high quality results.",
+        "date": "1 year ago",
+        "avatar": null
+      },
+      {
+        "name": "Thera Teo",
+        "rating": 5,
+        "text": "Stumbled onto this site and I so love it. So easy to use and very intuitive. Will definitely recommend to my friends and explore more of the site offerings. Thank you so much for making my photo taking issue seemless and headache free. 😍😘",
+        "date": "1 year ago",
+        "avatar": null
+      },
+      {
+        "name": "suryavamsi patiballa",
+        "rating": 5,
+        "text": "The service is excellent and they really gave the perfect photo for my US OPT EAD application. They will ask our email to send the JPG file and charge very less like $4.9.",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-6.webp"
+      },
+      {
+        "name": "Crystalnee",
+        "rating": 5,
+        "text": "THIS IS THE BEST passport converting website online for free!!! Especially for Malaysians! it follows the guidelines and crops it perfectly!! It even follows to the mm!! DEFINETELY RECOMMEND THIS!!",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-8.webp"
+      },
+      {
+        "name": "Tim JK Strickland",
+        "rating": 5,
+        "text": "Fast effective printing. I needed this for my daughter's first passport photo (which taking the photo itself was its own mountain climb), and not only did it give me peace of mind that it would pass, BUT it sent me the photos available to print!",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-10.webp"
+      },
+      {
+        "name": "anjani keshri",
+        "rating": 5,
+        "text": "This is one of the best website to help with the documents for my Georgia visa. Everything was seamless and i cannot recommend it enough.",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-12.webp"
+      },
+      {
+        "name": "Nasa Ali",
+        "rating": 5,
+        "text": "The apps is so good that it verify everything to match with the government requirement or else submission of passport renewal will take longer time if kept rejected for photo upload non-compliance",
+        "date": "1 year ago",
+        "avatar": null
+      },
+      {
+        "name": "Nazwan Erman",
+        "rating": 5,
+        "text": "thank you so much to make it free, it easy everyone else work, i hope this website would be stay in a long term for goodness to other",
+        "date": null,
+        "avatar": null
+      },
+      {
+        "name": "Frank Palermo",
+        "rating": 5,
+        "text": "Very Fast and effecient saved me many hours of running around, in 5 minutes had exactly what I needed.",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-15.webp"
+      }
+    ],
+    "verifyTitle": "仅发布经过验证的真实反馈",
+    "verifyP1": "我们的评价发布在独立平台——Google 上，该平台使用自己的验证流程来确认用户反馈的真实性。",
+    "verifyP2": "我们不购买、不修改、不筛选负面反馈。如果某些功能出现问题，它会如实反映在用户的评价中。",
+    "verifyLead": "这种透明度对我们非常重要。",
+    "verifyLeadBold": "它帮助全球用户了解我们的服务，并明白：",
+    "verifyList": [
+      "该服务在不同国家的可靠性",
+      "提交的照片被政府机构接受的频率",
+      "用户获得可用文件的速度",
+      "支持团队如何解决实际问题。"
+    ],
+    "shapeTitle": "用户评价如何塑造 PhotoGov 服务",
+    "shapeP": "PhotoGov 不断根据真实的用户反馈演进。正面评价中的模式告诉我们平台的哪些方面运作良好。而每一个反复出现的问题——都会成为我们技术团队的任务。这种与用户的直接对话使我们能够在结构层面完善服务，从 AI 格式化准确性到照片上传流程。",
+    "voiceTitle": "您的声音很重要",
+    "voiceP1": "如果您使用过 PhotoGov，您的体验可以帮助下一个人做出明智的选择。请在收到数字图像后，在 Google 上分享您的评价。无论您的反馈是正面、中性还是批评性的，它对我们的团队和其他用户都很有价值。",
+    "voiceP2": "留下评价，您就是在为一项帮助成千上万人快速、便捷、无需繁琐步骤地准备官方证件的服务贡献力量。",
+    "users": [
+      {
+        "name": "Segun Abiodun",
+        "when": "1 年前",
+        "text": "对于几乎不懂照片编辑的人来说，这是一个极佳的工具，可以让他们在几秒钟内把照片处理成多个政府机构和多个国家都能接受的格式。更棒的是，它还是免费的！"
+      },
+      {
+        "name": "Google 用户",
+        "when": "",
+        "text": "价格合理，照片非常专业。它能彻底清除所有背景阴影——比我自己在那里瞎猜要简单得多。我已经用过两次，不过我自己有打印 2x2 照片的软件，所以对我来说那样更方便。"
+      },
+      {
+        "name": "Khant Htoo Htoo",
+        "when": "",
+        "text": "我对这项服务非常满意。别家公司做这种 10 秒就能搞定的小事要收 $20，而他们却免费提供。大力点赞。"
+      },
+      {
+        "name": "Alefiya Haveliwala",
+        "when": "",
+        "text": "非常棒的网站！界面直观、说明清晰，而且我很喜欢的一点是：用户一旦选定地区，它就会交叉核对官方要求，同时还能提供高质量的成品。"
+      }
+    ]
+  },
+  "whyChooseUs": {
+    "metaTitle": "信任 PhotoGov 制作证件照的 11 个理由",
+    "metaDesc": "了解为什么可以把证件照制作过程托付给 PhotoGov：在线制作官方照片的 11 个关键理由。",
+    "breadcrumb": "为什么选择我们",
+    "heroTitle": "为什么选择我们",
+    "heroDesc": "了解把证件照制作过程托付给 PhotoGov 的主要理由。",
+    "title": "把证件照托付给 PhotoGov 在线制照工具的 11 个理由",
+    "lead": "每一份获批的证件背后，都有一张满足严格技术、生物识别和法律要求的照片。要把官方照片的制作托付给在线服务，作为用户，您必须 100% 确定最终图像符合所有政府指南并简化申请流程。以下是超过 200 万用户信赖 PhotoGov 制作证件照的 11 个理由。",
+    "cta1": "立即制作证件照",
+    "reasons": [
+      {
+        "t": "1. 一项服务搞定所有官方证件照",
+        "ps": [
+          "PhotoGov 支持 900 多种重要国际证件类型的照片——从护照到国民身份证，从签证到船员证。只需选择国家和类型，我们的系统就会自动为该照片应用正确的生物识别和技术设置。"
+        ],
+        "cta": "立即制作证件照"
+      },
+      {
+        "t": "2. 100% 符合官方标准",
+        "ps": [
+          "PhotoGov 使用内置的识别与合规算法，基于以下基本国际法规：",
+          "国家层面的政府要求。所有证件照都必须遵循签发管辖机构的指南：[[美国国务院~https://travel.state.gov/content/travel/en/passports/how-apply/photos.html]]、[[加拿大移民、难民及公民部~https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-passports/photos.html]]、[[英国内政部~https://www.gov.uk/photos-for-passports/photo-requirements]]，以及其他国际部门和领事机构。",
+          "全球生物识别证件照标准。在全球层面，证件照规范由[[国际民航组织（ICAO）第 9303 号文件~https://www.icao.int/publications/doc-series/doc-9303]]定义，它为护照和签证照片设定了生物识别标准。[[ISO/IEC 19794-5~https://www.iso.org/standard/50867.html]]——另一项国际标准，规定了生物识别面部图像应如何采集、裁剪和存储，以确保官员和自动系统都能顺利识别。",
+          "选择证件类型后，PhotoGov 会自动应用相关机构的要求，并按照这些 ICAO 和 ISO/IEC 标准检查图像的头部尺寸、眼睛位置、背景和图像质量。"
+        ]
+      },
+      {
+        "t": "3. 无需注册或下载应用",
+        "ps": [
+          "PhotoGov 可在任何浏览器、任何设备或操作系统上使用。您无需创建账户、记住密码或安装应用。只需打开我们的网站，选择您的国家和证件，上传照片，等待系统处理图像，选择增值服务，然后下载最终图像。"
+        ]
+      },
+      {
+        "t": "4. 大多数地区免费",
+        "ps": [
+          "对大多数国家而言，PhotoGov 是免费的证件照制作工具。在少数地区，照片服务为付费使用。不过，第一张照片通常免费，额外照片的价格也远低于普通商业照相馆。而且您无需离开家或办公室即可制作。[[了解我们的定价政策~:prices]]和订阅选项。"
+        ]
+      },
+      {
+        "t": "5. 自动校正与服装调整",
+        "ps": [
+          "PhotoGov 应用内置的识别与合规算法，使您的原始照片符合官方技术和视觉要求。我们的系统会扶正头部、调整亮度和对比度、清理背景，并将面部缩放到所选证件要求的范围。",
+          "作为增值服务，您可以将照片中的服装换成正式着装——某些机构有此要求，或者只是为了不必在自拍时特意换装自拍时穿着的随意。"
+        ]
+      },
+      {
+        "t": "6. 只需 30 秒",
+        "ps": [
+          "整个过程——从上传到最终文件——不到 30 秒。处理完成后，您可以立即下载：",
+          "__BULLETS__"
+        ],
+        "bullets": [
+          "可打印的排版文件，适用于照相馆或家用打印机。",
+          "仅用 30 秒即可产出合规图像，PhotoGov 既省时又省钱，在紧急需要证件照用于即将到来的申请或预约时尤其有用。"
+        ]
+      },
+      {
+        "t": "7. 全球 24/7 可用",
+        "ps": [
+          "PhotoGov 服务全天候可用，世界任何角落均可使用。您可以在前往当地签证机构前在家中准备照片，在通过国外领事馆提交证件时从酒店房间操作，或者在准备官方提交的商务文件时从办公室操作。我们的服务方便可靠，随处可用，无需再去照相馆。"
+        ]
+      },
+      {
+        "t": "8. 自动检查与人工验证",
+        "ps": [
+          "PhotoGov 将软件检查与人工经验相结合。我们的专业团队跟踪官方更新、维护模板，并在真实提交场景中测试生成的图像。对于关键证件类型，自动验证辅以人工审核：我们的资深专家会审查您的照片并提供专业反馈。这种双重方法让用户在紧张的申请过程中安心。"
+        ]
+      },
+      {
+        "t": "9. 持续跟进法规变化",
+        "ps": [
+          "官方机构会不断更新证件照规范：背景色调、头部高度范围、文件大小等细节都会随时间变化。PhotoGov 团队监控官方来源，并在发布新说明时更新模板和资源页面。在我们平台简单的证件选择器背后，始终是 100% 核对过的最新官方要求版本。"
+        ]
+      },
+      {
+        "t": "10. 银行级可靠性",
+        "ps": [
+          "PhotoGov 运行在与银行和医疗行业相同的基础设施和可靠性等级上。它包括冗余电力和连接支持、24/7 监控和自动备份。对您而言，这意味着网站加载稳定、处理可靠，且生成的照片在规定时间内始终可供下载。"
+        ]
+      },
+      {
+        "t": "11. 您的数据 100% 安全",
+        "ps": [
+          "使用我们的服务时，您无需担心数据安全。从上传到下载，您的照片都在一个单一、受控的生态系统中处理。图像通过加密连接传输，在 PhotoGov 服务器上处理，不会发送给任何第三方。生成的照片以加密形式存储有限时间，刚好足够您获取合规照片。之后，它们将按照内部保留规则被删除。"
+        ]
+      }
+    ],
+    "outro1": "进一步了解我们的[[免费证件照制作工具~:]]，或查看关于 PhotoGov 服务的[[常见问题~:faq]]。",
+    "outro2": "PhotoGov.net 严格遵守全球证件照片法规。"
+  },
+  "howItWorks": {
+    "metaTitle": "PhotoGov 如何把自拍变成 100% 合规的证件照",
+    "metaDesc": "了解 PhotoGov 证件照制作工具如何在几秒钟内把简单的手机自拍变成符合政府要求的证件照。",
+    "breadcrumb": "工作原理",
+    "heroTitle": "工作原理",
+    "heroDesc": "了解我们的服务如何制作合规证件照——从直观的界面到背后的技术。",
+    "title": "了解 PhotoGov 如何把您的自拍变成 100% 合规的证件照",
+    "lead1": "PhotoGov 是一个现代技术平台，利用先进的图像处理算法制作 100% 合规的证件照。所有护照尺寸照片现在都可以在家中或办公室舒适地制作，无需预约、前往照相馆并等待。",
+    "lead2": "了解我们的服务如何重新定义证件照制作流程——从创作、合规检查到驱动每一步的技术。",
+    "cta": "立即制作证件照",
+    "stepsTitle": "分步指南：从自拍到合规证件照",
+    "steps": [
+      {
+        "t": "1. 打开 PhotoGov 证件照制作工具",
+        "p": "点击\"获取证件照\"按钮，或直接使用我们的免费证件照制作工具。无需安装或创建账户：该服务可在桌面和移动设备上使用，支持任何浏览器，全天候可用。"
+      },
+      {
+        "t": "2. 选择国家和证件类型",
+        "p": "在开始界面上，选择签发国家和证件类型。在这个简单的选择器背后，是一套复杂的算法，会将您的原始照片转换成该证件的官方照片。"
+      },
+      {
+        "t": "3. 上传您的自拍",
+        "p": "用手机、平板电脑或笔记本电脑拍摄自拍。按照屏幕上的说明上传并开始处理您的照片——一切都直观而简单！"
+      },
+      {
+        "t": "4. 等待图像处理",
+        "p": "上传自拍后，PhotoGov 会将其送入处理流水线。内置的识别与合规算法会分析面部并检测关键生物特征点。图像尺寸、裁剪、构图、头部位置、背景、亮度和对比度都会调整至 100% 符合所选证件类型的要求。",
+        "note": "重要提示：PhotoGov 只调整图像的技术参数，绝不会以任何方式改变或修饰您的面部特征——它们与原始照片完全一致。"
+      },
+      {
+        "t": "5. 选择增值选项 1：服装调整",
+        "p": "作为可选增值服务，您可以选择将休闲服装替换为正式着装。这是一项便捷的在线服务，无论原图中穿着什么，都能把任何自拍转换成看起来正式的证件照。"
+      },
+      {
+        "t": "6. 选择增值选项 2：人工验证",
+        "p": "如果您的申请优先级较高，可以选择专家验证处理后的图像。我们的资深合规专家会检查最终图像，并就照片质量和证件照合规性提供建议。将此步骤作为提交前的额外保障。"
+      },
+      {
+        "t": "7. 下载可提交的照片",
+        "p": "不到 30 秒，即可下载可随时提交的照片。您可以选择用于在线申请的数字文件，或用于纸质提交的可打印 PDF 文件。"
+      }
+    ],
+    "techTitle": "友好界面背后的复杂技术",
+    "tech": [
+      "在简洁的界面背后，PhotoGov 由专门的后端驱动，旨在让证件照处理快速、可靠并保护您的数据安全。平台运行在 Tier III 级云服务器上——与银行和医疗系统相同的可靠性等级——配备 24/7 监控和自动备份，因此服务始终保持可用，即使在高峰负载或维护期间您的文件也受到保护。即使许多用户同时在线，系统也会跨区域重新分配负载，让您的制照过程迅速而稳定。",
+      "照片上传后，会先在浏览器中分析，然后在 PhotoGov 自己的 GPU 服务器上处理。这些高性能服务器使用图形处理器加速图像处理，因此所有调整都能在几秒钟内完成，即使在普通设备上也是如此。算法会校正背景、光线和尺寸以符合官方证件标准，包括面部与画框比例和色彩平衡，您无需亲自处理技术性照片规则。所有图像调整都在 PhotoGov 的安全环境中进行；照片绝不与外部服务共享，确保您的个人数据安全受保护。",
+      "最终文件以加密形式存储在云端，并通过全球 CDN 网络快速交付。这意味着无论您在家中、办公室还是旅行中申请，都能快速下载照片。每一步——从上传到下载——都自动处理，随时可查。系统始终遵循国际证件照标准，大大降低您的申请因照片问题被拒的概率。"
+    ],
+    "embassyTitle": "源自真实大使馆经验的证件照",
+    "embassy": [
+      "PhotoGov 与部分大使馆合作，使其照片制作流程与当前的领事实践和证件照要求保持一致。[[我们的团队~:about-us]]包括前领事和大使馆工作人员，他们将实践经验应用于完善服务，提高您的证件照被接受的可能性。",
+      "PhotoGov 是一项独立服务。我们不隶属于任何政府、大使馆或领事机构。本网站上的所有信息均基于官方政府要求和经过验证的一手资料。照片的最终接受与否仅由签发机构决定。"
+    ]
+  },
+  "securityPage": {
+    "metaTitle": "PhotoGov.net 安全措施 - 确保数据保护与隐私",
+    "metaDesc": "信赖 PhotoGov.net 对安全和数据保护的承诺。了解我们对安全标准、SSL 加密和 GDPR 的合规情况。",
+    "breadcrumb": "安全措施",
+    "heroTitle": "安全",
+    "heroDesc": "了解 PhotoGov 如何为全球每一位用户确保数据保护、隐私和安全处理。",
+    "title": "我们的安全标准、协议与数据保护实践",
+    "lead": "在 PhotoGov.net，用户的安全和隐私至关重要。我们致力于保护您的个人数据并遵循最高的安全标准。以下是我们确保您信息安全的方式：",
+    "items": [
+      {
+        "t": "遵守安全标准：",
+        "p": "我们遵循国际公认的安全标准，包括《通用数据保护条例》（GDPR）、《加州消费者隐私法》（CCPA）及其他相关数据保护法规。我们对这些标准的承诺保证了负责任和安全的数据处理。"
+      },
+      {
+        "t": "个人数据保护：",
+        "p": "我们高度重视您个人数据的安全。所有个人信息都按照行业最佳实践安全处理和存储。对您数据的访问严格限于因工作需要而必须访问的授权人员。"
+      },
+      {
+        "t": "SSL 加密：",
+        "p": "PhotoGov.net 采用 SSL（安全套接层）加密来保护您的浏览器与我们的服务器之间的连接。该技术确保传输给我们的任何敏感数据（如个人信息和付款信息）的隐私和安全。"
+      },
+      {
+        "t": "定期安全审计：",
+        "p": "我们定期进行安全审计，以发现和消除潜在漏洞。通过持续监控和改进我们的安全措施，我们对可能威胁您数据的行为保持坚固防线。"
+      },
+      {
+        "t": "安全的付款处理：",
+        "p": "我们的付款处理由值得信赖的第三方提供商管理，确保您的付款信息得到安全处理。"
+      },
+      {
+        "t": "符合 GDPR Cookie 保护：",
+        "p": "我们遵守 GDPR 的 Cookie 保护条款，确保我们对 Cookie 的使用尊重您的隐私权。我们的网站提供关于所使用 Cookie 的透明信息，并在收集任何非必要 Cookie 前征得您的同意。"
+      }
+    ],
+    "outro": "在 PhotoGov.net，安全是我们的首要任务，我们致力于保护您的数据。在享受创建证件照片流畅安全体验的同时，请放心我们保护您个人信息的决心。"
+  },
+  "aboutPage": {
+    "breadcrumb": "关于我们",
+    "heroTitle": "关于我们",
+    "heroDesc": "了解我们的全球在线护照照片服务：我们的历史、团队、专业能力与愿景。",
+    "metaTitle": "关于 PhotoGov — 全球在线护照照片服务",
+    "metaDesc": "了解 PhotoGov —— 超过 180 万用户信赖的在线护照照片制作工具。我们的使命是让官方证件照变得简单、人人可用。",
+    "h1": "PhotoGov：全球在线护照照片服务",
+    "leadBold": "PhotoGov 是一个国际在线护照照片服务平台，可制作符合全部官方要求的证件照片。",
+    "leadRest": " 使用我们免费的工具，您足不出户即可在几秒钟内制作自己的护照照片。",
+    "intro2": "我们覆盖全部国际身份证件类型 —— 护照、签证、身份证、绿卡和驾驶证。整个流程快速、透明、便捷，并且完全免费。您只需打印护照照片并提交申请即可。",
+    "postedOn": "发布于",
+    "reviewName": "Thera Teo",
+    "reviewText": "偶然发现这个网站，我非常喜欢。操作非常简单、直观。一定会推荐给我的朋友，并继续探索网站的其他功能。非常感谢你们让拍照这件事变得顺畅又省心。",
+    "reviewAgo": "1 年前",
+    "originsTitle": "Photogov 在线护照照片工具的起源",
+    "origins1": "对于常年往返于伦敦与迪拜的全球创业者 Vitaly Yago 来说，去照相馆成了一件不得不做的麻烦事。他出差如此频繁，以至于花在照相馆的时间本可以用来更高效地推进自己的项目。",
+    "origins2": "<b>直到有一天</b>，他因为一张照片不合格被新加坡拒签，于是下定决心结束这种状况。就在那天晚上，他坐在咖啡馆里，勾勒出一个在线平台的技术蓝图：把护照与签证照片的图像调整，与对政府规范的自动合规校验结合在一起。",
+    "originsCaption": "Vitaly Yago。公司办公室，2021 年",
+    "quote": "“拍一张官方证件照，不该比申请证件本身更麻烦。是时候把整个流程搬到线上了，”",
+    "quoteBy": "—— Vitaly Yago，Photogov 首席执行官",
+    "origins3": "短短几周内，一个由工程师和法律专家组成的小团队就搭建出一套安全、基于国际证件照标准的系统，让官方证件照变得透明、可得且自动合规。",
+    "timelineTitle": "时间线：我们服务的发展历程",
+    "timelineAfter1": "最初只是一个小型技术尝试，如今已迅速发展为一套面向数字身份的全球框架。迄今为止，PhotoGov 已服务超过 ",
+    "timelineAfterU": "全球 180 万人，在 150 多个国家/地区每月支持 12,000 名用户",
+    "timelineAfter2": "。",
+    "teamTitle": "我们的团队",
+    "teamIntro": "我们的全球团队汇聚了 30 多位专家，各自负责平台的不同环节 —— 从系统设计与数据保护，到不同国家官方照片规范的合规校验。",
+    "servicesTitle": "我们的证件照服务",
+    "services1": "在线照片中心 PhotoGov.net 支持 150 个国家的 900 多种官方身份证件 —— 护照、签证、国民身份证、居留许可、绿卡、绿卡抽签（DV Lottery）、工作许可、驾驶证。只要有任何身份证件需要照片，都可以用 PhotoGov 制作。",
+    "services2": "每张照片都完全按照签发机关的技术与法规标准生成，确保全球合规：",
+    "servicesAfter": "通过 PhotoGov 制作的每张照片都符合政府部门对尺寸、构图和背景的官方要求 —— 满足在世界各地提交申请所需的精确标准。[[了解更多~:how-it-works]]，看看我们的服务如何运作。",
+    "complianceTitle": "我们的合规标准与可靠性",
+    "compliance1": "PhotoGov 建立在与全球官方生物识别系统相同的技术基础之上，包括 <b>ISO/IEC 19794-5</b> 与 <b>ICAO 9303</b> 标准。这些框架规定了大多数国家在身份核验以及一般护照照片要求方面所需的格式、比例与图像质量。",
+    "compliance2": "我们的证件模板与尺寸参数数据库会持续审阅与更新，以反映各使馆、部委和证件主管机关的最新要求。每张照片都依照这些标准处理，并在下载前完成校验，确保每种受支持的证件类型都完全合规。",
+    "compliance3": "所有图像处理都在严格的数据保护与加密协议下的安全服务器上完成。个人照片仅用于生成图像，并在处理完成后自动删除。",
+    "usTitle": "美国合规声明",
+    "us1": "针对在美国提交的申请，PhotoGov 遵循美国国务院（U.S. Department of State）对护照与签证照片的要求。",
+    "us2": "建议申请人在提交前不要使用第三方软件或 AI 工具修改照片。",
+    "us3": "<b>PhotoGov 提供详细的拍摄与尺寸指引</b>，与美国国务院的官方规范保持一致，可通过以下链接查阅：",
+    "usLink": "美国国务院 —— 护照照片要求",
+    "accessTitle": "我们的易用性与支持",
+    "access1": "PhotoGov 从第一次点击起就力求轻松易用。该服务可在任何浏览器中运行，无论是桌面端还是移动端，无需安装或配置。清晰的界面会一步步引导用户 —— 无论是为护照换发、签证申请还是身份证准备照片。",
+    "access2": "支持被内建于使用体验之中。详细的提示会说明在需要时如何重拍或调整照片，平台的每次更新都会反映新的证件格式与各国特定要求。根据所在地区不同，该服务每天提供两张免费证件照，让人们以快速可靠的方式完成生活中最常规的一项行政步骤 —— 一次就准备好符合所有标准的官方照片。",
+    "accessCaption": "合规团队",
+    "visionTitle": "我们的愿景",
+    "vision1": "<b>PhotoGov 团队相信</b>，拍一张护照尺寸照片不应当一直如此繁琐。无论在哪个国家、哪块大陆，人们都不该再在照相馆排队等候、支付高昂费用，或担心照片因细微的技术问题被拒。",
+    "vision2": "<b>PhotoGov 的使命</b>是让官方证件照变得简单、免费，并且随时随地人人可用。我们的长期愿景是这样一个世界：官方文件办理轻松而公平，合规被内建于流程之中，获取可靠的身份工具成为现代生活自然而然的一部分 —— 一项人人皆可享有的普世权利。",
+    "vision3": "随着时间的推移，这一理念让 PhotoGov 成为各国、各背景人群信赖的工具 —— 无论是首次申请护照、出国留学、举家搬迁，还是开启新的职业生涯。",
+    "visionCaption": "Vitaly Yago 与我们的市场经理",
+    "visionSlogan": "我们的服务帮助准备那些开启人生新篇章的文件。而一切，都始于简单的一步 —— 那张证明我们是谁的照片。",
+    "nonAffiliation": "PhotoGov 是一个独立服务。我们与任何政府、使馆或领事馆均无隶属关系。本网站所有信息均基于官方政府要求与已核实的一手来源。照片最终是否被接受，由签发机关单独决定。",
+    "timeline": [
+      {
+        "year": "2021 —— 首次上线",
+        "p1": "2021 年，PhotoGov 作为一款基于网页的解决方案进入市场，旨在革新人们准备护照与签证照片的方式。我们的创始团队由具有领事工作与身份证件管理背景的专家组成。他们亲眼目睹了原有体系已有多么落后，于是着手改变它。",
+        "p2": "一位计算机视觉与生物特征图像处理专家开发了最初的引擎。首个版本 —— 一个轻量级的 MVP —— 自动化了裁剪、调整尺寸与背景的关键步骤，并完全遵循政府规范。"
+      },
+      {
+        "year": "2022 —— 发布 PhotoGov Core",
+        "p1": "随着需求上升与用户群扩大，PhotoGov 发布了首个自研处理引擎 —— PhotoGov Core。新系统以更高的精度自动化了背景校正、尺寸与对齐。",
+        "p2": "这一年里，平台扩展了覆盖范围，纳入更多国际证件格式；工程团队也持续优化核心算法，以提升速度、精度与视觉一致性。",
+        "img": "/img/about-us/about-us-17.webp",
+        "alt": "2022 — 发布 PhotoGov Core"
+      },
+      {
+        "year": "2023 —— 扩张与技术升级",
+        "p1": "团队不断扩张，照片引擎也通过数次重大更新持续演进。每次新版本都提升了处理速度与精度，实现了极为干净的背景去除与细致的发丝渲染 —— 使该引擎成为业内最精准的引擎之一。到这一阶段，PhotoGov 已覆盖 100 多个国家的用户。",
+        "p2": "两步校验系统成功通过验证，确认处理后的图像完全符合国际政府照片标准。引擎还新增了自动调整服装的能力，可在保留原始面部与光照的前提下，将休闲着装替换为正式着装。"
+      },
+      {
+        "year": "2024 —— 走向全球",
+        "p1": "PhotoGov 实现了所有受支持证件类型的全面合规，保证每张处理后的图像都符合官方政府标准。同时引入了人工校验服务，让合规专家与证件照专家可按需人工复核图像。",
+        "p2": "如今，平台可让用户把一张普通自拍 —— 即便只是手机拍摄 —— 转换成完全合规、布光专业、裁剪得当的证件照，并配有商务着装，同时保持面部特征不被改动。",
+        "img": "/img/about-us/about-us-18.webp",
+        "alt": "2024 — 走向全球"
+      }
+    ],
+    "teams": [
+      {
+        "title": "工程团队",
+        "text": "负责开发并维护支撑图像处理、自动背景与尺寸算法的核心技术。每位成员都拥有 8–15 年经验，涉及欧洲、北美与亚洲的生物特征成像框架、自动校验流水线以及身份识别系统的合规工具。",
+        "img": "/img/about-us/about-us-3.webp",
+        "alt": "Photogov 工程团队"
+      },
+      {
+        "title": "合规团队",
+        "text": "追踪并核验 150 多个国家/地区护照、签证与身份证件的照片要求。我们的合规专家拥有 10 年以上领事文件与签证处理经验，曾就职于美国、英国、德国、阿联酋、新加坡和印度的领事馆、旅行管理机构与文件处理中心。",
+        "img": "/img/about-us/about-us-19.webp",
+        "alt": "Photogov 合规团队"
+      },
+      {
+        "title": "编辑团队",
+        "text": "[[PhotoGov 编辑团队~:editorial-team]]由总编辑 [[Olia Potiagaeva~:editorial-team]] 领导，负责把官方照片要求转化为 PhotoGov 上的指南与证件页面，并在发布前进行审核。欢迎在我们的[[编辑政策~:editorial-policy]]中了解我们如何创建与核查内容。"
+      },
+      {
+        "title": "支持与运营团队",
+        "text": "负责监督用户体验、数据准确性与平台整体表现。PhotoGov 的运营经理与客户支持专家在技术支持、流程协调与产品质量保障方面拥有深厚背景。如有任何疑问，请访问[[帮助中心~:support]]直接联系 PhotoGov 支持团队。",
+        "img": "/img/about-us/about-us-5.webp",
+        "alt": "Photogov 支持团队"
+      },
+      {
+        "title": "市场团队",
+        "text": "负责制定国际战略、提升平台可见度，并确保全球用户都能获取准确信息。团队汇聚了区域市场负责人、编辑与内容策略专家，他们在移民媒体、数字传播与产品本地化领域拥有 8–15 年经验。",
+        "img": "/img/about-us/about-us-6.webp",
+        "alt": "Photogov 市场团队"
+      }
+    ],
+    "services": [
+      {
+        "title": "护照照片",
+        "desc": "获得[[美国~:documents/us-passport-photo]]、[[英国~:documents/gb-passport-photo]]、[[澳大利亚~:documents/au-passport-photo]]、[[加拿大~:documents/ca-passport-photo]]等国主管机关认可。",
+        "img": "/img/about-us/about-us-7.webp",
+        "alt": "Photogov passports photos"
+      },
+      {
+        "title": "签证照片",
+        "desc": "符合使馆与领事机构规范，包括[[美国 DS-160~:documents/us-visa-photo]]、[[申根签证照片~:documents/eu-visa-photo]]、[[印度~:documents/in-visa-photo]]等。",
+        "img": "/img/about-us/about-us-8.webp",
+        "alt": "Photogov visas photos"
+      },
+      {
+        "title": "绿卡照片工具",
+        "desc": "可用于提交的官方[[绿卡抽签（DV Lottery）~:dv-lottery]]与[[绿卡照片~:documents/dv-lottery-photo-tool]]。",
+        "img": "/img/about-us/about-us-10.webp",
+        "alt": "Photogov green card photos"
+      },
+      {
+        "title": "国民身份证照片",
+        "desc": "身份证、临时与永久居留照片，例如[[美国工作许可照片~:documents/us-employment-authorization-photo]]、[[1x1 英寸证件照~:documents/zz-1x1-photo]]。",
+        "img": "/img/about-us/about-us-15.webp",
+        "alt": "Photogov national ID photos"
+      },
+      {
+        "title": "驾驶证照片",
+        "desc": "国际与各国驾驶证照片：[[英国驾驶执照~:documents/gb-driving-photo]]、[[印度驾驶证照片~:documents/in-driving-license-35x45-mm-photo]]等。",
+        "img": "/img/about-us/about-us-11.webp",
+        "alt": "Photogov driving license photos"
+      },
+      {
+        "title": "婴幼儿护照照片",
+        "desc": "儿童护照照片，符合各国政府国际标准。",
+        "img": "/img/about-us/about-us-9.webp",
+        "alt": "Photogov children IDs photos"
+      }
+    ]
   }
 }

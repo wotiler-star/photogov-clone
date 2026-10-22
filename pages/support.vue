@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import { useI18n } from 'vue-i18n'
-import PageSidebar from '~/components/PageSidebar.vue'
+import InfoPageShell from '~/components/InfoPageShell.vue'
 
 const { t, tm } = useI18n()
-useHead({ title: t('support.title') })
+useHead({
+  title: t('support.metaTitle'),
+  meta: [{ name: 'description', content: t('support.metaDesc') }]
+})
 
 // 支持邮箱（与语言无关的固定数据，不走 i18n：@ 会触发 vue-i18n 链接格式解析错误）
 const SUPPORT_EMAIL = 'info@photogov.net'
@@ -32,29 +35,27 @@ function submit() {
 </script>
 
 <template>
-  <div class="container-pg py-14">
-    <div class="grid gap-12 lg:grid-cols-[1fr_240px]">
-      <!-- ═══ 主内容 ═══ -->
-      <div class="mx-auto max-w-3xl">
-        <span class="eyebrow">{{ $t('support.eyebrow') }}</span>
-        <h1 class="mt-2 text-3xl font-bold sm:text-4xl">{{ $t('support.title') }}</h1>
-        <p class="mt-3 text-muted">{{ $t('support.sub') }}</p>
+  <InfoPageShell
+    icon="support"
+    :hero-title="$t('support.heroTitle')"
+    :hero-desc="$t('support.heroDesc')"
+    :breadcrumb="$t('support.breadcrumb')"
+    card-class="flex-1 rounded-lg bg-white px-10 pb-12 font-serif overflow-hidden max-lg:px-5 max-lg:pb-6"
+  >
 
-        <!-- Hero -->
-        <section class="mt-10">
-          <h2 class="text-2xl font-semibold">{{ $t('support.heroTitle') }}</h2>
-          <p class="mt-3 text-muted">{{ $t('support.heroP1') }}</p>
-          <p class="mt-3 text-muted">{{ $t('support.heroP2') }}</p>
-        </section>
+    <div class="space-y-6 text-[#374151]">
+        <h1 class="mt-8 text-[30px] font-bold leading-tight">{{ $t('support.title') }}</h1>
+        <p class="mt-4 font-Golos">{{ $t('support.heroP1') }}</p>
+        <p class="mt-4 font-Golos">{{ $t('support.heroP2') }}</p>
 
         <!-- 如何联系我们：表单 + 邮箱 -->
         <section class="mt-10">
-          <h2 class="text-2xl font-semibold">{{ $t('support.contactTitle') }}</h2>
+          <h2 class="text-[30px] font-bold leading-tight">{{ $t('support.contactTitle') }}</h2>
           <div class="mt-5 grid gap-6 sm:grid-cols-2">
             <!-- 支持请求表单 -->
-            <div class="card-pg p-5">
+            <div class="rounded-[6px] border border-[#E0E7EE] p-5">
               <h3 class="font-semibold">{{ $t('support.formTitle') }}</h3>
-              <p class="mt-1 text-sm text-muted">{{ $t('support.formIntro') }}</p>
+              <p class="mt-1 text-sm font-Golos text-[#374151]">{{ $t('support.formIntro') }}</p>
               <form v-if="!sent" class="mt-4 space-y-3" novalidate @submit.prevent="submit">
                 <div>
                   <label class="block text-sm font-medium" for="sup-inquiry">{{ $t('support.inquiryType') }}*</label>
@@ -119,7 +120,7 @@ function submit() {
                     required
                     :placeholder="$t('support.commentPlaceholder')"
                     class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-brand-blue"
-                  />
+                  ></textarea>
                 </div>
                 <button type="submit" class="btn-primary w-full">{{ $t('support.send') }}</button>
               </form>
@@ -129,7 +130,7 @@ function submit() {
             </div>
 
             <!-- 邮箱 -->
-            <div class="card-pg p-5">
+            <div class="rounded-[6px] border border-[#E0E7EE] p-5">
               <h3 class="font-semibold">{{ $t('support.emailLabel') }}</h3>
               <p class="mt-2 text-sm">
                 <a :href="`mailto:${SUPPORT_EMAIL}`" class="font-medium text-brand-blue underline">
@@ -143,41 +144,31 @@ function submit() {
 
         <!-- 加速处理要点 -->
         <section class="mt-10">
-          <h2 class="text-2xl font-semibold">{{ $t('support.fasterTitle') }}</h2>
-          <p class="mt-2 text-muted">{{ $t('support.fasterIntro') }}</p>
-          <ul class="mt-4 space-y-2">
-            <li v-for="(s, i) in $tm('support.fasterItems')" :key="i" class="flex gap-2 text-muted">
-              <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-blue" />
-              <span>{{ s }}</span>
-            </li>
+          <h2 class="text-[30px] font-bold leading-tight">{{ $t('support.fasterTitle') }}</h2>
+          <p class="mt-4 font-Golos">{{ $t('support.fasterIntro') }}</p>
+          <ul class="ml-4 mt-4 list-outside list-disc space-y-1.5 font-Golos">
+            <li v-for="(s, i) in $tm('support.fasterItems')" :key="i" class="list-item">{{ s }}</li>
           </ul>
         </section>
 
         <!-- 服务时间 -->
         <section class="mt-10">
-          <h2 class="text-2xl font-semibold">{{ $t('support.availabilityTitle') }}</h2>
-          <ul class="mt-4 space-y-2">
-            <li v-for="(s, i) in $tm('support.availabilityItems')" :key="i" class="flex gap-2 text-muted">
-              <span class="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-blue" />
-              <span>{{ s }}</span>
-            </li>
+          <h2 class="text-[30px] font-bold leading-tight">{{ $t('support.availabilityTitle') }}</h2>
+          <ul class="ml-4 mt-4 list-outside list-disc space-y-1.5 font-Golos">
+            <li v-for="(s, i) in $tm('support.availabilityItems')" :key="i" class="list-item">{{ s }}</li>
           </ul>
         </section>
 
         <!-- FAQ -->
         <section class="mt-10">
-          <h2 class="text-2xl font-semibold">{{ $t('support.faqTitle') }}</h2>
+          <h2 class="text-[30px] font-bold leading-tight">{{ $t('support.faqTitle') }}</h2>
           <div class="mt-5 space-y-3">
-            <div v-for="(f, i) in faqs" :key="i" class="card-pg p-5">
+            <div v-for="(f, i) in faqs" :key="i" class="rounded-[6px] border border-[#E0E7EE] p-5">
               <h3 class="font-semibold">{{ f.q }}</h3>
-              <p class="mt-1 whitespace-pre-line text-sm text-muted">{{ f.a }}</p>
+              <p class="mt-1 whitespace-pre-line text-sm font-Golos">{{ f.a }}</p>
             </div>
           </div>
         </section>
-      </div>
-
-      <!-- ═══ 侧栏（对标原站 info 页 COMPANY/SUPPORT/LEGAL） ═══ -->
-      <PageSidebar />
     </div>
-  </div>
+  </InfoPageShell>
 </template>

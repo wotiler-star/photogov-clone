@@ -100,7 +100,8 @@
     "viewAll": "Ver todo",
     "readMore": "Leer más",
     "backTo": "Volver a {page}",
-    "notFound": "No encontrado"
+    "notFound": "No encontrado",
+    "homePage": "Página de inicio"
   },
   "home": {
     "heroEyebrow": "Pasaporte · Visa · Fotos de identidad",
@@ -641,16 +642,6 @@
     "privacyLink": "Política de privacidad",
     "note": "Este es un clon demo no oficial de www.photogov.net, creado con fines educativos y de replicación. No afiliado con ninguna agencia gubernamental."
   },
-  "contact": {
-    "eyebrow": "Contacto",
-    "title": "Contáctanos",
-    "sub": "Normalmente respondemos en 1–2 días hábiles.",
-    "name": "Nombre",
-    "email": "Correo electrónico",
-    "message": "Mensaje",
-    "send": "Enviar mensaje",
-    "thanks": "¡Gracias! Tu mensaje ha sido registrado (formulario demo — no se envía ningún correo)."
-  },
   "compliance": {
     "eyebrow": "Cumplimiento",
     "title": "Cómo mantenemos el cumplimiento",
@@ -1186,247 +1177,6 @@
     "closing": "PhotoGov.net combina transparencia, automatización y cumplimiento de las normas globales. Tanto si necesita una sola foto de identificación como una solución de nivel empresarial, nuestro servicio está diseñado para ofrecer fiabilidad y facilidad de uso.",
     "savePercent": "Ahorra {percent}%"
   },
-  "howItWorks": {
-    "eyebrow": "Cómo funciona",
-    "title": "Descubra cómo PhotoGov convierte su selfie en una foto de identificación 100% conforme",
-    "lead1": "PhotoGov es una plataforma tecnológica moderna que utiliza algoritmos avanzados de procesamiento de imágenes para crear fotos de identificación 100% conformes. Todas las fotografías de tamaño pasaporte pueden obtenerse ahora desde la comodidad de su hogar o de su oficina, sin necesidad de reservar cita, desplazarse a un estudio profesional ni esperar en él.",
-    "lead2": "Descubra cómo nuestro servicio ha redefinido el proceso de creación de fotos de identificación, desde la generación y las verificaciones de conformidad hasta la tecnología que impulsa cada paso.",
-    "cta": "Crear foto de identificación ahora",
-    "stepsTitle": "Paso a paso: de una selfie a una foto de identificación conforme",
-    "steps": [
-      {
-        "t": "1. Acceda al creador de fotos de pasaporte de PhotoGov",
-        "p": "Haga clic en el botón «Obtener su foto de identificación» o acceda directamente a nuestro creador gratuito de fotos de pasaporte. No se requiere ninguna instalación ni la creación de una cuenta: el servicio funciona en ordenadores de sobremesa y en dispositivos móviles, en cualquier navegador, y está disponible 24/7."
-      },
-      {
-        "t": "2. Seleccione el país y el tipo de documento",
-        "p": "En la pantalla inicial, elija el país emisor y el tipo de documento. Detrás de este sencillo selector se encuentra un algoritmo complejo que convertirá su fotografía original en una fotografía oficial para ese documento en concreto."
-      },
-      {
-        "t": "3. Cargue su selfie",
-        "p": "Tome una selfie con su teléfono, tableta u ordenador portátil. Siga las instrucciones que aparecen en pantalla para cargar la imagen e iniciar el procesamiento: todo es intuitivo y sencillo."
-      },
-      {
-        "t": "4. Espere mientras se procesa la imagen",
-        "p": "Una vez cargada la selfie, PhotoGov la envía a la cadena de procesamiento. Los algoritmos integrados de identificación y conformidad analizan el rostro y detectan sus puntos biométricos clave. El tamaño, el recorte, el encuadre, la posición de la cabeza, el fondo, el brillo y el contraste de la imagen se ajustan para cumplir el 100% de los requisitos oficiales del tipo de documento seleccionado."
-      },
-      {
-        "t": "5. Seleccione la opción adicional 1: ajuste de vestimenta",
-        "p": "Como opción adicional, puede solicitar la sustitución de su ropa informal por un atuendo formal. Es un práctico servicio en línea que le permite convertir cualquier selfie en una fotografía de identificación de aspecto oficial, independientemente de la ropa que vista en la imagen original."
-      },
-      {
-        "t": "6. Seleccione la opción adicional 2: verificación humana",
-        "p": "Si su solicitud reviste especial importancia, elija la verificación experta de la imagen procesada. Nuestro especialista superior en conformidad examina la imagen final y ofrece recomendaciones sobre su calidad y su adecuación a los requisitos de las fotografías para documentos. Añada este paso como una capa adicional de garantía para su presentación."
-      },
-      {
-        "t": "7. Descargue su foto lista para la solicitud",
-        "p": "En menos de 30 segundos, descargue su foto lista para la solicitud. Puede elegir un archivo digital para solicitudes en línea o un archivo PDF imprimible para presentaciones en papel."
-      }
-    ],
-    "noteTitle": "Nota importante:",
-    "note": "si bien PhotoGov ajusta los parámetros técnicos de la imagen, no modifica ni retoca sus rasgos faciales de ninguna forma: permanecen exactamente igual que en la fotografía original.",
-    "techTitle": "Tecnología compleja detrás de una interfaz intuitiva",
-    "tech": [
-      "Detrás de una interfaz sencilla, PhotoGov funciona gracias a una infraestructura de backend dedicada, diseñada para que el procesamiento de fotos de identificación sea rápido, fiable y seguro para sus datos. La plataforma se ejecuta en servidores en la nube Tier III, la misma clase de fiabilidad que se emplea en los sistemas bancarios y sanitarios, con supervisión 24/7 y copias de seguridad automáticas, de modo que el servicio permanece disponible y sus archivos siguen protegidos incluso en momentos de carga máxima o durante tareas de mantenimiento.",
-      "Incluso cuando hay muchos usuarios conectados al mismo tiempo, el sistema redistribuye la carga entre regiones para que el proceso de creación de su foto sea rápido y estable.",
-      "Cuando se carga una foto, esta se analiza en el navegador y después se procesa en los servidores GPU propios de PhotoGov. Estos servidores de alto rendimiento utilizan procesadores gráficos para acelerar el procesamiento de imágenes, de modo que todos los ajustes se aplican en apenas unos segundos, incluso en un dispositivo corriente. Los algoritmos corrigen el fondo, la iluminación y el tamaño para cumplir las normas oficiales de los documentos, incluidos el ratio entre el rostro y el encuadre y el equilibrio de color, para que usted no tenga que ocuparse de las normas técnicas de fotografía.",
-      "Todos los ajustes de la imagen se realizan dentro del entorno seguro de PhotoGov; las fotos nunca se comparten con servicios externos, lo que mantiene sus datos personales a salvo y protegidos.",
-      "El archivo final se almacena en un sistema de almacenamiento en la nube cifrado y se entrega a través de una red CDN global para un acceso rápido desde cualquier lugar. Esto significa que puede descargar su foto con rapidez, ya sea desde casa, desde la oficina o mientras viaja.",
-      "Cada paso, desde la carga hasta la descarga, se gestiona de forma automática y puede comprobarse fácilmente en cualquier momento. El sistema sigue de forma sistemática las normas internacionales sobre fotos de identificación, lo que reduce considerablemente la probabilidad de que su solicitud sea rechazada por problemas relacionados con la fotografía."
-    ],
-    "embassyTitle": "Fotos de identificación elaboradas con experiencia real en embajadas",
-    "embassy": [
-      "PhotoGov colabora con determinadas embajadas para alinear su proceso de preparación de fotografías con las prácticas consulares actuales y con los requisitos de las fotos para documentos.",
-      "Nuestro equipo incluye antiguos empleados consulares y de embajadas, que aplican su experiencia práctica para perfeccionar el servicio y aumentar las probabilidades de que su foto de identificación sea aceptada.",
-      "PhotoGov es un servicio independiente. No estamos afiliados a ningún Gobierno, embajada ni consulado. Toda la información de este sitio web se basa en los requisitos oficiales de las autoridades y en fuentes primarias verificadas. La aceptación definitiva de la foto la determina exclusivamente la autoridad emisora."
-    ],
-    "disclaimer": "PhotoGov es un servicio independiente y no está afiliado a ninguna autoridad gubernamental. La aceptación definitiva de su foto la determina exclusivamente la autoridad emisora."
-  },
-  "whyChooseUs": {
-    "eyebrow": "Por qué elegirnos",
-    "title": "11 razones para confiar sus fotos de identificación al creador de fotos en línea de PhotoGov",
-    "lead1": "Detrás de cada documento aprobado hay una foto que cumple un conjunto estricto de requisitos técnicos, biométricos y legales. Para confiar a un servicio en línea la creación de una fotografía oficial, usted, como usuario, debe tener la absoluta seguridad de que su imagen final cumplirá todas las directrices gubernamentales y agilizará el proceso de solicitud.",
-    "lead2": "A continuación se exponen 11 razones por las que más de 2 millones de usuarios confían en PhotoGov para sus fotos de identificación.",
-    "cta": "Crear foto de identificación ahora",
-    "learnPricing": "Más información",
-    "learnPricingTail": "sobre nuestra política de precios y las opciones de suscripción.",
-    "reasons": [
-      {
-        "t": "1. Un único servicio para todas las fotos de identificación oficiales",
-        "ps": [
-          "PhotoGov admite fotos para 900+ tipos de documentos internacionales esenciales, desde pasaportes hasta documentos nacionales de identidad, y desde visados hasta licencias de navegación. Basta con elegir el país y el tipo, y nuestro sistema aplica automáticamente los parámetros biométricos y técnicos correctos para esa fotografía en concreto."
-        ]
-      },
-      {
-        "t": "2. Cumplimiento del 100% de las normas oficiales",
-        "ps": [
-          "PhotoGov emplea algoritmos integrados de identificación y conformidad basados en las principales normativas internacionales:"
-        ],
-        "bullets": [
-          "Requisitos gubernamentales a nivel nacional. Todas las fotos de identificación deben ajustarse a las directrices de las jurisdicciones emisoras: el U.S. Department of State, Immigration, Refugees and Citizenship Canada, el UK Home Office y otros ministerios y consulados internacionales.",
-          "Normas biométricas mundiales sobre fotos de identificación. A nivel mundial, las especificaciones de las fotos de identificación están definidas por el Documento 9303 de la Organización de Aviación Civil Internacional (ICAO), que establece las normas biométricas para las fotografías de pasaportes y visados.",
-          "ISO/IEC 19794‑5: otra norma internacional que especifica cómo deben capturarse, recortarse y almacenarse las imágenes biométricas del rostro para garantizar una identificación fluida tanto por parte de los funcionarios como de los sistemas automatizados.",
-          "Al seleccionar un tipo de documento, PhotoGov aplica automáticamente las instrucciones de la autoridad competente y verifica la imagen conforme a estos criterios de la ICAO e ISO/IEC en lo relativo al tamaño de la cabeza, la posición de los ojos, el fondo y la calidad de la imagen."
-        ]
-      },
-      {
-        "t": "3. Sin registro ni descarga de aplicaciones",
-        "ps": [
-          "PhotoGov funciona en cualquier navegador, en cualquier dispositivo y en cualquier sistema operativo. No es necesario crear una cuenta, recordar una contraseña ni instalar una aplicación. Solo tiene que abrir nuestro sitio web, seleccionar su país y su documento, cargar una foto, esperar a que el sistema procese la imagen, elegir los servicios adicionales y descargar la imagen final."
-        ]
-      },
-      {
-        "t": "4. Gratuito en la mayoría de los países",
-        "ps": [
-          "PhotoGov es un creador de fotos de pasaporte gratuito para la mayoría de los países. En un número limitado de territorios, el servicio de fotografía está disponible de forma de pago. No obstante, la primera foto suele ser gratuita y las fotos adicionales tienen un precio muy inferior al de un estudio fotográfico comercial habitual. Además, no necesita salir de su hogar ni de su oficina para obtenerlas."
-        ]
-      },
-      {
-        "t": "5. Corrección automática y ajuste de vestimenta",
-        "ps": [
-          "PhotoGov aplica algoritmos integrados de identificación y conformidad para adecuar su fotografía original a los requisitos técnicos y visuales oficiales. Nuestro sistema endereza la cabeza, ajusta el brillo y el contraste, limpia el fondo y escala el rostro al intervalo exigido para el documento seleccionado.",
-          "Como servicio adicional, puede sustituir la ropa de su foto por un atuendo formal, tal como exigen algunas autoridades, o simplemente para no tener que cambiarse de ropa al tomarse la selfie."
-        ]
-      },
-      {
-        "t": "6. Solo se necesitan 30 segundos",
-        "ps": [
-          "El proceso completo, desde la carga hasta el archivo final, dura menos de 30 segundos. En cuanto finaliza el procesamiento, puede descargar:",
-          "Un archivo digital para solicitudes en línea y una composición lista para imprimir en un laboratorio fotográfico o en su impresora doméstica.",
-          "Al generar una imagen conforme en solo 30 segundos, PhotoGov le ahorra tiempo y dinero y resulta especialmente útil cuando necesita con urgencia una fotografía para una solicitud o una cita próximas."
-        ]
-      },
-      {
-        "t": "7. Disponibilidad 24/7 en cualquier lugar del mundo",
-        "ps": [
-          "El servicio de PhotoGov está disponible 24/7 desde cualquier lugar del mundo. Puede preparar una foto en casa antes de acudir a una agencia de visados local, desde una habitación de hotel mientras presenta documentos a través de un consulado en el extranjero, o desde su oficina, si está preparando documentación empresarial para su presentación oficial. Nuestro servicio funciona de forma cómoda y fiable en todas partes, lo que elimina la necesidad de acudir a un estudio fotográfico."
-        ]
-      },
-      {
-        "t": "8. Verificaciones automatizadas y verificación humana",
-        "ps": [
-          "PhotoGov combina las comprobaciones automáticas con la experiencia humana. Nuestro equipo dedicado sigue las actualizaciones oficiales, mantiene las plantillas y prueba las imágenes generadas en escenarios reales de presentación. Para los tipos de documentos más relevantes, la validación automatizada se complementa con la verificación humana: nuestros especialistas superiores revisan sus fotos y aportan su valoración experta. Este doble enfoque ofrece a nuestros usuarios tranquilidad durante un proceso de solicitud que suele resultar estresante."
-        ]
-      },
-      {
-        "t": "9. Actualización constante ante los cambios normativos",
-        "ps": [
-          "Las autoridades oficiales actualizan continuamente las especificaciones de las fotos de identificación: los tonos del fondo, los intervalos de altura de la cabeza, los tamaños de archivo y otros detalles cambian con el tiempo. El equipo de PhotoGov supervisa las fuentes oficiales y actualiza tanto las plantillas como las páginas de recursos cuando se publican nuevas instrucciones. Detrás del sencillo selector de documentos de nuestra plataforma siempre se encuentra la versión verificada al 100% y más actualizada de los requisitos oficiales."
-        ]
-      },
-      {
-        "t": "10. Fiabilidad de nivel bancario",
-        "ps": [
-          "PhotoGov opera con la misma infraestructura y clase de fiabilidad que se utilizan en los sectores bancario y sanitario. Incluye suministro eléctrico y de conectividad redundantes, supervisión 24/7 y copias de seguridad automatizadas. Para usted, esto significa que el sitio web carga de forma constante, el procesamiento es estable y la foto generada permanece disponible para su descarga durante el plazo establecido."
-        ]
-      },
-      {
-        "t": "11. Sus datos están 100% seguros",
-        "ps": [
-          "Al utilizar nuestro servicio, no tiene que preocuparse por la seguridad de sus datos. Desde la carga hasta la descarga, su foto se procesa dentro de un único ecosistema controlado. Las imágenes se transmiten a través de conexiones cifradas, se gestionan en los servidores de PhotoGov y no se envían a terceros. Las fotos generadas se almacenan de forma cifrada durante un periodo limitado, el tiempo suficiente para que obtenga su foto conforme. Transcurrido ese plazo, se eliminan de acuerdo con las normas internas de conservación."
-        ]
-      }
-    ],
-    "outro1": "Obtenga más información sobre nuestro creador gratuito de fotos de pasaporte o consulte las preguntas frecuentes sobre el servicio de PhotoGov.",
-    "outro2": "PhotoGov.net cumple estrictamente la normativa mundial sobre fotos de identificación."
-  },
-  "reviewsPage": {
-    "eyebrow": "Opiniones",
-    "title": "Testimonios y opiniones de los clientes de PhotoGov",
-    "sub": "Conozca lo que los usuarios dicen del servicio de PhotoGov, desde el procesamiento de las fotos hasta la atención al cliente y la resolución de incidencias.",
-    "stats": [
-      {
-        "value": "900+",
-        "label": "tipos de documentos"
-      },
-      {
-        "value": "200",
-        "label": "países cubiertos"
-      },
-      {
-        "value": "1.8M",
-        "label": "usuarios en todo el mundo"
-      },
-      {
-        "value": "4.7",
-        "label": "valoración en TrustPilot"
-      }
-    ],
-    "statsTitle": "Millones de personas confían en nosotros en todo el mundo",
-    "statsP1": "PhotoGov es un servicio internacional en línea de fotos de pasaporte que ayuda a crear imágenes digitales conformes para más de 900 tipos de documentos oficiales en 200 países. La confianza diaria de más de 12,000 personas nos importa más que nada, y sus comentarios constituyen el núcleo del crecimiento y la mejora de nuestra plataforma.",
-    "statsP2": "Hasta la fecha, nuestra herramienta en línea de creación de fotografías ha sido utilizada por 1,8 millones de personas en todo el mundo.",
-    "quote": "¡Un sitio web excelente! Muy intuitivo y con instrucciones claras, y me encantó que, una vez que el usuario selecciona una región, se contrasten los requisitos oficiales, además de ofrecer resultados de gran calidad.",
-    "quoteAuthor": "Alefiya Haveliwala, Google Reviews",
-    "sectionTitle": "Lo que dicen los usuarios de PhotoGov",
-    "users": [
-      {
-        "name": "Segun Abiodun",
-        "when": "hace 1 año",
-        "text": "Esta es una herramienta fantástica para cualquiera que no sepa prácticamente nada de edición de fotos y quiera conseguir que sus imágenes adopten formatos aceptables para múltiples organismos gubernamentales y países en cuestión de segundos. ¡Y lo mejor de todo es que es gratis!"
-      },
-      {
-        "name": "Usuario de Google",
-        "when": "",
-        "text": "Precios razonables y una foto muy profesional. Elimina por completo cualquier sombra del fondo; es mucho más sencillo que andar yo haciendo suposiciones. Lo he usado dos veces, aunque ya tengo mi propio programa para imprimir fotos de 2x2, así que me resulta más fácil de esa manera."
-      },
-      {
-        "name": "Khant Htoo Htoo",
-        "when": "",
-        "text": "Estoy muy satisfecho con el servicio. Mientras que otras empresas cobran 20 $ por esta sencilla tarea, que no lleva más de 10 s, aquí lo hacen gratis. Un gran punto a favor."
-      },
-      {
-        "name": "Alefiya Haveliwala",
-        "when": "",
-        "text": "¡Un sitio web excelente! Muy intuitivo y con instrucciones claras, y me encantó que, una vez que el usuario selecciona una región, se contrasten los requisitos oficiales, además de ofrecer resultados de gran calidad."
-      }
-    ],
-    "verifyTitle": "Solo opiniones verificadas y auténticas",
-    "verifyP1": "Nuestras opiniones se publican en plataformas independientes, como TrustPilot, que utilizan sus propios procesos de verificación para confirmar la autenticidad de los comentarios de los usuarios.",
-    "verifyP2": "No compramos, reescribimos ni filtramos las opiniones negativas. Si algo no funciona, se refleja en las opiniones de nuestros usuarios. Esta transparencia es muy importante para nosotros. Ayuda a los usuarios de todo el mundo a conocer nuestro servicio y a comprender:",
-    "verifyList": [
-      "El grado de fiabilidad del servicio en los distintos países",
-      "La frecuencia con la que los organismos gubernamentales aceptan las fotos presentadas",
-      "La rapidez con la que las personas reciben sus archivos listos para usar",
-      "La forma en que el equipo de atención al cliente resuelve incidencias reales"
-    ],
-    "shapeTitle": "Cómo las opiniones de los usuarios dan forma al servicio de PhotoGov",
-    "shapeP": "PhotoGov evoluciona constantemente a partir de las opiniones reales de los usuarios. El patrón que se observa en las opiniones positivas nos indica qué aspectos de la plataforma funcionan bien. Y cada problema recurrente se convierte en una tarea para nuestro equipo técnico. Este diálogo directo con nuestros usuarios nos permite perfeccionar el servicio a nivel estructural, desde la precisión del formateo mediante IA hasta el flujo del proceso de carga de fotos.",
-    "voiceTitle": "Su opinión cuenta",
-    "voiceP1": "Si ha utilizado PhotoGov, su experiencia puede ayudar a la siguiente persona a tomar una decisión informada. Le rogamos que comparta su opinión una vez que haya recibido sus imágenes digitales. Ya sea positiva, neutra o crítica, su valoración resulta valiosa tanto para nuestro equipo como para otros usuarios.",
-    "voiceP2": "Al dejar una opinión, contribuye a un servicio que ayuda a miles de personas a preparar documentos oficiales de forma rápida, cómoda y sin pasos innecesarios."
-  },
-  "securityPage": {
-    "eyebrow": "Seguridad",
-    "title": "Nuestros estándares de seguridad, protocolos y prácticas de protección de datos",
-    "lead": "En PhotoGov.net, la seguridad y la privacidad de nuestros usuarios son primordiales. Estamos comprometidos con la protección de sus datos personales y con el cumplimiento de los más altos estándares de seguridad. A continuación le explicamos cómo garantizamos la seguridad de su información:",
-    "items": [
-      {
-        "t": "Cumplimiento de los estándares de seguridad",
-        "p": "Cumplimos estándares de seguridad reconocidos internacionalmente, incluidos el Reglamento General de Protección de Datos (GDPR), la Ley de Privacidad del Consumidor de California (CCPA) y otras normativas pertinentes de protección de datos. Nuestro compromiso con estos estándares garantiza un tratamiento responsable y seguro de sus datos."
-      },
-      {
-        "t": "Protección de los datos personales",
-        "p": "Nos tomamos muy en serio la seguridad de sus datos personales. Toda la información personal se procesa y se almacena de forma segura, de acuerdo con las mejores prácticas del sector. El acceso a sus datos está estrictamente limitado al personal autorizado que lo necesita para el desempeño de sus funciones."
-      },
-      {
-        "t": "Cifrado SSL",
-        "p": "PhotoGov.net utiliza cifrado SSL (Secure Sockets Layer) para proteger la conexión entre su navegador y nuestros servidores. Esta tecnología garantiza la privacidad y la seguridad de cualquier dato sensible que nos transmita, como información personal y datos de pago."
-      },
-      {
-        "t": "Auditorías de seguridad frecuentes",
-        "p": "Llevamos a cabo auditorías de seguridad periódicas para detectar y corregir posibles vulnerabilidades. Mediante la supervisión y la mejora continuas de nuestras medidas de seguridad, mantenemos una defensa sólida frente a posibles amenazas contra sus datos."
-      },
-      {
-        "t": "Procesamiento seguro de los pagos",
-        "p": "El procesamiento de los pagos está gestionado por proveedores externos de confianza, lo que garantiza el tratamiento seguro de su información de pago."
-      },
-      {
-        "t": "Cumplimiento de la protección de cookies del GDPR",
-        "p": "Cumplimos las disposiciones del GDPR en materia de protección de cookies, asegurando que el uso que hacemos de las cookies respeta sus derechos de privacidad. Nuestro sitio web ofrece información transparente sobre las cookies que empleamos, y obtenemos su consentimiento antes de recoger cualquier cookie no esencial."
-      }
-    ],
-    "outro": "En PhotoGov.net, la seguridad es nuestra máxima prioridad y estamos comprometidos con la protección de sus datos. Confíe en nuestra dedicación a la salvaguarda de su información personal mientras le ofrecemos una experiencia fluida y segura para la creación de sus fotografías de identificación."
-  },
   "refund": {
     "eyebrow": "Reembolsos",
     "title": "La política de reembolso 2026 de PhotoGov explicada",
@@ -1728,9 +1478,9 @@
   },
   "support": {
     "eyebrow": "Soporte",
-    "title": "Centro de ayuda",
+    "title": "Obtén ayuda experta para un proceso de fotos sin complicaciones",
     "sub": "Contacta con nuestro equipo o consulta las respuestas a las preguntas más frecuentes sobre fotos, pagos y otros temas.",
-    "heroTitle": "Ayuda experta para un proceso de fotos sin complicaciones",
+    "heroTitle": "Centro de ayuda",
     "heroP1": "¿Necesitas ayuda o tienes preguntas sobre el servicio PhotoGov.net? Nuestro equipo de soporte está aquí para ayudarte con cualquier problema que puedas tener al usar nuestra herramienta de fotos en línea. No dudes en contactarnos en cualquier momento.",
     "heroP2": "Cada solicitud es atendida por un especialista cualificado con experiencia directa en el área de tu consulta: desde la preparación de fotos y los ajustes técnicos hasta los pagos, las descargas o los consejos de cumplimiento específicos de cada país.",
     "contactTitle": "Cómo contactarnos",
@@ -1801,7 +1551,11 @@
         "q": "¿Puedo obtener un reembolso?",
         "a": "Sí. PhotoGov.net ofrece una opción de reembolso sencilla. Si se produce un error técnico o de procesamiento, el usuario puede solicitar un reembolso completo. Junto con el reembolso, también ofrecemos una foto procesada de cortesía para cualquier tipo de documento seleccionado."
       }
-    ]
+    ],
+    "metaTitle": "Centro de ayuda de PhotoGov: soporte en tu proceso de fotos",
+    "metaDesc": "Contacta con el amable equipo de soporte de PhotoGov si necesitas ayuda con tu proceso de fotos: desde tamaños y recortes hasta pagos y descargas.",
+    "heroDesc": "Contacta con nuestro equipo o consulta las respuestas a las preguntas más comunes sobre fotos, pagos y otros temas.",
+    "breadcrumb": "Soporte técnico - PhotoGov.net"
   },
   "editorialTeam": {
     "breadcrumb": "Equipo editorial",
@@ -1848,7 +1602,11 @@
     "updatesTitle": "Actualizaciones continuas",
     "updatesP": "La normativa oficial sobre fotos cambia con frecuencia. Para mantener la precisión, revisamos cada página de documentos cada ocho semanas e inmediatamente cuando una autoridad publica nuevas directrices. La fecha de la revisión más reciente siempre está visible en la página.",
     "correctionsTitle": "Correcciones",
-    "correctionsP": "Si detecta una inexactitud o un requisito obsoleto, háganoslo saber a través de nuestra página de contacto."
+    "correctionsP": "Si detecta una inexactitud o un requisito obsoleto, háganoslo saber a través de nuestra página de contacto.",
+    "metaTitle": "Política editorial: cómo PhotoGov crea y verifica los requisitos de fotos",
+    "metaDesc": "Cómo PhotoGov redacta, verifica y actualiza los requisitos de fotos para pasaporte, visa e identificación: fuentes oficiales, revisión editorial y actualizaciones continuas.",
+    "heroTitle": "Política editorial",
+    "heroDesc": "Cómo PhotoGov redacta, verifica y actualiza los requisitos de fotos para pasaporte, visa e identificación: fuentes oficiales, revisión editorial y actualizaciones continuas."
   },
   "sidebar": {
     "company": "Empresa",
@@ -1987,7 +1745,598 @@
         "q": "¿Cómo puedo comprobar si mi foto cumple las normas?",
         "a": "Antes de subir tu foto, asegúrate de lo siguiente:\n- La foto es nítida y sin borrones.\n- La iluminación es uniforme, sin sombras en el rostro.\n- El fondo es sólido y coincide con las normas del documento.\n- La cabeza y los hombros están correctamente posicionados según las directrices.\nPara obtener más ayuda, consulta las instrucciones detalladas de nuestro sitio web o contacta con nuestro equipo de soporte."
       }
+    ]
+  },
+  "serviceLine": {
+    "prefix": "Servicio prestado por",
+    "company": "Y VISION TECHNOLOGIES LLP",
+    "address": "Stoney Works 8 Stoney Lane, London, England, SE19 3BD",
+    "terms": "Términos",
+    "refund": "Política de reembolso",
+    "contact": "Contacto"
+  },
+  "contactPage": {
+    "metaTitle": "Contacta con PhotoGov: Estamos aquí para ayudarte",
+    "metaDesc": "Contacta con el equipo de PhotoGov y recibe una respuesta rápida a cualquier consulta — desde el funcionamiento del servicio y tus pagos hasta solicitudes de partnership y medios.",
+    "breadcrumb": "Contacto - soporte técnico",
+    "heroTitle": "Contáctanos",
+    "heroDesc": "Ponte en contacto con el equipo de PhotoGov para soporte, consultas de partnership o preguntas generales.",
+    "title": "Contáctanos",
+    "intro1": "Conseguir la foto adecuada para el pasaporte no debería ser complicado — y ponerte en contacto con nosotros tampoco.",
+    "intro2": "Si tienes alguna pregunta sobre tu pedido, los pagos o cómo funciona PhotoGov, nuestro equipo está aquí para ayudarte. Para consultas comerciales y de partnership, solicitudes de medios o propuestas de colaboración, contacta con nosotros a través de los canales indicados en esta página.",
+    "intro3": "Puedes escribirnos a {email} o enviarnos un mensaje a través de nuestros mensajeros oficiales.",
+    "intro4": "Respondemos a todas las consultas en un plazo de 48 horas. Los datos de contacto completos se indican a continuación.",
+    "infoTitle": "Información de contacto",
+    "cards": [
+      {
+        "id": "support",
+        "title": "Ayuda y soporte",
+        "desc": "¿Tienes una pregunta técnica? Estamos aquí para ayudarte",
+        "email": "info",
+        "hours": "Lun - Vie ( 8:00 AM - 8:00 PM)\nSáb - Dom ( 8:00 AM - 6:00 PM)",
+        "note1": "Trabajamos duro para ofrecer el mejor soporte a nuestros usuarios. Antes de enviar una solicitud, por favor",
+        "noteLink": "visita la sección de preguntas frecuentes",
+        "note2": ", que cubre la mayoría de las preguntas sobre el servicio PhotoGov."
+      },
+      {
+        "id": "billing",
+        "title": "Facturación",
+        "desc": "¿Tienes una pregunta sobre pagos? Estamos aquí para ayudarte",
+        "email": "info",
+        "guideText": "Consulta la guía de pagos >"
+      },
+      {
+        "id": "partnership",
+        "title": "Partnership",
+        "desc": "¿Te interesa el servicio Photogov? Trabajemos juntos",
+        "email": "partner"
+      },
+      {
+        "id": "media",
+        "title": "Medios",
+        "desc": "¿Quieres saber más sobre Photogov? Colaboremos",
+        "email": "media"
+      }
     ],
-    "homePage": "Página de inicio"
+    "emailLabel": "Correo electrónico:",
+    "hoursLabel": "Horario de atención:",
+    "socialTitle": "Conecta con nosotros en",
+    "letterTitle": "O envíanos una carta",
+    "postalLabel": "Nuestra dirección postal:",
+    "postal": "Stoney Works 8 Stoney Lane, London, England, SE19 3BD",
+    "officeTitle": "Nuestra oficina",
+    "officeCountry": "Reino Unido",
+    "officeCompany": "Y VISION TECHNOLOGIES LLP",
+    "officeAddress": "Stoney Works 8 Stoney Lane, London, England, SE19 3BD",
+    "mapLabel": "Oficina en el mapa:",
+    "mapEmbed": "https://www.openstreetmap.org/export/embed.html?bbox=-0.093746%2C51.413075%2C-0.067911%2C51.423223&layer=mapnik&marker=51.418149%2C-0.080829"
+  },
+  "reviewsPage": {
+    "metaTitle": "Opiniones de PhotoGov — Prueba la herramienta de fotos para pasaporte de confianza",
+    "metaDesc": "Descubre por qué miles de usuarios califican PhotoGov como una herramienta de fotos para pasaporte fiable. Lee opiniones y valoraciones auténticas de Google.",
+    "breadcrumb": "Testimonios y opiniones de clientes de PhotoGov",
+    "heroTitle": "Opiniones",
+    "heroDesc": "Conoce lo que dicen los usuarios sobre el servicio PhotoGov — desde el procesamiento de fotos hasta la atención al cliente y la resolución de problemas.",
+    "title": "Usado por millones de personas en todo el mundo",
+    "intro": "PhotoGov es un servicio internacional de fotos para pasaporte en línea que ayuda a crear imágenes digitales compatibles para más de 900 tipos de documentos oficiales en más de 150 países. La confianza diaria de más de 12.000 personas es lo que más nos importa — y sus opiniones son el núcleo de cómo crece y mejora nuestra plataforma.",
+    "introBold": "Hasta la fecha, nuestra herramienta de fotos en línea ha sido utilizada por 1,8 millones de personas en todo el mundo.",
+    "quote": "¡Excelente sitio web! Muy intuitivo, con instrucciones claras, y me encantó que una vez que el usuario selecciona una región, verifica los requisitos oficiales además de ofrecer resultados de alta calidad.",
+    "quoteAuthor": "— Alefiya Haveliwala, opiniones de Google",
+    "body1": "Nuestros usuarios provienen de distintos países, solicitan distintos tipos de documentos y usan PhotoGov con objetivos muy prácticos: renovar un pasaporte, preparar una solicitud de visa, actualizar un permiso de residencia, obtener su primer DNI, etc. Sus opiniones muestran el rendimiento del servicio en escenarios reales — desde la primera subida hasta la presentación final ante las autoridades oficiales.",
+    "body2": "PhotoGov está sistemáticamente clasificado como el mejor servicio en la categoría de herramientas de fotos para pasaporte en línea en Google, y tiene una valoración media de 4,8 estrellas basada en 2.515 opiniones.",
+    "usersSayTitle": "Lo que dicen los usuarios de PhotoGov:",
+    "byGoogle": "Por",
+    "googleName": "Google",
+    "ratingValue": "4,8",
+    "ratingCount": "(2.515 opiniones)",
+    "postedOn": "Publicado el",
+    "continueText": "Continuar...",
+    "showMore": "Mostrar más (+16)",
+    "reviews": [
+      {
+        "name": "Segun Abiodun",
+        "rating": 5,
+        "text": "This is an awesome tool for anyone who knows next to nothing about photo editing to get themselves up and running with making their photos turn out in acceptable formats across multiple government agencies and countries in seconds. The better part of it is that, it is free!",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-1.webp"
+      },
+      {
+        "name": "J H",
+        "rating": 5,
+        "text": "Reasonable pricing photo is very professional it totally clears up any background shadows,it’s way simpler than me guessing.Ive used it twice but I do have my own software to print 2x2 photos so its easier for me that way.",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-3.webp"
+      },
+      {
+        "name": "Basua Marc",
+        "rating": 5,
+        "text": "I had trouble uploading my visa photo on the DS-160 form due to image quality issues, but PhotoGov made the process incredibly easy. The tool was fast, accurate, and very user-friendly. Thanks to your platform, my photo was finally accepted! Great job and thank you!",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-4.webp"
+      },
+      {
+        "name": "naresh m",
+        "rating": 5,
+        "text": "very good website to tell exactly the photo needs include whether it can pass online version or not. Infact, I have checked myself, uploading my photo to visa website > it declined. I cameback to this website and uploaded, it said the same, but it cropped my photo to exact requirement and passed online visa submission",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-5.webp"
+      },
+      {
+        "name": "Tam McKee",
+        "rating": 5,
+        "text": "Great website and super easy to navigate use. Needed for a bus pass for my brother and many other website would only accept a passport STRICT photo. Thanks PhotoGov :)",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-7.webp"
+      },
+      {
+        "name": "shivang patel",
+        "rating": 5,
+        "text": "Nice online application. Thank you. I used it while I needed to make my photo for Vietnam travel visa application.",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-9.webp"
+      },
+      {
+        "name": "Hazrat Umar",
+        "rating": 5,
+        "text": "Student from Pakistan and studing in St. Petersburg Polytech University. I am very thankful to this website for fulfilling my requirments. Once again thanks",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-11.webp"
+      },
+      {
+        "name": "Harry Cheah",
+        "rating": 5,
+        "text": "This is a very good and convenient free app for those who would like to renew their passport. A photo is easy to create and looks good.",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-13.webp"
+      },
+      {
+        "name": "Anirban Kundu",
+        "rating": 5,
+        "text": "Great Experience, very easy and pocket friendly, complete genuine service, strongly recommending to friends and family.",
+        "date": "1 year ago",
+        "avatar": null
+      },
+      {
+        "name": "mustapha colley",
+        "rating": 5,
+        "text": "I will recommend all applicants for US visas to edit their photo with Photogov. I just love how they transform my ugly-looking picture to a standard one. Abslutely amazing!",
+        "date": null,
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-14.webp"
+      },
+      {
+        "name": "Khant Htoo Htoo",
+        "rating": 5,
+        "text": "I'm very pleased with the services. While other companies charge $20 for this simple thing that takes no more than 10 s, they do it for free. Big UPS",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-2.webp"
+      },
+      {
+        "name": "Alefiya Haveliwala",
+        "rating": 5,
+        "text": "Great website! Very intuitive with clear instructions and I loved that once a user selects a region it cross-checks official requirements in additional to providing high quality results.",
+        "date": "1 year ago",
+        "avatar": null
+      },
+      {
+        "name": "Thera Teo",
+        "rating": 5,
+        "text": "Stumbled onto this site and I so love it. So easy to use and very intuitive. Will definitely recommend to my friends and explore more of the site offerings. Thank you so much for making my photo taking issue seemless and headache free. 😍😘",
+        "date": "1 year ago",
+        "avatar": null
+      },
+      {
+        "name": "suryavamsi patiballa",
+        "rating": 5,
+        "text": "The service is excellent and they really gave the perfect photo for my US OPT EAD application. They will ask our email to send the JPG file and charge very less like $4.9.",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-6.webp"
+      },
+      {
+        "name": "Crystalnee",
+        "rating": 5,
+        "text": "THIS IS THE BEST passport converting website online for free!!! Especially for Malaysians! it follows the guidelines and crops it perfectly!! It even follows to the mm!! DEFINETELY RECOMMEND THIS!!",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-8.webp"
+      },
+      {
+        "name": "Tim JK Strickland",
+        "rating": 5,
+        "text": "Fast effective printing. I needed this for my daughter's first passport photo (which taking the photo itself was its own mountain climb), and not only did it give me peace of mind that it would pass, BUT it sent me the photos available to print!",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-10.webp"
+      },
+      {
+        "name": "anjani keshri",
+        "rating": 5,
+        "text": "This is one of the best website to help with the documents for my Georgia visa. Everything was seamless and i cannot recommend it enough.",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-12.webp"
+      },
+      {
+        "name": "Nasa Ali",
+        "rating": 5,
+        "text": "The apps is so good that it verify everything to match with the government requirement or else submission of passport renewal will take longer time if kept rejected for photo upload non-compliance",
+        "date": "1 year ago",
+        "avatar": null
+      },
+      {
+        "name": "Nazwan Erman",
+        "rating": 5,
+        "text": "thank you so much to make it free, it easy everyone else work, i hope this website would be stay in a long term for goodness to other",
+        "date": null,
+        "avatar": null
+      },
+      {
+        "name": "Frank Palermo",
+        "rating": 5,
+        "text": "Very Fast and effecient saved me many hours of running around, in 5 minutes had exactly what I needed.",
+        "date": "1 year ago",
+        "avatar": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/frontend/img/static/reviews/reviews-user-15.webp"
+      }
+    ],
+    "verifyTitle": "Solo opiniones verificadas y auténticas",
+    "verifyP1": "Nuestras opiniones se publican en una plataforma independiente — Google, que utiliza su propio proceso de verificación para confirmar la autenticidad de los comentarios de los usuarios.",
+    "verifyP2": "No compramos, reescribimos ni filtramos las opiniones negativas. Si algo no funciona, se refleja en las opiniones de nuestros usuarios.",
+    "verifyLead": "Esta transparencia es muy importante para nosotros.",
+    "verifyLeadBold": "Ayuda a los usuarios de todo el mundo a conocer nuestro servicio y entender:",
+    "verifyList": [
+      "La fiabilidad del servicio en distintos países",
+      "La frecuencia con la que las fotos enviadas son aceptadas por las agencias gubernamentales",
+      "La rapidez con la que las personas reciben sus archivos listos para usar",
+      "Cómo el equipo de soporte resuelve problemas reales."
+    ],
+    "shapeTitle": "Cómo las opiniones de los usuarios dan forma al servicio PhotoGov",
+    "shapeP": "PhotoGov evoluciona constantemente en función de las opiniones reales de los usuarios. El patrón de las opiniones positivas nos indica qué aspectos de nuestra plataforma funcionan bien. Y cada problema recurrente — se convierte en una tarea para nuestro equipo técnico. Este diálogo directo con nuestros usuarios nos permite perfeccionar el servicio a nivel estructural, desde la precisión del formato AI hasta el flujo del proceso de subida de fotos.",
+    "voiceTitle": "Tu voz importa",
+    "voiceP1": "Si has usado PhotoGov, tu experiencia puede ayudar a la siguiente persona a tomar una decisión informada. Comparte tu opinión en Google una vez que hayas recibido tus imágenes digitales. Tanto si tu opinión es positiva, neutral como crítico, es valioso para nuestro equipo y para otros usuarios.",
+    "voiceP2": "Al dejar una opinión, contribuyes a un servicio que ayuda a miles de personas a preparar documentos oficiales de forma rápida, cómoda y sin pasos innecesarios.",
+    "users": [
+      {
+        "name": "Segun Abiodun",
+        "when": "hace 1 año",
+        "text": "Esta es una herramienta fantástica para cualquiera que no sepa prácticamente nada de edición de fotos y quiera conseguir que sus imágenes adopten formatos aceptables para múltiples organismos gubernamentales y países en cuestión de segundos. ¡Y lo mejor de todo es que es gratis!"
+      },
+      {
+        "name": "Usuario de Google",
+        "when": "",
+        "text": "Precios razonables y una foto muy profesional. Elimina por completo cualquier sombra del fondo; es mucho más sencillo que andar yo haciendo suposiciones. Lo he usado dos veces, aunque ya tengo mi propio programa para imprimir fotos de 2x2, así que me resulta más fácil de esa manera."
+      },
+      {
+        "name": "Khant Htoo Htoo",
+        "when": "",
+        "text": "Estoy muy satisfecho con el servicio. Mientras que otras empresas cobran 20 $ por esta sencilla tarea, que no lleva más de 10 s, aquí lo hacen gratis. Un gran punto a favor."
+      },
+      {
+        "name": "Alefiya Haveliwala",
+        "when": "",
+        "text": "¡Un sitio web excelente! Muy intuitivo y con instrucciones claras, y me encantó que, una vez que el usuario selecciona una región, se contrasten los requisitos oficiales, además de ofrecer resultados de gran calidad."
+      }
+    ]
+  },
+  "whyChooseUs": {
+    "metaTitle": "11 razones para confiar tus fotos de identificación a PhotoGov",
+    "metaDesc": "Descubre por qué deberías confiar tu proceso de creación de fotos de identificación a PhotoGov: 11 razones clave para crear tus fotos oficiales en línea.",
+    "breadcrumb": "Por qué elegirnos",
+    "heroTitle": "Por qué elegirnos",
+    "heroDesc": "Explora las principales razones para confiar el proceso de creación de fotos de identificación a PhotoGov.",
+    "title": "11 razones para confiar tus fotos de identificación al creador de fotos en línea PhotoGov",
+    "lead": "Detrás de cada documento aprobado hay una foto que cumple un estricto conjunto de requisitos técnicos, biométricos y legales. Para confiar la creación de una foto oficial a un servicio en línea, tú, como usuario, debes estar 100% seguro de que tu imagen final cumplirá todas las directrices gubernamentales y facilitará el proceso de solicitud. Estas son 11 razones por las que más de 2 millones de usuarios confían en PhotoGov para sus fotos de identificación.",
+    "cta1": "Crea tu foto de identificación ahora",
+    "reasons": [
+      {
+        "t": "1. Un servicio para todas las fotos de identificación oficiales",
+        "ps": [
+          "PhotoGov admite fotos para más de 900 tipos de documentos internacionales esenciales — desde pasaportes hasta documentos nacionales de identidad, desde visas hasta licencias de navegación. Simplemente elige el país y el tipo, y nuestro sistema aplicará automáticamente la configuración biométrica y técnica correcta para esa fotografía en particular."
+        ],
+        "cta": "Crea tu foto de identificación ahora"
+      },
+      {
+        "t": "2. 100% de cumplimiento de las normas oficiales",
+        "ps": [
+          "PhotoGov utiliza algoritmos integrados de identificación y cumplimiento basados en las regulaciones internacionales esenciales:",
+          "Requisitos gubernamentales a nivel de país. Todas las fotos de identificación deben cumplir las directrices de las jurisdicciones emisoras: [[el Departamento de Estado de EE. UU.~https://travel.state.gov/content/travel/en/passports/how-apply/photos.html]], [[Inmigración, Refugiados y Ciudadanía de Canadá~https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-passports/photos.html]], [[la Home Office del Reino Unido~https://www.gov.uk/photos-for-passports/photo-requirements]], y otros ministerios y consulados internacionales.",
+          "Normas globales de fotos de identificación biométricas. A nivel global, las especificaciones de las fotos de identificación están definidas por el [[Documento 9303 de la Organización de Aviación Civil Internacional (OACI)~https://www.icao.int/publications/doc-series/doc-9303]], que establece las normas biométricas para las fotografías de pasaporte y visa. [[ISO/IEC 19794-5~https://www.iso.org/standard/50867.html]] — otra norma internacional que especifica cómo deben capturarse, recortarse y almacenarse las imágenes faciales biométricas para garantizar una identificación fluida tanto por parte de los agentes como de los sistemas automatizados.",
+          "Cuando seleccionas un tipo de documento, PhotoGov aplica automáticamente las instrucciones de la autoridad correspondiente y verifica la imagen según estos criterios de la OACI e ISO/IEC para el tamaño de la cabeza, la posición de los ojos, el fondo y la calidad de la imagen."
+        ]
+      },
+      {
+        "t": "3. Sin registro ni descarga de aplicaciones",
+        "ps": [
+          "PhotoGov funciona en cualquier navegador, en cualquier dispositivo o sistema operativo. No necesitas crear una cuenta, recordar una contraseña ni instalar una aplicación. Solo abre nuestro sitio web, selecciona tu país y documento, sube una foto, espera mientras el sistema procesa la imagen, elige servicios adicionales y descarga la imagen final."
+        ]
+      },
+      {
+        "t": "4. Gratis en la mayoría de las ubicaciones",
+        "ps": [
+          "PhotoGov es un creador de fotos para pasaporte gratuito para la mayoría de los países. En un número limitado de ubicaciones, el servicio de fotos está disponible de forma pagada. Sin embargo, la primera foto suele ser gratuita, y las fotos adicionales tienen un precio muy inferior al de un estudio comercial típico. Además, no necesitas salir de casa o de la oficina para hacerlas. [[Más información sobre nuestra política de precios~:prices]] y opciones de suscripción."
+        ]
+      },
+      {
+        "t": "5. Corrección automática y ajuste de ropa",
+        "ps": [
+          "PhotoGov aplica algoritmos integrados de identificación y cumplimiento para alinear tu foto original con los requisitos técnicos y visuales oficiales. Nuestro sistema endereza la cabeza, ajusta el brillo y el contraste, limpia el fondo y escala la cara al rango requerido para el documento seleccionado.",
+          "Como servicio adicional, puedes cambiar la ropa de tu foto por un atuendo formal, como exigen algunas autoridades, o simplemente para evitar cambiar lo que llevas puesto al hacerte un selfi."
+        ]
+      },
+      {
+        "t": "6. Solo se necesitan 30 segundos",
+        "ps": [
+          "El proceso completo — desde la subida hasta el archivo final — toma menos de 30 segundos. En cuanto se complete el procesamiento, puedes descargar:",
+          "__BULLETS__"
+        ],
+        "bullets": [
+          "Un diseño listo para imprimir para un laboratorio fotográfico o una impresora doméstica.",
+          "Al producir una imagen compatible en solo 30 segundos, PhotoGov ahorra tiempo y dinero, y resulta especialmente útil cuando necesitas urgentemente una foto para una solicitud o cita próxima."
+        ]
+      },
+      {
+        "t": "7. Disponibilidad 24/7 en cualquier lugar del mundo",
+        "ps": [
+          "El servicio PhotoGov está disponible 24/7, desde cualquier lugar del mundo. Puedes preparar una foto en casa antes de visitar una agencia de visas local, desde la habitación de un hotel mientras envías documentos a través de un consulado en el extranjero, o desde tu oficina, si estás preparando documentación empresarial para una presentación oficial. Nuestro servicio funciona de forma cómoda y fiable en todas partes, eliminando la necesidad de visitar un estudio."
+        ]
+      },
+      {
+        "t": "8. Verificaciones automáticas y verificación humana",
+        "ps": [
+          "PhotoGov combina las verificaciones de software con la experiencia humana. Nuestro equipo dedicado rastrea las actualizaciones oficiales, mantiene las plantillas y prueba las imágenes generadas en escenarios de presentación reales. Para los tipos de documentos clave, la validación automática se complementa con la verificación humana: nuestros especialistas senior revisan tus fotos y aportan sus comentarios expertos. Este doble enfoque da tranquilidad a nuestros usuarios durante un proceso de solicitud estresante."
+        ]
+      },
+      {
+        "t": "9. Actualizaciones constantes a los cambios normativos",
+        "ps": [
+          "Las autoridades oficiales actualizan constantemente las especificaciones de las fotos de identificación: los tonos de fondo, los rangos de altura de la cabeza, los tamaños de archivo y otros detalles cambian con el tiempo. El equipo de PhotoGov supervisa las fuentes oficiales y actualiza tanto las plantillas como las páginas de recursos cuando se publican nuevas instrucciones. Detrás de un simple selector de documentos en nuestra plataforma, siempre está la versión 100% comprobada y más actual de los requisitos oficiales."
+        ]
+      },
+      {
+        "t": "10. Fiabilidad de nivel bancario",
+        "ps": [
+          "PhotoGov opera con la misma infraestructura y clase de fiabilidad que se utiliza en la banca y la sanidad. Incluye soporte de energía y conectividad redundante, supervisión 24/7 y copias de seguridad automatizadas. Para ti, esto significa que el sitio web carga de forma consistente, el procesamiento es estable y tu foto generada permanece disponible para su descarga durante el tiempo asignado."
+        ]
+      },
+      {
+        "t": "11. Tus datos están 100% seguros",
+        "ps": [
+          "Cuando usas nuestro servicio, no necesitas preocuparte por la seguridad de tus datos. Desde la subida hasta la descarga, tu foto se procesa dentro de un ecosistema único y controlado. Las imágenes se transmiten a través de conexiones cifradas, se tratan en servidores de PhotoGov y no se envían a terceros. Las fotos generadas se almacenan de forma cifrada durante un periodo limitado, justo el necesario para que obtengas tu foto compatible. Después, se eliminan según las normas internas de retención."
+        ]
+      }
+    ],
+    "outro1": "Obtén más información sobre nuestro [[creador de fotos para pasaporte gratuito~:]] o consulta las [[preguntas frecuentes~:faq]] sobre el servicio PhotoGov.",
+    "outro2": "PhotoGov.net cumple estrictamente la normativa global para fotos de identificación."
+  },
+  "howItWorks": {
+    "metaTitle": "Cómo PhotoGov convierte tu selfi en una foto de identificación 100% compatible",
+    "metaDesc": "Descubre cómo el creador de fotos para pasaporte de PhotoGov convierte un simple selfi del móvil en una foto de identificación compatible con el gobierno en segundos.",
+    "breadcrumb": "Cómo funciona",
+    "heroTitle": "Cómo funciona",
+    "heroDesc": "Descubre cómo nuestro servicio crea fotos de identificación compatibles — desde la interfaz intuitiva hasta la tecnología que hay detrás.",
+    "title": "Descubre cómo PhotoGov convierte tu selfi en una foto de identificación 100% compatible",
+    "lead1": "PhotoGov es una plataforma tecnológica moderna que utiliza algoritmos avanzados de procesamiento de imágenes para crear fotos de identificación 100% compatibles. Ahora todas las fotos de tamaño pasaporte pueden producirse desde la comodidad de tu casa u oficina, sin necesidad de reservar, viajar a un estudio profesional y esperar.",
+    "lead2": "Descubre cómo nuestro servicio ha redefinido el proceso de creación de fotos de identificación — desde la creación y las verificaciones de cumplimiento hasta la tecnología que impulsa cada paso.",
+    "cta": "Crea tu foto de identificación ahora",
+    "stepsTitle": "Paso a paso: de un selfi a una foto de identificación compatible",
+    "steps": [
+      {
+        "t": "1. Abre el creador de fotos para pasaporte de PhotoGov",
+        "p": "Haz clic en el botón \"Consigue tu foto de identificación\" o accede directamente a nuestro creador de fotos para pasaporte gratuito. No se requiere instalación ni creación de cuenta: el servicio funciona en ordenadores y dispositivos móviles, en cualquier navegador, y está disponible 24/7."
+      },
+      {
+        "t": "2. Selecciona el país y el tipo de documento",
+        "p": "En la pantalla de inicio, elige el país emisor y el tipo de documento. Detrás de este simple selector hay un algoritmo complejo que convertirá tu foto original en una fotografía oficial para este documento en particular."
+      },
+      {
+        "t": "3. Sube tu selfi",
+        "p": "Haz un selfi con tu teléfono, tableta u ordenador portátil. Sigue nuestras instrucciones en pantalla para subir y comenzar a procesar tu foto — ¡todo es intuitivo y fácil!"
+      },
+      {
+        "t": "4. Espera mientras se procesa la imagen",
+        "p": "Una vez que hayas subido un selfi, PhotoGov lo envía a la tubería de procesamiento. Los algoritmos integrados de identificación y cumplimiento analizan el rostro y detectan sus puntos biométricos clave. El tamaño de la imagen, el recorte, el encuadre, la posición de la cabeza, el fondo, el brillo y el contraste se ajustan para cumplir el 100% de los requisitos oficiales del tipo de documento seleccionado.",
+        "note": "Nota importante: aunque PhotoGov ajusta los parámetros técnicos de la imagen, no cambia ni retoca tus rasgos faciales de ninguna manera — permanecen exactamente como en la foto original."
+      },
+      {
+        "t": "5. Selecciona la opción adicional 1: Ajuste de ropa",
+        "p": "Como opción adicional, puedes seleccionar la sustitución de tu ropa informal por un atuendo formal. Es un práctico servicio en línea que te permite convertir cualquier selfi en una fotografía de identificación de aspecto oficial, independientemente de lo que lleves puesto en la imagen original."
+      },
+      {
+        "t": "6. Selecciona la opción adicional 2: Verificación humana",
+        "p": "Si tu solicitud es de alta prioridad, elige la verificación por expertos de la imagen procesada. Nuestro especialista senior en cumplimiento examina la imagen final y aporta recomendaciones sobre la calidad y el cumplimiento de la foto de documento. Añade este paso como capa adicional de seguridad para tu presentación."
+      },
+      {
+        "t": "7. Descarga tu foto lista para presentar",
+        "p": "En menos de 30 segundos, descarga tu foto lista para presentar. Puedes seleccionar un archivo digital para solicitudes en línea, o un archivo PDF imprimible para presentaciones en papel."
+      }
+    ],
+    "techTitle": "Tecnología compleja detrás de una interfaz fácil de usar",
+    "tech": [
+      "Detrás de la interfaz sencilla, PhotoGov funciona con un backend dedicado diseñado para mantener el procesamiento de fotos de identificación rápido, fiable y seguro para tus datos. La plataforma funciona en servidores cloud de Nivel III — la misma clase de fiabilidad utilizada en sistemas bancarios y sanitarios — con supervisión 24/7 y copias de seguridad automáticas, por lo que el servicio permanece disponible y tus archivos protegidos incluso durante picos de carga o mantenimiento. Incluso cuando muchos usuarios están en línea al mismo tiempo, el sistema redistribuye la carga entre regiones para mantener tu proceso de creación de fotos rápido y estable.",
+      "Cuando se sube una foto, se analiza en el navegador y luego se procesa en los servidores GPU propios de PhotoGov. Estos servidores de alto rendimiento utilizan procesadores gráficos para acelerar el procesamiento de imágenes, por lo que todos los ajustes se aplican en solo unos segundos, incluso en un dispositivo normal. Los algoritmos corrigen el fondo, la iluminación y el tamaño para cumplir las normas oficiales de documentos, incluida la relación cara-marco y el equilibrio de color, para que no tengas que lidiar con reglas técnicas de fotografía. Todos los ajustes de imagen tienen lugar dentro del entorno seguro de PhotoGov; las fotos nunca se comparten con servicios externos, manteniendo tus datos personales seguros y protegidos.",
+      "El archivo final se almacena en un almacenamiento cloud cifrado y se entrega a través de una red CDN global para un acceso rápido desde cualquier lugar. Esto significa que puedes descargar tu foto rápidamente tanto si solicitas desde casa, la oficina o mientras viajas. Cada paso — desde la subida hasta la descarga — se gestiona automáticamente y puede comprobarse fácilmente en cualquier momento. El sistema sigue de forma consistente las normas internacionales de fotos de identificación, lo que reduce en gran medida la probabilidad de que tu solicitud sea rechazada por problemas con la foto."
+    ],
+    "embassyTitle": "Fotos de identificación hechas con experiencia real en embajadas",
+    "embassy": [
+      "PhotoGov colabora con embajadas seleccionadas para alinear su proceso de preparación de fotos con las prácticas consulares actuales y los requisitos de fotos de documentos. [[Nuestro equipo~:about-us]] incluye a antiguos funcionarios consulares y de embajadas, que aplican su experiencia práctica para perfeccionar el servicio y mejorar la probabilidad de aceptación de tu foto de identificación.",
+      "PhotoGov es un servicio independiente. No estamos afiliados a ningún gobierno, embajada o consulado. Toda la información de este sitio web se basa en requisitos gubernamentales oficiales y fuentes primarias verificadas. La aceptación final de la foto queda determinada únicamente por la autoridad emisora."
+    ]
+  },
+  "securityPage": {
+    "metaTitle": "Seguridad en PhotoGov.net - Garantía de protección de datos y privacidad",
+    "metaDesc": "Confía en el compromiso de PhotoGov.net con la seguridad y la protección de datos. Conoce nuestro cumplimiento de las normas de seguridad, el cifrado SSL y el GDPR.",
+    "breadcrumb": "Medidas de seguridad",
+    "heroTitle": "Seguridad",
+    "heroDesc": "Descubre cómo PhotoGov garantiza la protección de datos, la privacidad y el procesamiento seguro para cada usuario en todo el mundo.",
+    "title": "Nuestras normas de seguridad, protocolos y prácticas de protección de datos",
+    "lead": "En PhotoGov.net, la seguridad y la privacidad de nuestros usuarios son primordiales. Nos dedicamos a proteger tus datos personales y a seguir las más altas normas de seguridad. Así es como garantizamos la seguridad de tu información:",
+    "items": [
+      {
+        "t": "Cumplimiento de las normas de seguridad:",
+        "p": "Seguimos las normas de seguridad reconocidas internacionalmente, incluido el Reglamento General de Protección de Datos (GDPR), la Ley de Privacidad del Consumidor de California (CCPA) y otras regulaciones pertinentes de protección de datos. Nuestro compromiso con estas normas garantiza un tratamiento responsable y seguro de tus datos."
+      },
+      {
+        "t": "Protección de datos personales:",
+        "p": "Nos tomamos muy en serio la seguridad de tus datos personales. Toda la información personal se procesa y almacena de forma segura, de acuerdo con las mejores prácticas del sector. El acceso a tus datos está estrictamente limitado al personal autorizado que lo necesita para sus responsabilidades laborales."
+      },
+      {
+        "t": "Cifrado SSL:",
+        "p": "PhotoGov.net utiliza el cifrado SSL (Secure Sockets Layer) para proteger la conexión entre tu navegador y nuestros servidores. Esta tecnología garantiza la privacidad y la seguridad de cualquier dato confidencial que nos transmitas, como los datos personales y la información de pago."
+      },
+      {
+        "t": "Auditorías de seguridad frecuentes:",
+        "p": "Realizamos auditorías de seguridad periódicas para detectar y abordar posibles vulnerabilidades. Mediante la supervisión y mejora continuas de nuestras medidas de seguridad, mantenemos una defensa sólida contra posibles amenazas a tus datos."
+      },
+      {
+        "t": "Procesamiento seguro de pagos:",
+        "p": "Nuestro procesamiento de pagos está gestionado por proveedores externos de confianza, lo que garantiza el tratamiento seguro de tu información de pago."
+      },
+      {
+        "t": "Cumplimiento de la protección de cookies del GDPR:",
+        "p": "Cumplimos las estipulaciones de protección de cookies del GDPR, asegurando que el uso que hacemos de las cookies respeta tus derechos de privacidad. Nuestro sitio web ofrece información transparente sobre las cookies que empleamos, y obtenemos tu consentimiento antes de recopilar cualquier cookie no esencial."
+      }
+    ],
+    "outro": "En PhotoGov.net, la seguridad es nuestra máxima prioridad y estamos comprometidos con la protección de tus datos. Ten confianza en nuestra dedicación a proteger tu información personal mientras te ofrecemos una experiencia fluida y segura para crear tus fotos de identificación."
+  },
+  "aboutPage": {
+    "breadcrumb": "Sobre nosotros",
+    "heroTitle": "Sobre nosotros",
+    "heroDesc": "Conozca nuestro servicio global de fotos para pasaporte en línea: nuestra historia, equipo, experiencia y visión.",
+    "metaTitle": "Acerca de PhotoGov — el servicio global de fotos para pasaporte en línea",
+    "metaDesc": "Conozca PhotoGov, el creador de fotos para pasaporte en línea en el que confían más de 1,8 millones de usuarios. Nuestra misión es hacer que las fotos oficiales sean sencillas y accesibles para todos.",
+    "h1": "PhotoGov: servicio global de fotos para pasaporte en línea",
+    "leadBold": "PhotoGov es un servicio internacional de fotos para pasaporte en línea que crea imágenes de identidad conformes a todos los requisitos oficiales.",
+    "leadRest": " Con nuestra herramienta gratuita, puede crear sus propias fotos de pasaporte desde la comodidad de su hogar en cuestión de segundos.",
+    "intro2": "Cubrimos toda la gama de documentos de identidad internacionales: pasaportes, visados, tarjetas de identidad, tarjetas verdes y licencias de conducir. Todo el proceso es rápido, transparente, cómodo y totalmente gratuito. Solo tiene que imprimir las fotos y presentarlas con su solicitud.",
+    "postedOn": "Publicado en",
+    "reviewName": "Thera Teo",
+    "reviewText": "Descubrí este sitio por casualidad y me encanta. Es muy fácil de usar e intuitivo. Sin duda lo recomendaré a mis amigos y exploraré más funciones del sitio. Muchas gracias por hacer que el proceso de la foto sea fluido y sin complicaciones.",
+    "reviewAgo": "hace 1 año",
+    "originsTitle": "El origen de la herramienta en línea de fotos para pasaporte Photogov",
+    "origins1": "Para Vitaly Yago, un emprendedor global que vive entre Londres y Dubái, ir a un estudio fotográfico se convirtió en una necesidad poco conveniente. Viajaba con tanta frecuencia que el tiempo invertido allí podría haberse aprovechado mucho mejor en sus proyectos.",
+    "origins2": "<b>Un día</b>, tras serle denegado un visado para Singapur por una foto rechazada, decidió que ya era suficiente. Esa misma noche, sentado en una cafetería, esbozó el plano técnico de una plataforma en línea que combinaría el ajuste de imágenes para fotos de pasaporte y visado con el cumplimiento automático de los requisitos gubernamentales.",
+    "originsCaption": "Vitaly Yago. Oficina de la empresa, 2021",
+    "quote": "«Hacer una foto oficial no debería resultar más difícil que solicitar el propio documento. Es hora de llevar el proceso a Internet»,",
+    "quoteBy": "— Vitaly Yago, director ejecutivo de «Photogov»",
+    "origins3": "En pocas semanas, un pequeño equipo de ingenieros y expertos legales construyó un sistema seguro basado en los estándares internacionales de fotos de identidad, diseñado para que la fotografía oficial fuera transparente, accesible y automáticamente conforme.",
+    "timelineTitle": "Cronología: la evolución de nuestro servicio",
+    "timelineAfter1": "Lo que empezó como una pequeña iniciativa técnica se convirtió rápidamente en un marco global para la identidad digital. Hasta la fecha, PhotoGov ha atendido a más de ",
+    "timelineAfterU": "1,8 millones de personas en todo el mundo, con 12 000 usuarios mensuales en más de 150 países",
+    "timelineAfter2": ".",
+    "teamTitle": "Nuestro equipo",
+    "teamIntro": "Nuestro equipo global reúne a más de 30 especialistas, cada uno responsable de una parte distinta de la plataforma: desde el diseño del sistema y la protección de datos hasta el cumplimiento normativo de los estándares oficiales de fotos en distintos países.",
+    "servicesTitle": "Nuestros servicios de fotos de identidad",
+    "services1": "El centro fotográfico en línea PhotoGov.net admite más de 900 tipos de documentos oficiales de identidad de 150 países: pasaportes, visados, documentos nacionales de identidad, permisos de residencia, tarjetas verdes, lotería DV, permisos de trabajo y licencias de conducir. Si un documento de identificación requiere una foto, puede crearse con PhotoGov.",
+    "services2": "Cada imagen se genera de plena conformidad con las normas técnicas y regulatorias de la autoridad emisora, lo que garantiza el cumplimiento global:",
+    "servicesAfter": "Todas las fotos creadas con PhotoGov cumplen los requisitos oficiales de tamaño, composición y fondo, y satisfacen los criterios exactos exigidos para su presentación en cualquier parte del mundo. [[Más información~:how-it-works]] sobre el funcionamiento de nuestro servicio.",
+    "complianceTitle": "Nuestros estándares de cumplimiento y fiabilidad",
+    "compliance1": "PhotoGov se basa en los mismos fundamentos técnicos que emplean los sistemas biométricos oficiales de todo el mundo, incluidas las normas <b>ISO/IEC 19794-5</b> e <b>ICAO 9303</b>. Estos marcos definen el formato, las proporciones y la calidad de imagen exigidos para la verificación de identidad y los requisitos generales de fotos de pasaporte en la mayoría de los países.",
+    "compliance2": "Nuestra base de datos de plantillas de documentos y parámetros de tamaño se revisa y actualiza continuamente para reflejar los últimos requisitos de embajadas, ministerios y autoridades de documentación. Cada foto se procesa conforme a estas normas y se verifica antes de la descarga, lo que garantiza el cumplimiento total en todos los tipos de documentos admitidos.",
+    "compliance3": "Todo el procesamiento de imágenes se realiza en servidores seguros bajo estrictos protocolos de protección de datos y cifrado. Las fotos personales se usan exclusivamente para generar la imagen y se eliminan automáticamente tras el procesamiento.",
+    "usTitle": "Aviso de cumplimiento para EE. UU.",
+    "us1": "Para las solicitudes presentadas en los Estados Unidos, PhotoGov sigue los requisitos del Departamento de Estado de EE. UU. para fotos de pasaporte y visado.",
+    "us2": "Se recomienda a los solicitantes no modificar sus fotos con software de terceros ni herramientas de IA antes de enviarlas.",
+    "us3": "<b>PhotoGov ofrece una guía detallada de captura y dimensiones</b> acorde con las especificaciones oficiales del Departamento de Estado de EE. UU., que puede consultarse en el siguiente enlace:",
+    "usLink": "Departamento de Estado de EE. UU. — requisitos de fotos de pasaporte",
+    "accessTitle": "Nuestra accesibilidad y soporte",
+    "access1": "PhotoGov se diseñó para ser sencillo desde el primer clic. El servicio funciona en cualquier navegador, en ordenador o móvil, y no requiere instalación ni configuración. Su interfaz clara guía al usuario paso a paso, ya sea para preparar una foto para la renovación del pasaporte, una solicitud de visado o un documento de identidad.",
+    "access2": "El soporte está integrado en la experiencia. Indicaciones detalladas explican cómo volver a tomar o ajustar una foto si es necesario, y cada actualización de la plataforma refleja nuevos formatos de documentos y requisitos específicos de cada país. El servicio ofrece dos fotos de identidad gratuitas al día, según su ubicación, lo que brinda una forma rápida y fiable de completar uno de los trámites administrativos más rutinarios: preparar una foto oficial que cumpla todas las normas a la primera.",
+    "accessCaption": "Equipo de cumplimiento",
+    "visionTitle": "Nuestra visión",
+    "vision1": "<b>El equipo de PhotoGov cree</b> que hacer una foto tamaño pasaporte no tiene por qué seguir siendo innecesariamente complicado. En todos los países y continentes, las personas ya no deberían esperar en estudios, pagar tarifas elevadas ni temer que sus imágenes sean rechazadas por detalles técnicos menores.",
+    "vision2": "<b>La misión de PhotoGov</b> es hacer que la fotografía oficial sea sencilla, gratuita y accesible para todos, en todas partes. Nuestra visión a largo plazo es un mundo en el que la documentación oficial sea sencilla y justa. El cumplimiento está integrado en el proceso y el acceso a herramientas de identidad fiables se convierte en una parte natural de la vida moderna: un derecho universal disponible para todos.",
+    "vision3": "Con el tiempo, este enfoque ha convertido a PhotoGov en una herramienta de confianza para personas de todas las nacionalidades y orígenes, ya soliciten su primer pasaporte, estudien en el extranjero, se muden con su familia o inicien una nueva carrera.",
+    "visionCaption": "Vitaly Yago con nuestro director de marketing",
+    "visionSlogan": "Nuestro servicio ayuda a preparar los documentos que abren nuevos capítulos en la vida. Todo comienza con un solo paso: la foto que demuestra quiénes somos.",
+    "nonAffiliation": "PhotoGov es un servicio independiente. No estamos afiliados a ningún gobierno, embajada ni consulado. Toda la información de este sitio se basa en los requisitos oficiales de los gobiernos y en fuentes primarias verificadas. La aceptación final de la foto la determina exclusivamente la autoridad emisora.",
+    "timeline": [
+      {
+        "year": "2021 — lanzamiento inicial",
+        "p1": "PhotoGov entró en el mercado en 2021 como una solución web creada para modernizar la forma en que las personas preparan sus fotos de pasaporte y visado. Nuestro equipo fundador estaba formado por expertos con experiencia en trabajo consular y gestión de documentos de identidad. Al comprobar de primera mano lo obsoleto que se había vuelto el sistema, se propusieron cambiarlo.",
+        "p2": "Un experto en visión por ordenador y procesamiento biométrico de imágenes desarrolló el motor inicial. La primera versión, un MVP ligero, automatizó los pasos clave de recorte, redimensionado y ajuste del fondo, cumpliendo plenamente las especificaciones gubernamentales."
+      },
+      {
+        "year": "2022 — lanzamiento de PhotoGov Core",
+        "p1": "Con el aumento de la demanda y la expansión de la base de usuarios, PhotoGov lanzó su primer motor de procesamiento propio, PhotoGov Core. El nuevo sistema automatizó la corrección del fondo, el dimensionamiento y la alineación con una precisión mucho mayor.",
+        "p2": "A lo largo del año, la plataforma amplió su cobertura para incluir más formatos de documentos internacionales, mientras el equipo de ingeniería seguía perfeccionando los algoritmos principales en velocidad, precisión y coherencia visual.",
+        "img": "/img/about-us/about-us-17.webp",
+        "alt": "2022 — lanzamiento de PhotoGov Core"
+      },
+      {
+        "year": "2023 — expansión y avances de software",
+        "p1": "El equipo creció y el motor fotográfico avanzó con varias actualizaciones importantes. Cada nueva versión mejoró la velocidad y la precisión del procesamiento, logrando una eliminación del fondo excepcionalmente limpia y un renderizado detallado del cabello, lo que convirtió al motor en uno de los más precisos del sector. En esta etapa, PhotoGov ya llegaba a usuarios de más de 100 países.",
+        "p2": "Se validó con éxito un sistema de verificación en dos pasos, que confirmó que las imágenes procesadas cumplen plenamente las normas fotográficas gubernamentales internacionales. El motor también incorporó la capacidad de ajustar la vestimenta automáticamente, sustituyendo la ropa informal por atuendo formal y conservando el rostro y la iluminación originales."
+      },
+      {
+        "year": "2024 — alcance global",
+        "p1": "PhotoGov alcanzó el cumplimiento total en todos los tipos de documentos admitidos, garantizando que cada imagen procesada cumpla las normas oficiales de los gobiernos. Se introdujo un servicio de verificación humana que permite a especialistas en cumplimiento y expertos en fotos de identidad revisar manualmente las imágenes bajo demanda.",
+        "p2": "Ahora la plataforma permite transformar un selfie normal, incluso tomado con el móvil, en una foto de identidad totalmente conforme, con iluminación profesional y recorte adecuado, con atuendo de negocios y rasgos faciales sin alterar.",
+        "img": "/img/about-us/about-us-18.webp",
+        "alt": "2024 — alcance global"
+      }
+    ],
+    "teams": [
+      {
+        "title": "El equipo de ingeniería",
+        "text": "Desarrolla y mantiene la tecnología principal que impulsa el procesamiento de imágenes, el fondo automatizado y los algoritmos de dimensionamiento. Cada miembro aporta entre 8 y 15 años de experiencia en marcos de imagen biométrica, canalizaciones de verificación automatizada y herramientas de cumplimiento para sistemas de identificación en Europa, Norteamérica y Asia.",
+        "img": "/img/about-us/about-us-3.webp",
+        "alt": "Equipo de ingeniería de Photogov"
+      },
+      {
+        "title": "El equipo de cumplimiento",
+        "text": "Supervisa y verifica los requisitos fotográficos de pasaportes, visados y documentos de identidad en más de 150 países. Nuestros expertos en cumplimiento acumulan más de 10 años de experiencia en documentación consular y tramitación de visados, incluido trabajo previo en consulados, administraciones de viajes y centros de procesamiento de documentos en Estados Unidos, Gran Bretaña, Alemania, Emiratos Árabes Unidos, Singapur e India.",
+        "img": "/img/about-us/about-us-19.webp",
+        "alt": "Equipo de cumplimiento de Photogov"
+      },
+      {
+        "title": "El equipo editorial",
+        "text": "El [[equipo editorial de PhotoGov~:editorial-team]], dirigido por [[Olia Potiagaeva~:editorial-team]], editora jefe, convierte los requisitos fotográficos oficiales en las guías y páginas de documentos de PhotoGov y las revisa antes de su publicación. Descubra cómo creamos y verificamos el contenido en nuestra [[política editorial~:editorial-policy]]."
+      },
+      {
+        "title": "El equipo de soporte y operaciones",
+        "text": "Supervisa la experiencia del usuario, la exactitud de los datos y el rendimiento general de la plataforma. Los gerentes de operaciones y los especialistas de soporte de PhotoGov cuentan con una amplia trayectoria en asistencia técnica, coordinación de flujos de trabajo y garantía de calidad del producto. Para cualquier consulta, visite el [[Centro de ayuda~:support]] y contacte directamente con el equipo de soporte de PhotoGov.",
+        "img": "/img/about-us/about-us-5.webp",
+        "alt": "Equipo de soporte de Photogov"
+      },
+      {
+        "title": "El equipo de marketing",
+        "text": "Desarrolla la estrategia internacional, aumenta la visibilidad de la plataforma y garantiza que las personas de todo el mundo tengan acceso a información precisa. Reúne a responsables de marketing regional, editores y estrategas de contenido con entre 8 y 15 años de experiencia en medios de inmigración, comunicación digital y localización de productos.",
+        "img": "/img/about-us/about-us-6.webp",
+        "alt": "Equipo de marketing de Photogov"
+      }
+    ],
+    "services": [
+      {
+        "title": "Fotos de pasaporte",
+        "desc": "Aceptadas por las autoridades de [[EE. UU.~:documents/us-passport-photo]], [[Reino Unido~:documents/gb-passport-photo]], [[Australia~:documents/au-passport-photo]], [[Canadá~:documents/ca-passport-photo]] y otros países.",
+        "img": "/img/about-us/about-us-7.webp",
+        "alt": "Photogov passports photos"
+      },
+      {
+        "title": "Fotos para visado",
+        "desc": "Conforme a las especificaciones de embajadas y consulados, incluidos [[DS-160 de EE. UU.~:documents/us-visa-photo]], [[foto para visado Schengen~:documents/eu-visa-photo]], [[India~:documents/in-visa-photo]] y otros.",
+        "img": "/img/about-us/about-us-8.webp",
+        "alt": "Photogov visas photos"
+      },
+      {
+        "title": "Herramienta de fotos para tarjeta verde",
+        "desc": "[[Fotos para la lotería de tarjetas verdes (DV)~:dv-lottery]] y [[fotos para tarjeta verde~:documents/dv-lottery-photo-tool]] oficiales, listas para presentarse con las solicitudes.",
+        "img": "/img/about-us/about-us-10.webp",
+        "alt": "Photogov green card photos"
+      },
+      {
+        "title": "Fotos de documentos nacionales de identidad",
+        "desc": "Fotos para documentos de identidad y residencias temporales y permanentes, p. ej., [[foto de autorización de empleo en EE. UU.~:documents/us-employment-authorization-photo]] y [[foto de identidad 1x1~:documents/zz-1x1-photo]].",
+        "img": "/img/about-us/about-us-15.webp",
+        "alt": "Photogov national ID photos"
+      },
+      {
+        "title": "Fotos para licencia de conducir",
+        "desc": "Fotos para licencias de conducir internacionales y nacionales: [[licencia de conducir del Reino Unido~:documents/gb-driving-photo]], [[foto de licencia de conducir de India~:documents/in-driving-license-35x45-mm-photo]] y otras.",
+        "img": "/img/about-us/about-us-11.webp",
+        "alt": "Photogov driving license photos"
+      },
+      {
+        "title": "Foto de pasaporte para bebés",
+        "desc": "Fotos de pasaporte para niños, conforme a las normas gubernamentales internacionales.",
+        "img": "/img/about-us/about-us-9.webp",
+        "alt": "Photogov children IDs photos"
+      }
+    ]
   }
 }

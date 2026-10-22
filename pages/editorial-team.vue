@@ -1,57 +1,77 @@
 <script setup lang="ts">
 import { useLocalePath } from '#imports'
 import { useI18n } from 'vue-i18n'
-import PageSidebar from '~/components/PageSidebar.vue'
+import ServiceProvidedLine from '~/components/ServiceProvidedLine.vue'
 
+// 对标原站 /editorial-team/（F5 取证 SEEN）——异类布局：
+// main.bg-gray-100 py-10 lg:py-16 > container max-w-[1040px]
+//   > 朴素面包屑（Home › Editorial Team，无 hero 封面图）
+//   > article.rounded-lg bg-white p-6 lg:p-12（H1 30/36px + 引言 + H2 Editors + 编辑卡 + 尾部 border-t 链接）
+//   > Service provided by 行
 const localePath = useLocalePath()
 const { t } = useI18n()
-useHead({ title: t('editorialTeam.title') })
+
+useHead({
+  title: t('editorialTeam.title'),
+  meta: [
+    { name: 'description', content: t('editorialTeam.intro') },
+  ],
+})
 </script>
 
 <template>
-  <div class="container-pg py-14">
-    <div class="grid gap-12 lg:grid-cols-[1fr_240px]">
-      <div class="mx-auto max-w-3xl">
-        <!-- 面包屑（对标原站：Home › Editorial Team） -->
-        <nav class="text-sm text-muted" aria-label="Breadcrumb">
-          <NuxtLink :to="localePath('/')" class="hover:text-brand-blue hover:underline">{{ $t('nav.home') }}</NuxtLink>
-          <span class="mx-1">›</span>
-          <span>{{ $t('editorialTeam.breadcrumb') }}</span>
-        </nav>
+  <main class="bg-gray-100 py-10 lg:py-16">
+    <div class="container max-w-[1040px]">
+      <!-- 面包屑（朴素样式，无 hero 背景） -->
+      <nav class="mb-8 text-sm text-gray-600" aria-label="Breadcrumb">
+        <NuxtLink :to="localePath('/')" class="underline duration-200 hover:text-red-700">{{ $t('common.homePage') }}</NuxtLink>
+        <span aria-hidden="true"> › </span>
+        <span aria-current="page">{{ $t('editorialTeam.breadcrumb') }}</span>
+      </nav>
 
-        <h1 class="mt-3 text-3xl font-bold sm:text-4xl">{{ $t('editorialTeam.title') }}</h1>
-        <p class="mt-4 text-muted">{{ $t('editorialTeam.intro') }}</p>
+      <article class="rounded-lg bg-white p-6 lg:p-12">
+        <h1 class="text-[30px] font-bold leading-tight lg:text-[36px]">{{ $t('editorialTeam.title') }}</h1>
+        <p class="mt-5 max-w-[700px] font-serif text-lg">{{ $t('editorialTeam.intro') }}</p>
 
-        <!-- 编辑介绍卡 -->
-        <section class="mt-10">
-          <h2 class="text-2xl font-semibold">{{ $t('editorialTeam.editorsTitle') }}</h2>
-          <div class="card-pg mt-5 p-6">
-            <h3 class="text-lg font-semibold">{{ $t('editorialTeam.name') }}</h3>
-            <p class="mt-1 text-sm font-medium text-brand-blue">{{ $t('editorialTeam.role') }}</p>
-            <p class="mt-3 text-muted">{{ $t('editorialTeam.bio') }}</p>
+        <h2 class="mt-10 text-2xl font-semibold">{{ $t('editorialTeam.editorsTitle') }}</h2>
+
+        <!-- 编辑卡：64px 头像 + 姓名链接 + 职务 + 简介 + LinkedIn -->
+        <div class="mt-6 flex items-start gap-5 max-sm:flex-col">
+          <img
+            src="/img/editorial/olia-potiagaeva.jpg"
+            :alt="$t('editorialTeam.name')"
+            width="64"
+            height="64"
+            class="size-16 shrink-0 rounded-lg object-cover"
+          >
+          <div class="max-w-[600px]">
+            <h3 class="text-xl font-semibold">
+              <NuxtLink :to="localePath('/editorial-team')" class="text-blue-700 underline duration-200 hover:text-red-700">
+                {{ $t('editorialTeam.name') }}
+              </NuxtLink>
+            </h3>
+            <p class="mt-1 font-serif text-gray-600">{{ $t('editorialTeam.role') }}</p>
+            <p class="mt-3 font-serif">{{ $t('editorialTeam.bio') }}</p>
             <a
               href="https://www.linkedin.com/in/olia-potiagaeva"
               target="_blank"
               rel="noopener"
-              class="mt-3 inline-flex items-center gap-2 text-sm font-medium text-brand-blue underline"
+              class="mt-3 inline-block text-blue-700 underline duration-200 hover:text-red-700"
             >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.76-1.95C20.4 8.75 22 10.6 22 14.1V21h-4v-6.1c0-1.5-.54-2.5-1.87-2.5-1.02 0-1.63.68-1.9 1.34-.1.23-.13.55-.13.88V21h-4V9Z"/>
-              </svg>
               {{ $t('editorialTeam.linkedin') }}
             </a>
           </div>
-        </section>
+        </div>
 
-        <!-- 流程入口（对标原站链接到 editorial-policy） -->
-        <p class="mt-8 text-muted">
-          <NuxtLink :to="localePath('/editorial-policy')" class="font-medium text-brand-blue underline">
+        <!-- 尾部：border-t 分隔 + 编辑政策链接 -->
+        <p class="mt-10 border-t pt-6 font-serif">
+          <NuxtLink :to="localePath('/editorial-policy')" class="text-blue-700 underline duration-200 hover:text-red-700">
             {{ $t('editorialTeam.processText') }}
           </NuxtLink>
         </p>
-      </div>
-
-      <PageSidebar />
+      </article>
     </div>
-  </div>
+
+    <ServiceProvidedLine />
+  </main>
 </template>
