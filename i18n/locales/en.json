@@ -446,19 +446,6 @@
     "toolSub": "Upload a selfie, and our photo converter resizes and crops it to the exact specifications automatically. Works on iPhone, Android and desktop — no studio visit required.",
     "freeBadge": "Free"
   },
-  "faq": {
-    "eyebrow": "Help Center",
-    "title": "Frequently asked questions",
-    "sub": "Everything you need to know about making compliant passport, visa and ID photos with PhotoGov.",
-    "searchPlaceholder": "Search questions…",
-    "all": "All",
-    "empty": "No questions match “{query}”.",
-    "emptyHint": "Try a different keyword, or",
-    "contactUs": "contact us",
-    "ctaTitle": "Still have a question?",
-    "ctaText": "Our team is happy to help you get a compliant photo.",
-    "ctaBtn": "Contact us"
-  },
   "blog": {
     "eyebrow": "Blog",
     "title": "Passport & visa photo guides",
@@ -1883,7 +1870,8 @@
     "euPrivacy": "EU Data Protection",
     "usCompliance": "US ID Photo Compliance",
     "globalCompliance": "Global ID Photo Compliance",
-    "nonAffiliation": "Non-Affiliation Notice"
+    "nonAffiliation": "Non-Affiliation Notice",
+    "navigation": "Navigation"
   },
   "navDocs": {
     "us-passport-photo": "US Passport Photo",
@@ -1898,5 +1886,108 @@
     "in-visa-photo": "Indian Visa Photo",
     "canada-temporary-resident-permit-photo": "Canada Temporary Resident Visa",
     "dv-lottery-photo-tool": "DV Lottery Photo Tool"
+  },
+  "faqPage": {
+    "metaTitle": "PhotoGov.net FAQ - Answers to Common Questions and Concerns",
+    "metaDesc": "Browse our comprehensive FAQ page to find answers to your questions about PhotoGov.net's photo processing services, payment methods, security, and more, ensuring a smooth and hassle-free experience.",
+    "breadcrumb": "Frequently Asked Questions",
+    "heroTitle": "Help center and support",
+    "heroDesc": "Information on the location of official state embassies around the world with contact details and representative offices.",
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "q": "What is PhotoGov.net?",
+        "a": "PhotoGov.net is an online service that creates compliant document photos from ordinary smartphone photos. The service uses built-in artificial intelligence to automatically process images to meet official document requirements."
+      },
+      {
+        "q": "What types of documents can PhotoGov.net process photos for?",
+        "a": "PhotoGov.net can process photos for various government documents, including passports, visas, and other identification documents."
+      },
+      {
+        "q": "How does PhotoGov.net ensure that the processed photos meet official requirements?",
+        "a": "PhotoGov.net’s algorithm is developed in collaboration with embassies and government agencies from multiple countries, ensuring that the photos created meet the most up-to-date requirements."
+      },
+      {
+        "q": "Is PhotoGov.net free to use?",
+        "a": "You can create two free ID photos per day, depending on your location. In the US, the UK, Canada, Australia, the UAE and some European and Asian countries, a fee applies, and you see the price before you pay."
+      },
+      {
+        "q": "How does PhotoGov.net process photos?",
+        "a": "PhotoGov.net uses artificial intelligence and a complex chain of neural networks to automatically remove the background, adjust head tilt, face scale, color, contrast, and clothing, creating a photo that meets all official document requirements."
+      },
+      {
+        "q": "How long does it take for PhotoGov.net to process a photo?",
+        "a": "PhotoGov.net can process a photo for a document in just 24 seconds."
+      },
+      {
+        "q": "Is PhotoGov.net secure?",
+        "a": "Yes, PhotoGov.net is fully compliant with security standards, data protection regulations, SSL encryption, and GDPR cookie protection laws."
+      },
+      {
+        "q": "What payment methods does PhotoGov.net accept?",
+        "a": "PhotoGov.net accepts payments via bank cards and e-money. The processing gateway is provided through Stripe."
+      },
+      {
+        "q": "Does PhotoGov.net offer a refund policy?",
+        "a": "Yes, PhotoGov.net has a comprehensive refund policy. If there is any error in processing, the full amount is returned to the user upon their request, and an additional photo for any chosen document is provided for free."
+      },
+      {
+        "q": "How can I contact PhotoGov.net’s support team?",
+        "a": "You can reach PhotoGov.net’s support team by emailing {email} or submitting a request through the website."
+      },
+      {
+        "q": "What are the prices for processing photos on PhotoGov.net?",
+        "a": "The price depends on your location: a digital photo costs $6.90 in the US, £4.90 in the UK, C$5.90 in Canada and from $3.90 in other countries. You get two free ID photos per day, depending on your location, and you always see the price before you pay."
+      },
+      {
+        "q": "Does PhotoGov.net offer a separate rate for business requests?",
+        "a": "Yes, PhotoGov.net offers a separate rate for business requests and API access."
+      },
+      {
+        "q": "Is there any mobile application for PhotoGov.net?",
+        "a": "As of now, PhotoGov.net operates as an online service accessible through web browsers on mobile devices and computers."
+      },
+      {
+        "q": "Can I use PhotoGov.net for documents from different countries?",
+        "a": "Yes, PhotoGov.net supports document photo processing for various countries, as it is developed in collaboration with numerous embassies and government agencies worldwide."
+      },
+      {
+        "q": "Do I need to create an account to use PhotoGov.net?",
+        "a": "No, you can use PhotoGov.net’s services without creating an account."
+      },
+      {
+        "q": "How do I know if my photo is suitable for processing?",
+        "a": "PhotoGov.net’s artificial intelligence analyzes the submitted photo and checks it against certain criteria. However, it is important to keep in mind that the tool does not evaluate the lighting and clarity of the photo.\nOur tool evaluates the original photo based on the following parameters:\nThe size and weight of the photo file.\nBody position (e.g., proper head and shoulder placement).\nImportant: Before uploading a photo to our tool, we strongly recommend that you check if it meets the basic requirements yourself:\nThe photo should be clear and without blurring.\nThe lighting should be even, without shadows on the face.\nThe background of the photo should be monochromatic and meet the standards for the document.\nIf in doubt, please see the instructions on our website or contact us for further guidance."
+      },
+      {
+        "q": "What file formats does PhotoGov.net accept for processing?",
+        "a": "PhotoGov.net accepts popular image formats, such as JPEG and PNG."
+      },
+      {
+        "q": "Can I use PhotoGov.net to process photos for my entire family?",
+        "a": "Yes, you can use PhotoGov.net to process photos for multiple family members or individuals, provided you follow the guidelines for each document type."
+      },
+      {
+        "q": "How do I receive my processed photo?",
+        "a": "After processing your photo, PhotoGov.net"
+      },
+      {
+        "q": "Can I update my processed photo if my appearance changes?",
+        "a": "Yes, you can use PhotoGov.net to process a new photo if your appearance changes or if you need to update your document photo for any reason. Simply follow the same process as before to create an updated, compliant photo."
+      },
+      {
+        "q": "Why wasn’t my photo accepted?",
+        "a": "Your photo may have been rejected due to one or more of the following reasons:\n- The photo is blurry or unclear.\n- The lighting is uneven, with shadows on the face.\n- The position of the head and shoulders does not meet the required standards.\n- The background does not match the document requirements."
+      },
+      {
+        "q": "What should I do if I uploaded an unsuitable photo?",
+        "a": "If you uploaded a photo that doesn’t meet the requirements, you can request assistance by contacting our support team at <a class=\"text-blue-600 underline hover:text-red-600\" href=\"mailto:{email}\">{email}</a>.\nOur team will provide recommendations and guide you on how to upload a new photo that complies with the standards."
+      },
+      {
+        "q": "How can I check if my photo meets the standards?",
+        "a": "Before uploading your photo, please ensure the following:\n- The photo is clear, with no blurriness.\n- The lighting is even, without shadows on the face.\n- The background is solid and matches the document standards.\n- The head and shoulders are positioned correctly according to the guidelines.\nFor further assistance, consult the detailed instructions on our website or contact our support team for help."
+      }
+    ],
+    "homePage": "Home page"
   }
 }

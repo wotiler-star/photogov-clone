@@ -31,6 +31,29 @@ h1, h2, h3, h4 {
   .container-pg {
     @apply mx-auto w-full max-w-container px-4 sm:px-6;
   }
+  /* 对标原站 .container：1240px 上限，≥1240px 时左右内边距 3rem（F4 取证） */
+  .container {
+    @apply mx-auto w-full px-6;
+    max-width: 100%;
+  }
+  @media (min-width: 1240px) {
+    .container {
+      max-width: 1240px;
+      @apply px-12;
+    }
+  }
+  /* 对标原站 hero 背景类：背景图拉伸铺满（bg-full） */
+  .bg-full {
+    background-size: 100% 100%;
+  }
+  /* 对标原站：隐藏滚动条但保留滚动（面包屑横滑等） */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors;
   }
