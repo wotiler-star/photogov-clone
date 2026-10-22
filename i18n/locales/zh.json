@@ -2338,5 +2338,49 @@
         "alt": "Photogov children IDs photos"
       }
     ]
+  },
+  "docByline": {
+    "author": "Olia Potiagaeva",
+    "writtenBy": "作者：",
+    "role": "，总编辑",
+    "reviewedPrefix": "审核：",
+    "team": "PhotoGov 编辑团队",
+    "rating": "4.8 / 5.0 Google",
+    "checkedAgainst": "已核验："
+  },
+  "docTrust": {
+    "refundTitle": "免费重拍或全额退款",
+    "refundText": "如果照片因我方失误被拒，我们负责到底。",
+    "refundCta": "退款政策",
+    "checkTitle": "按 8 项官方参数校验",
+    "checkText": "每个文件在下载前都会完成校验。",
+    "checkCta": "合规校验",
+    "recheckTitle": "每 8 周复核一次规范",
+    "recheckText": "对照 {authority} 规范，确保模板不会落后于规则变更。",
+    "lastChecked": "最后核验：{date}。",
+    "recheckCta": "官方政府来源"
+  },
+  "docToc": {
+    "title": "本页目录：",
+    "updated": "文章最后更新 {date}"
+  },
+  "docOther": {
+    "title": "其他证件 —— {country}证件照",
+    "docCount": "{count} 个证件"
+  },
+  "docNotice": {
+    "lead": "PhotoGov.net 严格遵守",
+    "regulations": "全球证件照规范",
+    "relatedTitle": "相关页面"
+  },
+  "docSections": {
+    "sourcesTitle": "官方政府来源",
+    "sourcesChecked": "已对照 {authority} 的照片要求核验",
+    "sourcesLastChecked": "最后核验：{date}",
+    "linkApply": "申请护照",
+    "linkPhotoStandards": "照片标准",
+    "linkRenewal": "在线续签",
+    "linkFirstTime": "首次申请",
+    "linkBiometric": "生物特征规范（ICAO 9303）"
   }
 }

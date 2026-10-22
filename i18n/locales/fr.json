@@ -2338,5 +2338,49 @@
         "alt": "Photogov children IDs photos"
       }
     ]
+  },
+  "docByline": {
+    "author": "Olia Potiagaeva",
+    "writtenBy": "Rédigé par",
+    "role": ", rédactrice en chef",
+    "reviewedPrefix": "Relu par l'",
+    "team": "équipe éditoriale de PhotoGov",
+    "rating": "4.8 / 5.0 Google",
+    "checkedAgainst": "Vérifié auprès de"
+  },
+  "docTrust": {
+    "refundTitle": "Nouvelle prise gratuite ou remboursement intégral",
+    "refundText": "Si votre photo est refusée en raison d'une erreur de notre part.",
+    "refundCta": "Politique de remboursement",
+    "checkTitle": "Vérifié selon 8 paramètres officiels",
+    "checkText": "Chaque fichier est validé avant le téléchargement.",
+    "checkCta": "Contrôle de conformité",
+    "recheckTitle": "Exigences revérifiées toutes les 8 semaines",
+    "recheckText": "Par rapport aux spécifications de {authority}, afin que le modèle ne soit jamais dépassé.",
+    "lastChecked": "Dernière vérification : {date}.",
+    "recheckCta": "Sources gouvernementales officielles"
+  },
+  "docToc": {
+    "title": "Sur cette page :",
+    "updated": "dernière mise à jour {date}"
+  },
+  "docOther": {
+    "title": "Autres documents — photos d'identité pour {country}",
+    "docCount": "{count} doc."
+  },
+  "docNotice": {
+    "lead": "PhotoGov.net respecte strictement la",
+    "regulations": "réglementation mondiale des photos d'identité",
+    "relatedTitle": "Pages associées"
+  },
+  "docSections": {
+    "sourcesTitle": "Sources gouvernementales officielles",
+    "sourcesChecked": "Vérifié auprès des exigences photographiques de {authority}",
+    "sourcesLastChecked": "Dernière vérification : {date}",
+    "linkApply": "Demander un passeport",
+    "linkPhotoStandards": "Normes photographiques",
+    "linkRenewal": "Renouvellement en ligne",
+    "linkFirstTime": "Première demande",
+    "linkBiometric": "Réglementation biométrique (ICAO 9303)"
   }
 }

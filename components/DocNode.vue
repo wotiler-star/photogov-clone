@@ -15,6 +15,9 @@ import { defineComponent, h } from 'vue'
 import { NuxtLink } from '#components'
 import Self from './DocNode.vue'
 import PhotoTool from './PhotoTool.vue'
+import DocFaq from './DocFaq.vue'
+import DocToc from './DocToc.vue'
+import { slugifyHeading, stripTags } from '~/utils/docAnchor'
 
 const DDikelyProps = ['attributes', 'children']
 
@@ -76,7 +79,14 @@ export default defineComponent({
     if (HTML_TAGS.has(name)) {
       const props: Record<string, any> = {}
       if (a.class) props.class = a.class
-      if (a.id) props.id = a.id
+      // 标题锚点：部分内容树的 h2 自带 id，其余按标题文本生成（与目录侧同一规则），
+      // 否则「On this page」的锚点会跳不到目标（原站 h2 id 即标题 slug，SEEN）。
+      if (a.id) {
+        props.id = a.id
+      } else if (name === 'h2') {
+        const slug = slugifyHeading(node.innerHtml || '')
+        if (slug) props.id = slug
+      }
       if (node.innerHtml) props.innerHTML = node.innerHtml
       return h(
         name === 'article-description' ? 'div' : name,
@@ -318,44 +328,33 @@ export default defineComponent({
         return h('td', { class: 'border-b border-slate-100 px-3 py-2' }, kids())
 
       // ——————— FAQ ———————
+      // FAQ：原站为「信息图标 + 问题 + 加号」行 + grid-rows 高度动画（见 DocFaq.vue）
       case 'DDFaq': {
         const items = parseJson(a.model) || []
-        return h('div', { class: 'space-y-2' }, [
-          ...items.map((it: any) =>
-            h('details', { class: 'rounded-lg border border-slate-200 bg-white px-4 py-3 open:shadow-sm' }, [
-              h('summary', { class: 'cursor-pointer font-medium' }, String(it?.q || '')),
-              h('div', { class: 'mt-2 text-sm text-muted', innerHTML: String(it?.a || '') }),
-            ]),
-          ),
-          ...kids(),
-        ])
+        return h('div', { class: 'mt-6' }, [h(DocFaq, { items }), ...kids()])
       }
 
-      // ——————— 作者 + 目录 ———————
+      // ——————— 目录（On this page） ———————
+      // SEEN：原站该位置渲染的是「Written by Olia Potiagaeva…」署名条 + 信任三卡 +
+      // 「ON THIS PAGE:」目录，且 SSR 里 authorData（如 John Bates）并不出镜——
+      // 所以此处只用 navigationList 渲染目录（署名条/信任卡由页面级 DocByline、
+      // DocTrustBar 统一提供，126 篇全覆盖，且不会重复）。
       case 'DDAuthor': {
-        const au = parseJson(a.authorData) || {}
         const nav = parseJson(a.navigationList) || []
-        return h('div', { class: 'grid gap-6 md:grid-cols-[260px_1fr]' }, [
-          h('div', { class: 'rounded-xl border border-slate-200 bg-white p-4' }, [
-            au.avatar?.src
-              ? h('img', { src: au.avatar.src, alt: au.avatar.alt || '', class: 'mb-2 h-12 w-12 rounded-full', loading: 'lazy' })
-              : null,
-            au.name ? h('div', { class: 'font-semibold' }, String(au.name)) : null,
-            a.lastUpdate ? h('div', { class: 'mt-1 text-xs text-muted' }, `Updated: ${a.lastUpdate}`) : null,
-            ...kids(),
-          ]),
-          nav.length
-            ? h('nav', { class: 'rounded-xl bg-slate-50 p-4' }, [
-                h('div', { class: 'mb-2 text-xs font-semibold uppercase tracking-wide text-muted' }, 'On this page'),
-                h('ul', { class: 'space-y-1 text-sm' },
-                  nav.map((n: any) =>
-                    h('li', {},
-                      h('a', { href: String(n?.to || ''), class: 'text-primary hover:underline' }, String(n?.text || '')),
-                    ),
-                  ),
-                ),
-              ])
-            : null,
+        const items = (Array.isArray(nav) ? nav : [])
+          .map((n: any) => ({
+            id: String(n?.to || '').replace(/^#/, ''),
+            text: String(n?.text || ''),
+          }))
+          .filter((x: any) => x.id && x.text)
+        // lastUpdate 形如 2026-09-10 → 原站目录右侧显示 09/10/2026
+        const d = String(a.lastUpdate || '')
+        const updated = /^\d{4}-\d{2}-\d{2}$/.test(d)
+          ? `${d.slice(8, 10)}/${d.slice(5, 7)}/${d.slice(0, 4)}`
+          : ''
+        return h('div', {}, [
+          items.length ? h(DocToc, { items, updated }) : null,
+          ...kids(),
         ])
       }
 

@@ -19,6 +19,7 @@ import DocCard from '~/components/DocCard.vue'
 import PhotoTool from '~/components/PhotoTool.vue'
 import { useApi } from '~/composables/useApi'
 import { useData } from '~/composables/useData'
+import { slugifyHeading, stripTags } from '~/utils/docAnchor'
 
 const route = useRoute()
 const slug = computed(() => route.params.slug as string)
@@ -150,6 +151,93 @@ const howToSchema = computed(() => {
       }
     ]
   }
+})
+
+// ── F6 尾部区块所需派生数据 ────────────────────────────────────────────────
+// 官方来源短名：按国家码映射签发机关（用于 Byline「Checked against …」与 Trust bar）
+const authorityName = computed(() => {
+  const d = doc.value as any
+  if (!d) return ''
+  const map: Record<string, string> = {
+    US: 'U.S. Department of State',
+    GB: 'HM Passport Office',
+    CA: 'Immigration, Refugees and Citizenship Canada',
+    IN: 'Ministry of External Affairs, India',
+    AU: 'Australian Passport Office',
+    DE: 'Bundesdruckerei',
+    FR: 'Ministère de l’Europe et des Affaires étrangères',
+    CN: 'National Immigration Administration'
+  }
+  return map[d.country] || d.countryName || ''
+})
+
+const authorityUrl = computed(() => {
+  const d = doc.value as any
+  return (d && d.source) || ''
+})
+
+// 内容树里是否自带 DDAuthor（其 navigationList 即原站目录数据源）。
+// 有 → 目录由 DocNode 在正文对应位置渲染；无 → 由页面级 DocToc 兜底，避免重复。
+const hasAuthorNode = computed(() => {
+  let found = false
+  const walk = (n: any) => {
+    if (found || !n) return
+    if (n.component === 'DDAuthor') {
+      found = true
+      return
+    }
+    for (const c of n.children || []) walk(c)
+  }
+  for (const n of nodes.value) walk(n)
+  return found
+})
+
+// 本页 H2 锚点（兜底目录用）：内容树里 h2 自带 id 就直接用，否则按标题文本生成，
+// 规则与 DocNode 渲染标题时完全一致（utils/docAnchor），保证锚点跳得到。
+const tocItems = computed(() => {
+  const out: { id: string; text: string }[] = []
+  const walk = (n: any) => {
+    if (!n) return
+    if (n.component === 'h2') {
+      const id = (n.attributes && n.attributes.id) || slugifyHeading(n.innerHtml || '')
+      const text = stripTags(n.innerHtml || '')
+      if (id && text) out.push({ id, text })
+    }
+    for (const c of n.children || []) walk(c)
+  }
+  for (const n of nodes.value) walk(n)
+  return out
+})
+
+// 同国家的其它证件（对标原站「Other Documents — {国家} ID Photos」手风琴）
+const otherDocs = computed(() => {
+  const d = doc.value as any
+  if (!d) return []
+  return documentsForCountry(d.country).filter((x) => x.slug !== d.slug)
+})
+
+// ── 日期口径（对标原站：Trust bar / 来源区用 DD.MM.YYYY，目录用 DD/MM/YYYY） ──
+const LAST_CHECKED = new Date('2026-10-12')
+const LAST_ARTICLE_UPDATE = new Date('2026-10-09')
+const pad = (n: number) => String(n).padStart(2, '0')
+const lastCheckedDot = computed(
+  () => `${pad(LAST_CHECKED.getDate())}.${pad(LAST_CHECKED.getMonth() + 1)}.${LAST_CHECKED.getFullYear()}`
+)
+const lastArticleUpdate = computed(
+  () => `${pad(LAST_ARTICLE_UPDATE.getDate())}/${pad(LAST_ARTICLE_UPDATE.getMonth() + 1)}/${LAST_ARTICLE_UPDATE.getFullYear()}`
+)
+
+// Related pages（对标原站：2 条知识库指南，指向本站已收录的同名条目）
+const relatedPages = computed(() => {
+  const d = doc.value as any
+  if (!d) return []
+  if (d.category === 'passport') {
+    return [
+      { label: 'Passport photo with an Android phone', to: '/knowledge/guides/how-to-take-passport-photo-on-android' },
+      { label: 'Baby and child passport photos', to: '/knowledge/requirements/baby-and-child-passport-photos' }
+    ]
+  }
+  return [{ label: 'Passport photo size guide', to: '/knowledge/faq/size-guide' }]
 })
 
 const url = useRequestURL()
@@ -388,33 +476,46 @@ useHead({
 
     <DocContent :nodes="nodes" />
 
-    <!-- 官方来源摘要卡（带最后核验日期；对标原站「Official Government Sources」的独立干净卡） -->
-    <section v-if="officialSourceLinks.length" class="container-pg mt-12">
-      <div class="card-pg border-l-4 border-[#ccb38d] p-6">
-        <h2 class="text-lg font-bold">{{ $t('doc.docSourcesTitle') }}</h2>
-        <p class="mt-2 text-sm text-muted">{{ $t('doc.docSourcesSub') }}</p>
-        <ul class="mt-4 space-y-2">
-          <li v-for="(l, i) in officialSourceLinks" :key="i">
-            <a
-              :href="l.url"
-              target="_blank"
-              rel="noopener"
-              :title="$t('doc.docSourcesOpen')"
-              class="inline-flex items-center gap-1.5 text-sm font-medium text-brand-blue hover:underline"
-            >
-              <svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M14 5h5v5M19 5l-9 9M12 5H6a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-6" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-              <span>{{ l.host }}</span>
-            </a>
-          </li>
-        </ul>
-        <div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted">
-          <span>{{ $t('doc.docSourcesLastVerified', { date: lastVerified }) }}</span>
-          <span class="text-white/40">·</span>
-          <span>{{ $t('doc.docSourcesNote') }}</span>
+    <!-- ═══ F6 尾部区块（对标原站文档页正文后的 6 个区块） ═══ -->
+    <!-- ① 作者署名条 -->
+    <DocByline :authority="authorityName" :authority-url="authorityUrl" />
+
+    <!-- ② 信任三条 -->
+    <DocTrustBar :authority="authorityName" :last-checked="lastCheckedDot" />
+
+    <!-- ③ On this page 目录（内容树无 DDAuthor 时兜底渲染，见 hasAuthorNode） -->
+    <DocToc v-if="!hasAuthorNode && tocItems.length" :items="tocItems" :updated="lastArticleUpdate" />
+
+    <!-- ④ 独立声明 -->
+    <DocFooterNotice :related="relatedPages" />
+
+    <!-- ⑤ 官方政府来源（逐条标签版） -->
+    <section v-if="officialSourceLinks.length" id="official-government-sources" class="container">
+      <div class="lg:max-w-[700px]">
+        <div class="space-y-4">
+          <div class="text-[32px] font-semibold leading-[1.3] font-serif">
+            <h2>{{ $t('docSections.sourcesTitle') }}</h2>
+          </div>
+          <p class="text-[15px] leading-relaxed">
+            {{ $t('docSections.sourcesChecked', { authority: authorityName }) }}:
+            <a :href="officialSourceLinks[0].url" target="_blank" rel="noopener" class="break-all text-blue-600 underline duration-200 hover:text-red-600">{{ officialSourceLinks[0].url }}</a>
+            <span aria-hidden="true"> · </span>{{ $t('docSections.sourcesLastChecked', { date: lastCheckedDot }) }}
+          </p>
+          <p v-for="(l, i) in officialSourceLinks" :key="i" class="text-[15px] leading-relaxed">
+            <b class="font-semibold">{{ i === 0 ? $t('docSections.linkPhotoStandards') : l.host }}: </b>
+            <a :href="l.url" target="_blank" rel="noopener" class="text-blue-600 underline duration-200 hover:text-red-600">{{ l.host }}</a>
+          </p>
         </div>
       </div>
     </section>
+
+    <!-- ⑥ 同国家其它证件 -->
+    <DocOtherDocuments
+      v-if="otherDocs.length"
+      :country-code="(doc as any).country"
+      :country-name="(doc as any).countryName"
+      :docs="otherDocs as any"
+    />
   </article>
 </template>
+

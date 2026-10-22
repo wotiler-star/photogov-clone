@@ -2338,5 +2338,49 @@
         "alt": "Photogov children IDs photos"
       }
     ]
+  },
+  "docByline": {
+    "author": "Olia Potiagaeva",
+    "writtenBy": "Written by",
+    "role": ", Managing Editor",
+    "reviewedPrefix": "Reviewed by the",
+    "team": "PhotoGov Editorial Team",
+    "rating": "4.8 / 5.0 Google",
+    "checkedAgainst": "Checked against"
+  },
+  "docTrust": {
+    "refundTitle": "Free retake or full refund",
+    "refundText": "If your photo is rejected because of an error on our side.",
+    "refundCta": "Refund Policy",
+    "checkTitle": "Checked against 8 official parameters",
+    "checkText": "Every file is validated before you download it.",
+    "checkCta": "Compliance check",
+    "recheckTitle": "Requirements re-checked every 8 weeks",
+    "recheckText": "Against the {authority} specification, so the template never falls behind a rule change.",
+    "lastChecked": "Last checked: {date}.",
+    "recheckCta": "Official Government Sources"
+  },
+  "docToc": {
+    "title": "On this page:",
+    "updated": "last article update {date}"
+  },
+  "docOther": {
+    "title": "Other Documents — {country} ID Photos",
+    "docCount": "{count} doc."
+  },
+  "docNotice": {
+    "lead": "PhotoGov.net strictly adheres to the",
+    "regulations": "Global regulations for ID photos",
+    "relatedTitle": "Related pages"
+  },
+  "docSections": {
+    "sourcesTitle": "Official Government Sources",
+    "sourcesChecked": "Checked against the {authority} photo requirements",
+    "sourcesLastChecked": "Last checked: {date}",
+    "linkApply": "Apply for a passport",
+    "linkPhotoStandards": "Photo standards",
+    "linkRenewal": "Online renewal",
+    "linkFirstTime": "First-time application",
+    "linkBiometric": "Biometric regulations (ICAO 9303)"
   }
 }
