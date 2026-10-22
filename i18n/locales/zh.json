@@ -20,7 +20,13 @@
     "security": "安全",
     "contactUs": "联系我们",
     "helpCenter": "帮助中心",
-    "knowledge": "知识库"
+    "knowledge": "知识库",
+    "popularDocuments": "热门证件",
+    "passportPhotos": "护照照片",
+    "visaPhotos": "签证照片",
+    "aboutGroup": "关于我们",
+    "menu": "菜单",
+    "closeMenu": "关闭菜单"
   },
   "header": {
     "countryBar": "按国家查看护照照片要求",
@@ -34,51 +40,38 @@
   "footer": {
     "tagline": "几秒钟即可在线制作合规的护照、签证和身份证照片。免费、私密，并被全球政府机构认可。",
     "notAffiliated": "与任何政府机构无隶属关系。",
-    "colDocuments": "证件",
     "colCompany": "公司",
-    "colLegal": "法律",
     "links": {
-      "allDocuments": "全部证件",
-      "passports": "护照",
-      "visas": "签证",
-      "dvLottery": "绿卡抽签照片",
-      "idPhotos": "身份证照片",
-      "about": "关于我们",
-      "blog": "博客",
-      "faq": "常见问题",
-      "compliance": "合规性",
-      "contact": "联系我们",
-      "helpCenter": "帮助中心",
-      "privacy": "隐私政策",
-      "terms": "服务条款",
-      "cookie": "Cookie 政策",
-      "colSupport": "支持",
+      "dvLotteryTools": "DV Lottery 照片工具",
+      "downloadIos": "下载 PhotoGov (iOS)",
+      "downloadAndroid": "下载 PhotoGov (Android)",
       "aboutUs": "关于我们",
-      "contacts": "联系我们",
+      "editorialTeam": "编辑团队",
+      "editorialPolicy": "编辑政策",
+      "contacts": "联系方式",
       "prices": "价格",
-      "howItWorks": "使用流程",
+      "whyChooseUs": "为什么选择我们？",
       "reviews": "用户评价",
       "security": "安全",
-      "whyChooseUs": "为什么选择我们",
+      "helpCenter": "帮助中心",
+      "faq": "常见问题",
+      "howItWorks": "如何使用？",
+      "allDocuments": "全部证件",
       "knowledge": "知识库",
-      "termsOfUse": "使用条款",
+      "termsOfUse": "条款与条件",
       "privacyPolicy": "隐私政策",
       "cookiePolicy": "Cookie 政策",
       "refundPolicy": "退款政策",
       "euPrivacy": "欧盟数据保护",
       "usCompliance": "美国证件照合规",
       "globalCompliance": "全球证件照合规",
-      "nonAffiliation": "非附属声明",
-      "drivingPhotos": "驾驶执照照片",
-      "myAccount": "我的账户",
-      "myPhotos": "已保存照片",
-      "subscription": "订阅管理"
+      "nonAffiliation": "非关联声明"
     },
     "copyright": "© {year} PhotoGov。仿照 www.photogov.net 制作的演示克隆。",
     "madeWith": "使用 Nuxt 3 · Vue 3 · Tailwind CSS 构建",
     "colSupport": "支持",
     "colPassportPhotos": "护照照片",
-    "colVisaPhotos": "签证照片",
+    "colVisaPhotos": "全部签证照片",
     "colOtherServices": "其他服务",
     "browseByCountry": "按国家浏览",
     "getApp": "下载 PhotoGov 应用",
@@ -86,7 +79,14 @@
     "downloadOn": "下载于",
     "appStore": "App Store",
     "googlePlay": "Google Play",
-    "colMyAccount": "我的账户"
+    "companyInfo": "Service provided by Y VISION TECHNOLOGIES LLP · Stoney Works 8 Stoney Lane, London, England, SE19 3BD",
+    "termsShort": "条款",
+    "refundShort": "退款政策",
+    "contactShort": "联系",
+    "disclaimer": "*与任何政府机构无关联。是否受理最终由主管部门决定。",
+    "detailedLegal": "详细法律信息",
+    "bottomText": "PhotoGov 的信息受法律保护，禁止擅自复制和滥用。",
+    "tmCopyright": "© TM 版权所有"
   },
   "cookie": {
     "text": "我们使用 Cookie 来改善您的体验并分析流量。继续浏览即表示您同意我们的{policy}。",
@@ -664,35 +664,6 @@
     "send": "发送留言",
     "thanks": "谢谢！您的留言已记录（演示表单，不会真正发送邮件）。"
   },
-  "help": {
-    "eyebrow": "帮助",
-    "title": "帮助中心",
-    "sub": "最常见问题的解答。",
-    "qa": [
-      {
-        "q": "PhotoGov 真的免费吗？",
-        "a": "是的。制作和下载照片都是免费的，且无水印。"
-      },
-      {
-        "q": "你们会存储我的照片吗？",
-        "a": "不会。处理在您的浏览器中进行，我们绝不上传您的图片。"
-      },
-      {
-        "q": "应该下载什么格式？",
-        "a": "在线提交用 JPG，到照相馆打印用 PDF。"
-      },
-      {
-        "q": "我的照片被拒了，怎么办？",
-        "a": "重新核对证件页面的要求（背景、头部大小、表情）并重新拍摄。"
-      },
-      {
-        "q": "支持哪些国家？",
-        "a": "超过 100 个国家，尺寸持续更新。"
-      }
-    ],
-    "stillNeed": "还需要帮助？",
-    "btn": "联系我们"
-  },
   "compliance": {
     "eyebrow": "合规性",
     "title": "我们如何保持合规",
@@ -1225,7 +1196,8 @@
       "重新下载已生成的文件",
       "跟踪审核状态（如已购买）"
     ],
-    "closing": "PhotoGov.net 集透明、自动化与全球合规于一体。无论您需要单张证件照还是企业级解决方案，我们的服务都致力于提供可靠与便捷。"
+    "closing": "PhotoGov.net 集透明、自动化与全球合规于一体。无论您需要单张证件照还是企业级解决方案，我们的服务都致力于提供可靠与便捷。",
+    "savePercent": "省 {percent}%"
   },
   "howItWorks": {
     "eyebrow": "使用流程",
@@ -1766,5 +1738,165 @@
     "s3p5": "我们尊重您的数据权利，提供访问、更正或删除个人数据及管理同意的机制。",
     "s3h6": "联系我们",
     "s3p6": "如对我们的数据保护实践有任何疑问，请联系我们的数据保护官：{email}。"
+  },
+  "support": {
+    "eyebrow": "支持",
+    "title": "帮助中心",
+    "sub": "联系我们的团队，或浏览关于照片、付款等最常见问题的解答。",
+    "heroTitle": "专业支持，让照片制作顺畅无忧",
+    "heroP1": "使用 PhotoGov.net 服务需要帮助或有疑问？我们的支持团队随时为您解答在线照片工具使用中的任何问题，欢迎随时联系。",
+    "heroP2": "每一项请求都由在相应领域拥有直接经验的资深专员处理——涵盖照片准备与技术调整、付款、下载以及各国合规建议。",
+    "contactTitle": "如何联系我们",
+    "formTitle": "支持请求表单",
+    "formIntro": "通过网站表单提交工单。请写清主题、简要描述问题并附上截图。",
+    "inquiryType": "咨询类型",
+    "selectOption": "-请选择-",
+    "inquiryOptions": [
+      "技术问题",
+      "付款与账单",
+      "照片处理",
+      "合规问题",
+      "其他"
+    ],
+    "firstName": "名字",
+    "lastName": "姓氏",
+    "email": "电子邮箱",
+    "emailHint": "示例：{email}",
+    "phone": "电话号码",
+    "comment": "备注",
+    "commentPlaceholder": "描述您的问题",
+    "attachFile": "附加文件",
+    "send": "发送咨询",
+    "sent": "感谢您的提交！我们将在 1–2 个工作日内回复。",
+    "emailLabel": "电子邮箱",
+    "emailNote": "请写清主题并简要描述问题，附上截图有助于我们更快处理您的请求。",
+    "fasterTitle": "为更快解决您的问题，建议提供以下信息",
+    "fasterIntro": "这些细节能帮助我们更快定位原因并给出解决方案：",
+    "fasterItems": [
+      "证件类型与国家（如：美国护照、加拿大签证、欧盟身份证）",
+      "问题出现的步骤（上传、背景、裁剪、下载或付款）",
+      "设备与浏览器（如：iPhone 14 iOS 18.6.2、Safari；Windows 11、Chrome）",
+      "如有错误提示或代码，请一并提供。"
+    ],
+    "availabilityTitle": "服务时间",
+    "availabilityItems": [
+      "工作日：周一至周五",
+      "时间：上午 9:00 – 下午 6:00（UTC+7）",
+      "目标响应时间：1–2 个工作日"
+    ],
+    "faqTitle": "常见问题",
+    "faq": [
+      {
+        "q": "PhotoGov 在线照片工具支持哪些证件类型？",
+        "a": "PhotoGov.net 支持 136 个国家/地区的 900 多种证件类型。无论您需要护照照片、签证照片、驾照照片、居留许可照片、移民照片还是身份证照片，我们的在线照片工具都会自动调整图像以满足官方要求，并输出完全合规的数字图像，可直接下载、打印和用于申请。\n热门类别包括：美国签证照片、英国护照照片、英国签证照片、欧盟申根签证照片、阿联酋 ID 照片、阿联酋签证照片、印度护照照片、加拿大护照照片、加拿大 PR 卡照片、马来西亚护照照片、1x1 照片。"
+      },
+      {
+        "q": "如何使用 PhotoGov 在线护照照片服务？",
+        "a": "1. 选择证件类型和国家——涵盖 136 个国家的 900 多种格式，包括护照、签证、身份证及其他官方证件。\n2. 上传照片——您可以现场拍摄新照片，也可以从设备上传已有照片。\n3. 系统自动调整图像——自动裁剪、调整尺寸并对齐，以满足官方要求。\n4. 预览并下载——查看结果，下载数字版本，或订购可打印文件。"
+      },
+      {
+        "q": "PhotoGov 在线照片服务免费吗？",
+        "a": "PhotoGov 为所有用户提供免费上传和预览。在部分国家/地区，下载高分辨率或完全合规的照片是免费的；在其他地区，最终版本需支付少量费用。"
+      },
+      {
+        "q": "PhotoGov.net 支持哪些付款方式？",
+        "a": "PhotoGov.net 支持主流银行卡和电子支付系统付款。所有交易均通过 Stripe 安全处理——Stripe 是符合全球安全与数据保护标准的可信国际支付网关。"
+      },
+      {
+        "q": "PhotoGov.net 如何处理照片以符合要求？",
+        "a": "PhotoGov.net 采用自动化图像处理，使每张照片符合官方证件标准。系统会去除背景、对齐头肩位置、调整比例、光照和色彩平衡，并对照国际要求核查关键参数。\n内置合规引擎会针对每种证件类型，核查尺寸、背景、脸部大小、位置和边距等关键技术参数，确保最终图像在下载前即符合所需规格。\nPhotoGov.net 是一个独立的在线服务，旨在帮助用户制作符合官方标准的证件照片。本平台与任何政府或发证机构均无关联、未获其认可或授权。"
+      },
+      {
+        "q": "你们保证我的证件照片会被受理吗？",
+        "a": "PhotoGov.net 不保证也不影响任何照片的受理结果。我们是独立服务，与任何政府机构或发证机构均无关联、未获其认可或授权。\n我们的系统采用先进的图像处理技术，使照片符合官方指南规定的技术要求，包括核查背景颜色与纹理、头部位置、脸部比例、眼线、边距、光照、对比度和文件格式。内置合规引擎会在生成文件前，针对特定证件类型和国家/地区的标准自动验证图像。\n该流程有助于降低被拒风险，但最终是否受理始终由审核申请的官方机构决定。即使是完全合规的图像，也可能因技术格式以外的原因被拒——例如照片过时、表情不当或当地法规变化。因此，任何私营服务都无法提供 100% 的受理保证。"
+      },
+      {
+        "q": "我可以获得退款吗？",
+        "a": "可以。PhotoGov.net 提供简便的退款选项。如果发生技术或处理错误，用户可以申请全额退款。除了退款，我们还会为任意所选证件类型免费赠送一张已处理的照片。"
+      }
+    ]
+  },
+  "editorialTeam": {
+    "breadcrumb": "编辑团队",
+    "title": "认识 PhotoGov 编辑团队",
+    "intro": "PhotoGov 编辑团队负责撰写和审核 PhotoGov 上的每一篇指南和证件页面。我们对照发证机构公布的规则核查护照、签证和证件照要求，并在规则变化时及时更新页面。",
+    "editorsTitle": "编辑",
+    "name": "Olia Potiagaeva",
+    "role": "主编",
+    "bio": "Olia Potiagaeva 是资深内容负责人、前旅游记者，拥有 20 多年从业经验。",
+    "linkedin": "LinkedIn",
+    "processText": "我们如何创建和核查内容"
+  },
+  "editorialPolicy": {
+    "breadcrumb": "编辑政策",
+    "title": "编辑政策",
+    "subtitle": "PhotoGov 如何撰写、核查和更新护照、签证及证件照要求：官方来源、编辑审核与持续更新。",
+    "lastUpdated": "最后更新：2026 年 10 月 9 日",
+    "createTitle": "我们如何创建和核查内容",
+    "createP": "PhotoGov 是一个护照照片制作工具，也是一个国际证件照媒体平台，覆盖 150 多个国家的护照、签证和证件照要求。申请人通过我们的平台制作旅行或移民流程中最关键的要素之一——护照尺寸照片。我们严密监控政府要求，采用官方发证机构公布的规格，并持续更新数据库，以确保完全准确。",
+    "teamTitle": "我们的编辑团队",
+    "teamP": "PhotoGov 编辑团队负责研究、撰写和审核平台上的所有内容——从证件照片工具到知识中心的深度指南。团队由主编 Olia Potiagaeva 带领，她是一位专注于国际旅行与移民法规的记者。在任何规格上线之前，她都会对照主要政府来源亲自核实。",
+    "teamLink": "认识 PhotoGov 编辑团队。",
+    "sourcesTitle": "我们的来源",
+    "sourcesP": "PhotoGov 严格依据官方政府指南和国际民用航空组织（ICAO 9303 号文件：机读旅行证件）制定的全球标准。公布的要求均直接来源于主要机构，包括美国国务院、加拿大移民、难民及公民部（IRCC）、英国 HM Passport Office（HMPO）以及各国主管部门。每个证件页面都会注明主管机构，并链接到经我们团队核实的主要来源。",
+    "stepsTitle": "一个页面是如何创建的",
+    "steps": [
+      {
+        "t": "1. 研究。",
+        "d": "我们从官方发证机构获取最新的照片指南：物理与数字尺寸、头部比例、背景颜色、光照、眼镜与头巾规则、在线上传的文件格式以及纸质申请的打印规格。"
+      },
+      {
+        "t": "2. 起草与本地化。",
+        "d": "我们将官方指南转化为清晰、易懂的说明，并严格保留机构公布的所有精确参数——包括毫米、像素和文件大小。"
+      },
+      {
+        "t": "3. 编辑审核。",
+        "d": "PhotoGov 编辑团队对照官方来源核查页面上的每一项数值和规则。如来源之间存在冲突，以发证机构的要求为准。"
+      },
+      {
+        "t": "4. 发布。",
+        "d": "我们发布页面时，会同时注明所引用的机构、主要来源链接以及最后核实日期。"
+      }
+    ],
+    "updatesTitle": "持续更新",
+    "updatesP": "官方照片法规经常变化。为确保准确，我们每八周复审每个证件页面，并在机构发布新指南时立即更新。最近一次复审的日期始终显示在页面上。",
+    "correctionsTitle": "更正",
+    "correctionsP": "如果您发现不准确或过时的要求，请通过我们的联系页面告知我们。"
+  },
+  "sidebar": {
+    "company": "公司",
+    "support": "支持",
+    "legal": "法律",
+    "aboutUs": "关于我们",
+    "contacts": "联系方式",
+    "prices": "价格",
+    "whyChooseUs": "为什么选择我们",
+    "reviews": "用户评价",
+    "security": "安全",
+    "helpCenter": "帮助中心",
+    "faq": "常见问题",
+    "howItWorks": "如何使用",
+    "termsOfUse": "使用条款",
+    "privacyPolicy": "隐私政策",
+    "cookiePolicy": "Cookie 政策",
+    "refundPolicy": "退款政策",
+    "euPrivacy": "欧盟数据保护",
+    "usCompliance": "美国证件照合规",
+    "globalCompliance": "全球证件照合规",
+    "nonAffiliation": "非关联声明"
+  },
+  "navDocs": {
+    "us-passport-photo": "美国护照照片",
+    "ca-passport-photo": "加拿大护照照片",
+    "cn-passport-photo": "中国护照照片",
+    "au-passport-photo": "澳大利亚护照照片",
+    "gb-passport-photo": "英国护照照片",
+    "digital-passport-photo": "数字护照照片",
+    "us-visa-photo": "美国签证照片",
+    "ca-visa-photo": "加拿大签证照片",
+    "eu-visa-photo": "申根签证照片",
+    "in-visa-photo": "印度签证照片",
+    "canada-temporary-resident-permit-photo": "加拿大临时居民签证",
+    "dv-lottery-photo-tool": "DV Lottery 照片工具"
   }
 }

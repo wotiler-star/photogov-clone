@@ -38,7 +38,7 @@ export default defineEventHandler((event) => {
     { p: '/eu-privacy', pri: '0.5', freq: 'yearly' },
     { p: '/privacy-policy', pri: '0.3', freq: 'yearly' },
     { p: '/terms-of-use', pri: '0.3', freq: 'yearly' },
-    { p: '/help', pri: '0.5', freq: 'monthly' },
+    { p: '/support', pri: '0.5', freq: 'monthly' },
     { p: '/cookie-policy', pri: '0.3', freq: 'yearly' },
     { p: '/sign-in', pri: '0.3', freq: 'yearly' },
     // 与 photogov.net 对齐的新页面
@@ -58,7 +58,9 @@ export default defineEventHandler((event) => {
     { p: '/knowledge/requirements', pri: '0.6', freq: 'weekly' },
     { p: '/knowledge/guides', pri: '0.6', freq: 'weekly' },
     { p: '/knowledge/standards', pri: '0.6', freq: 'weekly' },
-    { p: '/knowledge/faq', pri: '0.6', freq: 'weekly' }
+    { p: '/knowledge/faq', pri: '0.6', freq: 'weekly' },
+    { p: '/editorial-team', pri: '0.4', freq: 'yearly' },
+    { p: '/editorial-policy', pri: '0.4', freq: 'yearly' }
   ]
 
   const docSlugs = Object.keys((documents as any).documents ?? {})

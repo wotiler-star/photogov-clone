@@ -41,3 +41,6 @@ data/payments.json
 *.zip
 # 抓取的原始响应/中间产物（可再生：运行 scripts/fetch_documents_api.py）
 data/_staging/
+
+# REA 逆向工作文件（证据/截图/任务状态，不入库）
+.rea/

@@ -20,7 +20,13 @@
     "security": "Seguridad",
     "contactUs": "Contáctenos",
     "helpCenter": "Centro de ayuda",
-    "knowledge": "Conocimiento"
+    "knowledge": "Conocimiento",
+    "popularDocuments": "Documentos populares",
+    "passportPhotos": "Fotos de pasaporte",
+    "visaPhotos": "Fotos de visa",
+    "aboutGroup": "Sobre nosotros",
+    "menu": "Menú",
+    "closeMenu": "Cerrar menú"
   },
   "header": {
     "countryBar": "Requisitos de fotos de pasaporte por país",
@@ -34,51 +40,38 @@
   "footer": {
     "tagline": "Crea fotos de pasaporte, visa e identidad conformes en línea en segundos. Gratis, privado y aceptado por agencias gubernamentales de todo el mundo.",
     "notAffiliated": "No afiliado con ninguna agencia gubernamental.",
-    "colDocuments": "Documentos",
     "colCompany": "Empresa",
-    "colLegal": "Legal",
     "links": {
-      "allDocuments": "Todos los documentos",
-      "passports": "Pasaportes",
-      "visas": "Visas",
-      "dvLottery": "Foto DV Lottery",
-      "idPhotos": "Fotos de identidad",
-      "about": "Acerca de nosotros",
-      "blog": "Blog",
-      "faq": "Preguntas frecuentes",
-      "compliance": "Cumplimiento",
-      "contact": "Contacto",
-      "helpCenter": "Centro de ayuda",
-      "privacy": "Política de privacidad",
-      "terms": "Términos del servicio",
-      "cookie": "Política de cookies",
-      "colSupport": "Soporte",
+      "dvLotteryTools": "Herramientas de foto DV Lottery",
+      "downloadIos": "Descargar PhotoGov (iOS)",
+      "downloadAndroid": "Descargar PhotoGov (Android)",
       "aboutUs": "Sobre nosotros",
-      "contacts": "Contacto",
+      "editorialTeam": "Equipo editorial",
+      "editorialPolicy": "Política editorial",
+      "contacts": "Contactos",
       "prices": "Precios",
-      "howItWorks": "Cómo funciona",
-      "reviews": "Reseñas",
+      "whyChooseUs": "¿Por qué elegirnos?",
+      "reviews": "Opiniones",
       "security": "Seguridad",
-      "whyChooseUs": "Por qué elegirnos",
+      "helpCenter": "Centro de ayuda",
+      "faq": "FAQ",
+      "howItWorks": "¿Cómo funciona?",
+      "allDocuments": "Todos los documentos",
       "knowledge": "Conocimiento",
-      "termsOfUse": "Términos de uso",
+      "termsOfUse": "Términos y condiciones",
       "privacyPolicy": "Política de privacidad",
       "cookiePolicy": "Política de cookies",
-      "refundPolicy": "Política de reembolsos",
+      "refundPolicy": "Política de reembolso",
       "euPrivacy": "Protección de datos UE",
-      "usCompliance": "Cumplimiento EE. UU.",
-      "globalCompliance": "Cumplimiento global",
-      "nonAffiliation": "Aviso de no afiliación",
-      "drivingPhotos": "Fotos de carnet de conducir",
-      "myAccount": "Mi cuenta",
-      "myPhotos": "Fotos guardadas",
-      "subscription": "Suscripción"
+      "usCompliance": "Cumplimiento de fotos de ID EE. UU.",
+      "globalCompliance": "Cumplimiento global de fotos de ID",
+      "nonAffiliation": "Aviso de no afiliación"
     },
     "copyright": "© {year} PhotoGov. Una demostración clon que replica www.photogov.net.",
     "madeWith": "Hecho con Nuxt 3 · Vue 3 · Tailwind CSS",
     "colSupport": "Soporte",
     "colPassportPhotos": "Fotos de pasaporte",
-    "colVisaPhotos": "Fotos de visa",
+    "colVisaPhotos": "Todas las fotos de visa",
     "colOtherServices": "Otros servicios",
     "browseByCountry": "Explorar por país",
     "getApp": "Descarga la app de PhotoGov",
@@ -86,7 +79,14 @@
     "downloadOn": "Descárgalo en",
     "appStore": "App Store",
     "googlePlay": "Google Play",
-    "colMyAccount": "Mi cuenta"
+    "companyInfo": "Service provided by Y VISION TECHNOLOGIES LLP · Stoney Works 8 Stoney Lane, London, England, SE19 3BD",
+    "termsShort": "Términos",
+    "refundShort": "Política de reembolso",
+    "contactShort": "Contacto",
+    "disclaimer": "*Sin afiliación con ningún gobierno. La aceptación final queda a discreción de la autoridad.",
+    "detailedLegal": "Información legal detallada",
+    "bottomText": "La información de PhotoGov está protegida por ley frente a la copia y el uso indebido.",
+    "tmCopyright": "© TM copyright"
   },
   "cookie": {
     "text": "Usamos cookies para mejorar tu experiencia y analizar el tráfico. Al continuar aceptas nuestra {policy}.",
@@ -664,35 +664,6 @@
     "send": "Enviar mensaje",
     "thanks": "¡Gracias! Tu mensaje ha sido registrado (formulario demo — no se envía ningún correo)."
   },
-  "help": {
-    "eyebrow": "Ayuda",
-    "title": "Centro de ayuda",
-    "sub": "Respuestas a las preguntas más comunes.",
-    "qa": [
-      {
-        "q": "¿PhotoGov es realmente gratis?",
-        "a": "Sí. Crear y descargar fotos es gratis, sin marcas de agua."
-      },
-      {
-        "q": "¿Almacenan mi foto?",
-        "a": "No. El procesamiento se ejecuta en tu navegador; nunca subimos tus imágenes."
-      },
-      {
-        "q": "¿Qué formato debo descargar?",
-        "a": "Usa JPG para envíos en línea y PDF para imprimir en un laboratorio fotográfico."
-      },
-      {
-        "q": "Mi foto fue rechazada — ¿qué hago?",
-        "a": "Revisa los requisitos de la página del documento (fondo, tamaño de cabeza, expresión) y vuelve a tomarla."
-      },
-      {
-        "q": "¿Qué países son compatibles?",
-        "a": "Más de 100 países, con tamaños actualizados."
-      }
-    ],
-    "stillNeed": "¿Aún necesitas ayuda?",
-    "btn": "Contáctanos"
-  },
   "compliance": {
     "eyebrow": "Cumplimiento",
     "title": "Cómo mantenemos el cumplimiento",
@@ -1225,7 +1196,8 @@
       "Volver a descargar los archivos generados",
       "Seguir el estado de la verificación (si se compró)"
     ],
-    "closing": "PhotoGov.net combina transparencia, automatización y cumplimiento de las normas globales. Tanto si necesita una sola foto de identificación como una solución de nivel empresarial, nuestro servicio está diseñado para ofrecer fiabilidad y facilidad de uso."
+    "closing": "PhotoGov.net combina transparencia, automatización y cumplimiento de las normas globales. Tanto si necesita una sola foto de identificación como una solución de nivel empresarial, nuestro servicio está diseñado para ofrecer fiabilidad y facilidad de uso.",
+    "savePercent": "Ahorra {percent}%"
   },
   "howItWorks": {
     "eyebrow": "Cómo funciona",
@@ -1766,5 +1738,165 @@
     "s3p5": "Respetamos sus derechos de datos, ofreciendo mecanismos para acceder, corregir o suprimir sus datos personales y gestionar el consentimiento.",
     "s3h6": "Contáctenos",
     "s3p6": "Para cualquier consulta sobre nuestras prácticas de protección de datos, contacte a nuestro Delegado de Protección de Datos en {email}."
+  },
+  "support": {
+    "eyebrow": "Soporte",
+    "title": "Centro de ayuda",
+    "sub": "Contacta con nuestro equipo o consulta las respuestas a las preguntas más frecuentes sobre fotos, pagos y otros temas.",
+    "heroTitle": "Ayuda experta para un proceso de fotos sin complicaciones",
+    "heroP1": "¿Necesitas ayuda o tienes preguntas sobre el servicio PhotoGov.net? Nuestro equipo de soporte está aquí para ayudarte con cualquier problema que puedas tener al usar nuestra herramienta de fotos en línea. No dudes en contactarnos en cualquier momento.",
+    "heroP2": "Cada solicitud es atendida por un especialista cualificado con experiencia directa en el área de tu consulta: desde la preparación de fotos y los ajustes técnicos hasta los pagos, las descargas o los consejos de cumplimiento específicos de cada país.",
+    "contactTitle": "Cómo contactarnos",
+    "formTitle": "Formulario de solicitud de soporte",
+    "formIntro": "Envía un ticket a través del formulario del sitio web. Incluye un asunto claro, una breve descripción del problema y capturas de pantalla.",
+    "inquiryType": "Tipo de consulta",
+    "selectOption": "-Seleccionar-",
+    "inquiryOptions": [
+      "Problema técnico",
+      "Pagos y facturación",
+      "Procesamiento de fotos",
+      "Pregunta de cumplimiento",
+      "Otro"
+    ],
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "email": "Correo electrónico",
+    "emailHint": "Ejemplo: {email}",
+    "phone": "Número de teléfono",
+    "comment": "Comentario",
+    "commentPlaceholder": "Describe tu consulta",
+    "attachFile": "Adjuntar archivo",
+    "send": "Enviar consulta",
+    "sent": "¡Gracias! Tu consulta ha sido enviada. Responderemos en 1–2 días hábiles.",
+    "emailLabel": "Correo electrónico",
+    "emailNote": "Incluye un asunto claro y una breve descripción del problema. Adjunta capturas de pantalla para respaldar tu solicitud.",
+    "fasterTitle": "Para ayudarnos a resolver tu solicitud más rápido",
+    "fasterIntro": "Estos detalles nos facilitan encontrar la causa y ofrecer una solución:",
+    "fasterItems": [
+      "Tipo de documento y país (p. ej., pasaporte de EE. UU., visa de Canadá, DNI de la UE)",
+      "Paso en el que ocurre el problema (subida, fondo, recorte, descarga, pago)",
+      "Dispositivo y navegador (p. ej., iPhone 14 iOS 18.6.2, Safari; Windows 11, Chrome)",
+      "Texto o código de error, si aparece."
+    ],
+    "availabilityTitle": "Disponibilidad",
+    "availabilityItems": [
+      "Días hábiles: lunes a viernes",
+      "Horario: 9:00 AM - 6:00 PM (UTC+7)",
+      "Tiempo de respuesta objetivo: 1–2 días hábiles"
+    ],
+    "faqTitle": "Preguntas frecuentes",
+    "faq": [
+      {
+        "q": "¿Qué tipos de documentos admite el creador de fotos en línea de PhotoGov?",
+        "a": "PhotoGov.net admite más de 900 tipos de documentos en 136 países. Ya sea que necesites una foto de pasaporte, una foto de visa, una foto de licencia de conducir, un permiso de residencia, una foto de inmigración o una foto de tarjeta de identidad, nuestro creador de fotos en línea ajusta automáticamente tu imagen para cumplir con los requisitos oficiales y entrega una imagen digital totalmente conforme, lista para descargar, imprimir y usar en tu solicitud.\nLas categorías más populares incluyen: foto de visa de EE. UU., foto de pasaporte del Reino Unido, foto de visa del Reino Unido, foto de visa Schengen de la UE, foto de ID de EAU, foto de visa de EAU, foto de pasaporte de India, foto de pasaporte de Canadá, foto de tarjeta PR de Canadá, foto de pasaporte de Malasia y foto 1x1."
+      },
+      {
+        "q": "¿Cómo usar el servicio de fotos de pasaporte en línea de PhotoGov?",
+        "a": "1. Elige tu tipo de documento y país: selecciona entre más de 900 formatos en 136 países, incluidos pasaportes, visas, tarjetas de identidad y otros documentos oficiales.\n2. Sube tu foto: puedes tomar una nueva imagen o subir una existente desde tu dispositivo.\n3. El sistema ajusta la imagen: recorta, redimensiona y alinea automáticamente tu foto para cumplir con los requisitos oficiales.\n4. Previsualiza y descarga: revisa el resultado, descarga la versión digital o pide un archivo listo para imprimir."
+      },
+      {
+        "q": "¿El servicio de fotos en línea de PhotoGov es gratuito?",
+        "a": "PhotoGov ofrece subida y previsualización gratuitas para todos los usuarios. En algunos países, descargar una foto de alta resolución o totalmente conforme es gratis. En otros, se aplica una pequeña tarifa por la versión final."
+      },
+      {
+        "q": "¿Qué métodos de pago acepta PhotoGov.net?",
+        "a": "PhotoGov.net admite pagos con las principales tarjetas bancarias y sistemas de pago electrónico. Todas las transacciones se procesan de forma segura a través de Stripe, una pasarela de pago internacional de confianza que cumple con las normas mundiales de seguridad y protección de datos."
+      },
+      {
+        "q": "¿Cómo procesa PhotoGov.net las fotos para cumplir con los requisitos?",
+        "a": "PhotoGov.net aplica un procesamiento de imagen automatizado para ajustar cada foto a las normas oficiales de documentos. El sistema elimina el fondo, alinea la cabeza y los hombros, ajusta las proporciones, la iluminación y el equilibrio de color, y verifica los parámetros clave conforme a las normas internacionales.\nUn motor de cumplimiento integrado verifica los parámetros técnicos clave —dimensiones, fondo, tamaño y posición del rostro y márgenes— conforme a las directrices oficiales de cada tipo de documento. Esto garantiza que la imagen final coincida con las especificaciones requeridas antes de la descarga.\nPhotoGov.net es un servicio en línea independiente creado para ayudar a los usuarios a preparar fotos de documentos que cumplan con las normas oficiales. La plataforma no está conectada, avalada ni autorizada por ningún gobierno ni autoridad emisora."
+      },
+      {
+        "q": "¿Garantizan que mi foto de documento sea aceptada?",
+        "a": "PhotoGov.net no garantiza ni influye en la aceptación de ninguna foto. Somos un servicio independiente y no estamos afiliados, avalados ni conectados con ninguna institución gubernamental o autoridad emisora.\nNuestro sistema aplica un procesamiento de imagen avanzado para ajustar cada foto a los requisitos técnicos establecidos por las directrices oficiales. Esto incluye la verificación del color y la textura del fondo, la posición de la cabeza, las proporciones del rostro, la línea de los ojos, los márgenes, la iluminación, el contraste y el formato del archivo. Un motor de cumplimiento integrado verifica automáticamente la imagen conforme a las normas del tipo de documento y el país antes de generar el archivo.\nEste proceso ayuda a minimizar el riesgo de rechazo, pero la aprobación final siempre queda a discreción de la institución oficial que revisa la solicitud. Incluso las imágenes totalmente conformes pueden ser rechazadas por motivos ajenos al formato técnico, como una apariencia desactualizada, una expresión inadecuada o cambios en la normativa local. Por este motivo, ningún servicio privado puede ofrecer una garantía de aceptación del 100%."
+      },
+      {
+        "q": "¿Puedo obtener un reembolso?",
+        "a": "Sí. PhotoGov.net ofrece una opción de reembolso sencilla. Si se produce un error técnico o de procesamiento, el usuario puede solicitar un reembolso completo. Junto con el reembolso, también ofrecemos una foto procesada de cortesía para cualquier tipo de documento seleccionado."
+      }
+    ]
+  },
+  "editorialTeam": {
+    "breadcrumb": "Equipo editorial",
+    "title": "Conoce al equipo editorial de PhotoGov",
+    "intro": "El equipo editorial de PhotoGov escribe y revisa todas las guías y páginas de documentos de PhotoGov. Comprobamos los requisitos de fotos de pasaporte, visa e identificación con las normas publicadas por las autoridades emisoras y actualizamos las páginas cuando cambian las normas.",
+    "editorsTitle": "Editores",
+    "name": "Olia Potiagaeva",
+    "role": "Editora jefe",
+    "bio": "Olia Potiagaeva es una responsable de contenidos senior y periodista de viajes con más de 20 años de experiencia.",
+    "linkedin": "LinkedIn",
+    "processText": "Cómo creamos y verificamos el contenido"
+  },
+  "editorialPolicy": {
+    "breadcrumb": "Política editorial",
+    "title": "Política editorial",
+    "subtitle": "Cómo PhotoGov redacta, verifica y actualiza los requisitos de fotos de pasaporte, visa e identificación: fuentes oficiales, revisión editorial y actualizaciones continuas.",
+    "lastUpdated": "Última actualización: 9 de octubre de 2026",
+    "createTitle": "Cómo creamos y verificamos el contenido",
+    "createP": "PhotoGov es un creador de fotos de pasaporte y un centro de medios internacional de identificación fotográfica que cubre los requisitos de fotos de pasaporte, visa e identificación de más de 150 países. Los solicitantes usan nuestra plataforma para preparar uno de los elementos más críticos de cualquier proceso de viaje o inmigración: las fotos de tamaño pasaporte. Supervisamos rigurosamente los requisitos gubernamentales, aplicamos las especificaciones publicadas por las autoridades emisoras oficiales y actualizamos continuamente nuestra base de datos para mantener una precisión total.",
+    "teamTitle": "Nuestro equipo editorial",
+    "teamP": "El equipo editorial de PhotoGov investiga, redacta y revisa todo el contenido de la plataforma, desde las herramientas de fotos de documentos hasta las guías detalladas de nuestro Centro de conocimiento. El equipo está dirigido por la editora jefe Olia Potiagaeva, periodista especializada en normativa de viajes internacionales e inmigración. Antes de que cualquier especificación se publique, ella la verifica personalmente con las fuentes gubernamentales primarias.",
+    "teamLink": "Conoce al equipo editorial de PhotoGov.",
+    "sourcesTitle": "Nuestras fuentes",
+    "sourcesP": "PhotoGov se basa estrictamente en las directrices oficiales de los gobiernos y en las normas mundiales establecidas por la Organización de Aviación Civil Internacional (Documento 9303 de la OACI: documentos de viaje legibles a máquina). Los requisitos publicados provienen directamente de autoridades primarias, como el Departamento de Estado de EE. UU., Inmigración, Refugiados y Ciudadanía de Canadá (IRCC), la HM Passport Office (HMPO) y ministerios nacionales de todo el mundo. Cada página de documento cita el organismo rector y enlaza a la fuente primaria verificada por nuestro equipo.",
+    "stepsTitle": "Cómo se crea una página",
+    "steps": [
+      {
+        "t": "1. Investigación.",
+        "d": "Obtenemos las últimas directrices fotográficas de la autoridad emisora oficial: dimensiones físicas y digitales, proporciones de la cabeza, color de fondo, iluminación, normas sobre gafas y cubrecabezas, formatos de archivo para subidas en línea y especificaciones de impresión para solicitudes en papel."
+      },
+      {
+        "t": "2. Redacción y localización.",
+        "d": "Convertimos las directrices oficiales en instrucciones claras y accesibles. Conservamos todos los parámetros exactos —incluidos milímetros, píxeles y tamaños de archivo— tal como los publica la autoridad."
+      },
+      {
+        "t": "3. Revisión editorial.",
+        "d": "El equipo editorial de PhotoGov verifica cada valor y regla de la página con la fuente oficial. Si las fuentes entran en conflicto, los requisitos de la autoridad emisora tienen prioridad."
+      },
+      {
+        "t": "4. Publicación.",
+        "d": "Publicamos la página junto con la autoridad de referencia, un enlace a la fuente primaria y la fecha de la última verificación."
+      }
+    ],
+    "updatesTitle": "Actualizaciones continuas",
+    "updatesP": "La normativa oficial sobre fotos cambia con frecuencia. Para mantener la precisión, revisamos cada página de documentos cada ocho semanas e inmediatamente cuando una autoridad publica nuevas directrices. La fecha de la revisión más reciente siempre está visible en la página.",
+    "correctionsTitle": "Correcciones",
+    "correctionsP": "Si detecta una inexactitud o un requisito obsoleto, háganoslo saber a través de nuestra página de contacto."
+  },
+  "sidebar": {
+    "company": "Empresa",
+    "support": "Soporte",
+    "legal": "Legal",
+    "aboutUs": "Sobre nosotros",
+    "contacts": "Contactos",
+    "prices": "Precios",
+    "whyChooseUs": "Por qué elegirnos",
+    "reviews": "Opiniones",
+    "security": "Seguridad",
+    "helpCenter": "Centro de ayuda",
+    "faq": "FAQ",
+    "howItWorks": "Cómo funciona",
+    "termsOfUse": "Términos de uso",
+    "privacyPolicy": "Política de privacidad",
+    "cookiePolicy": "Política de cookies",
+    "refundPolicy": "Política de reembolso",
+    "euPrivacy": "Protección de datos UE",
+    "usCompliance": "Cumplimiento de fotos de ID EE. UU.",
+    "globalCompliance": "Cumplimiento global de fotos de ID",
+    "nonAffiliation": "Aviso de no afiliación"
+  },
+  "navDocs": {
+    "us-passport-photo": "Foto de pasaporte de EE. UU.",
+    "ca-passport-photo": "Foto de pasaporte canadiense",
+    "cn-passport-photo": "Foto de pasaporte chino",
+    "au-passport-photo": "Foto de pasaporte australiano",
+    "gb-passport-photo": "Foto de pasaporte del Reino Unido",
+    "digital-passport-photo": "Foto de pasaporte digital",
+    "us-visa-photo": "Foto de visa de EE. UU.",
+    "ca-visa-photo": "Foto de visa canadiense",
+    "eu-visa-photo": "Foto de visa Schengen",
+    "in-visa-photo": "Foto de visa india",
+    "canada-temporary-resident-permit-photo": "Visa de residente temporal de Canadá",
+    "dv-lottery-photo-tool": "Herramienta de foto DV Lottery"
   }
 }

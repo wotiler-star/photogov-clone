@@ -25,7 +25,7 @@ const accept = () => {
         <div class="flex flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-card sm:flex-row sm:justify-between">
           <i18n-t keypath="cookie.text" tag="p" class="text-sm text-muted">
             <template #policy>
-              <NuxtLink :to="localePath('/cookie-policy')" class="text-brand-blue underline">{{ $t('footer.links.cookie') }}</NuxtLink>
+              <NuxtLink :to="localePath('/cookie-policy')" class="text-brand-blue underline">{{ $t('footer.links.cookiePolicy') }}</NuxtLink>
             </template>
           </i18n-t>
           <div class="flex shrink-0 gap-2">

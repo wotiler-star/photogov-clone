@@ -1,9 +1,8 @@
 // 旧路径 → 与 photogov.net 对齐的新路径（301，保留语言前缀）
-// 注意：目标站真实路径为 /contacts/（/support/ 在目标站返回 500），故 support/contact 均归到 contacts
+// 注意：目标站帮助中心真实路径为 /support/（F3 取证：Header Help Center 与页脚 Support 列均指向 /support/）
 const LEGACY: Record<string, string> = {
   plans: 'prices',
   contact: 'contacts',
-  support: 'contacts',
   about: 'about-us',
   terms: 'terms-of-use',
   privacy: 'privacy-policy',
@@ -21,8 +20,9 @@ const CURRENT = new Set([
   'eu-privacy', 'us-id-photo-compliance', 'global-id-photo-compliance',
   'independence-disclaimer',
   // 其它
-  'sign-in', 'help', 'passports', 'visas', 'dv-lottery',
-  'account', 'admin', 'forgot-password', 'reset-password', 'verify-email'
+  'sign-in', 'support', 'passports', 'visas', 'dv-lottery',
+  'account', 'admin', 'forgot-password', 'reset-password', 'verify-email',
+  'editorial-team', 'editorial-policy'
 ])
 
 export default defineEventHandler((event) => {
