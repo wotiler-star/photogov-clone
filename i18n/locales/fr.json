@@ -1398,7 +1398,10 @@
     "notFoundText": "L'article de connaissance que vous recherchez n'existe pas.",
     "browse": "Parcourir le centre de connaissances",
     "tocTitle": "Sur cette page",
-    "readTime": "{count} min de lecture"
+    "readTime": "{count} min de lecture",
+    "published": "Publié",
+    "lastUpdate": "Dernière mise à jour",
+    "tocBlockTitle": "Table des matières :"
   },
   "globalCompliance": {
     "eyebrow": "Politique mondiale des photos d’identité",

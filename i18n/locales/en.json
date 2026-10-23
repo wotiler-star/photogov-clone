@@ -1398,7 +1398,10 @@
     "notFoundText": "The knowledge article you are looking for does not exist.",
     "browse": "Browse Knowledge Center",
     "tocTitle": "On this page",
-    "readTime": "{count} min read"
+    "readTime": "{count} min read",
+    "published": "Published",
+    "lastUpdate": "Last update",
+    "tocBlockTitle": "Table of contents:"
   },
   "globalCompliance": {
     "eyebrow": "Global ID Photo Policy",

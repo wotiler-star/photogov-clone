@@ -1398,7 +1398,10 @@
     "notFoundText": "El artículo de conocimiento que busca no existe.",
     "browse": "Explorar el centro de conocimiento",
     "tocTitle": "En esta página",
-    "readTime": "{count} min de lectura"
+    "readTime": "{count} min de lectura",
+    "published": "Publicado",
+    "lastUpdate": "Última actualización",
+    "tocBlockTitle": "Tabla de contenidos:"
   },
   "globalCompliance": {
     "eyebrow": "Política global de fotos de identidad",

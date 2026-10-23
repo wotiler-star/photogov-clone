@@ -4,7 +4,7 @@ import { useLocalePath } from '#imports'
 // 对标原站信息页底部服务行（F5 取证 SEEN）：
 // "Service provided by Y VISION TECHNOLOGIES LLP · Stoney Works 8 Stoney Lane,
 //  London, England, SE19 3BD · Terms · Refund policy · Contact"
-// 样式：container pb-10 text-[12px] text-[#6b7280] font-SourceSerif text-center
+// 样式：container pb-10 text-[12px] text-[#6b7280] font-serif text-center
 const localePath = useLocalePath()
 </script>
 

@@ -45,8 +45,8 @@ function submit() {
 
     <div class="space-y-6 text-[#374151]">
         <h1 class="mt-8 text-[30px] font-bold leading-tight">{{ $t('support.title') }}</h1>
-        <p class="mt-4 font-Golos">{{ $t('support.heroP1') }}</p>
-        <p class="mt-4 font-Golos">{{ $t('support.heroP2') }}</p>
+        <p class="mt-4 font-sans">{{ $t('support.heroP1') }}</p>
+        <p class="mt-4 font-sans">{{ $t('support.heroP2') }}</p>
 
         <!-- 如何联系我们：表单 + 邮箱 -->
         <section class="mt-10">
@@ -55,7 +55,7 @@ function submit() {
             <!-- 支持请求表单 -->
             <div class="rounded-[6px] border border-[#E0E7EE] p-5">
               <h3 class="font-semibold">{{ $t('support.formTitle') }}</h3>
-              <p class="mt-1 text-sm font-Golos text-[#374151]">{{ $t('support.formIntro') }}</p>
+              <p class="mt-1 text-sm font-sans text-[#374151]">{{ $t('support.formIntro') }}</p>
               <form v-if="!sent" class="mt-4 space-y-3" novalidate @submit.prevent="submit">
                 <div>
                   <label class="block text-sm font-medium" for="sup-inquiry">{{ $t('support.inquiryType') }}*</label>
@@ -145,8 +145,8 @@ function submit() {
         <!-- 加速处理要点 -->
         <section class="mt-10">
           <h2 class="text-[30px] font-bold leading-tight">{{ $t('support.fasterTitle') }}</h2>
-          <p class="mt-4 font-Golos">{{ $t('support.fasterIntro') }}</p>
-          <ul class="ml-4 mt-4 list-outside list-disc space-y-1.5 font-Golos">
+          <p class="mt-4 font-sans">{{ $t('support.fasterIntro') }}</p>
+          <ul class="ml-4 mt-4 list-outside list-disc space-y-1.5 font-sans">
             <li v-for="(s, i) in $tm('support.fasterItems')" :key="i" class="list-item">{{ s }}</li>
           </ul>
         </section>
@@ -154,7 +154,7 @@ function submit() {
         <!-- 服务时间 -->
         <section class="mt-10">
           <h2 class="text-[30px] font-bold leading-tight">{{ $t('support.availabilityTitle') }}</h2>
-          <ul class="ml-4 mt-4 list-outside list-disc space-y-1.5 font-Golos">
+          <ul class="ml-4 mt-4 list-outside list-disc space-y-1.5 font-sans">
             <li v-for="(s, i) in $tm('support.availabilityItems')" :key="i" class="list-item">{{ s }}</li>
           </ul>
         </section>
@@ -165,7 +165,7 @@ function submit() {
           <div class="mt-5 space-y-3">
             <div v-for="(f, i) in faqs" :key="i" class="rounded-[6px] border border-[#E0E7EE] p-5">
               <h3 class="font-semibold">{{ f.q }}</h3>
-              <p class="mt-1 whitespace-pre-line text-sm font-Golos">{{ f.a }}</p>
+              <p class="mt-1 whitespace-pre-line text-sm font-sans">{{ f.a }}</p>
             </div>
           </div>
         </section>

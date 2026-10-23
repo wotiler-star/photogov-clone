@@ -27,7 +27,7 @@ const localePath = useLocalePath()
         <path d="M12.375 18.5 16.5 22.625 24 15.125" stroke="#212532" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
       <div class="flex-1">
-        <div class="font-Golos text-[12px] font-normal">
+        <div class="font-sans text-[12px] font-normal">
           <p>
             {{ $t('docNotice.lead') }}
             <NuxtLink :to="localePath('/global-id-photo-compliance')" target="_blank" class="text-blue-600 underline duration-200 hover:text-red-600">

@@ -1398,7 +1398,10 @@
     "notFoundText": "您查找的知识库文章不存在。",
     "browse": "浏览知识中心",
     "tocTitle": "本页目录",
-    "readTime": "约 {count} 分钟读完"
+    "readTime": "约 {count} 分钟读完",
+    "published": "发布于",
+    "lastUpdate": "最后更新",
+    "tocBlockTitle": "目录："
   },
   "globalCompliance": {
     "eyebrow": "全球证件照政策",

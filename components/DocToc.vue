@@ -30,7 +30,7 @@ function goto(e: MouseEvent, id: string) {
           <circle cx="7.5" cy="7.5" r="6.25"></circle>
           <path d="M7.5 4.5v3.2l2 1.3" stroke-linecap="round"></path>
         </svg>
-        <span class="font-Golos text-[12px] text-[#5D7290]">{{ $t('docToc.updated', { date: updated }) }}</span>
+        <span class="font-sans text-[12px] text-[#5D7290]">{{ $t('docToc.updated', { date: updated }) }}</span>
       </div>
 
       <ul class="flex-1 space-y-3.5 max-lg:row-start-2">

@@ -97,7 +97,7 @@ useHead(() => ({
     </div>
 
     <h1 class="mt-8 text-[30px] font-bold leading-tight">{{ $t('reviewsPage.title') }}</h1>
-    <p class="mt-4 font-Golos">
+    <p class="mt-4 font-sans">
       {{ $t('reviewsPage.intro') }} <b class="font-medium">{{ $t('reviewsPage.introBold') }}</b>
     </p>
 
@@ -108,18 +108,18 @@ useHead(() => ({
         <div class="font-serif text-[22px] leading-[1.3]">
           <p>“{{ $t('reviewsPage.quote') }}”</p>
         </div>
-        <div class="font-Golos text-[#727272]">
+        <div class="font-sans text-[#727272]">
           <p>{{ $t('reviewsPage.quoteAuthor') }}</p>
         </div>
       </div>
     </div>
 
-    <p class="mt-8 font-Golos">{{ $t('reviewsPage.body1') }}</p>
-    <p class="mt-4 font-Golos">{{ $t('reviewsPage.body2') }}</p>
+    <p class="mt-8 font-sans">{{ $t('reviewsPage.body1') }}</p>
+    <p class="mt-4 font-sans">{{ $t('reviewsPage.body2') }}</p>
 
     <!-- Google 评分行 -->
     <h3 class="mt-10 border-l-4 border-[#BDA887] pl-1.5 text-[22px] font-semibold">{{ $t('reviewsPage.usersSayTitle') }}</h3>
-    <div class="mt-6 flex items-center font-Golos">
+    <div class="mt-6 flex items-center font-sans">
       <span class="shrink-0" v-html="icons.google" />
       <span class="ml-1.5 font-medium">{{ $t('reviewsPage.byGoogle') }}
         <a :href="GOOGLE_URL" target="_blank" rel="noreferrer nofollow" class="text-blue-600 underline duration-200 hover:text-red-600">{{ $t('reviewsPage.googleName') }}</a>
@@ -138,7 +138,7 @@ useHead(() => ({
     <!-- 评价卡（2 列） -->
     <div class="mt-6 flex gap-x-5 max-lg:flex-col">
       <div v-for="(col, ci) in columns" :key="ci" class="flex flex-1 flex-col gap-y-5">
-        <div v-for="r in col" :key="r.name" class="rounded-[6px] bg-[#F4F4F4] p-4 font-Golos">
+        <div v-for="r in col" :key="r.name" class="rounded-[6px] bg-[#F4F4F4] p-4 font-sans">
           <div class="flex items-center gap-x-2.5">
             <div v-if="avatarUrl(r)" class="size-8 shrink-0 overflow-hidden rounded-full border border-[#D8D8D8] bg-blue-700 max-lg:size-7">
               <img :src="`/img/reviews/${avatarUrl(r)}`" :alt="`${r.name} user avatar`" width="32" height="32" class="size-full object-cover" />
@@ -186,12 +186,12 @@ useHead(() => ({
 
     <!-- 经过验证的真实反馈 -->
     <h2 class="mt-8 text-[30px] font-bold leading-tight">{{ $t('reviewsPage.verifyTitle') }}</h2>
-    <p class="mt-4 font-Golos">{{ $t('reviewsPage.verifyP1') }}</p>
-    <p class="mt-4 font-Golos">{{ $t('reviewsPage.verifyP2') }}</p>
-    <p class="mt-4 font-Golos">
+    <p class="mt-4 font-sans">{{ $t('reviewsPage.verifyP1') }}</p>
+    <p class="mt-4 font-sans">{{ $t('reviewsPage.verifyP2') }}</p>
+    <p class="mt-4 font-sans">
       {{ $t('reviewsPage.verifyLead') }} <b class="font-semibold">{{ $t('reviewsPage.verifyLeadBold') }}</b>
     </p>
-    <ul class="ml-4 mt-4 list-outside list-disc space-y-1.5 font-Golos">
+    <ul class="ml-4 mt-4 list-outside list-disc space-y-1.5 font-sans">
       <li v-for="(v, i) in verifyList" :key="i" class="list-item">{{ v }}</li>
     </ul>
     <div class="mt-10 h-[300px] w-full overflow-hidden rounded">
@@ -199,10 +199,10 @@ useHead(() => ({
     </div>
 
     <h2 class="mt-10 text-[30px] font-bold leading-tight">{{ $t('reviewsPage.shapeTitle') }}</h2>
-    <p class="mt-4 font-Golos">{{ $t('reviewsPage.shapeP') }}</p>
+    <p class="mt-4 font-sans">{{ $t('reviewsPage.shapeP') }}</p>
 
     <h2 class="mt-10 text-[30px] font-bold leading-tight">{{ $t('reviewsPage.voiceTitle') }}</h2>
-    <p class="mt-4 font-Golos">{{ $t('reviewsPage.voiceP1') }}</p>
-    <p class="mt-4 font-Golos">{{ $t('reviewsPage.voiceP2') }}</p>
+    <p class="mt-4 font-sans">{{ $t('reviewsPage.voiceP1') }}</p>
+    <p class="mt-4 font-sans">{{ $t('reviewsPage.voiceP2') }}</p>
   </InfoPageShell>
 </template>

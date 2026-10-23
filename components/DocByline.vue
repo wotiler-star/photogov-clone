@@ -2,7 +2,7 @@
 import { useLocalePath } from '#imports'
 
 // 对标原站文档页尾部的作者署名条（F6 取证 SEEN）：
-// flex items-start gap-3 p-3 border-[#e7eaee] rounded bg-[#f5f5f5] font-SourceSerif text-sm
+// flex items-start gap-3 p-3 border-[#e7eaee] rounded bg-[#f5f5f5] font-serif text-sm
 //   > 40px 圆形头像 > "Written by {作者}, Managing Editor · Reviewed by the {编辑团队} ·
 //     ★ 4.8 / 5.0 Google · Checked against {官方来源}"
 defineProps<{
@@ -10,6 +10,8 @@ defineProps<{
   authority?: string
   /** 官方来源链接 */
   authorityUrl?: string
+  /** 为 true 时不渲染外层 container（用于已处于限宽容器内的场景，如知识库文章页） */
+  noContainer?: boolean
 }>()
 
 const localePath = useLocalePath()
@@ -17,7 +19,8 @@ const GOOGLE_REVIEWS = 'https://www.google.com/maps/place/Digital+Passport+Photo
 </script>
 
 <template>
-  <div class="container">
+  <!-- container 包裹在文章页等已有限宽容器内时可关闭（prop: noContainer） -->
+  <div :class="noContainer ? '' : 'container'">
     <div class="flex items-start gap-3 rounded border border-[#e7eaee] bg-[#f5f5f5] p-3 font-serif text-sm leading-relaxed">
       <img
         src="/img/editorial/olia-potiagaeva.jpg"

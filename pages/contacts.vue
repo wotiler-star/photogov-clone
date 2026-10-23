@@ -120,9 +120,9 @@ useHead(() => ({
 
     <!-- 引言（intro3 含支持邮箱） -->
     <div class="mt-4 space-y-4 text-[#374151]">
-      <p class="font-Golos">{{ $t('contactPage.intro1') }}</p>
-      <p class="font-Golos">{{ $t('contactPage.intro2') }}</p>
-      <p class="font-Golos">
+      <p class="font-sans">{{ $t('contactPage.intro1') }}</p>
+      <p class="font-sans">{{ $t('contactPage.intro2') }}</p>
+      <p class="font-sans">
         {{ $t('contactPage.intro3', { email: emailOf('info') }) }} {{ $t('contactPage.intro4') }}
       </p>
     </div>
@@ -138,14 +138,14 @@ useHead(() => ({
         <div class="px-3.5 pb-[18px] pt-3">
           <p class="text-[#958366]">{{ c.desc }}</p>
           <!-- 邮箱行 -->
-          <div class="mt-3 flex items-center gap-x-2 font-Golos">
+          <div class="mt-3 flex items-center gap-x-2 font-sans">
             <span class="shrink-0" v-html="icons.mail" />
             <span class="flex-1 text-[14px] font-medium">{{ $t('contactPage.emailLabel') }}
               <a :href="`mailto:${emailOf(c.email)}`" class="text-blue-600 underline duration-200 hover:text-red-600 font-normal">{{ emailOf(c.email) }}</a>
             </span>
           </div>
           <!-- 工时（仅支持卡） -->
-          <div v-if="c.hours" class="mt-3 flex items-start gap-x-1.5 font-Golos">
+          <div v-if="c.hours" class="mt-3 flex items-start gap-x-1.5 font-sans">
             <span class="shrink-0" v-html="icons.clock" />
             <span class="flex-1 text-[14px]">
               <span class="font-medium">{{ $t('contactPage.hoursLabel') }}</span>
@@ -167,7 +167,7 @@ useHead(() => ({
 
     <!-- 社交 -->
     <h3 class="mt-10 border-l-4 border-[#BDA887] pl-1.5 text-[22px] font-semibold">{{ $t('contactPage.socialTitle') }}</h3>
-    <div class="mt-[18px] space-y-3.5 font-Golos text-[14px]">
+    <div class="mt-[18px] space-y-3.5 font-sans text-[14px]">
       <div v-for="(s, i) in social" :key="s.url" class="flex items-center gap-x-2">
         <span class="shrink-0" v-html="socialIcon(i)" />
         <p class="flex-1">
@@ -195,11 +195,11 @@ useHead(() => ({
           <div class="flex items-start gap-x-3">
             <span class="flex-1 text-[20px] font-bold">{{ $t('contactPage.officeCountry') }}</span>
           </div>
-          <p class="font-Golos text-[14px]">
+          <p class="font-sans text-[14px]">
             {{ $t('contactPage.officeCompany') }}<br />{{ $t('contactPage.officeAddress') }}
           </p>
         </div>
-        <div class="px-3.5 py-4 font-Golos">
+        <div class="px-3.5 py-4 font-sans">
           <div class="flex items-start gap-x-1.5">
             <span class="shrink-0" v-html="icons.location" />
             <span class="flex-1 text-[14px] font-medium">{{ $t('contactPage.mapLabel') }}</span>

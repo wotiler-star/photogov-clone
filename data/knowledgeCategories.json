@@ -1,0 +1,22 @@
+{
+ "requirements": {
+  "image": "https://fra1.digitaloceanspaces.com/photogov-com/admin/upload/f851a60a-71e5-45fd-9473-a606fe5bd62c.webp",
+  "h1": "Passport Photo Requirements",
+  "lead": "Here are the full specifications for U.S. passport photos. We provide full coverage on size of photos, background, head positioning and other important details to help you make sure your photo complies with the official rules. Keep yourself informed of the new requirements so that your photo will not be rejected, so that you will be able to accomplish your application for a passport with ease. A single page brings together the <a class=\"underline text-blue-600 duration-200 hover:text-red-600\" href=\"https://photogov.net/knowledge/requirements/us-department-of-state-photo-guidelines/\" rel=\"noopener noreferrer\">U.S. passport picture rules and guidelines</a> issued by the Department of State, from head size to background."
+ },
+ "guides": {
+  "image": "https://fra1.digitaloceanspaces.com/photogov-com/admin/upload/b1e2ae37-d052-41f8-9500-fa7e596dff5e.webp",
+  "h1": "Passport Photo Guides & Step-by-Step Instructions",
+  "lead": "In this section, you’ll find everything from do-it-yourself instructions on how to take a perfect passport photo to use for your U.S. passport. (Using an iPhone, Android, or just a plain old camera?) We have some advice on lighting, background, head positioning and mistakes to avoid. Make sure your photo is acceptable by following these straightforward steps and save yourself the hassle of having it rejected while applying for a passport."
+ },
+ "standards": {
+  "image": "https://fra1.digitaloceanspaces.com/photogov-com/admin/upload/85060f88-583f-4734-b015-b4251d6b5eac.webp",
+  "h1": "Passport Photo Standards",
+  "lead": "Rules and procedures for taking passport, visa, and biometric photos. Size, background, lighting, and geometry of the face, as well as details on how photo verification systems detect compliance and errors."
+ },
+ "faq": {
+  "image": "https://fra1.digitaloceanspaces.com/photogov-com/admin/upload/9df20e14-994a-4313-8a59-862542b187a1.webp",
+  "h1": "Passport Photo FAQ & Common Questions",
+  "lead": "Get up-to-date and crisp answers to your queries on photo size, format, background, lighting and face position. This is how the service works on the images and creates the photos that fulfill official document requirements."
+ }
+}

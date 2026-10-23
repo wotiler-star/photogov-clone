@@ -39,13 +39,13 @@ useHead({
     <h1 class="mt-8 text-[30px] font-bold leading-tight">{{ $t('aboutPage.h1') }}</h1>
 
     <!-- 导语：首句加粗 -->
-    <p class="mt-4 font-Golos">
+    <p class="mt-4 font-sans">
       <b class="font-medium">{{ $t('aboutPage.leadBold') }}</b>{{ $t('aboutPage.leadRest') }}
     </p>
-    <p class="mt-4 font-Golos">{{ $t('aboutPage.intro2') }}</p>
+    <p class="mt-4 font-sans">{{ $t('aboutPage.intro2') }}</p>
 
     <!-- 精选用户评价卡（原站同款灰底卡） -->
-    <div class="mt-6 rounded-[6px] bg-[#F4F4F4] p-4 font-Golos">
+    <div class="mt-6 rounded-[6px] bg-[#F4F4F4] p-4 font-sans">
       <div class="flex items-center gap-x-2.5">
         <div class="size-8 overflow-hidden rounded-full border border-[#D8D8D8] bg-blue-700 max-lg:size-7">
           <p class="my-auto text-center text-[18px] font-semibold leading-[30px] text-white max-lg:text-[16px] max-lg:leading-[26px]">
@@ -82,12 +82,12 @@ useHead({
     <h2 class="mt-10 text-[30px] font-bold leading-tight">{{ $t('aboutPage.originsTitle') }}</h2>
     <div class="mt-4 flex items-start gap-x-8 max-lg:flex-col max-lg:gap-y-6">
       <div class="flex-1 space-y-4">
-        <p class="font-Golos">{{ $t('aboutPage.origins1') }}</p>
-        <p class="font-Golos" v-html="$t('aboutPage.origins2')" />
+        <p class="font-sans">{{ $t('aboutPage.origins1') }}</p>
+        <p class="font-sans" v-html="$t('aboutPage.origins2')" />
       </div>
       <div class="h-[285px] lg:w-[335px]">
         <img src="/img/about-us/about-us-2.webp" width="335" height="285" alt="Online Passport Service" class="size-full rounded object-cover">
-        <figcaption class="mt-1 text-center font-Golos text-[12px] text-[#727272]">{{ $t('aboutPage.originsCaption') }}</figcaption>
+        <figcaption class="mt-1 text-center font-sans text-[12px] text-[#727272]">{{ $t('aboutPage.originsCaption') }}</figcaption>
       </div>
     </div>
 
@@ -95,11 +95,11 @@ useHead({
     <div class="mt-8 flex items-start gap-x-3.5 lg:max-w-[700px] max-lg:gap-x-2.5">
       <span class="size-8 shrink-0 max-lg:size-6" v-html="icons.quote" />
       <div>
-        <p class="font-SourceSerif text-lg italic">{{ $t('aboutPage.quote') }}</p>
-        <p class="mt-1 font-Golos text-[#374151]">{{ $t('aboutPage.quoteBy') }}</p>
+        <p class="font-serif text-lg italic">{{ $t('aboutPage.quote') }}</p>
+        <p class="mt-1 font-sans text-[#374151]">{{ $t('aboutPage.quoteBy') }}</p>
       </div>
     </div>
-    <p class="mt-4 font-Golos">{{ $t('aboutPage.origins3') }}</p>
+    <p class="mt-4 font-sans">{{ $t('aboutPage.origins3') }}</p>
 
     <!-- ═══ 时间线 ═══ -->
     <h2 class="mt-10 text-[30px] font-bold leading-tight">{{ $t('aboutPage.timelineTitle') }}</h2>
@@ -111,26 +111,26 @@ useHead({
           <div class="flex-1 border-l-2 border-dashed border-[#84ABE4]"></div>
         </div>
         <div class="flex-1 space-y-3 pb-10">
-          <h3 class="font-SourceSerif text-[22px] font-semibold">{{ item.year }}</h3>
+          <h3 class="font-serif text-[22px] font-semibold">{{ item.year }}</h3>
           <div class="space-y-3 rounded-lg bg-[#84ABE41A] px-5 py-4">
-            <p class="font-Golos">{{ item.p1 }}</p>
-            <p class="font-Golos">{{ item.p2 }}</p>
+            <p class="font-sans">{{ item.p1 }}</p>
+            <p class="font-sans">{{ item.p2 }}</p>
             <img v-if="item.img" :src="item.img" :alt="item.alt" width="357" height="152" class="aspect-[357/152] w-full rounded object-cover">
           </div>
         </div>
       </div>
     </div>
-    <p class="mt-6 font-Golos font-semibold">
+    <p class="mt-6 font-sans font-semibold">
       {{ $t('aboutPage.timelineAfter1') }}<u class="underline">{{ $t('aboutPage.timelineAfterU') }}</u>{{ $t('aboutPage.timelineAfter2') }}
     </p>
 
     <!-- ═══ 我们的团队 ═══ -->
     <h2 class="mt-10 text-[30px] font-bold leading-tight">{{ $t('aboutPage.teamTitle') }}</h2>
-    <p class="mt-4 font-Golos">{{ $t('aboutPage.teamIntro') }}</p>
+    <p class="mt-4 font-sans">{{ $t('aboutPage.teamIntro') }}</p>
 
     <template v-for="(team, i) in teams" :key="i">
       <h3 class="mt-10 border-l-4 border-[#BDA887] pl-1.5 text-[22px] font-semibold">{{ team.title }}</h3>
-      <p class="mt-1.5 font-Golos" v-html="rich(team.text)" />
+      <p class="mt-1.5 font-sans" v-html="rich(team.text)" />
       <div v-if="team.img" class="mt-6 h-[300px] overflow-hidden rounded max-lg:h-[150px]">
         <img :src="team.img" :alt="team.alt" width="1000" height="300" class="size-full object-cover">
       </div>
@@ -138,11 +138,11 @@ useHead({
 
     <!-- ═══ 我们的证件照服务 ═══ -->
     <h2 class="mt-10 text-[30px] font-bold leading-tight">{{ $t('aboutPage.servicesTitle') }}</h2>
-    <p class="mt-4 font-Golos">{{ $t('aboutPage.services1') }}</p>
-    <p class="mt-4 font-Golos">{{ $t('aboutPage.services2') }}</p>
+    <p class="mt-4 font-sans">{{ $t('aboutPage.services1') }}</p>
+    <p class="mt-4 font-sans">{{ $t('aboutPage.services2') }}</p>
 
     <div class="mt-6 grid grid-cols-2 gap-6 max-lg:grid-cols-1">
-      <div v-for="(s, i) in services" :key="i" class="overflow-hidden rounded-lg bg-[#F1F5F9] font-Golos">
+      <div v-for="(s, i) in services" :key="i" class="overflow-hidden rounded-lg bg-[#F1F5F9] font-sans">
         <div class="aspect-[4/3] overflow-hidden rounded-b-lg max-lg:aspect-[3/2]">
           <img :src="s.img" :alt="s.alt" width="520" height="390" class="size-full object-cover">
         </div>
@@ -152,20 +152,20 @@ useHead({
         </div>
       </div>
     </div>
-    <p class="mt-6 font-Golos" v-html="rich($t('aboutPage.servicesAfter'))" />
+    <p class="mt-6 font-sans" v-html="rich($t('aboutPage.servicesAfter'))" />
 
     <!-- ═══ 合规标准与可靠性 ═══ -->
     <h2 class="mt-10 text-[30px] font-bold leading-tight">{{ $t('aboutPage.complianceTitle') }}</h2>
-    <p class="mt-4 font-Golos" v-html="$t('aboutPage.compliance1')" />
+    <p class="mt-4 font-sans" v-html="$t('aboutPage.compliance1')" />
     <img src="/img/about-us/about-us-12.webp" width="1580" height="510" alt="Photogov technical standards" class="mt-6 aspect-[158/51] w-full object-cover">
-    <p class="mt-4 font-Golos">{{ $t('aboutPage.compliance2') }}</p>
-    <p class="mt-4 font-Golos">{{ $t('aboutPage.compliance3') }}</p>
+    <p class="mt-4 font-sans">{{ $t('aboutPage.compliance2') }}</p>
+    <p class="mt-4 font-sans">{{ $t('aboutPage.compliance3') }}</p>
 
     <!-- 美国合规声明（H3 + 灰底提示块） -->
     <h3 class="mt-10 border-l-4 border-[#BDA887] pl-1.5 text-[22px] font-semibold">{{ $t('aboutPage.usTitle') }}</h3>
-    <p class="mt-4 font-Golos">{{ $t('aboutPage.us1') }}</p>
-    <p class="mt-4 font-Golos">{{ $t('aboutPage.us2') }}</p>
-    <div class="mt-4 flex items-start gap-x-1.5 rounded-[6px] bg-[#F4F4F4] p-4 font-Golos leading-[1.5]">
+    <p class="mt-4 font-sans">{{ $t('aboutPage.us1') }}</p>
+    <p class="mt-4 font-sans">{{ $t('aboutPage.us2') }}</p>
+    <div class="mt-4 flex items-start gap-x-1.5 rounded-[6px] bg-[#F4F4F4] p-4 font-sans leading-[1.5]">
       <svg class="size-6 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M6 6V18C6 18.5304 6.20752 19.0391 6.57691 19.4142C6.9463 19.7893 7.4473 20 7.9697 20H18.4091C18.5658 20 18.7161 19.9368 18.8269 19.8243C18.9377 19.7117 19 19.5591 19 19.4C19 19.2409 18.9377 19.0883 18.8269 18.9757C18.7161 18.8632 18.5658 18.8 18.4091 18.8H7.9697C7.76074 18.8 7.56034 18.7157 7.41258 18.5657C7.26483 18.4157 7.18182 18.2122 7.18182 18H18.4091C18.5658 18 18.7161 17.9368 18.8269 17.8243C18.9377 17.7117 19 17.5591 19 17.4V6C19 5.73736 18.9491 5.47728 18.8501 5.23463C18.7511 4.99198 18.606 4.7715 18.4231 4.58579C18.2402 4.40007 18.023 4.25275 17.7841 4.15224C17.5451 4.05173 17.289 4 17.0303 4H7.9697C7.4473 4 6.9463 4.21071 6.57691 4.58579C6.20752 4.96086 6 5.46957 6 6ZM11.9091 11.8V7.8C11.9091 7.64087 11.9713 7.48826 12.0822 7.37574C12.193 7.26321 12.3433 7.2 12.5 7.2C12.6567 7.2 12.807 7.26321 12.9178 7.37574C13.0287 7.48826 13.0909 7.64087 13.0909 7.8V11.8C13.0909 11.9591 13.0287 12.1117 12.9178 12.2243C12.807 12.3368 12.6567 12.4 12.5 12.4C12.3433 12.4 12.193 12.3368 12.0822 12.2243C11.9713 12.1117 11.9091 11.9591 11.9091 11.8ZM13.2879 14C13.2879 14.2122 13.2049 14.4157 13.0571 14.5657C12.9094 14.7157 12.709 14.8 12.5 14.8C12.291 14.8 12.0906 14.7157 11.9429 14.5657C11.7951 14.4157 11.7121 14.2122 11.7121 14C11.7121 13.7878 11.7951 13.5843 11.9429 13.4343C12.0906 13.2843 12.291 13.2 12.5 13.2C12.709 13.2 12.9094 13.2843 13.0571 13.4343C13.2049 13.5843 13.2879 13.7878 13.2879 14Z" fill="#212532"></path>
       </svg>
@@ -185,33 +185,33 @@ useHead({
     <h2 class="mt-10 text-[30px] font-bold leading-tight">{{ $t('aboutPage.accessTitle') }}</h2>
     <div class="mt-4 flex gap-x-8 max-lg:flex-col max-lg:gap-y-6">
       <div class="flex-1 space-y-4">
-        <p class="inline-block font-Golos">{{ $t('aboutPage.access1') }}</p>
-        <p class="inline-block font-Golos">{{ $t('aboutPage.access2') }}</p>
+        <p class="inline-block font-sans">{{ $t('aboutPage.access1') }}</p>
+        <p class="inline-block font-sans">{{ $t('aboutPage.access2') }}</p>
       </div>
       <div class="shrink-0">
         <div class="h-[285px] overflow-hidden rounded lg:w-[330px]">
           <img src="/img/about-us/about-us-16.webp" width="330" height="285" alt="Compliance team" class="size-full object-cover">
         </div>
-        <figcaption class="mt-1 text-center font-Golos text-[12px] text-[#727272]">{{ $t('aboutPage.accessCaption') }}</figcaption>
+        <figcaption class="mt-1 text-center font-sans text-[12px] text-[#727272]">{{ $t('aboutPage.accessCaption') }}</figcaption>
       </div>
     </div>
 
     <!-- ═══ 我们的愿景 ═══ -->
     <h2 class="mt-10 text-[30px] font-bold leading-tight">{{ $t('aboutPage.visionTitle') }}</h2>
-    <p class="mt-4 font-Golos" v-html="$t('aboutPage.vision1')" />
+    <p class="mt-4 font-sans" v-html="$t('aboutPage.vision1')" />
     <div class="mt-4 flex gap-x-8 max-lg:flex-col max-lg:gap-y-6">
       <div class="flex-1 space-y-4">
-        <p class="inline-block font-Golos" v-html="$t('aboutPage.vision2')" />
-        <p class="inline-block font-Golos">{{ $t('aboutPage.vision3') }}</p>
+        <p class="inline-block font-sans" v-html="$t('aboutPage.vision2')" />
+        <p class="inline-block font-sans">{{ $t('aboutPage.vision3') }}</p>
       </div>
       <div class="shrink-0">
         <div class="h-[285px] overflow-hidden rounded lg:w-[330px]">
           <img src="/img/about-us/about-us-14.webp" width="330" height="285" alt="Photogov - our vision" class="size-full object-cover">
         </div>
-        <figcaption class="mt-1 text-center font-Golos text-[12px] text-[#727272]">{{ $t('aboutPage.visionCaption') }}</figcaption>
+        <figcaption class="mt-1 text-center font-sans text-[12px] text-[#727272]">{{ $t('aboutPage.visionCaption') }}</figcaption>
       </div>
     </div>
-    <p class="mt-6 font-Golos text-[32px] font-semibold lg:max-w-[570px]">{{ $t('aboutPage.visionSlogan') }}</p>
+    <p class="mt-6 font-sans text-[32px] font-semibold lg:max-w-[570px]">{{ $t('aboutPage.visionSlogan') }}</p>
 
     <!-- 独立声明 -->
     <div class="mt-16 flex items-start gap-x-1.5 rounded-[6px] bg-[#F4F4F4] p-4 font-medium italic leading-[1.5]">

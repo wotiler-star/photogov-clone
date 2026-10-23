@@ -112,7 +112,7 @@ useHead(() => ({
         <h2 class="text-[30px] font-bold leading-tight">{{ r.t }}</h2>
         <div class="mt-4 space-y-4 text-[#374151]">
           <template v-for="(p, j) in r.ps" :key="j">
-            <ul v-if="p === '__BULLETS__' && r.bullets" class="ml-4 list-outside list-disc space-y-1.5 font-Golos">
+            <ul v-if="p === '__BULLETS__' && r.bullets" class="ml-4 list-outside list-disc space-y-1.5 font-sans">
               <li v-for="(b, k) in r.bullets" :key="k" class="list-item">{{ b }}</li>
             </ul>
             <p v-else v-html="rich(p)"></p>
