@@ -24,7 +24,8 @@ export const useAuth = () => {
     logout: apiLogout,
     subscribe: apiSubscribe,
     cancelSubscription: apiCancelSubscription,
-    resendVerification: apiResendVerification
+    resendVerification: apiResendVerification,
+    forgotPassword: apiForgotPassword
   } = useApi()
 
   // 从 /auth/me 拉取当前会话用户（由客户端插件在挂载时调用）
@@ -74,6 +75,8 @@ export const useAuth = () => {
 
   const resendVerification = async () => apiResendVerification()
 
+  const forgotPassword = async (email: string) => apiForgotPassword(email)
+
   return {
     user,
     loaded,
@@ -83,6 +86,7 @@ export const useAuth = () => {
     logout,
     subscribe,
     cancelSubscription,
-    resendVerification
+    resendVerification,
+    forgotPassword
   }
 }
