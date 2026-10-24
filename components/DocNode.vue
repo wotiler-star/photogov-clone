@@ -141,12 +141,16 @@ export default defineComponent({
 
       case 'DDContainerWithImage': {
         const img = imgOf(a.model)
-        const imgEl = img?.src
-          ? h('img', { src: img.src, alt: img.alt || '', title: img.title, class: 'w-full rounded-lg', loading: 'lazy' })
+        // 图片收进固定宽度的图框（桌面 280px / 移动全宽），避免 w-full 在
+        // md:flex-row 下把整栏撑满、与 flex-1 文字争夺宽度（原站阅读栏约 700px）。
+        const imgWrap = img?.src
+          ? h('div', { class: 'w-full shrink-0 md:w-[280px]' }, [
+              h('img', { src: img.src, alt: img.alt || '', title: img.title, class: 'w-full rounded-lg', loading: 'lazy' }),
+            ])
           : null
         // direction/顺序不敏感：图文并排，窄屏堆叠
         return h('div', { id: a.id, class: 'flex flex-col gap-5 md:flex-row md:items-start' }, [
-          imgEl,
+          imgWrap,
           h('div', { class: 'min-w-0 flex-1' }, kids()),
         ])
       }

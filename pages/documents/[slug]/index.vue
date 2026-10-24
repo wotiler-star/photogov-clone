@@ -422,8 +422,8 @@ useHead({
     </div>
   </article>
 
-  <article v-else class="pg-document-detail">
-    <nav aria-label="Breadcrumb" class="container-pg pt-6">
+  <article v-else class="pg-document-detail mx-auto w-full max-w-[700px] px-4 sm:px-6">
+    <nav aria-label="Breadcrumb" class="pt-6">
       <ol class="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm text-muted">
         <li v-for="(b, i) in breadcrumbTrail" :key="i" class="flex items-center gap-x-1.5">
           <span v-if="i > 0" aria-hidden="true" class="text-ink/30">/</span>
@@ -439,7 +439,7 @@ useHead({
     </nav>
 
     <!-- 照片规格汇总卡（对标原站文档页顶部规格表：label/value 网格 + 背景色块） -->
-    <section v-if="specRows.length" class="container-pg mt-6">
+    <section v-if="specRows.length" class="mt-6">
       <div class="card-pg p-6">
         <h2 class="text-lg font-bold">{{ $t('doc.specsTitle') }}</h2>
         <p class="mt-1 text-sm text-muted">{{ $t('doc.specsSub') }}</p>
@@ -457,7 +457,7 @@ useHead({
 
     <!-- 内嵌照片编辑器（对标原站文档页「Your X Photo Now」部件：预选当前文档，
          用户读完规格即可直接制作，无需跳转独立工具页） -->
-    <section v-if="!isCountry && doc" class="container-pg mt-6">
+    <section v-if="!isCountry && doc" class="mt-6">
       <div class="card-pg p-6">
         <div class="flex flex-wrap items-center gap-3">
           <h2 class="text-lg font-bold">
@@ -490,7 +490,7 @@ useHead({
     <DocFooterNotice :related="relatedPages" />
 
     <!-- ⑤ 官方政府来源（逐条标签版） -->
-    <section v-if="officialSourceLinks.length" id="official-government-sources" class="container">
+    <section v-if="officialSourceLinks.length" id="official-government-sources">
       <div class="lg:max-w-[700px]">
         <div class="space-y-4">
           <div class="text-[32px] font-semibold leading-[1.3] font-serif">
