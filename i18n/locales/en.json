@@ -2391,5 +2391,11 @@
     "linkRenewal": "Online renewal",
     "linkFirstTime": "First-time application",
     "linkBiometric": "Biometric regulations (ICAO 9303)"
+  },
+  "author": {
+    "editorialTeam": "Editorial Team",
+    "materialsBy": "Materials by {name}",
+    "guides": "Document photo guides",
+    "requirements": "Photo requirements"
   }
 }

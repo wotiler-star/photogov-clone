@@ -2391,5 +2391,11 @@
     "linkRenewal": "Renovación en línea",
     "linkFirstTime": "Primera solicitud",
     "linkBiometric": "Normativa biométrica (ICAO 9303)"
+  },
+  "author": {
+    "editorialTeam": "Equipo editorial",
+    "materialsBy": "Materiales de {name}",
+    "guides": "Guías de fotos de documentos",
+    "requirements": "Requisitos de las fotos"
   }
 }

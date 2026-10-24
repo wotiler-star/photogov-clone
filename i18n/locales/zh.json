@@ -2391,5 +2391,11 @@
     "linkRenewal": "在线续签",
     "linkFirstTime": "首次申请",
     "linkBiometric": "生物特征规范（ICAO 9303）"
+  },
+  "author": {
+    "editorialTeam": "编辑团队",
+    "materialsBy": "{name} 的资料",
+    "guides": "证件照指南",
+    "requirements": "照片要求"
   }
 }
