@@ -410,7 +410,7 @@ useHead({
             {{ g.label }}
             <span class="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-muted">{{ g.docs.length }}</span>
           </h3>
-          <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             <DocCard v-for="d in g.docs" :key="d.slug" :doc="d" :flag="country?.flag || ''" />
           </div>
         </div>
@@ -443,7 +443,7 @@ useHead({
       <div class="card-pg p-6">
         <h2 class="text-lg font-bold">{{ $t('doc.specsTitle') }}</h2>
         <p class="mt-1 text-sm text-muted">{{ $t('doc.specsSub') }}</p>
-        <dl class="mt-4 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+        <dl class="mt-4 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
           <div v-for="r in specRows" :key="r.key" class="flex items-center justify-between gap-3 border-b border-slate-100 pb-2 text-sm">
             <dt class="shrink-0 text-muted">{{ r.label }}</dt>
             <dd class="flex items-center gap-1.5 text-right font-medium text-ink">

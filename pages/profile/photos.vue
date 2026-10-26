@@ -186,7 +186,7 @@ const fmtDate = (iso: string) => {
       </div>
 
       <!-- 照片网格 -->
-      <div class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+      <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
         <div
           v-for="p in photos"
           :key="p.id"

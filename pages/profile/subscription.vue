@@ -147,7 +147,7 @@ const statusLabel = (s: string) => {
     <div v-if="!isPremium" class="mt-5">
       <p class="text-sm text-muted">{{ t('profile.subscription.noneDesc') }}</p>
 
-      <div class="mt-4 grid gap-4 sm:grid-cols-2">
+      <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div
           v-for="plan in premiumPlans"
           :key="plan.id"
@@ -185,7 +185,7 @@ const statusLabel = (s: string) => {
         <h3 class="text-sm font-semibold uppercase tracking-wide text-muted">
           {{ t('profile.subscription.features') }}
         </h3>
-        <ul class="mt-3 grid gap-2 sm:grid-cols-2">
+        <ul class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
           <li v-for="(f, i) in features" :key="i" class="flex items-center gap-2 text-sm text-ink">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="text-accent">
               <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -222,7 +222,7 @@ const statusLabel = (s: string) => {
 
     <!-- ============ 高级用户：订阅详情 ============ -->
     <div v-else class="mt-5 space-y-6">
-      <dl class="grid gap-4 sm:grid-cols-2">
+      <dl class="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div class="rounded-xl bg-slate-50 p-4">
           <dt class="text-xs uppercase tracking-wide text-muted">{{ t('profile.subscription.period') }}</dt>
           <dd class="mt-1 font-medium text-ink">
@@ -255,7 +255,7 @@ const statusLabel = (s: string) => {
         <h3 class="text-sm font-semibold uppercase tracking-wide text-muted">
           {{ t('profile.subscription.features') }}
         </h3>
-        <ul class="mt-3 grid gap-2 sm:grid-cols-2">
+        <ul class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
           <li v-for="(f, i) in features" :key="i" class="flex items-center gap-2 text-sm text-ink">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="text-accent">
               <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />

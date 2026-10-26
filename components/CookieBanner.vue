@@ -19,7 +19,7 @@ const accept = () => {
   <Transition name="slide">
     <div
       v-if="visible"
-      class="fixed inset-x-0 bottom-0 z-[60] px-4 pb-4"
+      class="fixed inset-x-4 bottom-0 z-[60] pb-4 sm:inset-x-6"
     >
       <div class="container-pg">
         <div class="flex flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-card sm:flex-row sm:justify-between">

@@ -36,7 +36,7 @@ const nameFor = (c: string) => countriesByCode.value[c]?.name || c
           <h2 class="mb-3 flex items-center gap-2 text-xl font-semibold">
             <span class="text-2xl">{{ flagFor(code) }}</span>{{ nameFor(code) }}
           </h2>
-          <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             <DocCard v-for="d in items" :key="d.slug" :doc="d" :flag="flagFor(d.country)" />
           </div>
         </div>

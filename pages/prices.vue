@@ -118,7 +118,7 @@ useHead({ title: t('plans.title') })
         <p class="mt-4 text-sm leading-relaxed text-muted">{{ $t('plans.subCancel') }}</p>
 
         <!-- 订阅操作区（本地账户体系） -->
-        <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div
             v-for="plan in premiumPlans"
             :key="plan.id"

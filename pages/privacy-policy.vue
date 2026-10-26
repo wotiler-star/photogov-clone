@@ -31,7 +31,7 @@ const sections = computed(() => tm('legal.privacySections') as Array<{ title: st
       <!-- Requisites（对标原站法务页底部的主体信息块） -->
       <div class="mt-8 rounded-xl border border-slate-200 p-5 text-sm">
         <h2 class="text-lg font-semibold text-ink">{{ $t('legal.requisitesTitle') }}</h2>
-        <dl class="mt-3 grid gap-3 sm:grid-cols-3">
+        <dl class="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
           <div>
             <dt class="text-muted">{{ $t('legal.requisitesOwner') }}</dt>
             <dd class="font-medium text-ink">{{ $t('legal.requisitesOwnerValue') }}</dd>

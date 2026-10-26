@@ -91,8 +91,8 @@ watch(drawer, (v) => {
 
 <template>
   <header ref="root" class="relative border-b-4 border-gold">
-    <!-- 顶部工具条 -->
-    <div class="bg-header-2 text-white/85">
+    <!-- 顶部工具条（原站移动端隐藏，仅 md+ 显示，避免内容换行溢出 44px 栏高压住主导航） -->
+    <div class="hidden bg-header-2 text-white/85 md:block">
       <div class="container-pg flex h-11 items-center justify-end gap-5 text-[13px]">
         <NuxtLink :to="localePath('/contacts')" class="hover:text-white">
           {{ $t('nav.contactUs') }}
@@ -153,11 +153,11 @@ watch(drawer, (v) => {
 
     <!-- 主导航（static，滚动时随页面滚出，对标原站） -->
     <div class="bg-header text-white">
-      <div class="container-pg flex h-[88px] items-center justify-between border-b-[3px] border-gold">
+      <div class="container-pg flex h-20 items-center justify-between border-b-[3px] border-gold sm:h-[88px]">
         <!-- 徽标：圆形徽章 + PhotoGov service + 副标 -->
-        <NuxtLink :to="localePath('/')" class="flex items-center gap-3">
-          <span class="grid h-14 w-14 place-items-center rounded-full border-2 border-gold/80 bg-white/5">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" class="text-gold">
+        <NuxtLink :to="localePath('/')" class="flex items-center gap-2.5 sm:gap-3">
+          <span class="grid h-12 w-12 place-items-center rounded-full border-2 border-gold/80 bg-white/5 sm:h-14 sm:w-14">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" class="text-gold sm:h-[30px] sm:w-[30px]">
               <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.5" />
               <path d="M3.5 12h17M12 3.5c2.6 2.7 2.6 14.3 0 17M12 3.5c-2.6 2.7-2.6 14.3 0 17" stroke="currentColor" stroke-width="1.5" />
               <rect x="8.4" y="10.2" width="7.2" height="4.6" rx="0.9" stroke="currentColor" stroke-width="1.3" />
@@ -165,8 +165,8 @@ watch(drawer, (v) => {
             </svg>
           </span>
           <span>
-            <span class="block font-serif text-[26px] leading-tight">Photo<span class="text-gold">Gov</span> service</span>
-            <span class="block text-[11px] tracking-wide text-white/70">Passport and Visa photo online</span>
+            <span class="block font-serif text-[21px] leading-tight sm:text-[26px]">Photo<span class="text-gold">Gov</span> service</span>
+            <span class="block text-[10px] tracking-wide text-white/70 sm:text-[11px]">Passport and Visa photo online</span>
           </span>
         </NuxtLink>
 
@@ -288,7 +288,7 @@ watch(drawer, (v) => {
           <NuxtLink
             v-if="user"
             :to="localePath('/profile')"
-            class="flex items-center gap-2 text-[13px] font-semibold uppercase tracking-wide underline decoration-white/60 decoration-1 underline-offset-4 hover:decoration-white"
+            class="hidden items-center gap-2 text-[13px] font-semibold uppercase tracking-wide underline decoration-white/60 decoration-1 underline-offset-4 hover:decoration-white md:flex"
           >
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="8" r="3.6" stroke="currentColor" stroke-width="1.7" />
@@ -299,7 +299,7 @@ watch(drawer, (v) => {
           <NuxtLink
             v-else
             :to="localePath('/sign-in')"
-            class="flex items-center gap-2 text-[13px] font-semibold uppercase tracking-wide underline decoration-white/60 decoration-1 underline-offset-4 hover:decoration-white"
+            class="hidden items-center gap-2 text-[13px] font-semibold uppercase tracking-wide underline decoration-white/60 decoration-1 underline-offset-4 hover:decoration-white md:flex"
           >
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="8" r="3.6" stroke="currentColor" stroke-width="1.7" />

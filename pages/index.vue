@@ -107,7 +107,7 @@ const quickGroups = computed(() => {
   <div>
     <!-- ═══ HERO — 与原站完全一致的左右两栏布局 ═══ -->
     <section class="bg-gradient-to-b from-[#eef4ff] to-white">
-      <div class="container-pg grid items-start gap-10 py-12 lg:grid-cols-2">
+      <div class="container-pg grid grid-cols-1 items-start gap-10 py-12 lg:grid-cols-2">
         <!-- 左栏：标题 + CTA + 评价徽章（原站同款） -->
         <div>
           <span class="eyebrow">{{ $t('home.heroEyebrow') }}</span>
@@ -193,7 +193,7 @@ const quickGroups = computed(() => {
         <span class="eyebrow">{{ $t('home.stepsEyebrow') }}</span>
         <h2 class="mt-2 text-3xl font-bold">{{ $t('home.stepsTitle') }}</h2>
       </div>
-      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div v-for="(s, i) in $tm('home.steps')" :key="i" class="card-pg p-5">
           <div class="grid h-10 w-10 place-items-center rounded-full bg-brand-blue text-white font-bold">{{ i + 1 }}</div>
           <h3 class="mt-3 text-lg font-semibold">{{ s.title }}</h3>
@@ -212,7 +212,7 @@ const quickGroups = computed(() => {
           <span class="eyebrow">{{ $t('home.standardsEyebrow') }}</span>
           <h2 class="mt-2 text-3xl font-bold">{{ $t('home.standardsTitle') }}</h2>
         </div>
-        <ol class="mx-auto mt-8 grid max-w-3xl gap-3 sm:grid-cols-2">
+        <ol class="mx-auto mt-8 grid grid-cols-1 max-w-3xl gap-3 sm:grid-cols-2">
           <li v-for="(s, i) in $tm('home.standards')" :key="i" class="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4">
             <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-brand-blue text-xs font-bold text-white">{{ i + 1 }}</span>
             <span class="text-sm text-muted">{{ s }}</span>
@@ -230,7 +230,7 @@ const quickGroups = computed(() => {
         </div>
         <NuxtLink :to="localePath('/documents')" class="btn-outline hidden sm:inline-flex">{{ $t('common.viewAll') }}</NuxtLink>
       </div>
-      <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         <DocCard v-for="d in popular" :key="d.slug" :doc="d" :flag="flagFor(d.country)" detailed />
       </div>
     </section>
@@ -240,7 +240,7 @@ const quickGroups = computed(() => {
       <div class="container-pg">
         <span class="eyebrow">{{ $t('home.quickEyebrow') }}</span>
         <h2 class="mt-2 text-3xl font-bold">{{ $t('home.quickTitle') }}</h2>
-        <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <div v-for="g in quickGroups" :key="g.code" class="rounded-2xl border border-slate-200 bg-white p-5">
             <div class="flex items-center gap-2">
               <img :src="g.flag" :alt="g.code" class="h-5 w-7 rounded-sm object-cover" loading="lazy" />
@@ -339,7 +339,7 @@ const quickGroups = computed(() => {
           <h2 class="mt-2 text-3xl font-bold">{{ $t('home.beforeTitle') }}</h2>
           <p class="mx-auto mt-3 max-w-2xl text-muted">{{ $t('home.beforeSub') }}</p>
         </div>
-        <ol class="mt-8 grid gap-4 md:grid-cols-3">
+        <ol class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
           <li v-for="(p, i) in $tm('home.beforePoints')" :key="i" class="rounded-2xl border border-slate-200 bg-white p-5">
             <div class="grid h-9 w-9 place-items-center rounded-full bg-brand-blue text-white font-bold">{{ i + 1 }}</div>
             <h3 class="mt-3 font-semibold text-ink">{{ p.t }}</h3>
@@ -404,7 +404,7 @@ const quickGroups = computed(() => {
                 <!-- 步骤 3：内嵌 US Passport 示例规格块 -->
                 <div v-else-if="i === 2" class="mt-3 rounded-xl border border-slate-200 bg-slate-50 p-4">
                   <p class="text-sm font-semibold text-ink">{{ $t('home.howExampleTitle') }}</p>
-                  <dl class="mt-2 grid gap-2 sm:grid-cols-2">
+                  <dl class="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
                     <div v-for="(row, k) in $tm('home.howExample')" :key="k" class="flex items-center justify-between gap-3 rounded-lg bg-white px-3 py-2 text-sm">
                       <dt class="shrink-0 text-muted">{{ row.label }}</dt>
                       <dd class="text-right font-medium text-ink">{{ row.value }}</dd>
@@ -424,7 +424,7 @@ const quickGroups = computed(() => {
         <span class="eyebrow">{{ $t('home.babyEyebrow') }}</span>
         <h2 class="mt-2 text-3xl font-bold">{{ $t('home.babyTitle') }}</h2>
       </div>
-      <div class="mt-8 grid gap-4 md:grid-cols-2">
+      <div class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
         <div class="rounded-2xl border border-accent-green/30 bg-white p-5">
           <h3 class="text-lg font-semibold text-accent-green">{{ $t('home.babyOkTitle') }}</h3>
           <ul class="mt-3 space-y-2 text-sm text-muted">
@@ -447,7 +447,7 @@ const quickGroups = computed(() => {
           <span class="eyebrow">{{ $t('home.docTypesEyebrow') }}</span>
           <h2 class="mt-2 text-3xl font-bold">{{ $t('home.docTypesTitle') }}</h2>
         </div>
-        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <NuxtLink
             v-for="t in docTypes"
             :key="t.cat"
@@ -476,7 +476,7 @@ const quickGroups = computed(() => {
             </span>
           </div>
         </div>
-        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
           <div class="card-pg p-5 text-center">
             <div class="text-3xl font-bold text-brand-blue">1.8M+</div>
             <p class="mt-1 text-sm text-muted">{{ $t('home.trustUsers') }}</p>
@@ -509,7 +509,7 @@ const quickGroups = computed(() => {
           <h2 class="mt-2 text-3xl font-bold">{{ $t('home.trustedTitle') }}</h2>
           <p class="mx-auto mt-3 max-w-2xl text-muted">{{ $t('home.trustedSub') }}</p>
         </div>
-        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <div v-for="(t, i) in $tm('home.trustedPoints')" :key="i" class="rounded-2xl border border-slate-200 bg-white p-5">
             <h3 class="font-semibold">{{ t.t }}</h3>
             <p class="mt-1 text-sm text-muted">{{ t.d }}</p>
@@ -555,7 +555,7 @@ const quickGroups = computed(() => {
         </div>
         <NuxtLink :to="localePath('/blog')" class="btn-outline hidden sm:inline-flex">{{ $t('home.viewAllArticles') }}</NuxtLink>
       </div>
-      <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         <BlogCard v-for="p in latestPosts" :key="p.slug" :post="p" />
       </div>
       <div class="mt-6 text-center sm:hidden">
@@ -571,7 +571,7 @@ const quickGroups = computed(() => {
           <h2 class="mt-2 text-3xl font-bold">{{ $t('home.usersSayTitle') }}</h2>
           <p class="mx-auto mt-3 max-w-2xl text-muted">{{ $t('home.usersSaySub') }}</p>
         </div>
-        <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           <figure
             v-for="(u, i) in $tm('reviewsPage.users')"
             :key="i"

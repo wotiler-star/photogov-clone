@@ -129,7 +129,7 @@ const countryLinks = (() => {
     </div>
 
     <!-- ═══ 五列链接组（对标原站） ═══ -->
-    <div class="container-pg grid gap-10 py-10 sm:grid-cols-2 lg:grid-cols-5">
+    <div class="container-pg grid grid-cols-1 gap-10 py-10 sm:grid-cols-2 lg:grid-cols-5">
       <!-- 1. Passport Photos -->
       <div>
         <h4 class="text-sm font-bold">{{ $t('footer.colPassportPhotos') }}</h4>

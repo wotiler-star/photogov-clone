@@ -124,7 +124,7 @@ function fmtDate(iso: string) {
     <!-- 账户资料 -->
     <section class="card-pg p-6">
       <h2 class="font-serif text-xl font-bold text-ink">{{ t('profile.profileSection.title') }}</h2>
-      <div class="mt-5 grid gap-5 sm:grid-cols-2">
+      <div class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label class="text-xs uppercase tracking-wide text-muted">{{ t('profile.profileSection.name') }}</label>
           <input v-model="nameModel" type="text" class="input-pg mt-1 w-full" />
@@ -159,7 +159,7 @@ function fmtDate(iso: string) {
         <p class="mt-1 text-sm text-muted">
           {{ t('profile.security.lastChanged', { date: lastChanged }) }}
         </p>
-        <div class="mt-3 grid gap-3 sm:grid-cols-3">
+        <div class="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
           <input v-model="curPw" type="password" :placeholder="t('profile.security.current')" class="input-pg w-full" />
           <input v-model="newPw" type="password" :placeholder="t('profile.security.new')" class="input-pg w-full" />
           <input v-model="confirmPw" type="password" :placeholder="t('profile.security.confirm')" class="input-pg w-full" />

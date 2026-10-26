@@ -51,7 +51,7 @@ function submit() {
         <!-- 如何联系我们：表单 + 邮箱 -->
         <section class="mt-10">
           <h2 class="text-[30px] font-bold leading-tight">{{ $t('support.contactTitle') }}</h2>
-          <div class="mt-5 grid gap-6 sm:grid-cols-2">
+          <div class="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-2">
             <!-- 支持请求表单 -->
             <div class="rounded-[6px] border border-[#E0E7EE] p-5">
               <h3 class="font-semibold">{{ $t('support.formTitle') }}</h3>

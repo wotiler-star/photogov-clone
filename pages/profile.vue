@@ -152,7 +152,7 @@ useHead({ title: t('profile.title') })
         </button>
       </div>
 
-      <div class="grid gap-8 lg:grid-cols-[260px_1fr]">
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-[260px_1fr]">
         <!-- 侧栏导航 -->
         <aside>
           <div class="card-pg sticky top-6 p-5">

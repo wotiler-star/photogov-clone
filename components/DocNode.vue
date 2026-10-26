@@ -377,7 +377,7 @@ export default defineComponent({
         }).filter(Boolean)
         return h('div', { id: a.id, class: a.class }, [
           ...kids(),
-          cards.length ? h('div', { class: 'mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3' }, cards) : null,
+          cards.length ? h('div', { class: 'mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3' }, cards) : null,
         ])
       }
 

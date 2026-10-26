@@ -199,7 +199,7 @@ const siblings = computed(() =>
         <!-- 推荐阅读 -->
         <div v-if="siblings.length" class="mt-12 border-t border-slate-200 pt-8">
           <h2 class="text-lg font-semibold">{{ $t('knowledge.moreIn', { category: catLabel }) }}</h2>
-          <ul class="mt-3 grid gap-2 sm:grid-cols-2">
+          <ul class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
             <li v-for="s in siblings" :key="s.slug">
               <NuxtLink
                 :to="localePath(`/knowledge/${s.cat}/${s.slug}`)"

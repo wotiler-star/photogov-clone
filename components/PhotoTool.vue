@@ -1217,7 +1217,7 @@ function changeCountry(c: string) {
 
 <template>
   <div class="card-pg overflow-hidden">
-    <div class="grid gap-0 md:grid-cols-[minmax(0,1fr)_320px]">
+    <div class="grid grid-cols-1 gap-0 md:grid-cols-[minmax(0,1fr)_320px]">
       <!-- 预览区 -->
       <div class="flex flex-col items-center justify-center gap-4 border-b border-slate-200 bg-slate-50 p-6 md:border-b-0 md:border-r">
         <div
