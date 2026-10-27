@@ -629,7 +629,8 @@
       "Pas de lunettes, chapeaux ou couvre-chefs (sauf religieux).",
       "Prise au cours des 6 derniers mois."
     ]
-  },
+  ,
+    "metaTitle": "Outil Photo pour la Loterie DV des États-Unis — Gratuit et Conforme"},
   "lists": {
     "passportTitle": "Exigences photo de passeport",
     "passportSub": "Tailles de photos de passeport conformes pour {count} pays. Sélectionnez le vôtre et créez une photo en quelques secondes.",

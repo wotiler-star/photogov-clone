@@ -629,7 +629,8 @@
       "No glasses, hats, or head coverings (except religious).",
       "Taken within the last 6 months."
     ]
-  },
+  ,
+    "metaTitle": "US DV Lottery Photo Tool — Free & Compliant"},
   "lists": {
     "passportTitle": "Passport photo requirements",
     "passportSub": "Compliant passport photo sizes for {count} countries. Select yours and make a photo in seconds.",

@@ -4,6 +4,8 @@ import { useRoute, useRouter } from 'vue-router'
 import DocCard from '~/components/DocCard.vue'
 import { useApi } from '~/composables/useApi'
 import { useCountry } from '~/composables/useCountry'
+import { useI18n } from 'vue-i18n'
+import { useRequestURL } from '#imports'
 
 const route = useRoute()
 const router = useRouter()
@@ -83,6 +85,16 @@ function updateRoute() {
   })
 }
 watch([query, country], updateRoute)
+
+// ── SEO meta 四语化 ──
+// 此前该 hub 页未自定义 title，套用了 nuxt.config 的英文默认 title（zh/es/fr 也显示英文）。
+const { t } = useI18n()
+const url = useRequestURL()
+useHead(() => ({
+  title: t('lists.passportTitle'),
+  meta: [{ name: 'description', content: t('lists.passportSub', { count: countryCount.value }) }],
+  link: [{ rel: 'canonical', href: url.origin + localePath('/passports') }]
+}))
 </script>
 
 <template>

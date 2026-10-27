@@ -7,7 +7,7 @@ import { useData } from '~/composables/useData'
 const { getDocument } = useData()
 const doc = getDocument('dv-lottery-photo-tool')
 const { t, tm } = useI18n()
-useHead({ title: 'US DV Lottery Photo Tool — Free & Compliant' })
+useHead({ title: t('dv.metaTitle') })
 
 const dvRules = computed(() => {
   const arr = (tm('dv.rules') as string[]) || []
