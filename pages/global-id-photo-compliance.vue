@@ -1,8 +1,29 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import { useOrgLd } from '~/composables/useOrgLd'
 const { t, tm } = useI18n()
+const localePath = useLocalePath()
+const url = useRequestURL()
+const { scripts: orgScripts } = useOrgLd()
 
-useHead({ title: t('globalCompliance.title') })
+useHead({
+  title: t('globalCompliance.title'),
+  script: [
+    ...orgScripts.value,
+    {
+      key: 'ld-global-bc',
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: t('nav.home'), item: url.origin + localePath('/') },
+          { '@type': 'ListItem', position: 2, name: t('globalCompliance.title') }
+        ]
+      }).replace(/</g, '\\u003c')
+    }
+  ]
+})
 
 const paras = computed(() => tm('globalCompliance.paras') as string[])
 const policy = computed(() => tm('globalCompliance.policy') as string[])

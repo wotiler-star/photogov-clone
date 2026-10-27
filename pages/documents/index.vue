@@ -5,6 +5,7 @@ import DocCard from '~/components/DocCard.vue'
 import { useApi } from '~/composables/useApi'
 import { useCountry } from '~/composables/useCountry'
 import { useI18n } from 'vue-i18n'
+import { useOrgLd } from '~/composables/useOrgLd'
 import { useRequestURL } from '#imports'
 
 const route = useRoute()
@@ -100,10 +101,26 @@ watch([query, category], updateRoute)
 // 改用已有四语键，canonical 用 localePath 生成（不含筛选 query）。
 const { t } = useI18n()
 const url = useRequestURL()
+const { scripts: orgScripts } = useOrgLd()
 useHead(() => ({
   title: t('documents.title'),
   meta: [{ name: 'description', content: t('documents.sub') }],
-  link: [{ rel: 'canonical', href: url.origin + localePath('/documents') }]
+  link: [{ rel: 'canonical', href: url.origin + localePath('/documents') }],
+  script: [
+    ...orgScripts.value,
+    {
+      key: 'ld-documents-bc',
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: t('nav.home'), item: url.origin + localePath('/') },
+          { '@type': 'ListItem', position: 2, name: t('documents.title') }
+        ]
+      }).replace(/</g, '\\u003c')
+    }
+  ]
 }))
 </script>
 

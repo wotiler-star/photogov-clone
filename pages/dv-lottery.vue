@@ -1,13 +1,34 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useOrgLd } from '~/composables/useOrgLd'
 import PhotoTool from '~/components/PhotoTool.vue'
 import { useData } from '~/composables/useData'
 
 const { getDocument } = useData()
 const doc = getDocument('dv-lottery-photo-tool')
 const { t, tm } = useI18n()
-useHead({ title: t('dv.metaTitle') })
+const localePath = useLocalePath()
+const url = useRequestURL()
+const { scripts: orgScripts } = useOrgLd()
+useHead({
+  title: t('dv.metaTitle'),
+  script: [
+    ...orgScripts.value,
+    {
+      key: 'ld-dv-bc',
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: t('nav.home'), item: url.origin + localePath('/') },
+          { '@type': 'ListItem', position: 2, name: t('dv.metaTitle') }
+        ]
+      }).replace(/</g, '\\u003c')
+    }
+  ]
+})
 
 const dvRules = computed(() => {
   const arr = (tm('dv.rules') as string[]) || []

@@ -5,6 +5,7 @@ import DocCard from '~/components/DocCard.vue'
 import { useApi } from '~/composables/useApi'
 import { useCountry } from '~/composables/useCountry'
 import { useI18n } from 'vue-i18n'
+import { useOrgLd } from '~/composables/useOrgLd'
 import { useRequestURL } from '#imports'
 
 const route = useRoute()
@@ -88,10 +89,26 @@ watch([query, country], updateRoute)
 // 此前该 hub 页未自定义 title，套用了 nuxt.config 的英文默认 title（zh/es/fr 也显示英文）。
 const { t } = useI18n()
 const url = useRequestURL()
+const { scripts: orgScripts } = useOrgLd()
 useHead(() => ({
   title: t('lists.visaTitle'),
   meta: [{ name: 'description', content: t('lists.visaSub') }],
-  link: [{ rel: 'canonical', href: url.origin + localePath('/visas') }]
+  link: [{ rel: 'canonical', href: url.origin + localePath('/visas') }],
+  script: [
+    ...orgScripts.value,
+    {
+      key: 'ld-visas-bc',
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: t('nav.home'), item: url.origin + localePath('/') },
+          { '@type': 'ListItem', position: 2, name: t('lists.visaTitle') }
+        ]
+      }).replace(/</g, '\\u003c')
+    }
+  ]
 }))
 </script>
 

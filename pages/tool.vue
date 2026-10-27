@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useOrgLd } from '~/composables/useOrgLd'
 import { useRequestURL } from '#imports'
 import PhotoTool from '~/components/PhotoTool.vue'
 
 const { t, tm } = useI18n()
 const url = useRequestURL()
+const localePath = useLocalePath()
+const { scripts: orgScripts } = useOrgLd()
 
 useHead({
   title: t('tool.pageTitle'),
@@ -18,7 +21,22 @@ useHead({
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'robots', content: 'index,follow' }
   ],
-  link: [{ rel: 'canonical', href: url.origin + '/tool' }]
+  link: [{ rel: 'canonical', href: url.origin + '/tool' }],
+  script: [
+    ...orgScripts.value,
+    {
+      key: 'ld-tool-bc',
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: t('nav.home'), item: url.origin + localePath('/') },
+          { '@type': 'ListItem', position: 2, name: t('tool.pageTitle') }
+        ]
+      }).replace(/</g, '\\u003c')
+    }
+  ]
 })
 
 const steps = computed(() => (tm('tool.steps') as unknown as string[]))

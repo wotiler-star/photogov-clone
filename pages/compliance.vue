@@ -1,7 +1,28 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import { useOrgLd } from '~/composables/useOrgLd'
 const { t } = useI18n()
-useHead({ title: t('compliance.title') })
+const localePath = useLocalePath()
+const url = useRequestURL()
+const { scripts: orgScripts } = useOrgLd()
+useHead({
+  title: t('compliance.title'),
+  script: [
+    ...orgScripts.value,
+    {
+      key: 'ld-compliance-bc',
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: t('nav.home'), item: url.origin + localePath('/') },
+          { '@type': 'ListItem', position: 2, name: t('compliance.title') }
+        ]
+      }).replace(/</g, '\\u003c')
+    }
+  ]
+})
 </script>
 
 <template>
