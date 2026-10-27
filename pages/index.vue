@@ -5,10 +5,12 @@ import DocCard from '~/components/DocCard.vue'
 import BlogCard from '~/components/BlogCard.vue'
 import { useData } from '~/composables/useData'
 import { useRequestURL } from '#imports'
+import { useI18n } from 'vue-i18n'
 
 const { popularDocuments, countriesByCode, quickLinks, documents, blogPosts, faqItems, countryName } = useData()
 const url = useRequestURL()
 const localePath = useLocalePath()
+const { t } = useI18n()
 
 // 首页内联 FAQ 折叠（取真实 faq.json 前 6 条）
 const faqs = faqItems().slice(0, 6)
@@ -18,17 +20,18 @@ const openFaq = ref<number | null>(0)
 const logoWallCodes = ['US', 'GB', 'CA', 'AU', 'IN', 'DE', 'FR', 'ES', 'IT', 'BR', 'JP', 'CN', 'KR', 'MX', 'NG', 'ZA', 'AE', 'TR']
 
 useHead(() => {
-  const desc = 'Make compliant passport, visa and ID photos online in seconds. Free tool with country-specific size specs, white/blue background, and instant JPG/PDF download.'
+  const title = t('home.metaTitle')
+  const desc = t('home.metaDesc')
   const canonical = `${url.origin}/`
   return {
-    title: 'Passport Photo Maker – 100% Compliant Passport Size Photo',
+    title,
     meta: [
       { name: 'description', content: desc },
-      { property: 'og:title', content: 'Passport Photo Maker – 100% Compliant Passport Size Photo' },
+      { property: 'og:title', content: title },
       { property: 'og:description', content: desc },
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: canonical },
-      { name: 'twitter:title', content: 'Passport Photo Maker – 100% Compliant Passport Size Photo' },
+      { name: 'twitter:title', content: title },
       { name: 'twitter:description', content: desc }
     ],
     link: [{ rel: 'canonical', href: canonical }]

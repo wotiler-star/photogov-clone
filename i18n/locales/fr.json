@@ -388,7 +388,9 @@
       "Téléchargez la photo au format passeport en JPEG pour les demandes en ligne ou sous forme de feuille imprimible pour les demandes papier."
     ],
     "convertNote": "Selon votre localisation, vous pouvez créer deux photos d'identité gratuites par jour. Aux États-Unis, une photo de passeport numérique coûte $6.90."
-  },
+  ,
+    "metaTitle": "Créateur de Photos de Passeport – Photo Format Passeport 100% Conforme",
+    "metaDesc": "Créez des photos de passeport, de visa et d'identité conformes en ligne en quelques secondes. Outil gratuit avec dimensions spécifiques par pays, fond blanc/bleu et téléchargement JPG/PDF instantané."},
   "documents": {
     "eyebrow": "Documents",
     "title": "Exigences photo des documents",
