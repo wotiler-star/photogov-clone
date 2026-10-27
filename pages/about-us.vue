@@ -2,6 +2,7 @@
 import { useI18n } from 'vue-i18n'
 import InfoPageShell from '~/components/InfoPageShell.vue'
 import { useRichText } from '~/composables/useRichText'
+import { useOrgLd } from '~/composables/useOrgLd'
 import icons from '~/components/reviewsIcons.json'
 
 // 对标原站 /about-us/（F5 取证 SEEN）
@@ -12,14 +13,33 @@ import icons from '~/components/reviewsIcons.json'
 //   H2 合规标准与可靠性 > H3 美国合规声明 > H2 易用性与支持 > H2 我们的愿景 > 独立声明块
 const { t, tm } = useI18n()
 const { rich } = useRichText()
+const localePath = useLocalePath()
+const url = useRequestURL()
+const { scripts: orgScripts } = useOrgLd()
 
 const timeline = tm('aboutPage.timeline') as any[]
 const teams = tm('aboutPage.teams') as any[]
 const services = tm('aboutPage.services') as any[]
 
+// 结构化数据：Organization + BreadcrumbList（该页此前 JSON-LD 为 0，属 SEO 洼地）
 useHead({
   title: t('aboutPage.metaTitle'),
   meta: [{ name: 'description', content: t('aboutPage.metaDesc') }],
+  script: [
+    ...orgScripts.value,
+    {
+      key: 'ld-about-breadcrumb',
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: t('nav.home'), item: url.origin + localePath('/') },
+          { '@type': 'ListItem', position: 2, name: t('aboutPage.metaTitle') },
+        ],
+      }).replace(/</g, '\\u003c'),
+    },
+  ],
 })
 </script>
 

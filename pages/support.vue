@@ -2,11 +2,31 @@
 import { ref, reactive } from 'vue'
 import { useI18n } from 'vue-i18n'
 import InfoPageShell from '~/components/InfoPageShell.vue'
+import { useOrgLd } from '~/composables/useOrgLd'
 
 const { t, tm } = useI18n()
+const localePath = useLocalePath()
+const url = useRequestURL()
+const { scripts: orgScripts } = useOrgLd()
+// 结构化数据：Organization + BreadcrumbList（该页此前 JSON-LD 为 0，属 SEO 洼地）
 useHead({
   title: t('support.metaTitle'),
-  meta: [{ name: 'description', content: t('support.metaDesc') }]
+  meta: [{ name: 'description', content: t('support.metaDesc') }],
+  script: [
+    ...orgScripts.value,
+    {
+      key: 'ld-support-breadcrumb',
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: t('nav.home'), item: url.origin + localePath('/') },
+          { '@type': 'ListItem', position: 2, name: t('support.metaTitle') },
+        ],
+      }).replace(/</g, '\\u003c'),
+    },
+  ],
 })
 
 // 支持邮箱（与语言无关的固定数据，不走 i18n：@ 会触发 vue-i18n 链接格式解析错误）

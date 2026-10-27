@@ -12,10 +12,13 @@ import { useI18n } from 'vue-i18n'
 import { useRouter, useLocalePath } from '#imports'
 import { useAuth } from '~/composables/useAuth'
 import { PLANS, planStatus } from '~/utils/plans'
+import { useOrgLd } from '~/composables/useOrgLd'
 
 const { t, tm } = useI18n()
 const router = useRouter()
 const localePath = useLocalePath()
+const url = useRequestURL()
+const { scripts: orgScripts } = useOrgLd()
 const { user, loaded, subscribe, cancelSubscription } = useAuth()
 
 const busy = ref('')
@@ -54,7 +57,25 @@ function isCurrent(planId: string): boolean {
   return status.value.isPremium
 }
 
-useHead({ title: t('plans.title') })
+// 结构化数据：Organization + BreadcrumbList（价格页此前 JSON-LD 为 0，属 SEO 洼地）
+useHead({
+  title: t('plans.title'),
+  script: [
+    ...orgScripts.value,
+    {
+      key: 'ld-prices-breadcrumb',
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: t('nav.home'), item: url.origin + localePath('/') },
+          { '@type': 'ListItem', position: 2, name: t('plans.title') },
+        ],
+      }).replace(/</g, '\\u003c'),
+    },
+  ],
+})
 </script>
 
 <template>
