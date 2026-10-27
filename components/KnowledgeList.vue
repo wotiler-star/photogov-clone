@@ -43,19 +43,25 @@ const list = computed(() => {
   return all.filter((p) => p.categorySlug === props.kind)
 })
 
-// hero 文案：Hub 用知识库总标题，分类页用各分类原标题（英文原文，四语未本地化）
+// hero 文案：Hub 用知识库总标题；分类页用 i18n knowledge.cats 四语化文案，fallback 到 knowledgeCategories.json 英文原文
 const hero = computed(() => {
   if (props.kind === 'popular') {
     return { title: t('knowledge.title'), lead: t('knowledge.sub'), image: '/img/knowledge-hero.svg' }
   }
   const c = CAT[props.kind]
-  return { title: c?.h1 || t('knowledge.center'), lead: c?.lead || '', image: c?.image || '/img/knowledge-hero.svg' }
+  const catH1 = t(`knowledge.cats.${props.kind}.h1`)
+  const catLead = t(`knowledge.cats.${props.kind}.lead`)
+  const missH1 = catH1.startsWith('knowledge.cats.')
+  const missLead = catLead.startsWith('knowledge.cats.')
+  return {
+    title: missH1 ? (c?.h1 || t('knowledge.center')) : catH1,
+    lead: missLead ? (c?.lead || '') : catLead,
+    image: c?.image || '/img/knowledge-hero.svg'
+  }
 })
 
-const catLabel = computed(() => {
-  const map: Record<string, string> = { requirements: 'Requirements', guides: 'Guides', standards: 'Standards', faq: 'FAQ' }
-  return map[props.kind] || ''
-})
+// 面包屑分类名四语化（复用 i18n knowledge.cat* 短标签）
+const catLabel = computed(() => t(`knowledge.cat${props.kind.charAt(0).toUpperCase()}${props.kind.slice(1)}`))
 </script>
 
 <template>
@@ -134,7 +140,7 @@ const catLabel = computed(() => {
           v-for="p in list"
           :key="p.slug"
           :post="p"
-          :category-label="p.categorySlug === 'requirements' ? 'Requirements' : p.categorySlug === 'guides' ? 'Guides' : p.categorySlug === 'standards' ? 'Standards' : 'FAQ'"
+          :category-label="t(`knowledge.cat${p.categorySlug.charAt(0).toUpperCase()}${p.categorySlug.slice(1)}`)"
         />
       </div>
       <p v-else class="mt-10 text-muted">{{ $t('knowledge.empty') }}</p>

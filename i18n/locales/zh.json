@@ -1407,7 +1407,25 @@
     "readTime": "约 {count} 分钟读完",
     "published": "发布于",
     "lastUpdate": "最后更新",
-    "tocBlockTitle": "目录："
+    "tocBlockTitle": "目录：",
+    "cats": {
+      "requirements": {
+        "h1": "护照照片要求",
+        "lead": "这里提供美国护照照片的完整规格说明。我们全面介绍照片尺寸、背景、头部位置等细节，帮助你确保照片符合官方规定。及时了解最新要求，避免照片被拒收、顺利办理护照申请。本页汇集了美国国务院发布的<a class=\"underline text-blue-600 duration-200 hover:text-red-600\" href=\"https://photogov.net/knowledge/requirements/us-department-of-state-photo-guidelines/\" rel=\"noopener noreferrer\">美国护照照片规则与指南</a>，从头部尺寸到背景均有涵盖。"
+      },
+      "guides": {
+        "h1": "护照照片指南与分步教程",
+        "lead": "本栏目涵盖从用 iPhone、Android 或普通相机自拍完美护照照片的 DIY 教程，到灯光、背景、头部位置与避坑要点的建议。按这些简明步骤操作，确保照片被受理，免去申请护照时被退回的麻烦。"
+      },
+      "standards": {
+        "h1": "护照照片标准",
+        "lead": "护照、签证与生物识别照片的拍摄规则与流程，包括尺寸、背景、灯光、面部几何，以及照片核验系统如何识别合规与差错。"
+      },
+      "faq": {
+        "h1": "护照照片常见问题",
+        "lead": "获取关于照片尺寸、格式、背景、灯光与面部位置的最新清晰解答，了解本服务如何处理图像并生成符合官方证件要求的照片。"
+      }
+    }
   },
   "globalCompliance": {
     "eyebrow": "全球证件照政策",

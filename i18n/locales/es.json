@@ -1407,7 +1407,25 @@
     "readTime": "{count} min de lectura",
     "published": "Publicado",
     "lastUpdate": "Última actualización",
-    "tocBlockTitle": "Tabla de contenidos:"
+    "tocBlockTitle": "Tabla de contenidos:",
+    "cats": {
+      "requirements": {
+        "h1": "Requisitos de la foto de pasaporte",
+        "lead": "Aquí encontrará las especificaciones completas para las fotos de pasaporte de EE. UU. Ofrecemos toda la información sobre tamaño, fondo, posición de la cabeza y otros detalles para ayudarle a cumplir las normas oficiales. Manténgase al día con los nuevos requisitos para que su foto no sea rechazada y pueda tramitar su pasaporte con facilidad. Esta página reúne las <a class=\"underline text-blue-600 duration-200 hover:text-red-600\" href=\"https://photogov.net/knowledge/requirements/us-department-of-state-photo-guidelines/\" rel=\"noopener noreferrer\">normas y directrices de fotos de pasaporte de EE. UU.</a> del Departamento de Estado, desde el tamaño de la cabeza hasta el fondo."
+      },
+      "guides": {
+        "h1": "Guías e instrucciones paso a paso para fotos de pasaporte",
+        "lead": "En esta sección encontrará desde instrucciones para sacarse una foto de pasaporte perfecta usted mismo (con iPhone, Android o una cámara normal), hasta consejos de iluminación, fondo, posición de la cabeza y errores a evitar. Siga estos sencillos pasos para que su foto sea aceptada y evítese el problema de que la rechacen al solicitar el pasaporte."
+      },
+      "standards": {
+        "h1": "Normas de fotos de pasaporte",
+        "lead": "Reglas y procedimientos para tomar fotos de pasaporte, visado y biométricas. Tamaño, fondo, iluminación y geometría del rostro, además de detalles sobre cómo los sistemas de verificación detectan el cumplimiento y los errores."
+      },
+      "faq": {
+        "h1": "Preguntas frecuentes sobre fotos de pasaporte",
+        "lead": "Obtenga respuestas claras y actualizadas sobre tamaño, formato, fondo, iluminación y posición del rostro. Así es como el servicio procesa las imágenes y crea fotos que cumplen los requisitos oficiales de documentos."
+      }
+    }
   },
   "globalCompliance": {
     "eyebrow": "Política global de fotos de identidad",

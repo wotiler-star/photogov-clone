@@ -1407,7 +1407,25 @@
     "readTime": "{count} min de lecture",
     "published": "Publié",
     "lastUpdate": "Dernière mise à jour",
-    "tocBlockTitle": "Table des matières :"
+    "tocBlockTitle": "Table des matières :",
+    "cats": {
+      "requirements": {
+        "h1": "Exigences pour la photo de passeport",
+        "lead": "Vous trouverez ici les spécifications complètes pour les photos de passeport américaines. Nous couvrons en détail le format, l'arrière-plan, le positionnement de la tête et autres éléments pour vous aider à respecter les règles officielles. Restez informé des nouvelles exigences afin que votre photo ne soit pas rejetée et que vous puissiez faire votre demande de passeport en toute simplicité. Cette page réunit les <a class=\"underline text-blue-600 duration-200 hover:text-red-600\" href=\"https://photogov.net/knowledge/requirements/us-department-of-state-photo-guidelines/\" rel=\"noopener noreferrer\">règles et directives photo passeport des États-Unis</a> émises par le Département d'État, du taille de la tête à l'arrière-plan."
+      },
+      "guides": {
+        "h1": "Guides et instructions étape par étape pour la photo de passeport",
+        "lead": "Dans cette section, vous trouverez tout, des instructions pour prendre vous-même une photo de passeport parfaite (avec un iPhone, Android ou un appareil photo classique) aux conseils sur l'éclairage, l'arrière-plan, le positionnement de la tête et les erreurs à éviter. Suivez ces étapes simples pour que votre photo soit acceptée et évitez les tracas d'un rejet lors de votre demande de passeport."
+      },
+      "standards": {
+        "h1": "Normes pour la photo de passeport",
+        "lead": "Règles et procédures pour les photos de passeport, de visa et biométriques. Format, arrière-plan, éclairage et géométrie du visage, ainsi que le fonctionnement des systèmes de vérification pour détecter la conformité et les erreurs."
+      },
+      "faq": {
+        "h1": "FAQ photo de passeport et questions courantes",
+        "lead": "Obtenez des réponses claires et à jour sur le format, la taille, l'arrière-plan, l'éclairage et le positionnement du visage. Voici comment le service traite les images et crée des photos conformes aux exigences officielles des documents."
+      }
+    }
   },
   "globalCompliance": {
     "eyebrow": "Politique mondiale des photos d’identité",
