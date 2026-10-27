@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useLocalePath } from '#imports'
 import { useI18n } from 'vue-i18n'
+import { useOrgLd } from '~/composables/useOrgLd'
 import ServiceProvidedLine from '~/components/ServiceProvidedLine.vue'
 
 // 对标原站 /editorial-team/（F5 取证 SEEN）——异类布局：
@@ -10,12 +11,29 @@ import ServiceProvidedLine from '~/components/ServiceProvidedLine.vue'
 //   > Service provided by 行
 const localePath = useLocalePath()
 const { t } = useI18n()
+const url = useRequestURL()
+const { scripts: orgScripts } = useOrgLd()
 
 useHead({
   title: t('editorialTeam.title'),
   meta: [
     { name: 'description', content: t('editorialTeam.intro') },
   ],
+  script: [
+    ...orgScripts.value,
+    {
+      key: 'ld-edteam-bc',
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: t('nav.home'), item: url.origin + localePath('/') },
+          { '@type': 'ListItem', position: 2, name: t('editorialTeam.title') }
+        ]
+      }).replace(/</g, '\\u003c')
+    }
+  ]
 })
 </script>
 

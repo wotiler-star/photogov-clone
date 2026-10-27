@@ -1,10 +1,30 @@
 <script setup lang="ts">
 const localePath = useLocalePath()
 import { useI18n } from 'vue-i18n'
+import { useOrgLd } from '~/composables/useOrgLd'
 const { t } = useI18n()
+const url = useRequestURL()
+const { scripts: orgScripts } = useOrgLd()
 // 邮箱放运行时常量，避免 @ 被 vue-i18n 当成链接消息语法而编译报错
 const EMAIL = 'info@photogov.net'
-useHead({ title: t('euPrivacy.h1') })
+useHead({
+  title: t('euPrivacy.h1'),
+  script: [
+    ...orgScripts.value,
+    {
+      key: 'ld-euprivacy-bc',
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: t('nav.home'), item: url.origin + localePath('/') },
+          { '@type': 'ListItem', position: 2, name: t('euPrivacy.h1') }
+        ]
+      }).replace(/</g, '\\u003c')
+    }
+  ]
+})
 </script>
 
 <template>

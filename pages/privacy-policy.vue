@@ -1,9 +1,29 @@
 <script setup lang="ts">
 const localePath = useLocalePath()
 import { useI18n } from 'vue-i18n'
+import { useOrgLd } from '~/composables/useOrgLd'
 const { t, tm } = useI18n()
+const url = useRequestURL()
+const { scripts: orgScripts } = useOrgLd()
 const year = new Date().getFullYear()
-useHead({ title: t('legal.privacyTitle') })
+useHead({
+  title: t('legal.privacyTitle'),
+  script: [
+    ...orgScripts.value,
+    {
+      key: 'ld-privacy-bc',
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: t('nav.home'), item: url.origin + localePath('/') },
+          { '@type': 'ListItem', position: 2, name: t('legal.privacyTitle') }
+        ]
+      }).replace(/</g, '\\u003c')
+    }
+  ]
+})
 
 // 隐私政策小节（数据驱动，含可选内链字段 linkPath/linkText）
 const sections = computed(() => tm('legal.privacySections') as Array<{ title: string; text: string; linkPath?: string; linkText?: string }>)

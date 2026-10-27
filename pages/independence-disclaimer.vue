@@ -1,8 +1,29 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import { useOrgLd } from '~/composables/useOrgLd'
 const { t, tm } = useI18n()
+const localePath = useLocalePath()
+const url = useRequestURL()
+const { scripts: orgScripts } = useOrgLd()
 
-useHead({ title: t('independence.title') })
+useHead({
+  title: t('independence.title'),
+  script: [
+    ...orgScripts.value,
+    {
+      key: 'ld-independence-bc',
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: t('nav.home'), item: url.origin + localePath('/') },
+          { '@type': 'ListItem', position: 2, name: t('independence.title') }
+        ]
+      }).replace(/</g, '\\u003c')
+    }
+  ]
+})
 
 const paras = computed(() => tm('independence.paras') as string[])
 const sources = computed(

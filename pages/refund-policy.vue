@@ -1,11 +1,32 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import { useOrgLd } from '~/composables/useOrgLd'
 const { t, tm } = useI18n()
+const localePath = useLocalePath()
+const url = useRequestURL()
+const { scripts: orgScripts } = useOrgLd()
 
 // 邮箱放在运行时常量里，避免 @ 被 vue-i18n 当成链接消息语法而编译报错
 const EMAIL = 'info@photogov.net'
 
-useHead({ title: t('refund.title') })
+useHead({
+  title: t('refund.title'),
+  script: [
+    ...orgScripts.value,
+    {
+      key: 'ld-refund-bc',
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: t('nav.home'), item: url.origin + localePath('/') },
+          { '@type': 'ListItem', position: 2, name: t('refund.title') }
+        ]
+      }).replace(/</g, '\\u003c')
+    }
+  ]
+})
 
 const principles = computed(() => tm('refund.principles') as string[])
 const guides = computed(() => tm('refund.guides') as string[])

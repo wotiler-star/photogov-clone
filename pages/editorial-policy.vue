@@ -1,13 +1,31 @@
 <script setup lang="ts">
 import { useLocalePath } from '#imports'
 import { useI18n } from 'vue-i18n'
+import { useOrgLd } from '~/composables/useOrgLd'
 import InfoPageShell from '~/components/InfoPageShell.vue'
 
 const localePath = useLocalePath()
 const { t, tm } = useI18n()
+const url = useRequestURL()
+const { scripts: orgScripts } = useOrgLd()
 useHead({
   title: t('editorialPolicy.metaTitle'),
-  meta: [{ name: 'description', content: t('editorialPolicy.metaDesc') }]
+  meta: [{ name: 'description', content: t('editorialPolicy.metaDesc') }],
+  script: [
+    ...orgScripts.value,
+    {
+      key: 'ld-edpolicy-bc',
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: t('nav.home'), item: url.origin + localePath('/') },
+          { '@type': 'ListItem', position: 2, name: t('editorialPolicy.metaTitle') }
+        ]
+      }).replace(/</g, '\\u003c')
+    }
+  ]
 })
 
 const steps = tm('editorialPolicy.steps') as Array<{ t: string; d: string }>
