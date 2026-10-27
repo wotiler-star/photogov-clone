@@ -3,6 +3,13 @@ import { ref, onMounted, computed } from 'vue'
 
 definePageMeta({ layout: false })
 
+// 后台管理页：不参与搜索引擎索引（noindex），且不再套用 nuxt.config 的英文默认 title。
+// 该页为数据管理后台（原站无对应页面），保持英文界面，不进前台四语化范围。
+useHead({
+  title: 'Admin',
+  meta: [{ name: 'robots', content: 'noindex,nofollow' }]
+})
+
 const authed = ref(false)
 const password = ref('')
 const loginErr = ref('')
