@@ -445,7 +445,10 @@
     "docSourcesOpen": "打开官方网站",
     "toolTitle": "立即制作{name}（{size}）",
     "toolSub": "上传一张自拍，我们的照片转换器会自动调整尺寸并裁剪至精确规格。支持 iPhone、Android 与桌面端——无需前往照相馆。",
-    "freeBadge": "免费"
+    "freeBadge": "免费",
+    "relatedPassportAndroid": "用安卓手机拍护照照片",
+    "relatedBaby": "婴儿与儿童护照照片",
+    "relatedSizeGuide": "护照照片尺寸指南"
   },
   "blog": {
     "eyebrow": "博客",
@@ -1425,7 +1428,8 @@
         "h1": "护照照片常见问题",
         "lead": "获取关于照片尺寸、格式、背景、灯光与面部位置的最新清晰解答，了解本服务如何处理图像并生成符合官方证件要求的照片。"
       }
-    }
+    },
+    "hubLabel": "知识库"
   },
   "globalCompliance": {
     "eyebrow": "全球证件照政策",

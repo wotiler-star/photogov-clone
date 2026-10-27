@@ -113,9 +113,9 @@ const siblings = computed(() =>
         <!-- 面包屑（原站：Home page / Knowledge / 分类 / 标题） -->
         <nav aria-label="Breadcrumb" class="overflow-auto max-lg:pb-3 max-lg:-mx-4">
           <div class="flex items-center gap-x-2 text-[12px] font-sans text-[#6B7280]">
-            <NuxtLink :to="localePath('/')" class="shrink-0 whitespace-nowrap underline duration-200 hover:text-red-600">Home page</NuxtLink>
+            <NuxtLink :to="localePath('/')" class="shrink-0 whitespace-nowrap underline duration-200 hover:text-red-600">{{ $t('nav.home') }}</NuxtLink>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3.5 shrink-0" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
-            <NuxtLink :to="localePath('/knowledge')" class="shrink-0 whitespace-nowrap underline duration-200 hover:text-red-600">Knowledge</NuxtLink>
+            <NuxtLink :to="localePath('/knowledge')" class="shrink-0 whitespace-nowrap underline duration-200 hover:text-red-600">{{ $t('knowledge.hubLabel') }}</NuxtLink>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3.5 shrink-0" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
             <NuxtLink :to="localePath(`/knowledge/${route.params.category}`)" class="shrink-0 whitespace-nowrap underline duration-200 hover:text-red-600">{{ catLabel }}</NuxtLink>
           </div>

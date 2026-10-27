@@ -445,7 +445,10 @@
     "docSourcesOpen": "Abrir sitio oficial",
     "toolTitle": "Tu {name} ahora ({size})",
     "toolSub": "Sube un selfie y nuestro conversor de fotos lo redimensiona y recorta automáticamente a las especificaciones exactas. Funciona en iPhone, Android y escritorio — sin visita a estudio.",
-    "freeBadge": "Gratis"
+    "freeBadge": "Gratis",
+    "relatedPassportAndroid": "Foto de pasaporte con un teléfono Android",
+    "relatedBaby": "Fotos de pasaporte para bebés y niños",
+    "relatedSizeGuide": "Guía de tamaño de foto de pasaporte"
   },
   "blog": {
     "eyebrow": "Blog",
@@ -1425,7 +1428,8 @@
         "h1": "Preguntas frecuentes sobre fotos de pasaporte",
         "lead": "Obtenga respuestas claras y actualizadas sobre tamaño, formato, fondo, iluminación y posición del rostro. Así es como el servicio procesa las imágenes y crea fotos que cumplen los requisitos oficiales de documentos."
       }
-    }
+    },
+    "hubLabel": "Conocimientos"
   },
   "globalCompliance": {
     "eyebrow": "Política global de fotos de identidad",

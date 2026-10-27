@@ -233,11 +233,11 @@ const relatedPages = computed(() => {
   if (!d) return []
   if (d.category === 'passport') {
     return [
-      { label: 'Passport photo with an Android phone', to: '/knowledge/guides/how-to-take-passport-photo-on-android' },
-      { label: 'Baby and child passport photos', to: '/knowledge/requirements/baby-and-child-passport-photos' }
+      { label: t('doc.relatedPassportAndroid'), to: '/knowledge/guides/how-to-take-passport-photo-on-android' },
+      { label: t('doc.relatedBaby'), to: '/knowledge/requirements/baby-and-child-passport-photos' }
     ]
   }
-  return [{ label: 'Passport photo size guide', to: '/knowledge/faq/size-guide' }]
+  return [{ label: t('doc.relatedSizeGuide'), to: '/knowledge/faq/size-guide' }]
 })
 
 const url = useRequestURL()

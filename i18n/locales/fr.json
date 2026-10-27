@@ -445,7 +445,10 @@
     "docSourcesOpen": "Ouvrir le site officiel",
     "toolTitle": "Votre {name} maintenant ({size})",
     "toolSub": "Téléchargez un selfie et notre convertisseur photo le redimensionne et le recadre automatiquement aux spécifications exactes. Fonctionne sur iPhone, Android et ordinateur — sans passage en studio.",
-    "freeBadge": "Gratuit"
+    "freeBadge": "Gratuit",
+    "relatedPassportAndroid": "Photo de passeport avec un téléphone Android",
+    "relatedBaby": "Photos de passeport pour bébé et enfant",
+    "relatedSizeGuide": "Guide des dimensions de la photo de passeport"
   },
   "blog": {
     "eyebrow": "Blog",
@@ -1425,7 +1428,8 @@
         "h1": "FAQ photo de passeport et questions courantes",
         "lead": "Obtenez des réponses claires et à jour sur le format, la taille, l'arrière-plan, l'éclairage et le positionnement du visage. Voici comment le service traite les images et crée des photos conformes aux exigences officielles des documents."
       }
-    }
+    },
+    "hubLabel": "Centre de connaissances"
   },
   "globalCompliance": {
     "eyebrow": "Politique mondiale des photos d’identité",
