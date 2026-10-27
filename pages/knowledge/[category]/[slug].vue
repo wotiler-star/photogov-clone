@@ -18,10 +18,19 @@ import { useI18n } from 'vue-i18n'
 import knowledge from '~/data/knowledge.json'
 import posts from '~/data/blog.json'
 import { slugifyHeading, stripTags } from '~/utils/docAnchor'
+import { useOrgLd } from '~/composables/useOrgLd'
+import { useRequestURL } from '#imports'
 
 const route = useRoute()
 const localePath = useLocalePath()
 const { t, locale } = useI18n()
+const url = useRequestURL()
+const { scripts: orgScripts } = useOrgLd()
+
+// 文章页绝对 URL（用于 Article.mainEntityOfPage 与面包屑 item）
+const pageUrl = computed(
+  () => url.origin + localePath(`/knowledge/${route.params.category}/${route.params.slug}`),
+)
 
 const key = computed(() => `${route.params.category}/${route.params.slug}`)
 const entry = computed(() => (knowledge as Record<string, any>)[key.value] || null)
@@ -58,11 +67,55 @@ const dateText = computed(() => {
   }
 })
 
+// 结构化数据：Organization（原站全站注入）+ Article + BreadcrumbList。
+// 此前该页 JSON-LD 为 0，属 SEO 洼地；补上后与文档详情页/FAQ 页一致。
+const escLd = (s: string) => s.replace(/</g, '\\u003c')
+
+const articleLd = computed(() => {
+  if (!entry.value) return null
+  const desc = stripTags(sections.value[0]?.items?.[0] || headline.value).slice(0, 155)
+  const d = meta.value?.date || ''
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: headline.value,
+    description: desc,
+    ...(d ? { datePublished: d, dateModified: d } : {}),
+    inLanguage: locale.value || 'en',
+    mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl.value },
+    author: { '@type': 'Organization', name: 'PhotoGov Editorial Team' },
+    publisher: { '@type': 'Organization', '@id': 'https://photogov.net/#organization' },
+  }
+})
+
+const breadcrumbLd = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t('nav.home'), item: url.origin + localePath('/') },
+    { '@type': 'ListItem', position: 2, name: t('knowledge.hubLabel'), item: url.origin + localePath('/knowledge') },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: catLabel.value,
+      item: url.origin + localePath(`/knowledge/${route.params.category}`),
+    },
+    { '@type': 'ListItem', position: 4, name: headline.value },
+  ],
+}))
+
 useHead(() => ({
   title: entry.value ? `${headline.value} — PhotoGov` : 'Article not found',
   meta: entry.value
     ? [{ name: 'description', content: stripTags(sections.value[0]?.items?.[0] || headline.value).slice(0, 155) }]
     : [{ name: 'robots', content: 'noindex' }],
+  script: entry.value
+    ? [
+        ...orgScripts.value,
+        { key: 'ld-article', type: 'application/ld+json', innerHTML: escLd(JSON.stringify(articleLd.value)) },
+        { key: 'ld-breadcrumb', type: 'application/ld+json', innerHTML: escLd(JSON.stringify(breadcrumbLd.value)) },
+      ]
+    : [],
 }))
 
 // 启发式判断是否表头：单元格短、且不以句号结尾（数据行通常含完整句子）

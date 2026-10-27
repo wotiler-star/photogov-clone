@@ -18,6 +18,8 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import posts from '~/data/blog.json'
 import categories from '~/data/knowledgeCategories.json'
+import { useOrgLd } from '~/composables/useOrgLd'
+import { useRequestURL } from '#imports'
 
 type Kind = 'popular' | 'requirements' | 'guides' | 'standards' | 'faq'
 
@@ -25,6 +27,8 @@ const props = defineProps<{ kind: Kind }>()
 
 const { t } = useI18n()
 const localePath = useLocalePath()
+const url = useRequestURL()
+const { scripts: orgScripts } = useOrgLd()
 
 const CAT = categories as Record<string, { image: string; h1: string; lead: string }>
 
@@ -62,6 +66,33 @@ const hero = computed(() => {
 
 // 面包屑分类名四语化（复用 i18n knowledge.cat* 短标签）
 const catLabel = computed(() => t(`knowledge.cat${props.kind.charAt(0).toUpperCase()}${props.kind.slice(1)}`))
+
+// 结构化数据：Organization（原站全站注入）+ BreadcrumbList。
+// 此前知识库 Hub / 分类页 JSON-LD 为 0，属 SEO 洼地。
+const escLd = (s: string) => s.replace(/</g, '\\u003c')
+const breadcrumbLd = computed(() => {
+  const items: any[] = [
+    { '@type': 'ListItem', position: 1, name: t('nav.home'), item: url.origin + localePath('/') }
+  ]
+  if (props.kind === 'popular') {
+    items.push({ '@type': 'ListItem', position: 2, name: t('knowledge.hubLabel') })
+  } else {
+    items.push({
+      '@type': 'ListItem',
+      position: 2,
+      name: t('knowledge.hubLabel'),
+      item: url.origin + localePath('/knowledge')
+    })
+    items.push({ '@type': 'ListItem', position: 3, name: catLabel.value })
+  }
+  return { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items }
+})
+useHead(() => ({
+  script: [
+    ...orgScripts.value,
+    { key: 'ld-kb-breadcrumb', type: 'application/ld+json', innerHTML: escLd(JSON.stringify(breadcrumbLd.value)) }
+  ]
+}))
 </script>
 
 <template>
@@ -73,15 +104,15 @@ const catLabel = computed(() => t(`knowledge.cat${props.kind.charAt(0).toUpperCa
         <div class="flex items-center gap-x-2 text-[12px] font-sans text-[#6B7280]">
           <div class="hidden h-[1px] w-2 shrink-0 max-lg:block" />
           <NuxtLink :to="localePath('/')" class="shrink-0 whitespace-nowrap underline duration-200 hover:text-red-600">
-            Home page
+            {{ $t('nav.home') }}
           </NuxtLink>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3.5 shrink-0" aria-hidden="true">
             <path d="m9 18 6-6-6-6" />
           </svg>
           <NuxtLink v-if="kind !== 'popular'" :to="localePath('/knowledge')" class="shrink-0 whitespace-nowrap underline duration-200 hover:text-red-600">
-            Knowledge
+            {{ $t('knowledge.hubLabel') }}
           </NuxtLink>
-          <span v-else class="shrink-0 whitespace-nowrap">Knowledge</span>
+          <span v-else class="shrink-0 whitespace-nowrap">{{ $t('knowledge.hubLabel') }}</span>
           <template v-if="kind !== 'popular'">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3.5 shrink-0" aria-hidden="true">
               <path d="m9 18 6-6-6-6" />

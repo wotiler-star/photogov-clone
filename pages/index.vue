@@ -6,11 +6,13 @@ import BlogCard from '~/components/BlogCard.vue'
 import { useData } from '~/composables/useData'
 import { useRequestURL } from '#imports'
 import { useI18n } from 'vue-i18n'
+import { useOrgLd } from '~/composables/useOrgLd'
 
 const { popularDocuments, countriesByCode, quickLinks, documents, blogPosts, faqItems, countryName } = useData()
 const url = useRequestURL()
 const localePath = useLocalePath()
 const { t } = useI18n()
+const { scripts: orgScripts } = useOrgLd()
 
 // 首页内联 FAQ 折叠（取真实 faq.json 前 6 条）
 const faqs = faqItems().slice(0, 6)
@@ -34,7 +36,23 @@ useHead(() => {
       { name: 'twitter:title', content: title },
       { name: 'twitter:description', content: desc }
     ],
-    link: [{ rel: 'canonical', href: canonical }]
+    link: [{ rel: 'canonical', href: canonical }],
+    // 结构化数据：Organization（原站全站注入）+ WebSite。此前首页 JSON-LD 为 0，属 SEO 洼地。
+    script: [
+      ...orgScripts.value,
+      {
+        key: 'ld-website',
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          '@id': `${url.origin}/#website`,
+          url: url.origin + localePath('/'),
+          name: 'PhotoGov',
+          publisher: { '@id': 'https://photogov.net/#organization' }
+        }).replace(/</g, '\\u003c')
+      }
+    ]
   }
 })
 

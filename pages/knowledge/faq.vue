@@ -2,9 +2,13 @@
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useData } from '~/composables/useData'
+import { useOrgLd } from '~/composables/useOrgLd'
+import { useRequestURL } from '#imports'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
+const url = useRequestURL()
+const { scripts: orgScripts } = useOrgLd()
 const { faqCategories, faqItems } = useData()
 
 useHead({ title: `${t('knowledge.tabFaq')} — ${t('knowledge.title')}` })
@@ -27,6 +31,36 @@ const toggle = (i: number) => {
   s.has(i) ? s.delete(i) : s.add(i)
   open.value = s
 }
+
+// 结构化数据：Organization + BreadcrumbList + FAQPage。
+// 该页为独立 FAQ 分类页（不走 KnowledgeList），此前 JSON-LD 为 0，属 SEO 洼地。
+const escLd = (s: string) => s.replace(/</g, '\\u003c')
+const strip = (s: string) => String(s || '').replace(/<[^>]*>/g, '')
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((it: any) => ({
+    '@type': 'Question',
+    name: strip(it.q),
+    acceptedAnswer: { '@type': 'Answer', text: strip(it.a) },
+  })),
+}
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t('nav.home'), item: url.origin + localePath('/') },
+    { '@type': 'ListItem', position: 2, name: t('knowledge.hubLabel'), item: url.origin + localePath('/knowledge') },
+    { '@type': 'ListItem', position: 3, name: t('knowledge.tabFaq') },
+  ],
+}
+useHead({
+  script: [
+    ...orgScripts.value,
+    { key: 'ld-kbfaq-breadcrumb', type: 'application/ld+json', innerHTML: escLd(JSON.stringify(breadcrumbLd)) },
+    { key: 'ld-kbfaq-faqpage', type: 'application/ld+json', innerHTML: escLd(JSON.stringify(faqLd)) },
+  ],
+})
 </script>
 
 <template>
