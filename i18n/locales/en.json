@@ -387,10 +387,10 @@
       "Review the result: the built-in photo checker tests the file against the selected format.",
       "Download the passport-size photo as a JPEG for online upload or as a printable sheet for paper applications."
     ],
-    "convertNote": "Depending on your location, you can create two free ID photos per day. In the US, a digital passport photo costs $6.90."
-  ,
+    "convertNote": "Depending on your location, you can create two free ID photos per day. In the US, a digital passport photo costs $6.90.",
     "metaTitle": "Passport Photo Maker – 100% Compliant Passport Size Photo",
-    "metaDesc": "Make compliant passport, visa and ID photos online in seconds. Free tool with country-specific size specs, white/blue background, and instant JPG/PDF download."},
+    "metaDesc": "Make compliant passport, visa and ID photos online in seconds. Free tool with country-specific size specs, white/blue background, and instant JPG/PDF download."
+  },
   "documents": {
     "eyebrow": "Documents",
     "title": "Photo document requirements",
@@ -402,7 +402,22 @@
     "docCount": "{count} doc.",
     "found": "{count} documents found",
     "empty": "No documents match your search.",
-    "noVerify": "General guideline"
+    "noVerify": "General guideline",
+    "aiTitle": "AI-Powered Passport & Visa Photos",
+    "aiP1": "PhotoGov's artificial intelligence algorithms ensure that your photos meet the precise requirements for passport and visa applications. Our AI analyzes your photo to adjust lighting, background, and proportions automatically.",
+    "aiP2": "Traditional methods of obtaining passport and visa photos can be time-consuming and inconvenient. With PhotoGov, you can upload your photo and receive a professionally edited and verified photo within minutes.",
+    "embassyTitle": "Global Embassy Support",
+    "embassyP1": "PhotoGov is designed to meet the unique photo requirements of countries around the world. Our algorithms are continually updated to ensure compliance with the latest official specifications.",
+    "embassyP2": "Our close collaboration with reference sources worldwide allows for a smooth and efficient process, minimizing the chances of delays or rejections due to incorrect photo specifications.",
+    "testimonialsTitle": "Testimonials and Success Stories",
+    "testimonialsP1": "Join the thousands of satisfied customers who have trusted PhotoGov with their passport and visa photos. Our commitment to quality, precision, and efficiency has made us the go-to solution for document photos.",
+    "testimonialsCta": "See all reviews",
+    "otherFormatsTitle": "Other Passport and Visa Photo Formats",
+    "otherFormatsIntro": "Beyond the most requested documents, PhotoGov covers hundreds of national formats. A few examples:",
+    "otherFormatsItem": "{name} uses a {size} portrait — upload a phone shot and download the sized file.",
+    "conclusionTitle": "Conclusion",
+    "conclusionP1": "PhotoGov's AI-powered passport and visa photo service changes the way you obtain documentation photos. With advanced technology, global coverage, and a user-friendly process, you get compliant photos in seconds.",
+    "conclusionCta": "Read the FAQ"
   },
   "doc": {
     "eyebrow": "Documents",
@@ -628,9 +643,9 @@
       "Full face visible, neutral expression, both eyes open.",
       "No glasses, hats, or head coverings (except religious).",
       "Taken within the last 6 months."
-    ]
-  ,
-    "metaTitle": "US DV Lottery Photo Tool — Free & Compliant"},
+    ],
+    "metaTitle": "US DV Lottery Photo Tool — Free & Compliant"
+  },
   "lists": {
     "passportTitle": "Passport photo requirements",
     "passportSub": "Compliant passport photo sizes for {count} countries. Select yours and make a photo in seconds.",
@@ -1843,7 +1858,18 @@
     "officeCompany": "Y VISION TECHNOLOGIES LLP",
     "officeAddress": "Stoney Works 8 Stoney Lane, London, England, SE19 3BD",
     "mapLabel": "Office on the map:",
-    "mapEmbed": "https://www.openstreetmap.org/export/embed.html?bbox=-0.093746%2C51.413075%2C-0.067911%2C51.423223&layer=mapnik&marker=51.418149%2C-0.080829"
+    "mapEmbed": "https://www.openstreetmap.org/export/embed.html?bbox=-0.093746%2C51.413075%2C-0.067911%2C51.423223&layer=mapnik&marker=51.418149%2C-0.080829",
+    "getInTouchTitle": "Get in touch",
+    "formIntro": "We work hard to provide the best support for our users. Please, visit the FAQ section before writing a request, it covers most questions about the PhotoGov service.",
+    "formTitle": "Fill-Out the Inquiry Form",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "emailField": "Email",
+    "messageLabel": "Message",
+    "attachFile": "Attach file",
+    "addFiles": "Add files to the query",
+    "sendInquiry": "Send inquiry",
+    "required": "*"
   },
   "reviewsPage": {
     "metaTitle": "PhotoGov Reviews — Try the Trusted Passport Photo Tool",

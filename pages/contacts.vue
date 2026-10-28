@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useLocalePath, useRequestURL } from '#imports'
 import InfoPageShell from '~/components/InfoPageShell.vue'
@@ -29,6 +29,28 @@ const social = [
 const cardIcon = (id: string) =>
   (icons as any)[{ support: 'cardSupport', billing: 'cardBilling', partnership: 'cardPartnership', media: 'cardMedia' }[id] || 'cardSupport']
 const socialIcon = (i: number) => (i === 0 ? (icons as any).instagram : (icons as any).youtube)
+
+// ── 咨询表单（对标原站 /contacts/ 尾部的「Get in touch / Fill-Out the Inquiry Form」区块）──
+// 邮箱示例含 @，不放入 i18n（会触发 vue-i18n 链接消息解析错误），与 EMAILS 一样作为组件常量。
+const EMAIL_SAMPLE = 'best-customer@gmail.com'
+const form = ref({ first: '', last: '', email: '', message: '' })
+const attachedName = ref('')
+
+function onFile(e: Event) {
+  const f = (e.target as HTMLInputElement).files?.[0]
+  attachedName.value = f ? f.name : ''
+}
+
+// 复刻站无后端收件接口：用 mailto 把填写内容带入用户自己的邮件客户端，保证功能真实可用
+function submitInquiry() {
+  const subject = encodeURIComponent('PhotoGov inquiry')
+  const body = encodeURIComponent(
+    `Name: ${form.value.first} ${form.value.last}\nEmail: ${form.value.email}\n\n${form.value.message}`
+  )
+  if (typeof window !== 'undefined') {
+    window.location.href = `mailto:${EMAILS.info}?subject=${subject}&body=${body}`
+  }
+}
 
 const canonical = computed(() => `${url.origin}${localePath('/contacts')}`)
 const escLd = (s: string) => s.replace(/</g, '\\u003c')
@@ -213,5 +235,50 @@ useHead(() => ({
         </div>
       </div>
     </div>
+
+    <!-- Get in touch：咨询表单（对标原站 /contacts/ 尾部区块，此前缺失） -->
+    <h2 class="mt-8 text-[30px] font-bold leading-tight">{{ $t('contactPage.getInTouchTitle') }}</h2>
+    <p class="mt-4 font-sans text-[#374151]">{{ $t('contactPage.formIntro') }}</p>
+
+    <form class="mt-6 rounded-[6px] border border-[#E0E7EE] p-4 font-sans" @submit.prevent="submitInquiry">
+      <p class="text-[16px] font-semibold">{{ $t('contactPage.formTitle') }}</p>
+
+      <div class="mt-4 grid grid-cols-2 gap-4 max-lg:grid-cols-1">
+        <label class="block">
+          <span class="text-[14px] font-medium">{{ $t('contactPage.firstName') }}<span class="text-red-600">{{ $t('contactPage.required') }}</span></span>
+          <input v-model="form.first" type="text" required class="mt-1 w-full rounded border border-[#E0E7EE] px-3 py-2 text-[14px]" />
+        </label>
+        <label class="block">
+          <span class="text-[14px] font-medium">{{ $t('contactPage.lastName') }}<span class="text-red-600">{{ $t('contactPage.required') }}</span></span>
+          <input v-model="form.last" type="text" required class="mt-1 w-full rounded border border-[#E0E7EE] px-3 py-2 text-[14px]" />
+        </label>
+      </div>
+
+      <label class="mt-4 block">
+        <span class="text-[14px] font-medium">{{ $t('contactPage.emailField') }}<span class="text-red-600">{{ $t('contactPage.required') }}</span></span>
+        <input v-model="form.email" type="email" required :placeholder="EMAIL_SAMPLE" class="mt-1 w-full rounded border border-[#E0E7EE] px-3 py-2 text-[14px]" />
+      </label>
+
+      <label class="mt-4 block">
+        <span class="text-[14px] font-medium">{{ $t('contactPage.messageLabel') }}</span>
+        <textarea v-model="form.message" rows="4" class="mt-1 w-full rounded border border-[#E0E7EE] px-3 py-2 text-[14px]"></textarea>
+      </label>
+
+      <div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
+        <label class="inline-flex items-center gap-x-2 text-[14px]">
+          <span class="font-medium">{{ $t('contactPage.attachFile') }}</span>
+          <input type="file" class="text-[13px]" @change="onFile" />
+        </label>
+        <span v-if="attachedName" class="text-[13px] text-[#958366]">{{ attachedName }}</span>
+      </div>
+      <p class="mt-1.5 text-[13px] text-[#958366]">{{ $t('contactPage.addFiles') }}</p>
+
+      <button
+        type="submit"
+        class="mt-4 rounded bg-[#2563EB] px-5 py-2.5 text-[14px] font-semibold text-white transition hover:opacity-90"
+      >
+        {{ $t('contactPage.sendInquiry') }}
+      </button>
+    </form>
   </InfoPageShell>
 </template>

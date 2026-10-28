@@ -102,6 +102,23 @@ watch([query, category], updateRoute)
 const { t } = useI18n()
 const url = useRequestURL()
 const { scripts: orgScripts } = useOrgLd()
+// 「其它格式」示例（对标原站 Other Passport and Visa Photo Formats 区块）：
+// 从本站真实文档数据里每个国家取一条，尺寸取毫米/英寸规格，内容随数据自动更新
+const otherFormats = computed(() => {
+  const seen = new Set<string>()
+  const out: { slug: string; name: string; size: string }[] = []
+  for (const d of documents.value as any[]) {
+    const code = d.country
+    if (!code || seen.has(code)) continue
+    const size = d.size?.mm ? `${d.size.mm} mm` : d.size?.inch ? `${d.size.inch} in` : ''
+    if (!size) continue
+    seen.add(code)
+    out.push({ slug: d.slug, name: d.name, size })
+    if (out.length >= 12) break
+  }
+  return out
+})
+
 useHead(() => ({
   title: t('documents.title'),
   meta: [
@@ -198,6 +215,49 @@ useHead(() => ({
         </div>
       </div>
       <div v-else class="mt-10 text-center text-muted">{{ $t('documents.empty') }}</div>
+
+      <!-- 内容区块（对标原站 /documents/ 列表后的 5 个 H2 区块，此前复刻站全部缺失） -->
+      <section class="mt-14 space-y-10">
+        <div>
+          <h2 class="text-2xl font-bold">{{ $t('documents.aiTitle') }}</h2>
+          <p class="mt-3 text-muted">{{ $t('documents.aiP1') }}</p>
+          <p class="mt-2 text-muted">{{ $t('documents.aiP2') }}</p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold">{{ $t('documents.embassyTitle') }}</h2>
+          <p class="mt-3 text-muted">{{ $t('documents.embassyP1') }}</p>
+          <p class="mt-2 text-muted">{{ $t('documents.embassyP2') }}</p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold">{{ $t('documents.testimonialsTitle') }}</h2>
+          <p class="mt-3 text-muted">{{ $t('documents.testimonialsP1') }}</p>
+          <NuxtLink :to="localePath('/reviews')" class="mt-3 inline-block font-semibold text-brand-blue hover:underline">
+            {{ $t('documents.testimonialsCta') }}
+          </NuxtLink>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold">{{ $t('documents.otherFormatsTitle') }}</h2>
+          <p class="mt-3 text-muted">{{ $t('documents.otherFormatsIntro') }}</p>
+          <ul class="mt-4 space-y-2">
+            <li v-for="f in otherFormats" :key="f.slug" class="text-muted">
+              <NuxtLink :to="localePath(`/documents/${f.slug}`)" class="text-brand-blue hover:underline">
+                {{ $t('documents.otherFormatsItem', { name: f.name, size: f.size }) }}
+              </NuxtLink>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold">{{ $t('documents.conclusionTitle') }}</h2>
+          <p class="mt-3 text-muted">{{ $t('documents.conclusionP1') }}</p>
+          <NuxtLink :to="localePath('/faq')" class="mt-3 inline-block font-semibold text-brand-blue hover:underline">
+            {{ $t('documents.conclusionCta') }}
+          </NuxtLink>
+        </div>
+      </section>
     </div>
   </div>
 </template>
