@@ -34,7 +34,9 @@ export default defineNuxtConfig({
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
-      redirectOn: 'root'
+      // 'all'：任何无语言前缀的路径（如 /documents）也 307 重定向到 /en/...，
+      // 避免用户手输域名+路径时 404；sitemap/canonical 仍只用带前缀 URL，不影响 SEO
+      redirectOn: 'all'
     },
     locales: [
       { code: 'en', language: 'en-US', name: 'English', flag: '🇺🇸', file: 'en.json' },
