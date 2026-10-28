@@ -18,6 +18,8 @@ useHead({
   title: t('editorialTeam.title'),
   meta: [
     { name: 'description', content: t('editorialTeam.intro') },
+    { property: 'og:title', content: t('editorialTeam.title') },
+    { property: 'og:description', content: t('editorialTeam.intro') },
   ],
   script: [
     ...orgScripts.value,

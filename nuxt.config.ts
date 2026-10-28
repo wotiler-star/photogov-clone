@@ -60,7 +60,9 @@ export default defineNuxtConfig({
         { name: 'theme-color', content: '#2B3E5C' },
         { property: 'og:site_name', content: 'PhotoGov' },
         { property: 'og:type', content: 'website' },
-        { property: 'og:locale', content: 'en_US' },
+        // og:locale 不再在此硬编码（原为固定 en_US）。改由 app.vue 按当前语言
+        // 动态注入 en_US / zh_CN / es_ES / fr_FR，并附带 og:locale:alternate
+        // 指向其余语言，让社交平台识别多语言版本。
         { name: 'twitter:card', content: 'summary_large_image' }
       ],
       link: [

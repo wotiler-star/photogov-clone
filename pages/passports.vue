@@ -94,7 +94,11 @@ const url = useRequestURL()
 const { scripts: orgScripts } = useOrgLd()
 useHead(() => ({
   title: t('lists.passportTitle'),
-  meta: [{ name: 'description', content: t('lists.passportSub', { count: countryCount.value }) }],
+  meta: [
+    { name: 'description', content: t('lists.passportSub', { count: countryCount.value }) },
+    { property: 'og:title', content: t('lists.passportTitle') },
+    { property: 'og:description', content: t('lists.passportSub', { count: countryCount.value }) }
+  ],
   link: [{ rel: 'canonical', href: url.origin + localePath('/passports') }],
   script: [
     ...orgScripts.value,

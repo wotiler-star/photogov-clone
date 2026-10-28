@@ -11,7 +11,11 @@ const { scripts: orgScripts } = useOrgLd()
 // 结构化数据：Organization + BreadcrumbList（该页此前 JSON-LD 为 0，属 SEO 洼地）
 useHead({
   title: t('support.metaTitle'),
-  meta: [{ name: 'description', content: t('support.metaDesc') }],
+  meta: [
+    { name: 'description', content: t('support.metaDesc') },
+    { property: 'og:title', content: t('support.metaTitle') },
+    { property: 'og:description', content: t('support.metaDesc') }
+  ],
   script: [
     ...orgScripts.value,
     {

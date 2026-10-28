@@ -104,7 +104,11 @@ const url = useRequestURL()
 const { scripts: orgScripts } = useOrgLd()
 useHead(() => ({
   title: t('documents.title'),
-  meta: [{ name: 'description', content: t('documents.sub') }],
+  meta: [
+    { name: 'description', content: t('documents.sub') },
+    { property: 'og:title', content: t('documents.title') },
+    { property: 'og:description', content: t('documents.sub') }
+  ],
   link: [{ rel: 'canonical', href: url.origin + localePath('/documents') }],
   script: [
     ...orgScripts.value,

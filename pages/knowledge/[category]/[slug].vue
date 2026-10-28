@@ -107,7 +107,11 @@ const breadcrumbLd = computed(() => ({
 useHead(() => ({
   title: entry.value ? `${headline.value} — PhotoGov` : 'Article not found',
   meta: entry.value
-    ? [{ name: 'description', content: stripTags(sections.value[0]?.items?.[0] || headline.value).slice(0, 155) }]
+    ? [
+        { name: 'description', content: stripTags(sections.value[0]?.items?.[0] || headline.value).slice(0, 155) },
+        { property: 'og:title', content: `${headline.value} — PhotoGov` },
+        { property: 'og:description', content: stripTags(sections.value[0]?.items?.[0] || headline.value).slice(0, 155) }
+      ]
     : [{ name: 'robots', content: 'noindex' }],
   script: entry.value
     ? [

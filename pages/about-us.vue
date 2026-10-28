@@ -24,7 +24,11 @@ const services = tm('aboutPage.services') as any[]
 // 结构化数据：Organization + BreadcrumbList（该页此前 JSON-LD 为 0，属 SEO 洼地）
 useHead({
   title: t('aboutPage.metaTitle'),
-  meta: [{ name: 'description', content: t('aboutPage.metaDesc') }],
+  meta: [
+    { name: 'description', content: t('aboutPage.metaDesc') },
+    { property: 'og:title', content: t('aboutPage.metaTitle') },
+    { property: 'og:description', content: t('aboutPage.metaDesc') }
+  ],
   script: [
     ...orgScripts.value,
     {

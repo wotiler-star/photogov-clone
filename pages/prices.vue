@@ -60,6 +60,11 @@ function isCurrent(planId: string): boolean {
 // 结构化数据：Organization + BreadcrumbList（价格页此前 JSON-LD 为 0，属 SEO 洼地）
 useHead({
   title: t('plans.title'),
+  meta: [
+    { name: 'description', content: t('plans.subtitle') },
+    { property: 'og:title', content: t('plans.title') },
+    { property: 'og:description', content: t('plans.subtitle') }
+  ],
   script: [
     ...orgScripts.value,
     {

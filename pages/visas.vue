@@ -92,7 +92,11 @@ const url = useRequestURL()
 const { scripts: orgScripts } = useOrgLd()
 useHead(() => ({
   title: t('lists.visaTitle'),
-  meta: [{ name: 'description', content: t('lists.visaSub') }],
+  meta: [
+    { name: 'description', content: t('lists.visaSub') },
+    { property: 'og:title', content: t('lists.visaTitle') },
+    { property: 'og:description', content: t('lists.visaSub') }
+  ],
   link: [{ rel: 'canonical', href: url.origin + localePath('/visas') }],
   script: [
     ...orgScripts.value,

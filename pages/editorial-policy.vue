@@ -10,7 +10,11 @@ const url = useRequestURL()
 const { scripts: orgScripts } = useOrgLd()
 useHead({
   title: t('editorialPolicy.metaTitle'),
-  meta: [{ name: 'description', content: t('editorialPolicy.metaDesc') }],
+  meta: [
+    { name: 'description', content: t('editorialPolicy.metaDesc') },
+    { property: 'og:title', content: t('editorialPolicy.metaTitle') },
+    { property: 'og:description', content: t('editorialPolicy.metaDesc') }
+  ],
   script: [
     ...orgScripts.value,
     {
