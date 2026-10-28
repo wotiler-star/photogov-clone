@@ -30,19 +30,20 @@ const localePath = useLocalePath()
 
     <dl class="mt-3 grid grid-cols-2 gap-x-3 gap-y-1.5 text-xs">
       <div class="flex flex-col">
-        <dt class="text-muted">Size</dt>
+        <dt class="text-muted">{{ $t('doc.reqPhotoSize') }}</dt>
         <dd class="font-medium text-ink">{{ doc.size.inch }}″ · {{ doc.size.mm }} mm</dd>
       </div>
       <div class="flex flex-col">
-        <dt class="text-muted">Background</dt>
+        <dt class="text-muted">{{ $t('doc.reqBackground') }}</dt>
         <dd class="flex items-center gap-1.5 font-medium text-ink">
           <span class="inline-block h-3 w-3 rounded-sm border border-slate-300" :style="{ background: doc.background }" />
           {{ doc.color || doc.background }}
         </dd>
       </div>
       <div class="flex flex-col">
-        <dt class="text-muted">Head height</dt>
-        <dd class="font-medium text-ink">{{ doc.headHeight }}</dd>
+        <dt class="text-muted">{{ $t('doc.reqHeadHeight') }}</dt>
+        <!-- 部分文档未提供官方头高要求，避免渲染空值 -->
+        <dd class="font-medium text-ink">{{ doc.headHeight || '—' }}</dd>
       </div>
       <div class="flex flex-col">
         <dt class="text-muted">Glasses</dt>

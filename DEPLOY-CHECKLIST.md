@@ -44,7 +44,7 @@
 - [ ] `Node 22.x`；产物目录为 `.output`
 - [ ] 四语子目录均可访问：`/en`、`/zh`、`/es`、`/fr`
 - [ ] `robots.txt` 可访问，已 `Disallow` 私有区（`/admin`、`/profile`、`/payment`、登录/验证页），`Sitemap:` 指向真实域名
-- [ ] `sitemap.xml` 可访问，URL 前缀为真实域名（本地实测 1036 条，四语各 259，含 hreflang + x-default；已剔除 `/blog*` 等 301 重定向 URL 与认证页）
+- [ ] `sitemap.xml` 可访问，URL 前缀为真实域名（本地实测 3908 条，四语各 977，含 hreflang + x-default；已剔除 `/blog*` 等 301 重定向 URL 与认证页）
 - [ ] 后台页 `/en/admin` 返回 `noindex,nofollow`（已修复）
 - [ ] HTTPS 已强制，证书有效
 - [ ] DNS 已解析到平台；若前置 Cloudflare，注意 SSL/TLS 模式与代理设置
@@ -59,7 +59,7 @@
 | 多语言可达 | `/en` `/zh` `/es` `/fr` | 均 200，且 `<title>` 为对应语言 |
 | canonical | 查看页面 `<link rel="canonical">` | 域名为**自己的域名** |
 | hreflang | 查看 `<link rel="alternate" hreflang=...>` | 四语互指，域名正确 |
-| sitemap | `GET /sitemap.xml` | `<loc>` 均为真实域名，约 1036 条（259×4） |
+| sitemap | `GET /sitemap.xml` | `<loc>` 均为真实域名，约 3908 条（977×4，约 2.7 MB） |
 | robots | `GET /robots.txt` | `Sitemap:` 指向真实域名 |
 | 后台页 | `GET /en/admin` | 含 `noindex,nofollow` |
 | 支付 | 下单 → 回调 → 开通 | Webhook 端点可访问并验签通过（接 Stripe 时） |
