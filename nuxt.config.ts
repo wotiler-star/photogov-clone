@@ -81,7 +81,7 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: ['/']
+      routes: []
     },
     routeRules: {
       // 后台面板裸路径重定向到带语言前缀的路由
