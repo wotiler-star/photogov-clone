@@ -26,7 +26,7 @@ export default defineNuxtConfig({
     // /en, /zh, /es, /fr — required for per-language SEO.
     strategy: 'prefix',
     langDir: 'locales',
-    baseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://photogov.net',
+    baseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://www.photogov.xyz',
     seo: true,
     experimental: {
       strictSeo: true
@@ -60,9 +60,11 @@ export default defineNuxtConfig({
         { name: 'theme-color', content: '#2B3E5C' },
         { property: 'og:site_name', content: 'PhotoGov' },
         { property: 'og:type', content: 'website' },
-        // og:locale 不再在此硬编码（原为固定 en_US）。改由 app.vue 按当前语言
-        // 动态注入 en_US / zh_CN / es_ES / fr_FR，并附带 og:locale:alternate
-        // 指向其余语言，让社交平台识别多语言版本。
+        // og:locale 与 og:image* 均不在此硬编码：
+        // 1) og:locale 原为固定 en_US，改由 app.vue 按当前语言动态注入
+        //    en_US / zh_CN / es_ES / fr_FR，并附 og:locale:alternate 指向其余语言；
+        // 2) og:image 若在此写死域名，部署到其它域名或预览环境时会指向错误地址，
+        //    改由 app.vue 用请求域名拼接（/og-image.png），保证多环境自适应。
         { name: 'twitter:card', content: 'summary_large_image' }
       ],
       link: [
@@ -85,7 +87,7 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: ['/']
+      routes: []
     },
     routeRules: {
       // 后台面板裸路径重定向到带语言前缀的路由

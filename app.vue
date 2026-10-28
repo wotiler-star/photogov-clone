@@ -26,7 +26,8 @@ const OG_LOCALES: Record<string, string> = {
 
 useHead(() => {
   // 用请求域名拼绝对 URL，自托管/预览域也正确（不依赖 NUXT_PUBLIC_SITE_URL）
-  const image = `${url.origin}/og-default.png`
+  // 与仓库中 public/og-image.png 保持一致（1200x630 品牌分享图）
+  const image = `${url.origin}/og-image.png`
   const current = OG_LOCALES[locale.value] || 'en_US'
   const alternates = Object.entries(OG_LOCALES)
     .filter(([code]) => code !== locale.value)
