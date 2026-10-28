@@ -26,7 +26,7 @@ export default defineNuxtConfig({
     // /en, /zh, /es, /fr — required for per-language SEO.
     strategy: 'prefix',
     langDir: 'locales',
-    baseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://photogov.net',
+    baseUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://www.photogov.xyz',
     seo: true,
     experimental: {
       strictSeo: true
@@ -59,6 +59,12 @@ export default defineNuxtConfig({
         { property: 'og:site_name', content: 'PhotoGov' },
         { property: 'og:type', content: 'website' },
         { property: 'og:locale', content: 'en_US' },
+        { property: 'og:image', content: 'https://www.photogov.xyz/og-image.png' },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
+        { property: 'og:image:type', content: 'image/png' },
+        { property: 'og:image:alt', content: 'PhotoGov — make compliant passport, visa and ID photos online' },
+        { name: 'twitter:image', content: 'https://www.photogov.xyz/og-image.png' },
         { name: 'twitter:card', content: 'summary_large_image' }
       ],
       link: [
