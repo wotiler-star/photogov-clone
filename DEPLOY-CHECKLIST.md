@@ -22,7 +22,7 @@
 
 | 变量 | 必填 | 说明与风险 |
 |---|---|---|
-| `NUXT_PUBLIC_SITE_URL` | **是** | **最关键**。未设置时 i18n `baseUrl` 回退为 `https://photogov.net`，导致 canonical / hreflang / sitemap / OG 全部指向**原站域名**，属严重 SEO 事故。设为 `https://你的真实域名` |
+| `NUXT_PUBLIC_SITE_URL` | **是** | **最关键**。未设置时 i18n `baseUrl` 回退为 `https://photogov.net`，导致页面内 **canonical / hreflang / OG** 全部指向**原站域名**，属严重 SEO 事故。设为 `https://你的真实域名`。注意：`/sitemap.xml` 与 `/robots.txt` 走 Nitro 自定义路由，取**请求域名**（`getRequestURL` origin），不依赖此变量，部署到任意域名都正确 |
 | `SESSION_SECRET` | **是** | 会员会话 cookie 签名。`.env.example` 中为占位值 `change-me-to-a-long-random-string`，生产必须替换为长随机串 |
 | `PAYMENT_DEMO_TOKEN` | **是** | Demo 收银台回调签名。同上，生产必须替换 |
 | `PAYMENT_DEMO_MODE` | 视情况 | 未接 Stripe 时设 `1`，走内置 Demo 收银台（`/payment/simulate`）；接了 Stripe 则设 `0` |
@@ -43,8 +43,8 @@
 - [ ] 支付模式明确：接 Stripe 配好密钥与 Webhook，否则 `PAYMENT_DEMO_MODE=1`
 - [ ] `Node 22.x`；产物目录为 `.output`
 - [ ] 四语子目录均可访问：`/en`、`/zh`、`/es`、`/fr`
-- [ ] `robots.txt` 可访问，且其中的 `Sitemap:` 指向真实域名
-- [ ] `sitemap.xml` 可访问，URL 前缀为真实域名（本地实测 1272 条，四语各 317，含 hreflang）
+- [ ] `robots.txt` 可访问，已 `Disallow` 私有区（`/admin`、`/profile`、`/payment`、登录/验证页），`Sitemap:` 指向真实域名
+- [ ] `sitemap.xml` 可访问，URL 前缀为真实域名（本地实测 1036 条，四语各 259，含 hreflang + x-default；已剔除 `/blog*` 等 301 重定向 URL 与认证页）
 - [ ] 后台页 `/en/admin` 返回 `noindex,nofollow`（已修复）
 - [ ] HTTPS 已强制，证书有效
 - [ ] DNS 已解析到平台；若前置 Cloudflare，注意 SSL/TLS 模式与代理设置
@@ -59,7 +59,7 @@
 | 多语言可达 | `/en` `/zh` `/es` `/fr` | 均 200，且 `<title>` 为对应语言 |
 | canonical | 查看页面 `<link rel="canonical">` | 域名为**自己的域名** |
 | hreflang | 查看 `<link rel="alternate" hreflang=...>` | 四语互指，域名正确 |
-| sitemap | `GET /sitemap.xml` | `<loc>` 均为真实域名，约 1272 条 |
+| sitemap | `GET /sitemap.xml` | `<loc>` 均为真实域名，约 1036 条（259×4） |
 | robots | `GET /robots.txt` | `Sitemap:` 指向真实域名 |
 | 后台页 | `GET /en/admin` | 含 `noindex,nofollow` |
 | 支付 | 下单 → 回调 → 开通 | Webhook 端点可访问并验签通过（接 Stripe 时） |
@@ -80,7 +80,7 @@
 
 | 症状 | 原因 |
 |---|---|
-| canonical / hreflang / sitemap 指向 `photogov.net` | 未设 `NUXT_PUBLIC_SITE_URL` |
+| canonical / hreflang / OG 指向 `photogov.net` | 未设 `NUXT_PUBLIC_SITE_URL`（sitemap/robots 取请求域名，不受影响） |
 | 构建失败、依赖报错 | Node 版本不是 22（项目锁定 22.x） |
 | 部署后全站 404 | 发布目录不是 `.output`（Vercel `outputDirectory`、Netlify `publish`） |
 | Docker 部署访问不到 | 未监听 `0.0.0.0` 或端口不是 3000 |

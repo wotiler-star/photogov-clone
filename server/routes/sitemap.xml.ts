@@ -6,7 +6,6 @@
 // Absolute URLs are derived from the incoming request host, so this works on
 // any domain (preview, production, custom domain).
 import documents from '../../data/documents.json'
-import blog from '../../data/blog.json'
 import knowledge from '../../data/knowledge.json'
 
 const LOCALES = ['en', 'zh', 'es', 'fr']
@@ -33,14 +32,12 @@ export default defineEventHandler((event) => {
     { p: '/visas', pri: '0.8', freq: 'monthly' },
     { p: '/dv-lottery', pri: '0.8', freq: 'monthly' },
     { p: '/faq', pri: '0.7', freq: 'monthly' },
-    { p: '/blog', pri: '0.8', freq: 'weekly' },
     { p: '/about-us', pri: '0.5', freq: 'yearly' },
     { p: '/eu-privacy', pri: '0.5', freq: 'yearly' },
     { p: '/privacy-policy', pri: '0.3', freq: 'yearly' },
     { p: '/terms-of-use', pri: '0.3', freq: 'yearly' },
     { p: '/support', pri: '0.5', freq: 'monthly' },
     { p: '/cookie-policy', pri: '0.3', freq: 'yearly' },
-    { p: '/sign-in', pri: '0.3', freq: 'yearly' },
     // 与 photogov.net 对齐的新页面
     { p: '/prices', pri: '0.8', freq: 'monthly' },
     { p: '/contacts', pri: '0.5', freq: 'yearly' },
@@ -48,11 +45,12 @@ export default defineEventHandler((event) => {
     { p: '/why-choose-us', pri: '0.7', freq: 'monthly' },
     { p: '/reviews', pri: '0.7', freq: 'monthly' },
     { p: '/tool', pri: '0.9', freq: 'weekly' },
-    { p: '/blog/author/nathaniel-k-rowden', pri: '0.5', freq: 'monthly' },
+    { p: '/author/nathaniel-k-rowden', pri: '0.5', freq: 'monthly' },
     { p: '/security', pri: '0.6', freq: 'yearly' },
     { p: '/refund-policy', pri: '0.4', freq: 'yearly' },
     { p: '/us-id-photo-compliance', pri: '0.4', freq: 'yearly' },
     { p: '/global-id-photo-compliance', pri: '0.4', freq: 'yearly' },
+    { p: '/compliance', pri: '0.6', freq: 'yearly' },
     { p: '/independence-disclaimer', pri: '0.4', freq: 'yearly' },
     { p: '/knowledge', pri: '0.7', freq: 'weekly' },
     { p: '/knowledge/requirements', pri: '0.6', freq: 'weekly' },
@@ -64,7 +62,6 @@ export default defineEventHandler((event) => {
   ]
 
   const docSlugs = Object.keys((documents as any).documents ?? {})
-  const blogSlugs = ((blog as any).posts ?? []).map((p: any) => p.slug)
   // 国级聚合落地页：从文档数据去重得到国码
   const countryCodes = Array.from(
     new Set(Object.values((documents as any).documents ?? {}).map((d: any) => d.country))
@@ -80,7 +77,6 @@ export default defineEventHandler((event) => {
     ...staticPages,
     ...docSlugs.map((slug) => ({ p: `/documents/${slug}`, pri: '0.8', freq: 'monthly' })),
     ...countryCodes.map((c: string) => ({ p: `/documents/${c.toLowerCase()}`, pri: '0.7', freq: 'monthly' })),
-    ...blogSlugs.map((slug) => ({ p: `/blog/${slug}`, pri: '0.6', freq: 'monthly' })),
     // knowledge 详情页（/knowledge/<category>/<slug>）
     ...Object.keys(knowledge as Record<string, any>).map((k) => ({
       p: `/knowledge/${k}`, pri: '0.7', freq: 'monthly'
