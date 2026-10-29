@@ -28,6 +28,7 @@ const GOOGLE_REVIEWS = 'https://www.google.com/maps/place/Digital+Passport+Photo
         width="40"
         height="40"
         class="size-10 shrink-0 rounded-full object-cover"
+        loading="lazy"
       >
       <p>
         {{ $t('docByline.writtenBy') }}

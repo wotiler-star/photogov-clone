@@ -24,11 +24,7 @@ const services = tm('aboutPage.services') as any[]
 // 结构化数据：Organization + BreadcrumbList（该页此前 JSON-LD 为 0，属 SEO 洼地）
 useHead({
   title: t('aboutPage.metaTitle'),
-  meta: [
-    { name: 'description', content: t('aboutPage.metaDesc') },
-    { property: 'og:title', content: t('aboutPage.metaTitle') },
-    { property: 'og:description', content: t('aboutPage.metaDesc') }
-  ],
+  meta: [{ name: 'description', content: t('aboutPage.metaDesc') }],
   script: [
     ...orgScripts.value,
     {
@@ -57,7 +53,7 @@ useHead({
   >
     <!-- 卡内顶部出血大图 -->
     <div class="-mx-10 h-[180px] max-lg:-mx-5 max-lg:h-[150px]">
-      <img src="/img/about-us/about-us-1.webp" width="1160" height="180" alt="AI Altering Restriction" class="size-full object-cover">
+      <img src="/img/about-us/about-us-1.webp" width="1160" height="180" alt="AI Altering Restriction" class="size-full object-cover" loading="eager" fetchpriority="high">
     </div>
 
     <h1 class="mt-8 text-[30px] font-bold leading-tight">{{ $t('aboutPage.h1') }}</h1>
@@ -110,7 +106,7 @@ useHead({
         <p class="font-sans" v-html="$t('aboutPage.origins2')" />
       </div>
       <div class="h-[285px] lg:w-[335px]">
-        <img src="/img/about-us/about-us-2.webp" width="335" height="285" alt="Online Passport Service" class="size-full rounded object-cover">
+        <img src="/img/about-us/about-us-2.webp" width="335" height="285" alt="Online Passport Service" class="size-full rounded object-cover" loading="lazy">
         <figcaption class="mt-1 text-center font-sans text-[12px] text-[#727272]">{{ $t('aboutPage.originsCaption') }}</figcaption>
       </div>
     </div>
@@ -139,7 +135,7 @@ useHead({
           <div class="space-y-3 rounded-lg bg-[#84ABE41A] px-5 py-4">
             <p class="font-sans">{{ item.p1 }}</p>
             <p class="font-sans">{{ item.p2 }}</p>
-            <img v-if="item.img" :src="item.img" :alt="item.alt" width="357" height="152" class="aspect-[357/152] w-full rounded object-cover">
+            <img v-if="item.img" :src="item.img" :alt="item.alt" width="357" height="152" class="aspect-[357/152] w-full rounded object-cover" loading="lazy">
           </div>
         </div>
       </div>
@@ -156,7 +152,7 @@ useHead({
       <h3 class="mt-10 border-l-4 border-[#BDA887] pl-1.5 text-[22px] font-semibold">{{ team.title }}</h3>
       <p class="mt-1.5 font-sans" v-html="rich(team.text)" />
       <div v-if="team.img" class="mt-6 h-[300px] overflow-hidden rounded max-lg:h-[150px]">
-        <img :src="team.img" :alt="team.alt" width="1000" height="300" class="size-full object-cover">
+        <img :src="team.img" :alt="team.alt" width="1000" height="300" class="size-full object-cover" loading="lazy">
       </div>
     </template>
 
@@ -168,7 +164,7 @@ useHead({
     <div class="mt-6 grid grid-cols-2 gap-6 max-lg:grid-cols-1">
       <div v-for="(s, i) in services" :key="i" class="overflow-hidden rounded-lg bg-[#F1F5F9] font-sans">
         <div class="aspect-[4/3] overflow-hidden rounded-b-lg max-lg:aspect-[3/2]">
-          <img :src="s.img" :alt="s.alt" width="520" height="390" class="size-full object-cover">
+          <img :src="s.img" :alt="s.alt" width="520" height="390" class="size-full object-cover" loading="lazy">
         </div>
         <div class="px-3.5 pb-6 pt-3">
           <p class="text-center text-[18px] font-semibold">{{ s.title }}</p>
@@ -181,7 +177,7 @@ useHead({
     <!-- ═══ 合规标准与可靠性 ═══ -->
     <h2 class="mt-10 text-[30px] font-bold leading-tight">{{ $t('aboutPage.complianceTitle') }}</h2>
     <p class="mt-4 font-sans" v-html="$t('aboutPage.compliance1')" />
-    <img src="/img/about-us/about-us-12.webp" width="1580" height="510" alt="Photogov technical standards" class="mt-6 aspect-[158/51] w-full object-cover">
+    <img src="/img/about-us/about-us-12.webp" width="1580" height="510" alt="Photogov technical standards" class="mt-6 aspect-[158/51] w-full object-cover" loading="lazy">
     <p class="mt-4 font-sans">{{ $t('aboutPage.compliance2') }}</p>
     <p class="mt-4 font-sans">{{ $t('aboutPage.compliance3') }}</p>
 
@@ -214,7 +210,7 @@ useHead({
       </div>
       <div class="shrink-0">
         <div class="h-[285px] overflow-hidden rounded lg:w-[330px]">
-          <img src="/img/about-us/about-us-16.webp" width="330" height="285" alt="Compliance team" class="size-full object-cover">
+          <img src="/img/about-us/about-us-16.webp" width="330" height="285" alt="Compliance team" class="size-full object-cover" loading="lazy">
         </div>
         <figcaption class="mt-1 text-center font-sans text-[12px] text-[#727272]">{{ $t('aboutPage.accessCaption') }}</figcaption>
       </div>
@@ -230,7 +226,7 @@ useHead({
       </div>
       <div class="shrink-0">
         <div class="h-[285px] overflow-hidden rounded lg:w-[330px]">
-          <img src="/img/about-us/about-us-14.webp" width="330" height="285" alt="Photogov - our vision" class="size-full object-cover">
+          <img src="/img/about-us/about-us-14.webp" width="330" height="285" alt="Photogov - our vision" class="size-full object-cover" loading="lazy">
         </div>
         <figcaption class="mt-1 text-center font-sans text-[12px] text-[#727272]">{{ $t('aboutPage.visionCaption') }}</figcaption>
       </div>

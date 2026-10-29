@@ -49,7 +49,7 @@ function sizeLabel(d: any): string {
             @keydown.enter.prevent="open = !open"
             @keydown.space.prevent="open = !open"
           >
-            <img :src="flagUrl" alt="" width="32" height="24" class="size-8 shrink-0 object-contain">
+            <img :src="flagUrl" alt="" width="32" height="24" class="size-8 shrink-0 object-contain" loading="lazy">
             <p class="flex-1 font-serif text-[24px]">{{ countryName }}</p>
             <p class="shrink-0 font-serif text-[#94a3b8] max-lg:hidden">{{ $t('docOther.docCount', { count: docs.length }) }}</p>
           </div>

@@ -93,7 +93,7 @@ useHead(() => ({
   >
     <!-- 卡内顶部出血大图 -->
     <div class="-mx-10 h-[180px] max-lg:-mx-5 max-lg:h-[150px]">
-      <img src="/img/reviews/reviews-1.webp" alt="Photogov Reviews" width="1664" height="360" class="size-full object-cover" />
+      <img src="/img/reviews/reviews-1.webp" alt="Photogov Reviews" width="1664" height="360" class="size-full object-cover" loading="eager" fetchpriority="high" />
     </div>
 
     <h1 class="mt-8 text-[30px] font-bold leading-tight">{{ $t('reviewsPage.title') }}</h1>
@@ -141,7 +141,7 @@ useHead(() => ({
         <div v-for="r in col" :key="r.name" class="rounded-[6px] bg-[#F4F4F4] p-4 font-sans">
           <div class="flex items-center gap-x-2.5">
             <div v-if="avatarUrl(r)" class="size-8 shrink-0 overflow-hidden rounded-full border border-[#D8D8D8] bg-blue-700 max-lg:size-7">
-              <img :src="`/img/reviews/${avatarUrl(r)}`" :alt="`${r.name} user avatar`" width="32" height="32" class="size-full object-cover" />
+              <img :src="`/img/reviews/${avatarUrl(r)}`" :alt="`${r.name} user avatar`" width="32" height="32" class="size-full object-cover" loading="lazy" />
             </div>
             <div v-else class="flex size-8 shrink-0 items-center justify-center rounded-full bg-blue-700 text-sm font-semibold text-white max-lg:size-7">
               {{ initialOf(r) }}
@@ -195,7 +195,7 @@ useHead(() => ({
       <li v-for="(v, i) in verifyList" :key="i" class="list-item">{{ v }}</li>
     </ul>
     <div class="mt-10 h-[300px] w-full overflow-hidden rounded">
-      <img src="/img/reviews/reviews-2.webp" alt="Photogov Reviews" width="1280" height="600" class="size-full object-cover" />
+      <img src="/img/reviews/reviews-2.webp" alt="Photogov Reviews" width="1280" height="600" class="size-full object-cover" loading="lazy" />
     </div>
 
     <h2 class="mt-10 text-[30px] font-bold leading-tight">{{ $t('reviewsPage.shapeTitle') }}</h2>

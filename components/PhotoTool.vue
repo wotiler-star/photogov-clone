@@ -1517,7 +1517,7 @@ function changeCountry(c: string) {
         <div class="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
           <div v-for="it in batchItems" :key="it.id" class="rounded-lg border border-slate-200 p-2">
             <div class="aspect-[3/4] overflow-hidden rounded bg-slate-100">
-              <img :src="it.thumb" class="h-full w-full object-cover" alt="" />
+              <img :src="it.thumb" class="h-full w-full object-cover" alt="" loading="lazy" />
             </div>
             <p class="mt-1 truncate text-[11px] text-muted">{{ it.name }}</p>
             <div class="mt-1 flex gap-1">

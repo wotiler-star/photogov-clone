@@ -166,6 +166,7 @@ useHead({
                 width="50"
                 height="50"
                 class="mx-auto block size-[50px] aspect-square rounded-lg"
+                loading="lazy"
               >
 
               <h1 class="text-center text-[32px] font-semibold leading-[1.3] text-[#212532]">

@@ -18,8 +18,6 @@ useHead({
   title: t('editorialTeam.title'),
   meta: [
     { name: 'description', content: t('editorialTeam.intro') },
-    { property: 'og:title', content: t('editorialTeam.title') },
-    { property: 'og:description', content: t('editorialTeam.intro') },
   ],
   script: [
     ...orgScripts.value,
@@ -63,6 +61,7 @@ useHead({
             width="64"
             height="64"
             class="size-16 shrink-0 rounded-lg object-cover"
+            loading="lazy"
           >
           <div class="max-w-[600px]">
             <h3 class="text-xl font-semibold">
