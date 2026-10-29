@@ -34,9 +34,7 @@ export default defineNuxtConfig({
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
-      // 'all'：任何无语言前缀的路径（如 /documents）也 307 重定向到 /en/...，
-      // 避免用户手输域名+路径时 404；sitemap/canonical 仍只用带前缀 URL，不影响 SEO
-      redirectOn: 'all'
+      redirectOn: 'root'
     },
     locales: [
       { code: 'en', language: 'en-US', name: 'English', flag: '🇺🇸', file: 'en.json' },
@@ -60,12 +58,20 @@ export default defineNuxtConfig({
         { name: 'theme-color', content: '#2B3E5C' },
         { property: 'og:site_name', content: 'PhotoGov' },
         { property: 'og:type', content: 'website' },
-        // og:locale 与 og:image* 均不在此硬编码：
-        // 1) og:locale 原为固定 en_US，改由 app.vue 按当前语言动态注入
-        //    en_US / zh_CN / es_ES / fr_FR，并附 og:locale:alternate 指向其余语言；
-        // 2) og:image 若在此写死域名，部署到其它域名或预览环境时会指向错误地址，
-        //    改由 app.vue 用请求域名拼接（/og-image.png），保证多环境自适应。
-        { name: 'twitter:card', content: 'summary_large_image' }
+        { property: 'og:locale', content: 'en_US' },
+        { property: 'og:image', content: 'https://www.photogov.xyz/og-image.png' },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
+        { property: 'og:image:type', content: 'image/png' },
+        { property: 'og:image:alt', content: 'PhotoGov — make compliant passport, visa and ID photos online' },
+        { name: 'twitter:image', content: 'https://www.photogov.xyz/og-image.png' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        // 全站 keywords 基线（单页可在各自 useHead 用更具体的 keywords 覆盖）
+        {
+          name: 'keywords',
+          content:
+            'passport photo, visa photo, ID photo, photo maker, passport photo app, compliant photos, passport size photo, visa photo online, ID photo editor'
+        }
       ],
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },

@@ -19,14 +19,14 @@ const canonical = computed(() => `${url.origin}${localePath('/why-choose-us')}`)
 const collectionPageLd = computed(() => ({
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  mainEntity: { '@type': 'Organization', '@id': 'https://photogov.net/#organization' },
+  mainEntity: { '@type': 'Organization', '@id': 'https://www.photogov.xyz/#organization' },
   inLanguage: 'en-US'
 }))
 const webSiteLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'PhotoGov',
-  url: 'https://photogov.net/'
+  url: 'https://www.photogov.xyz/'
 }
 const appLds = [
   {
@@ -35,7 +35,7 @@ const appLds = [
     name: 'Passport Photo Maker',
     operatingSystem: 'Android',
     applicationCategory: 'PhotographyApp',
-    provider: { '@type': 'Organization', '@id': 'https://photogov.net/#organization' },
+    provider: { '@type': 'Organization', '@id': 'https://www.photogov.xyz/#organization' },
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', ratingCount: '4275' },
     description:

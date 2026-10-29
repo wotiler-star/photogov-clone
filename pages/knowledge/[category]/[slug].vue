@@ -84,7 +84,7 @@ const articleLd = computed(() => {
     inLanguage: locale.value || 'en',
     mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl.value },
     author: { '@type': 'Organization', name: 'PhotoGov Editorial Team' },
-    publisher: { '@type': 'Organization', '@id': 'https://photogov.net/#organization' },
+    publisher: { '@type': 'Organization', '@id': 'https://www.photogov.xyz/#organization' },
   }
 })
 
@@ -107,11 +107,7 @@ const breadcrumbLd = computed(() => ({
 useHead(() => ({
   title: entry.value ? `${headline.value} — PhotoGov` : 'Article not found',
   meta: entry.value
-    ? [
-        { name: 'description', content: stripTags(sections.value[0]?.items?.[0] || headline.value).slice(0, 155) },
-        { property: 'og:title', content: `${headline.value} — PhotoGov` },
-        { property: 'og:description', content: stripTags(sections.value[0]?.items?.[0] || headline.value).slice(0, 155) }
-      ]
+    ? [{ name: 'description', content: stripTags(sections.value[0]?.items?.[0] || headline.value).slice(0, 155) }]
     : [{ name: 'robots', content: 'noindex' }],
   script: entry.value
     ? [

@@ -387,10 +387,11 @@
       "Revise el resultado: el verificador de fotos integrado prueba el archivo con el formato seleccionado.",
       "Descargue la foto de tamaño pasaporte como JPEG para solicitudes en línea o como hoja imprimible para solicitudes en papel."
     ],
-    "convertNote": "Según su ubicación, puede crear dos fotos de identificación gratuitas al día. En EE. UU., una foto de pasaporte digital cuesta $6.90.",
+    "convertNote": "Según su ubicación, puede crear dos fotos de identificación gratuitas al día. En EE. UU., una foto de pasaporte digital cuesta $6.90."
+  ,
     "metaTitle": "Creador de Fotos de Pasaporte – Fotos de Tamaño para Pasaporte 100% Conformes",
-    "metaDesc": "Cree fotos de pasaporte, visa e identidad conformes en línea en segundos. Herramienta gratuita con especificaciones de tamaño por país, fondo blanco/azul y descarga instantánea en JPG/PDF."
-  },
+    "metaDesc": "Cree fotos de pasaporte, visa e identidad conformes en línea en segundos. Herramienta gratuita con especificaciones de tamaño por país, fondo blanco/azul y descarga instantánea en JPG/PDF.",
+    "keywords": "passport photo maker, passport size photo, visa photo online, ID photo editor, compliant passport photo, passport photo app, photo for passport, visa photo tool"},
   "documents": {
     "eyebrow": "Documentos",
     "title": "Requisitos de fotos de documentos",
@@ -402,22 +403,7 @@
     "docCount": "{count} doc.",
     "found": "{count} documentos encontrados",
     "empty": "Ningún documento coincide con tu búsqueda.",
-    "noVerify": "Guía general",
-    "aiTitle": "Fotos de pasaporte y visado con IA",
-    "aiP1": "Los algoritmos de inteligencia artificial de PhotoGov garantizan que tus fotos cumplan los requisitos exactos de las solicitudes de pasaporte y visado. La IA analiza la foto y ajusta automáticamente la iluminación, el fondo y las proporciones.",
-    "aiP2": "Los métodos tradicionales para obtener fotos de pasaporte y visado pueden ser lentos e incómodos. Con PhotoGov, subes tu foto y recibes una foto editada y verificada profesionalmente en minutos.",
-    "embassyTitle": "Compatibilidad global con embajadas",
-    "embassyP1": "PhotoGov está diseñado para cumplir los requisitos fotográficos únicos de países de todo el mundo. Nuestros algoritmos se actualizan continuamente para garantizar el cumplimiento de las especificaciones oficiales más recientes.",
-    "embassyP2": "Nuestra estrecha colaboración con fuentes de referencia de todo el mundo permite un proceso fluido y eficiente, minimizando retrasos o rechazos por especificaciones incorrectas.",
-    "testimonialsTitle": "Testimonios e historias de éxito",
-    "testimonialsP1": "Únete a los miles de clientes satisfechos que han confiado en PhotoGov sus fotos de pasaporte y visado. Nuestro compromiso con la calidad, la precisión y la eficiencia nos ha convertido en la solución preferida para fotos de documentos.",
-    "testimonialsCta": "Ver todas las opiniones",
-    "otherFormatsTitle": "Otros formatos de fotos de pasaporte y visado",
-    "otherFormatsIntro": "Además de los documentos más solicitados, PhotoGov cubre cientos de formatos nacionales. Algunos ejemplos:",
-    "otherFormatsItem": "{name} usa un retrato de {size}: sube una foto del móvil y descarga el archivo con el tamaño correcto.",
-    "conclusionTitle": "Conclusión",
-    "conclusionP1": "El servicio de fotos de pasaporte y visado con IA de PhotoGov cambia la forma de obtener fotos para documentos. Con tecnología avanzada, cobertura global y un proceso sencillo, obtienes fotos conformes en segundos.",
-    "conclusionCta": "Leer las preguntas frecuentes"
+    "noVerify": "Guía general"
   },
   "doc": {
     "eyebrow": "Documentos",
@@ -643,9 +629,9 @@
       "Rostro completo visible, expresión neutral, ambos ojos abiertos.",
       "Sin gafas, sombreros ni cubiertas de cabeza (salvo religiosas).",
       "Tomada en los últimos 6 meses."
-    ],
-    "metaTitle": "Herramienta de Fotos para la Lotería DV de EE. UU. — Gratis y Conforme"
-  },
+    ]
+  ,
+    "metaTitle": "Herramienta de Fotos para la Lotería DV de EE. UU. — Gratis y Conforme"},
   "lists": {
     "passportTitle": "Requisitos de fotos de pasaporte",
     "passportSub": "Tamaños de fotos de pasaporte conformes para {count} países. Selecciona el tuyo y crea una foto en segundos.",
@@ -1858,18 +1844,7 @@
     "officeCompany": "Y VISION TECHNOLOGIES LLP",
     "officeAddress": "Stoney Works 8 Stoney Lane, London, England, SE19 3BD",
     "mapLabel": "Oficina en el mapa:",
-    "mapEmbed": "https://www.openstreetmap.org/export/embed.html?bbox=-0.093746%2C51.413075%2C-0.067911%2C51.423223&layer=mapnik&marker=51.418149%2C-0.080829",
-    "getInTouchTitle": "Contacta con nosotros",
-    "formIntro": "Trabajamos duro para ofrecer el mejor soporte a nuestros usuarios. Por favor, visita la sección de preguntas frecuentes antes de escribir una solicitud: cubre la mayoría de las dudas sobre el servicio PhotoGov.",
-    "formTitle": "Rellena el formulario de consulta",
-    "firstName": "Nombre",
-    "lastName": "Apellidos",
-    "emailField": "Correo electrónico",
-    "messageLabel": "Mensaje",
-    "attachFile": "Adjuntar archivo",
-    "addFiles": "Añadir archivos a la consulta",
-    "sendInquiry": "Enviar consulta",
-    "required": "*"
+    "mapEmbed": "https://www.openstreetmap.org/export/embed.html?bbox=-0.093746%2C51.413075%2C-0.067911%2C51.423223&layer=mapnik&marker=51.418149%2C-0.080829"
   },
   "reviewsPage": {
     "metaTitle": "Opiniones de PhotoGov — Prueba la herramienta de fotos para pasaporte de confianza",

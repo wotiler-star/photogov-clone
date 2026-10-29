@@ -26,7 +26,7 @@ const webPageLd = computed(() => ({
   url: canonical.value,
   name: t('howItWorks.title'),
   description: t('howItWorks.metaDesc'),
-  publisher: { '@type': 'Organization', '@id': 'https://photogov.net/#organization' },
+  publisher: { '@type': 'Organization', '@id': 'https://www.photogov.xyz/#organization' },
   inLanguage: 'en-US'
 }))
 const appLds = [
@@ -36,7 +36,7 @@ const appLds = [
     name: 'Passport Photo Maker',
     operatingSystem: 'Android',
     applicationCategory: 'PhotographyApp',
-    provider: { '@type': 'Organization', '@id': 'https://photogov.net/#organization' },
+    provider: { '@type': 'Organization', '@id': 'https://www.photogov.xyz/#organization' },
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', ratingCount: '4275' },
     description:

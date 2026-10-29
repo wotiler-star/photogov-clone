@@ -1,4 +1,4 @@
-// Organization 结构化数据（原站全站注入，@id: https://photogov.net/#organization）
+// Organization 结构化数据（原站全站注入，@id: https://www.photogov.xyz/#organization）
 // 数据来源：F4 取证 f4-jsonld.json（原站 /faq/ 页 JSON-LD 原样提取）
 import { computed } from 'vue'
 import { useRequestURL } from '#imports'
@@ -33,7 +33,7 @@ export function useOrgLd() {
   const schema = computed(() => ({
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    '@id': 'https://photogov.net/#organization',
+    '@id': 'https://www.photogov.xyz/#organization',
     description: 'PhotoGov uses advanced artificial intelligence algorithms to create photos that are tailored to meet the specifications of different embassies and authorities. Our platform allows you to upload a photo of yourself and select the type of document for which you need the photo. Our algorithms then analyze the photo and make the necessary adjustments to ensure that it meets the specific requirements for that document.',
     name: 'PhotoGov',
     sameAs: [
@@ -41,13 +41,13 @@ export function useOrgLd() {
       'https://www.youtube.com/@Photogov',
       'https://www.trustpilot.com/review/photogov.net'
     ],
-    publishingPrinciples: 'https://photogov.net/editorial-policy/',
+    publishingPrinciples: 'https://www.photogov.xyz/editorial-policy/',
     legalName: 'Y VISION TECHNOLOGIES LLP',
     foundingDate: '2024-02-28',
-    url: 'https://photogov.net/',
+    url: 'https://www.photogov.xyz/',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://photogov.net/favicon/android-chrome-512x512.png'
+      url: 'https://www.photogov.xyz/favicon/android-chrome-512x512.png'
     },
     address: {
       '@type': 'PostalAddress',
@@ -59,7 +59,7 @@ export function useOrgLd() {
     },
     contactPoint: {
       '@type': 'ContactPoint',
-      url: 'https://photogov.net/support/',
+      url: 'https://www.photogov.xyz/support/',
       email: 'info@photogov.net',
       contactType: 'Customer Service',
       availableLanguage: ['en', 'es', 'it', 'pt', 'de', 'hi'],

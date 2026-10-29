@@ -21,6 +21,26 @@ const openFaq = ref<number | null>(0)
 // 全球信赖 logo 墙（国旗来自 CDN，真实资源）
 const logoWallCodes = ['US', 'GB', 'CA', 'AU', 'IN', 'DE', 'FR', 'ES', 'IT', 'BR', 'JP', 'CN', 'KR', 'MX', 'NG', 'ZA', 'AE', 'TR']
 
+// 首页 FAQPage 结构化数据（复用页面内联的前 6 条 FAQ，与可见手风琴一致）
+const plainFaq = (s: string) =>
+  s.replace(/\{email\}/g, 'info@photogov.net').replace(/<[^>]*>/g, '').replace(/\n/g, ' ')
+const faqPageLd = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((it) => ({
+    '@type': 'Question',
+    name: it.q,
+    acceptedAnswer: { '@type': 'Answer', text: plainFaq(it.a) }
+  }))
+}))
+const breadcrumbLd = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t('common.homePage') || 'Home', item: url.origin + localePath('/') }
+  ]
+}))
+
 useHead(() => {
   const title = t('home.metaTitle')
   const desc = t('home.metaDesc')
@@ -29,6 +49,7 @@ useHead(() => {
     title,
     meta: [
       { name: 'description', content: desc },
+      { name: 'keywords', content: t('home.keywords') },
       { property: 'og:title', content: title },
       { property: 'og:description', content: desc },
       { property: 'og:type', content: 'website' },
@@ -37,9 +58,19 @@ useHead(() => {
       { name: 'twitter:description', content: desc }
     ],
     link: [{ rel: 'canonical', href: canonical }],
-    // 结构化数据：Organization（原站全站注入）+ WebSite。此前首页 JSON-LD 为 0，属 SEO 洼地。
+    // 结构化数据：Organization（原站全站注入）+ WebSite + FAQPage + BreadcrumbList。
     script: [
       ...orgScripts.value,
+      {
+        key: 'ld-faqpage',
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(faqPageLd.value).replace(/</g, '\\u003c')
+      },
+      {
+        key: 'ld-breadcrumb',
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(breadcrumbLd.value).replace(/</g, '\\u003c')
+      },
       {
         key: 'ld-website',
         type: 'application/ld+json',
@@ -49,7 +80,7 @@ useHead(() => {
           '@id': `${url.origin}/#website`,
           url: url.origin + localePath('/'),
           name: 'PhotoGov',
-          publisher: { '@id': 'https://photogov.net/#organization' }
+          publisher: { '@id': 'https://www.photogov.xyz/#organization' }
         }).replace(/</g, '\\u003c')
       }
     ]
