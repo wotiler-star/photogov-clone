@@ -403,7 +403,22 @@
     "docCount": "{count} doc.",
     "found": "{count} documents found",
     "empty": "No documents match your search.",
-    "noVerify": "General guideline"
+    "noVerify": "General guideline",
+    "aiTitle": "AI-Powered Passport & Visa Photos",
+    "aiP1": "Our intelligent engine automatically removes backgrounds, crops to the exact required dimensions, and checks your photo against official specifications — so you get a compliant result without manual edits.",
+    "aiP2": "Every adjustment is applied in seconds using advanced recognition, giving you a photo that meets strict government standards with confidence.",
+    "embassyTitle": "Global Embassy Support",
+    "embassyP1": "PhotoGov works with the photo requirements used by embassies and consulates worldwide, so your document photos align with current consular practices.",
+    "embassyP2": "PhotoGov is an independent service and is not affiliated with any government, embassy, or consulate. All information is based on official requirements and verified primary sources.",
+    "testimonialsTitle": "Testimonials and Success Stories",
+    "testimonialsP1": "Join the thousands of satisfied customers who have trusted PhotoGov with their passport and visa photos. Our commitment to quality, precision, and efficiency has made us the go-to solution for documentation photos worldwide.",
+    "testimonialsCta": "Read customer reviews",
+    "otherFormatsTitle": "Other Passport and Visa Photo Formats",
+    "otherFormatsIntro": "Beyond standard documents, PhotoGov also supports a wide range of additional passport and visa photo formats. Browse the most requested ones below.",
+    "otherFormatsItem": "{name} ({size})",
+    "conclusionTitle": "Conclusion",
+    "conclusionP1": "PhotoGov's AI-powered service makes it simple to create compliant passport and visa photos from home. With advanced technology and global document coverage, you can be confident your photo will be accepted.",
+    "conclusionCta": "Read the FAQ"
   },
   "doc": {
     "eyebrow": "Documents",

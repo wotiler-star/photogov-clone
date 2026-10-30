@@ -31,11 +31,9 @@ export default defineNuxtConfig({
     experimental: {
       strictSeo: true
     },
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root'
-    },
+    // prefix 策略下每个 URL 自带语言前缀，无需按浏览器语言重定向；
+    // 保留它会让客户端按 Accept-Language 加载语言包失败并回退成 i18n 键名。
+    detectBrowserLanguage: false,
     locales: [
       { code: 'en', language: 'en-US', name: 'English', flag: '🇺🇸', file: 'en.json' },
       { code: 'zh', language: 'zh-CN', name: '中文', flag: '🇨🇳', file: 'zh.json' },

@@ -44,3 +44,6 @@ data/_staging/
 
 # REA 逆向工作文件（证据/截图/任务状态，不入库）
 .rea/
+
+# 本地 agent 工作区（记忆/临时文件，不入库）
+.workbuddy/
