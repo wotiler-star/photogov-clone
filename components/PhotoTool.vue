@@ -184,12 +184,9 @@ const defaultBg = (hex?: string): 'white' | 'blue' | 'grey' => {
   return 'white'
 }
 
-// 预览显示尺寸（保持比例，限制宽度）
+// 预览显示尺寸（保持比例；宽度自适应容器，避免窄栏（如文档详情页 max-w-[700px]）下溢出盖住右侧控制栏）
 const previewStyle = computed(() => {
-  const maxW = 360
-  const ratio = ch.value / cw.value
-  const w = Math.min(maxW, cw.value)
-  return { width: w + 'px', height: w * ratio + 'px' }
+  return { width: 'min(360px, 100%)', aspectRatio: `${cw.value} / ${ch.value}` }
 })
 
 async function loadFile(file: File) {
