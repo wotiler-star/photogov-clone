@@ -387,11 +387,11 @@
       "Vérifiez le résultat : le vérificateur de photos intégré teste le fichier selon le format sélectionné.",
       "Téléchargez la photo au format passeport en JPEG pour les demandes en ligne ou sous forme de feuille imprimible pour les demandes papier."
     ],
-    "convertNote": "Selon votre localisation, vous pouvez créer deux photos d'identité gratuites par jour. Aux États-Unis, une photo de passeport numérique coûte $6.90."
-  ,
+    "convertNote": "Selon votre localisation, vous pouvez créer deux photos d'identité gratuites par jour. Aux États-Unis, une photo de passeport numérique coûte $6.90.",
     "metaTitle": "Créateur de Photos de Passeport – Photo Format Passeport 100% Conforme",
     "metaDesc": "Créez des photos de passeport, de visa et d'identité conformes en ligne en quelques secondes. Outil gratuit avec dimensions spécifiques par pays, fond blanc/bleu et téléchargement JPG/PDF instantané.",
-    "keywords": "passport photo maker, passport size photo, visa photo online, ID photo editor, compliant passport photo, passport photo app, photo for passport, visa photo tool"},
+    "keywords": "passport photo maker, passport size photo, visa photo online, ID photo editor, compliant passport photo, passport photo app, photo for passport, visa photo tool"
+  },
   "documents": {
     "eyebrow": "Documents",
     "title": "Exigences photo des documents",
@@ -629,9 +629,9 @@
       "Visage entier visible, expression neutre, les deux yeux ouverts.",
       "Pas de lunettes, chapeaux ou couvre-chefs (sauf religieux).",
       "Prise au cours des 6 derniers mois."
-    ]
-  ,
-    "metaTitle": "Outil Photo pour la Loterie DV des États-Unis — Gratuit et Conforme"},
+    ],
+    "metaTitle": "Outil Photo pour la Loterie DV des États-Unis — Gratuit et Conforme"
+  },
   "lists": {
     "passportTitle": "Exigences photo de passeport",
     "passportSub": "Tailles de photos de passeport conformes pour {count} pays. Sélectionnez le vôtre et créez une photo en quelques secondes.",
@@ -1309,6 +1309,27 @@
       {
         "t": "4.6. Délai de traitement du remboursement",
         "p": "Dans de tels cas, le spécialiste fournira au Client une explication détaillée de la décision. Les remboursements approuvés sont traités dans un délai de 30 jours à compter de l’approbation."
+      },
+      {
+        "t": "4.7. Résiliation de l’abonnement et remboursements",
+        "p": "La résiliation de l’Abonnement via le compte du Client arrêtera les futurs prélèvements automatiques, mais n’ouvre pas automatiquement droit à un remboursement pour les périodes de facturation en cours ou passées. Pour obtenir un remboursement, le Client doit suivre la procédure décrite à la section 4.2.",
+        "items": []
+      },
+      {
+        "t": "4.8. Modifications de la présente politique",
+        "p": "PhotoGov.net se réserve le droit de mettre à jour la présente Politique de remboursement d’abonnement à tout moment. Les modifications prennent effet dès leur publication sur le site web. L’utilisation continue du Service vaut acceptation des conditions mises à jour.",
+        "items": []
+      },
+      {
+        "t": "4.9. Demandes de remboursement après une non-utilisation prolongée de l’abonnement",
+        "p": "",
+        "items": [
+          "4.9.1. PhotoGov.net envoie au Client une notification de chaque prochaine reconduction de l’Abonnement à l’adresse e-mail fournie lors de l’inscription, ainsi qu’un reçu confirmant le succès du prélèvement après chaque paiement. Ces notifications constituent un avis approprié au Client de l’Abonnement actif.",
+          "4.9.2. Le Client est seul responsable de résilier à temps l’Abonnement via son compte s’il n’a pas l’intention de continuer à utiliser le Service. La disponibilité de la fonction de résiliation de l’Abonnement dans le compte du Client lui permet d’arrêter le renouvellement automatique à tout moment.",
+          "4.9.3. Si le Client soumet une demande de remboursement couvrant plusieurs périodes de facturation (deux prélèvements ou plus), les règles suivantes s’appliquent : a) Un seul des prélèvements les plus récents peut être remboursé, à condition que la demande soit soumise dans les 14 jours calendaires suivant ce prélèvement et que le Client n’ait pas utilisé de fonctionnalités premium pendant la période de facturation concernée ; b) Aucun remboursement ne sera émis pour les périodes de facturación antérieures si le Client a reçu un avis approprié de chaque prélèvement par e-mail (notifications de reconduction et/ou reçus de paiement) et n’a ni résilié l’Abonnement ni contacté le Support technique ; c) Dans des circonstances exceptionnelles, notamment une maladie prolongée, un accès non autorisé confirmé au compte ou tout autre cas de force majeure, un remboursement portant sur plusieurs périodes de facturación peut être examiné individuellement à la discrétion du Prestataire de services. Le Client doit fournir des justificatifs.",
+          "4.9.4. Si le Client ne contacte pas le Support technique dans un délai raisonnable après avoir reçu les notifications de prélèvement, cela sera considéré comme une acceptation de la reconduction de l’Abonnement pour la période de facturación concernée.",
+          "4.9.5. PhotoGov.net recommande aux Clients de vérifier régulièrement l’état de leurs Abonnements dans leurs comptes et de contacter rapidement le Support technique s’ils identifient un prélèvement non souhaité."
+        ]
       }
     ]
   },
@@ -1844,7 +1865,26 @@
     "officeCompany": "Y VISION TECHNOLOGIES LLP",
     "officeAddress": "Stoney Works 8 Stoney Lane, London, England, SE19 3BD",
     "mapLabel": "Le bureau sur la carte :",
-    "mapEmbed": "https://www.openstreetmap.org/export/embed.html?bbox=-0.093746%2C51.413075%2C-0.067911%2C51.423223&layer=mapnik&marker=51.418149%2C-0.080829"
+    "mapEmbed": "https://www.openstreetmap.org/export/embed.html?bbox=-0.093746%2C51.413075%2C-0.067911%2C51.423223&layer=mapnik&marker=51.418149%2C-0.080829",
+    "getInTouchTitle": "Contactez-nous",
+    "getInTouchIntro": "Nous mettons tout en œuvre pour offrir le meilleur support à nos utilisateurs. Veuillez consulter la section FAQ avant de faire une demande, car elle couvre la plupart des questions sur le service PhotoGov.",
+    "formInquiryType": "Type de demande",
+    "formSelectPlaceholder": "-Sélectionner-",
+    "formTypeGeneral": "Question générale",
+    "formTypeTechnical": "Problème technique",
+    "formTypeBilling": "Facturation et paiements",
+    "formTypePartnership": "Partenariat",
+    "formTypeMedia": "Médias et presse",
+    "formFirstName": "Prénom",
+    "formLastName": "Nom",
+    "formEmail": "E-mail",
+    "formEmailPlaceholder": "Exemple : meilleur-client@gmail.com",
+    "formPhone": "Numéro de téléphone",
+    "formComment": "Commentaire",
+    "formAttach": "Joindre un fichier",
+    "formAttachHint": "Ajoutez des fichiers à la demande",
+    "formSend": "Envoyer la demande",
+    "formSentMsg": "Votre demande est prête. Nous allons ouvrir votre application e-mail pour que vous puissiez nous l’envoyer."
   },
   "reviewsPage": {
     "metaTitle": "Avis PhotoGov — Essayez l’outil de photo pour passeport de confiance",

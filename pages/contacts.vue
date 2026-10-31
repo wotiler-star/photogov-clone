@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useLocalePath, useRequestURL } from '#imports'
 import InfoPageShell from '~/components/InfoPageShell.vue'
@@ -29,6 +29,43 @@ const social = [
 const cardIcon = (id: string) =>
   (icons as any)[{ support: 'cardSupport', billing: 'cardBilling', partnership: 'cardPartnership', media: 'cardMedia' }[id] || 'cardSupport']
 const socialIcon = (i: number) => (i === 0 ? (icons as any).instagram : (icons as any).youtube)
+
+// "Get in touch" 咨询表单（静态站无后端，提交时组装 mailto 打开用户邮件客户端，发往 info@）
+const inquiryTypes = [
+  'formTypeGeneral',
+  'formTypeTechnical',
+  'formTypeBilling',
+  'formTypePartnership',
+  'formTypeMedia'
+] as const
+const form = reactive({
+  type: '' as string,
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  comment: ''
+})
+const sent = ref(false)
+const buildInquiryMailto = () => {
+  const typeLabel = form.type ? t(`contactPage.${form.type}`) : t('contactPage.formTypeGeneral')
+  const subject = encodeURIComponent(`PhotoGov inquiry — ${typeLabel}`)
+  const lines = [
+    `Inquiry type: ${typeLabel}`,
+    `First name: ${form.firstName}`,
+    `Last name: ${form.lastName}`,
+    `Email: ${form.email}`,
+    `Phone: ${form.phone}`,
+    '',
+    form.comment
+  ]
+  const body = encodeURIComponent(lines.join('\n'))
+  return `mailto:${emailOf('info')}?subject=${subject}&body=${body}`
+}
+const submitInquiry = () => {
+  sent.value = true
+  if (typeof window !== 'undefined') window.location.href = buildInquiryMailto()
+}
 
 const canonical = computed(() => `${url.origin}${localePath('/contacts')}`)
 const escLd = (s: string) => s.replace(/</g, '\\u003c')
@@ -213,5 +250,55 @@ useHead(() => ({
         </div>
       </div>
     </div>
+
+    <!-- Get in touch：咨询表单（静态站无后端，提交时组装 mailto 发往 info@） -->
+    <h2 class="mt-16 text-[30px] font-bold leading-tight">{{ $t('contactPage.getInTouchTitle') }}</h2>
+    <p class="mt-4 text-[#374151] font-sans">{{ $t('contactPage.getInTouchIntro') }}</p>
+    <p class="mt-2 text-[#374151] font-sans">
+      <NuxtLink :to="localePath('/faq')" class="text-blue-600 underline duration-200 hover:text-red-600">{{ $t('nav.faq') }}</NuxtLink>
+    </p>
+
+    <form class="mt-6 space-y-5" @submit.prevent="submitInquiry">
+      <div class="grid grid-cols-2 gap-5 max-lg:grid-cols-1">
+        <div class="space-y-2">
+          <label class="text-[13px] font-medium text-[#5A5A5A]" for="inq-type">{{ $t('contactPage.formInquiryType') }} <span class="text-red-600">*</span></label>
+          <select id="inq-type" v-model="form.type" required class="w-full rounded-[4px] border border-[#C4C4C4] bg-white px-4 py-3 text-[14px] duration-200 focus:border-[#315FB6]">
+            <option value="" disabled>{{ $t('contactPage.formSelectPlaceholder') }}</option>
+            <option v-for="it in inquiryTypes" :key="it" :value="it">{{ $t('contactPage.' + it) }}</option>
+          </select>
+        </div>
+        <div class="space-y-2">
+          <label class="text-[13px] font-medium text-[#5A5A5A]" for="inq-email">{{ $t('contactPage.formEmail') }} <span class="text-red-600">*</span></label>
+          <input id="inq-email" v-model="form.email" type="email" required :placeholder="$t('contactPage.formEmailPlaceholder')" class="w-full rounded-[4px] border border-[#C4C4C4] bg-white px-4 py-3 text-[14px] duration-200 focus:border-[#315FB6]" />
+        </div>
+        <div class="space-y-2">
+          <label class="text-[13px] font-medium text-[#5A5A5A]" for="inq-fn">{{ $t('contactPage.formFirstName') }}</label>
+          <input id="inq-fn" v-model="form.firstName" type="text" class="w-full rounded-[4px] border border-[#C4C4C4] bg-white px-4 py-3 text-[14px] duration-200 focus:border-[#315FB6]" />
+        </div>
+        <div class="space-y-2">
+          <label class="text-[13px] font-medium text-[#5A5A5A]" for="inq-ln">{{ $t('contactPage.formLastName') }}</label>
+          <input id="inq-ln" v-model="form.lastName" type="text" class="w-full rounded-[4px] border border-[#C4C4C4] bg-white px-4 py-3 text-[14px] duration-200 focus:border-[#315FB6]" />
+        </div>
+        <div class="space-y-2">
+          <label class="text-[13px] font-medium text-[#5A5A5A]" for="inq-phone">{{ $t('contactPage.formPhone') }}</label>
+          <input id="inq-phone" v-model="form.phone" type="tel" class="w-full rounded-[4px] border border-[#C4C4C4] bg-white px-4 py-3 text-[14px] duration-200 focus:border-[#315FB6]" />
+        </div>
+        <div class="space-y-2">
+          <label class="text-[13px] font-medium text-[#5A5A5A]" for="inq-file">{{ $t('contactPage.formAttach') }}</label>
+          <input id="inq-file" type="file" multiple class="w-full text-[14px] text-[#5A5A5A]" />
+          <p class="text-[12px] text-[#958366]">{{ $t('contactPage.formAttachHint') }}</p>
+        </div>
+      </div>
+      <div class="space-y-2">
+        <label class="text-[13px] font-medium text-[#5A5A5A]" for="inq-comment">{{ $t('contactPage.formComment') }}</label>
+        <textarea id="inq-comment" v-model="form.comment" rows="4" class="w-full rounded-[4px] border border-[#C4C4C4] bg-white px-4 py-3 text-[14px] duration-200 focus:border-[#315FB6]"></textarea>
+      </div>
+      <div>
+        <button type="submit" class="rounded bg-[#2B3E5C] px-6 py-3 text-[14px] font-medium text-white duration-200 hover:opacity-75">
+          {{ $t('contactPage.formSend') }}
+        </button>
+      </div>
+      <p v-if="sent" class="text-[14px] text-[#498260]">{{ $t('contactPage.formSentMsg') }}</p>
+    </form>
   </InfoPageShell>
 </template>

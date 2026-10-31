@@ -387,11 +387,11 @@
       "Review the result: the built-in photo checker tests the file against the selected format.",
       "Download the passport-size photo as a JPEG for online upload or as a printable sheet for paper applications."
     ],
-    "convertNote": "Depending on your location, you can create two free ID photos per day. In the US, a digital passport photo costs $6.90."
-  ,
+    "convertNote": "Depending on your location, you can create two free ID photos per day. In the US, a digital passport photo costs $6.90.",
     "metaTitle": "Passport Photo Maker – 100% Compliant Passport Size Photo",
     "metaDesc": "Make compliant passport, visa and ID photos online in seconds. Free tool with country-specific size specs, white/blue background, and instant JPG/PDF download.",
-    "keywords": "passport photo maker, passport size photo, visa photo online, ID photo editor, compliant passport photo, passport photo app, photo for passport, visa photo tool"},
+    "keywords": "passport photo maker, passport size photo, visa photo online, ID photo editor, compliant passport photo, passport photo app, photo for passport, visa photo tool"
+  },
   "documents": {
     "eyebrow": "Documents",
     "title": "Photo document requirements",
@@ -644,9 +644,9 @@
       "Full face visible, neutral expression, both eyes open.",
       "No glasses, hats, or head coverings (except religious).",
       "Taken within the last 6 months."
-    ]
-  ,
-    "metaTitle": "US DV Lottery Photo Tool — Free & Compliant"},
+    ],
+    "metaTitle": "US DV Lottery Photo Tool — Free & Compliant"
+  },
   "lists": {
     "passportTitle": "Passport photo requirements",
     "passportSub": "Compliant passport photo sizes for {count} countries. Select yours and make a photo in seconds.",
@@ -1324,6 +1324,27 @@
       {
         "t": "4.6. Refund Processing Time",
         "p": "In such cases, the specialist will provide the Customer with a detailed explanation of the decision. Approved refunds are processed within 30 days of approval."
+      },
+      {
+        "t": "4.7. Subscription Cancellation and Refunds",
+        "p": "Canceling the Subscription through the Customer’s account will stop future automatic charges but does not automatically entitle the Customer to a refund for the current or previous billing periods. To receive a refund, the Customer must follow the procedure described in Section 4.2.",
+        "items": []
+      },
+      {
+        "t": "4.8. Amendments to This Policy",
+        "p": "PhotoGov.net reserves the right to update this Subscription Refund Policy at any time. Changes will take effect upon publication on the website. Continued use of the Service constitutes acceptance of the updated terms.",
+        "items": []
+      },
+      {
+        "t": "4.9. Refund Requests Following Extended Subscription Non-Use",
+        "p": "",
+        "items": [
+          "4.9.1. PhotoGov.net sends the Customer a notification of each upcoming Subscription renewal to the email address provided at registration, as well as a receipt confirming the successful charge after each payment. These notifications constitute proper notice to the Customer of the active Subscription.",
+          "4.9.2. The Customer is solely responsible for timely canceling the Subscription through their account if they do not intend to continue using the Service. The availability of the Subscription cancellation feature in the Customer’s account allows the Customer to stop automatic renewal at any time.",
+          "4.9.3. If the Customer submits a refund request covering multiple billing periods (two or more charges), the following rules apply: (a) No more than the most recent charge may be refunded, provided that the request is submitted within 14 calendar days of that charge and the Customer did not use premium features during the applicable billing period; (b) Refunds for prior billing periods will not be issued if the Customer received proper notice of each charge by email (renewal notifications and/or payment receipts) and did not cancel the Subscription or contact Technical Support; (c) In exceptional circumstances, including prolonged illness, confirmed unauthorized access to the account, or other force majeure events, a refund for multiple billing periods may be reviewed individually at the discretion of the Service Provider. The Customer must provide supporting documentation.",
+          "4.9.4. If the Customer does not contact Technical Support within a reasonable period after receiving charge notifications, this will be considered acceptance of the Subscription renewal for the applicable billing period.",
+          "4.9.5. PhotoGov.net recommends that Customers regularly review the status of their Subscriptions in their accounts and contact Technical Support promptly if they identify any unwanted charges."
+        ]
       }
     ]
   },
@@ -1859,7 +1880,26 @@
     "officeCompany": "Y VISION TECHNOLOGIES LLP",
     "officeAddress": "Stoney Works 8 Stoney Lane, London, England, SE19 3BD",
     "mapLabel": "Office on the map:",
-    "mapEmbed": "https://www.openstreetmap.org/export/embed.html?bbox=-0.093746%2C51.413075%2C-0.067911%2C51.423223&layer=mapnik&marker=51.418149%2C-0.080829"
+    "mapEmbed": "https://www.openstreetmap.org/export/embed.html?bbox=-0.093746%2C51.413075%2C-0.067911%2C51.423223&layer=mapnik&marker=51.418149%2C-0.080829",
+    "getInTouchTitle": "Get in touch",
+    "getInTouchIntro": "We work hard to provide the best support for our users. Please, visit the FAQ section before writing a request, it covers most questions about the PhotoGov service.",
+    "formInquiryType": "Inquiry Type",
+    "formSelectPlaceholder": "-Select-",
+    "formTypeGeneral": "General question",
+    "formTypeTechnical": "Technical issue",
+    "formTypeBilling": "Billing and payments",
+    "formTypePartnership": "Partnership",
+    "formTypeMedia": "Media and press",
+    "formFirstName": "First name",
+    "formLastName": "Last name",
+    "formEmail": "Email",
+    "formEmailPlaceholder": "Example: best-customer@gmail.com",
+    "formPhone": "Phone number",
+    "formComment": "Comment",
+    "formAttach": "Attach file",
+    "formAttachHint": "Add files to the query",
+    "formSend": "Send inquiry",
+    "formSentMsg": "Your inquiry is ready. We’ll open your email app so you can send it to us."
   },
   "reviewsPage": {
     "metaTitle": "PhotoGov Reviews — Try the Trusted Passport Photo Tool",

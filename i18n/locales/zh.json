@@ -387,11 +387,11 @@
       "检查结果：内置照片检查器会按照所选格式测试文件。",
       "下载护照尺寸照片：在线申请可用 JPEG，纸质申请可下载可打印排版页。"
     ],
-    "convertNote": "根据所在地区，您每天可制作两张免费证件照。在美国，数码护照照片价格为 $6.90。"
-  ,
+    "convertNote": "根据所在地区，您每天可制作两张免费证件照。在美国，数码护照照片价格为 $6.90。",
     "metaTitle": "护照照片制作工具 – 100% 合规证件照",
     "metaDesc": "几秒钟即可在线制作合规的护照、签证与证件照片。免费工具，支持各国专属尺寸规格、白色或蓝色背景，并可即时下载 JPG/PDF。",
-    "keywords": "passport photo maker, passport size photo, visa photo online, ID photo editor, compliant passport photo, passport photo app, photo for passport, visa photo tool"},
+    "keywords": "passport photo maker, passport size photo, visa photo online, ID photo editor, compliant passport photo, passport photo app, photo for passport, visa photo tool"
+  },
   "documents": {
     "eyebrow": "证件",
     "title": "证件照片要求",
@@ -629,9 +629,9 @@
       "正面全脸，表情自然，双眼睁开。",
       "不得佩戴眼镜、帽子或头饰（宗教原因除外）。",
       "须为近 6 个月内拍摄。"
-    ]
-  ,
-    "metaTitle": "美国绿卡抽签（DV Lottery）照片工具 — 免费且合规"},
+    ],
+    "metaTitle": "美国绿卡抽签（DV Lottery）照片工具 — 免费且合规"
+  },
   "lists": {
     "passportTitle": "护照照片要求",
     "passportSub": "符合 {count} 个国家规范的护照照片尺寸。选择您的国家，几秒即可制作照片。",
@@ -1309,6 +1309,27 @@
       {
         "t": "4.6. 退款处理时限",
         "p": "在上述情形下，专员将向客户详细说明决定理由。获批的退款将在批准后的 30 days 内办理。"
+      },
+      {
+        "t": "4.7. 取消订阅与退款",
+        "p": "通过客户账户取消订阅将停止未来的自动扣费，但不会自动赋予客户就当前或以往计费周期获得退款的权利。如需退款，客户必须遵循第 4.2 节所述的流程。",
+        "items": []
+      },
+      {
+        "t": "4.8. 本政策的修订",
+        "p": "PhotoGov.net 保留随时更新本订阅退款政策的权利。变更将在网站发布时生效。继续使用本服务即视为接受更新后的条款。",
+        "items": []
+      },
+      {
+        "t": "4.9. 长期未使用订阅后的退款请求",
+        "p": "",
+        "items": [
+          "4.9.1. PhotoGov.net 会在每次订阅即将续费时，向注册时提供的电子邮箱发送续费通知，并在每次付款成功后发送确认收据。这些通知构成对客户有关有效订阅的适当告知。",
+          "4.9.2. 若客户不打算继续使用本服务，由其自行负责及时通过账户取消订阅。客户账户中提供的订阅取消功能允许客户随时停止自动续费。",
+          "4.9.3. 若客户提交的退款请求涵盖多个计费周期（两笔或更多扣款），适用以下规则：(a) 仅可退还最近一笔扣款，前提是请求在该笔扣款后 14 个日历日内提交，且客户在相应计费周期内未使用高级功能；(b) 若客户已通过电子邮件收到每笔扣款的适当通知（续费通知及/或付款收据）且未取消订阅或联系技术支持，则不会就以往计费周期发放退款；(c) 在包括长期患病、账户未经授权访问被确认或其他不可抗力事件在内的特殊情况下，涉及多个计费周期的退款可由服务提供商酌情单独审查。客户须提供证明材料。",
+          "4.9.4. 若客户在收到扣款通知后的合理期限内未联系技术支持，将被视为接受相应计费周期的订阅续费。",
+          "4.9.5. PhotoGov.net 建议客户定期查看其账户中的订阅状态，并在发现任何非预期扣款时及时联系技术支持。"
+        ]
       }
     ]
   },
@@ -1844,7 +1865,26 @@
     "officeCompany": "Y VISION TECHNOLOGIES LLP",
     "officeAddress": "Stoney Works 8 Stoney Lane, London, England, SE19 3BD",
     "mapLabel": "办公室位置地图：",
-    "mapEmbed": "https://www.openstreetmap.org/export/embed.html?bbox=-0.093746%2C51.413075%2C-0.067911%2C51.423223&layer=mapnik&marker=51.418149%2C-0.080829"
+    "mapEmbed": "https://www.openstreetmap.org/export/embed.html?bbox=-0.093746%2C51.413075%2C-0.067911%2C51.423223&layer=mapnik&marker=51.418149%2C-0.080829",
+    "getInTouchTitle": "联系我们",
+    "getInTouchIntro": "我们努力为用户提供最优质的支持。在提交请求前，请先浏览常见问题（FAQ）版块，其中涵盖了关于 PhotoGov 服务的大部分疑问。",
+    "formInquiryType": "咨询类型",
+    "formSelectPlaceholder": "-请选择-",
+    "formTypeGeneral": "一般问题",
+    "formTypeTechnical": "技术问题",
+    "formTypeBilling": "账单与付款",
+    "formTypePartnership": "商务合作",
+    "formTypeMedia": "媒体与新闻",
+    "formFirstName": "名",
+    "formLastName": "姓",
+    "formEmail": "电子邮箱",
+    "formEmailPlaceholder": "例如：best-customer@gmail.com",
+    "formPhone": "电话号码",
+    "formComment": "留言",
+    "formAttach": "添加附件",
+    "formAttachHint": "为咨询添加文件",
+    "formSend": "提交咨询",
+    "formSentMsg": "您的咨询已准备好。我们将打开您的邮件应用，以便您发送给我们。"
   },
   "reviewsPage": {
     "metaTitle": "PhotoGov 用户评价 — 值得信赖的证件照工具",
