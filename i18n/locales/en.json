@@ -1893,7 +1893,7 @@
     "formFirstName": "First name",
     "formLastName": "Last name",
     "formEmail": "Email",
-    "formEmailPlaceholder": "Example: best-customer@gmail.com",
+    "formEmailPlaceholder": "e.g. your.name",
     "formPhone": "Phone number",
     "formComment": "Comment",
     "formAttach": "Attach file",

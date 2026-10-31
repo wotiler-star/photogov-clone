@@ -1878,7 +1878,7 @@
     "formFirstName": "名",
     "formLastName": "姓",
     "formEmail": "电子邮箱",
-    "formEmailPlaceholder": "例如：best-customer@gmail.com",
+    "formEmailPlaceholder": "例如：您的邮箱",
     "formPhone": "电话号码",
     "formComment": "留言",
     "formAttach": "添加附件",

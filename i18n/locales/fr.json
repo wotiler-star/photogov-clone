@@ -1878,7 +1878,7 @@
     "formFirstName": "Prénom",
     "formLastName": "Nom",
     "formEmail": "E-mail",
-    "formEmailPlaceholder": "Exemple : meilleur-client@gmail.com",
+    "formEmailPlaceholder": "ex. votre.nom",
     "formPhone": "Numéro de téléphone",
     "formComment": "Commentaire",
     "formAttach": "Joindre un fichier",

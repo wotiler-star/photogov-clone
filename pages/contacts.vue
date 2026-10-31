@@ -237,10 +237,10 @@ useHead(() => ({
           </p>
         </div>
         <div class="px-3.5 py-4 font-sans">
-          <div class="flex items-start gap-x-1.5">
+          <h3 class="flex items-start gap-x-1.5 text-[15px] font-semibold">
             <span class="shrink-0" v-html="icons.location" />
-            <span class="flex-1 text-[14px] font-medium">{{ $t('contactPage.mapLabel') }}</span>
-          </div>
+            <span class="flex-1">{{ $t('contactPage.mapLabel') }}</span>
+          </h3>
           <iframe
             class="mt-2 h-[220px] w-full rounded"
             :src="$t('contactPage.mapEmbed')"
