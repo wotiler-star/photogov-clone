@@ -605,7 +605,9 @@
       "Elige tu documento (país + tipo) para que la herramienta conozca el tamaño, fondo y DPI exactos.",
       "Sube o haz una foto, luego arrastra para posicionarla y recórtala automáticamente a la proporción oficial.",
       "Cambia el fondo, comprueba la conformidad y descarga un JPG, PNG o PDF listo para imprimir."
-    ]
+    ],
+    "selectTitle": "Selecciona país y tipo de documento:",
+    "stepLabel": "Paso {n}/{total}"
   },
   "countryLanding": {
     "title": "Requisitos de fotos de pasaporte, visado y DNI de {country}",

@@ -220,7 +220,6 @@ const quickGroups = computed(() => {
 
         <!-- 右栏：交互式「选国家 → 选证件」向导（对标原站 Hero 工具） -->
         <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
-          <p class="mb-4 text-sm font-semibold text-ink">{{ $t('home.heroWizardTitle') }}</p>
           <HeroToolWizard />
         </div>
       </div>

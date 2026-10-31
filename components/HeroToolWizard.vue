@@ -89,6 +89,11 @@ defineExpose({ started, activeCountry, selDoc, medicalRestriction })
 
 <template>
   <!-- 原站风格向导表单：选国家 → 选证件 → 医疗例外 → Start -->
+  <!-- 顶部标题区：H2「Select Country and Document Type:」+ 右侧「Step 1/4」标记（对标 photogov.net） -->
+  <div class="mb-2 flex items-center justify-between gap-x-3 max-lg:flex-col max-lg:items-start max-lg:gap-y-1">
+    <h2 class="text-[24px] font-semibold leading-[1.3] text-ink">{{ $t('tool.selectTitle') }}</h2>
+    <span class="shrink-0 text-sm text-[#6B7280]">{{ $t('tool.stepLabel', { n: 1, total: 4 }) }}</span>
+  </div>
   <form class="space-y-8" @submit.prevent>
     <!-- Step 1: Select country -->
     <div class="space-y-2">

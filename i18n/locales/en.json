@@ -294,11 +294,11 @@
     "trustedSub": "Almost two million people trust PhotoGov to create official photos that meet every government standard — verified data, biometric accuracy and in-house compliance experts.",
     "trustedPoints": [
       {
-        "t": "Adherence to guidelines",
+        "t": "Adherence to official guidelines",
         "d": "Aligned with U.S. State Dept, HM Passport Office, European Commission and other authorities."
       },
       {
-        "t": "Embassy collaboration",
+        "t": "Collaboration with select state embassies",
         "d": "Working with select state embassies to strengthen verification."
       },
       {
@@ -620,7 +620,9 @@
       "Pick your document (country + type) so the tool knows the exact size, background and DPI.",
       "Upload or take a photo, then drag to position and auto-crop to the official ratio.",
       "Change the background, check compliance and download a print-ready JPG, PNG or PDF."
-    ]
+    ],
+    "selectTitle": "Select Country and Document Type:",
+    "stepLabel": "Step {n}/{total}"
   },
   "countryLanding": {
     "title": "{country} Passport, Visa & ID Photo Requirements",

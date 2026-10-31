@@ -605,7 +605,9 @@
       "Choisissez votre document (pays + type) pour que l'outil connaisse la taille, l'arrière-plan et le DPI exacts.",
       "Téléversez ou prenez une photo, puis faites-la glisser pour la positionner et recadrez-la automatiquement au ratio officiel.",
       "Changez l'arrière-plan, vérifiez la conformité et téléchargez un JPG, PNG ou PDF prêt à imprimer."
-    ]
+    ],
+    "selectTitle": "Sélectionnez le pays et le type de document :",
+    "stepLabel": "Étape {n}/{total}"
   },
   "countryLanding": {
     "title": "Exigences photos de passeport, visa et pièce d'identité {country}",
