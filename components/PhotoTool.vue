@@ -8,7 +8,7 @@ import { useApi } from '~/composables/useApi'
 
 const { t } = useI18n()
 const { user } = useAuth()
-const { uploadPhoto, savePhoto } = useApi()
+const { uploadPhoto, savePhoto, photoCheckout } = useApi()
 const savingPhoto = ref(false)
 const saveMsg = ref('')
 
@@ -1131,6 +1131,61 @@ async function downloadBatchZip() {
   }
 }
 
+// ---- 下载门控（复刻原站 Upload→Processing→Checkout→Download 商业模型）----
+// checkoutOn 为总开关：开启时导出需先结账（演示：photoCheckout 即时解锁）；
+// 关闭后导出无需结账，保持「免费导出可切换」。
+const checkoutOn = ref(true)
+const photoUnlocked = ref(false) // 当前图已解锁下载
+const showCheckout = ref(false)
+const pendingExport = ref<{
+  action: 'jpg' | 'png' | 'pdf' | 'sheet' | 'batch' | 'batchItem'
+  item?: BatchItem
+} | null>(null)
+
+// 上传新图 / 重新抠图后需重新结账（每张照片一次解锁）
+watch(sourceImg, () => { photoUnlocked.value = false })
+
+function runExport(p: NonNullable<typeof pendingExport.value>) {
+  if (p.action === 'jpg') downloadJPG()
+  else if (p.action === 'png') downloadPNG()
+  else if (p.action === 'pdf') downloadPDF()
+  else if (p.action === 'sheet') downloadSheet()
+  else if (p.action === 'batch') downloadBatchZip()
+  else if (p.action === 'batchItem' && p.item) downloadBatchItem(p.item)
+}
+
+// 入口：导出前先经门控；已解锁或关闭门控则直接导出
+function requireUnlock(
+  action: 'jpg' | 'png' | 'pdf' | 'sheet' | 'batch' | 'batchItem',
+  item?: BatchItem
+) {
+  if (!checkoutOn.value || photoUnlocked.value) {
+    runExport({ action, item })
+    return
+  }
+  pendingExport.value = { action, item }
+  showCheckout.value = true
+}
+
+function onCheckoutSuccess() {
+  photoUnlocked.value = true
+  showCheckout.value = false
+  const p = pendingExport.value
+  pendingExport.value = null
+  if (p) runExport(p)
+}
+
+function onCheckoutClose() {
+  showCheckout.value = false
+  pendingExport.value = null
+}
+
+function onSubscribe() {
+  showCheckout.value = false
+  pendingExport.value = null
+  navigateTo(localePath('/prices'))
+}
+
 // ---- AI 抠图（MediaPipe，运行时 CDN 加载，失败则降级）----
 async function removeBackgroundAI() {
   if (!sourceImg.value) return
@@ -1418,11 +1473,27 @@ function changeCountry(c: string) {
           </div>
         </div>
 
+        <!-- 下载门控状态 + 开关（免费导出可切换） -->
+        <div class="flex items-center justify-between rounded-xl border px-3 py-2"
+             :class="photoUnlocked ? 'border-green-200 bg-green-50' : (checkoutOn ? 'border-amber-200 bg-amber-50' : 'border-slate-200 bg-slate-50')">
+          <div class="flex items-center gap-2 text-xs">
+            <span class="inline-flex h-2 w-2 rounded-full"
+                  :class="photoUnlocked ? 'bg-green-500' : (checkoutOn ? 'bg-amber-400' : 'bg-slate-300')"></span>
+            <span :class="photoUnlocked ? 'text-green-700' : 'text-muted'">
+              {{ checkoutOn ? (photoUnlocked ? t('tool.unlocked') : t('tool.gated')) : t('tool.freeMode') }}
+            </span>
+          </div>
+          <button type="button" class="text-xs text-[#094DBC] underline duration-200 hover:opacity-75"
+                  @click="checkoutOn = !checkoutOn">
+            {{ checkoutOn ? t('tool.disableGating') : t('tool.enableGating') }}
+          </button>
+        </div>
+
         <!-- 下载 -->
         <div class="mt-1 grid grid-cols-3 gap-2">
-          <button class="btn-primary" :disabled="!hasImage" @click="downloadJPG()">{{ $t('tool.jpg') }}</button>
-          <button class="btn-yellow" :disabled="!hasImage||isProcessing" @click="downloadPDF()">{{ $t('tool.pdf') }}</button>
-          <button class="btn-secondary" :disabled="!hasImage" @click="downloadPNG()">{{ $t('tool.png') }}</button>
+          <button class="btn-primary" :disabled="!hasImage" @click="requireUnlock('jpg')">{{ $t('tool.jpg') }}</button>
+          <button class="btn-yellow" :disabled="!hasImage||isProcessing" @click="requireUnlock('pdf')">{{ $t('tool.pdf') }}</button>
+          <button class="btn-secondary" :disabled="!hasImage" @click="requireUnlock('png')">{{ $t('tool.png') }}</button>
           <button
             class="btn-outline"
             :disabled="!hasImage || savingPhoto"
@@ -1484,7 +1555,7 @@ function changeCountry(c: string) {
               <option value="4x6">{{ $t('tool.preset4x6') }}</option>
               <option value="A4">{{ $t('tool.presetA4') }}</option>
             </select>
-            <button class="btn-secondary ml-auto px-3 py-1.5 text-xs" :disabled="!hasImage||isProcessing" @click="downloadSheet()">{{ $t('tool.sheetBtn') }}</button>
+            <button class="btn-secondary ml-auto px-3 py-1.5 text-xs" :disabled="!hasImage||isProcessing" @click="requireUnlock('sheet')">{{ $t('tool.sheetBtn') }}</button>
           </div>
         </div>
 
@@ -1518,15 +1589,26 @@ function changeCountry(c: string) {
             </div>
             <p class="mt-1 truncate text-[11px] text-muted">{{ it.name }}</p>
             <div class="mt-1 flex gap-1">
-              <button class="flex-1 rounded bg-brand-blue/10 px-1 py-1 text-[10px] font-medium text-brand-blue" @click="downloadBatchItem(it)">{{ $t('tool.jpg') }}</button>
+              <button class="flex-1 rounded bg-brand-blue/10 px-1 py-1 text-[10px] font-medium text-brand-blue" @click="requireUnlock('batchItem', it)">{{ $t('tool.jpg') }}</button>
               <button class="rounded bg-slate-100 px-1 py-1 text-[10px] text-muted" @click="removeBatchItem(it.id)">✕</button>
             </div>
           </div>
         </div>
-        <button class="btn-primary mt-3" :disabled="isProcessing" @click="downloadBatchZip()">
+        <button class="btn-primary mt-3" :disabled="isProcessing" @click="requireUnlock('batch')">
           {{ $t('tool.downloadAll') }}
         </button>
       </div>
     </div>
   </div>
+
+  <!-- 下载结账门控弹窗 -->
+  <PhotoCheckout
+    :open="showCheckout"
+    :country="activeCountry"
+    :doc-name="selDoc?.name || ''"
+    :doc-slug="selDoc?.slug || ''"
+    @success="onCheckoutSuccess"
+    @close="onCheckoutClose"
+    @subscribe="onSubscribe"
+  />
 </template>

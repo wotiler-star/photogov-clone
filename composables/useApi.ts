@@ -212,6 +212,21 @@ export const useApi = () => {
   const cancelOrder = (id: string) =>
     reqFetch<{ ok: boolean; order: any }>(`${BASE}/order/${id}/cancel`, { method: 'POST' })
 
+  // 单次证件照（数字版）结账：服务端分区定价，演示模式即时标记为已付款并解锁下载
+  const photoCheckout = (country: string, docName: string, docSlug: string) =>
+    reqFetch<{
+      ok: boolean
+      orderId: string
+      amount: number
+      currency: string
+      region: string
+      status: string
+      demo: boolean
+    }>(`${BASE}/order/photo-checkout`, {
+      method: 'POST',
+      body: { country, docName, docSlug }
+    })
+
   // 支付：创建订阅 checkout / 查询支付状态 / demo 收银台确认付款
   const createCheckout = (planId: string, locale = 'en') =>
     reqFetch<{
@@ -288,6 +303,7 @@ export const useApi = () => {
     myOrders,
     payOrder,
     cancelOrder,
+    photoCheckout,
     createCheckout,
     getPayment,
     myPayments,
