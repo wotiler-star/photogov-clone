@@ -18,6 +18,9 @@ const EU_COUNTRIES = [
   'GR', 'LU', 'MT', 'CY', 'SI', 'SK', 'EE', 'LV', 'LT', 'FI'
 ]
 
+// Pro AI Photos 固定价格（与服务端 pro-ai-checkout 端点一致，不分区）
+export const PRO_AI_PRICE: PhotoPrice = { amount: 6.9, currency: 'USD', region: 'Global' }
+
 export function priceForCountry(code: string): PhotoPrice {
   const c = String(code || '').toUpperCase()
   if (REGION[c]) return REGION[c]

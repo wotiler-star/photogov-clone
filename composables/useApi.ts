@@ -227,6 +227,22 @@ export const useApi = () => {
       body: { country, docName, docSlug }
     })
 
+  // Pro AI Photos（+9 PRO AI Photos，$6.90）一次性结账：服务端固定价、demo 即时付费
+  const proAiCheckout = (count = 9) =>
+    reqFetch<{
+      ok: boolean
+      orderId: string
+      amount: number
+      currency: string
+      serviceId: string
+      count: number
+      status: string
+      demo: boolean
+    }>(`${BASE}/order/pro-ai-checkout`, {
+      method: 'POST',
+      body: { count }
+    })
+
   // 支付：创建订阅 checkout / 查询支付状态 / demo 收银台确认付款
   const createCheckout = (planId: string, locale = 'en') =>
     reqFetch<{
@@ -304,6 +320,7 @@ export const useApi = () => {
     payOrder,
     cancelOrder,
     photoCheckout,
+    proAiCheckout,
     createCheckout,
     getPayment,
     myPayments,

@@ -65,7 +65,8 @@ const aboutLinks = [
   { to: '/why-choose-us', labelKey: 'footer.links.whyChooseUs' },
   { to: '/reviews', labelKey: 'footer.links.reviews' },
   { to: '/security', labelKey: 'footer.links.security' },
-  { to: '/faq', labelKey: 'footer.links.faq' }
+  { to: '/faq', labelKey: 'footer.links.faq' },
+  { to: '/pro-ai', labelKey: 'footer.links.proAi' }
 ]
 
 const select = (c: string) => {

@@ -26,7 +26,8 @@
     "visaPhotos": "签证照片",
     "aboutGroup": "关于我们",
     "menu": "菜单",
-    "closeMenu": "关闭菜单"
+    "closeMenu": "关闭菜单",
+    "proAi": "Pro AI 证件照"
   },
   "header": {
     "countryBar": "按国家查看护照照片要求",
@@ -65,7 +66,8 @@
       "euPrivacy": "欧盟数据保护",
       "usCompliance": "美国证件照合规",
       "globalCompliance": "全球证件照合规",
-      "nonAffiliation": "非关联声明"
+      "nonAffiliation": "非关联声明",
+      "proAi": "Pro AI 证件照"
     },
     "copyright": "© {year} PhotoGov。仿照 www.photogov.net 制作的演示克隆。",
     "madeWith": "使用 Nuxt 3 · Vue 3 · Tailwind CSS 构建",
@@ -2500,5 +2502,34 @@
     "materialsBy": "{name} 的资料",
     "guides": "证件照指南",
     "requirements": "照片要求"
+  },
+  "proAi": {
+    "title": "PRO AI 证件照",
+    "heroDesc": "AI 增强、合规的证件照——几秒钟即可获得九张可冲印的成片。",
+    "metaTitle": "Pro AI 证件照 —— +9 张 AI 增强的合规证件照",
+    "metaDesc": "购买 +9 张 Pro AI 证件照：AI 清理背景、修正光线并校验护照、签证及身份证照的合规性。一次付费 6.90 美元。",
+    "intro": "Pro AI 证件照是我们的 AI 增值服务，可将一张普通照片处理为九张精致且符合官方要求的肖像。它会自动去除杂乱背景、平衡光线，并依据证件规范校验头部尺寸与眼睛高度，让您的照片一次通过。",
+    "feature1Title": "AI 背景清理",
+    "feature1Text": "一键生成纯白或浅蓝背景，符合大多数护照与签证的要求。",
+    "feature2Title": "光线与肤质优化",
+    "feature2Text": "智能曝光与瑕疵柔化，无需影棚也能获得干净专业的观感。",
+    "feature3Title": "九张成品",
+    "feature3Text": "九张独立调校的肖像，均按要求的尺寸与 DPI 导出。",
+    "feature4Title": "合规校验",
+    "feature4Text": "每张照片在交付前都会对照头部高度、眼睛水平与取景规则进行校验。",
+    "bundle": "套餐",
+    "bundleName": "+{count} 张 Pro AI 证件照",
+    "bundleText": "一次购买九张 AI 增强且合规的肖像。无订阅、无月费——支付后立即下载冲印。",
+    "buyBtn": "购买 +{count} 张 Pro AI 证件照 —— {price}",
+    "demoNote": "演示结账——不会产生真实扣款。接入真实支付网关后即可上线收款。",
+    "comparePlans": "对比 9.90 美元/月的订阅方案",
+    "howTitle": "使用步骤",
+    "step1": "上传一张光照良好、正面清晰的照片。",
+    "step2": "AI 清理背景、修正光线并裁剪至精确规格。",
+    "step3": "结账后立刻下载您的九张合规肖像。",
+    "authTitle": "登录以继续",
+    "authSub": "结账前需要您的账户。",
+    "checkoutTitle": "解锁您的 Pro AI 证件照",
+    "checkoutSub": "一次付费即可获得九张 AI 增强且合规的肖像。"
   }
 }

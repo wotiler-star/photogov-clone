@@ -171,6 +171,11 @@ const countryLinks = (() => {
             </NuxtLink>
           </li>
           <li>
+            <NuxtLink :to="localePath('/pro-ai')" class="text-[#374151] hover:text-black hover:underline">
+              {{ $t('footer.links.proAi') }}
+            </NuxtLink>
+          </li>
+          <li>
             <a :href="appStoreUrl" target="_blank" rel="noopener" class="text-[#374151] hover:text-black hover:underline">
               {{ $t('footer.links.downloadIos') }}
             </a>

@@ -26,7 +26,8 @@
     "visaPhotos": "Fotos de visa",
     "aboutGroup": "Sobre nosotros",
     "menu": "Menú",
-    "closeMenu": "Cerrar menú"
+    "closeMenu": "Cerrar menú",
+    "proAi": "Pro AI Photos"
   },
   "header": {
     "countryBar": "Requisitos de fotos de pasaporte por país",
@@ -65,7 +66,8 @@
       "euPrivacy": "Protección de datos UE",
       "usCompliance": "Cumplimiento de fotos de ID EE. UU.",
       "globalCompliance": "Cumplimiento global de fotos de ID",
-      "nonAffiliation": "Aviso de no afiliación"
+      "nonAffiliation": "Aviso de no afiliación",
+      "proAi": "Pro AI Photos"
     },
     "copyright": "© {year} PhotoGov. Una demostración clon que replica www.photogov.net.",
     "madeWith": "Hecho con Nuxt 3 · Vue 3 · Tailwind CSS",
@@ -2500,5 +2502,34 @@
     "materialsBy": "Materiales de {name}",
     "guides": "Guías de fotos de documentos",
     "requirements": "Requisitos de las fotos"
+  },
+  "proAi": {
+    "title": "PRO AI Photos",
+    "heroDesc": "Fotos de identidad conformes y mejoradas con IA: obtén un pack de nueve retratos listos para imprimir en segundos.",
+    "metaTitle": "Pro AI Photos — +9 fotos de identidad conformes con IA",
+    "metaDesc": "Compra +9 PRO AI Photos: fondo limpio con IA, corrección de luz y verificación de cumplimiento para fotos de pasaporte, visa y DNI. Pago único de 6,90 USD.",
+    "intro": "Pro AI Photos es nuestro complemento de IA que toma una foto normal y devuelve nueve retratos pulidos y válidos para trámites oficiales. Elimina fondos distractorios, equilibra la luz y verifica el tamaño de la cabeza y la altura de los ojos según las normas del documento.",
+    "feature1Title": "Limpieza de fondo con IA",
+    "feature1Text": "Fondo blanco o azul claro en un clic que cumple los requisitos más comunes de pasaporte y visa.",
+    "feature2Title": "Luz y piel mejoradas",
+    "feature2Text": "Exposición inteligente y suavizado de imperfecciones para un aspecto limpio y profesional sin estudio.",
+    "feature3Title": "Nueve fotos terminadas",
+    "feature3Text": "Un pack de nueve retratos ajustados individualmente, exportados al tamaño y DPI requeridos.",
+    "feature4Title": "Cumplimiento verificado",
+    "feature4Text": "Cada foto se comprueba frente a las reglas de tamaño de cabeza, altura de ojos y encuadre antes de entregarla.",
+    "bundle": "Paquete",
+    "bundleName": "+{count} PRO AI Photos",
+    "bundleText": "Una compra única de nueve retratos mejorados con IA y conformes. Sin suscripción ni cuota mensual: descárgalos e imprímelos al instante.",
+    "buyBtn": "Comprar +{count} PRO AI Photos — {price}",
+    "demoNote": "Pago de demostración — sin cargo real. Una clave de pasarela real habilita pagos en vivo.",
+    "comparePlans": "Comparar con la suscripción de 9,90 USD/mes",
+    "howTitle": "Cómo funciona",
+    "step1": "Sube una foto nítida de frente tomada con buena luz.",
+    "step2": "Nuestra IA limpia el fondo, corrige la luz y recorta al tamaño exacto.",
+    "step3": "Descarga tus nueve retratos conformes al instante tras el pago.",
+    "authTitle": "Inicia sesión para continuar",
+    "authSub": "Se requiere tu cuenta antes del pago.",
+    "checkoutTitle": "Desbloquea tus PRO AI Photos",
+    "checkoutSub": "Un pago único entrega nueve retratos mejorados con IA y conformes."
   }
 }
