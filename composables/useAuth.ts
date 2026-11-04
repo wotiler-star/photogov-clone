@@ -32,7 +32,9 @@ export const useAuth = () => {
   const refresh = async () => {
     try {
       const res = await me()
-      user.value = (res.user as AuthUser) | null
+      // 注意：必须是 ??（空值合并）。曾误写成按位或 |，对象|null=0，
+      // 导致每次页面加载/「我已验证」刷新后登录态被清成 falsy，用户被迫重新登录。
+      user.value = (res.user as AuthUser) ?? null
     } catch {
       user.value = null
     } finally {
