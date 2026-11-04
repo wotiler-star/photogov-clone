@@ -47,3 +47,9 @@ data/_staging/
 
 # 本地 agent 工作区（记忆/临时文件，不入库）
 .workbuddy/
+
+# 本地测试产物（截图 / 临时推送脚本 / 服务器日志，不入库）
+shots/
+!shots/sample-portrait.jpg
+.ghpush/
+server.log

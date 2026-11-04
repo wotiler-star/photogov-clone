@@ -69,7 +69,13 @@ async function submitAuth() {
       const name = email.value.trim().split('@')[0]
       const res = await register(name, email.value.trim(), password.value)
       if (!res?.ok) authError.value = t('checkout.authFail')
-      else storeVerifyState(res, email.value.trim())
+      else {
+        storeVerifyState(res, email.value.trim())
+        // 注册响应已带回验证链接（演示/未配 SMTP 时 devLink 非空）：立即展示在验证引导里，
+        // 避免用户刚注册完还要再点一次「重发验证码邮件」才能拿到链接。
+        if (res.devLink) devLink.value = res.devLink
+        if (res.mailDelivered === false) mailOff.value = true
+      }
     }
   } catch (e: any) {
     const msg = e?.data?.statusMessage || e?.message || ''
