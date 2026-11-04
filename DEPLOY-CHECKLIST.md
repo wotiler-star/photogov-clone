@@ -28,11 +28,17 @@
 | `PAYMENT_DEMO_MODE` | 视情况 | 未接 Stripe 时设 `1`，走内置 Demo 收银台（`/payment/simulate`）；接了 Stripe 则设 `0` |
 | `STRIPE_SECRET_KEY` | 否 | 真实支付时配置。属服务端密钥，走 `runtimeConfig`，不会下发客户端 |
 | `STRIPE_WEBHOOK_SECRET` | 否 | Stripe 回调验签：`POST /api/app/v1/subscription/webhook/stripe` |
-| `SMTP_*` / `MAIL_FROM` | 否 | 不设时验证/重置邮件打印到服务端控制台并返回 dev 链接，仅适合本地 |
-| `EMAIL_DEBUG` | 否 | 本地调试用，生产不设 |
+| `SMTP_HOST` / `SMTP_PORT` / `SMTP_SECURE` / `SMTP_USER` / `SMTP_PASS` / `MAIL_FROM` | **是（激活闭环）** | 生产不配时邮件只打控制台日志、**不回 devLink**，验证/重置链路不可用；服务端自动 fail-open 跳过结账门控以免锁死账户。Hostinger 参数与自检见 `DEPLOY-README.md` 第 4 节 |
+| `EMAIL_DEBUG` | 否（生产禁止） | 生产**不要设置**；设 `1` 会把含 token 的验证/重置链接回传给客户端。仅本地演示使用 |
+| `NODE_ENV` | **是** | 生产固定 `production`；`start.sh` / Dockerfile / compose 已默认，直接 `node .output/server/index.mjs` 时需自行指定，否则 `EMAIL_DEBUG` 会被意外开启 |
 
-> 安全：服务端密钥（`STRIPE_*`、`SESSION_SECRET`、`PAYMENT_DEMO_TOKEN`）只在 Nitro 侧读取，
+> 安全：服务端密钥（`STRIPE_*`、`SMTP_PASS`、`SESSION_SECRET`、`PAYMENT_DEMO_TOKEN`）只在 Nitro 侧读取，
 > 切勿加 `NUXT_PUBLIC_` 前缀——该前缀的变量会进入客户端 bundle。
+>
+> ⚠️ **Nitro 生产运行时不会自动读取 `.env`**。变量写进 `.env` 但没注入进程就等于没配：
+> 用平台面板环境变量、`./start.sh`（内置 `node --env-file=.env`）、
+> `docker compose`（已配 `env_file`）或 `docker run --env-file .env`。
+> SMTP 为运行时变量，改完**重启进程即可，无需重新构建**。
 
 ---
 
@@ -40,6 +46,9 @@
 
 - [ ] `NUXT_PUBLIC_SITE_URL` 已设为真实域名（不是默认的 `photogov.net`）
 - [ ] `SESSION_SECRET`、`PAYMENT_DEMO_TOKEN` 已替换随机值
+- [ ] **SMTP 5 个变量已注入进程**（不是只写进 `.env`），`node scripts/check-smtp.mjs --to <邮箱>` 显示连接成功且收到测试邮件
+- [ ] 启动日志中**没有** `[auth] SMTP unset ... gate disabled (fail-open)` 警告
+- [ ] `EMAIL_DEBUG` 生产未设置（或为 `0`）；`NODE_ENV=production`
 - [ ] 支付模式明确：接 Stripe 配好密钥与 Webhook，否则 `PAYMENT_DEMO_MODE=1`
 - [ ] `Node 22.x`；产物目录为 `.output`
 - [ ] 四语子目录均可访问：`/en`、`/zh`、`/es`、`/fr`
@@ -63,6 +72,9 @@
 | robots | `GET /robots.txt` | `Sitemap:` 指向真实域名 |
 | 后台页 | `GET /en/admin` | 含 `noindex,nofollow` |
 | 支付 | 下单 → 回调 → 开通 | Webhook 端点可访问并验签通过（接 Stripe 时） |
+| 邮箱激活 | 注册 → 收信 → 点验证链接 → 结账 | 收得到验证邮件；未验证时结账提示 `EMAIL_NOT_VERIFIED` 并引导验证；验证后结账成功 |
+| 密码找回 | 忘记密码 → 收信 → 重置 | 收得到重置邮件，页面不出现「邮件服务不可用」警告 |
+| 邮件自检 | `node scripts/check-smtp.mjs --to <邮箱>` | `[OK] SMTP 连接与认证成功` + 测试邮件送达 |
 
 ---
 
@@ -86,3 +98,7 @@
 | Docker 部署访问不到 | 未监听 `0.0.0.0` 或端口不是 3000 |
 | 支付流程异常 | 未配 Stripe 且未开 `PAYMENT_DEMO_MODE=1` |
 | 会话/登录异常 | `SESSION_SECRET` 仍是占位值或多实例间不一致 |
+| 忘记密码/验证邮件收不到，页面提示「邮件服务不可用」 | SMTP 未配或没真正注入进程；生产不回 devLink，控制台只有日志。跑 `node scripts/check-smtp.mjs` 定位 |
+| 明明写了 `.env` 却不生效 | Nitro 生产运行时不读 `.env`；改用平台环境变量 / `start.sh` / compose `env_file` / `docker run --env-file`，改完重启 |
+| 邮件认证失败 535 | `SMTP_USER` 需为完整邮箱地址；`MAIL_FROM` 须与账号同域；Hostinger 用邮箱密码或应用专用密码 |
+| 连接超时 / 端口不通 | 465 配 `SMTP_SECURE=true`（SSL），587 配 `SMTP_SECURE=false`（STARTTLS）；检查 VPS 出站 25/465/587 防火墙 |
