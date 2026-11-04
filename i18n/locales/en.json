@@ -1157,7 +1157,21 @@
     "goAccount": "Go to my account",
     "expired": "Link invalid",
     "expiredText": "This verification link is invalid or has expired. Please request a new one.",
-    "backToSignIn": "Back to sign in"
+    "backToSignIn": "Back to sign in",
+    "pendingTitle": "Check your inbox",
+    "pendingText": "We sent a verification link to {email}. Open it to activate your account and unlock purchases.",
+    "bannerTitle": "Your email isn't verified yet",
+    "bannerText": "Verify your email to activate your account and unlock checkout.",
+    "mailOff": "Email delivery is currently unavailable — no message was sent.",
+    "mailOffHint": "Please contact support or try again later; do not rely on the \"email sent\" message.",
+    "resend": "Resend verification email",
+    "resending": "Sending…",
+    "resent": "Verification email sent",
+    "openLink": "Open verification link (demo)",
+    "continue": "I've verified — continue",
+    "notVerifiedYet": "Not verified yet. Open the link in your email first.",
+    "goVerify": "Verify my email",
+    "checkoutBlocked": "Please verify your email before completing this purchase."
   },
   "reset": {
     "title": "Set a new password",

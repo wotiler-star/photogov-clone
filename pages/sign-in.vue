@@ -46,6 +46,9 @@ const showPw = ref(false)
 const error = ref('')
 const info = ref('')
 const busy = ref(false)
+// 忘记密码：邮件是否真的送达 + 本地演示链接（仅 EMAIL_DEBUG=1 时后端回传）
+const resetLink = ref('')
+const resetMailOff = ref(false)
 
 // 已登录访问 /sign-in 时跳转账户页（原站 auth-gated 行为）
 onMounted(() => {
@@ -70,6 +73,8 @@ function switchView(v: View) {
   view.value = v
   error.value = ''
   info.value = ''
+  resetLink.value = ''
+  resetMailOff.value = false
   password.value = ''
   showPw.value = false
 }
@@ -112,7 +117,16 @@ async function submitSignUp() {
     // name 取邮箱前缀（原站无 name 字段；本站接口需要）
     const name = email.value.trim().split('@')[0]
     const res = await register(name, email.value.trim(), password.value)
-    if (res.ok) await router.push(localePath('/profile'))
+    if (res.ok) {
+      // 激活策略：注册后先验证邮箱，不直接进个人中心。
+      // 用 sessionStorage 把邮件状态带给验证页（避免把 devLink 放进 URL）。
+      try {
+        sessionStorage.setItem('pg_verify_link', res.devLink || '')
+        sessionStorage.setItem('pg_verify_mail', String(res.mailDelivered === true))
+        sessionStorage.setItem('pg_verify_email', email.value.trim())
+      } catch { /* SSR / 隐私模式下忽略 */ }
+      await router.push(localePath('/verify-email?pending=1'))
+    }
   } catch (e: any) {
     error.value = mapError(e)
   } finally {
@@ -123,11 +137,16 @@ async function submitSignUp() {
 async function submitReset() {
   error.value = ''
   info.value = ''
+  resetLink.value = ''
+  resetMailOff.value = false
   if (!emailOk.value) { error.value = t('signin.invalidEmail'); return }
   busy.value = true
   try {
-    await forgotPassword(email.value.trim())
-    info.value = t('signin.resetSent')
+    const res = await forgotPassword(email.value.trim())
+    resetLink.value = res.devLink || ''
+    // 邮件未送达时不能谎称「已发送」，明确告知用户并给出后续动作
+    resetMailOff.value = res.mailDelivered === false
+    info.value = res.mailDelivered === false ? t('verify.mailOff') : t('signin.resetSent')
   } catch {
     error.value = t('signin.genericError')
   } finally {
@@ -245,7 +264,11 @@ useHead({
               </div>
 
               <p v-if="error" class="text-center text-[14px] text-red-600">{{ error }}</p>
-              <p v-if="info" class="text-center text-[14px] text-[#498260]">{{ info }}</p>
+              <p v-if="info" class="text-center text-[14px]" :class="resetMailOff ? 'text-amber-700' : 'text-[#498260]'">{{ info }}</p>
+              <p v-if="resetMailOff" class="text-center text-[13px] text-slate-500">{{ $t('verify.mailOffHint') }}</p>
+              <p v-if="resetLink" class="text-center">
+                <a :href="resetLink" class="text-[14px] text-[#094DBC] underline duration-200 hover:opacity-75">{{ $t('verify.openLink') }}</a>
+              </p>
 
               <!-- 提交按钮：signin/signup 恒蓝；reset 邮箱合法才蓝 -->
               <button

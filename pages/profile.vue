@@ -152,6 +152,20 @@ useHead({ title: t('profile.title') })
         </button>
       </div>
 
+      <!-- 邮箱未验证横幅（激活策略：引导去验证，不阻断浏览） -->
+      <div
+        v-if="user && !user.emailVerified"
+        class="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-blue-200 bg-blue-50 p-4"
+      >
+        <div>
+          <p class="text-sm font-semibold text-blue-900">{{ t('verify.bannerTitle') }}</p>
+          <p class="mt-0.5 text-xs text-blue-800">{{ t('verify.bannerText') }}</p>
+        </div>
+        <NuxtLink :to="localePath('/verify-email?pending=1')" class="btn-primary px-4 py-2 text-sm">
+          {{ t('verify.goVerify') }}
+        </NuxtLink>
+      </div>
+
       <div class="grid grid-cols-1 gap-8 lg:grid-cols-[260px_1fr]">
         <!-- 侧栏导航 -->
         <aside>

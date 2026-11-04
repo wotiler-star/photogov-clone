@@ -2,7 +2,7 @@
 // 服务端定价（不信任客户端金额）；按 Provider 创建外部 checkout 并返回跳转 URL。
 import { defineEventHandler, readBody, createError } from 'h3'
 import { randomUUID } from 'node:crypto'
-import { getCurrentUser } from '../../../../utils/auth'
+import { requireVerified } from '../../../../utils/auth'
 import { getPlan } from '../../../../../utils/plans'
 import { activeProvider, savePayment, type PaymentRecord } from '../../../../utils/payment'
 
@@ -19,8 +19,8 @@ function siteBase(event: any): string {
 }
 
 export default defineEventHandler(async (event) => {
-  const user = getCurrentUser(event)
-  if (!user) throw createError({ statusCode: 401, statusMessage: 'UNAUTHORIZED' })
+  // 激活策略：未验证邮箱无法订阅（复刻原站账户激活策略）
+  const user = requireVerified(event)
 
   const body = await readBody(event).catch(() => ({}))
   const planId = String(body?.planId || '')

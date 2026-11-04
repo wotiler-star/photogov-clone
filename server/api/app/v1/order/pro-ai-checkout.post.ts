@@ -3,15 +3,15 @@
 // demo 模式：需登录，服务端固定 $6.90 USD，即时标记 paid 并落盘 orders.json。
 import { defineEventHandler, readBody, createError } from 'h3'
 import { randomUUID } from 'node:crypto'
-import { getCurrentUser } from '../../../../utils/auth'
+import { requireVerified } from '../../../../utils/auth'
 import { readJson, writeJson } from '../../../../utils/store'
 
 // 与目标站 orderServices.json 的 pro_photos 一致
 const PRO_AI = { amount: 6.9, currency: 'USD', serviceId: 'pro_ai', name: '+9 PRO AI Photos' }
 
 export default defineEventHandler(async (event) => {
-  const user = getCurrentUser(event)
-  if (!user) throw createError({ statusCode: 401, statusMessage: 'UNAUTHORIZED' })
+  // 激活策略：未验证邮箱无法结账（复刻原站账户激活策略）
+  const user = requireVerified(event)
 
   const body = await readBody(event).catch(() => ({}))
   const count = Math.min(Math.max(Number(body?.count) || 9, 1), 30)

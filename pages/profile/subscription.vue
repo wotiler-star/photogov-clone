@@ -84,9 +84,11 @@ async function onCancel() {
 // 结账：跳转网关收银台
 const checkingOut = ref<string | null>(null)
 const checkoutError = ref('')
+const needsVerify = ref(false)
 async function onUpgrade(planId: string) {
   checkingOut.value = planId
   checkoutError.value = ''
+  needsVerify.value = false
   try {
     const res = await createCheckout(planId, locale.value)
     if (res?.paymentUrl) {
@@ -96,7 +98,13 @@ async function onUpgrade(planId: string) {
     checkoutError.value = t('profile.subscription.checkoutFailed')
   } catch (e: any) {
     console.error(e)
-    checkoutError.value = t('profile.subscription.checkoutFailed')
+    const msg = e?.data?.statusMessage || e?.message || ''
+    if (msg.includes('EMAIL_NOT_VERIFIED')) {
+      needsVerify.value = true
+      checkoutError.value = t('verify.checkoutBlocked')
+    } else {
+      checkoutError.value = t('profile.subscription.checkoutFailed')
+    }
   } finally {
     checkingOut.value = null
   }
@@ -179,6 +187,13 @@ const statusLabel = (s: string) => {
       </div>
 
       <p v-if="checkoutError" class="mt-3 text-sm text-red-600">{{ checkoutError }}</p>
+      <NuxtLink
+        v-if="needsVerify"
+        :to="localePath('/verify-email?pending=1')"
+        class="btn-outline mt-3 inline-flex text-sm"
+      >
+        {{ t('verify.goVerify') }}
+      </NuxtLink>
 
       <!-- 权益 -->
       <div class="mt-6">

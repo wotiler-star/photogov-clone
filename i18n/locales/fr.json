@@ -1128,7 +1128,21 @@
     "goAccount": "Accéder à mon compte",
     "expired": "Lien invalide",
     "expiredText": "Ce lien de vérification est invalide ou a expiré. Demandez-en un nouveau.",
-    "backToSignIn": "Retour à la connexion"
+    "backToSignIn": "Retour à la connexion",
+    "pendingTitle": "Consultez votre boîte de réception",
+    "pendingText": "Nous avons envoyé un lien de vérification à {email}. Ouvrez-le pour activer votre compte et débloquer les achats.",
+    "bannerTitle": "Votre e-mail n'est pas encore vérifié",
+    "bannerText": "Vérifiez votre e-mail pour activer votre compte et débloquer le paiement.",
+    "mailOff": "L'envoi d'e-mails est indisponible : aucun message n'a été envoyé.",
+    "mailOffHint": "Contactez le support ou réessayez plus tard ; ne vous fiez pas au message « e-mail envoyé ».",
+    "resend": "Renvoyer l'e-mail de vérification",
+    "resending": "Envoi…",
+    "resent": "E-mail de vérification envoyé",
+    "openLink": "Ouvrir le lien de vérification (démo)",
+    "continue": "J'ai vérifié, continuer",
+    "notVerifiedYet": "Pas encore vérifié. Ouvrez d'abord le lien reçu par e-mail.",
+    "goVerify": "Vérifier mon e-mail",
+    "checkoutBlocked": "Vérifiez votre e-mail avant de finaliser cet achat."
   },
   "reset": {
     "title": "Définissez un nouveau mot de passe",

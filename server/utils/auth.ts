@@ -116,6 +116,14 @@ const DAY = 24 * HOUR
 // 无 SMTP 时把邮件内容打到服务端日志；EMAIL_DEBUG=1 或开发环境额外回传操作链接便于演示。
 export const EMAIL_DEBUG = process.env.EMAIL_DEBUG === '1' || process.env.NODE_ENV !== 'production'
 
+// 只有邮件通道可用（已配置 SMTP，或显式开启 EMAIL_DEBUG 走 devLink）时才启用
+// 邮箱验证门控；否则用户永远收不到验证链接，门控会把账户永久锁死。
+// 生产环境配好 SMTP_* 后该常量自动变为 true，激活策略即完整生效。
+export const VERIFICATION_REQUIRED = !!process.env.SMTP_HOST || EMAIL_DEBUG
+if (!VERIFICATION_REQUIRED) {
+  console.warn('[auth] SMTP unset and EMAIL_DEBUG=0: email verification gate disabled (fail-open) to avoid locking users out')
+}
+
 function updateUser(id: string, patch: Partial<UserRecord>): UserRecord | undefined {
   const users = loadUsers()
   const i = users.findIndex((u) => u.id === id)
@@ -288,4 +296,21 @@ export function getCurrentUser(event: H3Event): PublicUser | null {
   if (!userId) return null
   const user = findUserById(userId)
   return user ? publicUser(user) : null
+}
+
+/**
+ * 激活策略门控（复刻原站账户激活策略）：
+ * 要求登录且邮箱已验证，否则抛出 EMAIL_NOT_VERIFIED（403）。
+ * 用于结账 / 订阅等「付费解锁」边界——未验证账户无法完成购买。
+ *
+ * 例外：邮件通道完全不可用（未配 SMTP 且未开 EMAIL_DEBUG）时 fail-open，
+ * 因为此时用户不可能完成验证；配好 SMTP 后自动恢复门控。
+ */
+export function requireVerified(event: H3Event): PublicUser {
+  const user = getCurrentUser(event)
+  if (!user) throw createError({ statusCode: 401, statusMessage: 'UNAUTHORIZED' })
+  if (!VERIFICATION_REQUIRED) return user
+  if (!user.emailVerified)
+    throw createError({ statusCode: 403, statusMessage: 'EMAIL_NOT_VERIFIED' })
+  return user
 }

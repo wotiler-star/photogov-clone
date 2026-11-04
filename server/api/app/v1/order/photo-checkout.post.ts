@@ -2,13 +2,13 @@
 // 服务端定价（不信任客户端金额）。演示模式下无真实扣款，等价于目标站 checkout 后解锁下载。
 import { defineEventHandler, readBody, createError } from 'h3'
 import { randomUUID } from 'node:crypto'
-import { getCurrentUser } from '../../../../utils/auth'
+import { requireVerified } from '../../../../utils/auth'
 import { priceForCountry } from '../../../../utils/pricing'
 import { readJson, writeJson } from '../../../../utils/store'
 
 export default defineEventHandler(async (event) => {
-  const user = getCurrentUser(event)
-  if (!user) throw createError({ statusCode: 401, statusMessage: 'UNAUTHORIZED' })
+  // 激活策略：未验证邮箱无法解锁下载（复刻原站账户激活策略）
+  const user = requireVerified(event)
 
   const body = await readBody(event).catch(() => ({}))
   const country = String(body?.country || 'US')

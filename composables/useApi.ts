@@ -125,8 +125,10 @@ export const useApi = () => {
     })
 
   // 会员鉴权
+  // devLink 仅在 EMAIL_DEBUG=1 时回传；mailDelivered 反映邮件是否真的送达，
+  // 前端据此避免「未发信却提示已发送」的假闭环。
   const register = (name: string, email: string, password: string) =>
-    reqFetch<{ ok: boolean; user: any }>(`${BASE}/auth/register`, {
+    reqFetch<{ ok: boolean; user: any; devLink?: string; mailDelivered?: boolean }>(`${BASE}/auth/register`, {
       method: 'POST',
       body: { name, email, password }
     })
@@ -146,10 +148,10 @@ export const useApi = () => {
     reqFetch<{ ok: boolean; user: any }>(`${BASE}/auth/verify-email`, { query: { token } })
 
   const resendVerification = () =>
-    reqFetch<{ ok: boolean; devLink?: string }>(`${BASE}/auth/resend-verification`, { method: 'POST' })
+    reqFetch<{ ok: boolean; devLink?: string; mailDelivered?: boolean }>(`${BASE}/auth/resend-verification`, { method: 'POST' })
 
   const forgotPassword = (email: string) =>
-    reqFetch<{ ok: boolean; devLink?: string }>(`${BASE}/auth/forgot-password`, {
+    reqFetch<{ ok: boolean; devLink?: string; mailDelivered?: boolean }>(`${BASE}/auth/forgot-password`, {
       method: 'POST',
       body: { email }
     })

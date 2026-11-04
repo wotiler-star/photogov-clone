@@ -1128,7 +1128,21 @@
     "goAccount": "Ir a mi cuenta",
     "expired": "Enlace no válido",
     "expiredText": "Este enlace de verificación no es válido o ha caducado. Solicita uno nuevo.",
-    "backToSignIn": "Volver a iniciar sesión"
+    "backToSignIn": "Volver a iniciar sesión",
+    "pendingTitle": "Revisa tu correo",
+    "pendingText": "Enviamos un enlace de verificación a {email}. Ábrelo para activar tu cuenta y desbloquear las compras.",
+    "bannerTitle": "Aún no has verificado tu correo",
+    "bannerText": "Verifica tu correo para activar tu cuenta y desbloquear el pago.",
+    "mailOff": "El envío de correos no está disponible: no se ha enviado ningún mensaje.",
+    "mailOffHint": "Contacta con soporte o inténtalo más tarde; no confíes en el aviso de «correo enviado».",
+    "resend": "Reenviar correo de verificación",
+    "resending": "Enviando…",
+    "resent": "Correo de verificación enviado",
+    "openLink": "Abrir enlace de verificación (demo)",
+    "continue": "Ya lo verifiqué, continuar",
+    "notVerifiedYet": "Aún no está verificado. Abre primero el enlace de tu correo.",
+    "goVerify": "Verificar mi correo",
+    "checkoutBlocked": "Verifica tu correo antes de completar la compra."
   },
   "reset": {
     "title": "Define una nueva contraseña",

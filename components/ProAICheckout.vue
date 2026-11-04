@@ -6,6 +6,7 @@ import { useI18n } from 'vue-i18n'
 import { useAuth } from '~/composables/useAuth'
 import { useApi } from '~/composables/useApi'
 import { PRO_AI_PRICE, formatPrice } from '~/utils/pricing'
+import { useVerifyGate, storeVerifyState } from '~/composables/useVerification'
 
 const props = defineProps<{
   open: boolean
@@ -19,6 +20,7 @@ const emit = defineEmits<{
 }>()
 
 const { t, locale } = useI18n()
+const localePath = useLocalePath()
 const { user, login, register } = useAuth()
 const { proAiCheckout } = useApi()
 
@@ -31,7 +33,14 @@ const priceLabel = computed(
   () => formatPrice(PRO_AI_PRICE, LOCALE_MAP[String(locale.value)] || 'en-US')
 )
 
-const step = computed(() => (user.value ? 'pay' : 'auth'))
+// 验证门控由服务端 403 触发；pay 为函数声明，可安全前向引用
+const {
+  needsVerify, devLink, mailOff,
+  info: verifyInfo, busy: verifyBusy,
+  isVerifyBlocked, resend: resendVerify, cont: continueAfterVerify
+} = useVerifyGate(pay)
+
+const step = computed(() => (!user.value ? 'auth' : needsVerify.value ? 'verify' : 'pay'))
 
 // ---- 内联账户校验（未登录时）----
 const authMode = ref<'signin' | 'signup'>('signin')
@@ -57,6 +66,7 @@ async function submitAuth() {
       const name = email.value.trim().split('@')[0]
       const res = await register(name, email.value.trim(), password.value)
       if (!res?.ok) authError.value = t('checkout.authFail')
+      else storeVerifyState(res, email.value.trim())
     }
   } catch (e: any) {
     const msg = e?.data?.statusMessage || e?.message || ''
@@ -89,6 +99,8 @@ async function pay() {
       authError.value = t('checkout.sessionLost')
       return
     }
+    // 未验证邮箱：切到验证引导，而不是笼统报「支付失败」
+    if (isVerifyBlocked(e)) return
     payError.value = t('checkout.payFail')
   } finally {
     paying.value = false
@@ -175,7 +187,52 @@ function close() {
           </p>
         </div>
 
-        <!-- 步骤 2：结账 -->
+        <!-- 步骤 2：邮箱未验证（服务端 403 触发） -->
+        <div v-else-if="step === 'verify'" class="space-y-4">
+          <div class="space-y-1">
+            <h2 class="text-xl font-semibold text-[#212532]">{{ t('verify.bannerTitle') }}</h2>
+            <p class="text-sm text-slate-500">{{ t('verify.checkoutBlocked') }}</p>
+          </div>
+
+          <div v-if="mailOff" class="rounded-lg border border-amber-300 bg-amber-50 p-3 text-left">
+            <p class="text-sm font-medium text-amber-800">{{ t('verify.mailOff') }}</p>
+            <p class="mt-1 text-xs leading-relaxed text-amber-700">{{ t('verify.mailOffHint') }}</p>
+          </div>
+          <p v-if="verifyInfo" class="text-sm" :class="mailOff ? 'text-amber-700' : 'text-emerald-700'">{{ verifyInfo }}</p>
+
+          <a
+            v-if="devLink"
+            :href="devLink"
+            class="block rounded-lg border border-slate-300 px-4 py-2.5 text-center text-sm font-medium text-[#094DBC] hover:bg-slate-50"
+          >
+            {{ t('verify.openLink') }}
+          </a>
+          <button
+            type="button"
+            class="w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm font-medium text-[#212532] duration-200 hover:bg-slate-50 disabled:opacity-50"
+            :disabled="verifyBusy"
+            @click="resendVerify"
+          >
+            {{ verifyBusy ? t('verify.resending') : t('verify.resend') }}
+          </button>
+          <button
+            type="button"
+            class="w-full rounded-lg bg-[#094DBC] px-4 py-3 text-sm font-semibold text-white duration-200 hover:opacity-80 disabled:opacity-50"
+            :disabled="verifyBusy"
+            @click="continueAfterVerify"
+          >
+            {{ t('verify.continue') }}
+          </button>
+          <NuxtLink
+            :to="localePath('/verify-email?pending=1')"
+            class="block text-center text-[13px] text-[#094DBC] underline hover:opacity-75"
+            @click="close"
+          >
+            {{ t('verify.goVerify') }}
+          </NuxtLink>
+        </div>
+
+        <!-- 步骤 3：结账 -->
         <div v-else class="space-y-5">
           <div class="space-y-1">
             <h2 class="text-xl font-semibold text-[#212532]">{{ t('proAi.checkoutTitle') }}</h2>

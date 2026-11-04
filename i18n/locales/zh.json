@@ -1128,7 +1128,21 @@
     "goAccount": "进入我的账户",
     "expired": "链接无效",
     "expiredText": "该验证链接无效或已过期，请重新申请。",
-    "backToSignIn": "返回登录"
+    "backToSignIn": "返回登录",
+    "pendingTitle": "查收验证邮件",
+    "pendingText": "我们已向 {email} 发送验证链接，打开后即可激活账户并解锁购买。",
+    "bannerTitle": "邮箱尚未验证",
+    "bannerText": "验证邮箱以激活账户并解锁结账功能。",
+    "mailOff": "邮件服务当前不可用，未发送任何邮件。",
+    "mailOffHint": "请联系客服或稍后重试，不要依赖「已发送」提示。",
+    "resend": "重发验证邮件",
+    "resending": "发送中…",
+    "resent": "验证邮件已发送",
+    "openLink": "打开验证链接（演示）",
+    "continue": "我已验证，继续",
+    "notVerifiedYet": "还未完成验证，请先打开邮件中的链接。",
+    "goVerify": "验证我的邮箱",
+    "checkoutBlocked": "完成购买前请先验证邮箱。"
   },
   "reset": {
     "title": "设置新密码",
