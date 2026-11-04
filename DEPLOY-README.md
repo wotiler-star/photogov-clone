@@ -49,8 +49,9 @@ docker run -d --name photogov \
 tar -xzf photogov-clone-deploy.tar.gz
 cd photogov-clone-deploy
 cp .env.example .env      # 填入 SMTP_* / SESSION_SECRET / 站点域名
-PORT=3000 HOST=0.0.0.0 ./start.sh
+PORT=3000 HOST=0.0.0.0 sh ./start.sh
 # start.sh 会自动加载 .env 并固定 NODE_ENV=production
+# 用 sh 调用可绕开可执行位问题（部分镜像里 checkout 出来是 100644）
 # 或用进程管理器（pm2 / systemd）守护；pm2 需确保 cwd 含 .env
 ```
 

@@ -1,10 +1,10 @@
 #!/bin/sh
 # PhotoGov 复刻站 — 自托管启动脚本（无需 Docker）
 # 前置：Node.js 22.x，且本目录含构建产物 .output
-# 用法：
-#   PORT=3000 HOST=0.0.0.0 ./start.sh
+# 用法（用 sh 调用，不依赖可执行位）：
+#   PORT=3000 HOST=0.0.0.0 sh ./start.sh
 # 或后台运行：
-#   PORT=3000 nohup ./start.sh > server.log 2>&1 &
+#   PORT=3000 nohup sh ./start.sh > server.log 2>&1 &
 set -e
 
 export HOST="${HOST:-0.0.0.0}"

@@ -36,7 +36,7 @@
 > 切勿加 `NUXT_PUBLIC_` 前缀——该前缀的变量会进入客户端 bundle。
 >
 > ⚠️ **Nitro 生产运行时不会自动读取 `.env`**。变量写进 `.env` 但没注入进程就等于没配：
-> 用平台面板环境变量、`./start.sh`（内置 `node --env-file=.env`）、
+> 用平台面板环境变量、`sh ./start.sh`（内置 `node --env-file=.env`）、
 > `docker compose`（已配 `env_file`）或 `docker run --env-file .env`。
 > SMTP 为运行时变量，改完**重启进程即可，无需重新构建**。
 
