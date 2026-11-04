@@ -405,7 +405,22 @@
     "docCount": "{count} doc.",
     "found": "{count} documentos encontrados",
     "empty": "Ningún documento coincide con tu búsqueda.",
-    "noVerify": "Guía general"
+    "noVerify": "Guía general",
+    "aiTitle": "Fotos de pasaporte y visa con IA",
+    "aiP1": "Nuestro motor inteligente elimina fondos, recorta a las dimensiones exactas requeridas y comprueba tu foto frente a las especificaciones oficiales, para que obtengas un resultado conforme sin ediciones manuales.",
+    "aiP2": "Cada ajuste se aplica en segundos mediante reconocimiento avanzado, dándote una foto que cumple los estrictos estándares gubernamentales con total confianza.",
+    "embassyTitle": "Cobertura global de requisitos consulares",
+    "embassyP1": "PhotoGov trabaja con los requisitos de fotografía utilizados por embajadas y consulados de todo el mundo, para que tus fotos se ajusten a las prácticas consulares vigentes.",
+    "embassyP2": "PhotoGov es un servicio independiente y no está afiliado a ningún gobierno, embajada ni consulado. Toda la información se basa en requisitos oficiales y fuentes primarias verificadas.",
+    "testimonialsTitle": "Testimonios e historias de éxito",
+    "testimonialsP1": "Únete a los miles de clientes satisfechos que han confiado en PhotoGov para sus fotos de pasaporte y visa. Nuestro compromiso con la calidad, la precisión y la eficiencia nos ha convertido en la solución de referencia para fotos documentales en todo el mundo.",
+    "testimonialsCta": "Leer las opiniones de los clientes",
+    "otherFormatsTitle": "Otros formatos de foto para pasaporte y visa",
+    "otherFormatsIntro": "Además de los documentos estándar, PhotoGov admite una amplia gama de formatos adicionales de foto para pasaporte y visa. Explora los más solicitados a continuación.",
+    "otherFormatsItem": "{name} ({size})",
+    "conclusionTitle": "Conclusión",
+    "conclusionP1": "El servicio de PhotoGov con IA facilita crear desde casa fotos de pasaporte y visa conformes. Con tecnología avanzada y cobertura global de documentos, puedes confiar en que tu foto será aceptada.",
+    "conclusionCta": "Leer las preguntas frecuentes"
   },
   "doc": {
     "eyebrow": "Documentos",
@@ -633,7 +648,7 @@
     "password": "Contraseña",
     "passwordPh": "Al menos 8 caracteres",
     "authInvalidEmail": "Introduce un correo válido.",
-    "authPwShort": "La contraseña debe tener al menos 8 caracteres.",
+    "authPwShort": "Usa 8+ caracteres con mayúscula, minúscula, un número y un símbolo.",
     "authFail": "No se pudo iniciar sesión. Inténtalo de nuevo.",
     "authEmailTaken": "Este correo ya está registrado. Prueba a iniciar sesión.",
     "authWrong": "Correo o contraseña incorrectos.",
@@ -644,7 +659,8 @@
     "signUpNow": "Regístrate ahora",
     "haveAccount": "¿Ya tienes cuenta?",
     "loginNow": "Inicia sesión ahora",
-    "pleaseWait": "Por favor espera…"
+    "pleaseWait": "Por favor espera…",
+    "payFail": "No se pudo completar el pago. Inténtalo de nuevo."
   },
   "countryLanding": {
     "title": "Requisitos de fotos de pasaporte, visado y DNI de {country}",
@@ -907,7 +923,8 @@
     "passwordTooShort": "La contraseña debe tener al menos 8 caracteres.",
     "emailExists": "Ya existe una cuenta con este correo.",
     "wrongCredentials": "Correo o contraseña incorrectos.",
-    "genericError": "Algo salió mal. Inténtalo de nuevo."
+    "genericError": "Algo salió mal. Inténtalo de nuevo.",
+    "passwordTooWeak": "La contraseña debe tener al menos 8 caracteres e incluir mayúscula, minúscula, un número y un símbolo."
   },
   "account": {
     "title": "Mi cuenta",
@@ -1125,7 +1142,8 @@
     "mismatch": "Las contraseñas no coinciden.",
     "tooShort": "La contraseña debe tener al menos 8 caracteres.",
     "error": "Algo salió mal. Inténtalo de nuevo.",
-    "backToForgot": "Solicitar un nuevo enlace"
+    "backToForgot": "Solicitar un nuevo enlace",
+    "weakPassword": "La contraseña debe tener al menos 8 caracteres e incluir mayúscula, minúscula, un número y un símbolo."
   },
   "plans": {
     "title": "Precios, servicios y opciones de suscripción",

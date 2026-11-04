@@ -96,8 +96,13 @@ export default defineNuxtConfig({
     routeRules: {
       // 后台面板裸路径重定向到带语言前缀的路由
       '/admin': { redirect: '/en/admin' },
-      // 旧会员中心路径重定向到新的 /profile 会员中心（保留外部书签有效）
-      '/account': { redirect: '/en/profile' }
+      // 旧会员中心路径重定向到新的 /profile 会员中心（保留外部书签、旧外链有效）
+      // 覆盖裸路径与各语言前缀，避免 /en/account 等历史 URL 直接 404
+      '/account': { redirect: '/en/profile' },
+      '/en/account': { redirect: '/en/profile' },
+      '/es/account': { redirect: '/es/profile' },
+      '/fr/account': { redirect: '/fr/profile' },
+      '/zh/account': { redirect: '/zh/profile' }
     }
   }
 })

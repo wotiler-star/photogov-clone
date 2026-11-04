@@ -5,7 +5,8 @@ import {
   setSessionCookie,
   publicUser,
   createEmailVerifyToken,
-  EMAIL_DEBUG
+  EMAIL_DEBUG,
+  validatePasswordStrength
 } from '../../../../utils/auth'
 import { sendMail, emailTemplate, mailConfigured } from '../../../../utils/mailer'
 
@@ -19,8 +20,9 @@ export default defineEventHandler(async (event) => {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     throw createError({ statusCode: 400, statusMessage: 'INVALID_EMAIL' })
   }
-  if (password.length < 8) {
-    throw createError({ statusCode: 400, statusMessage: 'PASSWORD_TOO_SHORT' })
+  // 与改密 / 重置 / 前端一致：大小写字母 + 数字 + 符号，至少 8 位
+  if (!validatePasswordStrength(password)) {
+    throw createError({ statusCode: 400, statusMessage: 'WEAK_PASSWORD' })
   }
 
   try {

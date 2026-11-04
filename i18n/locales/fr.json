@@ -405,7 +405,22 @@
     "docCount": "{count} doc.",
     "found": "{count} documents trouvés",
     "empty": "Aucun document ne correspond à votre recherche.",
-    "noVerify": "Guide général"
+    "noVerify": "Guide général",
+    "aiTitle": "Photos de passeport et de visa propulsées par l'IA",
+    "aiP1": "Notre moteur intelligent supprime les fonds, recadre aux dimensions exactes requises et vérifie votre photo par rapport aux spécifications officielles — vous obtenez un résultat conforme sans retouche manuelle.",
+    "aiP2": "Chaque ajustement s'applique en quelques secondes grâce à une reconnaissance avancée, pour une photo conforme aux normes gouvernementales les plus strictes.",
+    "embassyTitle": "Couverture mondiale des exigences consulaires",
+    "embassyP1": "PhotoGov s'appuie sur les exigences photographiques utilisées par les ambassades et consulats du monde entier, afin que vos photos correspondent aux pratiques consulaires en vigueur.",
+    "embassyP2": "PhotoGov est un service indépendant et n'est affilié à aucun gouvernement, ambassade ni consulat. Toutes les informations reposent sur des exigences officielles et des sources primaires vérifiées.",
+    "testimonialsTitle": "Témoignages et réussites",
+    "testimonialsP1": "Rejoignez les milliers de clients satisfaits qui ont confié leurs photos de passeport et de visa à PhotoGov. Notre engagement envers la qualité, la précision et l'efficacité en fait la référence mondiale des photos d'identité.",
+    "testimonialsCta": "Lire les avis clients",
+    "otherFormatsTitle": "Autres formats de photo pour passeport et visa",
+    "otherFormatsIntro": "Au-delà des documents standards, PhotoGov prend également en charge une large gamme de formats supplémentaires. Découvrez les plus demandés ci-dessous.",
+    "otherFormatsItem": "{name} ({size})",
+    "conclusionTitle": "Conclusion",
+    "conclusionP1": "Le service PhotoGov propulsé par l'IA simplifie la création de photos de passeport et de visa conformes depuis chez vous. Grâce à une technologie avancée et une couverture mondiale, votre photo sera acceptée en toute confiance.",
+    "conclusionCta": "Lire la FAQ"
   },
   "doc": {
     "eyebrow": "Documents",
@@ -633,7 +648,7 @@
     "password": "Mot de passe",
     "passwordPh": "Au moins 8 caractères",
     "authInvalidEmail": "Saisissez une adresse e-mail valide.",
-    "authPwShort": "Le mot de passe doit comporter au moins 8 caractères.",
+    "authPwShort": "Utilisez 8+ caractères avec majuscule, minuscule, un chiffre et un symbole.",
     "authFail": "Connexion impossible. Réessayez.",
     "authEmailTaken": "Cet e-mail est déjà enregistré. Essayez de vous connecter.",
     "authWrong": "E-mail ou mot de passe incorrect.",
@@ -644,7 +659,8 @@
     "signUpNow": "Inscrivez-vous maintenant",
     "haveAccount": "Vous avez déjà un compte ?",
     "loginNow": "Connectez-vous maintenant",
-    "pleaseWait": "Veuillez patienter…"
+    "pleaseWait": "Veuillez patienter…",
+    "payFail": "Le paiement n'a pas pu être effectué. Veuillez réessayer."
   },
   "countryLanding": {
     "title": "Exigences photos de passeport, visa et pièce d'identité {country}",
@@ -907,7 +923,8 @@
     "passwordTooShort": "Le mot de passe doit comporter au moins 8 caractères.",
     "emailExists": "Un compte existe déjà avec cet e-mail.",
     "wrongCredentials": "E-mail ou mot de passe incorrect.",
-    "genericError": "Une erreur est survenue. Veuillez réessayer."
+    "genericError": "Une erreur est survenue. Veuillez réessayer.",
+    "passwordTooWeak": "Le mot de passe doit comporter au moins 8 caractères avec majuscule, minuscule, un chiffre et un symbole."
   },
   "account": {
     "title": "Mon compte",
@@ -1125,7 +1142,8 @@
     "mismatch": "Les mots de passe ne correspondent pas.",
     "tooShort": "Le mot de passe doit comporter au moins 8 caractères.",
     "error": "Une erreur est survenue. Veuillez réessayer.",
-    "backToForgot": "Demander un nouveau lien"
+    "backToForgot": "Demander un nouveau lien",
+    "weakPassword": "Le mot de passe doit comporter au moins 8 caractères avec majuscule, minuscule, un chiffre et un symbole."
   },
   "plans": {
     "title": "Tarifs, services et options d'abonnement",

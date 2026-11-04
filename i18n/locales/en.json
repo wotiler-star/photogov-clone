@@ -648,7 +648,7 @@
     "password": "Password",
     "passwordPh": "At least 8 characters",
     "authInvalidEmail": "Enter a valid email address.",
-    "authPwShort": "Password must be at least 8 characters.",
+    "authPwShort": "Use 8+ characters with uppercase, lowercase, a number and a symbol.",
     "authFail": "Could not sign in. Please try again.",
     "authEmailTaken": "This email is already registered. Try signing in.",
     "authWrong": "Incorrect email or password.",
@@ -659,7 +659,8 @@
     "signUpNow": "Sign up now",
     "haveAccount": "Already have an account?",
     "loginNow": "Sign in now",
-    "pleaseWait": "Please wait…"
+    "pleaseWait": "Please wait…",
+    "payFail": "Payment could not be completed. Please try again."
   },
   "countryLanding": {
     "title": "{country} Passport, Visa & ID Photo Requirements",
@@ -951,7 +952,8 @@
     "passwordTooShort": "Password must be at least 8 characters.",
     "emailExists": "An account with this email already exists.",
     "wrongCredentials": "Incorrect email or password.",
-    "genericError": "Something went wrong. Please try again."
+    "genericError": "Something went wrong. Please try again.",
+    "passwordTooWeak": "Password must be at least 8 characters and include uppercase, lowercase, a number and a symbol."
   },
   "account": {
     "title": "My Account",
@@ -1169,7 +1171,8 @@
     "mismatch": "Passwords do not match.",
     "tooShort": "Password must be at least 8 characters.",
     "error": "Something went wrong. Please try again.",
-    "backToForgot": "Request a new link"
+    "backToForgot": "Request a new link",
+    "weakPassword": "Password must be at least 8 characters and include uppercase, lowercase, a number and a symbol."
   },
   "plans": {
     "title": "Pricing, Services & Subscription Options",

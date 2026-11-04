@@ -405,7 +405,22 @@
     "docCount": "{count} 篇文档",
     "found": "找到 {count} 个证件",
     "empty": "没有符合搜索条件的证件。",
-    "noVerify": "通用参考"
+    "noVerify": "通用参考",
+    "aiTitle": "AI 驱动的护照与签证照",
+    "aiP1": "我们的智能引擎会自动去除背景、按精确尺寸裁剪，并依据官方规格校验照片——无需手动编辑即可获得合规结果。",
+    "aiP2": "借助先进的图像识别，所有调整在数秒内完成，让你的照片自信满足严格的政府标准。",
+    "embassyTitle": "全球使领馆规格覆盖",
+    "embassyP1": "PhotoGov 依据全球各国使馆与领馆采用的照片要求工作，使你的证件照符合当前领事实践。",
+    "embassyP2": "PhotoGov 是独立服务，不隶属于任何政府、使馆或领馆。所有信息均基于官方要求与经核实的一手来源。",
+    "testimonialsTitle": "用户评价与成功案例",
+    "testimonialsP1": "已有数千名满意用户将护照与签证照托付给 PhotoGov。我们对品质、精准与效率的坚持，使其成为全球证件照的首选方案。",
+    "testimonialsCta": "查看用户评价",
+    "otherFormatsTitle": "其他护照与签证照规格",
+    "otherFormatsIntro": "除标准证件外，PhotoGov 还支持多种额外的护照与签证照规格。浏览下方最常被查询的规格。",
+    "otherFormatsItem": "{name} ({size})",
+    "conclusionTitle": "结语",
+    "conclusionP1": "PhotoGov 的 AI 服务让你在家即可轻松制作合规的护照与签证照。凭借先进技术与全球证件覆盖，你的照片可放心提交。",
+    "conclusionCta": "查看常见问题"
   },
   "doc": {
     "eyebrow": "证件",
@@ -633,7 +648,7 @@
     "password": "密码",
     "passwordPh": "至少 8 位",
     "authInvalidEmail": "请输入有效的邮箱地址。",
-    "authPwShort": "密码至少 8 位。",
+    "authPwShort": "请使用 8 位以上，包含大写、小写、数字和符号。",
     "authFail": "登录失败，请重试。",
     "authEmailTaken": "该邮箱已注册，请直接登录。",
     "authWrong": "邮箱或密码错误。",
@@ -644,7 +659,8 @@
     "signUpNow": "立即注册",
     "haveAccount": "已有账户？",
     "loginNow": "立即登录",
-    "pleaseWait": "请稍候…"
+    "pleaseWait": "请稍候…",
+    "payFail": "支付未能完成，请重试。"
   },
   "countryLanding": {
     "title": "{country} 护照、签证与证件照要求",
@@ -907,7 +923,8 @@
     "passwordTooShort": "密码至少需要 8 个字符。",
     "emailExists": "该邮箱已注册过账号。",
     "wrongCredentials": "邮箱或密码不正确。",
-    "genericError": "出错了，请稍后重试。"
+    "genericError": "出错了，请稍后重试。",
+    "passwordTooWeak": "密码至少 8 位，且需包含大写字母、小写字母、数字和符号。"
   },
   "account": {
     "title": "我的账户",
@@ -1125,7 +1142,8 @@
     "mismatch": "两次输入的密码不一致。",
     "tooShort": "密码至少需要 8 个字符。",
     "error": "出错了，请重试。",
-    "backToForgot": "重新申请链接"
+    "backToForgot": "重新申请链接",
+    "weakPassword": "密码至少 8 位，且需包含大写字母、小写字母、数字和符号。"
   },
   "plans": {
     "title": "价格、服务与订阅选项",

@@ -38,7 +38,7 @@ useHead({ title: t('verify.title') })
         <div class="mb-4 text-4xl">✅</div>
         <h1 class="font-serif text-2xl font-bold text-ink">{{ $t('verify.verified') }}</h1>
         <p class="mt-2 text-sm text-muted">{{ $t('verify.verifiedText') }}</p>
-        <NuxtLink :to="localePath('/account')" class="btn-primary mt-6 inline-flex">{{ $t('verify.goAccount') }}</NuxtLink>
+        <NuxtLink :to="localePath('/profile')" class="btn-primary mt-6 inline-flex">{{ $t('verify.goAccount') }}</NuxtLink>
       </template>
       <template v-else>
         <div class="mb-4 text-4xl">⚠️</div>

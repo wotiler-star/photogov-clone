@@ -20,15 +20,16 @@ const mismatch = computed(() => confirm.value.length > 0 && password.value !== c
 
 function mapError(e: any): string {
   const msg: string = e?.data?.statusMessage || ''
-  if (msg.includes('PASSWORD')) return t('reset.tooShort')
+  if (msg.includes('PASSWORD')) return t('reset.weakPassword')
   if (msg.includes('INVALID') || msg.includes('EXPIRED')) return t('reset.invalid')
   return t('reset.error')
 }
 
 async function submit() {
   error.value = ''
-  if (password.value.length < 8) {
-    error.value = t('reset.tooShort')
+  // 与服务端 PASSWORD_RULE 一致：大小写字母 + 数字 + 符号，至少 8 位
+  if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/.test(password.value)) {
+    error.value = t('reset.weakPassword')
     return
   }
   if (mismatch.value) {
@@ -89,7 +90,7 @@ useHead({ title: t('reset.title') })
 
       <div v-else class="mt-6">
         <p class="rounded-xl bg-red-50 p-4 text-sm text-red-600">{{ $t('reset.invalid') }}</p>
-        <NuxtLink :to="localePath('/forgot-password')" class="btn-outline mt-4 inline-flex">{{ $t('reset.backToForgot') }}</NuxtLink>
+        <NuxtLink :to="localePath('/sign-in?view=reset')" class="btn-outline mt-4 inline-flex">{{ $t('reset.backToForgot') }}</NuxtLink>
       </div>
     </div>
   </div>

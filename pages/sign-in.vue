@@ -23,8 +23,9 @@
  *      本站 forgotPassword 接口发送带 token 的链接（/reset-password）。
  */
 import { computed, onMounted, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import { useLocalePath } from '#imports'
 import { useAuth } from '~/composables/useAuth'
 import { useRichText } from '~/composables/useRichText'
 
@@ -32,10 +33,13 @@ type View = 'signin' | 'signup' | 'reset'
 
 const { t } = useI18n()
 const router = useRouter()
+const route = useRoute()
+const localePath = useLocalePath()
 const { rich } = useRichText()
 const { login, register, user, forgotPassword } = useAuth()
 
-const view = ref<View>('signin')
+// 支持 /sign-in?view=reset 直接进入重置视图（供重置页「重新申请」链接使用）
+const view = ref<View>(route.query.view === 'reset' ? 'reset' : 'signin')
 const email = ref('')
 const password = ref('')
 const showPw = ref(false)
@@ -45,7 +49,7 @@ const busy = ref(false)
 
 // 已登录访问 /sign-in 时跳转账户页（原站 auth-gated 行为）
 onMounted(() => {
-  if (user.value) router.replace('/account')
+  if (user.value) router.replace(localePath('/profile'))
 })
 
 const emailOk = computed(() => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim()))
@@ -74,7 +78,7 @@ function mapError(e: any): string {
   const msg = e?.data?.statusMessage || e?.message || ''
   if (msg.includes('EMAIL_TAKEN') || msg.includes('exists')) return t('signin.emailExists')
   if (msg.includes('INVALID_EMAIL') || msg.includes('email')) return t('signin.invalidEmail')
-  if (msg.includes('PASSWORD') || msg.includes('Password')) return t('signin.passwordTooShort')
+  if (msg.includes('PASSWORD') || msg.includes('Password')) return t('signin.passwordTooWeak')
   if (msg.includes('CREDENTIALS') || msg.includes('Invalid')) return t('signin.wrongCredentials')
   return t('signin.genericError')
 }
@@ -86,7 +90,7 @@ async function submitSignIn() {
   busy.value = true
   try {
     const res = await login(email.value.trim(), password.value)
-    if (res.ok) await router.push('/account')
+    if (res.ok) await router.push(localePath('/profile'))
   } catch (e: any) {
     error.value = mapError(e)
   } finally {
@@ -98,13 +102,17 @@ async function submitSignUp() {
   error.value = ''
   info.value = ''
   if (!emailOk.value) { error.value = t('signin.invalidEmail'); return }
-  if (password.value.length < 8) { error.value = t('signin.passwordTooShort'); return }
+  // 与服务端 PASSWORD_RULE 保持一致：大小写字母 + 数字 + 符号，至少 8 位
+  if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/.test(password.value)) {
+    error.value = t('signin.passwordTooWeak')
+    return
+  }
   busy.value = true
   try {
     // name 取邮箱前缀（原站无 name 字段；本站接口需要）
     const name = email.value.trim().split('@')[0]
     const res = await register(name, email.value.trim(), password.value)
-    if (res.ok) await router.push('/account')
+    if (res.ok) await router.push(localePath('/profile'))
   } catch (e: any) {
     error.value = mapError(e)
   } finally {

@@ -43,7 +43,10 @@ const emailOk = computed(() => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.tri
 
 async function submitAuth() {
   if (!emailOk.value) { authError.value = t('checkout.authInvalidEmail'); return }
-  if (password.value.length < 8) { authError.value = t('checkout.authPwShort'); return }
+  // 与服务端 PASSWORD_RULE 一致：大小写字母 + 数字 + 符号，至少 8 位（仅注册时校验，登录不限制历史密码）
+  if (authMode.value === 'signup' && !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/.test(password.value)) {
+    authError.value = t('checkout.authPwShort'); return
+  }
   authBusy.value = true
   authError.value = ''
   try {
@@ -58,6 +61,7 @@ async function submitAuth() {
   } catch (e: any) {
     const msg = e?.data?.statusMessage || e?.message || ''
     if (msg.includes('EMAIL_TAKEN') || msg.includes('exists')) authError.value = t('checkout.authEmailTaken')
+    else if (msg.includes('PASSWORD') || msg.includes('WEAK')) authError.value = t('checkout.authPwShort')
     else if (msg.includes('CREDENTIALS') || msg.includes('Invalid')) authError.value = t('checkout.authWrong')
     else authError.value = t('checkout.authFail')
   } finally {
@@ -198,7 +202,7 @@ function close() {
             :disabled="paying"
             @click="pay"
           >
-            {{ paying ? t('checkout.processing') : t('proAi.payBtn', { price: priceLabel }) }}
+            {{ paying ? t('checkout.processing') : t('checkout.payBtn', { price: priceLabel }) }}
           </button>
 
           <button

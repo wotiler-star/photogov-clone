@@ -1,39 +1,42 @@
 <script setup lang="ts">
 // Pro AI Photos 板块页（+9 PRO AI Photos，$6.90）
 // 对标原站 pro_photos 加购服务：AI 增强、合规、9 张成片、一次性付费。
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useLocalePath } from '#imports'
 import InfoPageShell from '~/components/InfoPageShell.vue'
 import ProAICheckout from '~/components/ProAICheckout.vue'
-import { useAuth } from '~/composables/useAuth'
 import { PRO_AI_PRICE, formatPrice } from '~/utils/pricing'
 
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
-const { user } = useAuth()
 
 const LOCALE_MAP: Record<string, string> = {
   en: 'en-US', es: 'es-ES', fr: 'fr-FR', zh: 'zh-CN'
 }
-const priceLabel = formatPrice(PRO_AI_PRICE, LOCALE_MAP[String(locale.value)] || 'en-US')
+// computed：切换语言时价格与文案随 i18n 响应式更新
+const priceLabel = computed(() =>
+  formatPrice(PRO_AI_PRICE, LOCALE_MAP[String(locale.value)] || 'en-US')
+)
 
 const checkoutOpen = ref(false)
 
-const features = [
+const features = computed(() => [
   { icon: 'sparkles', title: t('proAi.feature1Title'), text: t('proAi.feature1Text') },
   { icon: 'shield', title: t('proAi.feature2Title'), text: t('proAi.feature2Text') },
   { icon: 'layers', title: t('proAi.feature3Title'), text: t('proAi.feature3Text') },
   { icon: 'bolt', title: t('proAi.feature4Title'), text: t('proAi.feature4Text') }
-]
+])
 
+// 弹窗自带内联登录，无需在此判断登录态
 function buy() {
-  if (!user.value) {
-    // 未登录：先去登录，回来再买（弹窗也会内联登录）
-    checkoutOpen.value = true
-    return
-  }
   checkoutOpen.value = true
+}
+
+// 「或订阅」CTA：与 PhotoTool 的 onSubscribe 一致，跳价格页而非只关窗
+function onSubscribe() {
+  checkoutOpen.value = false
+  navigateTo(localePath('/prices'))
 }
 
 useHead(() => ({
@@ -119,6 +122,6 @@ useHead(() => ({
     :count="9"
     @close="checkoutOpen = false"
     @success="checkoutOpen = false"
-    @subscribe="checkoutOpen = false"
+    @subscribe="onSubscribe"
   />
 </template>
