@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /**
- * /author/<slug> —— 作者页（对齐原站 photogov.net/author/<slug>/）。
+ * /author/<slug> —— 作者页（对齐原站 原站域名/author/<slug>/）。
  *
  * SEEN（原站 f9-author 取证）：
  *   - 面包屑 Home › Editorial Team › {作者名}

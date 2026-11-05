@@ -30,7 +30,7 @@ const toggle = (i: number) => {
 
 /**
  * 答案富文本清洗：
- * 1. 原站答案里的绝对站内链接（https://photogov.net/xxx）改成本站相对路径，避免出站；
+ * 1. 原站答案里的绝对站内链接（https://原站域名/xxx）改成本站相对路径，避免出站；
  * 2. 剩余外链补 target="_blank" rel="noopener"（安全与 SEO 惯例）。
  */
 const fmt = (html: string) =>

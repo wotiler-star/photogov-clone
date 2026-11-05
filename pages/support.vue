@@ -34,7 +34,7 @@ useHead({
 })
 
 // 支持邮箱（与语言无关的固定数据，不走 i18n：@ 会触发 vue-i18n 链接格式解析错误）
-const SUPPORT_EMAIL = 'info@photogov.net'
+const SUPPORT_EMAIL = 'info@photogov.xyz'
 
 const faqs = tm('support.faq') as Array<{ q: string; a: string }>
 

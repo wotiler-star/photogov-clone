@@ -38,14 +38,14 @@ export default defineEventHandler((event) => {
     { p: '/terms-of-use', pri: '0.3', freq: 'yearly' },
     { p: '/support', pri: '0.5', freq: 'monthly' },
     { p: '/cookie-policy', pri: '0.3', freq: 'yearly' },
-    // 与 photogov.net 对齐的新页面
+    // 与 原站域名 对齐的新页面
     { p: '/prices', pri: '0.8', freq: 'monthly' },
     { p: '/contacts', pri: '0.5', freq: 'yearly' },
     { p: '/how-it-works', pri: '0.8', freq: 'monthly' },
     { p: '/why-choose-us', pri: '0.7', freq: 'monthly' },
     { p: '/reviews', pri: '0.7', freq: 'monthly' },
     { p: '/tool', pri: '0.9', freq: 'weekly' },
-    { p: '/author/nathaniel-k-rowden', pri: '0.5', freq: 'monthly' },
+    { p: '/author/photogov-team', pri: '0.5', freq: 'monthly' },
     { p: '/security', pri: '0.6', freq: 'yearly' },
     { p: '/refund-policy', pri: '0.4', freq: 'yearly' },
     { p: '/us-id-photo-compliance', pri: '0.4', freq: 'yearly' },

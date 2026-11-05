@@ -39,7 +39,7 @@ export function useOrgLd() {
     sameAs: [
       'https://www.wikidata.org/wiki/Q130323976',
       'https://www.youtube.com/@Photogov',
-      'https://www.trustpilot.com/review/photogov.net'
+      'https://www.trustpilot.com/review/photogov.xyz'
     ],
     publishingPrinciples: 'https://www.photogov.xyz/editorial-policy/',
     legalName: 'Y VISION TECHNOLOGIES LLP',
@@ -60,7 +60,7 @@ export function useOrgLd() {
     contactPoint: {
       '@type': 'ContactPoint',
       url: 'https://www.photogov.xyz/support/',
-      email: 'info@photogov.net',
+      email: 'info@photogov.xyz',
       contactType: 'Customer Service',
       availableLanguage: ['en', 'es', 'it', 'pt', 'de', 'hi'],
       areaServed: AREA_SERVED

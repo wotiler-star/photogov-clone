@@ -55,14 +55,10 @@ useHead({
 
         <!-- 编辑卡：64px 头像 + 姓名链接 + 职务 + 简介 + LinkedIn -->
         <div class="mt-6 flex items-start gap-5 max-sm:flex-col">
-          <img
-            src="/img/editorial/olia-potiagaeva.jpg"
-            :alt="$t('editorialTeam.name')"
-            width="64"
-            height="64"
-            class="size-16 shrink-0 rounded-lg object-cover"
-            loading="lazy"
-          >
+          <!-- 中性首字母徽标（不含任何真实个人照片） -->
+          <div class="flex size-16 shrink-0 items-center justify-center rounded-lg bg-[#ccb38d]/30 text-2xl font-bold text-[#17304B]">
+            {{ $t('editorialTeam.name').charAt(0) }}
+          </div>
           <div class="max-w-[600px]">
             <h3 class="text-xl font-semibold">
               <NuxtLink :to="localePath('/editorial-team')" class="text-blue-700 underline duration-200 hover:text-red-700">
@@ -71,14 +67,6 @@ useHead({
             </h3>
             <p class="mt-1 font-serif text-gray-600">{{ $t('editorialTeam.role') }}</p>
             <p class="mt-3 font-serif">{{ $t('editorialTeam.bio') }}</p>
-            <a
-              href="https://www.linkedin.com/in/olia-potiagaeva"
-              target="_blank"
-              rel="noopener"
-              class="mt-3 inline-block text-blue-700 underline duration-200 hover:text-red-700"
-            >
-              {{ $t('editorialTeam.linkedin') }}
-            </a>
           </div>
         </div>
 

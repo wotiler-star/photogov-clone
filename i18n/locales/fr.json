@@ -69,7 +69,7 @@
       "nonAffiliation": "Avis de non-affiliation",
       "proAi": "Pro AI Photos"
     },
-    "copyright": "© {year} PhotoGov. Une démo clone reproduisant www.photogov.net.",
+    "copyright": "© {year} PhotoGov. Tous droits réservés.",
     "madeWith": "Réalisé avec Nuxt 3 · Vue 3 · Tailwind CSS",
     "colSupport": "Assistance",
     "colPassportPhotos": "Photos de passeport",
@@ -702,7 +702,7 @@
     "privacy": "La confidentialité d'abord",
     "p3": "Vos photos sont traitées entièrement dans votre navigateur. Nous ne les téléversons ni ne les stockons sur nos serveurs. Lisez notre {privacy}.",
     "privacyLink": "Politique de confidentialité",
-    "note": "Ceci est un clone de démo non officiel de www.photogov.net, créé à des fins éducatives et de réplication. Non affilié à une quelconque administration."
+    "note": "PhotoGov est un service en ligne indépendant de création de photos de passeport, de visa et d’identité. Non affilié à une quelconque administration."
   },
   "compliance": {
     "eyebrow": "Conformité",
@@ -1161,7 +1161,7 @@
   },
   "plans": {
     "title": "Tarifs, services et options d'abonnement",
-    "subtitle": "PhotoGov.net est un service en ligne simple d'utilisation pour créer des photos d'identité officielles conformes aux normes internationales. Nous proposons un modèle tarifaire flexible, adapté aussi bien aux utilisateurs individuels qu'aux organisations.",
+    "subtitle": "PhotoGov est un service en ligne simple d'utilisation pour créer des photos d'identité officielles conformes aux normes internationales. Nous proposons un modèle tarifaire flexible, adapté aussi bien aux utilisateurs individuels qu'aux organisations.",
     "free": "Gratuit",
     "premium": "Premium",
     "perMonth": "/mois",
@@ -1258,16 +1258,16 @@
       "Retélécharger les fichiers générés",
       "Suivre l'état de la vérification (si achetée)"
     ],
-    "closing": "PhotoGov.net allie transparence, automatisation et conformité aux normes mondiales. Que vous ayez besoin d'une simple photo d'identité ou d'une solution de qualité professionnelle, notre service est conçu pour offrir fiabilité et simplicité.",
+    "closing": "PhotoGov allie transparence, automatisation et conformité aux normes mondiales. Que vous ayez besoin d'une simple photo d'identité ou d'une solution de qualité professionnelle, notre service est conçu pour offrir fiabilité et simplicité.",
     "savePercent": "Économisez {percent}%"
   },
   "refund": {
     "eyebrow": "Remboursements",
     "title": "La politique de remboursement 2026 de PhotoGov expliquée",
-    "lead": "Chez PhotoGov.net, nous nous efforçons de préserver la satisfaction de nos clients tout en respectant l’ensemble des législations applicables au traitement des photos d’identité officielles. La présente politique de remboursement a pour objet de protéger vos droits en tant qu’utilisateur de notre créateur de photos passeport et elle est rédigée conformément aux exigences légales européennes, américaines et internationales. Nous vous invitons à la lire attentivement afin de comprendre quand et comment les remboursements sont accordés.",
+    "lead": "Chez PhotoGov, nous nous efforçons de préserver la satisfaction de nos clients tout en respectant l’ensemble des législations applicables au traitement des photos d’identité officielles. La présente politique de remboursement a pour objet de protéger vos droits en tant qu’utilisateur de notre créateur de photos passeport et elle est rédigée conformément aux exigences légales européennes, américaines et internationales. Nous vous invitons à la lire attentivement afin de comprendre quand et comment les remboursements sont accordés.",
     "principlesTitle": "Principes généraux",
     "principles": [
-      "PhotoGov.net assure le traitement automatique des photos d’identité et applique une politique de remboursement claire et transparente. Un remboursement peut être accordé si une erreur technique, une inexactitude de traitement ou tout autre problème lié au service de notre fait conduit à un résultat incorrect, à condition que la photo que vous avez téléversée fût, de manière générale, utilisable.",
+      "PhotoGov assure le traitement automatique des photos d’identité et applique une politique de remboursement claire et transparente. Un remboursement peut être accordé si une erreur technique, une inexactitude de traitement ou tout autre problème lié au service de notre fait conduit à un résultat incorrect, à condition que la photo que vous avez téléversée fût, de manière générale, utilisable.",
       "Veuillez toutefois noter que nous ne pouvons procéder à un remboursement si la photo finale n’est pas satisfaisante parce que l’image d’origine que vous avez fournie ne respectait pas nos directives photographiques.",
       "Afin de limiter les délais et les malentendus, assurez-vous que votre photo respecte les exigences officielles avant de la téléverser. Vérifiez systématiquement les règles les plus récentes applicables à votre document sur le site gouvernemental concerné (par exemple, Travel.State.Gov pour les passeports et visas américains).",
       "Si vous avez besoin d’une aide pratique pour préparer votre photo source, consultez l’un des guides PhotoGov pertinents :",
@@ -1329,24 +1329,24 @@
       "Recevez votre remboursement. Si votre demande est approuvée, nous traiterons votre remboursement dans un délai de 30 jours à compter de l’approbation. Pour les remboursements à 200 %, le montant correspondra au double des frais de service initiaux de la commande concernée."
     ],
     "liabilityTitle": "Limitation de responsabilité",
-    "liabilityText": "La responsabilité de PhotoGov.net pour tout problème lié à votre commande, à nos services ou aux photos traitées est limitée au montant que vous avez payé pour ce service spécifique. Nous pouvons rembourser les frais de service lorsque cela se justifie, mais nous ne saurions être tenus responsables des préjudices indirects ou complémentaires, tels que les voyages manqués, les retards dans le traitement de votre demande ou les frais supplémentaires facturés par les autorités ou d’autres organismes. Nous mettons tout en œuvre pour vous accompagner et résoudre tout problème relatif à vos photos aussi rapidement et équitablement que possible.",
+    "liabilityText": "La responsabilité de PhotoGov pour tout problème lié à votre commande, à nos services ou aux photos traitées est limitée au montant que vous avez payé pour ce service spécifique. Nous pouvons rembourser les frais de service lorsque cela se justifie, mais nous ne saurions être tenus responsables des préjudices indirects ou complémentaires, tels que les voyages manqués, les retards dans le traitement de votre demande ou les frais supplémentaires facturés par les autorités ou d’autres organismes. Nous mettons tout en œuvre pour vous accompagner et résoudre tout problème relatif à vos photos aussi rapidement et équitablement que possible.",
     "lawTitle": "Droit applicable",
     "lawText": "La présente politique de remboursement est régie par les lois des États-Unis, de l’Union européenne et par les normes juridiques internationales applicables. En cas de litige relatif à la présente politique ou à une décision de remboursement, ces lois seront utilisées pour l’interpréter et le résoudre.",
     "changesTitle": "Modifications de la présente politique de remboursement",
-    "changesText": "PhotoGov.net se réserve le droit de mettre à jour ou de modifier la présente politique de remboursement à tout moment et sans préavis. Toute modification prend effet dès sa publication sur notre site. En continuant à utiliser nos services après la publication de modifications, vous acceptez d’être lié par la politique mise à jour.",
+    "changesText": "PhotoGov se réserve le droit de mettre à jour ou de modifier la présente politique de remboursement à tout moment et sans préavis. Toute modification prend effet dès sa publication sur notre site. En continuant à utiliser nos services après la publication de modifications, vous acceptez d’être lié par la politique mise à jour.",
     "contactTitle": "Coordonnées",
-    "contactText": "Pour toute question relative à la présente politique de remboursement ou pour obtenir une assistance concernant une demande de remboursement, veuillez contacter notre équipe d’assistance à l’adresse {email}. En utilisant les services de PhotoGov.net, vous confirmez avoir lu, compris et accepté la présente politique de remboursement. Elle est conçue pour protéger vos droits, nous permettre de respecter les exigences légales internationales applicables et maintenir un niveau élevé de qualité de service.",
+    "contactText": "Pour toute question relative à la présente politique de remboursement ou pour obtenir une assistance concernant une demande de remboursement, veuillez contacter notre équipe d’assistance à l’adresse {email}. En utilisant les services de PhotoGov, vous confirmez avoir lu, compris et accepté la présente politique de remboursement. Elle est conçue pour protéger vos droits, nous permettre de respecter les exigences légales internationales applicables et maintenir un niveau élevé de qualité de service.",
     "subscriptionTitle": "Politique de remboursement des abonnements",
     "subscription": [
       {
         "t": "4.1. Dispositions générales",
-        "p": "Le présent document s’applique exclusivement aux demandes de remboursement relatives à l’abonnement mensuel au service PhotoGov.net (l’« Abonnement »). Les demandes de remboursement portant sur un traitement photo ponctuel sont régies par la politique de remboursement générale énoncée ci-dessus."
+        "p": "Le présent document s’applique exclusivement aux demandes de remboursement relatives à l’abonnement mensuel au service PhotoGov (l’« Abonnement »). Les demandes de remboursement portant sur un traitement photo ponctuel sont régies par la politique de remboursement générale énoncée ci-dessus."
       },
       {
         "t": "4.2. Procédure de soumission d’une demande de remboursement d’abonnement",
         "p": "Pour engager une demande de remboursement d’un Abonnement, le Client doit contacter le support technique par l’un des moyens suivants :",
         "items": [
-          "en remplissant le formulaire de contact sur la page du Centre d’assistance PhotoGov.net",
+          "en remplissant le formulaire de contact sur la page du Centre d’assistance PhotoGov",
           "en envoyant un e-mail à {email} avec pour objet « Demande de remboursement d’abonnement »."
         ]
       },
@@ -1388,18 +1388,18 @@
       },
       {
         "t": "4.8. Modifications de la présente politique",
-        "p": "PhotoGov.net se réserve le droit de mettre à jour la présente Politique de remboursement d’abonnement à tout moment. Les modifications prennent effet dès leur publication sur le site web. L’utilisation continue du Service vaut acceptation des conditions mises à jour.",
+        "p": "PhotoGov se réserve le droit de mettre à jour la présente Politique de remboursement d’abonnement à tout moment. Les modifications prennent effet dès leur publication sur le site web. L’utilisation continue du Service vaut acceptation des conditions mises à jour.",
         "items": []
       },
       {
         "t": "4.9. Demandes de remboursement après une non-utilisation prolongée de l’abonnement",
         "p": "",
         "items": [
-          "4.9.1. PhotoGov.net envoie au Client une notification de chaque prochaine reconduction de l’Abonnement à l’adresse e-mail fournie lors de l’inscription, ainsi qu’un reçu confirmant le succès du prélèvement après chaque paiement. Ces notifications constituent un avis approprié au Client de l’Abonnement actif.",
+          "4.9.1. PhotoGov envoie au Client une notification de chaque prochaine reconduction de l’Abonnement à l’adresse e-mail fournie lors de l’inscription, ainsi qu’un reçu confirmant le succès du prélèvement après chaque paiement. Ces notifications constituent un avis approprié au Client de l’Abonnement actif.",
           "4.9.2. Le Client est seul responsable de résilier à temps l’Abonnement via son compte s’il n’a pas l’intention de continuer à utiliser le Service. La disponibilité de la fonction de résiliation de l’Abonnement dans le compte du Client lui permet d’arrêter le renouvellement automatique à tout moment.",
           "4.9.3. Si le Client soumet une demande de remboursement couvrant plusieurs périodes de facturation (deux prélèvements ou plus), les règles suivantes s’appliquent : a) Un seul des prélèvements les plus récents peut être remboursé, à condition que la demande soit soumise dans les 14 jours calendaires suivant ce prélèvement et que le Client n’ait pas utilisé de fonctionnalités premium pendant la période de facturation concernée ; b) Aucun remboursement ne sera émis pour les périodes de facturación antérieures si le Client a reçu un avis approprié de chaque prélèvement par e-mail (notifications de reconduction et/ou reçus de paiement) et n’a ni résilié l’Abonnement ni contacté le Support technique ; c) Dans des circonstances exceptionnelles, notamment une maladie prolongée, un accès non autorisé confirmé au compte ou tout autre cas de force majeure, un remboursement portant sur plusieurs périodes de facturación peut être examiné individuellement à la discrétion du Prestataire de services. Le Client doit fournir des justificatifs.",
           "4.9.4. Si le Client ne contacte pas le Support technique dans un délai raisonnable après avoir reçu les notifications de prélèvement, cela sera considéré comme une acceptation de la reconduction de l’Abonnement pour la période de facturación concernée.",
-          "4.9.5. PhotoGov.net recommande aux Clients de vérifier régulièrement l’état de leurs Abonnements dans leurs comptes et de contacter rapidement le Support technique s’ils identifient un prélèvement non souhaité."
+          "4.9.5. PhotoGov recommande aux Clients de vérifier régulièrement l’état de leurs Abonnements dans leurs comptes et de contacter rapidement le Support technique s’ils identifient un prélèvement non souhaité."
         ]
       }
     ]
@@ -1409,14 +1409,14 @@
     "title": "La conformité de PhotoGov à la réglementation américaine sur les photos d’identité",
     "sub": "Découvrez la conformité du service PhotoGov aux politiques relatives aux photos d’identité américaines et aux restrictions en matière de modification numérique",
     "paras": [
-      "PhotoGov.net respecte pleinement les normes biométriques de l’Organisation de l’aviation civile internationale (ICAO) ainsi que les exigences officielles de l’U.S. Department of State applicables aux photos de passeport et d’identité. Notre système s’aligne sur l’ensemble des cadres reconnus régissant les dimensions, les proportions et le traitement des données des images destinées aux documents officiels américains.",
+      "PhotoGov respecte pleinement les normes biométriques de l’Organisation de l’aviation civile internationale (ICAO) ainsi que les exigences officielles de l’U.S. Department of State applicables aux photos de passeport et d’identité. Notre système s’aligne sur l’ensemble des cadres reconnus régissant les dimensions, les proportions et le traitement des données des images destinées aux documents officiels américains.",
       "Chaque photo téléversée est traitée via un flux de travail automatisé et sécurisé, hébergé sur les propres serveurs GPU de PhotoGov. Le système ajuste la taille, le cadrage et l’arrière-plan conformément aux spécifications définies pour les formats de passeport et de pièce d’identité américains.",
       "Le traitement se déroule entièrement au sein de l’infrastructure de PhotoGov, sans transfert d’images vers des services tiers. Cela garantit l’exactitude, la confidentialité et le respect intégral des normes officielles."
     ],
     "policyTitle": "Politique américaine relative à la modification numérique des photos d’identité et notre service",
     "policy": [
       "L’U.S. Department of State interdit strictement toute modification numérique des photos d’identité, de passeport et de visa. Cela inclut l’utilisation de logiciels, d’applications ou d’outils d’IA pour retoucher, remodeler, éclaircir ou modifier les traits du visage et les arrière-plans.",
-      "PhotoGov.net fournit uniquement des prestations techniques, telles que le dimensionnement et le recadrage, afin de satisfaire aux spécifications officielles. Nous ne modifions ni n’améliorons les images d’une manière qui altérerait l’apparence naturelle d’une personne ou l’authenticité de la photographie."
+      "PhotoGov fournit uniquement des prestations techniques, telles que le dimensionnement et le recadrage, afin de satisfaire aux spécifications officielles. Nous ne modifions ni n’améliorons les images d’une manière qui altérerait l’apparence naturelle d’une personne ou l’authenticité de la photographie."
     ],
     "alterationsTitle": "Exemples de modifications inacceptables",
     "alterations": [
@@ -1436,7 +1436,7 @@
     "sub": "Prenez connaissance de la déclaration d’indépendance et de non-affiliation de PhotoGov",
     "independenceTitle": "Indépendance",
     "paras": [
-      "PhotoGov.net est une plateforme numérique indépendante de création de photos d’identité pour les documents officiels. Notre service en ligne a pour objet d’aider les demandeurs à préparer des images conformes aux exigences techniques formelles applicables aux passeports, visas, titres de séjour, cartes d’identité nationales, permis de travail, permis de conduire et autres documents d’identification.",
+      "PhotoGov est une plateforme numérique indépendante de création de photos d’identité pour les documents officiels. Notre service en ligne a pour objet d’aider les demandeurs à préparer des images conformes aux exigences techniques formelles applicables aux passeports, visas, titres de séjour, cartes d’identité nationales, permis de travail, permis de conduire et autres documents d’identification.",
       "Nous ne sommes affiliés à aucun gouvernement, à aucune administration publique, à aucun consulat ni à aucune ambassade. PhotoGov ne traite pas les demandes, ne délivre pas de documents et ne prend aucune décision d’approbation. La plateforme se limite strictement à la préparation d’images au format technique requis pour le dépôt d’une demande.",
       "La conformité aux normes est assurée par une mise en forme automatisée et une vérification intégrée des dimensions, de l’arrière-plan et des proportions, conformément aux exigences officielles publiées par les autorités compétentes, notamment l’U.S. Department of State et d’autres institutions étatiques nationales."
     ],
@@ -1478,7 +1478,7 @@
     ],
     "sourcesNote": "Il incombe aux demandeurs de vérifier les exigences les plus récentes directement auprès de l’autorité émettrice avant de soumettre toute demande.",
     "legalTitle": "Mentions légales",
-    "legalText": "PhotoGov.net est une plateforme indépendante. L’utilisation du service ne garantit pas l’approbation d’une demande. La responsabilité de vérifier l’exactitude et la validité des données personnelles, ainsi que la conformité aux règles de l’administration concernée, incombe au demandeur."
+    "legalText": "PhotoGov est une plateforme indépendante. L’utilisation du service ne garantit pas l’approbation d’une demande. La responsabilité de vérifier l’exactitude et la validité des données personnelles, ainsi que la conformité aux règles de l’administration concernée, incombe au demandeur."
   },
   "knowledge": {
     "eyebrow": "Base de connaissances",
@@ -1510,7 +1510,7 @@
     "cats": {
       "requirements": {
         "h1": "Exigences pour la photo de passeport",
-        "lead": "Vous trouverez ici les spécifications complètes pour les photos de passeport américaines. Nous couvrons en détail le format, l'arrière-plan, le positionnement de la tête et autres éléments pour vous aider à respecter les règles officielles. Restez informé des nouvelles exigences afin que votre photo ne soit pas rejetée et que vous puissiez faire votre demande de passeport en toute simplicité. Cette page réunit les <a class=\"underline text-blue-600 duration-200 hover:text-red-600\" href=\"https://photogov.net/knowledge/requirements/us-department-of-state-photo-guidelines/\" rel=\"noopener noreferrer\">règles et directives photo passeport des États-Unis</a> émises par le Département d'État, du taille de la tête à l'arrière-plan."
+        "lead": "Vous trouverez ici les spécifications complètes pour les photos de passeport américaines. Nous couvrons en détail le format, l'arrière-plan, le positionnement de la tête et autres éléments pour vous aider à respecter les règles officielles. Restez informé des nouvelles exigences afin que votre photo ne soit pas rejetée et que vous puissiez faire votre demande de passeport en toute simplicité. Cette page réunit les <a class=\"underline text-blue-600 duration-200 hover:text-red-600\" href=\"https://photogov.xyz/knowledge/requirements/us-department-of-state-photo-guidelines/\" rel=\"noopener noreferrer\">règles et directives photo passeport des États-Unis</a> émises par le Département d'État, du taille de la tête à l'arrière-plan."
       },
       "guides": {
         "h1": "Guides et instructions étape par étape pour la photo de passeport",
@@ -1533,7 +1533,7 @@
     "sub": "Découvrez la conformité du service PhotoGov avec les politiques mondiales relatives aux photos d’identité et aux restrictions de modification numérique",
     "regsTitle": "Conformité de PhotoGov aux réglementations mondiales",
     "paras": [
-      "PhotoGov.net respecte pleinement les réglementations photographiques mondiales, des normes biométriques de l’OACI aux exigences gouvernementales spécifiques de chaque pays. Notre système s’aligne sur tous les cadres officiels régissant les dimensions, les proportions et le traitement des données des photos pour les documents d’identité.",
+      "PhotoGov respecte pleinement les réglementations photographiques mondiales, des normes biométriques de l’OACI aux exigences gouvernementales spécifiques de chaque pays. Notre système s’aligne sur tous les cadres officiels régissant les dimensions, les proportions et le traitement des données des photos pour les documents d’identité.",
       "Notre système traite chaque image téléversée via un flux automatisé et sécurisé hébergé sur nos propres serveurs GPU. PhotoGov ajuste la taille, les proportions et le fond de la photo selon les exigences officielles du type de document sélectionné.",
       "Toutes les opérations, de la préparation du fond au dimensionnement final, sont effectuées localement au sein de l’infrastructure de PhotoGov, sans transférer d’images à des services tiers. Cela garantit précision, rapidité et pleine conformité aux normes internationales des photos d’identité."
     ],
@@ -1563,9 +1563,9 @@
     "intro": "Découvrez comment PhotoGov respecte le Règlement général sur la protection des données de l'UE pour protéger les données des utilisateurs.",
     "h1": "La conformité de PhotoGov avec les lois sur la vie privée de l'UE",
     "lead": "Lorsque vous utilisez notre service, vous nous confiez vos informations précieuses. Nous avons fait de la protection de vos données et de vos choix de contrôle une priorité. Nous comprenons les préoccupations particulières des entreprises de l'UE concernant l'utilisation et la protection de leurs données, c'est pourquoi nous mettons en place les garanties les plus strictes.",
-    "sec1Title": "Sécurité et confidentialité sur PhotoGov.net",
+    "sec1Title": "Sécurité et confidentialité sur PhotoGov",
     "s1h1": "Engagement envers la protection des données",
-    "s1p1": "Chez PhotoGov.net, protéger votre vie privée et sécuriser vos données personnelles est notre priorité absolue. Nous nous engageons à mettre en œuvre des mesures de sécurité robustes et à maintenir la transparence dans nos pratiques de traitement.",
+    "s1p1": "Chez PhotoGov, protéger votre vie privée et sécuriser vos données personnelles est notre priorité absolue. Nous nous engageons à mettre en œuvre des mesures de sécurité robustes et à maintenir la transparence dans nos pratiques de traitement.",
     "s1h2": "Nos mesures de sécurité",
     "s1p2": "Nous utilisons un ensemble complet de technologies et de procédures de sécurité pour protéger vos informations personnelles contre tout accès, utilisation ou divulgation non autorisé. Cela inclut :",
     "sec2Title": "Règlement général sur la protection des données (RGPD) de l'UE",
@@ -1573,8 +1573,8 @@
     "s2p1": "Le Règlement général sur la protection des données (RGPD), adopté par la Commission européenne en 2016, constitue une refonte majeure des réglementations de l'UE. Ce règlement, qui a remplacé la directive précédente, est applicable depuis le 25 mai 2018.",
     "s2h2": "L'importance du RGPD",
     "s2p2": "Le RGPD introduit des exigences strictes sur la manière dont les organisations doivent traiter les données personnelles. Il insistе sur la transparence, la sécurité et la responsabilité, tout en conférant aux individus des droits importants sur leurs données.",
-    "s2h3": "L'approche de PhotoGov.net en matière de conformité RGPD",
-    "s2p3": "Chez PhotoGov.net, nous prenons au sérieux notre responsabilité de protéger vos données. Nos équipes dédiées à la conformité, à la protection des données et à la sécurité veillent à ce que nos services soient pleinement alignés sur les exigences du RGPD.",
+    "s2h3": "L'approche de PhotoGov en matière de conformité RGPD",
+    "s2p3": "Chez PhotoGov, nous prenons au sérieux notre responsabilité de protéger vos données. Nos équipes dédiées à la conformité, à la protection des données et à la sécurité veillent à ce que nos services soient pleinement alignés sur les exigences du RGPD.",
     "s2stepsTitle": "Voici les mesures que nous avons prises pour garantir la conformité :",
     "s2li": [
       "Accord de traitement des données (DPA) : nous proposons un DPA conforme au RGPD décrivant comment nous traitons et protégeons vos données.",
@@ -1589,7 +1589,7 @@
     "s3h1": "Transferts internationaux de données",
     "s3p1": "Conformément aux dispositions du RGPD sur les transferts internationaux, nous avons développé un DPA standard incluant les clauses contractuelles types (CCT) mises à jour pour les transferts hors UE. Cela garantit que vos données restent protégées selon les normes de l'UE.",
     "s3h2": "Conditions standard du DPA",
-    "s3p2": "Pour garantir la cohérence et la conformité au RGPD, PhotoGov.net respecte strictement nos conditions standard du DPA, qui reflètent les exigences du RGPD et incluent les CCT mises à jour. Nous n'acceptons pas de DPA personnalisés.",
+    "s3p2": "Pour garantir la cohérence et la conformité au RGPD, PhotoGov respecte strictement nos conditions standard du DPA, qui reflètent les exigences du RGPD et incluent les CCT mises à jour. Nous n'acceptons pas de DPA personnalisés.",
     "s3h3": "Liste des sous-traitants",
     "s3p3": "Sous-traitants spécifiques et leurs niveaux de sécurité :",
     "s3li": [
@@ -1608,7 +1608,7 @@
     "title": "Obtenez l’aide d’experts pour un processus de photos sans accroc",
     "sub": "Contactez notre équipe ou consultez les réponses aux questions les plus fréquentes sur les photos, les paiements et autres sujets.",
     "heroTitle": "Centre d’aide",
-    "heroP1": "Besoin d’aide ou de renseignements sur le service PhotoGov.net ? Notre équipe d’assistance est là pour vous aider en cas de problème lors de l’utilisation de notre outil photo en ligne. N’hésitez pas à nous contacter à tout moment.",
+    "heroP1": "Besoin d’aide ou de renseignements sur le service PhotoGov ? Notre équipe d’assistance est là pour vous aider en cas de problème lors de l’utilisation de notre outil photo en ligne. N’hésitez pas à nous contacter à tout moment.",
     "heroP2": "Chaque demande est traitée par un spécialiste qualifié ayant une expérience directe du domaine concerné — de la préparation des photos et des ajustements techniques aux paiements, téléchargements ou conseils de conformité spécifiques à chaque pays.",
     "contactTitle": "Comment nous contacter",
     "formTitle": "Formulaire de demande d’assistance",
@@ -1652,7 +1652,7 @@
     "faq": [
       {
         "q": "Quels types de documents le créateur de photos en ligne PhotoGov prend-il en charge ?",
-        "a": "PhotoGov.net prend en charge plus de 900 types de documents dans 136 pays. Que vous ayez besoin d’une photo de passeport, d’une photo de visa, d’une photo de permis de conduire, d’un permis de séjour, d’une photo d’immigration ou d’une photo de carte d’identité, notre créateur de photos en ligne ajuste automatiquement votre image pour répondre aux exigences officielles et livre une image numérique entièrement conforme, prête à être téléchargée, imprimée et utilisée pour votre demande.\nLes catégories populaires incluent : photo de visa US, photo de passeport UK, photo de visa UK, photo de visa Schengen UE, photo d’ID EAU, photo de visa EAU, photo de passeport Inde, photo de passeport Canada, photo de carte RP Canada, photo de passeport Malaisie et photo 1x1."
+        "a": "PhotoGov prend en charge plus de 900 types de documents dans 136 pays. Que vous ayez besoin d’une photo de passeport, d’une photo de visa, d’une photo de permis de conduire, d’un permis de séjour, d’une photo d’immigration ou d’une photo de carte d’identité, notre créateur de photos en ligne ajuste automatiquement votre image pour répondre aux exigences officielles et livre une image numérique entièrement conforme, prête à être téléchargée, imprimée et utilisée pour votre demande.\nLes catégories populaires incluent : photo de visa US, photo de passeport UK, photo de visa UK, photo de visa Schengen UE, photo d’ID EAU, photo de visa EAU, photo de passeport Inde, photo de passeport Canada, photo de carte RP Canada, photo de passeport Malaisie et photo 1x1."
       },
       {
         "q": "Comment utiliser le service de photos de passeport en ligne de PhotoGov ?",
@@ -1663,35 +1663,35 @@
         "a": "PhotoGov offre le téléversement et la prévisualisation gratuits à tous les utilisateurs. Dans certains pays, le téléchargement d’une photo haute résolution ou totalement conforme est gratuit. Dans d’autres, des frais minimes s’appliquent à la version finale."
       },
       {
-        "q": "Quels méthodes de paiement PhotoGov.net accepte-t-il ?",
-        "a": "PhotoGov.net prend en charge les paiements par les principales cartes bancaires et systèmes de paiement électronique. Toutes les transactions sont traitées de manière sécurisée via Stripe, une passerelle de paiement internationale de confiance conforme aux normes mondiales de sécurité et de protection des données."
+        "q": "Quels méthodes de paiement PhotoGov accepte-t-il ?",
+        "a": "PhotoGov prend en charge les paiements par les principales cartes bancaires et systèmes de paiement électronique. Toutes les transactions sont traitées de manière sécurisée via Stripe, une passerelle de paiement internationale de confiance conforme aux normes mondiales de sécurité et de protection des données."
       },
       {
-        "q": "Comment PhotoGov.net traite-t-il les photos pour répondre aux exigences ?",
-        "a": "PhotoGov.net applique un traitement d’image automatisé pour mettre chaque photo en conformité avec les normes officielles. Le système supprime l’arrière-plan, aligne la tête et les épaules, ajuste les proportions, l’éclairage et l’équilibre des couleurs, et vérifie les paramètres clés par rapport aux normes internationales.\nUn moteur de conformité intégré vérifie les paramètres techniques clés — dimensions, arrière-plan, taille et position du visage, marges — par rapport aux directives officielles de chaque type de document. Cela garantit que l’image finale correspond aux spécifications requises avant le téléchargement.\nPhotoGov.net est un service en ligne indépendant conçu pour aider les utilisateurs à préparer des photos de documents conformes aux normes officielles. La plateforme n’est ni connectée, ni approuvée, ni autorisée par un gouvernement ou une autorité émettrice."
+        "q": "Comment PhotoGov traite-t-il les photos pour répondre aux exigences ?",
+        "a": "PhotoGov applique un traitement d’image automatisé pour mettre chaque photo en conformité avec les normes officielles. Le système supprime l’arrière-plan, aligne la tête et les épaules, ajuste les proportions, l’éclairage et l’équilibre des couleurs, et vérifie les paramètres clés par rapport aux normes internationales.\nUn moteur de conformité intégré vérifie les paramètres techniques clés — dimensions, arrière-plan, taille et position du visage, marges — par rapport aux directives officielles de chaque type de document. Cela garantit que l’image finale correspond aux spécifications requises avant le téléchargement.\nPhotoGov est un service en ligne indépendant conçu pour aider les utilisateurs à préparer des photos de documents conformes aux normes officielles. La plateforme n’est ni connectée, ni approuvée, ni autorisée par un gouvernement ou une autorité émettrice."
       },
       {
         "q": "Garantissez-vous l’acceptation de ma photo de document ?",
-        "a": "PhotoGov.net ne garantit pas et n’influence pas l’acceptation d’une photo. Nous sommes un service indépendant, non affilié, non approuvé et non connecté à une institution gouvernementale ou à une autorité émettrice.\nNotre système applique un traitement d’image avancé pour mettre chaque photo en conformité avec les exigences techniques des directives officielles. Cela inclut la vérification de la couleur et de la texture de l’arrière-plan, de la position de la tête, des proportions du visage, de la ligne des yeux, des marges, de l’éclairage, du contraste et du format de fichier. Un moteur de conformité intégré vérifie automatiquement l’image par rapport aux normes du type de document et du pays avant la génération du fichier.\nCe processus aide à minimiser le risque de rejet, mais l’approbation finale reste à la discrétion de l’institution officielle qui examine la demande. Même des images totalement conformes peuvent être rejetées pour des raisons étrangères au formatage technique — apparence démodée, expression inappropriée ou évolutions de la réglementation locale. C’est pourquoi aucun service privé ne peut garantir une acceptation à 100 %."
+        "a": "PhotoGov ne garantit pas et n’influence pas l’acceptation d’une photo. Nous sommes un service indépendant, non affilié, non approuvé et non connecté à une institution gouvernementale ou à une autorité émettrice.\nNotre système applique un traitement d’image avancé pour mettre chaque photo en conformité avec les exigences techniques des directives officielles. Cela inclut la vérification de la couleur et de la texture de l’arrière-plan, de la position de la tête, des proportions du visage, de la ligne des yeux, des marges, de l’éclairage, du contraste et du format de fichier. Un moteur de conformité intégré vérifie automatiquement l’image par rapport aux normes du type de document et du pays avant la génération du fichier.\nCe processus aide à minimiser le risque de rejet, mais l’approbation finale reste à la discrétion de l’institution officielle qui examine la demande. Même des images totalement conformes peuvent être rejetées pour des raisons étrangères au formatage technique — apparence démodée, expression inappropriée ou évolutions de la réglementation locale. C’est pourquoi aucun service privé ne peut garantir une acceptation à 100 %."
       },
       {
         "q": "Puis-je obtenir un remboursement ?",
-        "a": "Oui. PhotoGov.net propose une option de remboursement simple. En cas d’erreur technique ou de traitement, l’utilisateur peut demander un remboursement intégral. En plus du remboursement, nous offrons une photo traitée gratuitement pour tout type de document sélectionné."
+        "a": "Oui. PhotoGov propose une option de remboursement simple. En cas d’erreur technique ou de traitement, l’utilisateur peut demander un remboursement intégral. En plus du remboursement, nous offrons une photo traitée gratuitement pour tout type de document sélectionné."
       }
     ],
     "metaTitle": "Centre d’aide PhotoGov : assistance pour vos photos",
     "metaDesc": "Contactez l’équipe d’assistance de PhotoGov si vous avez besoin d’aide pour vos photos : du cadrage aux paiements et téléchargements.",
     "heroDesc": "Contactez notre équipe ou consultez les réponses aux questions les plus fréquentes sur les photos, les paiements et autres sujets.",
-    "breadcrumb": "Support technique - PhotoGov.net"
+    "breadcrumb": "Support technique - PhotoGov"
   },
   "editorialTeam": {
     "breadcrumb": "Équipe éditoriale",
     "title": "Découvrez l’équipe éditoriale de PhotoGov",
     "intro": "L’équipe éditoriale de PhotoGov rédige et relit chaque guide et chaque page de documents sur PhotoGov. Nous vérifions les exigences en matière de photos de passeport, de visa et de carte d’identité par rapport aux règles publiées par les autorités émettrices et mettons à jour les pages lorsque les règles changent.",
     "editorsTitle": "Rédacteurs",
-    "name": "Olia Potiagaeva",
-    "role": "Rédactrice en chef",
-    "bio": "Olia Potiagaeva est une responsable de contenu senior et ancienne journaliste de voyage avec plus de 20 ans d’expérience.",
+    "name": "Équipe éditoriale de PhotoGov",
+    "role": "Équipe éditoriale et de conformité",
+    "bio": "L’équipe éditoriale de PhotoGov rédige et relit chaque guide et chaque page de documents, vérifie les exigences de photos de passeport, de visa et d’identité par rapport aux règles publiées par les autorités émettrices et met à jour les pages lorsque celles-ci changent.",
     "linkedin": "LinkedIn",
     "processText": "Comment nous créons et vérifions le contenu"
   },
@@ -1703,7 +1703,7 @@
     "createTitle": "Comment nous créons et vérifions le contenu",
     "createP": "PhotoGov est un créateur de photos de passeport et un hub médiatique international de photo d’identité couvrant les exigences en matière de photos de passeport, de visa et de carte d’identité pour plus de 150 pays. Les demandeurs utilisent notre plateforme pour préparer l’un des éléments les plus critiques de tout processus de voyage ou d’immigration : les photos au format passeport. Nous surveillons rigoureusement les exigences gouvernementales, appliquons les spécifications publiées par les autorités émettrices officielles et mettons à jour en continu notre base de données pour garantir une précision totale.",
     "teamTitle": "Notre équipe éditoriale",
-    "teamP": "L’équipe éditoriale de PhotoGov recherche, rédige et relit tout le contenu de la plateforme, des outils de photos de documents aux guides approfondis de notre Centre de ressources. L’équipe est dirigée par la rédactrice en chef Olia Potiagaeva, journaliste spécialisée dans la réglementation des voyages internationaux et de l’immigration. Avant la mise en ligne de toute spécification, elle la vérifie personnellement auprès des sources gouvernementales primaires.",
+    "teamP": "L’équipe éditoriale de PhotoGov recherche, rédige et relit tout le contenu de la plateforme, des outils de photos de documents aux guides approfondis de notre Centre de ressources. Notre équipe éditoriale est dirigée par des rédacteurs en chef spécialisés dans la réglementation des voyages internationaux et de l’immigration. Avant la mise en ligne de toute spécification, chaque exigence est vérifiée auprès des sources gouvernementales primaires.",
     "teamLink": "Découvrez l’équipe éditoriale de PhotoGov.",
     "sourcesTitle": "Nos sources",
     "sourcesP": "PhotoGov s’appuie strictement sur les directives officielles des gouvernements et sur les normes mondiales établies par l’Organisation de l’aviation civile internationale (Document 9303 de l’OACI : documents de voyage lisibles à la machine). Les exigences publiées proviennent directement d’autorités primaires, notamment le Département d’État américain, Immigration, Réfugiés et Citoyenneté Canada (IRCC), le HM Passport Office (HMPO) et les ministères nationaux du monde entier. Chaque page de document cite l’organisme compétent et renvoie à la source primaire vérifiée par notre équipe.",
@@ -1773,92 +1773,92 @@
     "dv-lottery-photo-tool": "Outil photo DV Lottery"
   },
   "faqPage": {
-    "metaTitle": "FAQ PhotoGov.net - Réponses aux questions et préoccupations courantes",
-    "metaDesc": "Parcourez notre page FAQ complète pour trouver des réponses à vos questions sur les services de traitement de photos de PhotoGov.net, les moyens de paiement, la sécurité et bien plus, pour une expérience fluide et sans souci.",
+    "metaTitle": "FAQ PhotoGov - Réponses aux questions et préoccupations courantes",
+    "metaDesc": "Parcourez notre page FAQ complète pour trouver des réponses à vos questions sur les services de traitement de photos de PhotoGov, les moyens de paiement, la sécurité et bien plus, pour une expérience fluide et sans souci.",
     "breadcrumb": "Questions fréquentes",
     "heroTitle": "Centre d’aide et d’assistance",
     "heroDesc": "Informations sur l’emplacement des ambassades officielles du monde entier, avec les coordonnées et les bureaux de représentation.",
     "title": "Questions fréquentes",
     "items": [
       {
-        "q": "Qu’est-ce que PhotoGov.net ?",
-        "a": "PhotoGov.net est un service en ligne qui crée des photos de documents conformes à partir de photos ordinaires prises avec un smartphone. Le service utilise l’intelligence artificielle intégrée pour traiter automatiquement les images afin de répondre aux exigences officielles des documents."
+        "q": "Qu’est-ce que PhotoGov ?",
+        "a": "PhotoGov est un service en ligne qui crée des photos de documents conformes à partir de photos ordinaires prises avec un smartphone. Le service utilise l’intelligence artificielle intégrée pour traiter automatiquement les images afin de répondre aux exigences officielles des documents."
       },
       {
-        "q": "Pour quels types de documents PhotoGov.net peut-il traiter des photos ?",
-        "a": "PhotoGov.net peut traiter des photos pour divers documents officiels, notamment les passeports, les visas et autres documents d’identité."
+        "q": "Pour quels types de documents PhotoGov peut-il traiter des photos ?",
+        "a": "PhotoGov peut traiter des photos pour divers documents officiels, notamment les passeports, les visas et autres documents d’identité."
       },
       {
-        "q": "Comment PhotoGov.net garantit-il que les photos traitées répondent aux exigences officielles ?",
-        "a": "L’algorithme de PhotoGov.net est développé en collaboration avec des ambassades et des agences gouvernementales de plusieurs pays, ce qui garantit que les photos créées répondent aux exigences les plus récentes."
+        "q": "Comment PhotoGov garantit-il que les photos traitées répondent aux exigences officielles ?",
+        "a": "L’algorithme de PhotoGov est développé en collaboration avec des ambassades et des agences gouvernementales de plusieurs pays, ce qui garantit que les photos créées répondent aux exigences les plus récentes."
       },
       {
-        "q": "PhotoGov.net est-il gratuit ?",
+        "q": "PhotoGov est-il gratuit ?",
         "a": "Vous pouvez créer deux photos d’identité gratuites par jour, selon votre localisation. Aux États-Unis, au Royaume-Uni, au Canada, en Australie, aux Émirats arabes unis et dans certains pays européens et asiatiques, des frais s’appliquent, et vous voyez le prix avant de payer."
       },
       {
-        "q": "Comment PhotoGov.net traite-t-il les photos ?",
-        "a": "PhotoGov.net utilise l’intelligence artificielle et une chaîne complexe de réseaux de neurones pour supprimer automatiquement l’arrière-plan, ajuster l’inclinaison de la tête, l’échelle du visage, la couleur, le contraste et les vêtements, créant ainsi une photo conforme à toutes les exigences officielles des documents."
+        "q": "Comment PhotoGov traite-t-il les photos ?",
+        "a": "PhotoGov utilise l’intelligence artificielle et une chaîne complexe de réseaux de neurones pour supprimer automatiquement l’arrière-plan, ajuster l’inclinaison de la tête, l’échelle du visage, la couleur, le contraste et les vêtements, créant ainsi une photo conforme à toutes les exigences officielles des documents."
       },
       {
-        "q": "Combien de temps faut-il à PhotoGov.net pour traiter une photo ?",
-        "a": "PhotoGov.net peut traiter une photo pour un document en seulement 24 secondes."
+        "q": "Combien de temps faut-il à PhotoGov pour traiter une photo ?",
+        "a": "PhotoGov peut traiter une photo pour un document en seulement 24 secondes."
       },
       {
-        "q": "PhotoGov.net est-il sécurisé ?",
-        "a": "Oui. PhotoGov.net est entièrement conforme aux normes de sécurité, aux réglementations de protection des données, au chiffrement SSL et aux lois de protection des cookies GDPR."
+        "q": "PhotoGov est-il sécurisé ?",
+        "a": "Oui. PhotoGov est entièrement conforme aux normes de sécurité, aux réglementations de protection des données, au chiffrement SSL et aux lois de protection des cookies GDPR."
       },
       {
-        "q": "Quels moyens de paiement PhotoGov.net accepte-t-il ?",
-        "a": "PhotoGov.net accepte les paiements par cartes bancaires et monnaie électronique. La passerelle de traitement est fournie par Stripe."
+        "q": "Quels moyens de paiement PhotoGov accepte-t-il ?",
+        "a": "PhotoGov accepte les paiements par cartes bancaires et monnaie électronique. La passerelle de traitement est fournie par Stripe."
       },
       {
-        "q": "PhotoGov.net propose-t-il une politique de remboursement ?",
-        "a": "Oui. PhotoGov.net dispose d’une politique de remboursement complète. En cas d’erreur de traitement, le montant intégral est restitué à l’utilisateur sur sa demande, et une photo supplémentaire pour le document choisi est fournie gratuitement."
+        "q": "PhotoGov propose-t-il une politique de remboursement ?",
+        "a": "Oui. PhotoGov dispose d’une politique de remboursement complète. En cas d’erreur de traitement, le montant intégral est restitué à l’utilisateur sur sa demande, et une photo supplémentaire pour le document choisi est fournie gratuitement."
       },
       {
-        "q": "Comment contacter l’équipe d’assistance de PhotoGov.net ?",
-        "a": "Vous pouvez joindre l’équipe d’assistance de PhotoGov.net par courriel à l’adresse {email} ou en soumettant une demande via le site web."
+        "q": "Comment contacter l’équipe d’assistance de PhotoGov ?",
+        "a": "Vous pouvez joindre l’équipe d’assistance de PhotoGov par courriel à l’adresse {email} ou en soumettant une demande via le site web."
       },
       {
-        "q": "Quels sont les prix du traitement des photos sur PhotoGov.net ?",
+        "q": "Quels sont les prix du traitement des photos sur PhotoGov ?",
         "a": "Le prix dépend de votre localisation : une photo numérique coûte 6,90 $ aux États-Unis, 4,90 £ au Royaume-Uni, 5,90 C$ au Canada et à partir de 3,90 $ dans les autres pays. Vous obtenez deux photos d’identité gratuites par jour, selon votre localisation, et vous voyez toujours le prix avant de payer."
       },
       {
-        "q": "PhotoGov.net propose-t-il un tarif spécial pour les demandes professionnelles ?",
-        "a": "Oui. PhotoGov.net propose un tarif spécial pour les demandes professionnelles et l’accès à l’API."
+        "q": "PhotoGov propose-t-il un tarif spécial pour les demandes professionnelles ?",
+        "a": "Oui. PhotoGov propose un tarif spécial pour les demandes professionnelles et l’accès à l’API."
       },
       {
-        "q": "Existe-t-il une application mobile pour PhotoGov.net ?",
-        "a": "Pour l’instant, PhotoGov.net fonctionne comme un service en ligne accessible via les navigateurs web sur appareils mobiles et ordinateurs."
+        "q": "Existe-t-il une application mobile pour PhotoGov ?",
+        "a": "Pour l’instant, PhotoGov fonctionne comme un service en ligne accessible via les navigateurs web sur appareils mobiles et ordinateurs."
       },
       {
-        "q": "Puis-je utiliser PhotoGov.net pour des documents de différents pays ?",
-        "a": "Oui. PhotoGov.net prend en charge le traitement des photos de documents pour divers pays, car il est développé en collaboration avec de nombreuses ambassades et agences gouvernementales du monde entier."
+        "q": "Puis-je utiliser PhotoGov pour des documents de différents pays ?",
+        "a": "Oui. PhotoGov prend en charge le traitement des photos de documents pour divers pays, car il est développé en collaboration avec de nombreuses ambassades et agences gouvernementales du monde entier."
       },
       {
-        "q": "Dois-je créer un compte pour utiliser PhotoGov.net ?",
-        "a": "Non, vous pouvez utiliser les services de PhotoGov.net sans créer de compte."
+        "q": "Dois-je créer un compte pour utiliser PhotoGov ?",
+        "a": "Non, vous pouvez utiliser les services de PhotoGov sans créer de compte."
       },
       {
         "q": "Comment savoir si ma photo convient au traitement ?",
-        "a": "L’intelligence artificielle de PhotoGov.net analyse la photo soumise et la vérifie selon certains critères. Cependant, il est important de garder à l’esprit que l’outil n’évalue pas l’éclairage et la netteté de la photo.\nNotre outil évalue la photo originale selon les paramètres suivants :\nLa taille et le poids du fichier photo.\nLa position du corps (par exemple, le bon placement de la tête et des épaules).\nImportant : avant de téléverser une photo dans notre outil, nous vous recommandons vivement de vérifier vous-même qu’elle répond aux exigences de base :\nLa photo doit être nette et sans flou.\nL’éclairage doit être uniforme, sans ombres sur le visage.\nL’arrière-plan de la photo doit être monochrome et conforme aux normes du document.\nEn cas de doute, consultez les instructions sur notre site web ou contactez-nous pour plus de conseils."
+        "a": "L’intelligence artificielle de PhotoGov analyse la photo soumise et la vérifie selon certains critères. Cependant, il est important de garder à l’esprit que l’outil n’évalue pas l’éclairage et la netteté de la photo.\nNotre outil évalue la photo originale selon les paramètres suivants :\nLa taille et le poids du fichier photo.\nLa position du corps (par exemple, le bon placement de la tête et des épaules).\nImportant : avant de téléverser une photo dans notre outil, nous vous recommandons vivement de vérifier vous-même qu’elle répond aux exigences de base :\nLa photo doit être nette et sans flou.\nL’éclairage doit être uniforme, sans ombres sur le visage.\nL’arrière-plan de la photo doit être monochrome et conforme aux normes du document.\nEn cas de doute, consultez les instructions sur notre site web ou contactez-nous pour plus de conseils."
       },
       {
-        "q": "Quels formats de fichiers PhotoGov.net accepte-t-il ?",
-        "a": "PhotoGov.net accepte les formats d’image populaires, tels que JPEG et PNG."
+        "q": "Quels formats de fichiers PhotoGov accepte-t-il ?",
+        "a": "PhotoGov accepte les formats d’image populaires, tels que JPEG et PNG."
       },
       {
-        "q": "Puis-je utiliser PhotoGov.net pour traiter les photos de toute ma famille ?",
-        "a": "Oui. Vous pouvez utiliser PhotoGov.net pour traiter les photos de plusieurs membres de votre famille ou d’autres personnes, à condition de suivre les directives de chaque type de document."
+        "q": "Puis-je utiliser PhotoGov pour traiter les photos de toute ma famille ?",
+        "a": "Oui. Vous pouvez utiliser PhotoGov pour traiter les photos de plusieurs membres de votre famille ou d’autres personnes, à condition de suivre les directives de chaque type de document."
       },
       {
         "q": "Comment reçois-je ma photo traitée ?",
-        "a": "Après le traitement de votre photo, PhotoGov.net"
+        "a": "Après le traitement de votre photo, PhotoGov"
       },
       {
         "q": "Puis-je mettre à jour ma photo traitée si mon apparence change ?",
-        "a": "Oui. Vous pouvez utiliser PhotoGov.net pour traiter une nouvelle photo si votre apparence change ou si vous devez mettre à jour votre photo de document pour quelque raison que ce soit. Suivez simplement le même processus qu’auparavant pour créer une photo mise à jour et conforme."
+        "a": "Oui. Vous pouvez utiliser PhotoGov pour traiter une nouvelle photo si votre apparence change ou si vous devez mettre à jour votre photo de document pour quelque raison que ce soit. Suivez simplement le même processus qu’auparavant pour créer une photo mise à jour et conforme."
       },
       {
         "q": "Pourquoi ma photo n’a-t-elle pas été acceptée ?",
@@ -2247,7 +2247,7 @@
       }
     ],
     "outro1": "En savoir plus sur notre [[créateur de photos pour passeport gratuit~:]] ou consultez les [[questions fréquentes~:faq]] sur le service PhotoGov.",
-    "outro2": "PhotoGov.net respecte strictement les réglementations mondiales en matière de photos d’identité."
+    "outro2": "PhotoGov respecte strictement les réglementations mondiales en matière de photos d’identité."
   },
   "howItWorks": {
     "metaTitle": "Comment PhotoGov transforme votre selfie en photo d’identité 100 % conforme",
@@ -2304,13 +2304,13 @@
     ]
   },
   "securityPage": {
-    "metaTitle": "Sécurité chez PhotoGov.net - Protection des données et respect de la vie privée",
-    "metaDesc": "Faites confiance à l’engagement de PhotoGov.net en matière de sécurité et de protection des données. Découvrez notre conformité aux normes de sécurité, au chiffrement SSL et au GDPR.",
+    "metaTitle": "Sécurité chez PhotoGov - Protection des données et respect de la vie privée",
+    "metaDesc": "Faites confiance à l’engagement de PhotoGov en matière de sécurité et de protection des données. Découvrez notre conformité aux normes de sécurité, au chiffrement SSL et au GDPR.",
     "breadcrumb": "Mesures de sécurité",
     "heroTitle": "Sécurité",
     "heroDesc": "Découvrez comment PhotoGov garantit la protection des données, la vie privée et un traitement sécurisé pour chaque utilisateur dans le monde.",
     "title": "Nos normes de sécurité, protocoles et pratiques de protection des données",
-    "lead": "Chez PhotoGov.net, la sécurité et la vie privée de nos utilisateurs sont primordiales. Nous nous consacrons à la protection de vos données personnelles et au respect des plus hautes normes de sécurité. Voici comment nous assurons la sécurité de vos informations :",
+    "lead": "Chez PhotoGov, la sécurité et la vie privée de nos utilisateurs sont primordiales. Nous nous consacrons à la protection de vos données personnelles et au respect des plus hautes normes de sécurité. Voici comment nous assurons la sécurité de vos informations :",
     "items": [
       {
         "t": "Respect des normes de sécurité :",
@@ -2322,7 +2322,7 @@
       },
       {
         "t": "Chiffrement SSL :",
-        "p": "PhotoGov.net utilise le chiffrement SSL (Secure Sockets Layer) pour protéger la connexion entre votre navigateur et nos serveurs. Cette technologie garantit la confidentialité et la sécurité de toutes les données sensibles qui nous sont transmises, telles que les informations personnelles et les données de paiement."
+        "p": "PhotoGov utilise le chiffrement SSL (Secure Sockets Layer) pour protéger la connexion entre votre navigateur et nos serveurs. Cette technologie garantit la confidentialité et la sécurité de toutes les données sensibles qui nous sont transmises, telles que les informations personnelles et les données de paiement."
       },
       {
         "t": "Audits de sécurité fréquents :",
@@ -2337,7 +2337,7 @@
         "p": "Nous nous conformons aux stipulations du GDPR en matière de protection des cookies, en veillant à ce que notre utilisation des cookies respecte vos droits à la vie privée. Notre site fournit des informations transparentes sur les cookies que nous employons, et nous obtenons votre consentement avant de collecter des cookies non essentiels."
       }
     ],
-    "outro": "Chez PhotoGov.net, la sécurité est notre priorité absolue et nous nous engageons à protéger vos données. Ayez confiance en notre dévouement à protéger vos informations personnelles tout en vous offrant une expérience fluide et sécurisée de création de vos photos d’identité."
+    "outro": "Chez PhotoGov, la sécurité est notre priorité absolue et nous nous engageons à protéger vos données. Ayez confiance en notre dévouement à protéger vos informations personnelles tout en vous offrant une expérience fluide et sécurisée de création de vos photos d’identité."
   },
   "aboutPage": {
     "breadcrumb": "À propos de nous",
@@ -2354,11 +2354,11 @@
     "reviewText": "Je suis tombé sur ce site par hasard et je l'adore. Tellement simple à utiliser et très intuitif. Je le recommanderai sans hésiter à mes amis et j'explorerai davantage les fonctionnalités du site. Merci beaucoup d'avoir rendu la prise de photo fluide et sans tracas.",
     "reviewAgo": "il y a 1 an",
     "originsTitle": "Les origines de l'outil en ligne de photos de passeport Photogov",
-    "origins1": "Pour Vitaly Yago, entrepreneur international qui vit entre Londres et Dubaï, se rendre dans un studio photo était devenu une contrainte gênante. Il voyageait si fréquemment que le temps passé là-bas aurait pu être bien mieux utilisé pour ses projets.",
+    "origins1": "PhotoGov est née d’une frustration simple : se rendre dans un studio photo était devenu une contrainte gênante pour les voyageurs fréquents. Le temps passé là-bas aurait pu être bien mieux utilisé pour leurs projets.",
     "origins2": "<b>Un jour</b>, après s'être vu refuser un visa pour Singapour à cause d'une photo rejetée, il a décidé que cela suffisait. Le soir même, attablé dans un café, il a esquissé le plan technique d'une plateforme en ligne qui combinerait l'ajustement des images pour les photos de passeport et de visa avec la conformité automatique aux exigences gouvernementales.",
-    "originsCaption": "Vitaly Yago. Bureau de l'entreprise, 2021",
+    "originsCaption": "Bureau de l'entreprise, 2021",
     "quote": "« Prendre une photo officielle ne devrait pas être plus compliqué que de demander le document lui-même. Il est temps de passer le processus en ligne », »",
-    "quoteBy": "— Vitaly Yago, PDG de « Photogov »",
+    "quoteBy": "— L’équipe PhotoGov",
     "origins3": "En quelques semaines seulement, une petite équipe d'ingénieurs et d'experts juridiques a construit un système sécurisé basé sur les normes internationales des photos d'identité, conçu pour rendre la photographie officielle transparente, accessible et automatiquement conforme.",
     "timelineTitle": "Chronologie : l'évolution de notre service",
     "timelineAfter1": "Ce qui a commencé comme une petite initiative technique s'est rapidement transformé en un cadre mondial pour l'identité numérique. À ce jour, PhotoGov a servi plus de ",
@@ -2367,7 +2367,7 @@
     "teamTitle": "Notre équipe",
     "teamIntro": "Notre équipe mondiale réunit plus de 30 spécialistes, chacun responsable d'une partie distincte de la plateforme — de la conception du système et de la protection des données à la conformité réglementaire des normes officielles de photos selon les pays.",
     "servicesTitle": "Nos services de photos d'identité",
-    "services1": "Le centre photo en ligne PhotoGov.net prend en charge plus de 900 types de documents d'identité officiels de 150 pays : passeports, visas, cartes d'identité nationales, titres de séjour, cartes vertes, loterie DV, permis de travail et permis de conduire. Si un document d'identité requiert une photo, elle peut être créée avec PhotoGov.",
+    "services1": "Le centre photo en ligne PhotoGov prend en charge plus de 900 types de documents d'identité officiels de 150 pays : passeports, visas, cartes d'identité nationales, titres de séjour, cartes vertes, loterie DV, permis de travail et permis de conduire. Si un document d'identité requiert une photo, elle peut être créée avec PhotoGov.",
     "services2": "Chaque image est générée en pleine conformité avec les normes techniques et réglementaires de l'autorité émettrice, garantissant une conformité mondiale :",
     "servicesAfter": "Chaque photo créée via PhotoGov respecte les exigences officielles des gouvernements en matière de taille, de composition et de fond — répondant aux critères exacts requis pour un dépôt partout dans le monde. [[En savoir plus~:how-it-works]] sur le fonctionnement de notre service.",
     "complianceTitle": "Nos normes de conformité et notre fiabilité",
@@ -2387,7 +2387,7 @@
     "vision1": "<b>L'équipe de PhotoGov est convaincue</b> que prendre une photo au format passeport ne doit pas rester inutilement compliqué. Dans tous les pays et sur tous les continents, les gens ne devraient plus avoir à attendre dans des studios, à payer des tarifs élevés ou à craindre que leurs images soient rejetées pour des détails techniques mineurs.",
     "vision2": "<b>La mission de PhotoGov</b> est de rendre la photographie officielle simple, gratuite et accessible à tous, partout. Notre vision à long terme est un monde où les démarches officielles sont simples et équitables. La conformité est intégrée au processus et l'accès à des outils d'identité fiables devient une part naturelle de la vie moderne — un droit universel accessible à chacun.",
     "vision3": "Au fil du temps, cette approche a fait de PhotoGov un outil de confiance pour des personnes de toutes nationalités et de tous horizons, qu'elles demandent un premier passeport, partent étudier à l'étranger, déménagent en famille ou commencent une nouvelle carrière.",
-    "visionCaption": "Vitaly Yago avec notre responsable marketing",
+    "visionCaption": "L’équipe PhotoGov au travail",
     "visionSlogan": "Notre service aide à préparer les documents qui ouvrent de nouveaux chapitres de la vie. Tout commence par une seule étape : la photo qui prouve qui nous sommes.",
     "nonAffiliation": "PhotoGov est un service indépendant. Nous ne sommes affiliés à aucun gouvernement, ambassade ou consulat. Toutes les informations de ce site reposent sur les exigences officielles des gouvernements et sur des sources primaires vérifiées. L'acceptation finale de la photo est déterminée uniquement par l'autorité émettrice.",
     "timeline": [
@@ -2431,7 +2431,7 @@
       },
       {
         "title": "L'équipe éditoriale",
-        "text": "L'[[équipe éditoriale de PhotoGov~:editorial-team]], dirigée par [[Olia Potiagaeva~:editorial-team]], rédactrice en chef, traduit les exigences photographiques officielles en guides et en pages de documents sur PhotoGov et les relit avant publication. Découvrez comment nous créons et vérifions le contenu dans notre [[politique éditoriale~:editorial-policy]]."
+        "text": "L'[[équipe éditoriale de PhotoGov~:editorial-team]] traduit les exigences photographiques officielles en guides et en pages de documents sur PhotoGov et les relit avant publication. Découvrez comment nous créons et vérifions le contenu dans notre [[politique éditoriale~:editorial-policy]]."
       },
       {
         "title": "L'équipe d'assistance et d'exploitation",
@@ -2486,9 +2486,9 @@
     ]
   },
   "docByline": {
-    "author": "Olia Potiagaeva",
+    "author": "PhotoGov",
     "writtenBy": "Rédigé par",
-    "role": ", rédactrice en chef",
+    "role": "",
     "reviewedPrefix": "Relu par l'",
     "team": "équipe éditoriale de PhotoGov",
     "rating": "4.8 / 5.0 Google",
@@ -2515,7 +2515,7 @@
     "docCount": "{count} doc."
   },
   "docNotice": {
-    "lead": "PhotoGov.net respecte strictement la",
+    "lead": "PhotoGov respecte strictement la",
     "regulations": "réglementation mondiale des photos d'identité",
     "relatedTitle": "Pages associées"
   },

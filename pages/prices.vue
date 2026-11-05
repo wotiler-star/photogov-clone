@@ -119,7 +119,7 @@ useHead({
           </table>
         </div>
         <p class="mt-4 text-sm leading-relaxed text-muted">
-          PhotoGov.net strictly adheres to the
+          PhotoGov strictly adheres to the
           <NuxtLink :to="localePath('/global-id-photo-compliance')" class="text-brand hover:underline">Global regulations for ID photos</NuxtLink>.
         </p>
       </section>

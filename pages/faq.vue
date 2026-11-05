@@ -12,7 +12,7 @@ const { t, tm } = useI18n()
 const url = useRequestURL()
 
 // 支持邮箱（与语言无关的固定数据，不走 i18n：@ 会触发 vue-i18n 链接格式解析错误）
-const SUPPORT_EMAIL = 'info@photogov.net'
+const SUPPORT_EMAIL = 'info@photogov.xyz'
 
 // 23 问（原站 /faq/ 全量，四语翻译，见 i18n faqPage.items）
 const items = tm('faqPage.items') as Array<{ q: string; a: string }>

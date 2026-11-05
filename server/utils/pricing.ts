@@ -1,4 +1,4 @@
-// 单次证件照（数字版）分区定价 —— 与 photogov.net /prices 区域表对齐。
+// 单次证件照（数字版）分区定价 —— 与 原站域名 /prices 区域表对齐。
 // 价格按「所选证件所属国家」确定（演示站用确定性映射，避免运行时外链原站）。
 // 服务端为权威定价来源；客户端 utils/pricing.ts 仅用于展示，逻辑保持一致。
 export interface PhotoPrice {

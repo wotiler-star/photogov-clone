@@ -6,7 +6,7 @@ const { t } = useI18n()
 const url = useRequestURL()
 const { scripts: orgScripts } = useOrgLd()
 // 邮箱放运行时常量，避免 @ 被 vue-i18n 当成链接消息语法而编译报错
-const EMAIL = 'info@photogov.net'
+const EMAIL = 'info@photogov.xyz'
 useHead({
   title: t('euPrivacy.h1'),
   script: [

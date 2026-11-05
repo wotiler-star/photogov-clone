@@ -2,7 +2,7 @@
 import { useLocalePath } from '#imports'
 
 // 对标原站文档页尾部两块小内容（F6 取证 SEEN）：
-// ① 独立声明：flex gap-x-4 —— 36px「not affiliated」图标 + 12px「PhotoGov.net strictly adheres to the
+// ① 独立声明：flex gap-x-4 —— 36px「not affiliated」图标 + 12px「PhotoGov strictly adheres to the
 //    {Global regulations for ID photos}.」
 // ② Related pages：container > .lg:max-w-[700px] > H2 + ul.static-ul 知识库链接
 defineProps<{

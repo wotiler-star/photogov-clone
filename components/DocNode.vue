@@ -1,6 +1,6 @@
 <script lang="ts">
 /**
- * DocNode —— 递归渲染 photogov.net 的内容树节点。
+ * DocNode —— 递归渲染 原站域名 的内容树节点。
  *
  * 目标站 content/document 接口返回一棵 DD* 组件树（全部 126 篇共 52 类组件、
  * 24019 个节点），节点形如：
@@ -339,7 +339,7 @@ export default defineComponent({
       }
 
       // ——————— 目录（On this page） ———————
-      // SEEN：原站该位置渲染的是「Written by Olia Potiagaeva…」署名条 + 信任三卡 +
+      // SEEN：原站该位置渲染的是「Written by…」署名条 + 信任三卡 +
       // 「ON THIS PAGE:」目录，且 SSR 里 authorData（如 John Bates）并不出镜——
       // 所以此处只用 navigationList 渲染目录（署名条/信任卡由页面级 DocByline、
       // DocTrustBar 统一提供，126 篇全覆盖，且不会重复）。

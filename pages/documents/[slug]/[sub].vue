@@ -7,7 +7,7 @@
  *   { type, documentSlug, slug, content, meta, toc, schemaOrg, author, document }
  * 其中 content 是从目标站 Blog.GetHubPost 抓来的完整 HTML 正文。
  *
- * 正文里目标站硬编码了绝对链接 https://photogov.net/documents/.../ ，
+ * 正文里目标站硬编码了绝对链接 https://原站域名/documents/.../ ，
  * 这里统一改写为本地相对链接，保证克隆站点自包含（不跳回原站）。
  */
 import { computed } from 'vue'

@@ -23,7 +23,7 @@ const logoWallCodes = ['US', 'GB', 'CA', 'AU', 'IN', 'DE', 'FR', 'ES', 'IT', 'BR
 
 // 首页 FAQPage 结构化数据（复用页面内联的前 6 条 FAQ，与可见手风琴一致）
 const plainFaq = (s: string) =>
-  s.replace(/\{email\}/g, 'info@photogov.net').replace(/<[^>]*>/g, '').replace(/\n/g, ' ')
+  s.replace(/\{email\}/g, 'info@photogov.xyz').replace(/<[^>]*>/g, '').replace(/\n/g, ' ')
 const faqPageLd = computed(() => ({
   '@context': 'https://schema.org',
   '@type': 'FAQPage',

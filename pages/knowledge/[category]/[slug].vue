@@ -7,9 +7,9 @@
  *   H1 + 「Published: {日期}」 + 「Last update: {日期}」
  *   「TABLE OF CONTENTS:」（uppercase #313131）+ 锚点列表（= 正文全部 H2）
  *   正文 div.blog-post--content：p（含内联链接/图片）/ h2(slug id) / h3 / ul / table
- *   文末署名（Olia Potiagaeva + Editorial Team + Google 4.8）
+ *   文末署名（Editorial Team + Google 4.8）
  *
- * 富文本说明：段落/列表 item 为原站 HTML 字符串（已把 photogov.net 绝对链接改为
+ * 富文本说明：段落/列表 item 为原站 HTML 字符串（已把 原站域名 绝对链接改为
  * 相对路径），因此用 v-html 渲染以保留内联链接与插图；数据来源为本站抓取快照。
  */
 import { computed } from 'vue'

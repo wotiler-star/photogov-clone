@@ -22,14 +22,10 @@ const GOOGLE_REVIEWS = 'https://www.google.com/maps/place/Digital+Passport+Photo
   <!-- container 包裹在文章页等已有限宽容器内时可关闭（prop: noContainer） -->
   <div :class="noContainer ? '' : 'container'">
     <div class="flex items-start gap-3 rounded border border-[#e7eaee] bg-[#f5f5f5] p-3 font-serif text-sm leading-relaxed">
-      <img
-        src="/img/editorial/olia-potiagaeva.jpg"
-        :alt="$t('docByline.author')"
-        width="40"
-        height="40"
-        class="size-10 shrink-0 rounded-full object-cover"
-        loading="lazy"
-      >
+      <!-- 中性首字母头像（不含任何真实个人照片） -->
+      <div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#ccb38d]/30 text-base font-bold text-[#17304B]">
+        {{ $t('docByline.author').charAt(0) }}
+      </div>
       <p>
         {{ $t('docByline.writtenBy') }}
         <NuxtLink :to="localePath('/editorial-team')" class="underline duration-200 hover:text-red-600">

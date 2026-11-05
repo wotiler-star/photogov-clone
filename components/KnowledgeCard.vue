@@ -17,7 +17,7 @@
  *         <p class="mt-3 text-[14px] leading-[1.3] font-sans text-[#414141]">摘要</p>
  *       </div>
  *       <div class="shrink-0 flex items-center gap-x-2.5">
- *         40px 圆形头像 + <b>Olia Potiagaeva</b> + 日历 + 日期
+ *         40px 圆形头像 + <b>署名作者</b> + 日历 + 日期
  *       </div>
  *     </div>
  *   </div>
@@ -100,8 +100,8 @@ const viewsLabel = computed(() => (props.post.views ? `${props.post.views} views
 
       <!-- 作者 + 日期 -->
       <div class="flex shrink-0 items-center gap-x-2.5">
-        <div class="size-10 shrink-0 overflow-hidden rounded-full">
-          <img src="/img/editorial/olia-potiagaeva.jpg" :alt="post.author" class="size-full object-cover" loading="lazy">
+        <div class="flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#ccb38d]/30 text-sm font-bold text-[#17304B]">
+          {{ (post.author || 'P').charAt(0) }}
         </div>
         <div class="flex-1 space-y-1.5 leading-none">
           <span class="font-sans text-[14px] underline"><b>{{ post.author }}</b></span>

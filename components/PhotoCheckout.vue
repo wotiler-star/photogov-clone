@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// 证件照下载结账门控弹窗（复刻 photogov.net Upload→Processing→Checkout→Download 商业模型）
+// 证件照下载结账门控弹窗（复刻 原站域名 Upload→Processing→Checkout→Download 商业模型）
 // 演示模式：服务端 photoCheckout 即时标记为已付款并解锁下载，无真实扣款。
 // 未登录时在弹窗内联登录/注册（等价于原站 checkout 前的账户校验）。
 import { ref, computed } from 'vue'

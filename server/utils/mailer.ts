@@ -8,7 +8,7 @@ const user = process.env.SMTP_USER
 const pass = process.env.SMTP_PASS
 const secure =
   (process.env.SMTP_SECURE ?? (port === 465 ? 'true' : 'false')) === 'true'
-const from = process.env.MAIL_FROM || user || 'no-reply@photogov.net'
+const from = process.env.MAIL_FROM || user || 'no-reply@photogov.xyz'
 
 export const mailConfigured = !!host
 

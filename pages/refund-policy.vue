@@ -7,7 +7,7 @@ const url = useRequestURL()
 const { scripts: orgScripts } = useOrgLd()
 
 // 邮箱放在运行时常量里，避免 @ 被 vue-i18n 当成链接消息语法而编译报错
-const EMAIL = 'info@photogov.net'
+const EMAIL = 'info@photogov.xyz'
 
 useHead({
   title: t('refund.title'),

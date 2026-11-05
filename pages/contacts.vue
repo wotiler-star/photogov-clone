@@ -12,9 +12,9 @@ const url = useRequestURL()
 
 // 邮箱为与语言无关的固定数据，不走 i18n（@ 会触发 vue-i18n 链接格式解析错误）
 const EMAILS: Record<string, string> = {
-  info: 'info@photogov.net',
-  partner: 'partner@photogov.net',
-  media: 'media@photogov.net'
+  info: 'info@photogov.xyz',
+  partner: 'partner@photogov.xyz',
+  media: 'media@photogov.xyz'
 }
 const emailOf = (key: string) => EMAILS[key] || EMAILS.info
 

@@ -1,6 +1,6 @@
 // GET /api/app/v1/blog/get-author?slug=...
 // 对齐原站 Blog.GetAuthor 契约（原站为 POST，参数为作者 slug）。
-// 返回从 photogov.net 真实抓取的作者档案 + 其文章列表（data/author.json）。
+// 返回从 原站域名 真实抓取的作者档案 + 其文章列表（data/author.json）。
 import author from '../../../../../data/author.json'
 
 export default defineEventHandler((event) => {
