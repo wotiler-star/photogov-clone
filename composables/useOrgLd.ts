@@ -33,7 +33,7 @@ export function useOrgLd() {
   const schema = computed(() => ({
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    '@id': 'https://www.photogov.xyz/#organization',
+    '@id': `${origin.value}/#organization`,
     description: 'PhotoGov uses advanced artificial intelligence algorithms to create photos that are tailored to meet the specifications of different embassies and authorities. Our platform allows you to upload a photo of yourself and select the type of document for which you need the photo. Our algorithms then analyze the photo and make the necessary adjustments to ensure that it meets the specific requirements for that document.',
     name: 'PhotoGov',
     sameAs: [
@@ -41,13 +41,14 @@ export function useOrgLd() {
       'https://www.youtube.com/@Photogov',
       'https://www.trustpilot.com/review/photogov.xyz'
     ],
-    publishingPrinciples: 'https://www.photogov.xyz/editorial-policy/',
+    publishingPrinciples: `${origin.value}/editorial-policy/`,
     legalName: 'Y VISION TECHNOLOGIES LLP',
     foundingDate: '2024-02-28',
-    url: 'https://www.photogov.xyz/',
+    url: `${origin.value}/`,
+    // public/ 下只有 og-image.png；原写法 favicon/android-chrome-512x512.png 是死链
     logo: {
       '@type': 'ImageObject',
-      url: 'https://www.photogov.xyz/favicon/android-chrome-512x512.png'
+      url: `${origin.value}/og-image.png`
     },
     address: {
       '@type': 'PostalAddress',
@@ -59,10 +60,11 @@ export function useOrgLd() {
     },
     contactPoint: {
       '@type': 'ContactPoint',
-      url: 'https://www.photogov.xyz/support/',
+      url: `${origin.value}/support/`,
       email: 'info@photogov.xyz',
       contactType: 'Customer Service',
-      availableLanguage: ['en', 'es', 'it', 'pt', 'de', 'hi'],
+      // 与站点实际四语 en/zh/es/fr 对齐（原为 en/es/it/pt/de/hi）
+      availableLanguage: ['en', 'zh', 'es', 'fr'],
       areaServed: AREA_SERVED
     }
   }))

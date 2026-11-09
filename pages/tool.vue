@@ -17,13 +17,26 @@ useHead({
     { property: 'og:title', content: t('tool.pageTitle') },
     { property: 'og:description', content: t('tool.pageDesc') },
     { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: url.origin + '/tool' },
+    { property: 'og:url', content: url.origin + localePath('/tool') },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'robots', content: 'index,follow' }
   ],
-  link: [{ rel: 'canonical', href: url.origin + '/tool' }],
+  link: [{ rel: 'canonical', href: url.origin + localePath('/tool') }],
   script: [
     ...orgScripts.value,
+    {
+      key: 'ld-tool-software',
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: 'PhotoGov',
+        applicationCategory: 'UtilitiesApplication',
+        operatingSystem: 'Web browser',
+        url: url.origin + localePath('/tool'),
+        description: t('tool.pageDesc')
+      }).replace(/</g, '\\u003c')
+    },
     {
       key: 'ld-tool-bc',
       type: 'application/ld+json',
