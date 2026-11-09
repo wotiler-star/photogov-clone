@@ -69,7 +69,9 @@ export default defineNuxtConfig({
           name: 'keywords',
           content:
             'passport photo, visa photo, ID photo, photo maker, passport photo app, compliant photos, passport size photo, visa photo online, ID photo editor'
-        }
+        },
+        // Google Search Console site ownership verification (all locales)
+        { name: 'google-site-verification', content: 'vgH8s2C7yAcKcqz28LFmQFRqmPNXnMATHg43HOqqUjY' }
       ],
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
