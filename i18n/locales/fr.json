@@ -1481,6 +1481,13 @@
     "legalText": "PhotoGov est une plateforme indépendante. L’utilisation du service ne garantit pas l’approbation d’une demande. La responsabilité de vérifier l’exactitude et la validité des données personnelles, ainsi que la conformité aux règles de l’administration concernée, incombe au demandeur."
   },
   "knowledge": {
+    "meta": {
+      "indexDesc": "Explorez le centre de connaissances PhotoGov : exigences pour photos de passeport, visa et identité, guides pas à pas, normes officielles de format et réponses aux questions fréquentes, tout au même endroit.",
+      "faqDesc": "Réponses aux questions fréquentes sur le traitement des photos PhotoGov, la vérification de conformité, les tarifs, la sécurité, les téléchargements et les paramètres du compte.",
+      "guidesDesc": "Guides pas à pas pour prendre, retoucher et mettre en forme des photos de passeport, visa et identité conformes aux exigences officielles — du selfie à la planche d'impression conforme.",
+      "standardsDesc": "Normes officielles des photos de passeport et d'identité expliquées : spécifications biométriques, taille de la tête, couleur de fond, éclairage, format de fichier et règles ISO/IEC par pays.",
+      "requirementsDesc": "Exigences de taille, de fond et de format des photos pour passeports, visas et cartes d'identité dans plus de 190 pays. Vérifiez les spécifications exactes de votre document avant de faire votre demande."
+    },
     "eyebrow": "Base de connaissances",
     "title": "Centre de connaissances photo passeport, visa et identité",
     "sub": "Tout ce qu’il faut savoir sur les photos numériques, biométriques et d’identité — exigences, guides, normes et dépannage.",

@@ -17,6 +17,10 @@ const HREFLANG: Record<string, string> = {
 }
 const XDEFAULT = 'en'
 
+// 内容最后修改日：模块加载时求值一次（= 服务启动 / 部署日），整个进程生命周期内稳定。
+// 不能放在请求处理里用 new Date()，否则每次抓取都变，Google 会忽略 lastmod 信号。
+const LASTMOD = new Date().toISOString().slice(0, 10)
+
 // Build a locale-prefixed path. Home ("/") becomes "/en", "/zh", ...
 function localePath(p: string, loc: string): string {
   return p === '/' ? `/${loc}` : `/${loc}${p}`
@@ -93,7 +97,7 @@ export default defineEventHandler((event) => {
       ).join('\n')
       const xdefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${origin}${localePath(page.p, XDEFAULT)}" />`
       lines.push(
-        `  <url>\n    <loc>${esc(locUrl)}</loc>\n    <priority>${page.pri}</priority>\n    <changefreq>${page.freq}</changefreq>\n${alts}\n${xdefault}\n  </url>`
+        `  <url>\n    <loc>${esc(locUrl)}</loc>\n    <lastmod>${LASTMOD}</lastmod>\n    <priority>${page.pri}</priority>\n    <changefreq>${page.freq}</changefreq>\n${alts}\n${xdefault}\n  </url>`
       )
     }
   }

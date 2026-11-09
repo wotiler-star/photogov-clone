@@ -78,7 +78,22 @@ useHead(() => {
       { name: 'robots', content: 'index,follow' }
     ].filter((m) => m.content !== ''),
     link: [{ rel: 'canonical', href: canonical }],
-    script: schemaOrg.value ? [{ type: 'application/ld+json', innerHTML: JSON.stringify(schemaOrg.value) }] : []
+    script: [
+      ...(schemaOrg.value ? [{ type: 'application/ld+json', innerHTML: JSON.stringify(schemaOrg.value) }] : []),
+      {
+        key: 'ld-author-breadcrumb',
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: t('nav.home'), item: url.origin + localePath('/') },
+            { '@type': 'ListItem', position: 2, name: t('author.editorialTeam'), item: url.origin + localePath('/editorial-team') },
+            { '@type': 'ListItem', position: 3, name: a.name }
+          ]
+        }).replace(/</g, '\\u003c')
+      }
+    ]
   }
 })
 </script>

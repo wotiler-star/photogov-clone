@@ -1510,6 +1510,13 @@
     "legalText": "PhotoGov is an independent platform. Use of the service does not guarantee the approval of any application. Responsibility for verifying the correctness and validity of personal data, as well as compliance with the rules of the relevant government agency, remains with the applicant."
   },
   "knowledge": {
+    "meta": {
+      "indexDesc": "Explore the PhotoGov knowledge center: passport, visa and ID photo requirements, step-by-step guides, official size standards and answers to common questions — all in one place.",
+      "faqDesc": "Answers to frequently asked questions about PhotoGov photo processing, compliance checks, pricing, security, downloads and account settings.",
+      "guidesDesc": "Step-by-step guides to taking, editing and formatting passport, visa and ID photos that meet official requirements — from selfie to compliant print sheet.",
+      "standardsDesc": "Official passport and ID photo standards explained: biometric specs, head size, background colour, lighting, file format and ISO/IEC rules by country.",
+      "requirementsDesc": "Photo size, background and format requirements for passports, visas and ID cards in 190+ countries. Find the exact specs for your document before you apply."
+    },
     "eyebrow": "Knowledge",
     "title": "Passport, Visa & ID Photo Knowledge Center",
     "sub": "Everything you need to know about digital, biometric and ID photos — requirements, guides, standards & troubleshooting.",

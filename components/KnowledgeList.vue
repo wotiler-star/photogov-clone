@@ -87,7 +87,17 @@ const breadcrumbLd = computed(() => {
   }
   return { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items }
 })
+// 各分类页独立 meta description，避免继承全站英文兜底（4 语各自本地化）
+const metaDesc = computed(() => {
+  const key = props.kind === 'popular' ? 'indexDesc' : props.kind + 'Desc'
+  return t('knowledge.meta.' + key)
+})
+
 useHead(() => ({
+  meta: [
+    { name: 'description', content: metaDesc.value },
+    { property: 'og:description', content: metaDesc.value }
+  ],
   script: [
     ...orgScripts.value,
     { key: 'ld-kb-breadcrumb', type: 'application/ld+json', innerHTML: escLd(JSON.stringify(breadcrumbLd.value)) }

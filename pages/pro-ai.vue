@@ -3,7 +3,7 @@
 // 对标原站 pro_photos 加购服务：AI 增强、合规、9 张成片、一次性付费。
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useLocalePath } from '#imports'
+import { useLocalePath, useRequestURL } from '#imports'
 import InfoPageShell from '~/components/InfoPageShell.vue'
 import ProAICheckout from '~/components/ProAICheckout.vue'
 import { PRO_AI_PRICE, formatPrice } from '~/utils/pricing'
@@ -39,10 +39,27 @@ function onSubscribe() {
   navigateTo(localePath('/prices'))
 }
 
+const url = useRequestURL()
+const breadcrumbLd = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t('nav.home'), item: url.origin + localePath('/') },
+    { '@type': 'ListItem', position: 2, name: t('nav.proAi') }
+  ]
+}))
+
 useHead(() => ({
   title: t('proAi.metaTitle'),
   meta: [
     { name: 'description', content: t('proAi.metaDesc') }
+  ],
+  script: [
+    {
+      key: 'ld-proai-breadcrumb',
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify(breadcrumbLd.value).replace(/</g, '\\u003c')
+    }
   ]
 }))
 </script>

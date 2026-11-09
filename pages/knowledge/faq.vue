@@ -11,7 +11,14 @@ const url = useRequestURL()
 const { scripts: orgScripts } = useOrgLd()
 const { faqCategories, faqItems } = useData()
 
-useHead({ title: `${t('knowledge.tabFaq')} — ${t('knowledge.title')}` })
+const faqDesc = t('knowledge.meta.faqDesc')
+useHead({
+  title: `${t('knowledge.tabFaq')} — ${t('knowledge.title')}`,
+  meta: [
+    { name: 'description', content: faqDesc },
+    { property: 'og:description', content: faqDesc }
+  ]
+})
 
 const cats = faqCategories()
 const items = faqItems()
