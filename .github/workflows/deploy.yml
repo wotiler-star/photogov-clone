@@ -1,0 +1,60 @@
+name: Deploy to production
+
+# 只手动触发：Secrets 未配置前不会因 push 而报红。
+# 配好 Secrets 后可加 `push: branches: [main]` 变成 push 即部署。
+on:
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason for this deploy'
+        required: false
+        default: 'manual deploy'
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Verify required secrets
+        env:
+          S_HOST: ${{ secrets.DEPLOY_HOST }}
+          S_USER: ${{ secrets.DEPLOY_USER }}
+          S_KEY: ${{ secrets.DEPLOY_KEY }}
+          S_PATH: ${{ secrets.DEPLOY_PATH }}
+          S_RESTART: ${{ secrets.DEPLOY_RESTART_CMD }}
+        run: |
+          missing=""
+          for v in S_HOST S_USER S_KEY S_PATH S_RESTART; do
+            eval "val=\$$v"
+            [ -z "$val" ] && missing="$missing $v"
+          done
+          if [ -n "$missing" ]; then
+            echo "::error::缺少 Secrets:$missing"
+            echo "需要: DEPLOY_HOST / DEPLOY_USER / DEPLOY_KEY / DEPLOY_PATH / DEPLOY_RESTART_CMD"
+            exit 1
+          fi
+
+      - name: Deploy over SSH
+        uses: appleboy/ssh-action@v1.0.3
+        env:
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+          DEPLOY_RESTART_CMD: ${{ secrets.DEPLOY_RESTART_CMD }}
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: ${{ secrets.DEPLOY_PORT || '22' }}
+          envs: DEPLOY_PATH,DEPLOY_RESTART_CMD
+          script: |
+            set -e
+            cd "$DEPLOY_PATH"
+            git fetch origin main
+            git reset --hard origin/main
+            npm ci
+            npm run build
+            eval "$DEPLOY_RESTART_CMD"
+            curl -fsS -o /dev/null -w "deploy check HTTP=%{http_code}\n" https://www.photogov.xyz/en
