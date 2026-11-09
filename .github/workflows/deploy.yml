@@ -1,8 +1,10 @@
 name: Deploy to production
 
-# 只手动触发：Secrets 未配置前不会因 push 而报红。
-# 配好 Secrets 后可加 `push: branches: [main]` 变成 push 即部署。
+# push 到 main 即触发；Secrets 未配置时优雅跳过（job 成功、不报红）。
+# 也可在 Actions 页面手动 workflow_dispatch。
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
     inputs:
       reason:
@@ -20,6 +22,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Verify required secrets
+        id: check
         env:
           S_HOST: ${{ secrets.DEPLOY_HOST }}
           S_USER: ${{ secrets.DEPLOY_USER }}
@@ -33,12 +36,15 @@ jobs:
             [ -z "$val" ] && missing="$missing $v"
           done
           if [ -n "$missing" ]; then
-            echo "::error::缺少 Secrets:$missing"
+            echo "::warning::Secrets 未配置，跳过本次部署。缺少:$missing"
             echo "需要: DEPLOY_HOST / DEPLOY_USER / DEPLOY_KEY / DEPLOY_PATH / DEPLOY_RESTART_CMD"
-            exit 1
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Deploy over SSH
+        if: steps.check.outputs.skip != 'true'
         uses: appleboy/ssh-action@v1.0.3
         env:
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
