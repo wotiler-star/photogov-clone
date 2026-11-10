@@ -28,19 +28,26 @@ _static_backup
 photogov-i18n.bundle
 .uploads/
 
-# 会员用户数据（含隐私，不入库）
+# === data 策略（重要，改动前先读）===
+# 内容数据文件（documents / knowledge / blog / countries / faq / reviews /
+#   author / knowledgeCategories / orderServices 及其 *ContentIndex）：属于站点
+#   内容，驱动 SSR 页面与 /sitemap.xml，必须入库才能随 `git reset --hard origin/main`
+#   部署上线（当前已全部跟踪，见 git ls-tree HEAD data/）。
+# ⚠️ 切勿添加 data/ 或 data/*.json 之类的泛忽略规则，否则内容会悄悄停止部署、
+#   线上 sitemap 条目数骤降而本地正常（已踩过这个坑）。
+#
+# 以下为运行时 / 隐私状态文件：含 PII、每实例独立、绝不可入库。
 data/users.json
-
-# 订单/照片/用户数据（含隐私，不入库）
 data/orders.json
 data/photos.json
 data/payments.json
 
+# 抓取原始响应 / 中间产物（可再生：scripts/fetch_documents_api.py）
+data/_staging/
+
 # delivery artifacts
 *.bundle
 *.zip
-# 抓取的原始响应/中间产物（可再生：运行 scripts/fetch_documents_api.py）
-data/_staging/
 
 # REA 逆向工作文件（证据/截图/任务状态，不入库）
 .rea/
