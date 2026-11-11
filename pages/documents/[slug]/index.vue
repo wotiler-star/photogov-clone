@@ -290,7 +290,7 @@ const breadcrumbSchema = computed(() => {
 // 因此本页的 SEO 强化聚焦在「缺失的 BreadcrumbList」+ 可见面包屑导航。
 
 // JSON-LD 注入前的安全清洗：转义 `</` 避免提前闭合 <script>，并抹除残留的原站域名。
-const escLd = (s: string) => s.replace(/https:\/\/photogov\.net/g, '').replace(/</g, '\\u003c')
+const escLd = (s: string) => s.replace(/https?:\/\/(?:www\.)?photogov\.(?:net|com)/g, '').replace(/</g, '\\u003c')
 
 const jsonLdScripts = computed(() => {
   const scripts: { key: string; type: string; innerHTML: string }[] = [
@@ -498,12 +498,12 @@ useHead({
           </div>
           <p class="text-[15px] leading-relaxed">
             {{ $t('docSections.sourcesChecked', { authority: authorityName }) }}:
-            <a :href="officialSourceLinks[0].url" target="_blank" rel="noopener" class="break-all text-blue-600 underline duration-200 hover:text-red-600">{{ officialSourceLinks[0].url }}</a>
+            <a :href="officialSourceLinks[0].url" target="_blank" rel="noopener noreferrer" class="break-all text-blue-600 underline duration-200 hover:text-red-600">{{ officialSourceLinks[0].url }}</a>
             <span aria-hidden="true"> · </span>{{ $t('docSections.sourcesLastChecked', { date: lastCheckedDot }) }}
           </p>
           <p v-for="(l, i) in officialSourceLinks" :key="i" class="text-[15px] leading-relaxed">
             <b class="font-semibold">{{ i === 0 ? $t('docSections.linkPhotoStandards') : l.host }}: </b>
-            <a :href="l.url" target="_blank" rel="noopener" class="text-blue-600 underline duration-200 hover:text-red-600">{{ l.host }}</a>
+            <a :href="l.url" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline duration-200 hover:text-red-600">{{ l.host }}</a>
           </p>
         </div>
       </div>

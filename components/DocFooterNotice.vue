@@ -30,7 +30,7 @@ const localePath = useLocalePath()
         <div class="font-sans text-[12px] font-normal">
           <p>
             {{ $t('docNotice.lead') }}
-            <NuxtLink :to="localePath('/global-id-photo-compliance')" target="_blank" class="text-blue-600 underline duration-200 hover:text-red-600">
+            <NuxtLink :to="localePath('/global-id-photo-compliance')" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline duration-200 hover:text-red-600">
               {{ $t('docNotice.regulations') }}
             </NuxtLink>.
           </p>

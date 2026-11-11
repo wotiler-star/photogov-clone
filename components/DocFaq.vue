@@ -31,12 +31,12 @@ const toggle = (i: number) => {
 /**
  * 答案富文本清洗：
  * 1. 原站答案里的绝对站内链接（https://原站域名/xxx）改成本站相对路径，避免出站；
- * 2. 剩余外链补 target="_blank" rel="noopener"（安全与 SEO 惯例）。
+ * 2. 剩余外链补 target="_blank" rel="noopener noreferrer"（安全与 SEO 惯例）。
  */
 const fmt = (html: string) =>
   String(html || '')
     // 1) 原站答案里的绝对站内链接改成本站相对路径，避免把用户带出站
-    .replace(/https:\/\/photogov\.net/g, '')
+    .replace(/https?:\/\/(?:www\.)?photogov\.(?:net|com)/g, '')
     // 2) 站内链接（href 以 / 开头）：去掉 target/rel——原站数据里部分站内链
     //    自带 target='_blank'，会把用户带出当前标签页，这里统一拉回本窗口
     .replace(
@@ -45,7 +45,7 @@ const fmt = (html: string) =>
         `<a${attrs.replace(/\s*target=["'][^"']*["']/g, '').replace(/\s*rel=["'][^"']*["']/g, '')}>`,
     )
     // 3) 剩下的外链补安全属性：站内链接（href 以 / 开头）与已有 target 的都跳过
-    .replace(/<a(?![^>]*href=["']\/)(?![^>]*\starget=)(?=\s)/g, '<a target="_blank" rel="noopener"')
+    .replace(/<a(?![^>]*href=["']\/)(?![^>]*\starget=)(?=\s)/g, '<a target="_blank" rel="noopener noreferrer"')
 
 const list = computed(() =>
   (props.items || []).filter((it) => it && it.q).map((it) => ({ q: String(it.q), a: fmt(it.a) }))

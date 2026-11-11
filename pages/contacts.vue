@@ -209,7 +209,7 @@ useHead(() => ({
         <span class="shrink-0" v-html="socialIcon(i)" />
         <p class="flex-1">
           <span class="font-medium">{{ s.label }}</span>
-          <a :href="s.url" target="_blank" rel="noopener" class="ml-1.5 text-blue-600 underline duration-200 hover:text-red-600">{{ s.handle }}</a>
+          <a :href="s.url" target="_blank" rel="noopener noreferrer nofollow" class="ml-1.5 text-blue-600 underline duration-200 hover:text-red-600">{{ s.handle }}</a>
         </p>
       </div>
     </div>

@@ -37,13 +37,13 @@ const GOOGLE_REVIEWS = 'https://www.google.com/maps/place/Digital+Passport+Photo
           {{ $t('docByline.team') }}
         </NuxtLink>
         <span aria-hidden="true"> · </span>
-        <a :href="GOOGLE_REVIEWS" target="_blank" rel="noopener" class="whitespace-nowrap underline duration-200 hover:text-red-600">
+        <a :href="GOOGLE_REVIEWS" target="_blank" rel="noopener noreferrer" class="whitespace-nowrap underline duration-200 hover:text-red-600">
           ★ {{ $t('docByline.rating') }}
         </a>
         <template v-if="authority">
           <span aria-hidden="true"> · </span>
           {{ $t('docByline.checkedAgainst') }}
-          <a :href="authorityUrl" target="_blank" rel="noopener" class="underline duration-200 hover:text-red-600">{{ authority }}</a>
+          <a :href="authorityUrl" target="_blank" rel="noopener noreferrer" class="underline duration-200 hover:text-red-600">{{ authority }}</a>
         </template>
       </p>
     </div>

@@ -15,7 +15,7 @@ export function useRichText() {
         const raw = url.slice(1)
         const path = raw && !raw.startsWith('/') ? `/${raw}` : raw
         const href = internal ? (path ? localePath(path) : localePath('/')) : url
-        const attrs = internal ? '' : ' target="_blank" rel="noopener"'
+        const attrs = internal ? '' : ' target="_blank" rel="noopener noreferrer"'
         return `<a href="${href}" class="text-blue-600 underline duration-200 hover:text-red-600"${attrs}>${label}</a>`
       })
       .replace(/\n/g, '<br>')

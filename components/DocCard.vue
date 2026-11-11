@@ -68,7 +68,7 @@ const sizeLabel = computed(() => {
       v-if="doc.source && /^https?:\/\//i.test(doc.source)"
       :href="doc.source"
       target="_blank"
-      rel="noopener"
+      rel="noopener noreferrer"
       class="relative z-10 mt-3 inline-flex items-center gap-1 self-start text-xs font-semibold text-brand-blue hover:underline"
     >
       {{ $t('doc.cardOfficial') }}

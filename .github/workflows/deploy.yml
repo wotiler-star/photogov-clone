@@ -1,7 +1,8 @@
 name: Deploy to production
 
-# push 到 main 即触发；Secrets 未配置时优雅跳过（job 成功、不报红）。
-# 也可在 Actions 页面手动 workflow_dispatch。
+# push 到 main 即触发：打包源码 → Hostinger 官方 API 上传 archive → 触发 Node.js 构建 → 验收。
+# 只依赖 1 个 Secret：HOSTINGER_API_TOKEN（未配置时优雅跳过，job 成功、不报红）。
+# HOSTINGER_ACCOUNT / HOSTINGER_DOMAIN 走 Variables，带默认值，可不配。
 on:
   push:
     branches: [main]
@@ -19,48 +20,103 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
+    env:
+      H_ACCOUNT: ${{ vars.HOSTINGER_ACCOUNT || 'u906113796' }}
+      H_DOMAIN: ${{ vars.HOSTINGER_DOMAIN || 'photogov.xyz' }}
     steps:
-      - name: Verify required secrets
+      - name: Verify required secret
         id: check
         env:
-          S_HOST: ${{ secrets.DEPLOY_HOST }}
-          S_USER: ${{ secrets.DEPLOY_USER }}
-          S_KEY: ${{ secrets.DEPLOY_KEY }}
-          S_PATH: ${{ secrets.DEPLOY_PATH }}
-          S_RESTART: ${{ secrets.DEPLOY_RESTART_CMD }}
+          S_TOKEN: ${{ secrets.HOSTINGER_API_TOKEN }}
         run: |
-          missing=""
-          for v in S_HOST S_USER S_KEY S_PATH S_RESTART; do
-            eval "val=\$$v"
-            [ -z "$val" ] && missing="$missing $v"
-          done
-          if [ -n "$missing" ]; then
-            echo "::warning::Secrets 未配置，跳过本次部署。缺少:$missing"
-            echo "需要: DEPLOY_HOST / DEPLOY_USER / DEPLOY_KEY / DEPLOY_PATH / DEPLOY_RESTART_CMD"
+          if [ -z "$S_TOKEN" ]; then
+            echo "::warning::HOSTINGER_API_TOKEN 未配置，跳过本次部署。"
+            echo "在 Settings → Secrets and variables → Actions 添加该 Secret 后即可自动部署。"
             echo "skip=true" >> "$GITHUB_OUTPUT"
           else
             echo "skip=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Deploy over SSH
+      - name: Checkout
         if: steps.check.outputs.skip != 'true'
-        uses: appleboy/ssh-action@v1.0.3
+        uses: actions/checkout@v4
+
+      - name: Package source archive
+        if: steps.check.outputs.skip != 'true'
+        # Linux zip 会为目录写出 755 权限位；PowerShell Compress-Archive 不会，
+        # 会导致服务器上 nuxt prepare 报 EACCES: scandir 'server/api/app/v1'。
+        run: |
+          zip -q -r deploy.zip . \
+            -x "node_modules/*" ".git/*" ".output/*" ".nuxt/*" ".github/*" \
+               ".rea/*" ".workbuddy/*" "shots/*" "*.log" "*.zip" "deploy.zip"
+          echo "archive bytes: $(stat -c%s deploy.zip)"
+          unzip -Z1 deploy.zip | grep -E '^(package\.json|nuxt\.config\.ts|server/routes/sitemap\.xml\.ts)$' || true
+
+      - name: Upload archive via Hostinger TUS
+        if: steps.check.outputs.skip != 'true'
         env:
-          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
-          DEPLOY_RESTART_CMD: ${{ secrets.DEPLOY_RESTART_CMD }}
-        with:
-          host: ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
-          key: ${{ secrets.DEPLOY_KEY }}
-          port: ${{ secrets.DEPLOY_PORT || '22' }}
-          envs: DEPLOY_PATH,DEPLOY_RESTART_CMD
-          script: |
-            set -e
-            cd "$DEPLOY_PATH"
-            git fetch origin main
-            git reset --hard origin/main
-            npm ci
-            npm run build
-            eval "$DEPLOY_RESTART_CMD"
-            curl -fsS -o /dev/null -w "deploy check HTTP=%{http_code}\n" https://www.photogov.xyz/en
+          H_TOKEN: ${{ secrets.HOSTINGER_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          API="https://developers.hostinger.com/api/hosting/v1"
+          CREDS=$(curl -fsS -X POST "$API/files/upload-urls" \
+            -H "Authorization: Bearer $H_TOKEN" \
+            -H "Content-Type: application/json" -H "Accept: application/json" \
+            -d "{\"username\":\"$H_ACCOUNT\",\"domain\":\"$H_DOMAIN\"}")
+          U=$(echo "$CREDS" | jq -r .url)
+          A=$(echo "$CREDS" | jq -r .auth_key)
+          R=$(echo "$CREDS" | jq -r .rest_auth_key)
+          SIZE=$(stat -c%s deploy.zip)
+          [ -n "$U" ] && [ "$U" != "null" ] || { echo "no upload url: $CREDS"; exit 1; }
+          curl -fsS -o /dev/null -X POST "$U/deploy.zip?override=true" \
+            -H "X-Auth: $A" -H "X-Auth-Rest: $R" -H "Tus-Resumable: 1.0.0" \
+            -H "Upload-Length: $SIZE" -H "Upload-Offset: 0"
+          curl -fsS -o /dev/null -X PATCH "$U/deploy.zip?override=true" \
+            -H "X-Auth: $A" -H "X-Auth-Rest: $R" -H "Tus-Resumable: 1.0.0" \
+            -H "Content-Type: application/offset+octet-stream" -H "Upload-Offset: 0" \
+            --data-binary @deploy.zip
+          echo "upload done ($SIZE bytes)"
+
+      - name: Trigger Hostinger Node.js build
+        if: steps.check.outputs.skip != 'true'
+        id: build
+        env:
+          H_TOKEN: ${{ secrets.HOSTINGER_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          API="https://developers.hostinger.com/api/hosting/v1/accounts/$H_ACCOUNT/websites/$H_DOMAIN/nodejs/builds"
+          BODY=$(jq -n '{node_version:22,app_type:"nuxt",output_directory:".output",build_script:"build",entry_file:"server/index.mjs",package_manager:"npm",source_type:"archive",source_options:{archive_path:"deploy.zip"}}')
+          RESP=$(curl -fsS -X POST "$API" \
+            -H "Authorization: Bearer $H_TOKEN" \
+            -H "Content-Type: application/json" -H "Accept: application/json" \
+            -d "$BODY")
+          UUID=$(echo "$RESP" | jq -r .uuid)
+          [ -n "$UUID" ] && [ "$UUID" != "null" ] || { echo "build not started: $RESP"; exit 1; }
+          echo "uuid=$UUID" >> "$GITHUB_OUTPUT"
+          echo "Build started: $UUID"
+
+      - name: Wait for build
+        if: steps.check.outputs.skip != 'true'
+        env:
+          H_TOKEN: ${{ secrets.HOSTINGER_API_TOKEN }}
+          UUID: ${{ steps.build.outputs.uuid }}
+        run: |
+          set -euo pipefail
+          API="https://developers.hostinger.com/api/hosting/v1/accounts/$H_ACCOUNT/websites/$H_DOMAIN/nodejs/builds/$UUID"
+          STATE="pending"
+          for i in $(seq 1 60); do
+            STATE=$(curl -fsS "$API" -H "Authorization: Bearer $H_TOKEN" -H "Accept: application/json" | jq -r .state)
+            echo "[$i] state=$STATE"
+            case "$STATE" in
+              completed|success) break ;;
+              failed|error|cancelled) echo "::error::build $STATE"; exit 1 ;;
+            esac
+            sleep 10
+          done
+          [ "$STATE" = "completed" ] || [ "$STATE" = "success" ] || { echo "::error::build did not finish in time"; exit 1; }
+
+      - name: Verify live site
+        if: steps.check.outputs.skip != 'true'
+        run: |
+          curl -fsS -o /dev/null -w "live HTTP=%{http_code}\n" https://www.photogov.xyz/en

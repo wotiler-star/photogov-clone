@@ -122,7 +122,7 @@ useHead(() => ({
     <div class="mt-6 flex items-center font-sans">
       <span class="shrink-0" v-html="icons.google" />
       <span class="ml-1.5 font-medium">{{ $t('reviewsPage.byGoogle') }}
-        <a :href="GOOGLE_URL" target="_blank" rel="noreferrer nofollow" class="text-blue-600 underline duration-200 hover:text-red-600">{{ $t('reviewsPage.googleName') }}</a>
+        <a :href="GOOGLE_URL" target="_blank" rel="noopener noreferrer nofollow" class="text-blue-600 underline duration-200 hover:text-red-600">{{ $t('reviewsPage.googleName') }}</a>
       </span>
       <div class="ml-8">
         <svg v-for="n in 5" :key="n" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline-block size-6">

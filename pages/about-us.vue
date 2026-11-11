@@ -86,7 +86,7 @@ useHead({
           <a
             class="flex items-center gap-x-1 text-[12px] text-blue-600 underline duration-200 hover:text-red-600"
             target="_blank"
-            rel="noreferrer, nofollow"
+            rel="noopener noreferrer nofollow"
             href="https://www.google.com/maps/place/Digital+Passport+Photo+-+Photogov/"
           >
             <span class="size-3 shrink-0" v-html="icons.google" />
@@ -195,7 +195,7 @@ useHead({
         <a
           href="https://travel.state.gov/content/travel/en/passports/how-apply/photos.html"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           class="text-blue-600 underline duration-200 hover:text-red-600"
         >{{ $t('aboutPage.usLink') }}</a>
       </p>

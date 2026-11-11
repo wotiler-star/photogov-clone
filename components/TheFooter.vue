@@ -85,7 +85,7 @@ const countryLinks = (() => {
         <a
           :href="appStoreUrl"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer nofollow"
           :aria-label="$t('footer.appStore')"
           class="flex items-center gap-3 rounded-xl bg-black px-4 py-2.5 text-white transition hover:opacity-85"
         >
@@ -100,7 +100,7 @@ const countryLinks = (() => {
         <a
           :href="googlePlayUrl"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer nofollow"
           :aria-label="$t('footer.googlePlay')"
           class="flex items-center gap-3 rounded-xl bg-black px-4 py-2.5 text-white transition hover:opacity-85"
         >
@@ -176,12 +176,12 @@ const countryLinks = (() => {
             </NuxtLink>
           </li>
           <li>
-            <a :href="appStoreUrl" target="_blank" rel="noopener" class="text-[#374151] hover:text-black hover:underline">
+            <a :href="appStoreUrl" target="_blank" rel="noopener noreferrer nofollow" class="text-[#374151] hover:text-black hover:underline">
               {{ $t('footer.links.downloadIos') }}
             </a>
           </li>
           <li>
-            <a :href="googlePlayUrl" target="_blank" rel="noopener" class="text-[#374151] hover:text-black hover:underline">
+            <a :href="googlePlayUrl" target="_blank" rel="noopener noreferrer nofollow" class="text-[#374151] hover:text-black hover:underline">
               {{ $t('footer.links.downloadAndroid') }}
             </a>
           </li>

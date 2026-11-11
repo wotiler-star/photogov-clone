@@ -41,7 +41,7 @@ const docName = computed(() => {
 })
 // 把正文里的绝对链接改写为本地相对链接，保持站点自包含
 const body = computed(() =>
-  (hub.value?.content || '').replace(/https:\/\/photogov\.net/g, ''),
+  (hub.value?.content || '').replace(/https?:\/\/(?:www\.)?photogov\.(?:net|com)/g, ''),
 )
 const pageTitle = computed(() => hub.value?.meta?.title || docName.value)
 const pageDescription = computed(() => hub.value?.meta?.description || '')
@@ -62,7 +62,7 @@ useHead(() => ({
     key: `ld-hub-${i}`,
     type: 'application/ld+json',
     // 把目标站 canonical URL 改写为本地，保证结构化数据自包含
-    innerHTML: (typeof s === 'string' ? s : JSON.stringify(s)).replace(/https:\/\/photogov\.net/g, ''),
+    innerHTML: (typeof s === 'string' ? s : JSON.stringify(s)).replace(/https?:\/\/(?:www\.)?photogov\.(?:net|com)/g, ''),
   })),
 }))
 </script>
