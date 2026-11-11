@@ -15,8 +15,11 @@
  * 默认全部收起（--rows: 0fr），可同时展开多项；动画沿用 F4 已验证的 grid-rows 方案。
  */
 import { ref, computed } from 'vue'
+import { useLocalePath } from '#imports'
+import { localizeHtml } from '~/utils/localizeHtml'
 
 const props = defineProps<{ items: { q: string; a: string }[] }>()
+const localePath = useLocalePath()
 
 /** 展开项下标集合（原站默认全收起，SEEN） */
 const open = ref<Set<number>>(new Set())
@@ -48,7 +51,7 @@ const fmt = (html: string) =>
     .replace(/<a(?![^>]*href=["']\/)(?![^>]*\starget=)(?=\s)/g, '<a target="_blank" rel="noopener noreferrer"')
 
 const list = computed(() =>
-  (props.items || []).filter((it) => it && it.q).map((it) => ({ q: String(it.q), a: fmt(it.a) }))
+  (props.items || []).filter((it) => it && it.q).map((it) => ({ q: String(it.q), a: localizeHtml(fmt(it.a), localePath) }))
 )
 </script>
 

@@ -15,6 +15,7 @@ import { useRoute } from 'vue-router'
 import { useRequestURL } from '#imports'
 import { useApi } from '~/composables/useApi'
 import { useData } from '~/composables/useData'
+import { localizeHtml } from '~/utils/localizeHtml'
 
 const localePath = useLocalePath()
 const route = useRoute()
@@ -41,7 +42,10 @@ const docName = computed(() => {
 })
 // 把正文里的绝对链接改写为本地相对链接，保持站点自包含
 const body = computed(() =>
-  (hub.value?.content || '').replace(/https?:\/\/(?:www\.)?photogov\.(?:net|com)/g, ''),
+  localizeHtml(
+    (hub.value?.content || '').replace(/https?:\/\/(?:www\.)?photogov\.(?:net|com)/g, ''),
+    localePath,
+  ),
 )
 const pageTitle = computed(() => hub.value?.meta?.title || docName.value)
 const pageDescription = computed(() => hub.value?.meta?.description || '')

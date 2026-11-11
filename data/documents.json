@@ -260,7 +260,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://emirates.com/",
+   "source": "https://emirates.com/",
    "color": "In color",
    "verified": true,
    "description": "Make UAE Visa online Emirates.com 300x369 pixels Photos Online for Free 1.Take a selfie on your phone 2.Choose the document 3.Upload your Photo 4.Few Seconds Processing by AI 5.Get Perfect Photo for Document",
@@ -284,7 +284,7 @@
    },
    "backgroundRaw": "rgb(238,238,238);",
    "officialLinks": [
-    "http://emirates.com/"
+    "https://emirates.com/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/AE.webp",
@@ -649,7 +649,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.immi.gov.au/allforms/pdf/1419.pdf",
+   "source": "https://www.immi.gov.au/allforms/pdf/1419.pdf",
    "color": "In color",
    "verified": true,
    "description": "Make an Australian visa photo online for free: upload your selfie and get a submission‑ready digital or printable photo that matches official requirements.",
@@ -673,7 +673,7 @@
    },
    "backgroundRaw": "rgb(238,238,238);",
    "officialLinks": [
-    "http://www.immi.gov.au/allforms/pdf/1419.pdf"
+    "https://www.immi.gov.au/allforms/pdf/1419.pdf"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/AU.webp",
@@ -805,7 +805,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.bdembassyusa.org/index.php?page=instruction-mrp",
+   "source": "https://www.bdembassyusa.org/index.php?page=instruction-mrp",
    "color": "In color",
    "verified": true,
    "description": "Make a Bangladesh passport-size photo online for free. Crop and resize a suitable phone photo to 45 x 55 mm and download the digital or printable file.",
@@ -829,7 +829,7 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "http://www.bdembassyusa.org/index.php?page=instruction-mrp"
+    "https://www.bdembassyusa.org/index.php?page=instruction-mrp"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/bd.webp",
@@ -1196,7 +1196,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.cic.gc.ca/english/information/applications/photospecs.asp",
+   "source": "https://www.cic.gc.ca/english/information/applications/photospecs.asp",
    "color": "In color",
    "verified": true,
    "description": "Use our Canada visa photo editor to convert your selfie into a Canada visa photo size online for free: get a digital or printable visa-ready file in 30 seconds.",
@@ -1220,9 +1220,9 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "http://www.cic.gc.ca/english/information/applications/photospecs.asp",
-    "http://www.cic.gc.ca/english/pdf/photospecs-e.pdf",
-    "http://www.cic.gc.ca/english/visit/tourist.asp"
+    "https://www.cic.gc.ca/english/information/applications/photospecs.asp",
+    "https://www.cic.gc.ca/english/pdf/photospecs-e.pdf",
+    "https://www.cic.gc.ca/english/visit/tourist.asp"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/CA.webp",
@@ -1277,7 +1277,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.cic.gc.ca/english/information/applications/photospecs.asp",
+   "source": "https://www.cic.gc.ca/english/information/applications/photospecs.asp",
    "color": "In color",
    "verified": true,
    "description": "Adjust your selfie to the Canadian IRCC photo specifications for temporary resident visa by uploading it to PhotoGov. Ready for submission in 30 seconds.",
@@ -1301,7 +1301,7 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "http://www.cic.gc.ca/english/information/applications/photospecs.asp"
+    "https://www.cic.gc.ca/english/information/applications/photospecs.asp"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/CA.webp",
@@ -1433,7 +1433,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.china-embassy.org/chn/lszj/hzlxz/t1644169.htm",
+   "source": "https://www.china-embassy.org/chn/lszj/hzlxz/t1644169.htm",
    "color": "In color",
    "verified": true,
    "description": "Make a Chinese passport photo (33×48 mm) online for free: upload a selfie, the tool crops and resizes it to the official size. Download in 30 seconds.",
@@ -1457,7 +1457,7 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "http://www.china-embassy.org/chn/lszj/hzlxz/t1644169.htm"
+    "https://www.china-embassy.org/chn/lszj/hzlxz/t1644169.htm"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/cn.webp",
@@ -1589,7 +1589,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.fmprc.gov.cn/ce/cenp/eng/ConsularService/t1068494.htm",
+   "source": "https://www.fmprc.gov.cn/ce/cenp/eng/ConsularService/t1068494.htm",
    "color": "In color",
    "verified": true,
    "description": "Make a China visa online for free, 100% compliant with Chinese visa requirements. Upload your selfie, and get an application-ready photo in 30 seconds.",
@@ -1613,9 +1613,9 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "http://www.fmprc.gov.cn/ce/cenp/eng/ConsularService/t1068494.htm",
-    "http://www.china-embassy.org/eng/visas/t1421603.htm",
-    "http://www.chinaconsulatechicago.org/eng/ywzn/qzhz/qz/t1421600.htm"
+    "https://www.fmprc.gov.cn/ce/cenp/eng/ConsularService/t1068494.htm",
+    "https://www.china-embassy.org/eng/visas/t1421603.htm",
+    "https://www.chinaconsulatechicago.org/eng/ywzn/qzhz/qz/t1421600.htm"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/CN.webp",
@@ -1747,7 +1747,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.germany.info/contentblob/2177362/Daten/178573/Sample_Photos_DD.pdf",
+   "source": "https://www.germany.info/contentblob/2177362/Daten/178573/Sample_Photos_DD.pdf",
    "color": "In color",
    "verified": true,
    "description": "Get your German passport photo size online free of charge: 35x45 mm, suitable for all official IDs. All you need is a phone or a laptop.",
@@ -1771,8 +1771,8 @@
    },
    "backgroundRaw": "rgb(238,238,238);",
    "officialLinks": [
-    "http://www.germany.info/contentblob/2177362/Daten/178573/Sample_Photos_DD.pdf",
-    "http://www.london.diplo.de/contentblob/3401106/Daten/178573/PhotosIDPassport.pdf"
+    "https://www.germany.info/contentblob/2177362/Daten/178573/Sample_Photos_DD.pdf",
+    "https://www.london.diplo.de/contentblob/3401106/Daten/178573/PhotosIDPassport.pdf"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/de.webp",
@@ -1827,7 +1827,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.germany.info/Vertretung/usa/en/05__Legal/02__Directory__Services/01__Visa/__Visa__Photo__Instructions.html",
+   "source": "https://www.germany.info/Vertretung/usa/en/05__Legal/02__Directory__Services/01__Visa/__Visa__Photo__Instructions.html",
    "color": "In color",
    "verified": true,
    "description": "Create your 35x45 mm Germany visa photo online with PhotoGov. Fully compliant with Schengen rules. Auto-crop, background fix, printable and digital files in minutes.",
@@ -1851,8 +1851,8 @@
    },
    "backgroundRaw": "rgb(238,238,238);",
    "officialLinks": [
-    "http://www.germany.info/Vertretung/usa/en/05__Legal/02__Directory__Services/01__Visa/__Visa__Photo__Instructions.html",
-    "http://www.germany.info/contentblob/1965686/Daten/178573/Visa_Foto_Mustertafel_L.pdf"
+    "https://www.germany.info/Vertretung/usa/en/05__Legal/02__Directory__Services/01__Visa/__Visa__Photo__Instructions.html",
+    "https://www.germany.info/contentblob/1965686/Daten/178573/Visa_Foto_Mustertafel_L.pdf"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/DE.webp",
@@ -2140,7 +2140,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.egyptembassy.net/consular-services/passports-travel/visa-requirements/",
+   "source": "https://www.egyptembassy.net/consular-services/passports-travel/visa-requirements/",
    "color": "In color",
    "verified": true,
    "description": "Get your Egypt visa photo in 2x2 inch (51x51 mm) format online. Fully matches embassy standards with automatic crop, background fix, and lighting correction. Ready for print or digital use.",
@@ -2164,7 +2164,7 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "http://www.egyptembassy.net/consular-services/passports-travel/visa-requirements/"
+    "https://www.egyptembassy.net/consular-services/passports-travel/visa-requirements/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/EG.webp",
@@ -2373,7 +2373,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://extranjeros.empleo.gob.es/es/InformacionInteres/InformacionProcedimientos/Ciudadanosnocomunitarios/hoja092/",
+   "source": "https://extranjeros.empleo.gob.es/es/InformacionInteres/InformacionProcedimientos/Ciudadanosnocomunitarios/hoja092/",
    "color": "In color",
    "verified": true,
    "description": "Create Spain Visa Photo Online for Free. 1. On your phone, selfie yourself. 2. Select the sheet of paper 3. Upload your Photo 4. Few Seconds Processing using AI. 5. Get Perfect Image for Record Keeping",
@@ -2397,7 +2397,7 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "http://extranjeros.empleo.gob.es/es/InformacionInteres/InformacionProcedimientos/Ciudadanosnocomunitarios/hoja092/"
+    "https://extranjeros.empleo.gob.es/es/InformacionInteres/InformacionProcedimientos/Ciudadanosnocomunitarios/hoja092/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/document/some-document.svg",
@@ -2452,7 +2452,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://ethemb.se/wp-content/uploads/2013/04/Checklist-for-Passport-Renewal.pdf",
+   "source": "https://ethemb.se/wp-content/uploads/2013/04/Checklist-for-Passport-Renewal.pdf",
    "color": "In color",
    "verified": true,
    "description": "Make Ethiopia passport 3x4 cm Photos Online for Free 1.Take a selfie on your phone 2.Choose the document 3.Upload your Photo 4.Few Seconds Processing by AI 5.Get Perfect Photo for Document",
@@ -2476,8 +2476,8 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "http://ethemb.se/wp-content/uploads/2013/04/Checklist-for-Passport-Renewal.pdf",
-    "http://ethiopianembassy.org.br/paginas/passport"
+    "https://ethemb.se/wp-content/uploads/2013/04/Checklist-for-Passport-Renewal.pdf",
+    "https://ethiopianembassy.org.br/paginas/passport"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/et.webp",
@@ -2532,7 +2532,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.diplomatie.gouv.fr/en/IMG/pdf/sample_photos_france.pdf",
+   "source": "https://www.diplomatie.gouv.fr/en/IMG/pdf/sample_photos_france.pdf",
    "color": "In color",
    "verified": true,
    "description": "Make a Schengen visa photo size 35x45 mm online for free. Upload a selfie to our Schengen visa photo tool and get a digital or printable visa photo.",
@@ -2556,8 +2556,8 @@
    },
    "backgroundRaw": "rgb(238,238,238);",
    "officialLinks": [
-    "http://www.diplomatie.gouv.fr/en/IMG/pdf/sample_photos_france.pdf",
-    "http://www.immihelp.com/visas/schengenvisa/sample_photos_germany.pdf"
+    "https://www.diplomatie.gouv.fr/en/IMG/pdf/sample_photos_france.pdf",
+    "https://www.immihelp.com/visas/schengenvisa/sample_photos_germany.pdf"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/EU.webp",
@@ -2612,7 +2612,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.consulfrance-washington.org/IMG/pdf/depliant_norme_photo-2.pdf",
+   "source": "https://www.consulfrance-washington.org/IMG/pdf/depliant_norme_photo-2.pdf",
    "color": "In color",
    "verified": true,
    "description": "Create a free Online France Passport photo here. 1. On your phone, selfie yourself. 2. Select the sheet of paper 3. Upload your Photo 4. Few Seconds Processing using AI. 5. Get Perfect Image for Record Keeping",
@@ -2636,7 +2636,7 @@
    },
    "backgroundRaw": "rgb(238,238,238);",
    "officialLinks": [
-    "http://www.consulfrance-washington.org/IMG/pdf/depliant_norme_photo-2.pdf"
+    "https://www.consulfrance-washington.org/IMG/pdf/depliant_norme_photo-2.pdf"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/fr.webp",
@@ -2926,7 +2926,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.ukba.homeoffice.gov.uk/sitecontent/applicationforms/flr/photoguidance0409.pdf",
+   "source": "https://www.ukba.homeoffice.gov.uk/sitecontent/applicationforms/flr/photoguidance0409.pdf",
    "color": "In color",
    "verified": true,
    "description": "Create free UK Visa Photo Online. 1. On your phone, selfie yourself. 2. Select the sheet of paper 3. Upload your Photo 4. Few Seconds Processing using AI. 5. Get Perfect Image for Record Keeping",
@@ -2950,7 +2950,7 @@
    },
    "backgroundRaw": "rgb(238,238,238);",
    "officialLinks": [
-    "http://www.ukba.homeoffice.gov.uk/sitecontent/applicationforms/flr/photoguidance0409.pdf"
+    "https://www.ukba.homeoffice.gov.uk/sitecontent/applicationforms/flr/photoguidance0409.pdf"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/GB.webp",
@@ -3084,7 +3084,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.passport.gov.gr/en/npc-content/npc-periexomeno/technical-specifications.html",
+   "source": "https://www.passport.gov.gr/en/npc-content/npc-periexomeno/technical-specifications.html",
    "color": "In color",
    "verified": true,
    "description": "Avoid delays in your application by ensuring that your photo meets all requirements. PhotoGov simplifies the process — upload an image, leverage our system to process it, and in seconds you receive a Greek passport photo that is 100% compliant. Then go to your local store and have them print it out to ensure compliance!",
@@ -3108,8 +3108,8 @@
    },
    "backgroundRaw": "rgb(238,238,238);",
    "officialLinks": [
-    "http://www.passport.gov.gr/en/npc-content/npc-periexomeno/technical-specifications.html",
-    "http://www.passport.gov.gr/en/downloads/download.html?id=6"
+    "https://www.passport.gov.gr/en/npc-content/npc-periexomeno/technical-specifications.html",
+    "https://www.passport.gov.gr/en/downloads/download.html?id=6"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/gr.webp",
@@ -3164,7 +3164,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.gov.hk/en/residents/immigration/traveldoc/photorequirements.htm",
+   "source": "https://www.gov.hk/en/residents/immigration/traveldoc/photorequirements.htm",
    "color": "In color",
    "verified": true,
    "description": "Create a Hong Kong passport size photo 40x50 mm for free: upload your selfie to PhotoGov, and it will convert it into a HKSAR-compliant image.",
@@ -3188,8 +3188,8 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "http://www.gov.hk/en/residents/immigration/traveldoc/photorequirements.htm",
-    "http://www.gov.hk/en/residents/immigration/traveldoc/hksarpassport/applyhkpassport.htm"
+    "https://www.gov.hk/en/residents/immigration/traveldoc/photorequirements.htm",
+    "https://www.gov.hk/en/residents/immigration/traveldoc/hksarpassport/applyhkpassport.htm"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/hk.webp",
@@ -3946,7 +3946,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://passport.gov.in/oci/welcome",
+   "source": "https://passport.gov.in/oci/welcome",
    "color": "In color",
    "verified": true,
    "description": "Make India OCI Passport Photos Online for Free 1.Take a selfie on your phone 2.Choose the document 3.Upload your Photo 4.Few Seconds Processing by AI 5.Get Perfect Photo for Document",
@@ -3970,7 +3970,7 @@
    },
    "backgroundRaw": "rgb(238,238,238);",
    "officialLinks": [
-    "http://passport.gov.in/oci/welcome",
+    "https://passport.gov.in/oci/welcome",
     "https://passport.gov.in/oci/Photo-Spec-FINAL.pdf"
    ],
    "images": {
@@ -4259,7 +4259,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.vfsglobal.com/India/UK/",
+   "source": "https://www.vfsglobal.com/India/UK/",
    "color": "In color",
    "verified": true,
    "description": "Create a 190x190 pixel India visa photo for VFS Global. Upload a selfie and get a digital, background-corrected JPEG ready for online submission. Fast and compliant.",
@@ -4283,7 +4283,7 @@
    },
    "backgroundRaw": "rgb(238,238,238);",
    "officialLinks": [
-    "http://www.vfsglobal.com/India/UK/"
+    "https://www.vfsglobal.com/India/UK/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/IN.webp",
@@ -4415,7 +4415,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.consmontreal.esteri.it/resource/2010/05/11973_f_cons97PassaportiNovitaMaggio2011.pdf",
+   "source": "https://www.consmontreal.esteri.it/resource/2010/05/11973_f_cons97PassaportiNovitaMaggio2011.pdf",
    "color": "In color",
    "verified": true,
    "description": "Create Italy Passport photo Online. 1. On your phone, selfie yourself. 2. Select the sheet of paper 3. Upload your Photo 4. Few Seconds Processing using AI. 5. Get Perfect Image for Record Keeping",
@@ -4439,7 +4439,7 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "http://www.consmontreal.esteri.it/resource/2010/05/11973_f_cons97PassaportiNovitaMaggio2011.pdf"
+    "https://www.consmontreal.esteri.it/resource/2010/05/11973_f_cons97PassaportiNovitaMaggio2011.pdf"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/it.webp",
@@ -4494,7 +4494,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.ambwashingtondc.esteri.it/Ambasciata_Washington/Menu/In_linea_con_utente/Domande_frequenti/Visti_faq/Visa_Requirements.htm",
+   "source": "https://www.ambwashingtondc.esteri.it/Ambasciata_Washington/Menu/In_linea_con_utente/Domande_frequenti/Visti_faq/Visa_Requirements.htm",
    "color": "In color",
    "verified": true,
    "description": "Create a 35x45 mm Italy visa photo online. Upload a selfie and get a print-ready, background-corrected, and embassy-compliant image in minutes.",
@@ -4518,7 +4518,7 @@
    },
    "backgroundRaw": "rgb(238,238,238);",
    "officialLinks": [
-    "http://www.ambwashingtondc.esteri.it/Ambasciata_Washington/Menu/In_linea_con_utente/Domande_frequenti/Visti_faq/Visa_Requirements.htm"
+    "https://www.ambwashingtondc.esteri.it/Ambasciata_Washington/Menu/In_linea_con_utente/Domande_frequenti/Visti_faq/Visa_Requirements.htm"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/IT.webp",
@@ -4727,7 +4727,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.la.us.emb-japan.go.jp/e_web/e_m02_07_02.htm",
+   "source": "https://www.la.us.emb-japan.go.jp/e_web/e_m02_07_02.htm",
    "color": "In color",
    "verified": true,
    "description": "Make a Japan passport photo size 35x45 with our convenient online tool. Just upload a selfie, and get a 100% compliant image in under 30 seconds.",
@@ -4751,7 +4751,7 @@
    },
    "backgroundRaw": "rgb(238,238,238);",
    "officialLinks": [
-    "http://www.la.us.emb-japan.go.jp/e_web/e_m02_07_02.htm"
+    "https://www.la.us.emb-japan.go.jp/e_web/e_m02_07_02.htm"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/jp.webp",
@@ -4883,7 +4883,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.evisa.gov.kh/",
+   "source": "https://www.evisa.gov.kh/",
    "color": "In color",
    "verified": true,
    "description": "Make Cambodia Visa 35x45 mm Photos Online for Free 1.Take a selfie on your phone 2.Choose the document 3.Upload your Photo 4.Few Seconds Processing by AI 5.Get Perfect Photo for Document",
@@ -4907,7 +4907,7 @@
    },
    "backgroundRaw": "rgb(238,238,238);",
    "officialLinks": [
-    "http://www.evisa.gov.kh/"
+    "https://www.evisa.gov.kh/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/KH.webp",
@@ -5218,8 +5218,8 @@
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
     "https://www.passport.go.kr/new/issue/photo.php",
-    "http://www.passport.go.kr/img/download/document_1.pdf",
-    "http://www.passport.go.kr/issue/document.php"
+    "https://www.passport.go.kr/img/download/document_1.pdf",
+    "https://www.passport.go.kr/issue/document.php"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/kr.webp",
@@ -5351,7 +5351,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://evisa.moip.gov.mm/",
+   "source": "https://evisa.moip.gov.mm/",
    "color": "In color",
    "verified": true,
    "description": "We can help you get your Myanmar visa application accepted on the first submission with our professional photo service. Just upload your photo, we take care of the rest, and within seconds, you will have your 100% compliant Myanmar visa photo ready to download.",
@@ -5375,7 +5375,7 @@
    },
    "backgroundRaw": "rgb(238,238,238);",
    "officialLinks": [
-    "http://evisa.moip.gov.mm/"
+    "https://evisa.moip.gov.mm/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/MM.webp",
@@ -5509,7 +5509,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.imi.gov.my/index.php/en/main-services/passport/malaysian-international-passport.html",
+   "source": "https://www.imi.gov.my/index.php/en/main-services/passport/malaysian-international-passport.html",
    "color": "In color",
    "verified": true,
    "description": "Get your Malaysia passport-size photo online free: upload your selfie to our passport-size photo maker, and download a digital or printable file, ready for Jabatan Imigresen Malaysia.",
@@ -5533,7 +5533,7 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "http://www.imi.gov.my/index.php/en/main-services/passport/malaysian-international-passport.html"
+    "https://www.imi.gov.my/index.php/en/main-services/passport/malaysian-international-passport.html"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/my.webp",
@@ -5588,7 +5588,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.vfsglobal.com/malaysia/india/wrf_photospecifications.html",
+   "source": "https://www.vfsglobal.com/malaysia/india/wrf_photospecifications.html",
    "color": "In color",
    "verified": true,
    "description": "Make Malaysia Visa 35x50 mm white background Photos Online for Free 1.Take a selfie on your phone 2.Choose the document 3.Upload your Photo 4.Few Seconds Processing by AI 5.Get Perfect Photo for Document",
@@ -5612,7 +5612,7 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "http://www.vfsglobal.com/malaysia/india/wrf_photospecifications.html"
+    "https://www.vfsglobal.com/malaysia/india/wrf_photospecifications.html"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/MY.webp",
@@ -5746,7 +5746,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://ru.nepalembassy.gov.np/passport/",
+   "source": "https://ru.nepalembassy.gov.np/passport/",
    "color": "In color",
    "verified": true,
    "description": "Make Nepal passport 35x45 mm Photos Online for Free 1.Take a selfie on your phone 2.Choose the document 3.Upload your Photo 4.Few Seconds Processing by AI 5.Get Perfect Photo for Document",
@@ -5770,7 +5770,7 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "http://ru.nepalembassy.gov.np/passport/"
+    "https://ru.nepalembassy.gov.np/passport/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/np.webp",
@@ -6551,7 +6551,7 @@
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
     "https://visa.kdmid.ru/PetitionChoice.aspx",
-    "http://www.rusembassy.ca/node/57"
+    "https://www.rusembassy.ca/node/57"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/RU.webp",
@@ -7615,7 +7615,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.uscis.gov/sites/default/files/files/form/i-765instr.pdf",
+   "source": "https://www.uscis.gov/sites/default/files/files/form/i-765instr.pdf",
    "color": "In color",
    "verified": true,
    "description": "Make US Employment Authorization 2x2 inch Photos Online for Free 1.Take a selfie on your phone 2.Choose the document 3.Upload your Photo 4.Few Seconds Processing by AI 5.Get Perfect Photo for Document",
@@ -7639,8 +7639,8 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "http://www.uscis.gov/sites/default/files/files/form/i-765instr.pdf",
-    "http://www.uscis.gov/working-united-states/temporary-workers/employment-authorization-certain-h-4-dependent-spouses"
+    "https://www.uscis.gov/sites/default/files/files/form/i-765instr.pdf",
+    "https://www.uscis.gov/working-united-states/temporary-workers/employment-authorization-certain-h-4-dependent-spouses"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/document/some-document.svg",
@@ -8013,7 +8013,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://evisa.mfa.uz/evisa_en/",
+   "source": "https://evisa.mfa.uz/evisa_en/",
    "color": "In color",
    "verified": true,
    "description": "Create FREE Uzbekistan Visa Photo Online. 1. On your phone, selfie yourself. 2. Select the sheet of paper 3. Upload your Photo 4. Few Seconds Processing using AI. 5. Get Perfect Image for Record Keeping",
@@ -8037,7 +8037,7 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "http://evisa.mfa.uz/evisa_en/",
+    "https://evisa.mfa.uz/evisa_en/",
     "https://www.uzbekistan.org/page/view?id=23"
    ],
    "images": {
@@ -8557,7 +8557,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "http://www.vfsglobal.com/southafrica/india/hoilday_documentsrequired.html",
+   "source": "https://www.vfsglobal.com/southafrica/india/hoilday_documentsrequired.html",
    "color": "In color",
    "verified": true,
    "description": "Create a 35x45 mm South Africa visa photo using your phone. Instantly cropped, background corrected, and embassy-compliant. Print or upload-ready in minutes.",
@@ -8581,7 +8581,7 @@
    },
    "backgroundRaw": "rgb(238,238,238);",
    "officialLinks": [
-    "http://www.vfsglobal.com/southafrica/india/hoilday_documentsrequired.html"
+    "https://www.vfsglobal.com/southafrica/india/hoilday_documentsrequired.html"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/ZA.webp",
