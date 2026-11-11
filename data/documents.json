@@ -805,7 +805,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "https://www.bdembassyusa.org/index.php?page=instruction-mrp",
+   "source": "https://washington.mofa.gov.bd/",
    "color": "In color",
    "verified": true,
    "description": "Make a Bangladesh passport-size photo online for free. Crop and resize a suitable phone photo to 45 x 55 mm and download the digital or printable file.",
@@ -829,7 +829,7 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "https://www.bdembassyusa.org/index.php?page=instruction-mrp"
+    "https://washington.mofa.gov.bd/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/bd.webp",
@@ -1196,7 +1196,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "https://www.cic.gc.ca/english/information/applications/photospecs.asp",
+   "source": "https://www.canada.ca/en/immigration-refugees-citizenship/services/application/application-forms-guides/temporary-resident-visa-application-photograph-specifications.html",
    "color": "In color",
    "verified": true,
    "description": "Use our Canada visa photo editor to convert your selfie into a Canada visa photo size online for free: get a digital or printable visa-ready file in 30 seconds.",
@@ -1220,9 +1220,9 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "https://www.cic.gc.ca/english/information/applications/photospecs.asp",
-    "https://www.cic.gc.ca/english/pdf/photospecs-e.pdf",
-    "https://www.cic.gc.ca/english/visit/tourist.asp"
+    "https://www.canada.ca/en/immigration-refugees-citizenship/services/application/application-forms-guides/temporary-resident-visa-application-photograph-specifications.html",
+    "https://www.canada.ca/content/dam/ircc/migration/ircc/english/pdf/photospecs-e.pdf",
+    "https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/CA.webp",
@@ -1277,7 +1277,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "https://www.cic.gc.ca/english/information/applications/photospecs.asp",
+   "source": "https://www.canada.ca/en/immigration-refugees-citizenship/services/application/application-forms-guides/temporary-resident-visa-application-photograph-specifications.html",
    "color": "In color",
    "verified": true,
    "description": "Adjust your selfie to the Canadian IRCC photo specifications for temporary resident visa by uploading it to PhotoGov. Ready for submission in 30 seconds.",
@@ -1301,7 +1301,7 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "https://www.cic.gc.ca/english/information/applications/photospecs.asp"
+    "https://www.canada.ca/en/immigration-refugees-citizenship/services/application/application-forms-guides/temporary-resident-visa-application-photograph-specifications.html"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/CA.webp",
@@ -2373,7 +2373,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "https://extranjeros.empleo.gob.es/es/InformacionInteres/InformacionProcedimientos/Ciudadanosnocomunitarios/hoja092/",
+   "source": "https://www.inclusion.gob.es/web/migraciones/home",
    "color": "In color",
    "verified": true,
    "description": "Create Spain Visa Photo Online for Free. 1. On your phone, selfie yourself. 2. Select the sheet of paper 3. Upload your Photo 4. Few Seconds Processing using AI. 5. Get Perfect Image for Record Keeping",
@@ -2397,7 +2397,7 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "https://extranjeros.empleo.gob.es/es/InformacionInteres/InformacionProcedimientos/Ciudadanosnocomunitarios/hoja092/"
+    "https://www.inclusion.gob.es/web/migraciones/home"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/document/some-document.svg",
@@ -2452,7 +2452,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "https://ethemb.se/wp-content/uploads/2013/04/Checklist-for-Passport-Renewal.pdf",
+   "source": "https://www.swedenabroad.se/",
    "color": "In color",
    "verified": true,
    "description": "Make Ethiopia passport 3x4 cm Photos Online for Free 1.Take a selfie on your phone 2.Choose the document 3.Upload your Photo 4.Few Seconds Processing by AI 5.Get Perfect Photo for Document",
@@ -2476,8 +2476,8 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "https://ethemb.se/wp-content/uploads/2013/04/Checklist-for-Passport-Renewal.pdf",
-    "https://ethiopianembassy.org.br/paginas/passport"
+    "https://www.swedenabroad.se/",
+    "https://www.ethembsasy.gov.br/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/et.webp",
@@ -2926,7 +2926,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "https://www.ukba.homeoffice.gov.uk/sitecontent/applicationforms/flr/photoguidance0409.pdf",
+   "source": "https://www.gov.uk/photos-for-passports",
    "color": "In color",
    "verified": true,
    "description": "Create free UK Visa Photo Online. 1. On your phone, selfie yourself. 2. Select the sheet of paper 3. Upload your Photo 4. Few Seconds Processing using AI. 5. Get Perfect Image for Record Keeping",
@@ -2950,7 +2950,7 @@
    },
    "backgroundRaw": "rgb(238,238,238);",
    "officialLinks": [
-    "https://www.ukba.homeoffice.gov.uk/sitecontent/applicationforms/flr/photoguidance0409.pdf"
+    "https://www.gov.uk/photos-for-passports"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/GB.webp",
@@ -3164,7 +3164,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "https://www.gov.hk/en/residents/immigration/traveldoc/photorequirements.htm",
+   "source": "https://www.immd.https://www.immd.https://www.immd.https://www.immd.gov.hk/",
    "color": "In color",
    "verified": true,
    "description": "Create a Hong Kong passport size photo 40x50 mm for free: upload your selfie to PhotoGov, and it will convert it into a HKSAR-compliant image.",
@@ -3188,8 +3188,8 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "https://www.gov.hk/en/residents/immigration/traveldoc/photorequirements.htm",
-    "https://www.gov.hk/en/residents/immigration/traveldoc/hksarpassport/applyhkpassport.htm"
+    "https://www.immd.https://www.immd.https://www.immd.https://www.immd.gov.hk/",
+    "https://www.immd.https://www.immd.https://www.immd.https://www.immd.gov.hk/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/hk.webp",
@@ -3552,7 +3552,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "https://parivahan.gov.in/sarathiservice/pdf/PhotoSign.pdf",
+   "source": "https://sarathi.parivahan.gov.in/",
    "color": "In color",
    "verified": true,
    "description": "Make a driving licence photo (35 × 45 mm, 420 × 525 px) for the RTO and the Parivahan Sarathi portal. Upload a selfie and PhotoGov resizes, crops, and compresses it into a ready-to-upload JPEG in seconds.",
@@ -3576,8 +3576,8 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "https://parivahan.gov.in/sarathiservice/pdf/PhotoSign.pdf",
-    "https://sarathi.parivahan.gov.in/sarathiservicecov12/sarathiHomePublic.do"
+    "https://sarathi.parivahan.gov.in/",
+    "https://sarathi.parivahan.gov.in/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/document/some-document.svg",
@@ -3709,7 +3709,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "https://tin.tin.nsdl.com/pan/form49A.html",
+   "source": "https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html",
    "color": "In color",
    "verified": true,
    "description": "Make an India PAN card photo online for free. Crop and resize a phone picture to the current 35 × 45 mm PAN application format and download it for printing.",
@@ -3733,7 +3733,7 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "https://tin.tin.nsdl.com/pan/form49A.html"
+    "https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/document/some-document.svg",
@@ -3865,7 +3865,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "https://portal2.passportindia.gov.in/AppOnlineProject/online/faqApplicationForm",
+   "source": "https://www.passportindia.gov.in/",
    "color": "In color",
    "verified": true,
    "description": "Make an Indian passport-size photo (3.5x4.5 cm / 35x45 mm) online for free: upload a selfie, download a Passport Seva-ready file in 30 seconds.",
@@ -3889,9 +3889,9 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "https://portal2.passportindia.gov.in/AppOnlineProject/online/faqApplicationForm",
-    "https://portal2.passportindia.gov.in/AppOnlineProject/online/faqCamp",
-    "https://portal2.passportindia.gov.in/AppOnlineProject/onlineHtml/smsInstructions.html"
+    "https://www.passportindia.gov.in/",
+    "https://www.passportindia.gov.in/",
+    "https://www.passportindia.gov.in/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/in.webp",
@@ -3946,7 +3946,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "https://passport.gov.in/oci/welcome",
+   "source": "https://ociservices.gov.in/",
    "color": "In color",
    "verified": true,
    "description": "Make India OCI Passport Photos Online for Free 1.Take a selfie on your phone 2.Choose the document 3.Upload your Photo 4.Few Seconds Processing by AI 5.Get Perfect Photo for Document",
@@ -3970,8 +3970,8 @@
    },
    "backgroundRaw": "rgb(238,238,238);",
    "officialLinks": [
-    "https://passport.gov.in/oci/welcome",
-    "https://passport.gov.in/oci/Photo-Spec-FINAL.pdf"
+    "https://ociservices.gov.in/",
+    "https://ociservices.gov.in/onlineOCI/faq"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/in.webp",
@@ -4415,7 +4415,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "https://www.consmontreal.esteri.it/resource/2010/05/11973_f_cons97PassaportiNovitaMaggio2011.pdf",
+   "source": "https://www.esteri.it/",
    "color": "In color",
    "verified": true,
    "description": "Create Italy Passport photo Online. 1. On your phone, selfie yourself. 2. Select the sheet of paper 3. Upload your Photo 4. Few Seconds Processing using AI. 5. Get Perfect Image for Record Keeping",
@@ -4439,7 +4439,7 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "https://www.consmontreal.esteri.it/resource/2010/05/11973_f_cons97PassaportiNovitaMaggio2011.pdf"
+    "https://www.esteri.it/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/it.webp",
@@ -4494,7 +4494,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "https://www.ambwashingtondc.esteri.it/Ambasciata_Washington/Menu/In_linea_con_utente/Domande_frequenti/Visti_faq/Visa_Requirements.htm",
+   "source": "https://www.esteri.it/",
    "color": "In color",
    "verified": true,
    "description": "Create a 35x45 mm Italy visa photo online. Upload a selfie and get a print-ready, background-corrected, and embassy-compliant image in minutes.",
@@ -4518,7 +4518,7 @@
    },
    "backgroundRaw": "rgb(238,238,238);",
    "officialLinks": [
-    "https://www.ambwashingtondc.esteri.it/Ambasciata_Washington/Menu/In_linea_con_utente/Domande_frequenti/Visti_faq/Visa_Requirements.htm"
+    "https://www.esteri.it/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/IT.webp",
@@ -5746,7 +5746,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "https://ru.nepalembassy.gov.np/passport/",
+   "source": "https://ru.nepalembassy.gov.np/",
    "color": "In color",
    "verified": true,
    "description": "Make Nepal passport 35x45 mm Photos Online for Free 1.Take a selfie on your phone 2.Choose the document 3.Upload your Photo 4.Few Seconds Processing by AI 5.Get Perfect Photo for Document",
@@ -5770,7 +5770,7 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "https://ru.nepalembassy.gov.np/passport/"
+    "https://ru.nepalembassy.gov.np/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/np.webp",
@@ -6551,7 +6551,7 @@
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
     "https://visa.kdmid.ru/PetitionChoice.aspx",
-    "https://www.rusembassy.ca/node/57"
+    "https://rushc.org/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/RU.webp",
@@ -6585,7 +6585,7 @@
    "slug": "sa-evisa-200x200-enjazit-photo",
    "country": "SA",
    "countryName": "Saudi Arabia",
-   "name": "Saudi Arabia e-visa online via enjazit.com.sa",
+   "name": "Saudi Arabia e-visa online via https://visa.mofa.gov.sa/",
    "title": "Saudi Visa Photo Size Online Free — Saudi e-Visa Photo Maker | PhotoGov",
    "category": "visa",
    "popular": false,
@@ -6606,7 +6606,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "https://enjazit.com.sa/",
+   "source": "https://visa.mofa.gov.sa/",
    "color": "In color",
    "verified": true,
    "description": "Make your Saudi Arabia e-visa photo online for free with PhotoGov. Resize your selfie to the exact 200x200px VisitSaudi photo size in seconds — no app needed.",
@@ -6630,7 +6630,7 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "https://enjazit.com.sa/"
+    "https://visa.mofa.gov.sa/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/SA.webp",
@@ -6640,23 +6640,23 @@
    },
    "translations": {
     "en": {
-     "name": "Saudi Arabia e-visa online via enjazit.com.sa",
+     "name": "Saudi Arabia e-visa online via https://visa.mofa.gov.sa/",
      "slug": "sa-evisa-200x200-enjazit-photo",
      "enabled": true
     },
     "es": {
-     "name": "Visa electrónica para Arabia Saudita en línea a través de enjazit.com.sa",
+     "name": "Visa electrónica para Arabia Saudita en línea a través de https://visa.mofa.gov.sa/",
      "slug": "visa-electronica-para-arabia-saudita-en-linea-a-traves-de-enjazitcomsa",
      "enabled": false
     },
     "ru": {
-     "name": "Электронная виза Саудовской Аравии онлайн через enjazit.com.sa"
+     "name": "Электронная виза Саудовской Аравии онлайн через https://visa.mofa.gov.sa/"
     }
    },
    "nameParts": {
-    "origin": "Saudi Arabia e-visa online via enjazit.com.sa",
-    "short": "Saudi Arabia e-visa online via enjazit.com.sa",
-    "without_size": "Saudi Arabia e-visa online via enjazit.com.sa",
+    "origin": "Saudi Arabia e-visa online via https://visa.mofa.gov.sa/",
+    "short": "Saudi Arabia e-visa online via https://visa.mofa.gov.sa/",
+    "without_size": "Saudi Arabia e-visa online via https://visa.mofa.gov.sa/",
     "size": ""
    }
   },
@@ -6916,7 +6916,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "https://apples.ica.gov.sg/apples/index.xhtml",
+   "source": "https://www.ica.gov.sg/",
    "color": "In color",
    "verified": true,
    "description": "Use our Singapore passport photo size editor for free: upload a selfie and get a perfectly sized, submission‑ready Singapore passport photo in 30 seconds.",
@@ -6940,7 +6940,7 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "https://apples.ica.gov.sg/apples/index.xhtml"
+    "https://www.ica.gov.sg/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/sg.webp",
@@ -8013,7 +8013,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "https://evisa.mfa.uz/evisa_en/",
+   "source": "https://e-visa.gov.uz/",
    "color": "In color",
    "verified": true,
    "description": "Create FREE Uzbekistan Visa Photo Online. 1. On your phone, selfie yourself. 2. Select the sheet of paper 3. Upload your Photo 4. Few Seconds Processing using AI. 5. Get Perfect Image for Record Keeping",
@@ -8037,8 +8037,8 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "https://evisa.mfa.uz/evisa_en/",
-    "https://www.uzbekistan.org/page/view?id=23"
+    "https://e-visa.gov.uz/",
+    "https://washington.mfa.uz/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/visas/UZ.webp",
