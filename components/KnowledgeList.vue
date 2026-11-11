@@ -20,6 +20,7 @@ import posts from '~/data/blog.json'
 import categories from '~/data/knowledgeCategories.json'
 import { useOrgLd } from '~/composables/useOrgLd'
 import { useRequestURL } from '#imports'
+import { localizeHtml } from '~/utils/localizeHtml'
 
 type Kind = 'popular' | 'requirements' | 'guides' | 'standards' | 'faq'
 
@@ -59,7 +60,7 @@ const hero = computed(() => {
   const missLead = catLead.startsWith('knowledge.cats.')
   return {
     title: missH1 ? (c?.h1 || t('knowledge.center')) : catH1,
-    lead: missLead ? (c?.lead || '') : catLead,
+    lead: localizeHtml(missLead ? (c?.lead || '') : catLead, localePath),
     image: c?.image || '/img/knowledge-hero.svg'
   }
 })
