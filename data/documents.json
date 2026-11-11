@@ -3164,7 +3164,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "https://www.immd.https://www.immd.https://www.immd.https://www.immd.gov.hk/",
+   "source": "https://www.immd.gov.hk/",
    "color": "In color",
    "verified": true,
    "description": "Create a Hong Kong passport size photo 40x50 mm for free: upload your selfie to PhotoGov, and it will convert it into a HKSAR-compliant image.",
@@ -3188,8 +3188,8 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "https://www.immd.https://www.immd.https://www.immd.https://www.immd.gov.hk/",
-    "https://www.immd.https://www.immd.https://www.immd.https://www.immd.gov.hk/"
+    "https://www.immd.gov.hk/",
+    "https://www.immd.gov.hk/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/hk.webp",
@@ -5746,7 +5746,7 @@
    "glasses": false,
    "expression": "Neutral, eyes open, mouth closed",
    "year": 2026,
-   "source": "https://ru.nepalembassy.gov.np/",
+   "source": "https://ru.nepalembassy.gov.np/passport/",
    "color": "In color",
    "verified": true,
    "description": "Make Nepal passport 35x45 mm Photos Online for Free 1.Take a selfie on your phone 2.Choose the document 3.Upload your Photo 4.Few Seconds Processing by AI 5.Get Perfect Photo for Document",
@@ -5770,7 +5770,7 @@
    },
    "backgroundRaw": "rgb(255,255,255);",
    "officialLinks": [
-    "https://ru.nepalembassy.gov.np/"
+    "https://ru.nepalembassy.gov.np/passport/"
    ],
    "images": {
     "document": "https://photogov-com.fra1.cdn.digitaloceanspaces.com/static/img/passports/np.webp",
